@@ -69,12 +69,12 @@
         }
 
         .btn-sidebar-toggle {
-            display: none; /* يظهر فقط في الشاشات الصغيرة */
+            display: none;
             background: #eff6ff;
             border: 2px solid #bfdbfe;
             color: #1e40af;
-            font-size: 1.2rem;
-            padding: 6px 12px;
+            font-size: 1.15rem;
+            padding: 6px 14px;
             border-radius: 12px;
             cursor: pointer;
             font-weight: 800;
@@ -123,7 +123,7 @@
             border: 1px solid #cbd5e1;
         }
 
-        /* الحاوية الرئيسية للتطبيق (الشريط الجانبي الأيمن + مسرح الدرس) */
+        /* الحاوية الرئيسية للتطبيق */
         .app-body {
             display: flex;
             flex: 1;
@@ -205,9 +205,7 @@
             color: #1e293b;
         }
 
-        .unit-title-bar:hover {
-            background: #f1f5f9;
-        }
+        .unit-title-bar:hover { background: #f1f5f9; }
 
         .unit-info-left {
             display: flex;
@@ -224,7 +222,7 @@
         }
 
         .lesson-nav-item {
-            padding: 10px 14px;
+            padding: 10px 12px;
             border-radius: 12px;
             background: #ffffff;
             border: 1.5px solid #e2e8f0;
@@ -233,7 +231,7 @@
             justify-content: space-between;
             cursor: pointer;
             transition: all 0.2s ease;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             font-weight: 800;
             color: #334155;
         }
@@ -252,21 +250,15 @@
         }
 
         .lesson-badge {
-            font-size: 0.75rem;
-            padding: 3px 8px;
+            font-size: 0.72rem;
+            padding: 2px 7px;
             border-radius: 20px;
             font-weight: 800;
+            white-space: nowrap;
         }
 
-        .badge-ready {
-            background: #dcfce7;
-            color: #15803d;
-        }
-
-        .badge-upcoming {
-            background: #f1f5f9;
-            color: #94a3b8;
-        }
+        .badge-ready { background: #dcfce7; color: #15803d; }
+        .badge-upcoming { background: #f1f5f9; color: #94a3b8; }
 
         /* ========================================================
            مسرح الدرس التفاعلي (Main Stage)
@@ -290,10 +282,43 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
             padding: 16px;
             position: relative;
+            margin-bottom: 20px;
+        }
+
+        /* شريط التنقل المتسلسل بين الدروس (التالي والسابق) */
+        .lesson-stepper-bar {
+            width: 100%;
+            max-width: 950px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
             margin-bottom: 120px; /* مساحة لفصيح */
         }
 
-        /* شاشات الأنشطة */
+        .btn-step {
+            padding: 8px 20px;
+            font-size: 1rem;
+            font-weight: 800;
+            font-family: inherit;
+            border: 2px solid #cbd5e1;
+            border-radius: 30px;
+            cursor: pointer;
+            background: white;
+            color: #334155;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-step:hover { background: #eff6ff; border-color: #3b82f6; color: #1d4ed8; }
+        .btn-step.primary { background: #2563eb; color: white; border-color: #2563eb; }
+        .btn-step.primary:hover { background: #1d4ed8; }
+
         .lesson-view {
             display: none;
             width: 100%;
@@ -301,11 +326,8 @@
             align-items: center;
         }
 
-        .lesson-view.active {
-            display: flex;
-        }
+        .lesson-view.active { display: flex; }
 
-        /* أزرار التحكم */
         .controls {
             display: flex;
             gap: 12px;
@@ -338,6 +360,45 @@
         .btn-reset { background-color: #ea580c; color: white; }
         .btn-reset:hover { background-color: #c2410c; transform: translateY(-2px); }
 
+        /* ستايل الدرس الأول: نشيد البطة وتسمية الأشياء */
+        .image-container-nasheed {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1241 / 1100;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .image-container-nasheed img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* نقاط التفاعل على عناصر صورة البطة والشط */
+        .hotspot-nasheed {
+            position: absolute;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.25s ease;
+            z-index: 10;
+        }
+
+        .hotspot-nasheed:hover {
+            transform: scale(1.15);
+            outline: 3px dashed #2563eb;
+            background-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .spot-batta   { left: 38%; top: 56%; width: 22%; height: 20%; border-radius: 30px; } /* البطة */
+        .spot-samaka  { left: 24%; top: 78%; width: 18%; height: 16%; border-radius: 30px; } /* السمكة */
+        .spot-shabaka { left: 72%; top: 58%; width: 22%; height: 22%; border-radius: 30px; } /* الشبكة */
+        .spot-shatt   { left: 10%; top: 62%; width: 25%; height: 24%; border-radius: 30px; } /* ماء الشط */
+        .spot-jurf    { left: 70%; top: 80%; width: 25%; height: 18%; border-radius: 30px; } /* الجرف */
+
         /* ستايل نشاط 5: الحروف في الفراغات */
         .image-container-5 {
             position: relative;
@@ -347,43 +408,11 @@
             overflow: hidden;
             background-color: #fff;
         }
-
-        .image-container-5 img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .svg-overlay-5 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 8;
-        }
-
+        .image-container-5 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .svg-overlay-5 { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 8; }
         .dot-mask { display: none; }
-
-        .placed-letter {
-            font-family: 'Tajawal', sans-serif;
-            font-size: 40px;
-            font-weight: 900;
-            fill: #e11d48;
-            display: none;
-        }
-
-        .placed-letter.show {
-            display: inline;
-            animation: letter-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        @keyframes letter-pop {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
+        .placed-letter { font-family: 'Tajawal', sans-serif; font-size: 40px; font-weight: 900; fill: #e11d48; display: none; }
+        .placed-letter.show { display: inline; animation: letter-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
         .letter-selector-bar {
             background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
@@ -398,81 +427,23 @@
             flex-wrap: wrap;
             gap: 12px;
         }
-
-        .selector-title {
-            font-size: 1.15rem;
-            font-weight: 800;
-            color: #166534;
-        }
-
-        .selectable-letters {
-            display: flex;
-            gap: 25px;
-        }
-
+        .selector-title { font-size: 1.15rem; font-weight: 800; color: #166534; }
+        .selectable-letters { display: flex; gap: 25px; }
         .letter-pick-card {
-            width: 75px;
-            height: 75px;
-            background: white;
-            border: 4px solid #3b82f6;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: #1e3a8a;
-            box-shadow: 0 8px 16px rgba(59,130,246,0.22);
-            cursor: pointer;
-            transition: all 0.25s ease;
+            width: 75px; height: 75px; background: white; border: 4px solid #3b82f6; border-radius: 20px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-size: 2.8rem; font-weight: 900; color: #1e3a8a; cursor: pointer; transition: all 0.25s ease;
             position: relative;
         }
-
-        .letter-pick-card.selected {
-            background: #dbeafe;
-            border-color: #2563eb;
-            transform: scale(1.15);
-            outline: 4px solid #60a5fa;
-        }
-
-        .letter-pick-card .label-hint {
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: #1e40af;
-            position: absolute;
-            bottom: -22px;
-            white-space: nowrap;
-        }
+        .letter-pick-card.selected { background: #dbeafe; border-color: #2563eb; transform: scale(1.15); outline: 4px solid #60a5fa; }
+        .letter-pick-card .label-hint { font-size: 0.75rem; font-weight: 800; color: #1e40af; position: absolute; bottom: -22px; white-space: nowrap; }
 
         .slot-hotspot {
-            position: absolute;
-            top: 76.5%;
-            transform: translate(-50%, -50%);
-            border-radius: 8px;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.2s ease;
+            position: absolute; top: 76.5%; transform: translate(-50%, -50%); border-radius: 8px; cursor: pointer; z-index: 10;
             background-color: transparent;
         }
-
-        .slot-hotspot:not(.filled) {
-            background-color: rgba(254, 240, 138, 0.4);
-            border: 2px dashed #f59e0b;
-            animation: slot-glow 1.5s infinite alternate;
-        }
-
-        @keyframes slot-glow {
-            0% { border-color: #f59e0b; }
-            100% { border-color: #ef4444; }
-        }
-
-        .slot-hotspot.filled {
-            border: none;
-            background: transparent;
-            pointer-events: none;
-        }
-
+        .slot-hotspot:not(.filled) { background-color: rgba(254, 240, 138, 0.4); border: 2px dashed #f59e0b; animation: slot-glow 1.5s infinite alternate; }
+        .slot-hotspot.filled { border: none; background: transparent; pointer-events: none; }
         .hotspot-nar    { left: 89.6%; width: 2.8%; height: 8.5%; }
         .hotspot-mrma   { left: 66.4%; width: 4.6%; height: 8.5%; }
         .hotspot-dar    { left: 51.8%; width: 2.8%; height: 8.5%; }
@@ -480,130 +451,34 @@
         .hotspot-asa    { left: 10.0%; width: 4.6%; height: 8.5%; }
 
         /* ستايل نشاط 6 (الأطول والأقصر) */
-        .image-container-6 {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1024 / 536;
-            border-radius: 16px;
-            overflow: hidden;
-            background-color: #fffdec;
-        }
+        .image-container-6 { position: relative; width: 100%; aspect-ratio: 1024 / 536; border-radius: 16px; overflow: hidden; background-color: #fffdec; }
+        .image-container-6 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .circle-path { fill: none; stroke-width: 9; stroke-linecap: round; stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset 0.8s cubic-bezier(0.65, 0, 0.35, 1); }
+        .circle-path.draw { stroke-dashoffset: 0; animation: pulse-circle 1.5s infinite alternate ease-in-out; }
+        .spot-tall-pencil  { left: 20%; top: 33%; width: 8%; height: 60%; position: absolute; cursor: pointer; }
+        .spot-short-pencil { left: 29%; top: 58%; width: 7%; height: 35%; position: absolute; cursor: pointer; }
+        .spot-tall-giraffe { left: 53%; top: 33%; width: 16%; height: 60%; position: absolute; cursor: pointer; }
+        .spot-short-giraffe{ left: 72%; top: 48%; width: 12%; height: 45%; position: absolute; cursor: pointer; }
 
-        .image-container-6 img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .circle-path {
-            fill: none;
-            stroke-width: 9;
-            stroke-linecap: round;
-            stroke-dasharray: 1000;
-            stroke-dashoffset: 1000;
-            transition: stroke-dashoffset 0.8s cubic-bezier(0.65, 0, 0.35, 1);
-        }
-
-        .circle-path.draw {
-            stroke-dashoffset: 0;
-            animation: pulse-circle 1.5s infinite alternate ease-in-out;
-        }
-
-        @keyframes pulse-circle {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.03); }
-        }
-
-        .hotspot {
-            position: absolute;
-            cursor: pointer;
-            border-radius: 20px;
-            z-index: 5;
-        }
-
-        .spot-tall-pencil  { left: 20%; top: 33%; width: 8%;  height: 60%; }
-        .spot-short-pencil { left: 29%; top: 58%; width: 7%;  height: 35%; }
-        .spot-tall-giraffe { left: 53%; top: 33%; width: 16%; height: 60%; }
-        .spot-short-giraffe{ left: 72%; top: 48%; width: 12%; height: 45%; }
-
-        /* ستايل نشاط 7 (أحدد الأماكن: فوق وتحت) */
-        .image-container-7 {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 1241 / 590;
-            border-radius: 16px;
-            overflow: hidden;
-            background-color: #fff;
-        }
-
-        .image-container-7 img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+        /* ستايل نشاط 7 (أحدد الأماكن) */
+        .image-container-7 { position: relative; width: 100%; aspect-ratio: 1241 / 590; border-radius: 16px; overflow: hidden; background-color: #fff; }
+        .image-container-7 img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
         /* ستايل ورشة الحروف والدمج */
-        .word-builder-demo {
-            background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
-            border: 3px dashed #93c5fd;
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            width: 100%;
-        }
-
-        .letter-track {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            margin: 25px 0;
-            min-height: 130px;
-        }
-
+        .word-builder-demo { background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%); border: 3px dashed #93c5fd; border-radius: 20px; padding: 25px; text-align: center; width: 100%; }
+        .letter-track { display: flex; justify-content: center; align-items: center; gap: 25px; margin: 25px 0; min-height: 130px; }
         .letter-box {
-            width: 90px;
-            height: 90px;
-            background: white;
-            border: 4px solid #3b82f6;
-            border-radius: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            font-weight: 900;
-            color: #1e3a8a;
-            box-shadow: 0 10px 20px rgba(59,130,246,0.2);
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            cursor: pointer;
-            position: relative;
+            width: 90px; height: 90px; background: white; border: 4px solid #3b82f6; border-radius: 20px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            font-size: 3rem; font-weight: 900; color: #1e3a8a; cursor: pointer; transition: all 0.5s ease;
         }
+        .merged-word { font-size: 3.5rem; font-weight: 900; color: #15803d; opacity: 0; transform: scale(0.5); transition: all 0.5s ease; display: none; padding: 10px; }
+        .merged-word.show { display: block; opacity: 1; transform: scale(1); }
 
-        .merged-word {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: #15803d;
-            opacity: 0;
-            transform: scale(0.5);
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            display: none;
-            padding: 10px;
-        }
-
-        .merged-word.show {
-            display: block;
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            20%, 60% { transform: translateX(-10px); }
-            40%, 80% { transform: translateX(10px); }
-        }
+        @keyframes slot-glow { 0% { border-color: #f59e0b; } 100% { border-color: #ef4444; } }
+        @keyframes pulse-circle { 0% { transform: scale(1); } 100% { transform: scale(1.03); } }
+        @keyframes letter-pop { 0% { opacity: 0; } 100% { opacity: 1; } }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-10px); } 40%, 80% { transform: translateX(10px); } }
         .shake { animation: shake 0.5s ease-in-out; }
 
         /* ========================================================
@@ -612,7 +487,7 @@
         .mascot-container {
             position: fixed;
             bottom: 12px;
-            left: 20px; /* في يسار الشاشة لعدم حجب القائمة اليمنى */
+            left: 20px;
             display: flex;
             align-items: flex-end;
             gap: 12px;
@@ -630,10 +505,7 @@
             animation: mascot-float 3s infinite ease-in-out;
         }
 
-        @keyframes mascot-float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
+        @keyframes mascot-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
         .speech-bubble {
             background: white;
@@ -654,35 +526,13 @@
             box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
         }
 
-        .mascot-eye {
-            animation: eye-blink 4s infinite;
-            transform-origin: center;
-        }
+        .mascot-eye { animation: eye-blink 4s infinite; transform-origin: center; }
+        @keyframes eye-blink { 0%, 94%, 98%, 100% { transform: scaleY(1); } 96% { transform: scaleY(0.1); } }
+        .mascot-speaking .mascot-mouth { animation: mouth-talk 0.3s infinite alternate; }
+        @keyframes mouth-talk { 0% { transform: scaleY(1); } 100% { transform: scaleY(1.8); } }
+        .mascot-celebrate { animation: mascot-jump 0.6s ease 2; }
+        @keyframes mascot-jump { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-30px) scale(1.2) rotate(-8deg); } }
 
-        @keyframes eye-blink {
-            0%, 94%, 98%, 100% { transform: scaleY(1); }
-            96% { transform: scaleY(0.1); }
-        }
-
-        .mascot-speaking .mascot-mouth {
-            animation: mouth-talk 0.3s infinite alternate;
-        }
-
-        @keyframes mouth-talk {
-            0% { transform: scaleY(1); }
-            100% { transform: scaleY(1.8); }
-        }
-
-        .mascot-celebrate {
-            animation: mascot-jump 0.6s ease 2;
-        }
-
-        @keyframes mascot-jump {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-30px) scale(1.2) rotate(-8deg); }
-        }
-
-        /* المواءمة للشاشات الصغيرة والتابلت */
         @media (max-width: 992px) {
             .btn-sidebar-toggle { display: inline-flex; }
             .curriculum-sidebar {
@@ -693,12 +543,9 @@
                 transform: translateX(100%);
                 z-index: 100;
             }
-            .curriculum-sidebar.open {
-                transform: translateX(0);
-                box-shadow: -10px 0 30px rgba(0,0,0,0.25);
-            }
+            .curriculum-sidebar.open { transform: translateX(0); box-shadow: -10px 0 30px rgba(0,0,0,0.25); }
             .mascot-container { left: 10px; bottom: 8px; }
-            .speech-bubble { max-width: 260px; font-size: 0.95rem; }
+            .speech-bubble { max-width: 250px; font-size: 0.95rem; }
         }
     </style>
 </head>
@@ -729,7 +576,7 @@
         </div>
     </header>
 
-    <!-- هيكل التطبيق: القائمة اليمنى + مسرح الدرس الأيسر -->
+    <!-- هيكل التطبيق: مسرح الدرس على اليسار + القائمة اليمنى للمنهج -->
     <div class="app-body">
 
         <!-- ==============================================
@@ -738,8 +585,60 @@
         <main class="main-stage">
             <div class="stage-card">
 
-                <!-- 1. نشاط 5: صوت (ا ، ى) في الكلمات -->
-                <div class="lesson-view active" id="view-tab-act5">
+                <!-- 1. الدرس الأول: نشيد البطة وتسمية الأشياء (ص 7 في الكتاب) -->
+                <div class="lesson-view active" id="view-tab-lesson1">
+                    <div class="controls">
+                        <button class="btn btn-teach" onclick="playNasheed()">🎵 استمع للنشيد وردد</button>
+                        <button class="btn btn-quiz" onclick="explorePicturePrompt()">🔍 أُسَمِّي الأشياء التي في الصورة</button>
+                    </div>
+
+                    <div class="image-container-nasheed" id="card-nasheed">
+                        <img src="activity_nasheed.png" alt="نشاط الاستماع والنشيد - صفحة 7">
+
+                        <!-- نقاط النقر الاستكشافية للأطفال في الصورة -->
+                        <div class="hotspot-nasheed spot-batta" onclick="clickItem('batta', 'item_batta', '🦆 بَطَّةٌ جميلة تسبح في الماء!')" title="اضغط لتسمية البطة"></div>
+                        <div class="hotspot-nasheed spot-samaka" onclick="clickItem('samaka', 'item_samaka', '🐟 سَمَكَةٌ صغيرة تسبح في النهر!')" title="اضغط لتسمية السمكة"></div>
+                        <div class="hotspot-nasheed spot-shabaka" onclick="clickItem('shabaka', 'item_shabaka', '🕸️ شَبَكَةُ الصيد!')" title="اضغط لتسمية الشبكة"></div>
+                        <div class="hotspot-nasheed spot-shatt" onclick="clickItem('shatt', 'item_shatt', '🌊 الشَّطُّ وَنَهْرُ المَاءِ العَذْب!')" title="اضغط لتسمية الشط"></div>
+                        <div class="hotspot-nasheed spot-jurf" onclick="clickItem('jurf', 'item_jurf', '🏖️ جُرْفُ النهرِ واليابسة!')" title="اضغط لتسمية الجرف"></div>
+                    </div>
+                </div>
+
+                <!-- 2. نشاط 6: الأطول والأقصر (ص 9 في الكتاب) -->
+                <div class="lesson-view" id="view-tab-act6">
+                    <div class="controls">
+                        <button class="btn btn-quiz" onclick="startQuizMode()">🎯 نمط اختبار الطالب (تفاعلي)</button>
+                        <button class="btn btn-teach" onclick="startTeachMode()">💡 نمط الشرح التلقائي (المعلم)</button>
+                        <button class="btn btn-reset" onclick="resetActivity6()">🔄 إعادة ضبط الصورة</button>
+                    </div>
+
+                    <div class="image-container-6" id="activityCard6">
+                        <img src="activity_6.png" alt="نشاط 6 - أميز الأقصر والأطول">
+                        <svg class="svg-overlay-5" viewBox="0 0 1024 536">
+                            <ellipse id="circle-tall-giraffe" class="circle-path" cx="625" cy="340" rx="95" ry="165" stroke="#e11d48" />
+                            <ellipse id="circle-tall-pencil" class="circle-path" cx="248" cy="340" rx="42" ry="165" stroke="#e11d48" />
+                        </svg>
+
+                        <div class="hotspot spot-tall-giraffe" onclick="handleItemClick('tall-giraffe')"></div>
+                        <div class="hotspot spot-short-giraffe" onclick="handleItemClick('short-giraffe')"></div>
+                        <div class="hotspot spot-tall-pencil" onclick="handleItemClick('tall-pencil')"></div>
+                        <div class="hotspot spot-short-pencil" onclick="handleItemClick('short-pencil')"></div>
+                    </div>
+                </div>
+
+                <!-- 3. نشاط 7: أحدد الأماكن (فوق وتحت) (ص 9 في الكتاب) -->
+                <div class="lesson-view" id="view-tab-act7">
+                    <div class="controls">
+                        <button class="btn btn-teach" onclick="teachAct7()">💡 شرح المعلم: فَوْقَ وتَحْتَ</button>
+                        <button class="btn btn-quiz" onclick="quizAct7()">🎯 اختبار تحديد الأماكن</button>
+                    </div>
+                    <div class="image-container-7" id="activityCard7">
+                        <img src="activity_7.png" alt="نشاط 7 - أحدد الأماكن">
+                    </div>
+                </div>
+
+                <!-- 4. نشاط 5: صوت (ا ، ى) في الكلمات (ص 12 في الكتاب) -->
+                <div class="lesson-view" id="view-tab-act5">
                     <div class="letter-selector-bar">
                         <div class="selector-title">
                             👈 اختر الصوت المطلوب، ثم انقر على الفراغ:
@@ -789,40 +688,7 @@
                     </div>
                 </div>
 
-                <!-- 2. نشاط 6: الأطول والأقصر -->
-                <div class="lesson-view" id="view-tab-act6">
-                    <div class="controls">
-                        <button class="btn btn-quiz" onclick="startQuizMode()">🎯 نمط اختبار الطالب (تفاعلي)</button>
-                        <button class="btn btn-teach" onclick="startTeachMode()">💡 نمط الشرح التلقائي (المعلم)</button>
-                        <button class="btn btn-reset" onclick="resetActivity6()">🔄 إعادة ضبط الصورة</button>
-                    </div>
-
-                    <div class="image-container-6" id="activityCard6">
-                        <img src="activity_6.png" alt="نشاط 6 - أميز الأقصر والأطول">
-                        <svg class="svg-overlay-5" viewBox="0 0 1024 536">
-                            <ellipse id="circle-tall-giraffe" class="circle-path" cx="625" cy="340" rx="95" ry="165" stroke="#e11d48" />
-                            <ellipse id="circle-tall-pencil" class="circle-path" cx="248" cy="340" rx="42" ry="165" stroke="#e11d48" />
-                        </svg>
-
-                        <div class="hotspot spot-tall-giraffe" onclick="handleItemClick('tall-giraffe')"></div>
-                        <div class="hotspot spot-short-giraffe" onclick="handleItemClick('short-giraffe')"></div>
-                        <div class="hotspot spot-tall-pencil" onclick="handleItemClick('tall-pencil')"></div>
-                        <div class="hotspot spot-short-pencil" onclick="handleItemClick('short-pencil')"></div>
-                    </div>
-                </div>
-
-                <!-- 3. نشاط 7: أحدد الأماكن (فوق وتحت) -->
-                <div class="lesson-view" id="view-tab-act7">
-                    <div class="controls">
-                        <button class="btn btn-teach" onclick="teachAct7()">💡 شرح المعلم: فَوْقَ وتَحْتَ</button>
-                        <button class="btn btn-quiz" onclick="quizAct7()">🎯 اختبار تحديد الأماكن</button>
-                    </div>
-                    <div class="image-container-7" id="activityCard7">
-                        <img src="activity_7.png" alt="نشاط 7 - أحدد الأماكن">
-                    </div>
-                </div>
-
-                <!-- 4. ورشة دمج الحروف (دَادَا) -->
+                <!-- 5. ورشة دمج الحروف (دَادَا) (ص 24 في الكتاب) -->
                 <div class="lesson-view" id="view-tab-letters">
                     <div class="word-builder-demo">
                         <div class="controls" style="margin-bottom: 15px;">
@@ -846,6 +712,21 @@
                 </div>
 
             </div>
+
+            <!-- شريط الانتقال المتسلسل بين الدروس -->
+            <div class="lesson-stepper-bar">
+                <button class="btn-step" id="btnPrevLesson" onclick="stepLesson(-1)">
+                    <span>➡️</span>
+                    <span>الدرس السابق</span>
+                </button>
+                <span id="currentLessonLabel" style="font-weight: 800; color: #1e3a8a; font-size: 1.1rem;">
+                    الدرس الأول: نشيد البطة وتسمية الأشياء
+                </span>
+                <button class="btn-step primary" id="btnNextLesson" onclick="stepLesson(1)">
+                    <span>الدرس التالي</span>
+                    <span>⬅️</span>
+                </button>
+            </div>
         </main>
 
         <!-- ==============================================
@@ -854,10 +735,9 @@
         <aside class="curriculum-sidebar" id="curriculumSidebar">
             <div class="sidebar-header">
                 <h2><span>📑</span> فهرس منهج قراءتي</h2>
-                <p>اختر أي وحدة أو درس للانتقال إليه فوراً:</p>
+                <p>تدرج دروس الكتاب من البداية للنهاية:</p>
             </div>
 
-            <!-- يتم ملء الوحدات والدروس تلقائياً عبر JavaScript من CURRICULUM_DATA -->
             <div class="units-accordion" id="unitsAccordion"></div>
         </aside>
 
@@ -901,11 +781,11 @@
         </div>
 
         <div class="speech-bubble" id="speechBubble">
-            <span id="speechText">مرحباً بكم يا أبطال! اختر الدرس من القائمة اليمنى لنبدأ التعلم سوياً! 🌟</span>
+            <span id="speechText">مرحباً بكم في الدرس الأول من كتاب قراءتي! استمعوا للنشيد واضغطوا على عناصر الصورة لنبدأ الرحلة! 🌟</span>
         </div>
     </div>
 
-    <!-- استدعاء قاعدة البيانات الصوتية والمناهج المضمنة -->
+    <!-- استدعاء ملفات الصوت والبيانات -->
     <script src="audio_data.js"></script>
     <script src="curriculum_data.js"></script>
 
@@ -916,8 +796,8 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
-                    .then(reg => console.log('Service Worker Registered'))
-                    .catch(err => console.log('SW Registration Failed', err));
+                    .then(reg => console.log('SW Registered'))
+                    .catch(err => console.log('SW Failed', err));
             });
         }
 
@@ -955,8 +835,7 @@
         }
 
         function toggleSidebar() {
-            const sidebar = document.getElementById('curriculumSidebar');
-            sidebar.classList.toggle('open');
+            document.getElementById('curriculumSidebar').classList.toggle('open');
         }
 
         /* ========================================================
@@ -1012,19 +891,20 @@
         }
 
         /* ========================================================
-           3. Right Sidebar Generator & Navigation
+           3. Right Sidebar Generator & Sequential Navigation
         ======================================================== */
-        let currentActiveLessonId = 'tab-act5';
+        let flatLessonsList = [];
+        let currentLessonIndex = 0;
 
         function buildCurriculumSidebar() {
             const accordion = document.getElementById('unitsAccordion');
             accordion.innerHTML = '';
+            flatLessonsList = [];
 
             window.CURRICULUM_DATA.forEach((unit, uIdx) => {
                 const card = document.createElement('div');
                 card.className = 'unit-card' + (uIdx === 0 ? ' open' : '');
 
-                // شريط عنوان الوحدة
                 const titleBar = document.createElement('div');
                 titleBar.className = 'unit-title-bar';
                 titleBar.onclick = () => card.classList.toggle('open');
@@ -1037,17 +917,18 @@
                 `;
                 card.appendChild(titleBar);
 
-                // قائمة الدروس داخل الوحدة
                 const lessonsList = document.createElement('div');
                 lessonsList.className = 'unit-lessons-list';
 
                 unit.lessons.forEach(lesson => {
+                    flatLessonsList.push(lesson);
                     const item = document.createElement('div');
-                    item.className = 'lesson-nav-item' + (lesson.id === currentActiveLessonId ? ' active' : '');
+                    item.className = 'lesson-nav-item';
                     item.id = 'nav-' + lesson.id;
                     item.onclick = (e) => {
                         e.stopPropagation();
-                        selectLesson(lesson.id, lesson.title, lesson.status);
+                        const idx = flatLessonsList.findIndex(l => l.id === lesson.id);
+                        goToLessonByIndex(idx);
                     };
 
                     const badgeClass = lesson.status === 'ready' ? 'badge-ready' : 'badge-upcoming';
@@ -1063,45 +944,82 @@
                 card.appendChild(lessonsList);
                 accordion.appendChild(card);
             });
+
+            // بدء التشغيل من الدرس الأول في المنهج (الفهرس 0)
+            goToLessonByIndex(0);
         }
 
-        function selectLesson(lessonId, lessonTitle, status) {
-            // غلق القائمة في شاشات الجوال بعد الاختيار
+        function goToLessonByIndex(index) {
+            if (index < 0 || index >= flatLessonsList.length) return;
+            currentLessonIndex = index;
+            const lesson = flatLessonsList[index];
+
             if (window.innerWidth <= 992) {
                 document.getElementById('curriculumSidebar').classList.remove('open');
             }
 
-            if (status !== 'ready') {
-                mascotSpeak(`درس <b>(${lessonTitle})</b> قيد التطوير والإضافة للمنهج قريباً جداً يا بطل! 🚀`, 'mascot_hint');
+            // تحديث مؤشر شريط الدرس
+            document.querySelectorAll('.lesson-nav-item').forEach(el => el.classList.remove('active'));
+            const activeNav = document.getElementById('nav-' + lesson.id);
+            if (activeNav) activeNav.classList.add('active');
+
+            // تحديث عنوان الدرس في شريط التنقل السفلي
+            document.getElementById('currentLessonLabel').innerText = `${lesson.title} (ص ${lesson.page})`;
+
+            if (lesson.status !== 'ready') {
+                mascotSpeak(`درس <b>(${lesson.title})</b> قيد الإعداد والإضافة للتطبيق قريباً يا بطل! 🚀`, 'mascot_hint');
                 return;
             }
 
-            currentActiveLessonId = lessonId;
-
-            // تحديث التحديد في القائمة
-            document.querySelectorAll('.lesson-nav-item').forEach(el => el.classList.remove('active'));
-            const activeNav = document.getElementById('nav-' + lessonId);
-            if (activeNav) activeNav.classList.add('active');
-
-            // إظهار واجهة الدرس المطابقة
+            // إظهار واجهة الدرس
             document.querySelectorAll('.lesson-view').forEach(v => v.classList.remove('active'));
-            const targetView = document.getElementById('view-' + lessonId);
+            const targetView = document.getElementById('view-' + lesson.id);
             if (targetView) targetView.classList.add('active');
 
-            // نطق فصيح لتوجيه الدرس
-            if (lessonId === 'tab-act5') {
+            // توجيه فصيح الصوتي بحسب الدرس
+            if (lesson.id === 'tab-lesson1') {
+                mascotSpeak('الدرس الأول: نشيد البطة وتسمية الأشياء! استمع للنشيد واضغط على عناصر الصورة!', 'lesson1_intro');
+            } else if (lesson.id === 'tab-act6') {
+                mascotSpeak('الدرس الثاني: نشاط ٦ - أميز الأقصر والأطول! اضغط على الخيار الأطول!', 'quiz_prompt');
+            } else if (lesson.id === 'tab-act7') {
+                mascotSpeak('الدرس الثالث: نشاط ٧ - أحدد الأماكن! استمع وحدد ما هو فَوْق وما هو تَحْت!', 'act7_prompt');
+            } else if (lesson.id === 'tab-act5') {
                 mascotSpeak('نشاط ٥: استمع لصوت المد (آاا) وصوت (ى) وضع الصوت في الفراغ!', 'act5_prompt');
-            } else if (lessonId === 'tab-act6') {
-                mascotSpeak('نشاط ٦: أميز الأقصر والأطول - اضغط على الخيار الأطول!', 'quiz_prompt');
-            } else if (lessonId === 'tab-act7') {
-                mascotSpeak('نشاط ٧: أحدد الأماكن! استمع وضع الدائرة على ما هو فَوْق وما هو تَحْت!', 'act7_prompt');
-            } else if (lessonId === 'tab-letters') {
+            } else if (lesson.id === 'tab-letters') {
                 mascotSpeak('ورشة تكوين الكلمات: اضغط على أصوات الحروف ثم ادمجها لتكوين كلمة (دَادَا)!', 'blend_intro');
             }
         }
 
+        function stepLesson(direction) {
+            let nextIdx = currentLessonIndex + direction;
+            while (nextIdx >= 0 && nextIdx < flatLessonsList.length) {
+                if (flatLessonsList[nextIdx].status === 'ready') {
+                    goToLessonByIndex(nextIdx);
+                    return;
+                }
+                nextIdx += direction;
+            }
+        }
+
         /* ========================================================
-           4. Activity 5 Logic (الصوت الفونيمي وسلامة الراء 100%)
+           4. Lesson 1 Logic (نشيد البطة واستكشاف الصورة ص 7)
+        ======================================================== */
+        function playNasheed() {
+            mascotCelebrates();
+            mascotSpeak('🎵 استمع إلى النشيد وردد: <br><b>«يَا بَـطُّ يَا بَـطْ ... اِسْبَـحْ بِالشَّــطْ!»</b>', 'nasheed_batta');
+        }
+
+        function explorePicturePrompt() {
+            mascotSpeak('🔍 اضغط على البطة، السمكة، الشبكة، أو النهر لتتعرف على اسمها!', 'item_batta');
+        }
+
+        function clickItem(type, audioKey, titleText) {
+            mascotCelebrates();
+            mascotSpeak(titleText, audioKey);
+        }
+
+        /* ========================================================
+           5. Activity 5 Logic (الصوت الفونيمي وسلامة الراء)
         ======================================================== */
         let currentlySelectedLetter = 'ا';
 
@@ -1214,7 +1132,7 @@
         }
 
         /* ========================================================
-           5. Activity 6 Logic (الأطول والأقصر)
+           6. Activity 6 Logic (الأطول والأقصر)
         ======================================================== */
         function resetActivity6() {
             document.querySelectorAll('.circle-path').forEach(c => c.classList.remove('draw'));
@@ -1263,7 +1181,7 @@
         }
 
         /* ========================================================
-           6. Activity 7 Logic (أحدد الأماكن)
+           7. Activity 7 Logic (أحدد الأماكن)
         ======================================================== */
         function teachAct7() {
             mascotSpeak('💡 انظروا إلى الصورة يا أبطال: فَوْقَ يعني في الأعلى، وتَحْتَ يعني في الأسفل!', 'act7_above');
@@ -1274,7 +1192,7 @@
         }
 
         /* ========================================================
-           7. Letter Blending Logic (دَادَا)
+           8. Letter Blending Logic (دَادَا)
         ======================================================== */
         function pronounceLetter(boxId, soundKey, messageText) {
             const box = document.getElementById(boxId);
@@ -1333,12 +1251,8 @@
             }, 12000);
         }
 
-        // بناء القائمة والترحيب عند بدء التشغيل
         window.addEventListener('DOMContentLoaded', () => {
             buildCurriculumSidebar();
-            setTimeout(() => {
-                mascotSpeak('أهلاً بكم يا أبطال في منصة قراءتي التفاعلية الذكية! اختر الدرس من القائمة اليمنى لنبدأ التعلم سوياً! 🌟', 'mascot_welcome');
-            }, 800);
         });
     </script>
 </body>

@@ -1,4 +1,4 @@
-// جدول وبيانات المنهج الكامل لكتاب قراءتي الجديد للصف الأول الابتدائي
+// جدول وبيانات المنهج الكامل لكتاب قراءتي الجديد للصف الأول الابتدائي - بالترتيب المتسلسل
 window.CURRICULUM_DATA = [
   {
     id: "unit_prep",
@@ -7,32 +7,32 @@ window.CURRICULUM_DATA = [
     pages: "7 - 11",
     lessons: [
       {
+        id: "tab-lesson1",
+        title: "الدرس الأول: نشيد البطة وتسمية الأشياء",
+        page: 7,
+        status: "ready",
+        tag: "استماع وتحدث",
+        description: "الاستماع لنشيد (اسبح بالشط يا بط)، وتسمية عناصر النهر والبطة والسمكة تفاعلياً."
+      },
+      {
         id: "tab-act6",
-        title: "نشاط ٦: أميز الأقصر والأطول",
+        title: "الدرس الثاني: نشاط ٦ - أميز الأقصر والأطول",
         page: 9,
         status: "ready",
         tag: "تمييز بصري",
         description: "وضع دائرة تفاعلية حول الأطول مع التمييز بين الأطوال."
       },
       {
-        id: "tab-act5",
-        title: "نشاط ٥: صوت (ا ، ى) في الكلمات",
-        page: 12,
-        status: "ready",
-        tag: "فونيمات المد",
-        description: "إكمال الفراغ بصوت المد (آاا) أو (ـى) مع الحفاظ على الحروف المجاورة."
-      },
-      {
         id: "tab-act7",
-        title: "نشاط ٧: أحدد الأماكن (فوق وتحت)",
+        title: "الدرس الثالث: نشاط ٧ - أحدد الأماكن (فوق وتحت)",
         page: 9,
         status: "ready",
         tag: "مفاهيم مكانية",
-        description: "التمييز المكاني بين الأشياء فوق وتحت الطاولة والشجرة."
+        description: "التمييز المكاني بين الأشياء: فَوْقَ وتَحْتَ الطاولة والشجرة."
       },
       {
         id: "tab-act8",
-        title: "نشاط ٨: أتعرف إلى الاتجاهات (يمين ويسار)",
+        title: "الدرس الرابع: نشاط ٨ - الاتجاهات (يمين ويسار)",
         page: 9,
         status: "upcoming",
         tag: "اتجاهات",
@@ -40,7 +40,7 @@ window.CURRICULUM_DATA = [
       },
       {
         id: "tab-act9_11",
-        title: "أنشطة ٩ - ١١: تمييز الأصوات القصيرة والطويلة",
+        title: "الدرس الخامس: تمييز الأصوات القصيرة والطويلة",
         page: 10,
         status: "upcoming",
         tag: "إدراك سمعي",
@@ -55,12 +55,12 @@ window.CURRICULUM_DATA = [
     pages: "11 - 16",
     lessons: [
       {
-        id: "tab-vowel_a",
-        title: "صوت حرف المد (ا ، ى)",
-        page: 11,
+        id: "tab-act5",
+        title: "صوت المد (ا ، ى) ونشاط ٥ في الكلمات",
+        page: 12,
         status: "ready",
         tag: "مد بالألف",
-        description: "المد الطويل المفتوح /aː/ والألف المقصورة."
+        description: "إكمال الفراغ بصوت المد (آاا) أو (ـى) مع الحفاظ على الحروف المجاورة."
       },
       {
         id: "tab-vowel_w",
@@ -87,14 +87,6 @@ window.CURRICULUM_DATA = [
     pages: "17 - 35",
     lessons: [
       {
-        id: "tab-letters",
-        title: "حرف الدال (د) وورشة دمج كلمة (دَادَا)",
-        page: 24,
-        status: "ready",
-        tag: "دمج مقطعي",
-        description: "نطق صوت الحرف دَ ومده مع الألف لتكوين مقطع دَا ثم كلمة دَادَا."
-      },
-      {
         id: "tab-letter_b",
         title: "حرف الباء (بـ ، ب) وتكوين (بَابَا)",
         page: 18,
@@ -109,6 +101,14 @@ window.CURRICULUM_DATA = [
         status: "upcoming",
         tag: "الحرف م",
         description: "أتعرف الحرف (م) مع أصوات المد وتركيب كلمة ماما."
+      },
+      {
+        id: "tab-letters",
+        title: "حرف الدال (د) وورشة دمج كلمة (دَادَا)",
+        page: 24,
+        status: "ready",
+        tag: "دمج مقطعي",
+        description: "نطق صوت الحرف دَ ومده مع الألف لتكوين مقطع دَا ثم كلمة دَادَا."
       },
       {
         id: "tab-letter_r",
@@ -126,30 +126,9 @@ window.CURRICULUM_DATA = [
     icon: "🎒",
     pages: "36 - 52",
     lessons: [
-      {
-        id: "tab-unit2_n",
-        title: "حرف النون (نـ ، ن) وكلمة (نُور ، بَان)",
-        page: 38,
-        status: "upcoming",
-        tag: "الحرف ن",
-        description: "تركيب المقاطع مع صوت النون."
-      },
-      {
-        id: "tab-unit2_z",
-        title: "حرف الزاي (ز) وكلمة (مِيزَان ، وَز)",
-        page: 42,
-        status: "upcoming",
-        tag: "الحرف ز",
-        description: "صوت الزاي وتمييزه عن الراء."
-      },
-      {
-        id: "tab-unit2_l",
-        title: "حرف اللام (لـ ، ل) وقراءة الجمل",
-        page: 46,
-        status: "upcoming",
-        tag: "الحرف ل",
-        description: "أتعرف الحرف لام مع المدود والحركات."
-      }
+      { id: "tab-unit2_n", title: "حرف النون (نـ ، ن) وكلمة (نُور ، بَان)", page: 38, status: "upcoming", tag: "الحرف ن" },
+      { id: "tab-unit2_z", title: "حرف الزاي (ز) وكلمة (مِيزَان ، وَز)", page: 42, status: "upcoming", tag: "الحرف ز" },
+      { id: "tab-unit2_l", title: "حرف اللام (لـ ، ل) وقراءة الجمل", page: 46, status: "upcoming", tag: "الحرف ل" }
     ]
   },
   {
@@ -158,30 +137,9 @@ window.CURRICULUM_DATA = [
     icon: "⚽",
     pages: "53 - 70",
     lessons: [
-      {
-        id: "tab-unit3_t",
-        title: "حرف الطاء (ط) وكلمة (بَط)",
-        page: 55,
-        status: "upcoming",
-        tag: "الحرف ط",
-        description: "صوت الطاء المفخم وتمييزه."
-      },
-      {
-        id: "tab-unit3_f",
-        title: "حرف الفاء (فـ ، ف) وكلمة (رِيف)",
-        page: 59,
-        status: "upcoming",
-        tag: "الحرف ف",
-        description: "صوت الفاء المهموس."
-      },
-      {
-        id: "tab-unit3_q",
-        title: "حرف القاف (قـ ، ق) وكلمة (بُوق)",
-        page: 62,
-        status: "upcoming",
-        tag: "الحرف ق",
-        description: "صوت القاف وتمييزه عن الكاف."
-      }
+      { id: "tab-unit3_t", title: "حرف الطاء (ط) وكلمة (بَط)", page: 55, status: "upcoming", tag: "الحرف ط" },
+      { id: "tab-unit3_f", title: "حرف الفاء (فـ ، ف) وكلمة (رِيف)", page: 59, status: "upcoming", tag: "الحرف ف" },
+      { id: "tab-unit3_q", title: "حرف القاف (قـ ، ق) وكلمة (بُوق)", page: 62, status: "upcoming", tag: "الحرف ق" }
     ]
   },
   {
