@@ -450,6 +450,91 @@
         .hotspot-halwa  { left: 27.0%; width: 4.6%; height: 8.5%; }
         .hotspot-asa    { left: 10.0%; width: 4.6%; height: 8.5%; }
 
+        /* ستايل نشاط 4: أتحدث عن الصور (صباحي الممتع والمدرسة) */
+        .image-container-4 {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1120 / 765;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        .image-container-4 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hotspot-act4 {
+            position: absolute;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: all 0.25s ease;
+            z-index: 10;
+        }
+        .hotspot-act4:hover {
+            outline: 4px dashed #2563eb;
+            background-color: rgba(37, 99, 235, 0.15);
+            transform: scale(1.02);
+        }
+        .spot-wake      { top: 17%; right: 4%; width: 45%; height: 48%; }
+        .spot-breakfast { top: 17%; left: 4%; width: 45%; height: 48%; }
+        .spot-school    { top: 48%; left: 26%; width: 48%; height: 49%; }
+
+        /* ستايل نشاط 5: أميز المتشابه والمختلف */
+        .image-container-5diff {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1120 / 860;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        .image-container-5diff img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .svg-overlay-5diff {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 8;
+        }
+        .diff-circle-path {
+            fill: none;
+            stroke-width: 8;
+            stroke-linecap: round;
+            stroke-dasharray: 800;
+            stroke-dashoffset: 800;
+            transition: stroke-dashoffset 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+        .diff-circle-path.draw {
+            stroke-dashoffset: 0;
+        }
+        .hotspot-diff {
+            position: absolute;
+            cursor: pointer;
+            border-radius: 50%;
+            z-index: 10;
+            transition: transform 0.2s ease;
+        }
+        .hotspot-diff:hover {
+            transform: scale(1.1);
+            background-color: rgba(225, 29, 72, 0.15);
+        }
+        .spot-pencils-match  { left: 66%; top: 41%; width: 18%; height: 13%; border-radius: 30px; }
+        .spot-pencils-other1 { left: 51%; top: 21%; width: 18%; height: 13%; border-radius: 30px; }
+        .spot-pencils-other2 { left: 66%; top: 27%; width: 18%; height: 13%; border-radius: 30px; }
+        .spot-pencils-other3 { left: 51%; top: 40%; width: 18%; height: 13%; border-radius: 30px; }
+
+        .spot-hens-match1    { left: 14%; top: 21%; width: 13%; height: 15%; }
+        .spot-hens-other     { left: 27%; top: 19%; width: 13%; height: 18%; } /* Ostrich */
+        .spot-hens-match2    { left: 14%; top: 39%; width: 13%; height: 15%; }
+        .spot-hens-match3    { left: 27%; top: 39%; width: 13%; height: 15%; }
+
+        .spot-tennis         { left: 55%; top: 61%; width: 9%; height: 12%; } /* المختلف */
+        .spot-football1      { left: 36%; top: 61%; width: 9%; height: 12%; }
+        .spot-football2      { left: 73%; top: 61%; width: 9%; height: 12%; }
+
+        .spot-yellowbook     { left: 33%; top: 79%; width: 15%; height: 12%; } /* المختلف */
+        .spot-bluebook1      { left: 53%; top: 79%; width: 15%; height: 12%; }
+        .spot-bluebook2      { left: 71%; top: 79%; width: 15%; height: 12%; }
+
         /* ستايل نشاط 6 (الأطول والأقصر) */
         .image-container-6 { position: relative; width: 100%; aspect-ratio: 1024 / 536; border-radius: 16px; overflow: hidden; background-color: #fffdec; }
         .image-container-6 img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -460,9 +545,61 @@
         .spot-tall-giraffe { left: 53%; top: 33%; width: 16%; height: 60%; position: absolute; cursor: pointer; }
         .spot-short-giraffe{ left: 72%; top: 48%; width: 12%; height: 45%; position: absolute; cursor: pointer; }
 
-        /* ستايل نشاط 7 (أحدد الأماكن) */
-        .image-container-7 { position: relative; width: 100%; aspect-ratio: 1241 / 590; border-radius: 16px; overflow: hidden; background-color: #fff; }
-        .image-container-7 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        /* ستايل نشاط 7 (أحدد الأماكن: فوق وتحت، أمام وخلف) */
+        .image-container-7places {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1140 / 580;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        .image-container-7places img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hotspot-act7 {
+            position: absolute;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 20px;
+            transition: all 0.25s ease;
+        }
+        .hotspot-act7:hover {
+            outline: 4px dashed #10b981;
+            background-color: rgba(16, 185, 129, 0.15);
+            transform: scale(1.05);
+        }
+        .spot-place-book { left: 61%; top: 40%; width: 17%; height: 17%; }
+        .spot-place-cat  { left: 63%; top: 61%; width: 15%; height: 32%; }
+        .spot-place-girl { left: 41%; top: 29%; width: 9%; height: 62%; }
+        .spot-place-boy  { left: 16%; top: 51%; width: 9%; height: 40%; }
+
+        /* ستايل نشاط 8 (الاتجاهات: يمين ويسار) */
+        .image-container-8 {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1140 / 520;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+        .image-container-8 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hotspot-act8 {
+            position: absolute;
+            cursor: pointer;
+            z-index: 10;
+            border-radius: 20px;
+            transition: all 0.25s ease;
+        }
+        .hotspot-act8:hover {
+            outline: 4px dashed #3b82f6;
+            background-color: rgba(59, 130, 246, 0.15);
+            transform: scale(1.05);
+        }
+        .spot-car-left  { left: 30%; top: 54%; width: 14%; height: 38%; }
+        .spot-car-right { left: 46%; top: 54%; width: 14%; height: 38%; }
+        .spot-police    { left: 60%; top: 48%; width: 11%; height: 46%; }
+        .spot-light     { left: 70%; top: 28%; width: 14%; height: 66%; }
 
         /* ستايل ورشة الحروف والدمج */
         .word-builder-demo { background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%); border: 3px dashed #93c5fd; border-radius: 20px; padding: 25px; text-align: center; width: 100%; }
@@ -580,6 +717,18 @@
     <div class="app-body">
 
         <!-- ==============================================
+             القائمة الجانبية اليمنى (Right Curriculum Sidebar)
+        =============================================== -->
+        <aside class="curriculum-sidebar" id="curriculumSidebar">
+            <div class="sidebar-header">
+                <h2><span>📑</span> فهرس منهج قراءتي</h2>
+                <p>تدرج دروس الكتاب من البداية للنهاية:</p>
+            </div>
+
+            <div class="units-accordion" id="unitsAccordion"></div>
+        </aside>
+
+        <!-- ==============================================
              مسرح الدرس التفاعلي (Main Stage)
         =============================================== -->
         <main class="main-stage">
@@ -604,7 +753,71 @@
                     </div>
                 </div>
 
-                <!-- 2. نشاط 6: الأطول والأقصر (ص 9 في الكتاب) -->
+                <!-- 2. الدرس الثاني: نشاط ٤ - أتحدث عن الصور (ص 8 في الكتاب) -->
+                <div class="lesson-view" id="view-tab-act4">
+                    <div class="controls">
+                        <button class="btn btn-teach" onclick="narrateAct4FullStory()">🎙️ فصيح يروي قصة الصباح والمدرسة</button>
+                        <button class="btn btn-quiz" onclick="promptAct4Scenes()">🔍 استكشف المشاهد الثلاثة</button>
+                    </div>
+
+                    <div class="image-container-4" id="card-act4">
+                        <img src="activity_4.png" alt="نشاط 4 - أتحدث عن الصور مع معلمتي وزملائي">
+
+                        <!-- المشهد 1: الاستيقاظ بنشاط -->
+                        <div class="hotspot-act4 spot-wake" onclick="clickAct4Pic('wake')" title="اضغط: الاستيقاظ بنشاط في الصباح"></div>
+                        <!-- المشهد 2: تناول وجبة الفطور الصحية -->
+                        <div class="hotspot-act4 spot-breakfast" onclick="clickAct4Pic('breakfast')" title="اضغط: تناول وجبة الفطور الصحية"></div>
+                        <!-- المشهد 3: الذهاب إلى المدرسة -->
+                        <div class="hotspot-act4 spot-school" onclick="clickAct4Pic('school')" title="اضغط: الانطلاق نحو المدرسة"></div>
+                    </div>
+                </div>
+
+                <!-- 3. الدرس الثالث: نشاط ٥ - أميز المتشابه والمختلف (ص 8 في الكتاب) -->
+                <div class="lesson-view" id="view-tab-act5_diff">
+                    <div class="controls">
+                        <button class="btn btn-teach" onclick="teachAct5Diff()">💡 شرح المعلم للمتشابه والمختلف</button>
+                        <button class="btn btn-quiz" onclick="quizAct5Diff()">🎯 ابدأ الاختبار: ضع دائرة حول الإجابة</button>
+                        <button class="btn btn-reset" onclick="resetAct5Diff()">🔄 إعادة ضبط الدوائر</button>
+                    </div>
+
+                    <div class="image-container-5diff" id="card-act5diff">
+                        <img src="activity_5_diff.png" alt="نشاط 5 - أميز المتشابه والمختلف">
+                        <svg class="svg-overlay-5diff" viewBox="0 0 1120 860">
+                            <!-- دائرة القلمين المتشابهين -->
+                            <ellipse id="circle-diff-pencils" class="diff-circle-path" cx="815" cy="415" rx="90" ry="48" stroke="#16a34a" />
+                            <!-- دائرة الدجاجة المتشابهة -->
+                            <ellipse id="circle-diff-hens" class="diff-circle-path" cx="210" cy="245" rx="55" ry="55" stroke="#16a34a" />
+                            <!-- دائرة كرة التنس المختلفة -->
+                            <circle id="circle-diff-tennis" class="diff-circle-path" cx="658" cy="580" r="44" stroke="#e11d48" />
+                            <!-- دائرة الكتاب الأصفر المختلف -->
+                            <ellipse id="circle-diff-yellowbook" class="diff-circle-path" cx="438" cy="735" rx="75" ry="45" stroke="#e11d48" />
+                        </svg>
+
+                        <!-- الأقلام (المتشابه) -->
+                        <div class="hotspot-diff spot-pencils-match" onclick="clickDiffItem('pencils_match')" title="انقر على القلمين المتشابهين"></div>
+                        <div class="hotspot-diff spot-pencils-other1" onclick="clickDiffItem('pencils_wrong')"></div>
+                        <div class="hotspot-diff spot-pencils-other2" onclick="clickDiffItem('pencils_wrong')"></div>
+                        <div class="hotspot-diff spot-pencils-other3" onclick="clickDiffItem('pencils_wrong')"></div>
+
+                        <!-- الطيور (المتشابه) -->
+                        <div class="hotspot-diff spot-hens-match1" onclick="clickDiffItem('hens_match')" title="انقر على الدجاجة المتشابهة"></div>
+                        <div class="hotspot-diff spot-hens-match2" onclick="clickDiffItem('hens_match')"></div>
+                        <div class="hotspot-diff spot-hens-match3" onclick="clickDiffItem('hens_match')"></div>
+                        <div class="hotspot-diff spot-hens-other" onclick="clickDiffItem('ostrich')" title="هذه نعامة مختلفة"></div>
+
+                        <!-- الكرات (المختلف) -->
+                        <div class="hotspot-diff spot-tennis" onclick="clickDiffItem('tennis')" title="كرة التنس هي المختلفة"></div>
+                        <div class="hotspot-diff spot-football1" onclick="clickDiffItem('football_wrong')"></div>
+                        <div class="hotspot-diff spot-football2" onclick="clickDiffItem('football_wrong')"></div>
+
+                        <!-- الكتب (المختلف) -->
+                        <div class="hotspot-diff spot-yellowbook" onclick="clickDiffItem('yellowbook')" title="الكتاب الأصفر هو المختلف"></div>
+                        <div class="hotspot-diff spot-bluebook1" onclick="clickDiffItem('bluebook_wrong')"></div>
+                        <div class="hotspot-diff spot-bluebook2" onclick="clickDiffItem('bluebook_wrong')"></div>
+                    </div>
+                </div>
+
+                <!-- 4. الدرس الرابع: نشاط 6 - الأطول والأقصر (ص 9 في الكتاب) -->
                 <div class="lesson-view" id="view-tab-act6">
                     <div class="controls">
                         <button class="btn btn-quiz" onclick="startQuizMode()">🎯 نمط اختبار الطالب (تفاعلي)</button>
@@ -626,14 +839,51 @@
                     </div>
                 </div>
 
-                <!-- 3. نشاط 7: أحدد الأماكن (فوق وتحت) (ص 9 في الكتاب) -->
+                <!-- 5. الدرس الخامس: نشاط ٧ - أحدد الأماكن (ص 9 في الكتاب) -->
                 <div class="lesson-view" id="view-tab-act7">
                     <div class="controls">
-                        <button class="btn btn-teach" onclick="teachAct7()">💡 شرح المعلم: فَوْقَ وتَحْتَ</button>
+                        <button class="btn btn-teach" onclick="teachAct7()">💡 شرح المعلم: فَوْقَ، تَحْتَ، أَمَامَ، خَلْفَ</button>
                         <button class="btn btn-quiz" onclick="quizAct7()">🎯 اختبار تحديد الأماكن</button>
+                        <button class="btn btn-reset" onclick="resetAct7()">🔄 إعادة الضبط</button>
                     </div>
-                    <div class="image-container-7" id="activityCard7">
-                        <img src="activity_7.png" alt="نشاط 7 - أحدد الأماكن">
+
+                    <div class="image-container-7places" id="card-act7">
+                        <img src="activity_7_places.png" alt="نشاط 7 - أحدد الأماكن: فوق، تحت، أمام، خلف">
+                        <svg class="svg-overlay-5diff" viewBox="0 0 1140 580">
+                            <ellipse id="circle-place-book" class="diff-circle-path" cx="860" cy="255" rx="70" ry="35" stroke="#2563eb" />
+                            <ellipse id="circle-place-cat" class="diff-circle-path" cx="880" cy="435" rx="60" ry="65" stroke="#16a34a" />
+                            <ellipse id="circle-place-girl" class="diff-circle-path" cx="585" cy="330" rx="45" ry="145" stroke="#e11d48" />
+                            <ellipse id="circle-place-boy" class="diff-circle-path" cx="260" cy="385" rx="45" ry="110" stroke="#f59e0b" />
+                        </svg>
+
+                        <div class="hotspot-act7 spot-place-book" onclick="clickPlaceItem('book')" title="الكتاب فَوْقَ الطاولة"></div>
+                        <div class="hotspot-act7 spot-place-cat" onclick="clickPlaceItem('cat')" title="القطة تَحْتَ الطاولة"></div>
+                        <div class="hotspot-act7 spot-place-girl" onclick="clickPlaceItem('girl')" title="البنت أَمَامَ الكرسي"></div>
+                        <div class="hotspot-act7 spot-place-boy" onclick="clickPlaceItem('boy')" title="الولد خَلْفَ الكرسي"></div>
+                    </div>
+                </div>
+
+                <!-- 6. الدرس السادس: نشاط ٨ - أتعرف إلى الاتجاهات (ص 9 في الكتاب) -->
+                <div class="lesson-view" id="view-tab-act8">
+                    <div class="controls">
+                        <button class="btn btn-teach" onclick="teachAct8()">💡 شرح المعلم: يَمِينٌ وَيَسَار</button>
+                        <button class="btn btn-quiz" onclick="quizAct8()">🎯 استكشف السيارات وإشارة المرور</button>
+                        <button class="btn btn-reset" onclick="resetAct8()">🔄 إعادة الضبط</button>
+                    </div>
+
+                    <div class="image-container-8" id="card-act8">
+                        <img src="activity_8_directions.png" alt="نشاط 8 - أتعرف إلى الاتجاهات: يمين ويسار">
+                        <svg class="svg-overlay-5diff" viewBox="0 0 1140 520">
+                            <ellipse id="circle-dir-carleft" class="diff-circle-path" cx="450" cy="360" rx="75" ry="80" stroke="#2563eb" />
+                            <ellipse id="circle-dir-carright" class="diff-circle-path" cx="640" cy="360" rx="75" ry="80" stroke="#e11d48" />
+                            <ellipse id="circle-dir-police" class="diff-circle-path" cx="815" cy="370" rx="45" ry="110" stroke="#16a34a" />
+                            <ellipse id="circle-dir-light" class="diff-circle-path" cx="945" cy="300" rx="55" ry="140" stroke="#f59e0b" />
+                        </svg>
+
+                        <div class="hotspot-act8 spot-car-left" onclick="clickDirection('car_left')" title="السيارة الزرقاء تتجه يساراً"></div>
+                        <div class="hotspot-act8 spot-car-right" onclick="clickDirection('car_right')" title="السيارة الحمراء تتجه يميناً"></div>
+                        <div class="hotspot-act8 spot-police" onclick="clickDirection('police')" title="شرطي المرور ينظم السير"></div>
+                        <div class="hotspot-act8 spot-light" onclick="clickDirection('traffic_light')" title="إشارة المرور الذكية"></div>
                     </div>
                 </div>
 
@@ -728,18 +978,6 @@
                 </button>
             </div>
         </main>
-
-        <!-- ==============================================
-             القائمة الجانبية اليمنى (Right Curriculum Sidebar)
-        =============================================== -->
-        <aside class="curriculum-sidebar" id="curriculumSidebar">
-            <div class="sidebar-header">
-                <h2><span>📑</span> فهرس منهج قراءتي</h2>
-                <p>تدرج دروس الكتاب من البداية للنهاية:</p>
-            </div>
-
-            <div class="units-accordion" id="unitsAccordion"></div>
-        </aside>
 
     </div>
 
@@ -979,10 +1217,16 @@
             // توجيه فصيح الصوتي بحسب الدرس
             if (lesson.id === 'tab-lesson1') {
                 mascotSpeak('الدرس الأول: نشيد البطة وتسمية الأشياء! استمع للنشيد واضغط على عناصر الصورة!', 'lesson1_intro');
+            } else if (lesson.id === 'tab-act4') {
+                mascotSpeak('الدرس الثاني: نشاط ٤ - أتحدث عن الصور! كيف نبدأ يومنا بنشاط؟ اضغط على الصور!', 'act4_intro');
+            } else if (lesson.id === 'tab-act5_diff') {
+                mascotSpeak('الدرس الثالث: نشاط ٥ - أميز المتشابه والمختلف! ضع دائرة حول الإجابة الصحيحة!', 'act5_diff_intro');
             } else if (lesson.id === 'tab-act6') {
-                mascotSpeak('الدرس الثاني: نشاط ٦ - أميز الأقصر والأطول! اضغط على الخيار الأطول!', 'quiz_prompt');
+                mascotSpeak('الدرس الرابع: نشاط ٦ - أميز الأقصر والأطول! اضغط على الخيار الأطول!', 'quiz_prompt');
             } else if (lesson.id === 'tab-act7') {
-                mascotSpeak('الدرس الثالث: نشاط ٧ - أحدد الأماكن! استمع وحدد ما هو فَوْق وما هو تَحْت!', 'act7_prompt');
+                mascotSpeak('الدرس الخامس: نشاط ٧ - أحدد الأماكن: فَوْقَ وتَحْتَ، أَمَامَ وخَلْفَ!', 'act7_intro');
+            } else if (lesson.id === 'tab-act8') {
+                mascotSpeak('الدرس السادس: نشاط ٨ - أتعرف إلى الاتجاهات: يمين ويسار!', 'act8_intro');
             } else if (lesson.id === 'tab-act5') {
                 mascotSpeak('نشاط ٥: استمع لصوت المد (آاا) وصوت (ى) وضع الصوت في الفراغ!', 'act5_prompt');
             } else if (lesson.id === 'tab-letters') {
@@ -1016,6 +1260,101 @@
         function clickItem(type, audioKey, titleText) {
             mascotCelebrates();
             mascotSpeak(titleText, audioKey);
+        }
+
+        /* ========================================================
+           4b. Lesson 2 Logic (نشاط ٤: أتحدث عن الصور ص 8)
+        ======================================================== */
+        function narrateAct4FullStory() {
+            mascotCelebrates();
+            mascotSpeak('📖 <b>قصة صباحي الجميل:</b><br>«أَسْتَيْقِظُ مُبَكِّراً بِنَشَاط، آكُلُ فُطُورِي الصِّحِّي، ثُمَّ أَنْطَلِقُ إِلَى المَدْرَسَةِ بِسُرُور!»', 'act4_full_story');
+        }
+
+        function promptAct4Scenes() {
+            mascotSpeak('🔍 اضغط على مشهد الاستيقاظ، أو مائدة الفطور، أو الذهاب للمدرسة لتسمع وتتحدث عنها!', 'act4_intro');
+        }
+
+        function clickAct4Pic(picId) {
+            mascotCelebrates();
+            if (picId === 'wake') {
+                mascotSpeak('🛏️ <b>المشهد الأول:</b><br>«أَسْتَيْقِظُ مِنَ النَّوْمِ فِي الصَّبَاحِ البَاكِرِ بِنَشَاطٍ، وَأُرَتِّبُ سَرِيرِي!»', 'act4_pic1_wake');
+            } else if (picId === 'breakfast') {
+                mascotSpeak('🍳 <b>المشهد الثاني:</b><br>«أَتَنَاوَلُ وُجْبَةَ الفُطُورِ الصِّحِّيَّةَ لَذِيذَةً، وَأَشْرَبُ الحَلِيبَ مَعَ إِخْوَتِي لِأَكُونَ قَوِيّاً!»', 'act4_pic2_breakfast');
+            } else if (picId === 'school') {
+                mascotSpeak('🏫 <b>المشهد الثالث:</b><br>«أَرْتَدِي زِيِّي المَدْرَسِيَّ المُرَتَّب، وَأَسِيرُ بِنَشَاطٍ مَعَ زُمَلائِي نَحْوَ المَدْرَسَةِ لِنَتَعَلَّمَ وَنَمْرَحَ!»', 'act4_pic3_school');
+            }
+        }
+
+        /* ========================================================
+           4c. Lesson 3 Logic (نشاط ٥: أميز المتشابه والمختلف ص 8)
+        ======================================================== */
+        function clickDiffItem(itemId) {
+            if (itemId === 'pencils_match') {
+                document.getElementById('circle-diff-pencils').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('🌟 <b style="color: #16a34a;">أحسنت يا بطل!</b> هذان قلمان متشابهان تماماً مع القلمين في الأعلى!', 'act5_diff_pencils_correct');
+            } else if (itemId === 'pencils_wrong') {
+                const card = document.getElementById('card-act5diff');
+                card.classList.add('shake');
+                setTimeout(() => card.classList.remove('shake'), 500);
+                mascotSpeak('⚠️ ابحث عن <b>قلمين اثنين</b> يشبهان القلمين في المربع الأخضر بالأعلى!', 'act5_diff_pencils_prompt');
+            } else if (itemId === 'hens_match') {
+                document.getElementById('circle-diff-hens').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('🌟 <b style="color: #16a34a;">رائع جداً!</b> هذه دجاجة تشبه الدجاجة في المربع الأخضر!', 'act5_diff_hens_correct');
+            } else if (itemId === 'ostrich') {
+                const card = document.getElementById('card-act5diff');
+                card.classList.add('shake');
+                setTimeout(() => card.classList.remove('shake'), 500);
+                mascotSpeak('⚠️ هذه <b>نعامة طويلة</b>، وهي مختلفة عن الدجاجة!', 'act5_diff_ostrich_click');
+            } else if (itemId === 'tennis') {
+                document.getElementById('circle-diff-tennis').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('🌟 <b style="color: #16a34a;">ممتاز يا ذكي!</b> كرة التنس الخضراء هي المختلفة عن كرتي القدم!', 'act5_diff_balls_correct');
+            } else if (itemId === 'football_wrong') {
+                const card = document.getElementById('card-act5diff');
+                card.classList.add('shake');
+                setTimeout(() => card.classList.remove('shake'), 500);
+                mascotSpeak('⚠️ المطلوب هو وضع دائرة حول <b>المختلف</b> وليس المتشابه!', 'act5_diff_balls_prompt');
+            } else if (itemId === 'yellowbook') {
+                document.getElementById('circle-diff-yellowbook').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('🌟 <b style="color: #16a34a;">بارك الله فيك!</b> الكتاب الأصفر هو المختلف عن الكتابين الأزرقين!', 'act5_diff_books_correct');
+            } else if (itemId === 'bluebook_wrong') {
+                const card = document.getElementById('card-act5diff');
+                card.classList.add('shake');
+                setTimeout(() => card.classList.remove('shake'), 500);
+                mascotSpeak('⚠️ هذان كتابان أزرقان متشابهان.. ابحث عن الكتاب <b>المختلف</b>!', 'act5_diff_books_prompt');
+            }
+        }
+
+        function teachAct5Diff() {
+            resetAct5Diff();
+            mascotSpeak('💡 سنتعلم اليوم المتشابه والمختلف: نضع دائرة خضراء حول المتشابه، ودائرة حمراء حول المختلف!', 'act5_diff_intro', () => {
+                setTimeout(() => {
+                    document.getElementById('circle-diff-pencils').classList.add('draw');
+                    mascotSpeak('✏️ في الصندوق الأيمن: هذان قلمان يشبهان القلمين في الأعلى!', 'act5_diff_pencils_correct', () => {
+                        setTimeout(() => {
+                            document.getElementById('circle-diff-tennis').classList.add('draw');
+                            mascotSpeak('🎾 في صف الكرات: كرة التنس هي المختلفة عن كرتي القدم!', 'act5_diff_balls_correct', () => {
+                                setTimeout(() => {
+                                    document.getElementById('circle-diff-yellowbook').classList.add('draw');
+                                    mascotSpeak('📚 وفي صف الكتب: الكتاب الأصفر هو المختلف عن الأزرقين!', 'act5_diff_books_correct');
+                                }, 1500);
+                            });
+                        }, 1500);
+                    });
+                }, 1000);
+            });
+        }
+
+        function quizAct5Diff() {
+            resetAct5Diff();
+            mascotSpeak('🎯 <b>سؤال الاختبار:</b> انقر على الأشكال المطلوبة لتضع الدائرة حول الإجابة الصحيحة!', 'act5_diff_intro');
+        }
+
+        function resetAct5Diff() {
+            document.querySelectorAll('#card-act5diff .diff-circle-path').forEach(c => c.classList.remove('draw'));
         }
 
         /* ========================================================
@@ -1181,14 +1520,103 @@
         }
 
         /* ========================================================
-           7. Activity 7 Logic (أحدد الأماكن)
+           7. Activity 7 Logic (أحدد الأماكن: فوق وتحت، أمام وخلف)
         ======================================================== */
+        function clickPlaceItem(itemId) {
+            if (itemId === 'book') {
+                document.getElementById('circle-place-book').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('📘 <b style="color: #2563eb;">الكتابُ فَوْقَ الطَّاوِلَة!</b>', 'act7_book_above');
+            } else if (itemId === 'cat') {
+                document.getElementById('circle-place-cat').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('🐱 <b style="color: #16a34a;">القِطَّةُ تَحْتَ الطَّاوِلَة!</b>', 'act7_cat_under');
+            } else if (itemId === 'girl') {
+                document.getElementById('circle-place-girl').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('👧 <b style="color: #e11d48;">البِنْتُ أَمَامَ الكُرْسِيّ!</b>', 'act7_girl_infront');
+            } else if (itemId === 'boy') {
+                document.getElementById('circle-place-boy').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('👦 <b style="color: #f59e0b;">الوَلَدُ خَلْفَ الكُرْسِيّ!</b>', 'act7_boy_behind');
+            }
+        }
+
         function teachAct7() {
-            mascotSpeak('💡 انظروا إلى الصورة يا أبطال: فَوْقَ يعني في الأعلى، وتَحْتَ يعني في الأسفل!', 'act7_above');
+            resetAct7();
+            mascotSpeak('💡 هيا نتعرف على الأماكن: فَوْقَ، تَحْتَ، أَمَامَ، خَلْفَ!', 'act7_intro', () => {
+                setTimeout(() => {
+                    clickPlaceItem('book');
+                    setTimeout(() => {
+                        clickPlaceItem('cat');
+                        setTimeout(() => {
+                            clickPlaceItem('girl');
+                            setTimeout(() => {
+                                clickPlaceItem('boy');
+                            }, 2000);
+                        }, 2000);
+                    }, 2000);
+                }, 1000);
+            });
         }
 
         function quizAct7() {
-            mascotSpeak('🎯 أين الكائن الذي في الأعلى: فَوْقَ، وأين الذي في الأسفل: تَحْتَ؟ اضغط عليه!', 'act7_prompt');
+            resetAct7();
+            mascotSpeak('🎯 انقر على الكتاب لمعرفة موضعه، أو القطة، أو البنت، أو الولد!', 'act7_intro');
+        }
+
+        function resetAct7() {
+            document.querySelectorAll('#card-act7 .diff-circle-path').forEach(c => c.classList.remove('draw'));
+        }
+
+        /* ========================================================
+           7b. Activity 8 Logic (أتعرف إلى الاتجاهات: يمين ويسار)
+        ======================================================== */
+        function clickDirection(dirId) {
+            if (dirId === 'car_left') {
+                document.getElementById('circle-dir-carleft').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('🚙 <b style="color: #2563eb;">السَّيَّارَةُ الزَّرْقَاءُ تَتَّجِهُ نَحْوَ اليَسَار!</b>', 'act8_car_left');
+            } else if (dirId === 'car_right') {
+                document.getElementById('circle-dir-carright').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('🚗 <b style="color: #dc2626;">السَّيَّارَةُ الحَمْرَاءُ تَتَّجِهُ نَحْوَ اليَمِين!</b>', 'act8_car_right');
+            } else if (dirId === 'police') {
+                document.getElementById('circle-dir-police').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('👮 <b style="color: #16a34a;">شُرْطِيُّ المُرُورِ يُنَظِّمُ حَرَكَةَ السَّيَّارَاتِ بِأَمَان!</b>', 'act8_police');
+            } else if (dirId === 'traffic_light') {
+                document.getElementById('circle-dir-light').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('🚦 <b style="color: #f59e0b;">إِشَارَةُ المُرُورِ:</b> الأحمر قِفْ، الأصفر اسْتَعِدّ، الأخضر انْطَلِقْ!', 'act8_traffic_light');
+            }
+        }
+
+        function teachAct8() {
+            resetAct8();
+            mascotSpeak('💡 أهلاً بكم! هيا نتعرف إلى الاتجاهات: يمين ويسار وإشارات المرور!', 'act8_intro', () => {
+                setTimeout(() => {
+                    clickDirection('car_left');
+                    setTimeout(() => {
+                        clickDirection('car_right');
+                        setTimeout(() => {
+                            clickDirection('police');
+                            setTimeout(() => {
+                                clickDirection('traffic_light');
+                            }, 2000);
+                        }, 2000);
+                    }, 2000);
+                }, 1000);
+            });
+        }
+
+        function quizAct8() {
+            resetAct8();
+            mascotSpeak('🎯 اضغط على السيارة أو شرطي المرور أو الإشارة لتتعرف على اتجاهها!', 'act8_intro');
+        }
+
+        function resetAct8() {
+            document.querySelectorAll('#card-act8 .diff-circle-path').forEach(c => c.classList.remove('draw'));
         }
 
         /* ========================================================
