@@ -1,13 +1,18 @@
-const CACHE_NAME = 'qiraati-smart-v2';
+const CACHE_NAME = 'qiraati-smart-v3';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
   './audio_data.js',
   './curriculum_data.js',
+  './activity_nasheed_box.png',
+  './activity_3_items.png',
+  './activity_4.png',
+  './activity_5_diff.png',
   './activity_5.png',
   './activity_6.png',
-  './activity_7.png',
+  './activity_7_places.png',
+  './activity_8_directions.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './وثيقة_تصميم_وخطة_المشروع.md'
