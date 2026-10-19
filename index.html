@@ -360,44 +360,52 @@
         .btn-reset { background-color: #ea580c; color: white; }
         .btn-reset:hover { background-color: #c2410c; transform: translateY(-2px); }
 
-        /* ستايل الدرس الأول: نشيد البطة وتسمية الأشياء */
+        /* ستايل الدرس الأول: نشاط 2 ونشاط 3 ص 7 */
         .image-container-nasheed {
             position: relative;
             width: 100%;
-            aspect-ratio: 1241 / 1100;
+            aspect-ratio: 1020 / 460;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            margin-bottom: 12px;
+        }
+        .image-container-nasheed img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .image-container-3items {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1140 / 500;
             border-radius: 16px;
             overflow: hidden;
             background-color: #fff;
             box-shadow: 0 4px 15px rgba(0,0,0,0.06);
         }
+        .image-container-3items img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        .image-container-nasheed img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* نقاط التفاعل على عناصر صورة البطة والشط */
-        .hotspot-nasheed {
+        .hotspot-item3 {
             position: absolute;
             cursor: pointer;
-            border-radius: 50%;
+            border-radius: 16px;
             transition: all 0.25s ease;
             z-index: 10;
         }
-
-        .hotspot-nasheed:hover {
-            transform: scale(1.15);
+        .hotspot-item3:hover {
             outline: 3px dashed #2563eb;
-            background-color: rgba(37, 99, 235, 0.2);
+            background-color: rgba(37, 99, 235, 0.15);
+            transform: scale(1.04);
         }
 
-        .spot-batta   { left: 38%; top: 56%; width: 22%; height: 20%; border-radius: 30px; } /* البطة */
-        .spot-samaka  { left: 24%; top: 78%; width: 18%; height: 16%; border-radius: 30px; } /* السمكة */
-        .spot-shabaka { left: 72%; top: 58%; width: 22%; height: 22%; border-radius: 30px; } /* الشبكة */
-        .spot-shatt   { left: 10%; top: 62%; width: 25%; height: 24%; border-radius: 30px; } /* ماء الشط */
-        .spot-jurf    { left: 70%; top: 80%; width: 25%; height: 18%; border-radius: 30px; } /* الجرف */
+        .spot-item-mistara { left: 67%; top: 22%; width: 20%; height: 13%; }
+        .spot-item-qalam   { left: 65%; top: 39%; width: 22%; height: 10%; }
+        .spot-item-melaqa  { left: 67%; top: 51%; width: 19%; height: 14%; }
+        .spot-item-miqas   { left: 68%; top: 69%; width: 20%; height: 23%; }
+        .spot-item-kitab   { left: 44%; top: 32%; width: 17%; height: 27%; }
+        .spot-item-haqiba  { left: 25%; top: 17%; width: 15%; height: 42%; }
+        .spot-item-qitar   { left: 25%; top: 63%; width: 35%; height: 27%; }
+        .spot-item-safira  { left: 7%;  top: 34%; width: 14%; height: 18%; }
+        .spot-item-saa     { left: 7%;  top: 61%; width: 14%; height: 30%; }
 
         /* ستايل نشاط 5: الحروف في الفراغات */
         .image-container-5 {
@@ -737,19 +745,40 @@
                 <!-- 1. الدرس الأول: نشيد البطة وتسمية الأشياء (ص 7 في الكتاب) -->
                 <div class="lesson-view active" id="view-tab-lesson1">
                     <div class="controls">
-                        <button class="btn btn-teach" onclick="playNasheed()">🎵 استمع للنشيد وردد</button>
-                        <button class="btn btn-quiz" onclick="explorePicturePrompt()">🔍 أُسَمِّي الأشياء التي في الصورة</button>
+                        <button class="btn btn-teach" id="btnLesson1Nasheed" onclick="playNasheed()">🎵 نشاط ٢: استمع لنشيد البطة وردد</button>
+                        <button class="btn btn-quiz" id="btnLesson1Items" onclick="explorePicturePrompt()">🔍 نشاط ٣: أُسَمِّي الأشياء التي في الصورة</button>
                     </div>
 
-                    <div class="image-container-nasheed" id="card-nasheed">
-                        <img src="activity_nasheed.png" alt="نشاط الاستماع والنشيد - صفحة 7">
+                    <!-- نشاط 2: نشيد البطة الأصلي -->
+                    <div class="image-container-nasheed" id="card-nasheed-section">
+                        <img src="activity_nasheed_box.png" alt="نشاط 2 - أستمع إلى النشيد وأردد (نشيد البطة)">
+                    </div>
 
-                        <!-- نقاط النقر الاستكشافية للأطفال في الصورة -->
-                        <div class="hotspot-nasheed spot-batta" onclick="clickItem('batta', 'item_batta', '🦆 بَطَّةٌ جميلة تسبح في الماء!')" title="اضغط لتسمية البطة"></div>
-                        <div class="hotspot-nasheed spot-samaka" onclick="clickItem('samaka', 'item_samaka', '🐟 سَمَكَةٌ صغيرة تسبح في النهر!')" title="اضغط لتسمية السمكة"></div>
-                        <div class="hotspot-nasheed spot-shabaka" onclick="clickItem('shabaka', 'item_shabaka', '🕸️ شَبَكَةُ الصيد!')" title="اضغط لتسمية الشبكة"></div>
-                        <div class="hotspot-nasheed spot-shatt" onclick="clickItem('shatt', 'item_shatt', '🌊 الشَّطُّ وَنَهْرُ المَاءِ العَذْب!')" title="اضغط لتسمية الشط"></div>
-                        <div class="hotspot-nasheed spot-jurf" onclick="clickItem('jurf', 'item_jurf', '🏖️ جُرْفُ النهرِ واليابسة!')" title="اضغط لتسمية الجرف"></div>
+                    <!-- نشاط 3: أسمي الأشياء التي في الصورة (الأدوات التسعة الحقيقية) -->
+                    <div class="image-container-3items" id="card-items3-section">
+                        <img src="activity_3_items.png" alt="نشاط 3 - أسمي الأشياء التي في الصورة">
+                        <svg class="svg-overlay-5diff" viewBox="0 0 1140 500">
+                            <rect id="circle-item-mistara" class="diff-circle-path" x="765" y="110" width="225" height="60" rx="15" stroke="#10b981" />
+                            <rect id="circle-item-qalam" class="diff-circle-path" x="745" y="195" width="250" height="45" rx="15" stroke="#f59e0b" />
+                            <rect id="circle-item-melaqa" class="diff-circle-path" x="770" y="255" width="210" height="65" rx="20" stroke="#64748b" />
+                            <rect id="circle-item-miqas" class="diff-circle-path" x="785" y="345" width="225" height="110" rx="20" stroke="#2563eb" />
+                            <rect id="circle-item-kitab" class="diff-circle-path" x="505" y="160" width="185" height="130" rx="20" stroke="#3b82f6" />
+                            <rect id="circle-item-haqiba" class="diff-circle-path" x="285" y="85" width="165" height="205" rx="30" stroke="#ea580c" />
+                            <rect id="circle-item-qitar" class="diff-circle-path" x="285" y="315" width="395" height="130" rx="20" stroke="#e11d48" />
+                            <rect id="circle-item-safira" class="diff-circle-path" x="80" y="170" width="155" height="85" rx="20" stroke="#dc2626" />
+                            <ellipse id="circle-item-saa" class="diff-circle-path" cx="155" cy="375" rx="72" ry="72" stroke="#4f46e5" />
+                        </svg>
+
+                        <!-- النقاط التفاعلية الدقيقة لكل عنصر من العناصر التسعة -->
+                        <div class="hotspot-item3 spot-item-mistara" onclick="clickObjectItem('mistara')" title="مِسْطَرَة"></div>
+                        <div class="hotspot-item3 spot-item-qalam"   onclick="clickObjectItem('qalam')"   title="قَلَمُ رَصَاص"></div>
+                        <div class="hotspot-item3 spot-item-melaqa"  onclick="clickObjectItem('melaqa')"  title="مِلْعَقَة"></div>
+                        <div class="hotspot-item3 spot-item-miqas"   onclick="clickObjectItem('miqas')"   title="مِقَصّ"></div>
+                        <div class="hotspot-item3 spot-item-kitab"   onclick="clickObjectItem('kitab')"   title="كِتَاب"></div>
+                        <div class="hotspot-item3 spot-item-haqiba"  onclick="clickObjectItem('haqiba')"  title="حَقِيبَةُ مَدْرَسِيَّة"></div>
+                        <div class="hotspot-item3 spot-item-qitar"   onclick="clickObjectItem('qitar')"   title="قِطَار"></div>
+                        <div class="hotspot-item3 spot-item-safira"  onclick="clickObjectItem('safira')"  title="صَافِرَة"></div>
+                        <div class="hotspot-item3 spot-item-saa"     onclick="clickObjectItem('saa')"     title="سَاعَةُ حَائِط"></div>
                     </div>
                 </div>
 
@@ -1254,12 +1283,36 @@
         }
 
         function explorePicturePrompt() {
-            mascotSpeak('🔍 اضغط على البطة، السمكة، الشبكة، أو النهر لتتعرف على اسمها!', 'item_batta');
+            resetObjectItems();
+            mascotSpeak('🔍 انقر على أي أداة من الأدوات التسعة في الصورة لنتعرف على اسمها وفائدتها!', 'act5_diff_intro');
         }
 
-        function clickItem(type, audioKey, titleText) {
+        function resetObjectItems() {
+            document.querySelectorAll('#card-items3-section .diff-circle-path').forEach(c => c.classList.remove('draw'));
+        }
+
+        function clickObjectItem(itemKey) {
+            resetObjectItems();
+            const circle = document.getElementById('circle-item-' + itemKey);
+            if (circle) circle.classList.add('draw');
             mascotCelebrates();
-            mascotSpeak(titleText, audioKey);
+
+            const itemsMap = {
+                mistara: { text: '📏 <b>مِسْطَرَة!</b> نستخدمها لرسم الخطوط المستقيمة في الدفتر!', audio: 'item_mistara' },
+                qalam:   { text: '✏️ <b>قَلَمُ رَصَاص!</b> نكتب به كلماتنا الجميلة ونرسم!', audio: 'item_qalam' },
+                melaqa:  { text: '🥄 <b>مِلْعَقَة!</b> نأكل بها طعامنا الصحي اللذيذ!', audio: 'item_melaqa' },
+                miqas:   { text: '✂️ <b>مِقَصّ!</b> نقص به الأوراق والأشكال بحذر مع المعلمة!', audio: 'item_miqas' },
+                kitab:   { text: '📖 <b>كِتَاب!</b> كتاب قراءتي الذي نتعلم منه الحروف والقراءة!', audio: 'item_kitab' },
+                haqiba:  { text: '🎒 <b>حَقِيبَةُ مَدْرَسِيَّة!</b> نضع فيها كتبنا ودفاترنا المرتبة!', audio: 'item_haqiba' },
+                qitar:   { text: '🚂 <b>قِطَار!</b> قطار الألعاب الجميل له عربات تسير على السكة!', audio: 'item_qitar' },
+                safira:  { text: '📢 <b>صَافِرَة!</b> صافرة حمراء تصدر صوتاً عالياً ومرحاً!', audio: 'item_safira' },
+                saa:     { text: '⏰ <b>سَاعَةُ حَائِط!</b> تعلمنا الوقت لنستيقظ باكراً بنشاط!', audio: 'item_saa' }
+            };
+
+            const item = itemsMap[itemKey];
+            if (item) {
+                mascotSpeak(item.text, item.audio);
+            }
         }
 
         /* ========================================================
