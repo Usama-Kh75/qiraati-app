@@ -1,5 +1,6 @@
 import os
 import base64
+import json
 import re
 
 def file_to_base64(filepath):
@@ -22,6 +23,7 @@ def bundle():
     index_path = os.path.join(base_dir, 'index.html')
     curriculum_path = os.path.join(base_dir, 'curriculum_data.js')
     audio_path = os.path.join(base_dir, 'audio_data.js')
+    manifest_path = os.path.join(base_dir, 'manifest.json')
     out_path = os.path.join(base_dir, 'قراءتي_التفاعلية_الذكية.html')
 
     with open(index_path, 'r', encoding='utf-8') as f:
@@ -57,7 +59,6 @@ def bundle():
 
     # Replace image URLs inside curriculum_js
     for img_name, b64_val in image_b64_map.items():
-        # Match both "./name" and "name"
         curriculum_js = curriculum_js.replace(f"'{img_name}'", f"'{b64_val}'")
         curriculum_js = curriculum_js.replace(f'"{img_name}"', f'"{b64_val}"')
         curriculum_js = curriculum_js.replace(f"'./{img_name}'", f"'{b64_val}'")
@@ -70,24 +71,37 @@ def bundle():
         html = html.replace(f'href="{img_name}"', f'href="{b64_val}"')
         html = html.replace(f'href="./{img_name}"', f'href="{b64_val}"')
 
-    # Now replace the script tags:
-    # <script src="audio_data.js"></script>
-    # <script src="curriculum_data.js"></script>
-    # with the actual inlined JavaScript
-    script_audio_pattern = r'<script\s+src=["\']\./?audio_data\.js["\']\s*></script>'
-    script_curriculum_pattern = r'<script\s+src=["\']\./?curriculum_data\.js["\']\s*></script>'
+    # Inline manifest.json if exists
+    if os.path.exists(manifest_path):
+        with open(manifest_path, 'r', encoding='utf-8') as f:
+            manifest_content = f.read()
+        for img_name, b64_val in image_b64_map.items():
+            manifest_content = manifest_content.replace(f'"{img_name}"', f'"{b64_val}"')
+        manifest_b64 = base64.b64encode(manifest_content.encode('utf-8')).decode('utf-8')
+        manifest_data_uri = f"data:application/manifest+json;base64,{manifest_b64}"
+        html = html.replace('href="manifest.json"', f'href="{manifest_data_uri}"')
+        html = html.replace('href="./manifest.json"', f'href="{manifest_data_uri}"')
+        print("Manifest inlined as Data URI.")
 
+    # Now replace the script tags directly and reliably:
     inlined_audio = f"<script>\n/* AUDIO DATA INLINED - إعداد المهندس أسامة خليل هاشم */\n{audio_js}\n</script>"
     inlined_curriculum = f"<script>\n/* CURRICULUM DATA INLINED - إعداد المهندس أسامة خليل هاشم */\n{curriculum_js}\n</script>"
 
-    html = re.sub(script_audio_pattern, inlined_audio, html)
-    html = re.sub(script_curriculum_pattern, inlined_curriculum, html)
+    # Direct replacements
+    html = re.sub(r'<script\s+src=["\'](?:\./)?audio_data\.js["\']\s*></script>', lambda m: inlined_audio, html)
+    html = re.sub(r'<script\s+src=["\'](?:\./)?curriculum_data\.js["\']\s*></script>', lambda m: inlined_curriculum, html)
 
-    # Disable service worker registration if running locally via file:// to avoid console warnings
+    # Disable service worker registration if running locally via file:// or content://
     html = html.replace(
         "if ('serviceWorker' in navigator) {",
         "if ('serviceWorker' in navigator && (window.location.protocol === 'http:' || window.location.protocol === 'https:')) {"
     )
+
+    # STRICT VALIDATION: Ensure audio and curriculum are present
+    if 'window.AUDIO_DATA =' not in html:
+        raise RuntimeError("CRITICAL ERROR: window.AUDIO_DATA is missing from output HTML!")
+    if 'window.CURRICULUM_DATA =' not in html:
+        raise RuntimeError("CRITICAL ERROR: window.CURRICULUM_DATA is missing from output HTML!")
 
     with open(out_path, 'w', encoding='utf-8') as f:
         f.write(html)

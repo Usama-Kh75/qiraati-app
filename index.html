@@ -775,7 +775,18 @@
         @media (max-width: 768px) {
             .mobile-install-banner { display: flex; }
             .btn-mobile-connect { display: none !important; }
-            .btn-pwa-install { display: none !important; }
+            .btn-pwa-install {
+                display: inline-flex !important;
+                font-size: 0.8rem !important;
+                padding: 6px 10px !important;
+                border-radius: 20px !important;
+                gap: 4px !important;
+            }
+            .btn-fullscreen {
+                font-size: 0.8rem !important;
+                padding: 6px 10px !important;
+                border-radius: 20px !important;
+            }
             
             .top-navbar {
                 height: auto;
@@ -1579,7 +1590,8 @@
                     deferredPrompt = null;
                 });
             } else {
-                openInstallModal('pc');
+                const isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.innerWidth <= 768;
+                openInstallModal(isMobile ? 'mobile' : 'pc');
             }
         }
 
@@ -1758,8 +1770,14 @@
 
         function buildCurriculumSidebar() {
             const accordion = document.getElementById('unitsAccordion');
+            if (!accordion) return;
             accordion.innerHTML = '';
             flatLessonsList = [];
+
+            if (!window.CURRICULUM_DATA || !Array.isArray(window.CURRICULUM_DATA)) {
+                console.warn('CURRICULUM_DATA not loaded yet or empty');
+                return;
+            }
 
             window.CURRICULUM_DATA.forEach((unit, uIdx) => {
                 const card = document.createElement('div');
@@ -1863,13 +1881,23 @@
         }
 
         function stepLesson(direction) {
+            if (!flatLessonsList || flatLessonsList.length === 0) return;
             let nextIdx = currentLessonIndex + direction;
-            while (nextIdx >= 0 && nextIdx < flatLessonsList.length) {
+            if (nextIdx >= flatLessonsList.length) {
+                nextIdx = 0;
+            } else if (nextIdx < 0) {
+                nextIdx = flatLessonsList.length - 1;
+            }
+            let loopCount = 0;
+            while (nextIdx >= 0 && nextIdx < flatLessonsList.length && loopCount < flatLessonsList.length) {
                 if (flatLessonsList[nextIdx].status === 'ready') {
                     goToLessonByIndex(nextIdx);
                     return;
                 }
                 nextIdx += direction;
+                if (nextIdx >= flatLessonsList.length) nextIdx = 0;
+                if (nextIdx < 0) nextIdx = flatLessonsList.length - 1;
+                loopCount++;
             }
         }
 
@@ -2366,6 +2394,33 @@
             <div class="modal-body">
                 <!-- تاب الهاتف واللوحي -->
                 <div id="tabMobileContent" class="tab-pane">
+                    <!-- بطاقة التثبيت المباشر على الجهاز الحالي -->
+                    <div style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border: 2px solid #10b981; border-radius: 14px; padding: 14px; margin-bottom: 16px; text-align: right;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                            <span style="font-size: 1.8rem;">📲✨</span>
+                            <div>
+                                <h4 style="margin: 0; color: #065f46; font-size: 1.05rem; font-weight: 800;">تثبيت التطبيق على هاتفك / جهازك اللوحي:</h4>
+                                <span style="font-size: 0.85rem; color: #047857; font-weight: 700;">خطوات بسيطة وسريعة لتثبيته كـ تطبيق مستقل دائم:</span>
+                            </div>
+                        </div>
+                        <div style="background: white; border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; border-right: 4px solid #10b981; box-shadow: 0 2px 5px rgba(0,0,0,0.04);">
+                            <strong style="color: #1e3a8a; font-size: 0.95rem;">🤖 في أجهزة أندرويد (متصفح Chrome):</strong>
+                            <p style="margin: 4px 0 0; font-size: 0.85rem; color: #334155; line-height: 1.5;">
+                                اضغط على النقاط الثلاث <code>[ ⋮ ]</code> في أعلى زاوية المتصفح ➔ اختر <b>«إضافة إلى الشاشة الرئيسية»</b> أو <b>«تثبيت التطبيق»</b> ➔ اضغط <b>«إضافة»</b>؛ سيظهر التطبيق فوراً على شاشة جهازك كأي تطبيق رسمي ويعمل بدون إنترنت للأبد!
+                            </p>
+                        </div>
+                        <div style="background: white; border-radius: 10px; padding: 10px 14px; border-right: 4px solid #6366f1; box-shadow: 0 2px 5px rgba(0,0,0,0.04);">
+                            <strong style="color: #4338ca; font-size: 0.95rem;">🍏 في أجهزة iPhone و iPad (متصفح Safari):</strong>
+                            <p style="margin: 4px 0 0; font-size: 0.85rem; color: #334155; line-height: 1.5;">
+                                اضغط زر المشاركة <code>[ ⎋ Share ]</code> أسفل المتصفح ➔ مرر للأسفل واختر <b>«إضافة إلى الشاشة الرئيسية» (Add to Home Screen)</b>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div style="text-align: center; margin: 15px 0 10px; font-weight: 800; color: #64748b; font-size: 0.85rem;">
+                        ─── أو لنقل وتشغيل التطبيق من الحاسوب إلى هاتفك ───
+                    </div>
+
                     <div class="qr-section">
                         <div class="qr-wrapper">
                             <img src="mobile_qr.png" alt="رمز QR للتشغيل على الهاتف" class="qr-img" id="qrImg">
@@ -2381,23 +2436,6 @@
                                 </button>
                             </div>
                             <p class="qr-subtext">تأكد أن هاتفك متصل بنفس شبكة الواي فاي المنزلية التي يتصل بها الحاسوب.</p>
-                        </div>
-                    </div>
-
-                    <div class="platform-steps">
-                        <div class="step-card">
-                            <div class="step-icon">🤖</div>
-                            <div class="step-text">
-                                <strong>لهواتف وأجهزة أندرويد (Chrome):</strong>
-                                <p>افتح الرابط في Google Chrome، ثم اضغط على قائمة النقاط الثلاث <code>⋮</code> في الأعلى، واختر <b>«تثبيت التطبيق»</b> أو <b>«إضافة إلى الشاشة الرئيسية»</b>.</p>
-                            </div>
-                        </div>
-                        <div class="step-card">
-                            <div class="step-icon">🍏</div>
-                            <div class="step-text">
-                                <strong>لأجهزة آبل iPhone و iPad (Safari):</strong>
-                                <p>افتح الرابط في Safari، ثم اضغط زر المشاركة <code>[⎋ Share]</code> بالأسفل، واختر <b>«إضافة إلى الشاشة الرئيسية» (Add to Home Screen)</b>.</p>
-                            </div>
                         </div>
                     </div>
                 </div>
