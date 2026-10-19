@@ -1,0 +1,11 @@
+# Temporary and scratch files
+*_checked.png
+*_clean.png
+*_preview.png
+*_original.png
+perfect_slots.png
+slots_preview.png
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

@@ -1,0 +1,225 @@
+// جدول وبيانات المنهج الكامل لكتاب قراءتي الجديد للصف الأول الابتدائي
+window.CURRICULUM_DATA = [
+  {
+    id: "unit_prep",
+    title: "التهيئة والاستعداد والمفاهيم",
+    icon: "🌱",
+    pages: "7 - 11",
+    lessons: [
+      {
+        id: "tab-act6",
+        title: "نشاط ٦: أميز الأقصر والأطول",
+        page: 9,
+        status: "ready",
+        tag: "تمييز بصري",
+        description: "وضع دائرة تفاعلية حول الأطول مع التمييز بين الأطوال."
+      },
+      {
+        id: "tab-act5",
+        title: "نشاط ٥: صوت (ا ، ى) في الكلمات",
+        page: 12,
+        status: "ready",
+        tag: "فونيمات المد",
+        description: "إكمال الفراغ بصوت المد (آاا) أو (ـى) مع الحفاظ على الحروف المجاورة."
+      },
+      {
+        id: "tab-act7",
+        title: "نشاط ٧: أحدد الأماكن (فوق وتحت)",
+        page: 9,
+        status: "ready",
+        tag: "مفاهيم مكانية",
+        description: "التمييز المكاني بين الأشياء فوق وتحت الطاولة والشجرة."
+      },
+      {
+        id: "tab-act8",
+        title: "نشاط ٨: أتعرف إلى الاتجاهات (يمين ويسار)",
+        page: 9,
+        status: "upcoming",
+        tag: "اتجاهات",
+        description: "تحديد اليد اليمنى واليسرى والاتجاهات الأساسية."
+      },
+      {
+        id: "tab-act9_11",
+        title: "أنشطة ٩ - ١١: تمييز الأصوات القصيرة والطويلة",
+        page: 10,
+        status: "upcoming",
+        tag: "إدراك سمعي",
+        description: "استخراج الصوت الأول والأخير والصوت الطويل والقصير."
+      }
+    ]
+  },
+  {
+    id: "unit_vowels",
+    title: "حروف المد الأساسية (ا ، و ، ي)",
+    icon: "🔤",
+    pages: "11 - 16",
+    lessons: [
+      {
+        id: "tab-vowel_a",
+        title: "صوت حرف المد (ا ، ى)",
+        page: 11,
+        status: "ready",
+        tag: "مد بالألف",
+        description: "المد الطويل المفتوح /aː/ والألف المقصورة."
+      },
+      {
+        id: "tab-vowel_w",
+        title: "صوت حرف المد (و)",
+        page: 13,
+        status: "upcoming",
+        tag: "مد بالواو",
+        description: "نطق صوت المد المضموم (ووو) في كلمات: بومة، نجوم."
+      },
+      {
+        id: "tab-vowel_y",
+        title: "صوت حرف المد (يـ ، ي)",
+        page: 15,
+        status: "upcoming",
+        tag: "مد بالياء",
+        description: "نطق صوت المد المكسور (ييي) في كلمات: فيل، تين، سوار."
+      }
+    ]
+  },
+  {
+    id: "unit_family",
+    title: "الوحدة الأولى: أسرتي",
+    icon: "🏠",
+    pages: "17 - 35",
+    lessons: [
+      {
+        id: "tab-letters",
+        title: "حرف الدال (د) وورشة دمج كلمة (دَادَا)",
+        page: 24,
+        status: "ready",
+        tag: "دمج مقطعي",
+        description: "نطق صوت الحرف دَ ومده مع الألف لتكوين مقطع دَا ثم كلمة دَادَا."
+      },
+      {
+        id: "tab-letter_b",
+        title: "حرف الباء (بـ ، ب) وتكوين (بَابَا)",
+        page: 18,
+        status: "upcoming",
+        tag: "الحرف ب",
+        description: "أتعرف الحرف (ب) مع أصوات المد وتركيب كلمة بابا."
+      },
+      {
+        id: "tab-letter_m",
+        title: "حرف الميم (مـ ، م) وتكوين (مَامَا)",
+        page: 21,
+        status: "upcoming",
+        tag: "الحرف م",
+        description: "أتعرف الحرف (م) مع أصوات المد وتركيب كلمة ماما."
+      },
+      {
+        id: "tab-letter_r",
+        title: "حرف الراء (ر) وتركيب كلمة (دَار)",
+        page: 27,
+        status: "upcoming",
+        tag: "الحرف ر",
+        description: "نطق صوت الراء وتركيب كلمات: دار، دور، دادا."
+      }
+    ]
+  },
+  {
+    id: "unit_school",
+    title: "الوحدة الثانية: مدرستي",
+    icon: "🎒",
+    pages: "36 - 52",
+    lessons: [
+      {
+        id: "tab-unit2_n",
+        title: "حرف النون (نـ ، ن) وكلمة (نُور ، بَان)",
+        page: 38,
+        status: "upcoming",
+        tag: "الحرف ن",
+        description: "تركيب المقاطع مع صوت النون."
+      },
+      {
+        id: "tab-unit2_z",
+        title: "حرف الزاي (ز) وكلمة (مِيزَان ، وَز)",
+        page: 42,
+        status: "upcoming",
+        tag: "الحرف ز",
+        description: "صوت الزاي وتمييزه عن الراء."
+      },
+      {
+        id: "tab-unit2_l",
+        title: "حرف اللام (لـ ، ل) وقراءة الجمل",
+        page: 46,
+        status: "upcoming",
+        tag: "الحرف ل",
+        description: "أتعرف الحرف لام مع المدود والحركات."
+      }
+    ]
+  },
+  {
+    id: "unit_toys",
+    title: "الوحدة الثالثة: ألعابي وحيواناتي",
+    icon: "⚽",
+    pages: "53 - 70",
+    lessons: [
+      {
+        id: "tab-unit3_t",
+        title: "حرف الطاء (ط) وكلمة (بَط)",
+        page: 55,
+        status: "upcoming",
+        tag: "الحرف ط",
+        description: "صوت الطاء المفخم وتمييزه."
+      },
+      {
+        id: "tab-unit3_f",
+        title: "حرف الفاء (فـ ، ف) وكلمة (رِيف)",
+        page: 59,
+        status: "upcoming",
+        tag: "الحرف ف",
+        description: "صوت الفاء المهموس."
+      },
+      {
+        id: "tab-unit3_q",
+        title: "حرف القاف (قـ ، ق) وكلمة (بُوق)",
+        page: 62,
+        status: "upcoming",
+        tag: "الحرف ق",
+        description: "صوت القاف وتمييزه عن الكاف."
+      }
+    ]
+  },
+  {
+    id: "unit_health",
+    title: "الوحدة الرابعة: صحتي وبيئتي",
+    icon: "🍎",
+    pages: "71 - 89",
+    lessons: [
+      { id: "tab-unit4_h", title: "حرف الحاء (حـ ، ح)", page: 73, status: "upcoming", tag: "الحرف ح" },
+      { id: "tab-unit4_s", title: "حرف السين (سـ ، س)", page: 76, status: "upcoming", tag: "الحرف س" },
+      { id: "tab-unit4_j", title: "حرف الجيم (جـ ، ج)", page: 82, status: "upcoming", tag: "الحرف ج" },
+      { id: "tab-unit4_sad", title: "حرف الصاد (صـ ، ص)", page: 85, status: "upcoming", tag: "الحرف ص" }
+    ]
+  },
+  {
+    id: "unit_hobbies",
+    title: "الوحدة الخامسة: هواياتي",
+    icon: "🎨",
+    pages: "90 - 109",
+    lessons: [
+      { id: "tab-unit5_hamza", title: "الهمزة (أ ، إ ، ء)", page: 91, status: "upcoming", tag: "الهمزة" },
+      { id: "tab-unit5_dhad", title: "حرف الضاد (ضـ ، ض)", page: 94, status: "upcoming", tag: "الحرف ض" },
+      { id: "tab-unit5_khaa", title: "حرف الخاء (خـ ، خ)", page: 97, status: "upcoming", tag: "الحرف خ" },
+      { id: "tab-unit5_thaa", title: "حرف الثاء (ثـ ، ث)", page: 100, status: "upcoming", tag: "الحرف ث" },
+      { id: "tab-unit5_kaf", title: "حرف الكاف (كـ ، ك) والشدة", page: 103, status: "upcoming", tag: "الحرف ك" }
+    ]
+  },
+  {
+    id: "unit_world",
+    title: "الوحدة السادسة: العالم من حولي",
+    icon: "🌍",
+    pages: "110 - 128",
+    lessons: [
+      { id: "tab-unit6_ghayn", title: "حرف الغين (غـ ، غ)", page: 111, status: "upcoming", tag: "الحرف غ" },
+      { id: "tab-unit6_haa", title: "حرف الهاء (هـ ، ه)", page: 115, status: "upcoming", tag: "الحرف هـ" },
+      { id: "tab-unit6_thal", title: "حرف الذال (ذ)", page: 119, status: "upcoming", tag: "الحرف ذ" },
+      { id: "tab-unit6_dha", title: "حرف الظاء (ظ)", page: 123, status: "upcoming", tag: "الحرف ظ" },
+      { id: "tab-unit6_lam", title: "اللام الشمسية واللام القمرية", page: 127, status: "upcoming", tag: "قواعد القراءة" }
+    ]
+  }
+];

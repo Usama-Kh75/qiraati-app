@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>منصة قراءتي التفاعلية الذكية - الصف الأول الابتدائي</title>
+    
+    <!-- PWA Meta Tags & Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="قراءتي الذكية">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --success: #16a34a;
+            --accent: #f59e0b;
+            --danger: #dc2626;
+            --purple: #7c3aed;
+            --sidebar-w: 330px;
+        }
+
+        * {
+            box-sizing: border-box;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #fef3c7 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* شريط التطبيق العلوي */
+        .top-navbar {
+            width: 100%;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-sidebar-toggle {
+            display: none; /* يظهر فقط في الشاشات الصغيرة */
+            background: #eff6ff;
+            border: 2px solid #bfdbfe;
+            color: #1e40af;
+            font-size: 1.2rem;
+            padding: 6px 12px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 800;
+            font-family: inherit;
+        }
+
+        .brand-title {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-top {
+            padding: 8px 16px;
+            font-size: 0.95rem;
+            font-weight: 800;
+            font-family: inherit;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+        }
+
+        .btn-pwa-install {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            display: none;
+        }
+
+        .btn-fullscreen {
+            background: white;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+        }
+
+        /* الحاوية الرئيسية للتطبيق (الشريط الجانبي الأيمن + مسرح الدرس) */
+        .app-body {
+            display: flex;
+            flex: 1;
+            width: 100%;
+            height: calc(100vh - 64px);
+            overflow: hidden;
+        }
+
+        /* ========================================================
+           القائمة الجانبية اليمنى (Right Curriculum Sidebar)
+        ======================================================== */
+        .curriculum-sidebar {
+            width: var(--sidebar-w);
+            min-width: var(--sidebar-w);
+            background: #ffffff;
+            border-left: 2px solid #e2e8f0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            box-shadow: -4px 0 15px rgba(0,0,0,0.03);
+            z-index: 40;
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar-header {
+            padding: 16px 20px;
+            background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .sidebar-header h2 {
+            margin: 0 0 6px 0;
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-header p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        .units-accordion {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .unit-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .unit-card.open {
+            border-color: #93c5fd;
+            background: #ffffff;
+            box-shadow: 0 4px 12px rgba(37,99,235,0.08);
+        }
+
+        .unit-title-bar {
+            padding: 12px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            background: transparent;
+            font-weight: 800;
+            font-size: 1.05rem;
+            color: #1e293b;
+        }
+
+        .unit-title-bar:hover {
+            background: #f1f5f9;
+        }
+
+        .unit-info-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .unit-lessons-list {
+            display: flex;
+            flex-direction: column;
+            padding: 6px 10px 10px 10px;
+            gap: 6px;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        .lesson-nav-item {
+            padding: 10px 14px;
+            border-radius: 12px;
+            background: #ffffff;
+            border: 1.5px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: #334155;
+        }
+
+        .lesson-nav-item:hover {
+            background: #f0fdf4;
+            border-color: #86efac;
+            transform: translateX(-4px);
+        }
+
+        .lesson-nav-item.active {
+            background: #eff6ff;
+            border-color: #2563eb;
+            color: #1d4ed8;
+            box-shadow: 0 4px 10px rgba(37,99,235,0.15);
+        }
+
+        .lesson-badge {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-weight: 800;
+        }
+
+        .badge-ready {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .badge-upcoming {
+            background: #f1f5f9;
+            color: #94a3b8;
+        }
+
+        /* ========================================================
+           مسرح الدرس التفاعلي (Main Stage)
+        ======================================================== */
+        .main-stage {
+            flex: 1;
+            height: 100%;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .stage-card {
+            width: 100%;
+            max-width: 950px;
+            background: white;
+            border-radius: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            padding: 16px;
+            position: relative;
+            margin-bottom: 120px; /* مساحة لفصيح */
+        }
+
+        /* شاشات الأنشطة */
+        .lesson-view {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lesson-view.active {
+            display: flex;
+        }
+
+        /* أزرار التحكم */
+        .controls {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .btn {
+            padding: 10px 22px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            font-family: inherit;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:active { transform: scale(0.96); }
+        .btn-quiz { background-color: #2563eb; color: white; }
+        .btn-quiz:hover { background-color: #1d4ed8; transform: translateY(-2px); }
+        .btn-teach { background-color: #059669; color: white; }
+        .btn-teach:hover { background-color: #047857; transform: translateY(-2px); }
+        .btn-reset { background-color: #ea580c; color: white; }
+        .btn-reset:hover { background-color: #c2410c; transform: translateY(-2px); }
+
+        /* ستايل نشاط 5: الحروف في الفراغات */
+        .image-container-5 {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1024 / 451;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .image-container-5 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .svg-overlay-5 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 8;
+        }
+
+        .dot-mask { display: none; }
+
+        .placed-letter {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 40px;
+            font-weight: 900;
+            fill: #e11d48;
+            display: none;
+        }
+
+        .placed-letter.show {
+            display: inline;
+            animation: letter-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes letter-pop {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .letter-selector-bar {
+            background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
+            border: 3px solid #bbf7d0;
+            border-radius: 20px;
+            padding: 12px 20px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .selector-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #166534;
+        }
+
+        .selectable-letters {
+            display: flex;
+            gap: 25px;
+        }
+
+        .letter-pick-card {
+            width: 75px;
+            height: 75px;
+            background: white;
+            border: 4px solid #3b82f6;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: #1e3a8a;
+            box-shadow: 0 8px 16px rgba(59,130,246,0.22);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .letter-pick-card.selected {
+            background: #dbeafe;
+            border-color: #2563eb;
+            transform: scale(1.15);
+            outline: 4px solid #60a5fa;
+        }
+
+        .letter-pick-card .label-hint {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: #1e40af;
+            position: absolute;
+            bottom: -22px;
+            white-space: nowrap;
+        }
+
+        .slot-hotspot {
+            position: absolute;
+            top: 76.5%;
+            transform: translate(-50%, -50%);
+            border-radius: 8px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s ease;
+            background-color: transparent;
+        }
+
+        .slot-hotspot:not(.filled) {
+            background-color: rgba(254, 240, 138, 0.4);
+            border: 2px dashed #f59e0b;
+            animation: slot-glow 1.5s infinite alternate;
+        }
+
+        @keyframes slot-glow {
+            0% { border-color: #f59e0b; }
+            100% { border-color: #ef4444; }
+        }
+
+        .slot-hotspot.filled {
+            border: none;
+            background: transparent;
+            pointer-events: none;
+        }
+
+        .hotspot-nar    { left: 89.6%; width: 2.8%; height: 8.5%; }
+        .hotspot-mrma   { left: 66.4%; width: 4.6%; height: 8.5%; }
+        .hotspot-dar    { left: 51.8%; width: 2.8%; height: 8.5%; }
+        .hotspot-halwa  { left: 27.0%; width: 4.6%; height: 8.5%; }
+        .hotspot-asa    { left: 10.0%; width: 4.6%; height: 8.5%; }
+
+        /* ستايل نشاط 6 (الأطول والأقصر) */
+        .image-container-6 {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1024 / 536;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #fffdec;
+        }
+
+        .image-container-6 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .circle-path {
+            fill: none;
+            stroke-width: 9;
+            stroke-linecap: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            transition: stroke-dashoffset 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        .circle-path.draw {
+            stroke-dashoffset: 0;
+            animation: pulse-circle 1.5s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulse-circle {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.03); }
+        }
+
+        .hotspot {
+            position: absolute;
+            cursor: pointer;
+            border-radius: 20px;
+            z-index: 5;
+        }
+
+        .spot-tall-pencil  { left: 20%; top: 33%; width: 8%;  height: 60%; }
+        .spot-short-pencil { left: 29%; top: 58%; width: 7%;  height: 35%; }
+        .spot-tall-giraffe { left: 53%; top: 33%; width: 16%; height: 60%; }
+        .spot-short-giraffe{ left: 72%; top: 48%; width: 12%; height: 45%; }
+
+        /* ستايل نشاط 7 (أحدد الأماكن: فوق وتحت) */
+        .image-container-7 {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1241 / 590;
+            border-radius: 16px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .image-container-7 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ستايل ورشة الحروف والدمج */
+        .word-builder-demo {
+            background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+            border: 3px dashed #93c5fd;
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .letter-track {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin: 25px 0;
+            min-height: 130px;
+        }
+
+        .letter-box {
+            width: 90px;
+            height: 90px;
+            background: white;
+            border: 4px solid #3b82f6;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #1e3a8a;
+            box-shadow: 0 10px 20px rgba(59,130,246,0.2);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .merged-word {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #15803d;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            display: none;
+            padding: 10px;
+        }
+
+        .merged-word.show {
+            display: block;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-10px); }
+            40%, 80% { transform: translateX(10px); }
+        }
+        .shake { animation: shake 0.5s ease-in-out; }
+
+        /* ========================================================
+           شخصية "فَصِيح" الكرتونية التفاعلية
+        ======================================================== */
+        .mascot-container {
+            position: fixed;
+            bottom: 12px;
+            left: 20px; /* في يسار الشاشة لعدم حجب القائمة اليمنى */
+            display: flex;
+            align-items: flex-end;
+            gap: 12px;
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .mascot-avatar {
+            width: 105px;
+            height: 125px;
+            cursor: pointer;
+            pointer-events: auto;
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: mascot-float 3s infinite ease-in-out;
+        }
+
+        @keyframes mascot-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .speech-bubble {
+            background: white;
+            border: 3px solid #3b82f6;
+            border-radius: 24px 24px 24px 4px;
+            padding: 12px 20px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            max-width: 380px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            pointer-events: auto;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .speech-bubble.speaking {
+            border-color: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .mascot-eye {
+            animation: eye-blink 4s infinite;
+            transform-origin: center;
+        }
+
+        @keyframes eye-blink {
+            0%, 94%, 98%, 100% { transform: scaleY(1); }
+            96% { transform: scaleY(0.1); }
+        }
+
+        .mascot-speaking .mascot-mouth {
+            animation: mouth-talk 0.3s infinite alternate;
+        }
+
+        @keyframes mouth-talk {
+            0% { transform: scaleY(1); }
+            100% { transform: scaleY(1.8); }
+        }
+
+        .mascot-celebrate {
+            animation: mascot-jump 0.6s ease 2;
+        }
+
+        @keyframes mascot-jump {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-30px) scale(1.2) rotate(-8deg); }
+        }
+
+        /* المواءمة للشاشات الصغيرة والتابلت */
+        @media (max-width: 992px) {
+            .btn-sidebar-toggle { display: inline-flex; }
+            .curriculum-sidebar {
+                position: fixed;
+                right: 0;
+                top: 64px;
+                height: calc(100vh - 64px);
+                transform: translateX(100%);
+                z-index: 100;
+            }
+            .curriculum-sidebar.open {
+                transform: translateX(0);
+                box-shadow: -10px 0 30px rgba(0,0,0,0.25);
+            }
+            .mascot-container { left: 10px; bottom: 8px; }
+            .speech-bubble { max-width: 260px; font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- الشريط العلوي -->
+    <header class="top-navbar">
+        <div class="brand-section">
+            <button class="btn-sidebar-toggle" onclick="toggleSidebar()">
+                <span>📚</span>
+                <span>فهرس الدروس</span>
+            </button>
+            <div class="brand-title">
+                <span style="font-size: 1.5rem;">📖</span>
+                <span>قراءتي التفاعلية الذكية</span>
+            </div>
+        </div>
+
+        <div class="top-actions">
+            <button class="btn-top btn-pwa-install" id="btnPwaInstall" onclick="installPWA()">
+                <span>📲</span>
+                <span>تثبيت PWA</span>
+            </button>
+            <button class="btn-top btn-fullscreen" onclick="toggleFullScreen()">
+                <span>⛶</span>
+                <span id="fullscreenText">تكبير</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- هيكل التطبيق: القائمة اليمنى + مسرح الدرس الأيسر -->
+    <div class="app-body">
+
+        <!-- ==============================================
+             مسرح الدرس التفاعلي (Main Stage)
+        =============================================== -->
+        <main class="main-stage">
+            <div class="stage-card">
+
+                <!-- 1. نشاط 5: صوت (ا ، ى) في الكلمات -->
+                <div class="lesson-view active" id="view-tab-act5">
+                    <div class="letter-selector-bar">
+                        <div class="selector-title">
+                            👈 اختر الصوت المطلوب، ثم انقر على الفراغ:
+                        </div>
+                        <div class="selectable-letters">
+                            <div class="letter-pick-card selected" id="pick-alif" onclick="selectPhonics('ا')">
+                                ا
+                                <span class="label-hint">صوت المد: آاا</span>
+                            </div>
+                            <div class="letter-pick-card" id="pick-maqsura" onclick="selectPhonics('ى')">
+                                ى
+                                <span class="label-hint">صوت: ى (الألف اللينة)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button class="btn btn-teach" onclick="autoSolveAct5()">💡 حل وشرح المعلمة الفونيمي</button>
+                        <button class="btn btn-quiz" onclick="startAct5Quiz()">🎯 ابدأ التفاعل والاختبار</button>
+                        <button class="btn btn-reset" onclick="resetAct5()">🔄 إعادة ضبط الفراغات</button>
+                    </div>
+
+                    <div class="image-container-5" id="card-act5">
+                        <img src="activity_5.png" alt="نشاط 5 - ارسم حرف ا و ى">
+                        <svg class="svg-overlay-5" viewBox="0 0 1024 451">
+                            <rect id="mask-nar" class="dot-mask" x="902" y="343" width="26" height="9" fill="#ffffff" />
+                            <text id="text-nar" class="placed-letter" x="924" y="348" text-anchor="middle">ا</text>
+
+                            <rect id="mask-mrma" class="dot-mask" x="656" y="343" width="46" height="9" fill="#ffffff" />
+                            <text id="text-mrma" class="placed-letter" x="678" y="348" text-anchor="middle">ى</text>
+
+                            <rect id="mask-dar" class="dot-mask" x="516" y="342" width="27" height="9" fill="#ffffff" />
+                            <text id="text-dar" class="placed-letter" x="528" y="348" text-anchor="middle">ا</text>
+
+                            <rect id="mask-halwa" class="dot-mask" x="254" y="343" width="46" height="9" fill="#ffffff" />
+                            <text id="text-halwa" class="placed-letter" x="276" y="348" text-anchor="middle">ى</text>
+
+                            <rect id="mask-asa" class="dot-mask" x="80" y="343" width="46" height="9" fill="#ffffff" />
+                            <text id="text-asa" class="placed-letter" x="108" y="348" text-anchor="middle">ا</text>
+                        </svg>
+
+                        <div class="slot-hotspot hotspot-nar" id="spot-nar" onclick="fillSlot('nar', 'ا', 'act5_nar', 'نَـ... آاا... رُ $\\rightarrow$ نَارُ')"></div>
+                        <div class="slot-hotspot hotspot-mrma" id="spot-mrma" onclick="fillSlot('mrma', 'ى', 'act5_mrma', 'مَرْ... مَى $\\rightarrow$ مَرْمَى')"></div>
+                        <div class="slot-hotspot hotspot-dar" id="spot-dar" onclick="fillSlot('dar', 'ا', 'act5_dar', 'دَ... آاا... رُ $\\rightarrow$ دَارُ')"></div>
+                        <div class="slot-hotspot hotspot-halwa" id="spot-halwa" onclick="fillSlot('halwa', 'ى', 'act5_halwa', 'حَلْـ... وَى $\\rightarrow$ حَلْوَى')"></div>
+                        <div class="slot-hotspot hotspot-asa" id="spot-asa" onclick="fillSlot('asa', 'ا', 'act5_asa', 'عَصَـ... آاا $\\rightarrow$ عَصَا')"></div>
+                    </div>
+                </div>
+
+                <!-- 2. نشاط 6: الأطول والأقصر -->
+                <div class="lesson-view" id="view-tab-act6">
+                    <div class="controls">
+                        <button class="btn btn-quiz" onclick="startQuizMode()">🎯 نمط اختبار الطالب (تفاعلي)</button>
+                        <button class="btn btn-teach" onclick="startTeachMode()">💡 نمط الشرح التلقائي (المعلم)</button>
+                        <button class="btn btn-reset" onclick="resetActivity6()">🔄 إعادة ضبط الصورة</button>
+                    </div>
+
+                    <div class="image-container-6" id="activityCard6">
+                        <img src="activity_6.png" alt="نشاط 6 - أميز الأقصر والأطول">
+                        <svg class="svg-overlay-5" viewBox="0 0 1024 536">
+                            <ellipse id="circle-tall-giraffe" class="circle-path" cx="625" cy="340" rx="95" ry="165" stroke="#e11d48" />
+                            <ellipse id="circle-tall-pencil" class="circle-path" cx="248" cy="340" rx="42" ry="165" stroke="#e11d48" />
+                        </svg>
+
+                        <div class="hotspot spot-tall-giraffe" onclick="handleItemClick('tall-giraffe')"></div>
+                        <div class="hotspot spot-short-giraffe" onclick="handleItemClick('short-giraffe')"></div>
+                        <div class="hotspot spot-tall-pencil" onclick="handleItemClick('tall-pencil')"></div>
+                        <div class="hotspot spot-short-pencil" onclick="handleItemClick('short-pencil')"></div>
+                    </div>
+                </div>
+
+                <!-- 3. نشاط 7: أحدد الأماكن (فوق وتحت) -->
+                <div class="lesson-view" id="view-tab-act7">
+                    <div class="controls">
+                        <button class="btn btn-teach" onclick="teachAct7()">💡 شرح المعلم: فَوْقَ وتَحْتَ</button>
+                        <button class="btn btn-quiz" onclick="quizAct7()">🎯 اختبار تحديد الأماكن</button>
+                    </div>
+                    <div class="image-container-7" id="activityCard7">
+                        <img src="activity_7.png" alt="نشاط 7 - أحدد الأماكن">
+                    </div>
+                </div>
+
+                <!-- 4. ورشة دمج الحروف (دَادَا) -->
+                <div class="lesson-view" id="view-tab-letters">
+                    <div class="word-builder-demo">
+                        <div class="controls" style="margin-bottom: 15px;">
+                            <button class="btn btn-teach" onclick="pronounceLetter('box1', 'letter_da', 'صوت الحرف: دَ')">🔊 انطق الصوت: دَ</button>
+                            <button class="btn btn-teach" onclick="pronounceLetter('box2', 'phonics_a', 'صوت المد: آاا')">🔊 انطق صوت المد: آاا</button>
+                            <button class="btn btn-quiz" onclick="animateBlending()">✨ ادمج الأصوات لتكوين الكلمة! ✨</button>
+                        </div>
+
+                        <div class="letter-track" id="letterTrack">
+                            <div class="letter-box" id="box1" onclick="pronounceLetter('box1', 'letter_da', 'صوت الحرف: دَ')">دَ</div>
+                            <div class="letter-box" id="box2" onclick="pronounceLetter('box2', 'phonics_a', 'صوت المد: آاا')">ا</div>
+                            <div class="letter-box" id="box3" onclick="pronounceLetter('box3', 'letter_da', 'صوت الحرف: دَ')">دَ</div>
+                            <div class="letter-box" id="box4" onclick="pronounceLetter('box4', 'phonics_a', 'صوت المد: آاا')">ا</div>
+                        </div>
+
+                        <div class="merged-word" id="mergedWord">👶 دَادَا (طفل صغير)</div>
+                        <div id="wordMeaning" style="font-size: 1.25rem; font-weight: 800; color: #334155; margin-top: 10px;">
+                            انقر على أي حرف لسماع صوته الفونيمي النقي، أو اضغط زر "ادمج الأصوات لتكوين الكلمة"!
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- ==============================================
+             القائمة الجانبية اليمنى (Right Curriculum Sidebar)
+        =============================================== -->
+        <aside class="curriculum-sidebar" id="curriculumSidebar">
+            <div class="sidebar-header">
+                <h2><span>📑</span> فهرس منهج قراءتي</h2>
+                <p>اختر أي وحدة أو درس للانتقال إليه فوراً:</p>
+            </div>
+
+            <!-- يتم ملء الوحدات والدروس تلقائياً عبر JavaScript من CURRICULUM_DATA -->
+            <div class="units-accordion" id="unitsAccordion"></div>
+        </aside>
+
+    </div>
+
+    <!-- شخصية "فَصِيح" الكرتونية التفاعلية -->
+    <div class="mascot-container" id="mascotContainer">
+        <div class="mascot-avatar" id="mascotAvatar" onclick="mascotInteracted()" title="أنا صديقك فصيح! انقر عليّ للتحدث">
+            <svg viewBox="0 0 160 200" width="100%" height="100%">
+                <ellipse cx="80" cy="190" rx="45" ry="8" fill="rgba(0,0,0,0.15)" />
+                <rect x="52" y="15" width="56" height="28" rx="8" fill="#e11d48" stroke="#be123c" stroke-width="3" />
+                <rect x="50" y="38" width="60" height="12" rx="3" fill="#94a3b8" stroke="#64748b" stroke-width="2" />
+                <path d="M52 48 L108 48 L102 145 L58 145 Z" fill="#fbbf24" stroke="#d97706" stroke-width="3" />
+                <path d="M72 48 L88 48 L85 145 L75 145 Z" fill="#fef08a" opacity="0.6" />
+                <polygon points="58,145 102,145 80,185" fill="#fed7aa" stroke="#d97706" stroke-width="2" />
+                <polygon points="74,174 86,174 80,185" fill="#1e293b" />
+                <g class="mascot-eye">
+                    <ellipse cx="68" cy="80" rx="10" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="2.5" />
+                    <circle cx="70" cy="81" r="6" fill="#1e3a8a" />
+                    <circle cx="72" cy="78" r="2.5" fill="#ffffff" />
+                </g>
+                <g class="mascot-eye">
+                    <ellipse cx="92" cy="80" rx="10" ry="14" fill="#ffffff" stroke="#1e293b" stroke-width="2.5" />
+                    <circle cx="90" cy="81" r="6" fill="#1e3a8a" />
+                    <circle cx="88" cy="78" r="2.5" fill="#ffffff" />
+                </g>
+                <path d="M60 62 Q68 58 76 64" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round" />
+                <path d="M84 64 Q92 58 100 62" fill="none" stroke="#92400e" stroke-width="3" stroke-linecap="round" />
+                <ellipse cx="58" cy="98" rx="6" ry="4" fill="#f43f5e" opacity="0.5" />
+                <ellipse cx="102" cy="98" rx="6" ry="4" fill="#f43f5e" opacity="0.5" />
+                <g class="mascot-mouth" id="mascotMouth">
+                    <path d="M70 102 Q80 116 90 102" fill="#be123c" stroke="#1e293b" stroke-width="2" />
+                </g>
+                <g>
+                    <circle cx="40" cy="100" r="11" fill="#ffffff" stroke="#1e293b" stroke-width="2.5" />
+                    <circle cx="34" cy="95" r="4.5" fill="#ffffff" stroke="#1e293b" stroke-width="2" />
+                    <circle cx="120" cy="100" r="11" fill="#ffffff" stroke="#1e293b" stroke-width="2.5" />
+                    <circle cx="126" cy="95" r="4.5" fill="#ffffff" stroke="#1e293b" stroke-width="2" />
+                </g>
+            </svg>
+        </div>
+
+        <div class="speech-bubble" id="speechBubble">
+            <span id="speechText">مرحباً بكم يا أبطال! اختر الدرس من القائمة اليمنى لنبدأ التعلم سوياً! 🌟</span>
+        </div>
+    </div>
+
+    <!-- استدعاء قاعدة البيانات الصوتية والمناهج المضمنة -->
+    <script src="audio_data.js"></script>
+    <script src="curriculum_data.js"></script>
+
+    <script>
+        /* ========================================================
+           1. PWA & Fullscreen
+        ======================================================== */
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(reg => console.log('Service Worker Registered'))
+                    .catch(err => console.log('SW Registration Failed', err));
+            });
+        }
+
+        let deferredPrompt = null;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            const btn = document.getElementById('btnPwaInstall');
+            if (btn) btn.style.display = 'inline-flex';
+        });
+
+        function installPWA() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then(() => {
+                    deferredPrompt = null;
+                    document.getElementById('btnPwaInstall').style.display = 'none';
+                });
+            }
+        }
+
+        function toggleFullScreen() {
+            const btnText = document.getElementById('fullscreenText');
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().then(() => {
+                    btnText.innerText = 'تصغير';
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen().then(() => {
+                        btnText.innerText = 'تكبير';
+                    });
+                }
+            }
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById('curriculumSidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        /* ========================================================
+           2. Audio & Mascot Engine
+        ======================================================== */
+        let currentAudio = null;
+
+        function mascotSpeak(text, audioKey, onEndedCallback) {
+            const bubble = document.getElementById('speechBubble');
+            const speechText = document.getElementById('speechText');
+            const avatar = document.getElementById('mascotAvatar');
+
+            speechText.innerHTML = text;
+            bubble.classList.add('speaking');
+            avatar.classList.add('mascot-speaking');
+
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+
+            let src = '';
+            if (window.AUDIO_DATA && window.AUDIO_DATA[audioKey]) {
+                src = window.AUDIO_DATA[audioKey];
+            } else {
+                src = 'audio/' + audioKey + '.mp3';
+            }
+
+            try {
+                currentAudio = new Audio(src);
+                currentAudio.onended = () => {
+                    bubble.classList.remove('speaking');
+                    avatar.classList.remove('mascot-speaking');
+                    if (onEndedCallback) onEndedCallback();
+                };
+                currentAudio.play().catch(e => console.log('Audio playback info:', e));
+            } catch (err) {
+                console.error(err);
+                bubble.classList.remove('speaking');
+                avatar.classList.remove('mascot-speaking');
+            }
+        }
+
+        function mascotCelebrates() {
+            const avatar = document.getElementById('mascotAvatar');
+            avatar.classList.add('mascot-celebrate');
+            setTimeout(() => avatar.classList.remove('mascot-celebrate'), 1500);
+        }
+
+        function mascotInteracted() {
+            mascotCelebrates();
+            mascotSpeak('أنا صديقك فَصِيح! اختر الدرس من القائمة اليمنى وسأرافقك دائماً!', 'mascot_hint');
+        }
+
+        /* ========================================================
+           3. Right Sidebar Generator & Navigation
+        ======================================================== */
+        let currentActiveLessonId = 'tab-act5';
+
+        function buildCurriculumSidebar() {
+            const accordion = document.getElementById('unitsAccordion');
+            accordion.innerHTML = '';
+
+            window.CURRICULUM_DATA.forEach((unit, uIdx) => {
+                const card = document.createElement('div');
+                card.className = 'unit-card' + (uIdx === 0 ? ' open' : '');
+
+                // شريط عنوان الوحدة
+                const titleBar = document.createElement('div');
+                titleBar.className = 'unit-title-bar';
+                titleBar.onclick = () => card.classList.toggle('open');
+                titleBar.innerHTML = `
+                    <div class="unit-info-left">
+                        <span>${unit.icon}</span>
+                        <span>${unit.title}</span>
+                    </div>
+                    <span style="font-size: 0.8rem; color: #64748b;">(ص ${unit.pages})</span>
+                `;
+                card.appendChild(titleBar);
+
+                // قائمة الدروس داخل الوحدة
+                const lessonsList = document.createElement('div');
+                lessonsList.className = 'unit-lessons-list';
+
+                unit.lessons.forEach(lesson => {
+                    const item = document.createElement('div');
+                    item.className = 'lesson-nav-item' + (lesson.id === currentActiveLessonId ? ' active' : '');
+                    item.id = 'nav-' + lesson.id;
+                    item.onclick = (e) => {
+                        e.stopPropagation();
+                        selectLesson(lesson.id, lesson.title, lesson.status);
+                    };
+
+                    const badgeClass = lesson.status === 'ready' ? 'badge-ready' : 'badge-upcoming';
+                    const badgeText = lesson.status === 'ready' ? 'مفعل جاهز ✅' : 'قيد التطوير 🚀';
+
+                    item.innerHTML = `
+                        <span>${lesson.title}</span>
+                        <span class="lesson-badge ${badgeClass}">${badgeText}</span>
+                    `;
+                    lessonsList.appendChild(item);
+                });
+
+                card.appendChild(lessonsList);
+                accordion.appendChild(card);
+            });
+        }
+
+        function selectLesson(lessonId, lessonTitle, status) {
+            // غلق القائمة في شاشات الجوال بعد الاختيار
+            if (window.innerWidth <= 992) {
+                document.getElementById('curriculumSidebar').classList.remove('open');
+            }
+
+            if (status !== 'ready') {
+                mascotSpeak(`درس <b>(${lessonTitle})</b> قيد التطوير والإضافة للمنهج قريباً جداً يا بطل! 🚀`, 'mascot_hint');
+                return;
+            }
+
+            currentActiveLessonId = lessonId;
+
+            // تحديث التحديد في القائمة
+            document.querySelectorAll('.lesson-nav-item').forEach(el => el.classList.remove('active'));
+            const activeNav = document.getElementById('nav-' + lessonId);
+            if (activeNav) activeNav.classList.add('active');
+
+            // إظهار واجهة الدرس المطابقة
+            document.querySelectorAll('.lesson-view').forEach(v => v.classList.remove('active'));
+            const targetView = document.getElementById('view-' + lessonId);
+            if (targetView) targetView.classList.add('active');
+
+            // نطق فصيح لتوجيه الدرس
+            if (lessonId === 'tab-act5') {
+                mascotSpeak('نشاط ٥: استمع لصوت المد (آاا) وصوت (ى) وضع الصوت في الفراغ!', 'act5_prompt');
+            } else if (lessonId === 'tab-act6') {
+                mascotSpeak('نشاط ٦: أميز الأقصر والأطول - اضغط على الخيار الأطول!', 'quiz_prompt');
+            } else if (lessonId === 'tab-act7') {
+                mascotSpeak('نشاط ٧: أحدد الأماكن! استمع وضع الدائرة على ما هو فَوْق وما هو تَحْت!', 'act7_prompt');
+            } else if (lessonId === 'tab-letters') {
+                mascotSpeak('ورشة تكوين الكلمات: اضغط على أصوات الحروف ثم ادمجها لتكوين كلمة (دَادَا)!', 'blend_intro');
+            }
+        }
+
+        /* ========================================================
+           4. Activity 5 Logic (الصوت الفونيمي وسلامة الراء 100%)
+        ======================================================== */
+        let currentlySelectedLetter = 'ا';
+
+        function selectPhonics(letter) {
+            currentlySelectedLetter = letter;
+            document.querySelectorAll('.letter-pick-card').forEach(c => c.classList.remove('selected'));
+            if (letter === 'ا') {
+                document.getElementById('pick-alif').classList.add('selected');
+                mascotSpeak('اخترت صوت المد: <b>( آااا )</b> مثل صوت A في Cat. الآن اضغط على الفراغ المناسب!', 'phonics_a');
+            } else {
+                document.getElementById('pick-maqsura').classList.add('selected');
+                mascotSpeak('اخترت صوت الألف المقصورة اللينة: <b>( ى )</b>. الآن اضغط على الفراغ المناسب!', 'phonics_maqsura');
+            }
+        }
+
+        let filledCount = 0;
+        const totalSlots = 5;
+
+        function fillSlot(slotId, correctLetter, audioKey, wordDesc) {
+            const spot = document.getElementById('spot-' + slotId);
+            const mask = document.getElementById('mask-' + slotId);
+            const text = document.getElementById('text-' + slotId);
+
+            if (spot.classList.contains('filled')) return;
+
+            if (currentlySelectedLetter === correctLetter) {
+                spot.classList.add('filled');
+                mask.style.display = 'inline';
+                text.classList.add('show');
+                filledCount++;
+
+                mascotCelebrates();
+                mascotSpeak(`🎉 <b style="color: #16a34a;">ممتاز يا بطل!</b> الصوت صحيح: <b>${wordDesc}</b>`, audioKey, () => {
+                    if (filledCount === totalSlots) {
+                        setTimeout(() => {
+                            mascotCelebrates();
+                            mascotSpeak('🏆 <b style="color: #7c3aed;">رائع جداً ومبهر!</b> ركّبت جميع الأصوات في الكلمات بنجاح!', 'act5_complete');
+                        }, 500);
+                    }
+                });
+            } else {
+                const card = document.getElementById('card-act5');
+                card.classList.add('shake');
+                setTimeout(() => card.classList.remove('shake'), 500);
+                mascotSpeak(`⚠️ <b style="color: #dc2626;">استمع جيداً!</b> هل تحتاج الكلمة لصوت المد (آاا) أم صوت (ى)؟ فكّر مرة أخرى!`, 'act5_wrong');
+            }
+        }
+
+        function resetAct5() {
+            filledCount = 0;
+            document.querySelectorAll('.slot-hotspot').forEach(s => s.classList.remove('filled'));
+            document.querySelectorAll('.dot-mask').forEach(m => m.style.display = 'none');
+            document.querySelectorAll('.placed-letter').forEach(t => t.classList.remove('show'));
+            mascotSpeak('أعدنا ضبط الفراغات. اختر صوت ( آاا ) أو ( ى ) ثم انقر على الكلمة!', 'act5_prompt');
+        }
+
+        function startAct5Quiz() {
+            resetAct5();
+            mascotSpeak('🎯 <b>سؤال الاختبار:</b> ضع الصوت المناسب ( آاا ) أو ( ى ) في الفراغات لتكمل الكلمات الخمس!', 'act5_prompt');
+        }
+
+        function autoSolveAct5() {
+            resetAct5();
+            mascotSpeak('💡 مرحباً يا أبطال، سنتعلم معاً صوت الحرف المناسب لكل كلمة...', 'act5_prompt', () => {
+                setTimeout(() => {
+                    selectPhonics('ا');
+                    document.getElementById('spot-nar').classList.add('filled');
+                    document.getElementById('mask-nar').style.display = 'inline';
+                    document.getElementById('text-nar').classList.add('show');
+                    mascotSpeak('🔥 كلمة <b>(نَارُ)</b>: نَـ... آاا... رُ $\\rightarrow$ نَارُ!', 'act5_nar', () => {
+                        setTimeout(() => {
+                            selectPhonics('ى');
+                            document.getElementById('spot-mrma').classList.add('filled');
+                            document.getElementById('mask-mrma').style.display = 'inline';
+                            document.getElementById('text-mrma').classList.add('show');
+                            mascotSpeak('⚽ كلمة <b>(مَرْمَى)</b>: مَرْ... مَى $\\rightarrow$ مَرْمَى!', 'act5_mrma', () => {
+                                setTimeout(() => {
+                                    selectPhonics('ا');
+                                    document.getElementById('spot-dar').classList.add('filled');
+                                    document.getElementById('mask-dar').style.display = 'inline';
+                                    document.getElementById('text-dar').classList.add('show');
+                                    mascotSpeak('🏡 كلمة <b>(دَارُ)</b>: دَ... آاا... رُ $\\rightarrow$ دَارُ!', 'act5_dar', () => {
+                                        setTimeout(() => {
+                                            selectPhonics('ى');
+                                            document.getElementById('spot-halwa').classList.add('filled');
+                                            document.getElementById('mask-halwa').style.display = 'inline';
+                                            document.getElementById('text-halwa').classList.add('show');
+                                            mascotSpeak('🍬 كلمة <b>(حَلْوَى)</b>: حَلْـ... وَى $\\rightarrow$ حَلْوَى!', 'act5_halwa', () => {
+                                                setTimeout(() => {
+                                                    selectPhonics('ا');
+                                                    document.getElementById('spot-asa').classList.add('filled');
+                                                    document.getElementById('mask-asa').style.display = 'inline';
+                                                    document.getElementById('text-asa').classList.add('show');
+                                                    mascotSpeak('🦯 كلمة <b>(عَصَا)</b>: عَصَـ... آاا $\\rightarrow$ عَصَا!', 'act5_asa', () => {
+                                                        setTimeout(() => {
+                                                            mascotCelebrates();
+                                                            mascotSpeak('✨ <b>أحسنتم يا أبطال!</b> تعلمنا التمييز بين صوت المد (آاا) وصوت الألف المقصورة (ى)!', 'act5_complete');
+                                                        }, 600);
+                                                    });
+                                                }, 1200);
+                                            });
+                                        }, 1200);
+                                    });
+                                }, 1200);
+                            });
+                        }, 1200);
+                    });
+                }, 1000);
+            });
+        }
+
+        /* ========================================================
+           5. Activity 6 Logic (الأطول والأقصر)
+        ======================================================== */
+        function resetActivity6() {
+            document.querySelectorAll('.circle-path').forEach(c => c.classList.remove('draw'));
+            mascotSpeak('أعدنا ضبط الصورة لوضعها الطبيعي!', 'reset');
+        }
+
+        function handleItemClick(itemId) {
+            if (itemId === 'tall-giraffe') {
+                document.getElementById('circle-tall-giraffe').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('🎉 <b style="color: #16a34a;">ممتاز يا بطل!</b> هذه هي الزرافة الأطول، ووضعنا حولها دائرة!', 'tall_giraffe_correct');
+            } else if (itemId === 'short-giraffe') {
+                const card = document.getElementById('activityCard6');
+                card.classList.add('shake');
+                setTimeout(() => card.classList.remove('shake'), 500);
+                mascotSpeak('⚠️ <b style="color: #dc2626;">هذه الزرافة قصيرة!</b> المطلوب هو وضع دائرة حول <b>الأطول</b>.', 'short_giraffe_wrong');
+            } else if (itemId === 'tall-pencil') {
+                document.getElementById('circle-tall-pencil').classList.add('draw');
+                mascotCelebrates();
+                mascotSpeak('🌟 <b style="color: #16a34a;">رائع جداً!</b> هذا هو القلم الأطول!', 'tall_pencil_correct');
+            } else if (itemId === 'short-pencil') {
+                const card = document.getElementById('activityCard6');
+                card.classList.add('shake');
+                setTimeout(() => card.classList.remove('shake'), 500);
+                mascotSpeak('⚠️ <b style="color: #dc2626;">هذا هو القلم الأقصر!</b> اختر القلم الأطول!', 'short_pencil_wrong');
+            }
+        }
+
+        function startQuizMode() {
+            resetActivity6();
+            mascotSpeak('🎯 <b>سؤال الاختبار:</b> انقر على الزرافة الأطول والقلم الأطول لتضع الدائرة!', 'quiz_prompt');
+        }
+
+        function startTeachMode() {
+            resetActivity6();
+            mascotSpeak('💡 مرحباً يا أبطال، سنتعلم اليوم كيف نميز الأقصر والأطول...', 'teach_intro', () => {
+                mascotSpeak('🦒 انظروا إلى الزرافتين.. الزرافة التي على اليمين هي <b>الأطول</b>، سنضع حولها دائرة الآن!', 'teach_giraffe', () => {
+                    document.getElementById('circle-tall-giraffe').classList.add('draw');
+                    setTimeout(() => {
+                        mascotSpeak('✏️ والآن انظروا إلى القلمين.. القلم الذي على اليسار هو <b>الأطول</b>، سنضع حوله دائرة أيضاً!', 'teach_pencil', () => {
+                            document.getElementById('circle-tall-pencil').classList.add('draw');
+                        });
+                    }, 1000);
+                });
+            });
+        }
+
+        /* ========================================================
+           6. Activity 7 Logic (أحدد الأماكن)
+        ======================================================== */
+        function teachAct7() {
+            mascotSpeak('💡 انظروا إلى الصورة يا أبطال: فَوْقَ يعني في الأعلى، وتَحْتَ يعني في الأسفل!', 'act7_above');
+        }
+
+        function quizAct7() {
+            mascotSpeak('🎯 أين الكائن الذي في الأعلى: فَوْقَ، وأين الذي في الأسفل: تَحْتَ؟ اضغط عليه!', 'act7_prompt');
+        }
+
+        /* ========================================================
+           7. Letter Blending Logic (دَادَا)
+        ======================================================== */
+        function pronounceLetter(boxId, soundKey, messageText) {
+            const box = document.getElementById(boxId);
+            if (box) {
+                box.classList.remove('active');
+                void box.offsetWidth;
+                box.classList.add('active');
+            }
+            mascotSpeak(messageText, soundKey);
+        }
+
+        function animateBlending() {
+            const b1 = document.getElementById('box1');
+            const b2 = document.getElementById('box2');
+            const b3 = document.getElementById('box3');
+            const b4 = document.getElementById('box4');
+            const merged = document.getElementById('mergedWord');
+            const meaning = document.getElementById('wordMeaning');
+
+            mascotSpeak('شاهد الحروف وهي تقترب لتصافح بعضها وتكوّن الكلمة! 🤝', 'blend_intro', () => {
+                b1.style.transform = 'translateX(-30px) scale(0.95)';
+                b2.style.transform = 'translateX(-10px) scale(0.95)';
+                b3.style.transform = 'translateX(10px) scale(0.95)';
+                b4.style.transform = 'translateX(30px) scale(0.95)';
+
+                mascotSpeak('صوت المقطع: <b>دَا</b>', 'syllable_da', () => {
+                    setTimeout(() => {
+                        b1.style.opacity = '0';
+                        b2.style.opacity = '0';
+                        b3.style.opacity = '0';
+                        b4.style.opacity = '0';
+
+                        merged.classList.add('show');
+                        meaning.innerHTML = '✨ <b>أحسنت!</b> تكونت كلمة (<b>دَادَا</b>) وهي تعني الطفل الصغير الذي يتعلم الحبو والمشي!';
+
+                        mascotCelebrates();
+                        mascotSpeak('👶 <b>دَادَا... دَا دَا، دَادَا!</b>', 'word_dada', () => {
+                            setTimeout(() => {
+                                mascotSpeak('أحسنت! كلمة دَادَا تعني الطفل الصغير!', 'blend_success');
+                            }, 500);
+                        });
+                    }, 800);
+                });
+            });
+
+            setTimeout(() => {
+                b1.style.transform = 'none';
+                b2.style.transform = 'none';
+                b3.style.transform = 'none';
+                b4.style.transform = 'none';
+                b1.style.opacity = '1';
+                b2.style.opacity = '1';
+                b3.style.opacity = '1';
+                b4.style.opacity = '1';
+                merged.classList.remove('show');
+            }, 12000);
+        }
+
+        // بناء القائمة والترحيب عند بدء التشغيل
+        window.addEventListener('DOMContentLoaded', () => {
+            buildCurriculumSidebar();
+            setTimeout(() => {
+                mascotSpeak('أهلاً بكم يا أبطال في منصة قراءتي التفاعلية الذكية! اختر الدرس من القائمة اليمنى لنبدأ التعلم سوياً! 🌟', 'mascot_welcome');
+            }, 800);
+        });
+    </script>
+</body>
+</html>
