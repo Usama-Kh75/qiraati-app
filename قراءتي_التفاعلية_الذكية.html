@@ -684,19 +684,159 @@
         .mascot-celebrate { animation: mascot-jump 0.6s ease 2; }
         @keyframes mascot-jump { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-30px) scale(1.2) rotate(-8deg); } }
 
+        /* ========================================================
+           تحسينات الهواتف والأجهزة اللوحية (Mobile & Tablet Responsiveness)
+        ======================================================== */
+        .sidebar-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1999;
+        }
+        .sidebar-backdrop.show { display: block; }
+
+        .btn-sidebar-close {
+            display: none;
+            background: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fca5a5;
+            padding: 6px 14px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .mobile-install-banner {
+            display: none;
+            background: linear-gradient(135deg, #eff6ff 0%, #ecfdf5 100%);
+            border: 2px solid #93c5fd;
+            border-radius: 16px;
+            padding: 10px 14px;
+            margin-bottom: 12px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 950px;
+        }
+        .mobile-install-banner strong {
+            display: block;
+            color: #1e40af;
+            font-size: 0.9rem;
+            margin-bottom: 2px;
+        }
+        .mobile-install-banner p {
+            margin: 0;
+            font-size: 0.82rem;
+            color: #334155;
+            line-height: 1.4;
+        }
+        .btn-close-banner {
+            background: #cbd5e1;
+            border: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: 800;
+            color: #475569;
+            flex-shrink: 0;
+        }
+
         @media (max-width: 992px) {
             .btn-sidebar-toggle { display: inline-flex; }
+            .btn-sidebar-close { display: inline-flex; }
             .curriculum-sidebar {
                 position: fixed;
                 right: 0;
-                top: 64px;
-                height: calc(100vh - 64px);
-                transform: translateX(100%);
-                z-index: 100;
+                top: 0;
+                width: 85%;
+                max-width: 330px;
+                height: 100vh;
+                transform: translateX(110%);
+                z-index: 2000;
+                box-shadow: none;
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             }
-            .curriculum-sidebar.open { transform: translateX(0); box-shadow: -10px 0 30px rgba(0,0,0,0.25); }
-            .mascot-container { left: 10px; bottom: 8px; }
-            .speech-bubble { max-width: 250px; font-size: 0.95rem; }
+            .curriculum-sidebar.open {
+                transform: translateX(0);
+                box-shadow: -10px 0 35px rgba(0,0,0,0.35);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-install-banner { display: flex; }
+            .btn-mobile-connect { display: none !important; }
+            .btn-pwa-install { display: none !important; }
+            
+            .top-navbar {
+                height: auto;
+                padding: 8px 12px;
+                gap: 8px;
+            }
+            .brand-title {
+                gap: 6px !important;
+            }
+            .brand-title span:first-child { font-size: 1.3rem !important; }
+            .brand-title div > div:first-child span:first-child { font-size: 0.95rem !important; }
+
+            .app-body {
+                height: auto;
+                min-height: calc(100vh - 60px);
+                overflow: visible;
+            }
+            .main-stage {
+                padding: 10px 10px 140px 10px;
+                overflow: visible;
+            }
+            .stage-card {
+                padding: 12px 8px;
+            }
+
+            /* شريط التنقل المتسلسل (العلوي والسفلي) بالموبايل */
+            .lesson-stepper-bar {
+                padding: 8px 10px;
+                margin-bottom: 15px;
+                border: 2px solid #e2e8f0;
+            }
+            .btn-step {
+                padding: 6px 12px;
+                font-size: 0.85rem;
+                flex-shrink: 0;
+            }
+            .current-lesson-label-top, #currentLessonLabel {
+                font-size: 0.82rem !important;
+                padding: 0 4px;
+            }
+
+            /* شخصية فصيح الكرتونية بالموبايل: مرتفعة عن الأزرار وبدون حجب */
+            .mascot-container {
+                left: 10px;
+                bottom: 80px;
+                z-index: 90;
+                pointer-events: none;
+            }
+            .mascot-avatar {
+                width: 65px;
+                height: 80px;
+                pointer-events: auto;
+            }
+            .speech-bubble {
+                max-width: 200px;
+                font-size: 0.8rem;
+                padding: 6px 10px;
+                border-radius: 16px 16px 16px 4px;
+                pointer-events: none; /* لا يحجب النقر على ما تحته أبداً! */
+            }
+        }
         /* ========================================================
            نافذة التثبيت والتشغيل على الهاتف والحاسوب (Modal)
         ======================================================== */
@@ -1043,6 +1183,7 @@
     </header>
 
     <!-- هيكل التطبيق: مسرح الدرس على اليسار + القائمة اليمنى للمنهج -->
+    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
     <div class="app-body">
 
         <!-- ==============================================
@@ -1050,11 +1191,14 @@
         =============================================== -->
         <aside class="curriculum-sidebar" id="curriculumSidebar">
             <div class="sidebar-header">
-                <h2><span>📑</span> فهرس منهج قراءتي</h2>
-                <div style="font-size: 0.85rem; font-weight: 900; color: #047857; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 4px 10px; border-radius: 8px; margin: 4px 0 8px 0; display: inline-block;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h2 style="margin: 0;"><span>📑</span> فهرس منهج قراءتي</h2>
+                    <button class="btn-sidebar-close" onclick="toggleSidebar()">✕ إغلاق</button>
+                </div>
+                <div style="font-size: 0.85rem; font-weight: 900; color: #047857; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 4px 10px; border-radius: 8px; margin: 4px 0 6px 0; display: inline-block;">
                     👨‍💻 إعداد: المهندس أسامة خليل هاشم
                 </div>
-                <p>تدرج دروس الكتاب من البداية للنهاية:</p>
+                <p style="margin: 0; font-size: 0.85rem; color: #64748b;">تدرج دروس الكتاب من البداية للنهاية:</p>
             </div>
 
             <div class="units-accordion" id="unitsAccordion"></div>
@@ -1064,6 +1208,31 @@
              مسرح الدرس التفاعلي (Main Stage)
         =============================================== -->
         <main class="main-stage">
+            <!-- بانر التثبيت التوضيحي للأجهزة الذكية (Mobile Install Banner) -->
+            <div class="mobile-install-banner" id="mobileInstallBanner">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: 1.4rem;">📲</span>
+                    <div>
+                        <strong>تثبيت التطبيق على جهازك:</strong>
+                        <p>اضغط قائمة المتصفح <code>⋮</code> في الأعلى ثم اختر <b>«إضافة إلى الشاشة الرئيسية»</b> ليعمل كتطبيق مستقل دائماً!</p>
+                    </div>
+                </div>
+                <button onclick="document.getElementById('mobileInstallBanner').style.display='none'" class="btn-close-banner">✕</button>
+            </div>
+
+            <!-- شريط التنقل المتسلسل العلوي (للهواتف والتابلت لتصفح فوري ومريح) -->
+            <div class="lesson-stepper-bar top-stepper">
+                <button class="btn-step" onclick="stepLesson(-1)">
+                    <span>➡️ السابق</span>
+                </button>
+                <span class="current-lesson-label-top" style="font-weight: 800; color: #1e3a8a; font-size: 0.95rem; text-align: center;">
+                    الدرس الأول: نشيد البطة وتسمية الأشياء
+                </span>
+                <button class="btn-step primary" onclick="stepLesson(1)">
+                    <span>التالي ⬅️</span>
+                </button>
+            </div>
+
             <div class="stage-card">
 
                 <!-- 1. الدرس الأول: نشيد البطة وتسمية الأشياء (ص 7 في الكتاب) -->
@@ -1515,7 +1684,18 @@
         }
 
         function toggleSidebar() {
-            document.getElementById('curriculumSidebar').classList.toggle('open');
+            const sb = document.getElementById('curriculumSidebar');
+            const bd = document.getElementById('sidebarBackdrop');
+            if (sb) {
+                sb.classList.toggle('open');
+                if (bd) {
+                    if (sb.classList.contains('open')) {
+                        bd.classList.add('show');
+                    } else {
+                        bd.classList.remove('show');
+                    }
+                }
+            }
         }
 
         /* ========================================================
@@ -1635,7 +1815,10 @@
             const lesson = flatLessonsList[index];
 
             if (window.innerWidth <= 992) {
-                document.getElementById('curriculumSidebar').classList.remove('open');
+                const sb = document.getElementById('curriculumSidebar');
+                if (sb) sb.classList.remove('open');
+                const bd = document.getElementById('sidebarBackdrop');
+                if (bd) bd.classList.remove('show');
             }
 
             // تحديث مؤشر شريط الدرس
@@ -1643,8 +1826,11 @@
             const activeNav = document.getElementById('nav-' + lesson.id);
             if (activeNav) activeNav.classList.add('active');
 
-            // تحديث عنوان الدرس في شريط التنقل السفلي
-            document.getElementById('currentLessonLabel').innerText = `${lesson.title} (ص ${lesson.page})`;
+            // تحديث عنوان الدرس في شريط التنقل السفلي والعلوي
+            const labelText = `${lesson.title} (ص ${lesson.page})`;
+            const currentLabel = document.getElementById('currentLessonLabel');
+            if (currentLabel) currentLabel.innerText = labelText;
+            document.querySelectorAll('.current-lesson-label-top').forEach(el => el.innerText = labelText);
 
             if (lesson.status !== 'ready') {
                 mascotSpeak(`درس <b>(${lesson.title})</b> قيد الإعداد والإضافة للتطبيق قريباً يا بطل! 🚀`, 'mascot_hint');
