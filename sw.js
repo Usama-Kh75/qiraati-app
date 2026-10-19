@@ -1,10 +1,12 @@
-const CACHE_NAME = 'qiraati-smart-v3';
+// منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
+const CACHE_NAME = 'qiraati-smart-v4';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
   './manifest.json',
   './audio_data.js',
   './curriculum_data.js',
+  './mobile_qr.png',
   './activity_nasheed_box.png',
   './activity_3_items.png',
   './activity_4.png',
