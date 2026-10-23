@@ -751,6 +751,228 @@
             flex-shrink: 0;
         }
 
+        /* ========================================================
+           أنماط درس حرف المد بالواو (و) (ص 13 - 14)
+        ======================================================== */
+        .station-nav-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            padding: 6px;
+            border-radius: 16px;
+        }
+        .station-tab {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 12px;
+            border: none;
+            background: transparent;
+            color: #475569;
+            font-family: inherit;
+            font-size: 0.88rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .station-tab:hover {
+            background: #e2e8f0;
+            color: #1e293b;
+        }
+        .station-tab.active {
+            background: #2563eb;
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+        .giant-letter-w-card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 3px solid #f59e0b;
+            border-radius: 20px;
+            padding: 10px 24px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(245, 158, 11, 0.18);
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .giant-letter-w-card:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+        }
+        .giant-letter-w-glyph {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: #b45309;
+            line-height: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .w-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+        .w-item-card {
+            background: white;
+            border-radius: 18px;
+            border: 2px solid #e2e8f0;
+            padding: 14px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+            position: relative;
+        }
+        .w-item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-color: #f59e0b;
+        }
+        .w-item-card.highlighted {
+            border-color: #10b981;
+            background: #ecfdf5;
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+        }
+        .w-item-icon {
+            font-size: 3.2rem;
+            margin-bottom: 6px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .w-item-card:hover .w-item-icon {
+            transform: scale(1.15) rotate(6deg);
+        }
+        .w-item-word {
+            font-size: 1.45rem;
+            font-weight: 900;
+            color: #1e293b;
+            margin-bottom: 2px;
+        }
+        .w-item-phonics {
+            font-size: 0.88rem;
+            color: #64748b;
+            font-weight: 700;
+        }
+        .w-vowel-highlight {
+            color: #e11d48;
+            font-size: 1.6rem;
+            font-weight: 900;
+        }
+        .w-quiz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+        .w-quiz-card {
+            background: white;
+            border-radius: 18px;
+            border: 2px solid #cbd5e1;
+            padding: 16px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+        .w-quiz-card:hover {
+            transform: translateY(-4px);
+            border-color: #6366f1;
+            box-shadow: 0 8px 18px rgba(99, 102, 241, 0.15);
+        }
+        .w-quiz-card.correct {
+            border-color: #10b981;
+            background: #ecfdf5;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+        }
+        .w-quiz-card.info-only {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .w-fill-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+        .w-fill-card {
+            background: white;
+            border-radius: 18px;
+            border: 2px solid #e2e8f0;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .w-fill-card:hover {
+            border-color: #f59e0b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.15);
+        }
+        .w-fill-slot {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 50px;
+            border-radius: 10px;
+            border: 2px dashed #f59e0b;
+            background: #fef3c7;
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #d97706;
+            vertical-align: middle;
+            margin: 0 4px;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .w-fill-slot.filled {
+            border: 2px solid #10b981;
+            background: #d1fae5;
+            color: #059669;
+            transform: scale(1.1);
+        }
+        .canvas-wrap {
+            background: #ffffff;
+            border: 3px solid #cbd5e1;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+            margin: 12px auto;
+            max-width: 600px;
+            overflow: hidden;
+            touch-action: none;
+        }
+        .canvas-tools {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .color-dot {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        .color-dot.active {
+            transform: scale(1.25);
+            outline: 3px solid #1e293b;
+        }
+
         @media (max-width: 992px) {
             .btn-sidebar-toggle { display: inline-flex; }
             .btn-sidebar-close { display: inline-flex; }
@@ -1471,6 +1693,220 @@
                     </div>
                 </div>
 
+                <!-- درس صوت حرف المد (و) وأنشطته التفاعلية (ص 13 - 14 في الكتاب) -->
+                <div class="lesson-view" id="view-tab-vowel_w">
+                    <!-- محطة التبديل بين أنشطة الدرس -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationW1" onclick="switchWStation(1)">
+                            <span>🦉</span> <span>١. أتعرف وأردد (ص ١٣)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationW2" onclick="switchWStation(2)">
+                            <span>🎯</span> <span>٢. تمييز صوت المد (ص ١٣)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationW3" onclick="switchWStation(3)">
+                            <span>✏️</span> <span>٣. إكمال الفراغات (ص ١٤)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationW4" onclick="switchWStation(4)">
+                            <span>🎨</span> <span>٤. تتبع ورسم الحرف (ص ١٤)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت المد بالواو -->
+                    <div class="vowel-w-station active" id="stationW1">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div class="giant-letter-w-card" onclick="playWLetterSound()" title="انقر لسماع صوت حرف المد">
+                                <span class="giant-letter-w-glyph">وُ</span>
+                                <div>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #92400e;">صوت المد بالواو: ( وووو )</div>
+                                    <div style="font-size: 0.85rem; color: #b45309;">اضغط لسماع الصوت الفونيمي النقي 🔊</div>
+                                </div>
+                            </div>
+                            <div style="font-size: 1rem; color: #334155; font-weight: 700;">
+                                انقر على أي صورة لتتعرف على اسمها وتستمع لصوت المد:
+                            </div>
+                        </div>
+
+                        <!-- شبكة البطاقات التفاعلية الأربعة -->
+                        <div class="w-cards-grid">
+                            <div class="w-item-card" id="card-w-buma" onclick="clickWItem('buma')">
+                                <div class="w-item-icon">🦉</div>
+                                <div class="w-item-word">بُـ<span class="w-vowel-highlight">ـوْ</span>مَـةُ</div>
+                                <div class="w-item-phonics">بُـ... <b style="color:#d97706;">ووو</b>... مَـة</div>
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">🔊 صوت المد بالوسط</div>
+                            </div>
+
+                            <div class="w-item-card" id="card-w-nujum" onclick="clickWItem('nujum')">
+                                <div class="w-item-icon">⭐</div>
+                                <div class="w-item-word">نُـجُـ<span class="w-vowel-highlight">ـوْ</span>مٌ</div>
+                                <div class="w-item-phonics">نُـ... جُـ... <b style="color:#d97706;">ووو</b>... م</div>
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">🔊 صوت مد ممدود</div>
+                            </div>
+
+                            <div class="w-item-card" id="card-w-kharuf" onclick="clickWItem('kharuf')">
+                                <div class="w-item-icon">🐑</div>
+                                <div class="w-item-word">خَـرُ<span class="w-vowel-highlight">وْ</span>فٌ</div>
+                                <div class="w-item-phonics">خَـ... رُ... <b style="color:#d97706;">ووو</b>... ف</div>
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">🔊 صوت مد نقي</div>
+                            </div>
+
+                            <div class="w-item-card" id="card-w-dumya" onclick="clickWItem('dumya')">
+                                <div class="w-item-icon">🧸</div>
+                                <div class="w-item-word">دُمْـيَـةُ</div>
+                                <div class="w-item-phonics">دُ... مْـ... يَـة</div>
+                                <div class="w-badge" style="background:#eff6ff; color:#1d4ed8; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">💡 ضمة قصيرة (دُ)</div>
+                            </div>
+                        </div>
+
+                        <!-- عرض صورة الكتاب التفاعلية الأصلية أسفل البطاقات -->
+                        <div style="margin-top: 18px; text-align: center;">
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 8px; font-size: 0.95rem;">
+                                📖 صورة النشاط كما في صفحة ١٣ من كتاب قراءتي:
+                            </div>
+                            <div class="image-container-w" style="position:relative; width:100%; border-radius:16px; overflow:hidden; border:2px solid #cbd5e1; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+                                <img src="activity_w_showcase.png" alt="نشاط 1 - أردد منتبها لصوت حرف المد و" style="width:100%; display:block;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: نشاط التمييز (حاسوب، بوق، توت، بندق) -->
+                    <div class="vowel-w-station" id="stationW2" style="display:none;">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div style="background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 14px; padding: 10px 16px; display: inline-block; margin-bottom: 10px;">
+                                <strong style="color: #1e40af; font-size: 1.05rem;">🎯 نشاط ٣ ص ١٣: أستمع وأميز الكلمات التي تحوي صوت (و)</strong>
+                                <p style="margin: 4px 0 0; color: #475569; font-size: 0.85rem;">اضغط على الكلمة لتستمع لها وتعرف هل تحوي صوت المد بالواو أم لا!</p>
+                            </div>
+                            <div class="controls" style="margin-top: 5px;">
+                                <button class="btn btn-teach" onclick="autoSolveWQuiz()">💡 حل وشرح المعلمة الفونيمي</button>
+                                <button class="btn btn-reset" onclick="resetWQuiz()">🔄 إعادة ضبط النشاط</button>
+                            </div>
+                        </div>
+
+                        <div class="w-quiz-grid">
+                            <div class="w-quiz-card" id="quiz-w-hasub" onclick="checkWQuiz('hasub')">
+                                <div style="font-size: 3rem; margin-bottom: 6px;">💻</div>
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">حَـاسُـوْبُ</div>
+                                <div class="quiz-badge" id="badge-w-hasub" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+                            </div>
+
+                            <div class="w-quiz-card" id="quiz-w-buq" onclick="checkWQuiz('buq')">
+                                <div style="font-size: 3rem; margin-bottom: 6px;">🎺</div>
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">بُـوْقٌ</div>
+                                <div class="quiz-badge" id="badge-w-buq" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+                            </div>
+
+                            <div class="w-quiz-card" id="quiz-w-tut" onclick="checkWQuiz('tut')">
+                                <div style="font-size: 3rem; margin-bottom: 6px;">🫐</div>
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">تُـوْتٌ</div>
+                                <div class="quiz-badge" id="badge-w-tut" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+                            </div>
+
+                            <div class="w-quiz-card" id="quiz-w-bunduq" onclick="checkWQuiz('bunduq')">
+                                <div style="font-size: 3rem; margin-bottom: 6px;">🌰</div>
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">بُـنْـدُقٌ</div>
+                                <div class="quiz-badge" id="badge-w-bunduq" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+                            </div>
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية لنشاط 3 -->
+                        <div style="margin-top: 18px; text-align: center;">
+                            <div class="image-container-w" style="position:relative; width:100%; border-radius:16px; overflow:hidden; border:2px solid #cbd5e1; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+                                <img src="activity_w_words.png" alt="نشاط 3 ص 13 - كلمات الواو" style="width:100%; display:block;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: إكمال الفراغات بحرف المد (و) -->
+                    <div class="vowel-w-station" id="stationW3" style="display:none;">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div style="background: #fef3c7; border: 2px solid #fde68a; border-radius: 14px; padding: 10px 16px; display: inline-block; margin-bottom: 10px;">
+                                <strong style="color: #92400e; font-size: 1.05rem;">✏️ نشاط ٥ ص ١٤: أرسم حرف المد (و) في الكلمات الآتية</strong>
+                                <p style="margin: 4px 0 0; color: #78350f; font-size: 0.85rem;">انقر على الفراغ لوضع حرف الواو واكتمال نطق الكلمة!</p>
+                            </div>
+                            <div class="controls" style="margin-top: 5px;">
+                                <button class="btn btn-teach" onclick="autoSolveWFill()">💡 حل وشرح المعلمة بالترتيب</button>
+                                <button class="btn btn-reset" onclick="resetWFill()">🔄 إعادة ضبط الفراغات</button>
+                            </div>
+                        </div>
+
+                        <div class="w-fill-cards-grid">
+                            <!-- خَـرُ[و]فُ -->
+                            <div class="w-fill-card" onclick="fillWWord('kharuf')">
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">🐑</div>
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+                                    خَـرُ<span class="w-fill-slot" id="slot-w-kharuf">..</span>فُ
+                                </div>
+                                <div id="label-w-kharuf" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (و)</div>
+                            </div>
+
+                            <!-- صُـ[و]فُ -->
+                            <div class="w-fill-card" onclick="fillWWord('suf')">
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">🧶</div>
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+                                    صُـ<span class="w-fill-slot" id="slot-w-suf">..</span>فُ
+                                </div>
+                                <div id="label-w-suf" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (و)</div>
+                            </div>
+
+                            <!-- لَيْـمُـ[و]نُ -->
+                            <div class="w-fill-card" onclick="fillWWord('laymun')">
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">🍋</div>
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+                                    لَيْـمُـ<span class="w-fill-slot" id="slot-w-laymun">..</span>نُ
+                                </div>
+                                <div id="label-w-laymun" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (و)</div>
+                            </div>
+
+                            <!-- نُـسُـ[و]رُ -->
+                            <div class="w-fill-card" onclick="fillWWord('nusur')">
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">🦅</div>
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+                                    نُـسُـ<span class="w-fill-slot" id="slot-w-nusur">..</span>رُ
+                                </div>
+                                <div id="label-w-nusur" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (و)</div>
+                            </div>
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية لنشاط 5 ص 14 -->
+                        <div style="margin-top: 18px; text-align: center;">
+                            <div class="image-container-w" style="position:relative; width:100%; border-radius:16px; overflow:hidden; border:2px solid #cbd5e1; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+                                <img src="activity_w_fill.png" alt="نشاط 5 ص 14 - إكمال الفراغ بالواو" style="width:100%; display:block;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: تتبع ورسم حرف (و) -->
+                    <div class="vowel-w-station" id="stationW4" style="display:none;">
+                        <div style="text-align: center; margin-bottom: 10px;">
+                            <div style="background: #ecfdf5; border: 2px solid #a7f3d0; border-radius: 14px; padding: 10px 16px; display: inline-block; margin-bottom: 8px;">
+                                <strong style="color: #065f46; font-size: 1.05rem;">🎨 نشاط ٦ ص ١٤: أرسم حرف (و) بخط واضح</strong>
+                                <p style="margin: 4px 0 0; color: #047857; font-size: 0.85rem;">ارسم بإصبعك أو بالفأرة على السبورة باتجاه الأسهم الإرشادية!</p>
+                            </div>
+                            <div>
+                                <button class="btn btn-teach" onclick="mascotSpeak('لِرَسْمِ حَرْفِ الوَاو: نَبْدَأُ بِدَائِرَةٍ صَغِيرَةٍ أَعْلَى السَّطْر، ثُمَّ نَنْزِلُ خَطّاً مُنْحَنِياً تَحْتَ السَّطْرِ كَالزُّحْلَيْقَةِ المَرِحَة! جَرِّبْ مَعِي!', 'vowel_w_draw_hint')">
+                                    💡 استمع لطريقة رسم الحرف
+                                </button>
+                                <button class="btn btn-reset" onclick="clearWCanvas()">🔄 مسح السبورة</button>
+                            </div>
+                        </div>
+
+                        <!-- سبورة الرسم التفاعلية -->
+                        <div class="canvas-wrap" id="wCanvasContainer">
+                            <canvas id="wDrawingCanvas" width="550" height="320" style="display:block; width:100%; height:auto; background:#ffffff;"></canvas>
+                        </div>
+
+                        <!-- ألوان وأدوات الرسم -->
+                        <div class="canvas-tools">
+                            <span style="font-weight: 800; color: #334155; font-size: 0.9rem;">اختر لون الرسم:</span>
+                            <div class="color-dot active" style="background:#2563eb;" onclick="setWDrawColor('#2563eb', this)"></div>
+                            <div class="color-dot" style="background:#059669;" onclick="setWDrawColor('#059669', this)"></div>
+                            <div class="color-dot" style="background:#d97706;" onclick="setWDrawColor('#d97706', this)"></div>
+                            <div class="color-dot" style="background:#dc2626;" onclick="setWDrawColor('#dc2626', this)"></div>
+                            <div class="color-dot" style="background:#7c3aed;" onclick="setWDrawColor('#7c3aed', this)"></div>
+                            <button class="btn" style="background:#64748b; color:white; padding:6px 12px; font-size:0.8rem;" onclick="setWEraser(this)">🧹 ممحاة</button>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- 5. ورشة دمج الحروف (دَادَا) (ص 24 في الكتاب) -->
                 <div class="lesson-view" id="view-tab-letters">
                     <div class="word-builder-demo">
@@ -1765,8 +2201,10 @@
         /* ========================================================
            3. Right Sidebar Generator & Sequential Navigation
         ======================================================== */
-        let flatLessonsList = [];
-        let currentLessonIndex = 0;
+        var flatLessonsList = [];
+        window.flatLessonsList = flatLessonsList;
+        var currentLessonIndex = 0;
+        window.currentLessonIndex = currentLessonIndex;
 
         function buildCurriculumSidebar() {
             const accordion = document.getElementById('unitsAccordion');
@@ -1875,6 +2313,8 @@
                 mascotSpeak('الدرس السادس: نشاط ٨ - أتعرف إلى الاتجاهات: يمين ويسار!', 'act8_intro');
             } else if (lesson.id === 'tab-act5') {
                 mascotSpeak('نشاط ٥: استمع لصوت المد (آاا) وصوت (ى) وضع الصوت في الفراغ!', 'act5_prompt');
+            } else if (lesson.id === 'tab-vowel_w') {
+                mascotSpeak('درس صوت حرف المد (و)! استمع لصوت المد المضموم (وووو) وردد مع فصيح!', 'vowel_w_intro');
             } else if (lesson.id === 'tab-letters') {
                 mascotSpeak('ورشة تكوين الكلمات: اضغط على أصوات الحروف ثم ادمجها لتكوين كلمة (دَادَا)!', 'blend_intro');
             }
@@ -2357,6 +2797,245 @@
                 b4.style.opacity = '1';
                 merged.classList.remove('show');
             }, 12000);
+        }
+
+        /* ========================================================
+           9. Vowel W Logic (صوت حرف المد و - ص 13 - 14)
+        ======================================================== */
+        function switchWStation(stationNum) {
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById('btnStationW' + i);
+                const pane = document.getElementById('stationW' + i);
+                if (btn) btn.classList.toggle('active', i === stationNum);
+                if (pane) {
+                    pane.style.display = (i === stationNum) ? 'block' : 'none';
+                    pane.classList.toggle('active', i === stationNum);
+                }
+            }
+            if (stationNum === 4) {
+                setTimeout(initWCanvas, 100);
+            }
+        }
+
+        function playWLetterSound() {
+            mascotCelebrates();
+            mascotSpeak('صوت حرف المد بالواو: ( ووووو )! مد طويل مبهج!', 'vowel_w_sound');
+        }
+
+        function clickWItem(itemKey) {
+            document.querySelectorAll('.w-item-card').forEach(c => c.classList.remove('highlighted'));
+            const card = document.getElementById('card-w-' + itemKey);
+            if (card) card.classList.add('highlighted');
+            mascotCelebrates();
+
+            if (itemKey === 'buma') {
+                mascotSpeak('🦉 <b>بُـوْمَـةُ!</b> استمع لصوت المد في الوسط: بُـ... <b>ووو</b>... مَـة ➔ بُوْمَة!', 'vowel_w_buma');
+            } else if (itemKey === 'nujum') {
+                mascotSpeak('⭐ <b>نُـجُـوْمٌ!</b> نُـ... جُـ... <b>ووو</b>... م ➔ نُجُوم! صوت المد بالواو نقي وطويل!', 'vowel_w_nujum');
+            } else if (itemKey === 'kharuf') {
+                mascotSpeak('🐑 <b>خَـرُوْفٌ!</b> خَـ... رُ... <b>ووو</b>... ف ➔ خَرُوف! أحسنتم يا شطار!', 'vowel_w_kharuf');
+            } else if (itemKey === 'dumya') {
+                mascotSpeak('🧸 <b>دُمْـيَـةُ!</b> انتبه يا بطل: دُمْيَة فيها ضمة قصيرة (دُ)، وليس فيها صوت مد بالواو!', 'vowel_w_dumya');
+            }
+        }
+
+        // Station 2: Quiz Logic
+        function checkWQuiz(wordKey) {
+            const card = document.getElementById('quiz-w-' + wordKey);
+            const badge = document.getElementById('badge-w-' + wordKey);
+
+            if (wordKey === 'hasub') {
+                if (card) { card.classList.add('correct'); card.classList.remove('info-only'); }
+                if (badge) { badge.innerHTML = '✔️ يحوي صوت المد (و)!'; badge.style.color = '#059669'; }
+                mascotCelebrates();
+                mascotSpeak('💻 صحيح! <b>حَـاسُـوْب</b> تحوي صوت المد بالواو: سُـ... <b>ووو</b>... بُ ➔ حَاسُوب!', 'vowel_w_hasub');
+            } else if (wordKey === 'buq') {
+                if (card) { card.classList.add('correct'); card.classList.remove('info-only'); }
+                if (badge) { badge.innerHTML = '✔️ يحوي صوت المد (و)!'; badge.style.color = '#059669'; }
+                mascotCelebrates();
+                mascotSpeak('🎺 أحسنت! <b>بُـوْق</b> فيها صوت مد بالواو طويل: بُـ... <b>ووو</b>... قُ!', 'vowel_w_buq');
+            } else if (wordKey === 'tut') {
+                if (card) { card.classList.add('correct'); card.classList.remove('info-only'); }
+                if (badge) { badge.innerHTML = '✔️ يحوي صوت المد (و)!'; badge.style.color = '#059669'; }
+                mascotCelebrates();
+                mascotSpeak('🫐 رائع! <b>تُـوْت</b> تحوي صوت مد بالواو: تُـ... <b>ووو</b>... تُ!', 'vowel_w_tut');
+            } else if (wordKey === 'bunduq') {
+                if (card) { card.classList.add('info-only'); card.classList.remove('correct'); }
+                if (badge) { badge.innerHTML = '💡 ضمة سريعة فقط!'; badge.style.color = '#2563eb'; }
+                mascotSpeak('🌰 استمع جيداً: <b>بُـنْـدُق</b> فيها ضمة سريعة (بُـ)، ولا يوجد فيها صوت مد بالواو!', 'vowel_w_bunduq');
+            }
+        }
+
+        function autoSolveWQuiz() {
+            checkWQuiz('hasub');
+            setTimeout(() => checkWQuiz('buq'), 3500);
+            setTimeout(() => checkWQuiz('tut'), 7000);
+            setTimeout(() => checkWQuiz('bunduq'), 10500);
+        }
+
+        function resetWQuiz() {
+            ['hasub', 'buq', 'tut', 'bunduq'].forEach(k => {
+                const card = document.getElementById('quiz-w-' + k);
+                const badge = document.getElementById('badge-w-' + k);
+                if (card) { card.classList.remove('correct'); card.classList.remove('info-only'); }
+                if (badge) { badge.innerHTML = 'اضغط للفحص 🔍'; badge.style.color = '#64748b'; }
+            });
+        }
+
+        // Station 3: Fill-in Logic
+        function fillWWord(wordKey) {
+            const slot = document.getElementById('slot-w-' + wordKey);
+            const label = document.getElementById('label-w-' + wordKey);
+            if (!slot) return;
+            slot.innerHTML = 'و';
+            slot.classList.add('filled');
+            mascotCelebrates();
+
+            if (wordKey === 'kharuf') {
+                if (label) { label.innerHTML = '✅ خَـرُوْف'; label.style.color = '#059669'; }
+                mascotSpeak('🐑 خَـرُ... <b>و</b>... فُ ➔ <b>خَـرُوْف</b>! أحسنت صارت خَرُوف!', 'vowel_w_fill_kharuf');
+            } else if (wordKey === 'suf') {
+                if (label) { label.innerHTML = '✅ صُـوْف'; label.style.color = '#059669'; }
+                mascotSpeak('🧶 صُـ... <b>و</b>... فُ ➔ <b>صُـوْف</b>! صوف الخروف الناعم!', 'vowel_w_fill_suf');
+            } else if (wordKey === 'laymun') {
+                if (label) { label.innerHTML = '✅ لَيْـمُـوْن'; label.style.color = '#059669'; }
+                mascotSpeak('🍋 لَيْـمُـ... <b>و</b>... نُ ➔ <b>لَيْـمُـوْن</b>! ليمون أصفر لذيذ!', 'vowel_w_fill_laymun');
+            } else if (wordKey === 'nusur') {
+                if (label) { label.innerHTML = '✅ نُـسُـوْر'; label.style.color = '#059669'; }
+                mascotSpeak('🦅 نُـسُـ... <b>و</b>... رُ ➔ <b>نُـسُـوْر</b>! نسور قوية تطير في السماء!', 'vowel_w_fill_nusur');
+            }
+        }
+
+        function autoSolveWFill() {
+            fillWWord('kharuf');
+            setTimeout(() => fillWWord('suf'), 3500);
+            setTimeout(() => fillWWord('laymun'), 7000);
+            setTimeout(() => fillWWord('nusur'), 10500);
+        }
+
+        function resetWFill() {
+            ['kharuf', 'suf', 'laymun', 'nusur'].forEach(k => {
+                const slot = document.getElementById('slot-w-' + k);
+                const label = document.getElementById('label-w-' + k);
+                if (slot) { slot.innerHTML = '..'; slot.classList.remove('filled'); }
+                if (label) { label.innerHTML = 'انقر لوضع حرف (و)'; label.style.color = '#64748b'; }
+            });
+        }
+
+        // Station 4: Drawing Canvas Logic
+        let wCanvasInited = false;
+        let wDrawing = false;
+        let wDrawColor = '#2563eb';
+        let wLineWidth = 8;
+        let wIsEraser = false;
+
+        function initWCanvas() {
+            const canvas = document.getElementById('wDrawingCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            if (!wCanvasInited) {
+                wCanvasInited = true;
+                drawWCanvasGuides(ctx, canvas);
+
+                const startDrawing = (e) => {
+                    wDrawing = true;
+                    ctx.beginPath();
+                    const pos = getCanvasPos(canvas, e);
+                    ctx.moveTo(pos.x, pos.y);
+                    if (e.cancelable) e.preventDefault();
+                };
+
+                const drawMove = (e) => {
+                    if (!wDrawing) return;
+                    const pos = getCanvasPos(canvas, e);
+                    ctx.lineTo(pos.x, pos.y);
+                    ctx.strokeStyle = wIsEraser ? '#ffffff' : wDrawColor;
+                    ctx.lineWidth = wIsEraser ? 24 : wLineWidth;
+                    ctx.lineCap = 'round';
+                    ctx.lineJoin = 'round';
+                    ctx.stroke();
+                    if (e.cancelable) e.preventDefault();
+                };
+
+                const stopDrawing = () => {
+                    if (wDrawing) {
+                        wDrawing = false;
+                        ctx.closePath();
+                    }
+                };
+
+                canvas.addEventListener('mousedown', startDrawing);
+                canvas.addEventListener('mousemove', drawMove);
+                window.addEventListener('mouseup', stopDrawing);
+
+                canvas.addEventListener('touchstart', startDrawing, { passive: false });
+                canvas.addEventListener('touchmove', drawMove, { passive: false });
+                window.addEventListener('touchend', stopDrawing);
+            }
+        }
+
+        function getCanvasPos(canvas, evt) {
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            const clientX = evt.touches ? evt.touches[0].clientX : evt.clientX;
+            const clientY = evt.touches ? evt.touches[0].clientY : evt.clientY;
+            return {
+                x: (clientX - rect.left) * scaleX,
+                y: (clientY - rect.top) * scaleY
+            };
+        }
+
+        function drawWCanvasGuides(ctx, canvas) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            // Baseline
+            ctx.save();
+            ctx.strokeStyle = '#94a3b8';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([8, 8]);
+            ctx.beginPath();
+            ctx.moveTo(20, 180);
+            ctx.lineTo(canvas.width - 20, 180);
+            ctx.stroke();
+
+            // Guide dashed letter و
+            ctx.font = '900 170px "Tajawal", sans-serif';
+            ctx.fillStyle = '#f1f5f9';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('و', canvas.width / 2, 175);
+
+            ctx.strokeStyle = '#cbd5e1';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([6, 6]);
+            ctx.strokeText('و', canvas.width / 2, 175);
+
+            // Numbered hint labels
+            ctx.setLineDash([]);
+            ctx.font = 'bold 16px "Tajawal", sans-serif';
+            ctx.fillStyle = '#64748b';
+            ctx.fillText('① ابدأ بالدائرة فوق السطر ➔ ثم ② انزل منحنياً كالزحليقة', canvas.width / 2, 290);
+            ctx.restore();
+        }
+
+        function clearWCanvas() {
+            const canvas = document.getElementById('wDrawingCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            drawWCanvasGuides(ctx, canvas);
+        }
+
+        function setWDrawColor(color, el) {
+            wIsEraser = false;
+            wDrawColor = color;
+            document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+            if (el) el.classList.add('active');
+        }
+
+        function setWEraser(el) {
+            wIsEraser = true;
+            document.querySelectorAll('.color-dot').forEach(d => d.classList.remove('active'));
+            if (el) el.classList.add('active');
         }
 
         window.addEventListener('DOMContentLoaded', () => {

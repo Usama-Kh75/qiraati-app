@@ -45,6 +45,9 @@ def bundle():
         'activity_6.png',
         'activity_7_places.png',
         'activity_8_directions.png',
+        'activity_w_showcase.png',
+        'activity_w_words.png',
+        'activity_w_fill.png',
         'mobile_qr.png',
         'icons/icon-192.png',
         'icons/icon-512.png'
