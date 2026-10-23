@@ -1013,6 +1013,269 @@
             outline: 3px solid #1e293b;
         }
 
+        
+        /* ========================================================
+           أنماط الوحدة الأولى: أسرتي وحرف الباء (بـ ، ب) (ص 17 - 20)
+        ======================================================== */
+        .giant-letter-b-card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            border: 3px solid #ef4444;
+            border-radius: 20px;
+            padding: 10px 24px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(239, 68, 68, 0.18);
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .giant-letter-b-card:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 24px rgba(239, 68, 68, 0.3);
+        }
+        .giant-letter-b-glyph {
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: #dc2626;
+            line-height: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .color-dot-b {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        .color-dot-b.active {
+            transform: scale(1.25);
+            outline: 3px solid #1e293b;
+        }
+        .family-listen-card {
+            background: white;
+            border-radius: 20px;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            overflow: hidden;
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 16px;
+        }
+        .family-story-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .story-scene-card {
+            background: white;
+            border-radius: 18px;
+            border: 2px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+        }
+        .story-scene-card:hover {
+            transform: translateY(-4px);
+            border-color: #3b82f6;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
+        }
+        .story-scene-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 2px solid #f1f5f9;
+        }
+        .story-scene-body {
+            padding: 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .vowel-pairs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .vowel-pair-box {
+            background: white;
+            border-radius: 18px;
+            border: 2px solid #e2e8f0;
+            padding: 14px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .vowel-badge-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border-radius: 14px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease;
+            background: #f8fafc;
+        }
+        .vowel-badge-btn:hover {
+            transform: scale(1.06);
+        }
+        .vowel-badge-btn.short {
+            background: #eff6ff;
+            border-color: #93c5fd;
+            color: #1e40af;
+        }
+        .vowel-badge-btn.long {
+            background: #fef2f2;
+            border-color: #fca5a5;
+            color: #b91c1c;
+        }
+        .vowel-badge-glyph {
+            font-size: 2.2rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+        .b-split-card {
+            background: white;
+            border-radius: 18px;
+            border: 2px solid #e2e8f0;
+            padding: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+        .b-word-tag {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #1e293b;
+            background: #f1f5f9;
+            padding: 6px 24px;
+            border-radius: 14px;
+        }
+        .b-syllable-chips {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .b-syllable-chip {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border: 2px solid #3b82f6;
+            color: #1e40af;
+            font-size: 1.8rem;
+            font-weight: 900;
+            padding: 8px 18px;
+            border-radius: 14px;
+            min-width: 60px;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(59, 130, 246, 0.2);
+            transition: all 0.2s ease;
+        }
+        .b-syllable-chip:hover {
+            transform: scale(1.1);
+        }
+        .puzzle-merge-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 16px 0;
+        }
+        .puzzle-merge-row {
+            background: white;
+            border-radius: 18px;
+            border: 2px solid #e2e8f0;
+            padding: 16px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .puzzle-pieces-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .puzzle-piece {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 3px solid #f59e0b;
+            color: #92400e;
+            font-size: 1.8rem;
+            font-weight: 900;
+            padding: 8px 18px;
+            border-radius: 14px;
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(245, 158, 11, 0.2);
+            transition: all 0.2s ease;
+        }
+        .puzzle-piece:hover {
+            transform: scale(1.08);
+        }
+        .puzzle-result {
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+            border: 3px solid #22c55e;
+            color: #15803d;
+            font-size: 2rem;
+            font-weight: 900;
+            padding: 8px 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .puzzle-result:hover {
+            transform: scale(1.06);
+        }
+        .grand-reading-banner {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 3px solid #3b82f6;
+            border-radius: 24px;
+            padding: 20px 24px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.15);
+        }
+        .grand-words-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin: 16px 0;
+        }
+        .grand-word-chip {
+            background: white;
+            border: 3px solid #2563eb;
+            color: #1e3a8a;
+            font-size: 2.8rem;
+            font-weight: 900;
+            padding: 10px 28px;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.18);
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .grand-word-chip:hover {
+            transform: scale(1.1);
+            border-color: #1d4ed8;
+            background: #f0f9ff;
+        }
+
         @media (max-width: 992px) {
             .btn-sidebar-toggle { display: inline-flex; }
             .btn-sidebar-close { display: inline-flex; }
@@ -2161,6 +2424,548 @@
                     </div>
                 </div>
 
+                
+                <!-- ========================================================
+                     الوحدة الأولى: أسرتي - الدرس الأول: الاستماع والمحادثة (ص 17)
+                ======================================================== -->
+                <div class="lesson-view" id="view-tab-unit1_family_story">
+                    <!-- شريط المحطات -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationUnit1_1" onclick="switchUnit1Station(1)">
+                            <span>👨‍👩‍👧‍👦</span> <span>١. الاستماع (قصة أسرتي)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationUnit1_2" onclick="switchUnit1Station(2)">
+                            <span>🗣️</span> <span>٢. المحادثة والتعبير (أنا أتحدث)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: الاستماع لقصة أسرتي -->
+                    <div class="unit1-station active" id="stationUnit1_1">
+                        <div class="family-listen-card">
+                            <div style="font-size: 1.25rem; font-weight: 900; color: #1e3a8a; margin-bottom: 8px;">
+                                🏠 قِصَّةُ أُسْرَتِي السَّعِيدَةِ الْمُتَحَابَّة (ص ١٧)
+                            </div>
+                            <div style="font-size: 0.95rem; color: #475569; margin-bottom: 14px;">
+                                انقر على زر الاستماع للقصة كاملة، أو انقر على كل فرد من أفراد الأسرة لتتعرف على دوره:
+                            </div>
+
+                            <img src="unit1_family_listen.png" alt="الأسرة السعيدة" style="max-width: 650px; width: 100%; border-radius: 16px; border: 2px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.08); margin-bottom: 14px;">
+
+                            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+                                <button class="btn btn-teach" onclick="playFamilyStory('full')" style="font-size: 1rem; padding: 10px 22px;">
+                                    🔊 اِسْتَمِعْ لِقِصَّةِ الْأُسْرَةِ كَامِلَة
+                                </button>
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                <button class="btn" style="background:#eff6ff; color:#1e40af; border:2px solid #bfdbfe; font-size:0.95rem;" onclick="playFamilyStory('father')">
+                                    👔 أَبِي (يَرْعَانَا وَيَحْمِينَا)
+                                </button>
+                                <button class="btn" style="background:#fdf2f8; color:#9d174d; border:2px solid #fbcfe8; font-size:0.95rem;" onclick="playFamilyStory('mother')">
+                                    🧕 أُمِّي (تَحْنُو عَلَيْنَا)
+                                </button>
+                                <button class="btn" style="background:#ecfdf5; color:#065f46; border:2px solid #a7f3d0; font-size:0.95rem;" onclick="playFamilyStory('brother')">
+                                    👦 الْوَلَدُ (بَاسِم)
+                                </button>
+                                <button class="btn" style="background:#fffbeb; color:#92400e; border:2px solid #fde68a; font-size:0.95rem;" onclick="playFamilyStory('sister')">
+                                    👧 الْبِنْتُ (رِيم)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- صورة صفحة الكتاب الأصلية -->
+                        <div style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 16px;">
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">
+                                📖 صفحة الكتاب الأصلية (ص ١٧):
+                            </div>
+                            <img src="page_17.png" alt="صفحة 17 كتاب قراءتي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1;">
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: المحادثة والتعبير (أنا أتحدث) -->
+                    <div class="unit1-station" id="stationUnit1_2" style="display: none;">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div style="font-size: 1.2rem; font-weight: 900; color: #1e3a8a;">🗣️ أَنَا أَتَحَدَّثُ: أُعَبِّرُ عَنِ الصُّوَرِ الثَّلَاث</div>
+                            <div style="font-size: 0.9rem; color: #475569;">اضغط على أي صورة لتستمع لتعبير فصيح، ثم أجب عن أسئلة المحادثة:</div>
+                        </div>
+
+                        <div class="family-story-grid">
+                            <div class="story-scene-card" onclick="playUnit1StoryScene('kitchen')" style="cursor: pointer;">
+                                <img src="unit1_story_kitchen.png" alt="التعاون في المطبخ" class="story-scene-img">
+                                <div class="story-scene-body">
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #065f46; margin-bottom: 6px;">١. التَّعَاوُنُ فِي الْمَطْبَخ</div>
+                                    <div style="font-size: 0.88rem; color: #334155;">نُسَاعِدُ أُمَّنَا فِي إِعْدَادِ مَائِدَةِ الطَّعَامِ وَتَرْتِيبِهَا بِنِظَامٍ وَنَظَافَة.</div>
+                                    <button class="btn" style="background:#dcfce7; color:#166534; font-size:0.8rem; margin-top:10px; width:100%;">🔊 استمع للشرح</button>
+                                </div>
+                            </div>
+
+                            <div class="story-scene-card" onclick="playUnit1StoryScene('living')" style="cursor: pointer;">
+                                <img src="unit1_story_living.png" alt="القراءة في غرفة الجلوس" class="story-scene-img">
+                                <div class="story-scene-body">
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #1e40af; margin-bottom: 6px;">٢. الْقِرَاءَةُ مَعَ الْوَالِدَيْن</div>
+                                    <div style="font-size: 0.88rem; color: #334155;">نَجْلِسُ فِي غُرْفَةِ الْجُلُوسِ نَقْرَأُ الْقِصَصَ الْمُفِيدَةَ مَعَ أَبِينَا وَأُمِّنَا.</div>
+                                    <button class="btn" style="background:#dbeafe; color:#1e40af; font-size:0.8rem; margin-top:10px; width:100%;">🔊 استمع للشرح</button>
+                                </div>
+                            </div>
+
+                            <div class="story-scene-card" onclick="playUnit1StoryScene('grandma')" style="cursor: pointer;">
+                                <img src="unit1_story_grandma.png" alt="بر الوالدين والجدة" class="story-scene-img">
+                                <div class="story-scene-body">
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #9d174d; margin-bottom: 6px;">٣. بِرُّ الْجَدَّةِ وَاحْتِرَامُ الْكِبَار</div>
+                                    <div style="font-size: 0.88rem; color: #334155;">نَبَرُّ جَدَّتَنَا، نُقَبِّلُ يَدَيْهَا، وَنُقَدِّمُ لَهَا الْمُسَاعَدَةَ بِابْتِسَامَةٍ وَأَدَب.</div>
+                                    <button class="btn" style="background:#fce7f3; color:#9d174d; font-size:0.8rem; margin-top:10px; width:100%;">🔊 استمع للشرح</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- صندوق أسئلة المحادثة التفاعلية -->
+                        <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 3px solid #f59e0b; border-radius: 18px; padding: 16px; margin: 16px 0;">
+                            <div style="font-weight: 900; color: #92400e; font-size: 1.1rem; margin-bottom: 10px; text-align: center;">
+                                🌟 أَسْئِلَةُ الْمُحَادَثَةِ مَعَ «فَصِيح»:
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <button class="btn" style="background: white; color: #b45309; text-align: right; justify-content: flex-start; padding: 10px 16px; font-size: 0.95rem; border: 1px solid #fcd34d;" onclick="playUnit1Question(1)">
+                                    <span>❓</span> <span>• أَصِفُ مَا أَرَاهُ فِي كُلِّ صُورَة. (انقر لسماع التوجيه)</span>
+                                </button>
+                                <button class="btn" style="background: white; color: #b45309; text-align: right; justify-content: flex-start; padding: 10px 16px; font-size: 0.95rem; border: 1px solid #fcd34d;" onclick="playUnit1Question(2)">
+                                    <span>❓</span> <span>• أُكَوِّنُ قِصَّةً قَصِيرَةً مِنَ الصُّوَرِ الثَّلَاث. (انقر لسماع القصة)</span>
+                                </button>
+                                <button class="btn" style="background: white; color: #b45309; text-align: right; justify-content: flex-start; padding: 10px 16px; font-size: 0.95rem; border: 1px solid #fcd34d;" onclick="playUnit1Question(3)">
+                                    <span>❓</span> <span>• كَيْفَ أَتَعَامَلُ مَعَ كُلِّ فَرْدٍ مِنْ أَفْرَادِ أُسْرَتِي؟ (انقر لسماع الإجابة)</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     الوحدة الأولى: أسرتي - الدرس الثاني: حرف الباء وتطبيقاته (ص 18 - 20)
+                ======================================================== -->
+                <div class="lesson-view" id="view-tab-letter_b">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationB1" onclick="switchBStation(1)">
+                            <span>🚪</span> <span>١. أتعرف الحرف والكلمات (ص ١٨)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationB2" onclick="switchBStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود (ص ١٨ - ١٩)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationB3" onclick="switchBStation(3)">
+                            <span>🧩</span> <span>٣. المقاطع والتحليل الصوتي (ص ١٩)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationB4" onclick="switchBStation(4)">
+                            <span>📖</span> <span>٤. تركيب وقراءة (بَابَا) والرسم (ص ٢٠)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والكلمات الثمانية -->
+                    <div class="letter-b-station active" id="stationB1">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div class="giant-letter-b-card" onclick="playBLetterSound()" title="انقر لسماع صوت حرف الباء النقي">
+                                <span class="giant-letter-b-glyph">بـ  ب</span>
+                                <div>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #991b1b;">صَوْتُ حَرْفِ الْبَاء: ( بْ... بْ )</div>
+                                    <div style="font-size: 0.85rem; color: #dc2626;">اِضْغَطْ لِسَمَاعِ الصَّوْتِ الْفُونِيمِيِّ النَّقِيّ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- بطاقة نزهة الأسرة الكبرى -->
+                        <div class="family-listen-card" style="border-color: #fca5a5;">
+                            <div style="font-weight: 900; color: #991b1b; font-size: 1.1rem; margin-bottom: 8px;">
+                                🧺 نُزْهَةُ الْأُسْرَةِ فِي الرَّبِيع (عَنَاصِرُ حَرْفِ الْبَاء)
+                            </div>
+                            <img src="activity_b_picnic.png" alt="نزهة الأسرة حرف الباء" style="max-width: 650px; width: 100%; border-radius: 14px; border: 2px solid #cbd5e1; margin-bottom: 10px;">
+                            <div>
+                                <button class="btn btn-teach" onclick="playBPicnicStory()">
+                                    🔊 اِسْتَمِعْ لِقِصَّةِ النُّزْهَةِ وَعَنَاصِرِ حَرْفِ الْبَاء
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات الثمانية المصورة -->
+                        <div style="text-align: center; font-weight: 800; color: #1e3a8a; margin: 14px 0 8px;">
+                            ⭐ نَشَاط ١: أُرَدِّدُ مُنْتَبِهاً لِصَوْتِ حَرْفِ (ب):
+                        </div>
+                        <div class="w-cards-grid">
+                            <div class="w-item-card" id="card-b-baqara" onclick="clickBItem('baqara')">
+                                <div class="w-item-icon">🐄</div>
+                                <div class="w-item-word"><span style="color:#dc2626; font-weight:900;">بَـ</span>ـقَـرَةٌ</div>
+                                <div class="w-item-phonics">بَـ... قَـ... رَة</div>
+                                <div class="w-badge" style="background:#fee2e2; color:#b91c1c;">🔊 بَـ (فتحة بأول الكلمة)</div>
+                            </div>
+
+                            <div class="w-item-card" id="card-b-burtuqal" onclick="clickBItem('burtuqal')">
+                                <div class="w-item-icon">🍊</div>
+                                <div class="w-item-word"><span style="color:#dc2626; font-weight:900;">بُـ</span>ـرْتُـقَـالٌ</div>
+                                <div class="w-item-phonics">بُـ... رْ... تُقَال</div>
+                                <div class="w-badge" style="background:#fee2e2; color:#b91c1c;">🔊 بُـ (ضمة بأول الكلمة)</div>
+                            </div>
+
+                            <div class="w-item-card" id="card-b-bisat" onclick="clickBItem('bisat')">
+                                <div class="w-item-icon">🧶</div>
+                                <div class="w-item-word"><span style="color:#dc2626; font-weight:900;">بِـ</span>ـسَـاطٌ</div>
+                                <div class="w-item-phonics">بِـ... سَاط</div>
+                                <div class="w-badge" style="background:#fee2e2; color:#b91c1c;">🔊 بِـ (كسرة بأول الكلمة)</div>
+                            </div>
+
+                            <div class="w-item-card" id="card-b-halib" onclick="clickBItem('halib')">
+                                <div class="w-item-icon">🥛</div>
+                                <div class="w-item-word">حَـلِـيـ<span style="color:#dc2626; font-weight:900;">ـبْ</span></div>
+                                <div class="w-item-phonics">حَـ... لِيبْ</div>
+                                <div class="w-badge" style="background:#eff6ff; color:#1d4ed8;">🔊 ـبْ (بآخر الكلمة)</div>
+                            </div>
+
+                            <div class="w-item-card" id="card-b-khubz" onclick="clickBItem('khubz')">
+                                <div class="w-item-icon">🥖</div>
+                                <div class="w-item-word">خُـ<span style="color:#dc2626; font-weight:900;">ـبْـ</span>ـزٌ</div>
+                                <div class="w-item-phonics">خُـ... بْـ... ز</div>
+                                <div class="w-badge" style="background:#eff6ff; color:#1d4ed8;">🔊 ـبْـ (ساكن بالوسط)</div>
+                            </div>
+
+                            <div class="w-item-card" id="card-b-bab" onclick="clickBItem('bab')">
+                                <div class="w-item-icon">🚪</div>
+                                <div class="w-item-word"><span style="color:#dc2626; font-weight:900;">بَـا</span>بٌ</div>
+                                <div class="w-item-phonics">بَااا... بْ</div>
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309;">🔊 بَا (مد بالألف)</div>
+                            </div>
+
+                            <div class="w-item-card" id="card-b-buq" onclick="clickBItem('buq')">
+                                <div class="w-item-icon">🎺</div>
+                                <div class="w-item-word"><span style="color:#dc2626; font-weight:900;">بُـو</span>قٌ</div>
+                                <div class="w-item-phonics">بُووو... قْ</div>
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309;">🔊 بُو (مد بالواو)</div>
+                            </div>
+
+                            <div class="w-item-card" id="card-b-rabi" onclick="clickBItem('rabi')">
+                                <div class="w-item-icon">🌸</div>
+                                <div class="w-item-word">رَ<span style="color:#dc2626; font-weight:900;">بِـيـ</span>ـعٌ</div>
+                                <div class="w-item-phonics">رَ... بِييي... ع</div>
+                                <div class="w-badge" style="background:#ede9fe; color:#6d28d9;">🔊 بِي (مد بالياء)</div>
+                            </div>
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية ص 18 -->
+                        <div style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 16px;">
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">
+                                📖 صفحة الكتاب الأصلية (ص ١٨):
+                            </div>
+                            <img src="page_18.png" alt="صفحة 18 كتاب قراءتي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1;">
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المد القصيرة والطويلة (ص 18 - 19) -->
+                    <div class="letter-b-station" id="stationB2" style="display: none;">
+                        <div style="text-align: center; margin-bottom: 14px;">
+                            <div style="font-size: 1.25rem; font-weight: 900; color: #1e3a8a;">
+                                🎵 نَشَاط ٢: أَنْطِقُ صَوْتَ (ب) مَعَ أَصْوَاتِ الْمَدِّ الْقَصِيرَةِ وَالطَّوِيلَة
+                            </div>
+                            <div style="font-size: 0.9rem; color: #475569;">قارن بين الصوت القصير والصوت الطويل بالنقر على كل زر:</div>
+                        </div>
+
+                        <div class="vowel-pairs-grid">
+                            <!-- زوج الفتحة والمد بالألف -->
+                            <div class="vowel-pair-box">
+                                <div class="vowel-badge-btn short" onclick="playBVowel('short', 'a')">
+                                    <span class="vowel-badge-glyph">بَـ</span>
+                                    <span style="font-size: 0.85rem; font-weight: 800;">فَتْحَة (قَصِير)</span>
+                                </div>
+                                <span style="font-size: 1.8rem; font-weight: 900; color: #94a3b8;">↔️</span>
+                                <div class="vowel-badge-btn long" onclick="playBVowel('long', 'a')">
+                                    <span class="vowel-badge-glyph">بَا</span>
+                                    <span style="font-size: 0.85rem; font-weight: 800;">مَدٌّ بِالْأَلِف (طَوِيل)</span>
+                                </div>
+                            </div>
+
+                            <!-- زوج الضمة والمد بالواو -->
+                            <div class="vowel-pair-box">
+                                <div class="vowel-badge-btn short" onclick="playBVowel('short', 'u')">
+                                    <span class="vowel-badge-glyph">بُـ</span>
+                                    <span style="font-size: 0.85rem; font-weight: 800;">ضَمَّة (قَصِير)</span>
+                                </div>
+                                <span style="font-size: 1.8rem; font-weight: 900; color: #94a3b8;">↔️</span>
+                                <div class="vowel-badge-btn long" onclick="playBVowel('long', 'u')">
+                                    <span class="vowel-badge-glyph">بُو</span>
+                                    <span style="font-size: 0.85rem; font-weight: 800;">مَدٌّ بِالْوَاو (طَوِيل)</span>
+                                </div>
+                            </div>
+
+                            <!-- زوج الكسرة والمد بالياء -->
+                            <div class="vowel-pair-box">
+                                <div class="vowel-badge-btn short" onclick="playBVowel('short', 'i')">
+                                    <span class="vowel-badge-glyph">بِـ</span>
+                                    <span style="font-size: 0.85rem; font-weight: 800;">كَسْرَة (قَصِير)</span>
+                                </div>
+                                <span style="font-size: 1.8rem; font-weight: 900; color: #94a3b8;">↔️</span>
+                                <div class="vowel-badge-btn long" onclick="playBVowel('long', 'i')">
+                                    <span class="vowel-badge-glyph">بِي</span>
+                                    <span style="font-size: 0.85rem; font-weight: 800;">مَدٌّ بِالْيَاء (طَوِيل)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 3 التطبيقي ص 19 -->
+                        <div style="background: white; border-radius: 20px; border: 2px solid #e2e8f0; padding: 18px; margin-top: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                            <div style="font-size: 1.15rem; font-weight: 900; color: #1e3a8a; margin-bottom: 10px; text-align: center;">
+                                🎯 نَشَاط ٣: أَسْتَمِعُ لِلَّفْظِ وَأُمَيِّزُ نَوْعَ الْمَدِّ فِي الْكَلِمَات (ص ١٩)
+                            </div>
+                            <div class="w-cards-grid">
+                                <div class="w-item-card" onclick="clickBItem('basal')">
+                                    <div class="w-item-icon">🧅</div>
+                                    <div class="w-item-word"><span style="color:#2563eb;">بَـ</span>ـصَلٌ</div>
+                                    <div class="w-badge" style="background:#eff6ff; color:#1e40af;">صَوْتٌ قَصِير (بَـ)</div>
+                                </div>
+
+                                <div class="w-item-card" onclick="clickBItem('burtuqal')">
+                                    <div class="w-item-icon">🍊</div>
+                                    <div class="w-item-word"><span style="color:#2563eb;">بُـ</span>ـرْتُقَالٌ</div>
+                                    <div class="w-badge" style="background:#eff6ff; color:#1e40af;">صَوْتٌ قَصِير (بُـ)</div>
+                                </div>
+
+                                <div class="w-item-card" onclick="clickBItem('bittikh')">
+                                    <div class="w-item-icon">🍈</div>
+                                    <div class="w-item-word"><span style="color:#2563eb;">بِـ</span>ـطِّيخٌ</div>
+                                    <div class="w-badge" style="background:#eff6ff; color:#1e40af;">صَوْتٌ قَصِير (بِـ)</div>
+                                </div>
+
+                                <div class="w-item-card" onclick="clickBItem('bab')">
+                                    <div class="w-item-icon">🚪</div>
+                                    <div class="w-item-word"><span style="color:#dc2626;">بَا</span>بٌ</div>
+                                    <div class="w-badge" style="background:#fee2e2; color:#991b1b;">مَدٌّ طَوِيل (بَا)</div>
+                                </div>
+
+                                <div class="w-item-card" onclick="clickBItem('buq')">
+                                    <div class="w-item-icon">🎺</div>
+                                    <div class="w-item-word"><span style="color:#dc2626;">بُو</span>قٌ</div>
+                                    <div class="w-badge" style="background:#fee2e2; color:#991b1b;">مَدٌّ طَوِيل (بُو)</div>
+                                </div>
+
+                                <div class="w-item-card" onclick="clickBItem('rabi')">
+                                    <div class="w-item-icon">🌳</div>
+                                    <div class="w-item-word">رَ<span style="color:#dc2626;">بِي</span>ـعٌ</div>
+                                    <div class="w-badge" style="background:#fee2e2; color:#991b1b;">مَدٌّ طَوِيل (بِي)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية ص 19 -->
+                        <div style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 16px;">
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">
+                                📖 صفحة الكتاب الأصلية (ص ١٩):
+                            </div>
+                            <img src="page_19.png" alt="صفحة 19 كتاب قراءتي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1;">
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: المقاطع والتحليل الصوتي (ص 19) -->
+                    <div class="letter-b-station" id="stationB3" style="display: none;">
+                        <!-- نشاط 4: المقطع الساكن -->
+                        <div style="background: white; border-radius: 20px; border: 2px solid #e2e8f0; padding: 18px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                            <div style="text-align: center; margin-bottom: 14px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #1e3a8a;">
+                                    🥁 نَشَاط ٤: أُمَيِّزُ صَوْتَ حَرْفِ (ب) السَّاكِن فِي الْمَقَاطِع
+                                </div>
+                                <div style="font-size: 0.9rem; color: #475569;">انقر على أي بطاقة لسماع المقطع الصوتي الساكن بوضوح:</div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+                                <div class="b-split-card" onclick="playBSyllable('tabl')" style="cursor: pointer;">
+                                    <div style="font-size: 2.8rem;">🥁</div>
+                                    <div class="b-word-tag">طَبْلٌ</div>
+                                    <div class="b-syllable-chips">
+                                        <span class="b-syllable-chip" style="background:#fee2e2; border-color:#ef4444; color:#b91c1c;">طَبْـ</span>
+                                        <span style="font-size:1.5rem; font-weight:800; color:#64748b;">➕</span>
+                                        <span class="b-syllable-chip">لٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #b91c1c;">🔊 انقر لسماع: طَبْـ</div>
+                                </div>
+
+                                <div class="b-split-card" onclick="playBSyllable('jubn')" style="cursor: pointer;">
+                                    <div style="font-size: 2.8rem;">🧀</div>
+                                    <div class="b-word-tag">جُبْنٌ</div>
+                                    <div class="b-syllable-chips">
+                                        <span class="b-syllable-chip" style="background:#fee2e2; border-color:#ef4444; color:#b91c1c;">جُبْـ</span>
+                                        <span style="font-size:1.5rem; font-weight:800; color:#64748b;">➕</span>
+                                        <span class="b-syllable-chip">نٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #b91c1c;">🔊 انقر لسماع: جُبْـ</div>
+                                </div>
+
+                                <div class="b-split-card" onclick="playBSyllable('shibl')" style="cursor: pointer;">
+                                    <div style="font-size: 2.8rem;">🦁</div>
+                                    <div class="b-word-tag">شِبْلٌ</div>
+                                    <div class="b-syllable-chips">
+                                        <span class="b-syllable-chip" style="background:#fee2e2; border-color:#ef4444; color:#b91c1c;">شِبْـ</span>
+                                        <span style="font-size:1.5rem; font-weight:800; color:#64748b;">➕</span>
+                                        <span class="b-syllable-chip">لٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #b91c1c;">🔊 انقر لسماع: شِبْـ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 5: ورشة تحليل الكلمات لمقاطع -->
+                        <div style="background: white; border-radius: 20px; border: 2px solid #e2e8f0; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                            <div style="text-align: center; margin-bottom: 14px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #1e3a8a;">
+                                    ✂️ نَشَاط ٥: أَقْرَأُ الْكَلِمَاتِ ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا
+                                </div>
+                                <div style="font-size: 0.9rem; color: #475569;">اضغط على زر التحليل لمشاهدة وانفصال مقاطع الكلمة صوتياً:</div>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+                                <div class="b-split-card">
+                                    <div class="b-word-tag" id="tag-split-bab">بَابُ</div>
+                                    <div class="b-syllable-chips" id="chips-split-bab">
+                                        <span class="b-syllable-chip">بَا</span>
+                                        <span style="font-size:1.4rem; font-weight:800; color:#64748b;">➕</span>
+                                        <span class="b-syllable-chip">بْ</span>
+                                    </div>
+                                    <button class="btn btn-teach" style="font-size:0.85rem; padding:8px 16px;" onclick="splitBWord('bab')">
+                                        🔊 حَلِّلْ كَلِمَةَ (بَاب)
+                                    </button>
+                                </div>
+
+                                <div class="b-split-card">
+                                    <div class="b-word-tag" id="tag-split-baba">بَابَا</div>
+                                    <div class="b-syllable-chips" id="chips-split-baba">
+                                        <span class="b-syllable-chip">بَا</span>
+                                        <span style="font-size:1.4rem; font-weight:800; color:#64748b;">➕</span>
+                                        <span class="b-syllable-chip">بَا</span>
+                                    </div>
+                                    <button class="btn btn-teach" style="font-size:0.85rem; padding:8px 16px;" onclick="splitBWord('baba')">
+                                        🔊 حَلِّلْ كَلِمَةَ (بَابَا)
+                                    </button>
+                                </div>
+
+                                <div class="b-split-card">
+                                    <div class="b-word-tag" id="tag-split-babi">بَابِي</div>
+                                    <div class="b-syllable-chips" id="chips-split-babi">
+                                        <span class="b-syllable-chip">بَا</span>
+                                        <span style="font-size:1.4rem; font-weight:800; color:#64748b;">➕</span>
+                                        <span class="b-syllable-chip">بِي</span>
+                                    </div>
+                                    <button class="btn btn-teach" style="font-size:0.85rem; padding:8px 16px;" onclick="splitBWord('babi')">
+                                        🔊 حَلِّلْ كَلِمَةَ (بَابِي)
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: ورشة التركيب وقراءة (بَابَا) والرسم (ص 20) -->
+                    <div class="letter-b-station" id="stationB4" style="display: none;">
+                        <!-- نشاط 6: لعبة تركيب المقاطع بالأحاجي -->
+                        <div style="background: white; border-radius: 20px; border: 2px solid #e2e8f0; padding: 18px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                            <div style="text-align: center; margin-bottom: 14px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #1e3a8a;">
+                                    🧩 نَشَاط ٦: أُرَكِّبُ مِنَ الْمَقَاطِعِ كَلِمَاتٍ ثُمَّ أَقْرَأُهَا (ص ٢٠)
+                                </div>
+                                <div style="font-size: 0.9rem; color: #475569;">انقر على قطع الأحجية لتركيب الكلمات وقراءتها:</div>
+                            </div>
+
+                            <div class="puzzle-merge-container">
+                                <div class="puzzle-merge-row">
+                                    <div class="puzzle-pieces-group">
+                                        <div class="puzzle-piece" onclick="mergeBPuzzle('bab')">بَا</div>
+                                        <span style="font-size:1.8rem; font-weight:900; color:#f59e0b;">➕</span>
+                                        <div class="puzzle-piece" onclick="mergeBPuzzle('bab')">بُ</div>
+                                    </div>
+                                    <span style="font-size:2rem; font-weight:900; color:#10b981;">➔</span>
+                                    <div class="puzzle-result" onclick="mergeBPuzzle('bab')">
+                                        <span>🚪</span> <span>بَابُ</span>
+                                    </div>
+                                    <button class="btn btn-teach" style="font-size:0.85rem;" onclick="mergeBPuzzle('bab')">🔊 ادمج واقرأ</button>
+                                </div>
+
+                                <div class="puzzle-merge-row">
+                                    <div class="puzzle-pieces-group">
+                                        <div class="puzzle-piece" onclick="mergeBPuzzle('baba')">بَا</div>
+                                        <span style="font-size:1.8rem; font-weight:900; color:#f59e0b;">➕</span>
+                                        <div class="puzzle-piece" onclick="mergeBPuzzle('baba')">بَا</div>
+                                    </div>
+                                    <span style="font-size:2rem; font-weight:900; color:#10b981;">➔</span>
+                                    <div class="puzzle-result" onclick="mergeBPuzzle('baba')">
+                                        <span>👨‍👧‍👦</span> <span>بَابَا</span>
+                                    </div>
+                                    <button class="btn btn-teach" style="font-size:0.85rem;" onclick="mergeBPuzzle('baba')">🔊 ادمج واقرأ</button>
+                                </div>
+
+                                <div class="puzzle-merge-row">
+                                    <div class="puzzle-pieces-group">
+                                        <div class="puzzle-piece" onclick="mergeBPuzzle('babi')">بَا</div>
+                                        <span style="font-size:1.8rem; font-weight:900; color:#f59e0b;">➕</span>
+                                        <div class="puzzle-piece" onclick="mergeBPuzzle('babi')">بِي</div>
+                                    </div>
+                                    <span style="font-size:2rem; font-weight:900; color:#10b981;">➔</span>
+                                    <div class="puzzle-result" onclick="mergeBPuzzle('babi')">
+                                        <span>🏡</span> <span>بَابِي</span>
+                                    </div>
+                                    <button class="btn btn-teach" style="font-size:0.85rem;" onclick="mergeBPuzzle('babi')">🔊 ادمج واقرأ</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- لوحة القراءة الكبرى مع العصفور -->
+                        <div class="grand-reading-banner">
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px;">
+                                <span style="font-size: 2.6rem;">🐦✨</span>
+                                <div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #1e3a8a;">أَقْرَأُ مَعَ الْعُصْفُورِ الْمُغَرِّد (ص ٢٠)</div>
+                                    <div style="font-size: 0.95rem; color: #2563eb; font-weight: 700;">اضغط على أي كلمة لقراءتها، أو اضغط زر القراءة الجماعية:</div>
+                                </div>
+                            </div>
+
+                            <div class="grand-words-display">
+                                <div class="grand-word-chip" onclick="playBReadWord('bab')">بَابُ</div>
+                                <div class="grand-word-chip" onclick="playBReadWord('baba')">بَابَا</div>
+                                <div class="grand-word-chip" onclick="playBReadWord('babi')">بَابِي</div>
+                            </div>
+
+                            <button class="btn btn-quiz" style="font-size: 1.1rem; padding: 12px 28px; margin-top: 10px;" onclick="playBReadAll()">
+                                🌟 اِقْرَأِ الْكَلِمَاتِ الثَّلَاثَ مَعَ فَصِيح 🌟
+                            </button>
+                        </div>
+
+                        <!-- سبورة تتبع ورسم حرف الباء (بـ ، ب) -->
+                        <div style="background: white; border-radius: 20px; border: 2px solid #e2e8f0; padding: 18px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-top: 16px;">
+                            <div style="font-size: 1.2rem; font-weight: 900; color: #1e3a8a; margin-bottom: 6px;">
+                                🎨 سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الْبَاء (بـ ، ب)
+                            </div>
+                            <div style="font-size: 0.9rem; color: #475569; margin-bottom: 14px;">
+                                تتبع الحرف بإصبعك أو بالقلم من اليمين لليسار وضع النقطة في الأسفل:
+                            </div>
+
+                            <div class="controls" style="margin-bottom: 12px;">
+                                <button class="btn btn-teach" onclick="playBDrawHint()">🔊 اِسْتَمِعْ لِإِرْشَادِ الرَّسْم</button>
+                                <button class="btn btn-reset" onclick="clearBCanvas()">🔄 مَسْحُ السَّبُّورَة</button>
+                            </div>
+
+                            <div class="trace-canvas-container">
+                                <canvas id="bDrawingCanvas" width="600" height="320"></canvas>
+                            </div>
+
+                            <div class="canvas-tools">
+                                <span style="font-weight: 800; color: #334155; font-size: 0.9rem;">اختر لون الرسم:</span>
+                                <div class="color-dot-b active" style="background:#dc2626;" onclick="setBDrawColor('#dc2626', this)"></div>
+                                <div class="color-dot-b" style="background:#2563eb;" onclick="setBDrawColor('#2563eb', this)"></div>
+                                <div class="color-dot-b" style="background:#059669;" onclick="setBDrawColor('#059669', this)"></div>
+                                <div class="color-dot-b" style="background:#d97706;" onclick="setBDrawColor('#d97706', this)"></div>
+                                <div class="color-dot-b" style="background:#7c3aed;" onclick="setBDrawColor('#7c3aed', this)"></div>
+                                <button class="btn" style="background:#64748b; color:white; padding:6px 12px; font-size:0.8rem;" onclick="setBEraser(this)">🧹 ممحاة</button>
+                            </div>
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية ص 20 -->
+                        <div style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 16px;">
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">
+                                📖 صفحة الكتاب الأصلية (ص ٢٠):
+                            </div>
+                            <img src="page_20.png" alt="صفحة 20 كتاب قراءتي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1;">
+                        </div>
+                    </div>
+                </div>
+
                 <!-- 5. ورشة دمج الحروف (دَادَا) (ص 24 في الكتاب) -->
                 <div class="lesson-view" id="view-tab-letters">
                     <div class="word-builder-demo">
@@ -2571,6 +3376,11 @@
                 mascotSpeak('درس صوت حرف المد (و)! استمع لصوت المد المضموم (وووو) وردد مع فصيح!', 'vowel_w_intro');
             } else if (lesson.id === 'tab-vowel_y') {
                 mascotSpeak('درس صوت حرف المد (يـ ، ي)! استمع لصوت المد المكسور (يييي) وردد مع فصيح!', 'vowel_y_intro');
+            } else if (lesson.id === 'tab-unit1_family_story') {
+                mascotSpeak('الْوَحْدَةُ الْأُولَى: أُسْرَتِي! اِسْتَمِعْ لِقِصَّةِ الْأُسْرَةِ السَّعِيدَةِ وَعَبِّرْ عَنِ الصُّوَرِ!', 'unit1_welcome');
+            } else if (lesson.id === 'tab-letter_b') {
+                mascotSpeak('حَرْفُ الْبَاء (بـ ، ب)! اِسْتَمِعْ لِصَوْتِ الْحَرْفِ النَّقِيّ (بْ) وَأَصْوَاتِ الْمَدُودِ وَرَكِّبْ كَلِمَةَ (بَابَا)!', 'letter_b_intro');
+                setTimeout(initBCanvas, 200);
             } else if (lesson.id === 'tab-letters') {
                 mascotSpeak('ورشة تكوين الكلمات: اضغط على أصوات الحروف ثم ادمجها لتكوين كلمة (دَادَا)!', 'blend_intro');
             }
@@ -3518,6 +4328,330 @@
         function setYEraser(el) {
             yIsEraser = true;
             document.querySelectorAll('.color-dot-y').forEach(d => d.classList.remove('active'));
+            if (el) el.classList.add('active');
+        }
+
+        
+        /* ========================================================
+           الوحدة الأولى: أسرتي - الدرس الأول: الاستماع والمحادثة (ص 17)
+        ======================================================== */
+        function switchUnit1Station(stationNum) {
+            document.querySelectorAll('.unit1-station').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('#view-tab-unit1_family_story .station-tab').forEach(el => el.classList.remove('active'));
+
+            const targetStation = document.getElementById('stationUnit1_' + stationNum);
+            const targetBtn = document.getElementById('btnStationUnit1_' + stationNum);
+            if (targetStation) targetStation.style.display = 'block';
+            if (targetBtn) targetBtn.classList.add('active');
+
+            if (stationNum === 1) {
+                mascotSpeak('الاستماع لقصة الأسرة السعيدة! استمع للقصة كاملة وتعرف على دور كل فرد في الأسرة.', 'unit1_welcome');
+            } else if (stationNum === 2) {
+                mascotSpeak('أنا أتحدث: عبّر عن صور التعاون والقراءة وبر الوالدين، وأجب عن أسئلة فصيح!', 'unit1_q1_desc');
+            }
+        }
+
+        function playFamilyStory(charKey) {
+            mascotCelebrates();
+            if (charKey === 'full') {
+                mascotSpeak('🏠 <b>قصة أسرتي:</b><br>«نَحْنُ أُسْرَةٌ سَعِيدَةٌ مُتَحَابَّة، يَرْعَانَا أَبِي، وَتَحْنُو عَلَيْنَا أُمِّي، نَعِيشُ فِي مَنْزِلِنَا الدَّافِئِ بِمَحَبَّةٍ وَتَعَاوُن!»', 'unit1_listen_story');
+            } else if (charKey === 'father') {
+                mascotSpeak('👔 <b>أَبِي الْغَالِي:</b><br>يَعْمَلُ بِنَشَاطٍ لِيَرْعَانَا وَيَحْمِينَا، وَيُوَفِّرَ لَنَا كُلَّ مَا نَحْتَاجُهُ، نُحِبُّهُ وَنُطِيعُهُ!', 'unit1_listen_story');
+            } else if (charKey === 'mother') {
+                mascotSpeak('🧕 <b>أُمِّي الْحَبِيبَة:</b><br>تَحْنُو عَلَيْنَا وَتَغْمُرُنَا بِعَطْفِهَا، تُعِدُّ لَنَا الطَّعَامَ اللَّذِيذَ وَتَسْهَرُ عَلَى رَاحَتِنَا!', 'unit1_listen_story');
+            } else if (charKey === 'brother') {
+                mascotSpeak('👦 <b>أَخِي بَاسِم:</b><br>يَتَعَاوَنُ مَعَنَا فِي الْمَنْزِل، وَيَذْهَبُ مَعِي إِلَى الْمَدْرَسَةِ بِنَشَاطٍ وَسُرُور!', 'unit1_story_kitchen');
+            } else if (charKey === 'sister') {
+                mascotSpeak('👧 <b>أُخْتِي رِيم:</b><br>تُسَاعِدُ أُمَّنَا، وَتَقْرَأُ مَعَنَا الْقِصَصَ، نَلْعَبُ مَعاً بِمَحَبَّةٍ وَأَدَب!', 'unit1_story_living');
+            }
+        }
+
+        function playUnit1StoryScene(sceneKey) {
+            mascotCelebrates();
+            if (sceneKey === 'kitchen') {
+                mascotSpeak('🍲 <b>الْمَشْهَدُ الْأَوَّل (الْمَطْبَخ):</b><br>«نُسَاعِدُ أُمَّنَا فِي إِعْدَادِ مَائِدَةِ الطَّعَامِ وَتَرْتِيبِهَا بِنِظَامٍ وَنَظَافَة!»', 'unit1_story_kitchen');
+            } else if (sceneKey === 'living') {
+                mascotSpeak('📚 <b>الْمَشْهَدُ الثَّانِي (غُرْفَةُ الْجُلُوس):</b><br>«نَجْلِسُ فِي غُرْفَةِ الْجُلُوسِ نَقْرَأُ الْقِصَصَ الْمُفِيدَةَ مَعَ أَبِينَا وَأُمِّنَا!»', 'unit1_story_living');
+            } else if (sceneKey === 'grandma') {
+                mascotSpeak('👵 <b>الْمَشْهَدُ الثَّالِث (بِرُّ الْجَدَّة):</b><br>«نَبَرُّ جَدَّتَنَا، نُقَبِّلُ يَدَيْهَا، وَنُقَدِّمُ لَهَا الْمُسَاعَدَةَ بِابْتِسَامَةٍ وَأَدَب!»', 'unit1_story_grandma');
+            }
+        }
+
+        function playUnit1Question(qNum) {
+            mascotCelebrates();
+            if (qNum === 1) {
+                mascotSpeak('❓ <b>السؤال الأول:</b> أصف ما أراه في كل صورة: التعاون في إعداد المائدة، القراءة المفيدة، وبر الجدة!', 'unit1_q1_desc');
+            } else if (qNum === 2) {
+                mascotSpeak('📖 <b>السؤال الثاني:</b> أُكوّن قصة: نبدأ يومنا بالتعاون في المنزل، ثم نقرأ ونتعلم مع والدينا، ونبر جدتنا الحبيبة!', 'unit1_q2_story');
+            } else if (qNum === 3) {
+                mascotSpeak('❤️ <b>السؤال الثالث:</b> كيف أتعامل مع أسرتي؟ أطيع والديّ وأبرهما، أعطف على إخوتي، وأحترم الكبار دائماً!', 'unit1_q3_deal');
+            }
+        }
+
+        /* ========================================================
+           الوحدة الأولى: أسرتي - الدرس الثاني: حرف الباء وتطبيقاته (ص 18 - 20)
+        ======================================================== */
+        let bCanvasInited = false;
+        let bDrawing = false;
+        let bDrawColor = '#dc2626';
+        let bIsEraser = false;
+        let bLineWidth = 12;
+
+        function switchBStation(stationNum) {
+            document.querySelectorAll('.letter-b-station').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('#view-tab-letter_b .station-tab').forEach(el => el.classList.remove('active'));
+
+            const targetStation = document.getElementById('stationB' + stationNum);
+            const targetBtn = document.getElementById('btnStationB' + stationNum);
+            if (targetStation) targetStation.style.display = 'block';
+            if (targetBtn) targetBtn.classList.add('active');
+
+            if (stationNum === 1) {
+                mascotSpeak('حرف الباء (بـ ، ب)! انقر على بطاقات الكلمات المصورة واستمع لصوت الحرف!', 'letter_b_intro');
+            } else if (stationNum === 2) {
+                mascotSpeak('أصوات المد القصيرة والطويلة! قارن بين الفتحة والمد بالألف، والضمة والواو، والكسرة والياء!', 'letter_b_vowels_intro');
+            } else if (stationNum === 3) {
+                mascotSpeak('المقاطع والتحليل الصوتي! استمع لصوت الباء الساكن، وحلل كلمات (باب، بابا، بابي)!', 'letter_b_analysis_intro');
+            } else if (stationNum === 4) {
+                mascotSpeak('تركيب وقراءة (بابا) مع العصفور! ركّب المقاطع واقرأ وتدرّب على رسم حرف الباء!', 'letter_b_merge_intro');
+                setTimeout(initBCanvas, 100);
+            }
+        }
+
+        function playBLetterSound() {
+            mascotCelebrates();
+            mascotSpeak('🔴 <b>صَوْتُ حَرْفِ الْبَاء النَّقِيّ:</b><br><span style="font-size:2rem; color:#dc2626;">بْ... بْ... بْ</span>', 'letter_b_sound');
+        }
+
+        function playBPicnicStory() {
+            mascotCelebrates();
+            mascotSpeak('🧺 <b>نُزْهَةُ الْأُسْرَةِ فِي الرَّبِيع:</b><br>«نَجْلِسُ عَلَى بِسَاطٍ فِي الرَّبِيع، نَأْكُلُ خُبْزاً وَبُرْتُقَالاً، وَنَشْرَبُ حَلِيباً، كُلُّهَا بِصَوْتِ الْبَاء!»', 'letter_b_picnic_full');
+        }
+
+        function clickBItem(itemKey) {
+            mascotCelebrates();
+            const items = {
+                'baqara': { title: 'بَـقَـرَةٌ', audio: 'letter_b_baqara', desc: 'صوت فتحة قصيرة في أول الكلمة (بَـ)' },
+                'burtuqal': { title: 'بُـرْتُـقَـالٌ', audio: 'letter_b_burtuqal', desc: 'صوت ضمة قصيرة في أول الكلمة (بُـ)' },
+                'bisat': { title: 'بِـسَـاطٌ', audio: 'letter_b_bisat', desc: 'صوت كسرة قصيرة في أول الكلمة (بِـ)' },
+                'halib': { title: 'حَـلِـيـبٌ', audio: 'letter_b_halib', desc: 'صوت الباء في آخر الكلمة (ـبْ)' },
+                'khubz': { title: 'خُـبْـزٌ', audio: 'letter_b_khubz', desc: 'صوت الباء الساكن في وسط الكلمة (ـبْـ)' },
+                'bab': { title: 'بَـابٌ', audio: 'letter_b_bab', desc: 'صوت مد طويل بالألف (بَا)' },
+                'buq': { title: 'بُـوقٌ', audio: 'letter_b_buq', desc: 'صوت مد طويل بالواو (بُو)' },
+                'rabi': { title: 'رَ بِيـعٌ', audio: 'letter_b_rabi', desc: 'صوت مد طويل بالياء (بِي)' },
+                'basal': { title: 'بَـصَلٌ', audio: 'letter_b_basal', desc: 'صوت فتحة قصيرة (بَـ)' },
+                'bittikh': { title: 'بِـطِّيخٌ', audio: 'letter_b_bittikh', desc: 'صوت كسرة قصيرة (بِـ)' }
+            };
+
+            const it = items[itemKey];
+            if (it) {
+                mascotSpeak(`⭐ <b>${it.title}:</b><br>${it.desc}`, it.audio);
+            }
+        }
+
+        function playBVowel(type, vowel) {
+            mascotCelebrates();
+            if (type === 'short' && vowel === 'a') {
+                mascotSpeak('🔴 <b>فَتْحَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">بَـ</span>', 'letter_b_short_a');
+            } else if (type === 'long' && vowel === 'a') {
+                mascotSpeak('🔴 <b>مَدٌّ بِالْأَلِف (طَوِيل):</b><br><span style="font-size:2.2rem; color:#b91c1c;">بَااا</span>', 'letter_b_long_a');
+            } else if (type === 'short' && vowel === 'u') {
+                mascotSpeak('🔴 <b>ضَمَّةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">بُـ</span>', 'letter_b_short_u');
+            } else if (type === 'long' && vowel === 'u') {
+                mascotSpeak('🔴 <b>مَدٌّ بِالْوَاو (طَوِيل):</b><br><span style="font-size:2.2rem; color:#b91c1c;">بُووو</span>', 'letter_b_long_u');
+            } else if (type === 'short' && vowel === 'i') {
+                mascotSpeak('🔴 <b>كَسْرَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">بِـ</span>', 'letter_b_short_i');
+            } else if (type === 'long' && vowel === 'i') {
+                mascotSpeak('🔴 <b>مَدٌّ بِالْيَاء (طَوِيل):</b><br><span style="font-size:2.2rem; color:#b91c1c;">بِييي</span>', 'letter_b_long_i');
+            }
+        }
+
+        function playBSyllable(syllableKey) {
+            mascotCelebrates();
+            if (syllableKey === 'tabl') {
+                mascotSpeak('🥁 <b>طَبْلٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#b91c1c; font-size:1.6rem;">طَبْـ</b>', 'letter_b_tabl_syllable');
+            } else if (syllableKey === 'jubn') {
+                mascotSpeak('🧀 <b>جُبْنٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#b91c1c; font-size:1.6rem;">جُبْـ</b>', 'letter_b_jubn_syllable');
+            } else if (syllableKey === 'shibl') {
+                mascotSpeak('🦁 <b>شِبْلٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#b91c1c; font-size:1.6rem;">شِبْـ</b>', 'letter_b_shibl_syllable');
+            }
+        }
+
+        function splitBWord(wordKey) {
+            mascotCelebrates();
+            if (wordKey === 'bab') {
+                const chips = document.getElementById('chips-split-bab');
+                chips.style.transform = 'scale(1.15)';
+                setTimeout(() => chips.style.transform = 'scale(1)', 400);
+                mascotSpeak('✂️ <b>كَلِمَةُ (بَاب):</b><br>تَتَكَوَّنُ مِنْ مَقْطَعَيْن: <b style="color:#2563eb;">[ بَا ]</b> ➕ <b style="color:#dc2626;">[ بْ ]</b>', 'letter_b_split_bab');
+            } else if (wordKey === 'baba') {
+                const chips = document.getElementById('chips-split-baba');
+                chips.style.transform = 'scale(1.15)';
+                setTimeout(() => chips.style.transform = 'scale(1)', 400);
+                mascotSpeak('✂️ <b>كَلِمَةُ (بَابَا):</b><br>تَتَكَوَّنُ مِنْ مَقْطَعَيْن: <b style="color:#2563eb;">[ بَا ]</b> ➕ <b style="color:#2563eb;">[ بَا ]</b>', 'letter_b_split_baba');
+            } else if (wordKey === 'babi') {
+                const chips = document.getElementById('chips-split-babi');
+                chips.style.transform = 'scale(1.15)';
+                setTimeout(() => chips.style.transform = 'scale(1)', 400);
+                mascotSpeak('✂️ <b>كَلِمَةُ (بَابِي):</b><br>تَتَكَوَّنُ مِنْ مَقْطَعَيْن: <b style="color:#2563eb;">[ بَا ]</b> ➕ <b style="color:#7c3aed;">[ بِي ]</b>', 'letter_b_split_babi');
+            }
+        }
+
+        function mergeBPuzzle(targetWord) {
+            mascotCelebrates();
+            if (targetWord === 'bab') {
+                mascotSpeak('✨ <b>ادمج المقاطع:</b><br>[ بَا ] ➕ [ بُ ] ➔ <b style="font-size:2rem; color:#15803d;">🚪 بَابُ</b>', 'letter_b_merge_bab');
+            } else if (targetWord === 'baba') {
+                mascotSpeak('✨ <b>ادمج المقاطع:</b><br>[ بَا ] ➕ [ بَا ] ➔ <b style="font-size:2rem; color:#15803d;">👨‍👧‍👦 بَابَا</b>', 'letter_b_merge_baba');
+            } else if (targetWord === 'babi') {
+                mascotSpeak('✨ <b>ادمج المقاطع:</b><br>[ بَا ] ➕ [ بِي ] ➔ <b style="font-size:2rem; color:#15803d;">🏡 بَابِي</b>', 'letter_b_merge_babi');
+            }
+        }
+
+        function playBReadWord(word) {
+            mascotCelebrates();
+            if (word === 'bab') {
+                mascotSpeak('📖 اقرأ: <b style="font-size:2.4rem; color:#1e40af;">بَابُ</b> (بَا... بُ)', 'letter_b_merge_bab');
+            } else if (word === 'baba') {
+                mascotSpeak('📖 اقرأ: <b style="font-size:2.4rem; color:#1e40af;">بَابَا</b> (بَا... بَا)', 'letter_b_merge_baba');
+            } else if (word === 'babi') {
+                mascotSpeak('📖 اقرأ: <b style="font-size:2.4rem; color:#1e40af;">بَابِي</b> (بَا... بِي)', 'letter_b_merge_babi');
+            }
+        }
+
+        function playBReadAll() {
+            mascotCelebrates();
+            mascotSpeak('🐦✨ <b>أَقْرَأُ مَعَ الْعُصْفُورِ الْمُغَرِّد:</b><br><span style="font-size:2.2rem; color:#1e3a8a; font-weight:900;">بَابُ ... بَابَا ... بَابِي</span><br>أَحْسَنْتُمْ يَا أَبْطَالَ الصَّفِّ الْأَوَّل!', 'letter_b_read_all');
+        }
+
+        function playBDrawHint() {
+            mascotSpeak('🎨 <b>إرشاد رسم حرف الباء:</b><br>نبدأ من أعلى اليمين، ننزل للسطر، نسير لليسار، ثم نصعد قليلاً، ونضع نقطة واحدة في الأسفل!', 'letter_b_draw_hint');
+        }
+
+        function initBCanvas() {
+            const canvas = document.getElementById('bDrawingCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            if (!bCanvasInited) {
+                bCanvasInited = true;
+                drawBCanvasGuides(ctx, canvas);
+
+                const startDrawing = (e) => {
+                    bDrawing = true;
+                    ctx.beginPath();
+                    const pos = getCanvasPos(canvas, e);
+                    ctx.moveTo(pos.x, pos.y);
+                    if (e.cancelable) e.preventDefault();
+                };
+
+                const drawMove = (e) => {
+                    if (!bDrawing) return;
+                    const pos = getCanvasPos(canvas, e);
+                    ctx.lineTo(pos.x, pos.y);
+                    ctx.strokeStyle = bIsEraser ? '#ffffff' : bDrawColor;
+                    ctx.lineWidth = bIsEraser ? 24 : bLineWidth;
+                    ctx.lineCap = 'round';
+                    ctx.lineJoin = 'round';
+                    ctx.stroke();
+                    if (e.cancelable) e.preventDefault();
+                };
+
+                const stopDrawing = () => {
+                    if (bDrawing) {
+                        bDrawing = false;
+                        ctx.closePath();
+                    }
+                };
+
+                canvas.addEventListener('mousedown', startDrawing);
+                canvas.addEventListener('mousemove', drawMove);
+                window.addEventListener('mouseup', stopDrawing);
+
+                canvas.addEventListener('touchstart', startDrawing, { passive: false });
+                canvas.addEventListener('touchmove', drawMove, { passive: false });
+                window.addEventListener('touchend', stopDrawing);
+            }
+        }
+
+        function drawBCanvasGuides(ctx, canvas) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.save();
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Baseline guide line
+            ctx.strokeStyle = '#93c5fd';
+            ctx.lineWidth = 3;
+            ctx.setLineDash([8, 8]);
+            ctx.beginPath();
+            ctx.moveTo(20, 200);
+            ctx.lineTo(canvas.width - 20, 200);
+            ctx.stroke();
+
+            // Dotted Letter B (ب) guide
+            ctx.strokeStyle = '#fca5a5';
+            ctx.lineWidth = 14;
+            ctx.setLineDash([12, 12]);
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            // Draw large Baa plate (left side)
+            ctx.beginPath();
+            ctx.moveTo(canvas.width * 0.75, 120);
+            ctx.lineTo(canvas.width * 0.72, 195);
+            ctx.lineTo(canvas.width * 0.45, 195);
+            ctx.lineTo(canvas.width * 0.42, 130);
+            ctx.stroke();
+
+            // Dot under Baa (left)
+            ctx.setLineDash([]);
+            ctx.fillStyle = '#ef4444';
+            ctx.beginPath();
+            ctx.arc(canvas.width * 0.58, 245, 9, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Initial Baa (بـ) guide (right side)
+            ctx.strokeStyle = '#fed7aa';
+            ctx.lineWidth = 14;
+            ctx.setLineDash([12, 12]);
+            ctx.beginPath();
+            ctx.moveTo(canvas.width * 0.32, 120);
+            ctx.lineTo(canvas.width * 0.30, 195);
+            ctx.lineTo(canvas.width * 0.12, 195);
+            ctx.stroke();
+
+            // Dot under initial Baa
+            ctx.setLineDash([]);
+            ctx.fillStyle = '#f97316';
+            ctx.beginPath();
+            ctx.arc(canvas.width * 0.25, 245, 9, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Hint label
+            ctx.font = 'bold 15px "Tajawal", sans-serif';
+            ctx.fillStyle = '#dc2626';
+            ctx.textAlign = 'center';
+            ctx.fillText('① الباء المنفصلة (ب) مع النقطة بالأسفل  |  ② الباء في أول الكلمة (بـ)', canvas.width / 2, 290);
+            ctx.restore();
+        }
+
+        function clearBCanvas() {
+            const canvas = document.getElementById('bDrawingCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            drawBCanvasGuides(ctx, canvas);
+        }
+
+        function setBDrawColor(color, el) {
+            bIsEraser = false;
+            bDrawColor = color;
+            document.querySelectorAll('.color-dot-b').forEach(d => d.classList.remove('active'));
+            if (el) el.classList.add('active');
+        }
+
+        function setBEraser(el) {
+            bIsEraser = true;
+            document.querySelectorAll('.color-dot-b').forEach(d => d.classList.remove('active'));
             if (el) el.classList.add('active');
         }
 

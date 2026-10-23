@@ -1,5 +1,5 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
-const CACHE_NAME = 'qiraati-smart-v4';
+const CACHE_NAME = 'qiraati-smart-v5';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -15,6 +15,22 @@ const ASSETS_TO_CACHE = [
   './activity_6.png',
   './activity_7_places.png',
   './activity_8_directions.png',
+  './page_17.png',
+  './page_18.png',
+  './page_19.png',
+  './page_20.png',
+  './unit1_family_listen.png',
+  './unit1_story_kitchen.png',
+  './unit1_story_living.png',
+  './unit1_story_grandma.png',
+  './activity_b_picnic.png',
+  './activity_b_words.png',
+  './activity_b_vowels.png',
+  './activity_b_vowel_words.png',
+  './activity_b_syllables.png',
+  './activity_b_analysis.png',
+  './activity_b_blend.png',
+  './activity_b_read.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './وثيقة_تصميم_وخطة_المشروع.md'
