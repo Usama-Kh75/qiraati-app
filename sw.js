@@ -63,7 +63,8 @@ self.addEventListener('activate', (event) => {
     caches.keys().then((keys) => {
       return Promise.all(
         keys.map((key) => {
-          if (key !== CACHE_NAME) {
+          // المخازن مشتركة بين كل تطبيقات usama-kh75.github.io: يُحذف القديم من مخازن هذا التطبيق وحده
+          if (key.startsWith('qiraati-smart-') && key !== CACHE_NAME) {
             console.log('PWA Service Worker: Clearing old cache', key);
             return caches.delete(key);
           }
