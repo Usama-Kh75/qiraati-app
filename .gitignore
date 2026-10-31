@@ -1,11 +1,91 @@
-# Temporary and scratch files
-*_checked.png
-*_clean.png
-*_preview.png
-*_original.png
-perfect_slots.png
-slots_preview.png
-__pycache__/
-*.pyc
-.DS_Store
-Thumbs.db
+# قائمة سماح لمستودع تطبيق «قراءتي» - إعداد المهندس أسامة خليل هاشم
+# يُتجاهل كل شيء افتراضياً، ويُستثنى بالاسم فقط ما يخدم التطبيق المنشور على GitHub Pages
+
+/*
+!/.gitignore
+
+# الملفات الأساسية للتطبيق المنشور
+!/index.html
+!/manifest.json
+!/sw.js
+!/audio_data.js
+!/curriculum_data.js
+!/README.md
+
+# المجلدات المسموح بها
+!/icons/
+!/audio/
+
+# الصور المستخدمة فعلياً في التطبيق المنشور
+# التهيؤ والاستعداد وقراءة الصور
+!/mobile_qr.png
+!/activity_nasheed_box.png
+!/activity_3_items.png
+!/activity_4.png
+!/activity_5_diff.png
+!/activity_5.png
+!/activity_6.png
+!/activity_7_places.png
+!/activity_8_directions.png
+
+# حرفا المد (و، ي)
+!/activity_w_showcase.png
+!/activity_w_words.png
+!/activity_w_fill.png
+!/activity_y_showcase.png
+!/activity_y_words.png
+!/activity_y_fill.png
+
+# الاستماع والتحدث (الأسرة)
+!/unit1_family_listen.png
+!/unit1_story_kitchen.png
+!/unit1_story_living.png
+!/unit1_story_grandma.png
+
+# درس حرف الباء (ص 17 - 20)
+!/page_17.png
+!/page_18.png
+!/page_19.png
+!/page_20.png
+!/activity_b_picnic.png
+!/activity_b_words.png
+!/activity_b_vowels.png
+!/activity_b_vowel_words.png
+!/activity_b_syllables.png
+!/activity_b_analysis.png
+!/activity_b_blend.png
+!/activity_b_read.png
+
+# درس حرف الميم (ص 21 - 23)
+!/page_21.png
+!/page_22.png
+!/page_23.png
+!/activity_m_scene.png
+!/activity_m_words.png
+!/activity_m_vowels.png
+!/activity_m_vowel_words.png
+!/activity_m_syllables.png
+!/activity_m_analysis.png
+!/activity_m_blend.png
+!/activity_m_read.png
+!/activity_m_trace.png
+
+# درس حرف الدال (ص 24 - 26)
+!/page_24.png
+!/page_25.png
+!/page_26.png
+!/activity_d_scene.png
+!/activity_d_words.png
+!/activity_d_vowels.png
+!/activity_d_vowel_words.png
+!/activity_d_syllables.png
+!/activity_d_analysis.png
+!/activity_d_blend.png
+!/activity_d_read.png
+!/activity_d_trace.png
+
+# درس حرف الفاء (ص 27 - 29)
+!/page_27.png
+!/page_28.png
+!/page_29.png
+!/activity_f_scene.png

@@ -1,5 +1,5 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
-const CACHE_NAME = 'qiraati-smart-v6';
+const CACHE_NAME = 'qiraati-smart-v10';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -15,6 +15,12 @@ const ASSETS_TO_CACHE = [
   './activity_6.png',
   './activity_7_places.png',
   './activity_8_directions.png',
+  './activity_w_showcase.png',
+  './activity_w_words.png',
+  './activity_w_fill.png',
+  './activity_y_showcase.png',
+  './activity_y_words.png',
+  './activity_y_fill.png',
   './page_17.png',
   './page_18.png',
   './page_19.png',
@@ -43,9 +49,24 @@ const ASSETS_TO_CACHE = [
   './activity_m_blend.png',
   './activity_m_read.png',
   './activity_m_trace.png',
+  './page_24.png',
+  './page_25.png',
+  './page_26.png',
+  './activity_d_scene.png',
+  './activity_d_words.png',
+  './activity_d_vowels.png',
+  './activity_d_vowel_words.png',
+  './activity_d_syllables.png',
+  './activity_d_analysis.png',
+  './activity_d_blend.png',
+  './activity_d_read.png',
+  './activity_d_trace.png',
+  './page_27.png',
+  './page_28.png',
+  './page_29.png',
+  './activity_f_scene.png',
   './icons/icon-192.png',
-  './icons/icon-512.png',
-  './وثيقة_تصميم_وخطة_المشروع.md'
+  './icons/icon-512.png'
 ];
 
 self.addEventListener('install', (event) => {
