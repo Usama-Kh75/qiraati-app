@@ -2087,6 +2087,51 @@
             display: block;
         }
 
+        /* أنماط وتنسيقات درس حرف السين (سـ ، س) وقراءة (فِرَاس) - ص 35 - 37 */
+        .giant-letter-s-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border: 3px solid #10b981;
+            border-radius: 24px;
+            padding: 12px 28px;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .giant-letter-s-card:hover {
+            transform: scale(1.03);
+            border-color: #059669;
+        }
+        .giant-letter-s-glyph {
+            font-size: 3.4rem;
+            font-weight: 900;
+            color: #059669;
+            text-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
+            line-height: 1;
+        }
+        .letter-s-station {
+            display: none;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .letter-s-station.active {
+            display: block;
+        }
+        .color-dot-s {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        .color-dot-s.active {
+            transform: scale(1.25);
+            outline: 3px solid #059669;
+        }
+
 
         .color-dot-f {
 
@@ -10776,6 +10821,520 @@
                     </div>
                 </div>
 
+                <!-- ========================================================
+                     درس حرف السين (سـ ، س) وقراءة (فِرَاس) (ص 35 - 37)
+                ======================================================== -->
+                <div class="lesson-view" id="view-tab-letter_s">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationS1" onclick="switchSStation(1)">
+                            <span>🌿</span> <span>١. أتعرف الحرف والكلمات (ص ٣٥)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationS2" onclick="switchSStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والتمييز (ص ٣٦)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationS3" onclick="switchSStation(3)">
+                            <span>🧩</span> <span>٣. المقاطع والتحليل الصوتي (ص ٣٦ - ٣٧)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationS4" onclick="switchSStation(4)">
+                            <span>📖</span> <span>٤. التركيب وقراءة (فَارِس / فِرَاس) والرسم (ص ٣٧)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والكلمات الثمانية (ص 35) -->
+                    <div class="letter-s-station active" id="stationS1">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div class="giant-letter-s-card" onclick="playSLetterSound()" title="انقر لسماع صوت حرف السين النقي">
+                                <span class="giant-letter-s-glyph">سـ  س</span>
+                                <div>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #065f46;">صَوْتُ حَرْفِ السِّينِ: ( سْ... سْ )</div>
+                                    <div style="font-size: 0.85rem; color: #059669;">اِضْغَطْ لِسَمَاعِ الصَّوْتِ الْفُونِيمِيِّ النَّقِيّ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- بطاقة مشهد حديقة بيتنا وعناصر حرف السين -->
+                        <div class="family-listen-card" style="border-color: #a7f3d0;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.1rem; margin-bottom: 8px;">
+                                🌿 فِي حَدِيقَةِ بَيْتِنَا الْمُشْمِسَة (عَنَاصِرُ حَرْفِ السِّينِ فِي الْحَدِيقَةِ وَالْبَيْت)
+                            </div>
+                            <img src="activity_s_scene.png" alt="مشهد حديقة بيتنا وحرف السين" style="max-width: 650px; width: 100%; border-radius: 14px; border: 2px solid #ecfdf5; box-shadow: 0 4px 12px rgba(0,0,0,0.06); margin-bottom: 10px; object-fit: contain;">
+                            <div>
+                                <button class="btn btn-teach" id="btnSSceneStory" onclick="playSSceneStory()" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);">
+                                    <span>🔊</span> <span>اِسْتَمِعْ لِقِصَّةِ حَدِيقَتِنَا وَعَنَاصِرِ حَرْفِ السِّينِ</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- صندوق استراتيجية النمذجة الصريحة -->
+                        <div style="background: #ecfdf5; border: 2px dashed #10b981; border-radius: 16px; padding: 14px 18px; margin-bottom: 16px; text-align: center;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1rem; margin-bottom: 8px;">
+                                🎓 نَمْذَجَةُ فَصِيح الصَّرِيحَة (دَلِيلُ الْمُعَلِّمِ ص ٤٦ - ٤٧):
+                            </div>
+                            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                                <button class="btn btn-listen" style="background:#d1fae5; color:#065f46; border:1.5px solid #10b981; font-size:0.88rem; padding:6px 14px;" onclick="playSModel('alone')">
+                                    <span>1️⃣</span> <span>فَصِيح يُنَمْذِج («أَنَا وَحْدِي» مع سَلَّة)</span>
+                                </button>
+                                <button class="btn btn-listen" style="background:#d1fae5; color:#065f46; border:1.5px solid #10b981; font-size:0.88rem; padding:6px 14px;" onclick="playSModel('we')">
+                                    <span>2️⃣</span> <span>مُمَارَسَةٌ مُوَجَّهَة («أَنَا وَأَنْتُمْ» مع سُلَحْفَاة)</span>
+                                </button>
+                                <button class="btn btn-listen" style="background:#d1fae5; color:#065f46; border:1.5px solid #10b981; font-size:0.88rem; padding:6px 14px;" onclick="playSModel('you')">
+                                    <span>3️⃣</span> <span>اِسْتِقْلالِيَّة («أَنْتُمْ وَحْدَكُمْ» انقر الصور)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- نشاط ١: أردد منتبها لصوت حرف س في الكلمات المصورة (كتاب ص 35) -->
+                        <div class="interactive-stage-card" style="border-color: #a7f3d0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #065f46;">
+                                    📸 نَشَاطُ ١: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ حَرْفِ ( س ) فِي الْكَلِمَاتِ الْمُصَوَّرَة (كتاب ص ٣٥)
+                                </div>
+                                <span style="font-size: 0.85rem; background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 12px; font-weight: 800;">
+                                    ٨ كلمات مصورة 🔊
+                                </span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); gap: 12px; margin-bottom: 16px;">
+                                <div class="word-chip-card" onclick="clickSItem('salla')">
+                                    <span style="font-size: 2.2rem;">🧺</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #065f46;">سَلَّةُ</div>
+                                    <div style="font-size: 0.75rem; color: #059669;">سَـ (أول الكلمة)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickSItem('sulhafah')">
+                                    <span style="font-size: 2.2rem;">🐢</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #065f46;">سُلَحْفَاةُ</div>
+                                    <div style="font-size: 0.75rem; color: #059669;">سُـ (أول الكلمة)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickSItem('mismaar')">
+                                    <span style="font-size: 2.2rem;">🔩</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #065f46;">مِسْمَارُ</div>
+                                    <div style="font-size: 0.75rem; color: #059669;">ـسْـ (ساكن بالوسط)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickSItem('shams')">
+                                    <span style="font-size: 2.2rem;">☀️</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #065f46;">شَمْسُ</div>
+                                    <div style="font-size: 0.75rem; color: #059669;">ـسُ (آخر الكلمة)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickSItem('sitara')">
+                                    <span style="font-size: 2.2rem;">🪟</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #065f46;">سِتَارَةُ</div>
+                                    <div style="font-size: 0.75rem; color: #059669;">سِـ (أول الكلمة)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickSItem('saah')">
+                                    <span style="font-size: 2.2rem;">⏰</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #065f46;">سَاعَةُ</div>
+                                    <div style="font-size: 0.75rem; color: #059669;">سَا (مد بالألف)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickSItem('hasoob')">
+                                    <span style="font-size: 2.2rem;">💻</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #065f46;">حَاسُوبُ</div>
+                                    <div style="font-size: 0.75rem; color: #059669;">ـسُو (مد بالواو)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickSItem('timsaah')">
+                                    <span style="font-size: 2.2rem;">🐊</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #065f46;">تِمْسَاحُ</div>
+                                    <div style="font-size: 0.75rem; color: #059669;">ـسَا (مد بالألف)</div>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 10px;">
+                                <img src="activity_s_words.png" alt="الكلمات المصورة ص 35" style="max-width: 600px; width: 100%; border-radius: 12px; border: 1.5px solid #d1fae5; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- بطاقة صورة صفحة الكتاب الأصلية ص 35 -->
+                        <div class="interactive-stage-card" style="text-align: center; background: #f0fdf4;">
+                            <div style="font-weight: 800; font-size: 0.95rem; color: #065f46; margin-bottom: 8px;">
+                                📖 صَفْحَةُ الْكِتَابِ الْمَدْرَسِيِّ الأَصْلِيَّة (ص ٣٥):
+                            </div>
+                            <img src="page_35.png" alt="كتاب قراءتي ص 35" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 10px rgba(0,0,0,0.05); object-fit: contain;">
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود القصيرة والطويلة ونشاط 3 ص 36 -->
+                    <div class="letter-s-station" id="stationS2">
+                        <div class="interactive-stage-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #065f46;">
+                                    🎵 نَشَاطُ ٢: أَصْوَاتُ الْمَدِّ الْقَصِيرَةِ (الْحَرَكَات) وَأَصْوَاتُ الْمَدِّ الطَّوِيلَةِ (ص ٣٦)
+                                </div>
+                                <button class="btn btn-teach" style="padding: 4px 12px; font-size: 0.82rem; background:#059669;" onclick="mascotSpeak('أصوات المد القصيرة والطويلة لحرف السين!', 'letter_s_vowels_intro')">
+                                    <span>🔊</span> <span>شرح الأصوات</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 16px;">
+                                <!-- الفتحة مقابل الألف -->
+                                <div style="background: #f0fdf4; border: 2px solid #86efac; border-radius: 16px; padding: 12px; text-align: center;">
+                                    <div style="font-weight: 800; color: #166534; font-size: 0.95rem; margin-bottom: 8px;">
+                                        الْفَتْحَةُ ↔️ أَلِفُ الْمَدّ
+                                    </div>
+                                    <div style="display: flex; justify-content: center; align-items: center; gap: 14px;">
+                                        <button class="btn" style="background: white; border: 2px solid #10b981; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #065f46;" onclick="playSVowel('short', 'a')">
+                                            <span>سَـ</span> <span style="font-size: 0.75rem; display: block; color: #047857;">قَصِير 🔊</span>
+                                        </button>
+                                        <span style="font-size: 1.4rem; color: #10b981;">↔️</span>
+                                        <button class="btn" style="background: white; border: 2px solid #059669; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #065f46;" onclick="playSVowel('long', 'a')">
+                                            <span>سَا</span> <span style="font-size: 0.75rem; display: block; color: #047857;">طَوِيل 🔊</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- الضمة مقابل الواو -->
+                                <div style="background: #f0fdf4; border: 2px solid #86efac; border-radius: 16px; padding: 12px; text-align: center;">
+                                    <div style="font-weight: 800; color: #166534; font-size: 0.95rem; margin-bottom: 8px;">
+                                        الضَّمَّةُ ↔️ وَاوُ الْمَدّ
+                                    </div>
+                                    <div style="display: flex; justify-content: center; align-items: center; gap: 14px;">
+                                        <button class="btn" style="background: white; border: 2px solid #10b981; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #065f46;" onclick="playSVowel('short', 'u')">
+                                            <span>سُـ</span> <span style="font-size: 0.75rem; display: block; color: #047857;">قَصِير 🔊</span>
+                                        </button>
+                                        <span style="font-size: 1.4rem; color: #10b981;">↔️</span>
+                                        <button class="btn" style="background: white; border: 2px solid #059669; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #065f46;" onclick="playSVowel('long', 'u')">
+                                            <span>سُوْ</span> <span style="font-size: 0.75rem; display: block; color: #047857;">طَوِيل 🔊</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- الكسرة مقابل الياء -->
+                                <div style="background: #f0fdf4; border: 2px solid #86efac; border-radius: 16px; padding: 12px; text-align: center;">
+                                    <div style="font-weight: 800; color: #166534; font-size: 0.95rem; margin-bottom: 8px;">
+                                        الْكَسْرَةُ ↔️ يَاءُ الْمَدّ
+                                    </div>
+                                    <div style="display: flex; justify-content: center; align-items: center; gap: 14px;">
+                                        <button class="btn" style="background: white; border: 2px solid #10b981; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #065f46;" onclick="playSVowel('short', 'i')">
+                                            <span>سِـ</span> <span style="font-size: 0.75rem; display: block; color: #047857;">قَصِير 🔊</span>
+                                        </button>
+                                        <span style="font-size: 1.4rem; color: #10b981;">↔️</span>
+                                        <button class="btn" style="background: white; border: 2px solid #059669; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #065f46;" onclick="playSVowel('long', 'i')">
+                                            <span>سِيـ</span> <span style="font-size: 0.75rem; display: block; color: #047857;">طَوِيل 🔊</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- نشاط 3 ص 36: أستمع للفظ الكلمات ثم أنطق حرف س مع أصوات المد -->
+                            <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 16px; padding: 14px; margin-bottom: 16px;">
+                                <div style="font-weight: 900; font-size: 1.05rem; color: #0f172a; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
+                                    <span>🔍 نَشَاطُ ٣: أُمَيِّزُ صَوْتَ حَرْفِ ( س ) فِي الْكَلِمَاتِ الْمُقَارَنَة (كتاب ص ٣٦)</span>
+                                    <span style="font-size: 0.8rem; background: #d1fae5; color: #065f46; padding: 3px 8px; border-radius: 8px; font-weight: 700;">انقر البطاقة لسماع التمييز الفونيمي</span>
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px;">
+                                    <div class="word-chip-card" onclick="clickSItem('sabboora')">
+                                        <span style="font-size: 2rem;">📋</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">سَبُّورَةُ</div>
+                                        <div style="font-size: 0.75rem; color: #059669; font-weight: 800;">سَـ (قصير)</div>
+                                    </div>
+                                    <div class="word-chip-card" onclick="clickSItem('saah_vowel')">
+                                        <span style="font-size: 2rem;">⏰</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">سَاعَةُ</div>
+                                        <div style="font-size: 0.75rem; color: #047857; font-weight: 800;">سَا (طويل)</div>
+                                    </div>
+                                    <div class="word-chip-card" onclick="clickSItem('sukkar')">
+                                        <span style="font-size: 2rem;">🧂</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">سُكَّرُ</div>
+                                        <div style="font-size: 0.75rem; color: #059669; font-weight: 800;">سُـ (قصير)</div>
+                                    </div>
+                                    <div class="word-chip-card" onclick="clickSItem('sooq')">
+                                        <span style="font-size: 2rem;">🛒</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">سُوقُ</div>
+                                        <div style="font-size: 0.75rem; color: #047857; font-weight: 800;">سُوْ (طويل)</div>
+                                    </div>
+                                    <div class="word-chip-card" onclick="clickSItem('sinjab')">
+                                        <span style="font-size: 2rem;">🐿️</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">سِنْجَابُ</div>
+                                        <div style="font-size: 0.75rem; color: #059669; font-weight: 800;">سِـ (قصير)</div>
+                                    </div>
+                                    <div class="word-chip-card" onclick="clickSItem('timsaah_vowel')">
+                                        <span style="font-size: 2rem;">🐊</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">تِمْسَاحُ</div>
+                                        <div style="font-size: 0.75rem; color: #047857; font-weight: 800;">ـسَا (طويل)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 10px;">
+                                <img src="activity_s_vowel_words.png" alt="مقارنة المدود ص 36" style="max-width: 600px; width: 100%; border-radius: 12px; border: 1.5px solid #d1fae5; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- صورة الكتاب المنهجي ص 36 -->
+                        <div class="interactive-stage-card" style="text-align: center; background: #f0fdf4;">
+                            <div style="font-weight: 800; font-size: 0.95rem; color: #065f46; margin-bottom: 8px;">
+                                📖 صَفْحَةُ الْكِتَابِ الْمَدْرَسِيِّ الأَصْلِيَّة (ص ٣٦):
+                            </div>
+                            <img src="page_36.png" alt="كتاب قراءتي ص 36" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 10px rgba(0,0,0,0.05); object-fit: contain;">
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: المقاطع والتحليل الصوتي (ص 36 - 37) -->
+                    <div class="letter-s-station" id="stationS3">
+                        <!-- نشاط ٤: المقاطع الساكنة مع شارة قبضة اليد -->
+                        <div class="interactive-stage-card" style="border-color: #a7f3d0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #065f46;">
+                                    ✊ نَشَاطُ ٤: صَوْتُ حَرْفِ ( س ) السَّاكِنِ فِي الْمَقَاطِعِ (كتاب ص ٣٦)
+                                </div>
+                                <span style="font-size: 0.85rem; background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 12px; font-weight: 800;">
+                                    لغة الجسد: شارة قبضة اليد للسكون ✊
+                                </span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                                <div class="word-chip-card" style="padding: 16px;" onclick="playSSyllable('mistarah')">
+                                    <span style="font-size: 2.2rem;">📏</span>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #1e3a8a;">مِسْطَرَةُ</div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #059669; margin: 4px 0;">[ مِسْـ ✊ ]</div>
+                                    <div style="font-size: 0.78rem; color: #64748b;">مقطع ساكن مغلق</div>
+                                </div>
+                                <div class="word-chip-card" style="padding: 16px;" onclick="playSSyllable('fustaan')">
+                                    <span style="font-size: 2.2rem;">👗</span>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #1e3a8a;">فُسْتَانُ</div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #059669; margin: 4px 0;">[ فُسْـ ✊ ]</div>
+                                    <div style="font-size: 0.78rem; color: #64748b;">مقطع ساكن مغلق</div>
+                                </div>
+                                <div class="word-chip-card" style="padding: 16px;" onclick="playSSyllable('nasr')">
+                                    <span style="font-size: 2.2rem;">🦅</span>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #1e3a8a;">نَسْرُ</div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #059669; margin: 4px 0;">[ نَسْـ ✊ ]</div>
+                                    <div style="font-size: 0.78rem; color: #64748b;">مقطع ساكن مغلق</div>
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <img src="activity_s_syllables.png" alt="نشاط 4 المقاطع الساكنة ص 36" style="max-width: 580px; width: 100%; border-radius: 12px; border: 1.5px solid #d1fae5; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- نشاط ٥: ورشة تحليل الكلمات لمقاطعها بالصفقات -->
+                        <div class="interactive-stage-card" style="border-color: #a7f3d0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #065f46;">
+                                    ✂️ نَشَاطُ ٥: أَقْرَأُ الْكَلِمَاتِ، ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا (كتاب ص ٣٧)
+                                </div>
+                                <span style="font-size: 0.85rem; background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 12px; font-weight: 800;">
+                                    لغة الجسد: صفقات المقاطع 👏
+                                </span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <!-- كلمة سَارَ -->
+                                <div class="split-workshop-card" onclick="splitSWord('saara')">
+                                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #1e3a8a; min-width: 80px;">سَارَ</span>
+                                        <span style="color: #059669; font-size: 1.3rem;">⬅️</span>
+                                        <div id="chips-split-saara" style="display: flex; gap: 8px; transition: transform 0.3s ease;">
+                                            <span class="syllable-chip" style="background:#d1fae5; color:#065f46; border:2px solid #10b981; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">سَا</span>
+                                            <span style="font-size: 1.4rem; color: #10b981; font-weight: 900;">+</span>
+                                            <span class="syllable-chip" style="background:#d1fae5; color:#065f46; border:2px solid #10b981; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">رَ</span>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span style="font-size: 0.82rem; background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 8px; font-weight: 800;">صفقتان 👏 👏</span>
+                                        <span style="font-size: 1.2rem;">🔊</span>
+                                    </div>
+                                </div>
+
+                                <!-- كلمة سَافَرَ -->
+                                <div class="split-workshop-card" onclick="splitSWord('saafara')">
+                                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #1e3a8a; min-width: 80px;">سَافَرَ</span>
+                                        <span style="color: #059669; font-size: 1.3rem;">⬅️</span>
+                                        <div id="chips-split-saafara" style="display: flex; gap: 8px; transition: transform 0.3s ease;">
+                                            <span class="syllable-chip" style="background:#d1fae5; color:#065f46; border:2px solid #10b981; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">سَا</span>
+                                            <span style="font-size: 1.4rem; color: #10b981; font-weight: 900;">+</span>
+                                            <span class="syllable-chip" style="background:#d1fae5; color:#065f46; border:2px solid #10b981; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">فَـ</span>
+                                            <span style="font-size: 1.4rem; color: #10b981; font-weight: 900;">+</span>
+                                            <span class="syllable-chip" style="background:#d1fae5; color:#065f46; border:2px solid #10b981; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">رَ</span>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span style="font-size: 0.82rem; background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 8px; font-weight: 800;">٣ صفقات 👏 👏 👏</span>
+                                        <span style="font-size: 1.2rem;">🔊</span>
+                                    </div>
+                                </div>
+
+                                <!-- كلمة دَرَسَ -->
+                                <div class="split-workshop-card" onclick="splitSWord('darasa')">
+                                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #1e3a8a; min-width: 80px;">دَرَسَ</span>
+                                        <span style="color: #059669; font-size: 1.3rem;">⬅️</span>
+                                        <div id="chips-split-darasa" style="display: flex; gap: 8px; transition: transform 0.3s ease;">
+                                            <span class="syllable-chip" style="background:#d1fae5; color:#065f46; border:2px solid #10b981; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">دَ</span>
+                                            <span style="font-size: 1.4rem; color: #10b981; font-weight: 900;">+</span>
+                                            <span class="syllable-chip" style="background:#d1fae5; color:#065f46; border:2px solid #10b981; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">رَ</span>
+                                            <span style="font-size: 1.4rem; color: #10b981; font-weight: 900;">+</span>
+                                            <span class="syllable-chip" style="background:#d1fae5; color:#065f46; border:2px solid #10b981; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">سَ</span>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span style="font-size: 0.82rem; background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 8px; font-weight: 800;">٣ صفقات 👏 👏 👏</span>
+                                        <span style="font-size: 1.2rem;">🔊</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 14px;">
+                                <img src="activity_s_analysis.png" alt="نشاط 5 تحليل الكلمات ص 37" style="max-width: 580px; width: 100%; border-radius: 12px; border: 1.5px solid #d1fae5; object-fit: contain;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: تركيب المقاطع، القراءة المنهجية، وسبورة الرسم (ص 37) -->
+                    <div class="letter-s-station" id="stationS4">
+                        <!-- نشاط ٦: تركيب المقاطع لتكوين الكلمات -->
+                        <div class="interactive-stage-card" style="border-color: #a7f3d0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #065f46;">
+                                    🧩 نَشَاطُ ٦: أُرَكِّبُ مِنَ الْمَقَاطِعِ التَّالِيَةِ كَلِمَاتٍ، ثُمَّ أَقْرَأُهَا (كتاب ص ٣٧)
+                                </div>
+                                <span style="font-size: 0.82rem; background: #d1fae5; color: #065f46; padding: 4px 10px; border-radius: 10px; font-weight: 800;">
+                                    اضغط على الأحجية للدمج 🧩
+                                </span>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                                <!-- مِسْمَارُ -->
+                                <div class="merge-box-card" onclick="mergeSPuzzle('mismaar')">
+                                    <div style="font-weight: 800; font-size: 0.88rem; color: #065f46; margin-bottom: 6px;">
+                                        🔩 تركيب الكلمة الأولى:
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                        <span class="puzzle-piece" style="background:#d1fae5; border-color:#10b981; color:#065f46;">مِسْـ</span>
+                                        <span style="font-weight: 900; color: #10b981;">+</span>
+                                        <span class="puzzle-piece" style="background:#d1fae5; border-color:#10b981; color:#065f46;">مَا</span>
+                                        <span style="font-weight: 900; color: #10b981;">+</span>
+                                        <span class="puzzle-piece" style="background:#d1fae5; border-color:#10b981; color:#065f46;">رُ</span>
+                                        <span style="font-weight: 900; color: #059669; font-size: 1.2rem;">=</span>
+                                        <span class="puzzle-result" id="result-merge-mismaar" style="border-color:#10b981; color:#065f46;">؟</span>
+                                    </div>
+                                </div>
+
+                                <!-- فَارِسُ -->
+                                <div class="merge-box-card" onclick="mergeSPuzzle('faris')">
+                                    <div style="font-weight: 800; font-size: 0.88rem; color: #065f46; margin-bottom: 6px;">
+                                        👦 تركيب الكلمة الثانية:
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                        <span class="puzzle-piece" style="background:#d1fae5; border-color:#10b981; color:#065f46;">فَا</span>
+                                        <span style="font-weight: 900; color: #10b981;">+</span>
+                                        <span class="puzzle-piece" style="background:#d1fae5; border-color:#10b981; color:#065f46;">رِ</span>
+                                        <span style="font-weight: 900; color: #10b981;">+</span>
+                                        <span class="puzzle-piece" style="background:#d1fae5; border-color:#10b981; color:#065f46;">سُ</span>
+                                        <span style="font-weight: 900; color: #059669; font-size: 1.2rem;">=</span>
+                                        <span class="puzzle-result" id="result-merge-faris" style="border-color:#10b981; color:#065f46;">؟</span>
+                                    </div>
+                                </div>
+
+                                <!-- رَسَمَ -->
+                                <div class="merge-box-card" onclick="mergeSPuzzle('rasama')">
+                                    <div style="font-weight: 800; font-size: 0.88rem; color: #065f46; margin-bottom: 6px;">
+                                        🎨 تركيب الكلمة الثالثة:
+                                    </div>
+                                    <div style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+                                        <span class="puzzle-piece" style="background:#d1fae5; border-color:#10b981; color:#065f46;">رَ</span>
+                                        <span style="font-weight: 900; color: #10b981;">+</span>
+                                        <span class="puzzle-piece" style="background:#d1fae5; border-color:#10b981; color:#065f46;">سَـ</span>
+                                        <span style="font-weight: 900; color: #10b981;">+</span>
+                                        <span class="puzzle-piece" style="background:#d1fae5; border-color:#10b981; color:#065f46;">مَ</span>
+                                        <span style="font-weight: 900; color: #059669; font-size: 1.2rem;">=</span>
+                                        <span class="puzzle-result" id="result-merge-rasama" style="border-color:#10b981; color:#065f46;">؟</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 10px;">
+                                <img src="activity_s_blend.png" alt="نشاط 6 تركيب الكلمات ص 37" style="max-width: 580px; width: 100%; border-radius: 12px; border: 1.5px solid #d1fae5; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- فقرة القراءة المقررة: أَقْرَأُ (ص 37) -->
+                        <div class="interactive-stage-card" style="border-color: #a7f3d0; background: #ffffff;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.25rem; color: #065f46;">
+                                    📖 أَقْرَأُ (كِتَابُ قِرَاءَتِي ص ٣٧)
+                                </div>
+                                <button class="btn btn-teach" style="background: linear-gradient(135deg, #059669 0%, #047857 100%);" onclick="playSReadAll()">
+                                    <span>🔊</span> <span>اِسْتَمِعْ لِلْقِرَاءَةِ الشَّامِلَةِ</span>
+                                </button>
+                            </div>
+
+                            <div style="background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%); border: 2.5px solid #10b981; border-radius: 20px; padding: 22px; text-align: center; margin-bottom: 14px;">
+                                <div style="display: flex; flex-direction: column; gap: 16px; align-items: center;">
+                                    <!-- الجملة الأولى -->
+                                    <div class="reading-line-card" onclick="playSReadWord('sentence1')" style="cursor: pointer; background: white; border: 2px solid #86efac; border-radius: 16px; padding: 12px 24px; display: inline-flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                                        <span style="font-size: 1.6rem; font-weight: 900; color: #1e3a8a;" onclick="event.stopPropagation(); playSReadWord('baba')">بَابَا</span>
+                                        <span style="font-size: 1.6rem; font-weight: 900; color: #047857;" onclick="event.stopPropagation(); playSReadWord('rami')">رَامِي</span>
+                                        <span style="font-size: 1.6rem; font-weight: 900; color: #d97706;" onclick="event.stopPropagation(); playSReadWord('rasama')">رَسَمَ</span>
+                                        <span style="font-size: 1.6rem; font-weight: 900; color: #9333ea;" onclick="event.stopPropagation(); playSReadWord('moosa')">مُوْسَى</span>
+                                        <span style="font-size: 1.2rem; margin-right: 6px;">🔊</span>
+                                    </div>
+
+                                    <!-- الجملة الثانية -->
+                                    <div class="reading-line-card" onclick="playSReadWord('sentence2')" style="cursor: pointer; background: white; border: 2px solid #86efac; border-radius: 16px; padding: 12px 24px; display: inline-flex; gap: 14px; align-items: center; flex-wrap: wrap; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                                        <span style="font-size: 1.6rem; font-weight: 900; color: #059669;" onclick="event.stopPropagation(); playSReadWord('faris')">فَارِسُ</span>
+                                        <span style="font-size: 1.6rem; font-weight: 900; color: #d97706;" onclick="event.stopPropagation(); playSReadWord('rasama')">رَسَمَ</span>
+                                        <span style="font-size: 1.6rem; font-weight: 900; color: #e11d48;" onclick="event.stopPropagation(); playSReadWord('mama')">مَامَا</span>
+                                        <span style="font-size: 1.2rem; margin-right: 6px;">🔊</span>
+                                    </div>
+
+                                    <!-- بطاقة تكريم كلمة العنوان التراثية: فِرَاس -->
+                                    <div style="background: #ffffff; border: 2px dashed #059669; border-radius: 14px; padding: 8px 18px; display: inline-flex; align-items: center; gap: 10px; cursor: pointer;" onclick="playSReadWord('firas')">
+                                        <span style="font-size: 1.3rem;">🌟</span>
+                                        <span style="font-size: 1.25rem; font-weight: 900; color: #065f46;">كَلِمَةُ الدَّرْسِ الشَّهِيرَة: ( فِرَاسُ )</span>
+                                        <span style="font-size: 0.85rem; color: #059669;">[ فِرَاسٌ وَأَنِيسٌ وَمَيْسُون ] 🔊</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 10px;">
+                                <img src="activity_s_read.png" alt="قراءة حرف السين ص 37" style="max-width: 580px; width: 100%; border-radius: 12px; border: 1.5px solid #d1fae5; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- سبورة تتبع ورسم الحرف التفاعلية -->
+                        <div class="interactive-stage-card" style="border-color: #a7f3d0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #065f46;">
+                                    ✍️ سَبُّوْرَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ السِّينِ ( سـ ، س )
+                                </div>
+                                <div style="display: flex; gap: 8px; align-items: center;">
+                                    <button class="btn btn-teach" style="padding: 4px 10px; font-size: 0.82rem; background:#059669;" onclick="playSDrawHint()">
+                                        <span>💡</span> <span>إرشاد الرسم</span>
+                                    </button>
+                                    <button class="btn btn-listen" style="padding: 4px 10px; font-size: 0.82rem; background: #fee2e2; color: #991b1b; border-color: #fca5a5;" onclick="clearSCanvas()">
+                                        <span>🗑️</span> <span>مسح</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- لوحة الرسم التفاعلية HTML5 Canvas -->
+                            <div style="background: #fffdf5; border: 2.5px solid #10b981; border-radius: 18px; padding: 12px; text-align: center; box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);">
+                                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; align-items: center;">
+                                    <span style="font-size: 0.85rem; font-weight: 800; color: #065f46;">اختر لون القلم:</span>
+                                    <button class="color-dot-s active" style="background: #059669;" onclick="setSColor('#059669', this)"></button>
+                                    <button class="color-dot-s" style="background: #2563eb;" onclick="setSColor('#2563eb', this)"></button>
+                                    <button class="color-dot-s" style="background: #dc2626;" onclick="setSColor('#dc2626', this)"></button>
+                                    <button class="color-dot-s" style="background: #d97706;" onclick="setSColor('#d97706', this)"></button>
+                                    <button class="color-dot-s" style="background: #1e293b;" onclick="setSColor('#1e293b', this)"></button>
+                                </div>
+                                <div style="width: 100%; max-width: 620px; margin: 0 auto; background: white; border: 1.5px dashed #86efac; border-radius: 12px; overflow: hidden; position: relative;">
+                                    <canvas id="sDrawingCanvas" width="620" height="230" style="touch-action: none; cursor: crosshair; display: block;"></canvas>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 10px;">
+                                <img src="activity_s_trace.png" alt="تتبع حرف السين ص 37" style="max-width: 580px; width: 100%; border-radius: 12px; border: 1.5px solid #d1fae5; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- صورة صفحة الكتاب ص 37 -->
+                        <div class="interactive-stage-card" style="text-align: center; background: #f0fdf4;">
+                            <div style="font-weight: 800; font-size: 0.95rem; color: #065f46; margin-bottom: 8px;">
+                                📖 صَفْحَةُ الْكِتَابِ الْمَدْرَسِيِّ الأَصْلِيَّة (ص ٣٧):
+                            </div>
+                            <img src="page_37.png" alt="كتاب قراءتي ص 37" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 10px rgba(0,0,0,0.05); object-fit: contain;">
+                        </div>
+                    </div>
+                </div>
+
+
             <!-- شريط الانتقال المتسلسل بين الدروس -->
 
             <div class="lesson-stepper-bar">
@@ -11746,6 +12305,9 @@
 
                 mascotSpeak('خَاتِمَةُ الْوَحْدَةِ الْأُولَى: أُسْرَتِي! اِسْتَمِعْ لِسُورَةِ الْفَاتِحَةِ الْمُبَارَكَةِ وَنَشِيدِ (مَامَا بَابَا) وَشَاهِدْ حَصَادَ الْوَحْدَةِ وَاسْتَلِمْ شَهَادَةَ التَّخَرُّجِ!', 'unit1_quran_welcome');
 
+            } else if (lesson.id === 'tab-letter_s') {
+                mascotSpeak('الْوَحْدَةُ الثَّانِيَة: حَرْفُ السِّين (سـ ، س) وَقِرَاءَةُ (فِرَاس)! اِسْتَمِعْ لِصَوْتِ السِّينِ النَّقِيّ (سْ) وَأَصْوَاتِ الْمَدُودِ وَحَلِّلْ وَرَكِّبْ كَلِمَاتِ (مِسْمَار ، فَارِس ، رَسَمَ) وَاقْرَأْ (بَابَا رَامِي رَسَمَ مُوسَى ، فَارِسُ رَسَمَ مَامَا)!', 'letter_s_intro');
+                setTimeout(initSCanvas, 200);
             } else if (lesson.id === 'tab-letter_r') {
                 mascotSpeak('الْوَحْدَةُ الثَّانِيَة: حَرْفُ الرَّاءِ (ر) وَتَرْكِيبُ كَلِمَةِ (دَار)! اِسْتَمِعْ لِصَوْتِ الْحَرْفِ النَّقِيّ (رْ) وَأَصْوَاتِ الْمَدُودِ وَحَلِّلْ وَرَكِّبْ كَلِمَةَ (دَار) وَاقْرَأْ (بَابَا رَامِي ، مَامَا رِيم ، دَادَا مَرَام ، دَار رَامِي)!', 'letter_r_intro');
                 setTimeout(initRCanvas, 200);
@@ -16820,6 +17382,328 @@
                 const ctx = canvas.getContext('2d');
                 drawRCanvasGuides(ctx, canvas);
             }
+
+        /* ========================================================
+           دوال درس حرف السين (سـ ، س) وقراءة (فِرَاس) - ص 35 - 37
+        ======================================================== */
+        let sCanvasInited = false;
+        let sDrawing = false;
+        let sDrawColor = '#059669';
+        let sLineWidth = 6;
+        let sIsEraser = false;
+
+        function switchSStation(stationNum) {
+            document.querySelectorAll('.letter-s-station').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('#view-tab-letter_s .station-tab').forEach(el => el.classList.remove('active'));
+
+            const targetStation = document.getElementById('stationS' + stationNum);
+            const targetBtn = document.getElementById('btnStationS' + stationNum);
+            if (targetStation) targetStation.style.display = 'block';
+            if (targetBtn) targetBtn.classList.add('active');
+
+            if (stationNum === 1) {
+                mascotSpeak('حرف السين (سـ ، س)! انقر على بطاقات الكلمات المصورة واستمع لصوت الحرف!', 'letter_s_intro');
+            } else if (stationNum === 2) {
+                mascotSpeak('أصوات المد القصيرة والطويلة! قارن بين الفتحة والمد بالألف، والضمة والواو، والكسرة والياء لحرف السين!', 'letter_s_vowels_intro');
+            } else if (stationNum === 3) {
+                mascotSpeak('المقاطع والتحليل الصوتي! استمع لصوت السين الساكنة ✊ وحلل كلمات (سَارَ ، سَافَرَ ، دَرَسَ) بالصفقات!', 'letter_s_syllables_intro');
+            } else if (stationNum === 4) {
+                mascotSpeak('تركيب وقراءة (فَارِس / فِرَاس) والرسم! ركّب المقاطع واقرأ وتدرّب على رسم حرف السين!', 'letter_s_merge_intro');
+                setTimeout(initSCanvas, 100);
+            }
+        }
+
+        function playSLetterSound() {
+            mascotCelebrates();
+            mascotSpeak('🟢 <b>صَوْتُ حَرْفِ السِّينِ النَّقِيّ:</b><br><span style="font-size:2.2rem; color:#059669;">سْ... سْ... سْ</span>', 'letter_s_sound');
+        }
+
+        function playSSceneStory() {
+            const btn = document.getElementById('btnSSceneStory');
+            if (currentAudio && !currentAudio.paused && window._currentPlayingKey === 'letter_s_scene_story') {
+                stopAudio();
+                if (btn) btn.innerHTML = '<span>🔊</span> <span>اِسْتَمِعْ لِقِصَّةِ حَدِيقَتِنَا وَعَنَاصِرِ حَرْفِ السِّينِ</span>';
+                return;
+            }
+            mascotCelebrates();
+            if (btn) btn.innerHTML = '<span>⏹️</span> <span>إيقاف قصة الحديقة وحرف السين</span>';
+            mascotSpeak('🌿 <b>فِي حَدِيقَةِ بَيْتِنَا الْمُشْمِسَة:</b><br>«فِي حَدِيقَةِ الْبَيْتِ الْمُشْمِسَة، جَلَسَ فَارِسٌ يُشَاهِدُ السُّلَحْفَاةَ اللَّطِيفَة، وَبِجَانِبِهِ سَلَّةُ الْفَوَاكِهِ اللَّذِيذَة، وَتَحْتَ أَشِعَّةِ الشَّمْسِ الذَّهَبِيَّة، كُلُّ هَذِهِ الْكَلِمَاتِ تَزْهُو بِصَوْتِ حَرْفِ السِّين!»', 'letter_s_scene_story', () => {
+                if (btn) btn.innerHTML = '<span>🔊</span> <span>اِسْتَمِعْ لِقِصَّةِ حَدِيقَتِنَا وَعَنَاصِرِ حَرْفِ السِّينِ</span>';
+            });
+        }
+
+        function playSModel(mode) {
+            mascotCelebrates();
+            if (mode === 'alone') {
+                mascotSpeak('🎓 <b>«أَنَا وَحْدِي» نَمْذَجَةُ فَصِيح:</b><br>أَنَا أَنْطِقُ وَحْدِي بِصَوْتٍ مَسْمُوع: <b style="color:#059669; font-size:1.5rem;">سَلَّةُ</b>... تَبْدَأُ بِحَرْفِ السِّينِ الْمَفْتُوح: <b style="color:#047857;">سَـ</b>!', 'letter_s_model_alone');
+            } else if (mode === 'we') {
+                mascotSpeak('🤝 <b>«أَنَا وَأَنْتُمْ» مُمَارَسَةٌ مُوَجَّهَة:</b><br>نَنْطِقُ مَعًا يَا أَبْطَال: <b style="color:#059669; font-size:1.5rem;">سُلَحْفَاةُ</b>... فِي أَوَّلِهَا سِينٌ مَضْمُومَة: <b style="color:#047857;">سُـ</b>!', 'letter_s_model_we');
+            } else if (mode === 'you') {
+                mascotSpeak('⭐ <b>«أَنْتُمْ وَحْدَكُمْ» اِسْتِقْلالِيَّة:</b><br>الآنَ دَوْرُكُمْ وَحْدَكُمْ يَا أَبْطَالَ الصَّفِّ الأَوَّل، اِنْقُرُوا عَلَى كُلِّ صُورَةٍ وَأَصْغُوا لِلَّفْظِ السَّلِيم!', 'letter_s_model_you');
+            }
+        }
+
+        function clickSItem(itemKey) {
+            mascotCelebrates();
+            const items = {
+                'salla': { title: 'سَلَّةُ الْفَوَاكِه', audio: 'letter_s_salla', badge: 'سَـ (مفتوح في أول الكلمة)' },
+                'sulhafah': { title: 'سُلَحْفَاةُ اللَّطِيفَة', audio: 'letter_s_sulhafah', badge: 'سُـ (مضموم في أول الكلمة)' },
+                'mismaar': { title: 'مِسْمَارٌ صُلْب', audio: 'letter_s_mismaar', badge: 'ـسْـ (ساكن في وسط الكلمة)' },
+                'shams': { title: 'شَمْسٌ دَافِئَة', audio: 'letter_s_shams', badge: 'ـسُ (في آخر الكلمة)' },
+                'sitara': { title: 'سِتَارَةُ النَّافِذَة', audio: 'letter_s_sitara', badge: 'سِـ (مكسور في أول الكلمة)' },
+                'saah': { title: 'سَاعَةُ الْحَائِط', audio: 'letter_s_saah', badge: 'سَا (مد بالألف)' },
+                'hasoob': { title: 'حَاسُوبٌ ذَكِيّ', audio: 'letter_s_hasoob', badge: 'ـسُو (مد بالواو)' },
+                'timsaah': { title: 'تِمْسَاحٌ نَهْرِيّ', audio: 'letter_s_timsaah', badge: 'ـسَا (مد بالألف)' },
+                'sabboora': { title: 'سَبُّورَةُ الصَّفّ', audio: 'letter_s_sabboora', badge: 'سَـ (صوت قصير بالفتحة)' },
+                'sukkar': { title: 'سُكَّرٌ حُلْو', audio: 'letter_s_sukkar', badge: 'سُـ (صوت قصير بالضمة)' },
+                'sinjab': { title: 'سِنْجَابٌ نَشِيط', audio: 'letter_s_sinjab', badge: 'سِـ (صوت قصير بالكسرة)' },
+                'saah_vowel': { title: 'سَاعَةٌ ذَهَبِيَّة', audio: 'letter_s_saah_vowel', badge: 'سَا (صوت طويل بالألف)' },
+                'sooq': { title: 'سُوقٌ كَبِير', audio: 'letter_s_sooq', badge: 'سُوْ (صوت طويل بالواو)' },
+                'timsaah_vowel': { title: 'تِمْسَاحُ الْبُحَيْرَة', audio: 'letter_s_timsaah_vowel', badge: 'ـسَا (صوت طويل بالألف)' }
+            };
+            const item = items[itemKey];
+            if (item) {
+                mascotSpeak('📸 <b>' + item.title + ':</b><br><span style="font-size:1.15rem; color:#059669; font-weight:800;">' + item.badge + '</span>', item.audio);
+            }
+        }
+
+        function playSVowel(type, vowel) {
+            mascotCelebrates();
+            if (type === 'short') {
+                if (vowel === 'a') mascotSpeak('🎵 <b>حَرْكَةُ الْفَتْحَةِ الْقَصِيرَة:</b><br><b style="color:#059669; font-size:2rem;">سَـ</b>... صَوْتٌ قَصِيرٌ خَفِيف!', 'letter_s_short_a');
+                else if (vowel === 'u') mascotSpeak('🎵 <b>حَرْكَةُ الضَّمَّةِ الْقَصِيرَة:</b><br><b style="color:#059669; font-size:2rem;">سُـ</b>... صَوْتٌ قَصِيرٌ مَضْمُوم!', 'letter_s_short_u');
+                else if (vowel === 'i') mascotSpeak('🎵 <b>حَرْكَةُ الْكَسْرَةِ الْقَصِيرَة:</b><br><b style="color:#059669; font-size:2rem;">سِـ</b>... صَوْتٌ قَصِيرٌ مَكْسُور!', 'letter_s_short_i');
+            } else if (type === 'long') {
+                if (vowel === 'a') mascotSpeak('🎵 <b>مَدُّ الأَلِفِ الطَّوِيل:</b><br><b style="color:#047857; font-size:2rem;">سَا</b>... نَمُدُّ الصَّوْتَ بِالأَلِف!', 'letter_s_long_a');
+                else if (vowel === 'u') mascotSpeak('🎵 <b>مَدُّ الْوَاوِ الطَّوِيل:</b><br><b style="color:#047857; font-size:2rem;">سُوْ</b>... نَمُدُّ الصَّوْتَ بِالْوَاو!', 'letter_s_long_u');
+                else if (vowel === 'i') mascotSpeak('🎵 <b>مَدُّ الْيَاءِ الطَّوِيل:</b><br><b style="color:#047857; font-size:2rem;">سِيـ</b>... نَمُدُّ الصَّوْتَ بِالْيَاء!', 'letter_s_long_i');
+            }
+        }
+
+        function playSSyllable(syllableKey) {
+            mascotCelebrates();
+            if (syllableKey === 'mistarah') {
+                mascotSpeak('✊ <b>مِسْطَرَةُ:</b> الْمَقْطَعُ السَّاكِنُ هو: <b style="color:#059669; font-size:1.6rem;">مِسْـ ✊</b>', 'letter_s_mistarah_syllable');
+            } else if (syllableKey === 'fustaan') {
+                mascotSpeak('✊ <b>فُسْتَانُ:</b> الْمَقْطَعُ السَّاكِنُ هو: <b style="color:#059669; font-size:1.6rem;">فُسْـ ✊</b>', 'letter_s_fustaan_syllable');
+            } else if (syllableKey === 'nasr') {
+                mascotSpeak('✊ <b>نَسْرُ:</b> الْمَقْطَعُ السَّاكِنُ هو: <b style="color:#059669; font-size:1.6rem;">نَسْـ ✊</b>', 'letter_s_nasr_syllable');
+            }
+        }
+
+        function splitSWord(wordKey) {
+            mascotCelebrates();
+            const isModel = window.currentModelingMode === 'model';
+            if (wordKey === 'saara') {
+                const chips = document.getElementById('chips-split-saara');
+                if (chips) {
+                    chips.style.transform = 'scale(1.12)';
+                    setTimeout(() => chips.style.transform = 'scale(1)', 400);
+                }
+                mascotSpeak('✂️ <b>كَلِمَةُ سَارَ:</b><br>تَتَكَوَّنُ مِنْ مَقْطَعَيْن: [ سَا ] + [ رَ ]! صَفِّقْ مَعِي 👏 👏', 'letter_s_split_saara');
+                triggerClapSequence('saara', ['سَا', 'رَ']);
+            } else if (wordKey === 'saafara') {
+                const chips = document.getElementById('chips-split-saafara');
+                if (chips) {
+                    chips.style.transform = 'scale(1.12)';
+                    setTimeout(() => chips.style.transform = 'scale(1)', 400);
+                }
+                mascotSpeak('✂️ <b>كَلِمَةُ سَافَرَ:</b><br>تَتَكَوَّنُ مِنْ ثَلاثَةِ مَقَاطِع: [ سَا ] + [ فَـ ] + [ رَ ]! صَفِّقْ مَعِي 👏 👏 👏', 'letter_s_split_saafara');
+                triggerClapSequence('saafara', ['سَا', 'فَـ', 'رَ']);
+            } else if (wordKey === 'darasa') {
+                const chips = document.getElementById('chips-split-darasa');
+                if (chips) {
+                    chips.style.transform = 'scale(1.12)';
+                    setTimeout(() => chips.style.transform = 'scale(1)', 400);
+                }
+                mascotSpeak('✂️ <b>كَلِمَةُ دَرَسَ:</b><br>تَتَكَوَّنُ مِنْ ثَلاثَةِ مَقَاطِع: [ دَ ] + [ رَ ] + [ سَ ]! صَفِّقْ مَعِي 👏 👏 👏', 'letter_s_split_darasa');
+                triggerClapSequence('darasa', ['دَ', 'رَ', 'سَ']);
+            }
+        }
+
+        function mergeSPuzzle(puzzleKey) {
+            mascotCelebrates();
+            if (puzzleKey === 'mismaar') {
+                const res = document.getElementById('result-merge-mismaar');
+                if (res) {
+                    res.textContent = 'مِسْمَارُ';
+                    res.style.borderColor = '#059669';
+                    res.style.color = '#059669';
+                    res.style.background = '#d1fae5';
+                    res.style.transform = 'scale(1.15)';
+                    setTimeout(() => res.style.transform = 'scale(1)', 400);
+                }
+                mascotSpeak('🧩 <b>تَرْكِيبُ الْمَقَاطِع:</b><br>[ مِسْـ ] + [ مَا ] + [ رُ ] = <b style="color:#059669; font-size:1.6rem;">مِسْمَارُ</b>! أَحْسَنْتَ يَا بَطَل!', 'letter_s_merge_mismaar');
+            } else if (puzzleKey === 'faris') {
+                const res = document.getElementById('result-merge-faris');
+                if (res) {
+                    res.textContent = 'فَارِسُ';
+                    res.style.borderColor = '#059669';
+                    res.style.color = '#059669';
+                    res.style.background = '#d1fae5';
+                    res.style.transform = 'scale(1.15)';
+                    setTimeout(() => res.style.transform = 'scale(1)', 400);
+                }
+                mascotSpeak('🧩 <b>تَرْكِيبُ الْمَقَاطِع:</b><br>[ فَا ] + [ رِ ] + [ سُ ] = <b style="color:#059669; font-size:1.6rem;">فَارِسُ</b>! عَبْقَرِيٌّ حَقًّا!', 'letter_s_merge_faris');
+            } else if (puzzleKey === 'rasama') {
+                const res = document.getElementById('result-merge-rasama');
+                if (res) {
+                    res.textContent = 'رَسَمَ';
+                    res.style.borderColor = '#059669';
+                    res.style.color = '#059669';
+                    res.style.background = '#d1fae5';
+                    res.style.transform = 'scale(1.15)';
+                    setTimeout(() => res.style.transform = 'scale(1)', 400);
+                }
+                mascotSpeak('🧩 <b>تَرْكِيبُ كَلِمَةِ (رَسَمَ):</b><br>[ رَ ] + [ سَـ ] + [ مَ ] = <b style="color:#059669; font-size:1.6rem;">رَسَمَ</b>! هَكَذَا صَنَعْنَا كَلِمَةَ رَسَمَ!', 'letter_s_merge_rasama');
+            }
+        }
+
+        function playSReadWord(wordKey) {
+            mascotCelebrates();
+            if (wordKey === 'sentence1') {
+                mascotSpeak('📖 <b>«بَابَا رَامِي رَسَمَ مُوسَى»</b><br>جُمْلَةٌ رَائِعَةٌ مِنْ مَقَاطِعِنَا الْمَدْرُوسَة!', 'letter_s_read_sentence1');
+            } else if (wordKey === 'sentence2') {
+                mascotSpeak('📖 <b>«فَارِسُ رَسَمَ مَامَا»</b><br>فَارِسُ الْبَطَلُ رَسَمَ مَامَا الْحَبِيبَة!', 'letter_s_read_sentence2');
+            } else if (wordKey === 'baba') {
+                mascotSpeak('📖 <b>بَابَا!</b>', 'letter_s_read_word_baba');
+            } else if (wordKey === 'rami') {
+                mascotSpeak('📖 <b>رَامِي!</b>', 'letter_s_read_word_rami');
+            } else if (wordKey === 'rasama') {
+                mascotSpeak('📖 <b>رَسَمَ!</b>', 'letter_s_read_word_rasama');
+            } else if (wordKey === 'moosa') {
+                mascotSpeak('📖 <b>مُوْسَى!</b>', 'letter_s_read_word_moosa');
+            } else if (wordKey === 'faris') {
+                mascotSpeak('📖 <b>فَارِسُ!</b>', 'letter_s_read_word_faris');
+            } else if (wordKey === 'mama') {
+                mascotSpeak('📖 <b>مَامَا!</b>', 'letter_s_read_word_mama');
+            } else if (wordKey === 'firas') {
+                mascotSpeak('🌟 <b>فِرَاسُ!</b><br>كَلِمَةُ الدَّرْسِ الشَّهِيرَة: فِرَاسٌ وَأَنِيسٌ وَمَيْسُون!', 'letter_s_read_word_firas');
+            }
+        }
+
+        function playSReadAll() {
+            mascotCelebrates();
+            mascotSpeak('📖 <b>الْقِرَاءَةُ الْجَمَاعِيَّةُ الشَّامِلَةُ لِدَرْسِ حَرْفِ السِّين:</b><br><span style="font-size:1.35rem; color:#065f46; font-weight:900;">«بَابَا رَامِي رَسَمَ مُوسَى... فَارِسُ رَسَمَ مَامَا!»</span><br>عَفْيَة عَلَيْكُم يَا أَبْطَالَ قِرَاءَتِي الشُّجْعَان! 🌟', 'letter_s_read_all');
+        }
+
+        function playSDrawHint() {
+            mascotCelebrates();
+            mascotSpeak('💡 <b>إِرْشَادُ رَسْمِ حَرْفِ السِّين:</b><br>نَرْسِمُ ثَلاثَةَ أَسْنَانٍ مُتَسَاوِيَةٍ فَوْقَ السَّطْر، ثُمَّ نَمُدُّ لِلسِّينِ الأُولَى (سـ)، أَوْ نَنْزِلُ بِكَاسَةٍ مُقَوَّسَةٍ تَغُوصُ تَحْتَ السَّطْرِ وَتَصْعَدُ لِلسِّينِ الْكَامِلَة (س)!', 'letter_s_draw_hint');
+        }
+
+        function initSCanvas() {
+            const canvas = document.getElementById('sDrawingCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            if (!sCanvasInited) {
+                sCanvasInited = true;
+                drawSCanvasGuides(ctx, canvas);
+
+                const startDrawing = (e) => {
+                    sDrawing = true;
+                    ctx.beginPath();
+                    const pos = getCanvasPos(canvas, e);
+                    ctx.moveTo(pos.x, pos.y);
+                    if (e.cancelable) e.preventDefault();
+                };
+
+                const drawMove = (e) => {
+                    if (!sDrawing) return;
+                    const pos = getCanvasPos(canvas, e);
+                    ctx.lineTo(pos.x, pos.y);
+                    ctx.strokeStyle = sIsEraser ? '#fffdf5' : sDrawColor;
+                    ctx.lineWidth = sIsEraser ? 24 : sLineWidth;
+                    ctx.lineCap = 'round';
+                    ctx.lineJoin = 'round';
+                    ctx.stroke();
+                    if (e.cancelable) e.preventDefault();
+                };
+
+                const stopDrawing = () => {
+                    if (sDrawing) {
+                        sDrawing = false;
+                        ctx.closePath();
+                    }
+                };
+
+                canvas.addEventListener('mousedown', startDrawing);
+                canvas.addEventListener('mousemove', drawMove);
+                window.addEventListener('mouseup', stopDrawing);
+
+                canvas.addEventListener('touchstart', startDrawing, { passive: false });
+                canvas.addEventListener('touchmove', drawMove, { passive: false });
+                window.addEventListener('touchend', stopDrawing);
+            }
+        }
+
+        function drawSCanvasGuides(ctx, canvas) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // خط الأساس (سطر الكتابة الأحمر)
+            ctx.beginPath();
+            ctx.strokeStyle = '#ef4444';
+            ctx.lineWidth = 2.5;
+            ctx.moveTo(30, 130);
+            ctx.lineTo(canvas.width - 30, 130);
+            ctx.stroke();
+
+            // خط إرشادي علوي للأسنان
+            ctx.beginPath();
+            ctx.strokeStyle = '#94a3b8';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([4, 4]);
+            ctx.moveTo(30, 75);
+            ctx.lineTo(canvas.width - 30, 75);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // خط قاع الكاسة
+            ctx.beginPath();
+            ctx.strokeStyle = '#c084fc';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([4, 4]);
+            ctx.moveTo(30, 180);
+            ctx.lineTo(canvas.width - 30, 180);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // حروف منقطة إرشادية (سـ ، س)
+            ctx.font = '900 86px "Noto Naskh Arabic", "Cairo", sans-serif';
+            ctx.fillStyle = '#bbf7d0';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'alphabetic';
+            ctx.fillText('سـ', canvas.width * 0.75, 130);
+            ctx.fillText('س', canvas.width * 0.35, 130);
+
+            // نقطة بداية حمراء
+            ctx.beginPath();
+            ctx.arc(canvas.width * 0.77, 75, 6, 0, Math.PI * 2);
+            ctx.fillStyle = '#ef4444';
+            ctx.fill();
+
+            // تسمية توضيحية
+            ctx.font = 'bold 12px "Cairo", sans-serif';
+            ctx.fillStyle = '#64748b';
+            ctx.textAlign = 'left';
+            ctx.fillText('السطر الأساسي', 35, 125);
+        }
+
+        function setSColor(color, btn) {
+            sIsEraser = false;
+            sDrawColor = color;
+            document.querySelectorAll('.color-dot-s').forEach(el => el.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+        }
+
+        function clearSCanvas() {
+            const canvas = document.getElementById('sDrawingCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            drawSCanvasGuides(ctx, canvas);
+            mascotSpeak('تم مسح السبورة! ارسم حرف السين مرة أخرى بيدك الرائعة!', 'hint_draw');
+        }
+
         }
 
     </script>

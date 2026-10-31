@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v13';
+const CACHE_NAME = 'qiraati-smart-v14';
 
 const ASSETS_TO_CACHE = [
 
@@ -161,7 +161,74 @@ const ASSETS_TO_CACHE = [
 
   './icons/icon-192.png',
 
-  './icons/icon-512.png'
+  './icons/icon-512.png',
+
+  './page_35.png',
+  './page_36.png',
+  './page_37.png',
+  './activity_s_scene.png',
+  './activity_s_words.png',
+  './activity_s_vowel_words.png',
+  './activity_s_syllables.png',
+  './activity_s_analysis.png',
+  './activity_s_blend.png',
+  './activity_s_read.png',
+  './activity_s_trace.png',
+  './audio/letter_s_analysis_intro.mp3',
+  './audio/letter_s_draw_hint.mp3',
+  './audio/letter_s_fustaan.mp3',
+  './audio/letter_s_fustaan_syllable.mp3',
+  './audio/letter_s_hasoob.mp3',
+  './audio/letter_s_intro.mp3',
+  './audio/letter_s_long_a.mp3',
+  './audio/letter_s_long_i.mp3',
+  './audio/letter_s_long_u.mp3',
+  './audio/letter_s_merge_faris.mp3',
+  './audio/letter_s_merge_intro.mp3',
+  './audio/letter_s_merge_mismaar.mp3',
+  './audio/letter_s_merge_rasama.mp3',
+  './audio/letter_s_mismaar.mp3',
+  './audio/letter_s_mistarah.mp3',
+  './audio/letter_s_mistarah_syllable.mp3',
+  './audio/letter_s_model_alone.mp3',
+  './audio/letter_s_model_we.mp3',
+  './audio/letter_s_model_you.mp3',
+  './audio/letter_s_nasr.mp3',
+  './audio/letter_s_nasr_syllable.mp3',
+  './audio/letter_s_read_all.mp3',
+  './audio/letter_s_read_intro.mp3',
+  './audio/letter_s_read_sentence1.mp3',
+  './audio/letter_s_read_sentence2.mp3',
+  './audio/letter_s_read_word_baba.mp3',
+  './audio/letter_s_read_word_faris.mp3',
+  './audio/letter_s_read_word_firas.mp3',
+  './audio/letter_s_read_word_mama.mp3',
+  './audio/letter_s_read_word_moosa.mp3',
+  './audio/letter_s_read_word_rami.mp3',
+  './audio/letter_s_read_word_rasama.mp3',
+  './audio/letter_s_saah.mp3',
+  './audio/letter_s_saah_vowel.mp3',
+  './audio/letter_s_sabboora.mp3',
+  './audio/letter_s_salla.mp3',
+  './audio/letter_s_scene_story.mp3',
+  './audio/letter_s_shams.mp3',
+  './audio/letter_s_short_a.mp3',
+  './audio/letter_s_short_i.mp3',
+  './audio/letter_s_short_u.mp3',
+  './audio/letter_s_sinjab.mp3',
+  './audio/letter_s_sitara.mp3',
+  './audio/letter_s_sooq.mp3',
+  './audio/letter_s_sound.mp3',
+  './audio/letter_s_split_darasa.mp3',
+  './audio/letter_s_split_saafara.mp3',
+  './audio/letter_s_split_saara.mp3',
+  './audio/letter_s_sukkar.mp3',
+  './audio/letter_s_sulhafah.mp3',
+  './audio/letter_s_syllables_intro.mp3',
+  './audio/letter_s_timsaah.mp3',
+  './audio/letter_s_timsaah_vowel.mp3',
+  './audio/letter_s_vowels_compare_intro.mp3',
+  './audio/letter_s_vowels_intro.mp3'
 
 ];
 
