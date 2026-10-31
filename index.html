@@ -11290,6 +11290,61 @@
                             </div>
                         </div>
 
+                        <!-- فقرة قراءة دفتر الدرس بصوت المعلمة الحقيقي الفصيح المستخلص -->
+                        <div class="interactive-stage-card" style="border: 2.5px solid #10b981; background: #ffffff; border-radius: 20px; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.1); margin-bottom: 20px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; border-bottom: 2px dashed #a7f3d0; padding-bottom: 10px;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <span style="font-size: 1.8rem;">👩‍🏫</span>
+                                    <div>
+                                        <div style="font-weight: 900; font-size: 1.25rem; color: #065f46;">
+                                            قِرَاءَةُ دَفْتَرِ الدَّرْسِ بِصَوْتِ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ الْفَصِيحِ
+                                        </div>
+                                        <div style="font-size: 0.85rem; color: #059669; font-weight: 700;">
+                                            تسجيل صوتي ميداني حقيقي مستخلص ومطهر من شرح المعلمة لدفتر الدرس
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                    <span style="font-size: 0.82rem; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 5px 12px; border-radius: 12px; font-weight: 800; box-shadow: 0 2px 6px rgba(16,185,129,0.3);">
+                                        🎙️ تَسْجِيلٌ حَقِيقِيٌّ مُسْتَخْلَصٌ
+                                    </span>
+                                    <button class="btn btn-teach" style="background: linear-gradient(135deg, #059669 0%, #047857 100%); padding: 6px 14px; font-size: 0.92rem; box-shadow: 0 4px 10px rgba(5,150,105,0.25);" onclick="playSTeacherAll()">
+                                        <span>🔊</span> <span>اِسْتَمِعْ لِقِرَاءَةِ الْمُعَلِّمَةِ كَامِلَةً (١٤ ث)</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="background: #fffdf5; border: 2px solid #34d399; border-radius: 18px; padding: 20px; text-align: center; margin-bottom: 12px; position: relative; background-image: radial-gradient(#10b981 0.75px, transparent 0.75px); background-size: 20px 20px;">
+                                <div style="display: flex; flex-direction: column; gap: 14px; align-items: center;">
+                                    <!-- السطر الأول في الدفتر: سَافَرَ بَابَا -->
+                                    <div class="reading-line-card" onclick="playSTeacherSentence(1)" style="cursor: pointer; background: rgba(255, 255, 255, 0.95); border: 2px solid #10b981; border-radius: 16px; padding: 10px 26px; display: inline-flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center; box-shadow: 0 4px 12px rgba(16,185,129,0.08); transition: transform 0.2s, box-shadow 0.2s;">
+                                        <span style="font-size: 1.65rem; font-weight: 900; color: #047857;" onclick="event.stopPropagation(); playSTeacherWord('safara')" title="اضغط لسماع نطق المعلمة لكلمة سَافَرَ">سَافَرَ</span>
+                                        <span style="font-size: 1.65rem; font-weight: 900; color: #1e3a8a;" onclick="event.stopPropagation(); playSTeacherWord('baba')" title="اضغط لسماع نطق المعلمة لكلمة بَابَا">بَابَا</span>
+                                        <span style="font-size: 1.25rem; margin-right: 6px; color: #059669;" title="استمع للجملة كاملة">🎙️</span>
+                                    </div>
+
+                                    <!-- السطر الثاني في الدفتر: رَسَمَ مُوسَى بَابَا -->
+                                    <div class="reading-line-card" onclick="playSTeacherSentence(2)" style="cursor: pointer; background: rgba(255, 255, 255, 0.95); border: 2px solid #10b981; border-radius: 16px; padding: 10px 26px; display: inline-flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center; box-shadow: 0 4px 12px rgba(16,185,129,0.08); transition: transform 0.2s, box-shadow 0.2s;">
+                                        <span style="font-size: 1.65rem; font-weight: 900; color: #d97706;" onclick="event.stopPropagation(); playSTeacherWord('rasama')" title="اضغط لسماع نطق المعلمة لكلمة رَسَمَ">رَسَمَ</span>
+                                        <span style="font-size: 1.65rem; font-weight: 900; color: #7c3aed;" onclick="event.stopPropagation(); playSTeacherWord('moosa')" title="اضغط لسماع نطق المعلمة لكلمة مُوسَى">مُوسَى</span>
+                                        <span style="font-size: 1.65rem; font-weight: 900; color: #1e3a8a;" onclick="event.stopPropagation(); playSTeacherWord('baba')" title="اضغط لسماع نطق المعلمة لكلمة بَابَا">بَابَا</span>
+                                        <span style="font-size: 1.25rem; margin-right: 6px; color: #059669;" title="استمع للجملة كاملة">🎙️</span>
+                                    </div>
+
+                                    <!-- السطر الثالث في الدفتر: رَسَمَ فَارِسُ مَامَا -->
+                                    <div class="reading-line-card" onclick="playSTeacherSentence(3)" style="cursor: pointer; background: rgba(255, 255, 255, 0.95); border: 2px solid #10b981; border-radius: 16px; padding: 10px 26px; display: inline-flex; gap: 16px; align-items: center; flex-wrap: wrap; justify-content: center; box-shadow: 0 4px 12px rgba(16,185,129,0.08); transition: transform 0.2s, box-shadow 0.2s;">
+                                        <span style="font-size: 1.65rem; font-weight: 900; color: #d97706;" onclick="event.stopPropagation(); playSTeacherWord('rasama')" title="اضغط لسماع نطق المعلمة لكلمة رَسَمَ">رَسَمَ</span>
+                                        <span style="font-size: 1.65rem; font-weight: 900; color: #059669;" onclick="event.stopPropagation(); playSTeacherWord('faris')" title="اضغط لسماع نطق المعلمة لكلمة فَارِسُ">فَارِسُ</span>
+                                        <span style="font-size: 1.65rem; font-weight: 900; color: #e11d48;" onclick="event.stopPropagation(); playSTeacherWord('mama')" title="اضغط لسماع نطق المعلمة لكلمة مَامَا">مَامَا</span>
+                                        <span style="font-size: 1.25rem; margin-right: 6px; color: #059669;" title="استمع للجملة كاملة">🎙️</span>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 12px; font-size: 0.88rem; color: #047857; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                                    <span>💡</span> <span>انقر على البطاقة لسماع الجملة كاملة، أو انقر على كل كلمة بمفردها لسماع لفظ المعلمة الفونيمي الدقيق</span>
+                                </div>
+                            </div>
+                        </div>
+
                         <!-- فقرة القراءة المقررة: أَقْرَأُ (ص 37) -->
                         <div class="interactive-stage-card" style="border-color: #a7f3d0; background: #ffffff;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
@@ -12490,7 +12545,10 @@
                     // تطبيق التمايز الصوتي الفوري على النبرة وطبقة الصوت (Pitch & Formant Adaptation)
                     // لتغيير الصوت فورياً لجميع دروس وكلمات المنصة عند تغيير الخيار من الضبط
                     try {
-                        if (voicePref === 'bassel') {
+                        if ((finalKey && finalKey.includes('teacher')) || (audioKey && audioKey.includes('teacher'))) {
+                            audio.preservesPitch = true;
+                            audio.playbackRate = 1.0; // صوت المعلمة الميداني الحقيقي الصافي بدون تغيير نبرة
+                        } else if (voicePref === 'bassel') {
                             if (!finalKey || !finalKey.includes('bassel')) {
                                 audio.preservesPitch = false;
                                 audio.playbackRate = 0.90; // طبقة رخيمة وقورة ذكورية
@@ -18145,24 +18203,58 @@
             }
         }
 
+        function playSTeacherAll() {
+            mascotCelebrates();
+            mascotSpeak('👩‍🏫 <b>قِرَاءَةُ دَفْتَرِ الدَّرْسِ الشَّامِلَةُ بِصَوْتِ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ الْفَصِيح:</b><br><span style="font-size:1.35rem; color:#065f46; font-weight:900;">«سَافَرَ بَابَا .. رَسَمَ مُوسَى بَابَا .. رَسَمَ فَارِسُ مَامَا»</span><br>قِرَاءَةٌ نَمُوذَجِيَّةٌ سَلِيمَةٌ مِنَ الشَّرْحِ الْمَيْدَانِيِّ 🌟', 'letter_s_teacher_read_all');
+        }
+
+        function playSTeacherSentence(num) {
+            mascotCelebrates();
+            if (num === 1) {
+                mascotSpeak('👩‍🏫 <b>«سَافَرَ بَابَا»</b><br>بِصَوْتِ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ الْفَصِيحِ 🌟', 'letter_s_teacher_sentence1');
+            } else if (num === 2) {
+                mascotSpeak('👩‍🏫 <b>«رَسَمَ مُوسَى بَابَا»</b><br>بِصَوْتِ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ الْفَصِيحِ 🌟', 'letter_s_teacher_sentence2');
+            } else if (num === 3) {
+                mascotSpeak('👩‍🏫 <b>«رَسَمَ فَارِسُ مَامَا»</b><br>بِصَوْتِ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ الْفَصِيحِ 🌟', 'letter_s_teacher_sentence3');
+            }
+        }
+
+        function playSTeacherWord(wordKey) {
+            mascotCelebrates();
+            const teacherMap = {
+                'safara': { text: 'سَافَرَ', audio: 'letter_s_teacher_word_safara' },
+                'baba': { text: 'بَابَا', audio: 'letter_s_teacher_word_baba' },
+                'rasama': { text: 'رَسَمَ', audio: 'letter_s_teacher_word_rasama' },
+                'moosa': { text: 'مُوسَى', audio: 'letter_s_teacher_word_moosa' },
+                'faris': { text: 'فَارِسُ', audio: 'letter_s_teacher_word_faris' },
+                'mama': { text: 'مَامَا', audio: 'letter_s_teacher_word_mama' }
+            };
+            const item = teacherMap[wordKey];
+            if (item) {
+                mascotSpeak(`👩‍🏫 <b>${item.text}!</b><br>بِنُطْقِ الْمُعَلِّمَةِ الصَّافِي 🌟`, item.audio);
+            }
+        }
+
         function playSReadWord(wordKey) {
             mascotCelebrates();
             if (wordKey === 'sentence1') {
                 mascotSpeak('📖 <b>«بَابَا رَامِي رَسَمَ مُوسَى»</b><br>جُمْلَةٌ رَائِعَةٌ مِنْ مَقَاطِعِنَا الْمَدْرُوسَة!', 'letter_s_read_sentence1');
             } else if (wordKey === 'sentence2') {
                 mascotSpeak('📖 <b>«فَارِسُ رَسَمَ مَامَا»</b><br>فَارِسُ الْبَطَلُ رَسَمَ مَامَا الْحَبِيبَة!', 'letter_s_read_sentence2');
+            } else if (wordKey === 'safara') {
+                mascotSpeak('👩‍🏫 <b>سَافَرَ!</b><br>بِصَوْتِ الْمُعَلِّمَةِ الْفَصِيحِ!', 'letter_s_teacher_word_safara');
             } else if (wordKey === 'baba') {
-                mascotSpeak('📖 <b>بَابَا!</b>', 'letter_s_read_word_baba');
+                mascotSpeak('📖 <b>بَابَا!</b>', 'letter_s_teacher_word_baba');
             } else if (wordKey === 'rami') {
                 mascotSpeak('📖 <b>رَامِي!</b>', 'letter_s_read_word_rami');
             } else if (wordKey === 'rasama') {
-                mascotSpeak('📖 <b>رَسَمَ!</b>', 'letter_s_read_word_rasama');
+                mascotSpeak('📖 <b>رَسَمَ!</b>', 'letter_s_teacher_word_rasama');
             } else if (wordKey === 'moosa') {
-                mascotSpeak('📖 <b>مُوْسَى!</b>', 'letter_s_read_word_moosa');
+                mascotSpeak('📖 <b>مُوْسَى!</b>', 'letter_s_teacher_word_moosa');
             } else if (wordKey === 'faris') {
-                mascotSpeak('📖 <b>فَارِسُ!</b>', 'letter_s_read_word_faris');
+                mascotSpeak('📖 <b>فَارِسُ!</b>', 'letter_s_teacher_word_faris');
             } else if (wordKey === 'mama') {
-                mascotSpeak('📖 <b>مَامَا!</b>', 'letter_s_read_word_mama');
+                mascotSpeak('📖 <b>مَامَا!</b>', 'letter_s_teacher_word_mama');
             } else if (wordKey === 'firas') {
                 mascotSpeak('🌟 <b>فِرَاسُ!</b><br>كَلِمَةُ الدَّرْسِ الشَّهِيرَة: فِرَاسٌ وَأَنِيسٌ وَمَيْسُون!', 'letter_s_read_word_firas');
             }

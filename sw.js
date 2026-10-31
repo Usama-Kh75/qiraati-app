@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v15';
+const CACHE_NAME = 'qiraati-smart-v16';
 
 const ASSETS_TO_CACHE = [
 
@@ -229,6 +229,16 @@ const ASSETS_TO_CACHE = [
   './audio/letter_s_timsaah_vowel.mp3',
   './audio/letter_s_vowels_compare_intro.mp3',
   './audio/letter_s_vowels_intro.mp3',
+  './audio/letter_s_teacher_read_all.mp3',
+  './audio/letter_s_teacher_sentence1.mp3',
+  './audio/letter_s_teacher_sentence2.mp3',
+  './audio/letter_s_teacher_sentence3.mp3',
+  './audio/letter_s_teacher_word_safara.mp3',
+  './audio/letter_s_teacher_word_baba.mp3',
+  './audio/letter_s_teacher_word_rasama.mp3',
+  './audio/letter_s_teacher_word_moosa.mp3',
+  './audio/letter_s_teacher_word_faris.mp3',
+  './audio/letter_s_teacher_word_mama.mp3',
   './page_38.png',
   './page_39.png',
   './page_40.png',
