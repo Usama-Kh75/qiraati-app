@@ -3977,7 +3977,209 @@
             color: #1d4ed8;
         }
 
-    </style>
+    
+        /* ========================================================
+           أنماط خاتمة الوحدة الأولى: سورة الفاتحة ونشيد ماما بابا
+           إعداد المهندس أسامة خليل هاشم
+        ======================================================== */
+        .quran-board {
+            background: linear-gradient(135deg, #fffdf5 0%, #fefcf3 100%);
+            border: 3px solid #d97706;
+            border-radius: 24px;
+            padding: 24px 18px;
+            box-shadow: 0 12px 30px rgba(217, 119, 6, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quran-header-frame {
+            display: inline-block;
+            background: linear-gradient(135deg, #b45309, #d97706, #92400e);
+            color: #ffffff;
+            padding: 8px 30px;
+            border-radius: 999px;
+            font-size: 1.35rem;
+            font-weight: 900;
+            box-shadow: 0 4px 15px rgba(180, 83, 9, 0.35);
+            border: 2px solid #fef08a;
+            margin-bottom: 16px;
+        }
+
+        .ayah-card {
+            background: #ffffff;
+            border: 2px solid #fde68a;
+            border-radius: 16px;
+            padding: 14px 20px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .ayah-card:hover {
+            border-color: #d97706;
+            background: #fffbeb;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.18);
+        }
+
+        .ayah-card.active {
+            border-color: #059669;
+            background: #ecfdf5;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25), 0 8px 22px rgba(5, 150, 105, 0.2);
+            transform: scale(1.015);
+        }
+
+        .ayah-text {
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.9;
+            flex-grow: 1;
+            text-align: right;
+        }
+
+        .ayah-card.active .ayah-text {
+            color: #065f46;
+            font-weight: 800;
+        }
+
+        .ayah-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            border: 2px solid #d97706;
+            color: #92400e;
+            font-weight: 900;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 2px 6px rgba(217, 119, 6, 0.2);
+        }
+
+        .ayah-card.active .ayah-badge {
+            background: linear-gradient(135deg, #a7f3d0, #6ee7b7);
+            border-color: #059669;
+            color: #065f46;
+        }
+
+        .nasheed-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
+            border: 2px solid #fed7aa;
+            border-radius: 20px;
+            padding: 16px 20px;
+            margin-bottom: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .nasheed-card:hover {
+            border-color: #f97316;
+            background: #fff8f1;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(249, 115, 22, 0.15);
+        }
+
+        .nasheed-card.active {
+            border-color: #e11d48;
+            background: #fff1f2;
+            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.2);
+            transform: scale(1.015);
+        }
+
+        .couplet-col {
+            flex: 1;
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #334155;
+            text-align: center;
+        }
+
+        .couplet-col.left {
+            color: #b91c1c;
+        }
+
+        .couplet-col.right {
+            color: #1e3a8a;
+        }
+
+        .harvest-letter-box {
+            background: #ffffff;
+            border: 2px solid #cbd5e1;
+            border-radius: 18px;
+            padding: 16px;
+            text-align: center;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+
+        .harvest-letter-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .grad-cert-container {
+            background: #ffffff;
+            border: 6px double #d97706;
+            border-radius: 28px;
+            padding: 32px 24px;
+            position: relative;
+            box-shadow: 0 16px 40px rgba(217, 119, 6, 0.2);
+            text-align: center;
+            margin: 20px auto;
+            max-width: 780px;
+        }
+
+        .cert-seal {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border: 4px solid #ffffff;
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+            animation: pulse-seal 2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-seal {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        @media print {
+            body * { visibility: hidden !important; }
+            .grad-cert-container, .grad-cert-container * {
+                visibility: visible !important;
+            }
+            .grad-cert-container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                border: 4px solid #b45309 !important;
+                box-shadow: none !important;
+            }
+            .no-print { display: none !important; }
+        }
+
+</style>
 
 </head>
 
@@ -8261,17 +8463,402 @@
 
 
 
-                        <div class="merged-word" id="mergedWord">👶 دَادَا (طفل صغير)</div>
 
-                        <div id="wordMeaning" style="font-size: 1.25rem; font-weight: 800; color: #334155; margin-top: 10px;">
-
-                            انقر على أي حرف لسماع صوته الفونيمي النقي، أو اضغط زر "ادمج الأصوات لتكوين الكلمة"!
-
-                        </div>
-
+                <!-- ========================================================
+                     الوحدة الأولى: أسرتي - خاتمة الوحدة: سورة الفاتحة ونشيد (مَامَا بَابَا) وحصاد الوحدة الأولى (ص ٣٠)
+                     إعداد المهندس أسامة خليل هاشم
+                ======================================================== -->
+                <div class="lesson-view" id="view-tab-unit1_quran">
+                    <!-- شريط المحطات الأربعة لخاتمة الوحدة الأولى -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationQ1" onclick="switchQStation(1)">
+                            <span>📖</span> <span>١. سُورَةُ الْفَاتِحَةِ الْمُبَارَكَة (ص ٣٠)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationQ2" onclick="switchQStation(2)">
+                            <span>🎵</span> <span>٢. نَشِيدُ (مَامَا بَابَا) الْمُلَحَّن (ص ٣٠)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationQ3" onclick="switchQStation(3)">
+                            <span>🏆</span> <span>٣. حَصَادُ وَمُرَاجَعَةُ الْوَحْدَةِ الْأُولَى</span>
+                        </button>
+                        <button class="station-tab" id="btnStationQ4" onclick="switchQStation(4)">
+                            <span>🎓</span> <span>٤. وِسَامُ التَّخَرُّجِ وَصَفْحَةُ الْكِتَاب</span>
+                        </button>
                     </div>
 
+                    <!-- المحطة الأولى: سورة الفاتحة المباركة -->
+                    <div class="unit1-quran-station active" id="stationQ1">
+                        <div class="quran-board">
+                            <!-- الترويسة العلوية لسورة الفاتحة -->
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <div class="quran-header-frame">
+                                    📖 سُورَةُ الْفَاتِحَةِ الْمُبَارَكَة
+                                </div>
+                                <div style="font-weight: 800; color: #92400e; font-size: 1.05rem; margin-bottom: 12px;">
+                                    أُمُّ الْقُرْآنِ الْكَرِيمِ وَالسَّبْعُ الْمَثَانِي • كِتَابُ قِرَاءَتِي صَفْحَةُ ٣٠
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                    <button class="btn" id="btnFullFatiha" onclick="playFullFatiha()" style="background: linear-gradient(135deg, #059669, #10b981); color: white; padding: 10px 22px; font-size: 1.05rem; font-weight: 800; border-radius: 14px; box-shadow: 0 6px 16px rgba(5, 150, 105, 0.25);">
+                                        ▶️ اِسْتَمِعْ لِلتِّلَاوَةِ الْكَامِلَةِ مُرَتَّلَة
+                                    </button>
+                                    <button class="btn" onclick="playFatihaRepeatPrompt()" style="background: #ffffff; color: #047857; border: 2px solid #10b981; padding: 10px 20px; font-size: 1rem; font-weight: 800; border-radius: 14px;">
+                                        🎙️ أَرَدِّدُ مَعَ فَصِيح آيَةً فَآيَة
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- الإطار القرآني الأصلي المقتبس من كتاب القراءة -->
+                            <div style="background: #ffffff; border: 2px solid #fde68a; border-radius: 18px; padding: 14px; text-align: center; margin-bottom: 22px; box-shadow: 0 4px 15px rgba(217, 119, 6, 0.08);">
+                                <div style="font-weight: 800; color: #92400e; margin-bottom: 8px; font-size: 0.95rem;">
+                                    ✨ الْمَخْطُوطَةُ الْمُذَهَّبَةُ الْأَصْلِيَّةُ مِنْ كِتَابِ قِرَاءَتِي (ص ٣٠):
+                                </div>
+                                <img src="activity_fatiha_frame.png" alt="سورة الفاتحة كتاب قراءتي" style="max-width: 460px; width: 100%; border-radius: 12px; border: 1px solid #fef08a;">
+                            </div>
+
+                            <!-- قائمة الآيات السبع التفاعلية -->
+                            <div id="fatihaAyahsList">
+                                <!-- الاستعاذة والبسملة -->
+                                <div class="ayah-card" id="ayahCard-1" onclick="playFatihaAyah(1)">
+                                    <span class="ayah-badge">١</span>
+                                    <div class="ayah-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                                    <span style="font-size: 1.25rem;">🔊</span>
+                                </div>
+
+                                <div class="ayah-card" id="ayahCard-2" onclick="playFatihaAyah(2)">
+                                    <span class="ayah-badge">٢</span>
+                                    <div class="ayah-text">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</div>
+                                    <span style="font-size: 1.25rem;">🔊</span>
+                                </div>
+
+                                <div class="ayah-card" id="ayahCard-3" onclick="playFatihaAyah(3)">
+                                    <span class="ayah-badge">٣</span>
+                                    <div class="ayah-text">الرَّحْمَٰنِ الرَّحِيمِ</div>
+                                    <span style="font-size: 1.25rem;">🔊</span>
+                                </div>
+
+                                <div class="ayah-card" id="ayahCard-4" onclick="playFatihaAyah(4)">
+                                    <span class="ayah-badge">٤</span>
+                                    <div class="ayah-text">مَالِكِ يَوْمِ الدِّينِ</div>
+                                    <span style="font-size: 1.25rem;">🔊</span>
+                                </div>
+
+                                <div class="ayah-card" id="ayahCard-5" onclick="playFatihaAyah(5)">
+                                    <span class="ayah-badge">٥</span>
+                                    <div class="ayah-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
+                                    <span style="font-size: 1.25rem;">🔊</span>
+                                </div>
+
+                                <div class="ayah-card" id="ayahCard-6" onclick="playFatihaAyah(6)">
+                                    <span class="ayah-badge">٦</span>
+                                    <div class="ayah-text">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</div>
+                                    <span style="font-size: 1.25rem;">🔊</span>
+                                </div>
+
+                                <div class="ayah-card" id="ayahCard-7" onclick="playFatihaAyah(7)">
+                                    <span class="ayah-badge">٧</span>
+                                    <div class="ayah-text">صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</div>
+                                    <span style="font-size: 1.25rem;">🔊</span>
+                                </div>
+
+                                <!-- صدق الله العلي العظيم -->
+                                <div class="ayah-card" id="ayahCard-sadaqa" onclick="playFatihaSadaqa()" style="border-color: #cbd5e1; background: #f8fafc; justify-content: center;">
+                                    <div class="ayah-text" style="text-align: center; color: #475569; font-size: 1.35rem;">
+                                        صَدَقَ اللَّهُ الْعَلِيُّ الْعَظِيمُ
+                                    </div>
+                                    <span style="font-size: 1.25rem;">🔊</span>
+                                </div>
+                            </div>
+
+                            <!-- ومضات وقبسات إيمانية تربوية -->
+                            <div style="margin-top: 22px; background: #ffffff; border-radius: 18px; border: 2px dashed #10b981; padding: 18px;">
+                                <div style="font-weight: 900; color: #065f46; font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                    <span>🌟</span> <span>قَبَسَاتٌ إِيمَانِيَّةٌ صَغِيرَةٌ لِأَبْطَالِ الصَّفِّ الْأَوَّل:</span>
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+                                    <div style="background: #f0fdf4; border-radius: 14px; padding: 12px; border: 1px solid #bbf7d0;">
+                                        <b style="color: #047857;">🌸 الرَّحْمَٰنُ الرَّحِيم:</b>
+                                        <div style="font-size: 0.92rem; color: #334155; margin-top: 4px;">اللهُ تَعَالَى رَحِيمٌ بِنَا يُحِبُّنَا وَيَحْمِينَا وَيَرْعَانَا دَائِمًا.</div>
+                                    </div>
+                                    <div style="background: #eff6ff; border-radius: 14px; padding: 12px; border: 1px solid #bfdbfe;">
+                                        <b style="color: #1d4ed8;">🤲 إِيَّاكَ نَعْبُدُ وَنَسْتَعِين:</b>
+                                        <div style="font-size: 0.92rem; color: #334155; margin-top: 4px;">نَعْبُدُ اللهَ وَحْدَهُ وَنَدْعُوهُ لِيُوَفِّقَنَا فِي الْمَدْرَسَةِ وَالْبَيْت.</div>
+                                    </div>
+                                    <div style="background: #fffbeb; border-radius: 14px; padding: 12px; border: 1px solid #fde68a;">
+                                        <b style="color: #b45309;">🌟 الصِّرَاطُ الْمُسْتَقِيم:</b>
+                                        <div style="font-size: 0.92rem; color: #334155; margin-top: 4px;">طَرِيقُ الْخَيْرِ وَالْأَخْلَاقِ وَبِرِّ الْوَالِدَيْنِ وَمَحَبَّةِ النَّاس.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: نشيد (ماما بابا) الملحن -->
+                    <div class="unit1-quran-station" id="stationQ2" style="display: none;">
+                        <div style="background: linear-gradient(135deg, #fff7ed 0%, #fff1f2 100%); border: 3px solid #fb7185; border-radius: 24px; padding: 24px 18px; box-shadow: 0 12px 30px rgba(251, 113, 133, 0.15);">
+                            <!-- ترويسة النشيد -->
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <div style="display: inline-block; background: linear-gradient(135deg, #e11d48, #f43f5e); color: white; padding: 8px 30px; border-radius: 999px; font-size: 1.35rem; font-weight: 900; box-shadow: 0 4px 15px rgba(225, 29, 72, 0.35); border: 2px solid #ffe4e6; margin-bottom: 12px;">
+                                    🎵 نَشِيدُ ( مَامَا بَابَا )
+                                </div>
+                                <div style="font-weight: 800; color: #9f1239; font-size: 1.05rem; margin-bottom: 8px;">
+                                    شِعْرُ: عَبْدِ الْعَزِيز أَبُو غُوش • كِتَابُ قِرَاءَتِي صَفْحَةُ ٣٠
+                                </div>
+                                <div style="color: #64748b; font-size: 0.95rem; margin-bottom: 14px;">
+                                    اِسْتَمِعْ لِلنَّشِيدِ كَامِلاً أَوْ انْقُرْ عَلَى كُلِّ بَيْتٍ لِسَمَاعِهِ وَتَرْدِيدِهِ مَعَ فَصِيح 💖
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                    <button class="btn" id="btnFullNasheed" onclick="playFullNasheed()" style="background: linear-gradient(135deg, #e11d48, #f43f5e); color: white; padding: 10px 22px; font-size: 1.05rem; font-weight: 800; border-radius: 14px; box-shadow: 0 6px 16px rgba(225, 29, 72, 0.25);">
+                                        🎶 اِسْتَمِعْ لِلنَّشِيدِ كَامِلاً
+                                    </button>
+                                    <button class="btn" onclick="playNasheedIntro()" style="background: #ffffff; color: #be123c; border: 2px solid #fb7185; padding: 10px 20px; font-size: 1rem; font-weight: 800; border-radius: 14px;">
+                                        💡 مُقَدِّمَةُ النَّشِيد
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- أبيات النشيد الستة التفاعلية -->
+                            <div id="nasheedCoupletsList" style="max-width: 680px; margin: 0 auto 24px auto;">
+                                <!-- البيت الأول -->
+                                <div class="nasheed-card" id="verseCard-1" onclick="playNasheedVerse(1)">
+                                    <div class="couplet-col right">مَـــــامَـــــا بَــــــابَــــــا</div>
+                                    <div style="font-size: 1.6rem;">💖</div>
+                                    <div class="couplet-col left">فَــــــرْحَـــــةُ قَلْبِـــــــــي</div>
+                                </div>
+
+                                <!-- البيت الثاني -->
+                                <div class="nasheed-card" id="verseCard-2" onclick="playNasheedVerse(2)">
+                                    <div class="couplet-col right">مَـــــامَـــــا بَــــــابَــــــا</div>
+                                    <div style="font-size: 1.6rem;">💓</div>
+                                    <div class="couplet-col left">نَـــبْــــــضُ الْـــــحُــــبِّ</div>
+                                </div>
+
+                                <!-- البيت الثالث -->
+                                <div class="nasheed-card" id="verseCard-3" onclick="playNasheedVerse(3)">
+                                    <div class="couplet-col right">مَـــــامَـــــا بَــــــابَــــــا</div>
+                                    <div style="font-size: 1.6rem;">💗</div>
+                                    <div class="couplet-col left">خَـــفْـــــقُ فُــــــــــؤَادِي</div>
+                                </div>
+
+                                <!-- البيت الرابع -->
+                                <div class="nasheed-card" id="verseCard-4" onclick="playNasheedVerse(4)">
+                                    <div class="couplet-col right">مَـــــامَـــــا بَــــــابَــــــا</div>
+                                    <div style="font-size: 1.6rem;">🛡️</div>
+                                    <div class="couplet-col left">خَــــيْــــرُ عِــــمَـــــــــادِ</div>
+                                </div>
+
+                                <!-- البيت الخامس -->
+                                <div class="nasheed-card" id="verseCard-5" onclick="playNasheedVerse(5)">
+                                    <div class="couplet-col right">وَمُـــــــعَــلِّمَـتِـــــــــــي</div>
+                                    <div style="font-size: 1.6rem;">👩‍🏫</div>
+                                    <div class="couplet-col left">أَنْـــــــــــتِ أَنْــــــــــتِ</div>
+                                </div>
+
+                                <!-- البيت السادس -->
+                                <div class="nasheed-card" id="verseCard-6" onclick="playNasheedVerse(6)">
+                                    <div class="couplet-col right">أُمِّـــــــي الْأُخْـــــــــرَى</div>
+                                    <div style="font-size: 1.6rem;">🏫</div>
+                                    <div class="couplet-col left">فِــــــــي مَـــــدْرِسَـــتِــي</div>
+                                </div>
+                            </div>
+
+                            <!-- استكشاف معاني الكلمات المفتاحية في النشيد -->
+                            <div style="background: #ffffff; border-radius: 18px; border: 2px dashed #f43f5e; padding: 18px; max-width: 680px; margin: 0 auto;">
+                                <div style="font-weight: 900; color: #9f1239; font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                    <span>🔍</span> <span>مُعْجَمِي الصَّغِير (اِضْغَطْ عَلَى الْكَلِمَةِ لِمَعْرِفَةِ مَعْنَاهَا):</span>
+                                </div>
+                                <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                                    <button class="btn" onclick="playNasheedWord('farha')" style="background: #fff1f2; color: #e11d48; border: 1.5px solid #fecdd3; border-radius: 12px; font-weight: 800;">
+                                        💖 فَرْحَةُ قَلْبِي
+                                    </button>
+                                    <button class="btn" onclick="playNasheedWord('nabd')" style="background: #fff1f2; color: #e11d48; border: 1.5px solid #fecdd3; border-radius: 12px; font-weight: 800;">
+                                        💓 نَبْضُ الْحُبّ
+                                    </button>
+                                    <button class="btn" onclick="playNasheedWord('emad')" style="background: #fff1f2; color: #e11d48; border: 1.5px solid #fecdd3; border-radius: 12px; font-weight: 800;">
+                                        🛡️ خَيْرُ عِمَاد
+                                    </button>
+                                    <button class="btn" onclick="playNasheedWord('moallimati')" style="background: #fff1f2; color: #e11d48; border: 1.5px solid #fecdd3; border-radius: 12px; font-weight: 800;">
+                                        👩‍🏫 مُعَلِّمَتِي
+                                    </button>
+                                    <button class="btn" onclick="playWordRead('baba')" style="background: #eff6ff; color: #1d4ed8; border: 1.5px solid #bfdbfe; border-radius: 12px; font-weight: 800;">
+                                        🧔 بَابَا
+                                    </button>
+                                    <button class="btn" onclick="playWordRead('mama')" style="background: #eff6ff; color: #1d4ed8; border: 1.5px solid #bfdbfe; border-radius: 12px; font-weight: 800;">
+                                        👩 مَامَا
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: حصاد ومراجعة الوحدة الأولى التراكمية -->
+                    <div class="unit1-quran-station" id="stationQ3" style="display: none;">
+                        <div style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); border: 3px solid #10b981; border-radius: 24px; padding: 24px 18px; box-shadow: 0 12px 30px rgba(16, 185, 129, 0.15);">
+                            <!-- ترويسة الحصاد -->
+                            <div style="text-align: center; margin-bottom: 22px;">
+                                <div style="display: inline-block; background: linear-gradient(135deg, #059669, #10b981); color: white; padding: 8px 30px; border-radius: 999px; font-size: 1.35rem; font-weight: 900; box-shadow: 0 4px 15px rgba(5, 150, 105, 0.35); border: 2px solid #a7f3d0; margin-bottom: 12px;">
+                                    🏆 حَصَادُ وَمُرَاجَعَةُ الْوَحْدَةِ الْأُولَى (أُسْرَتِي)
+                                </div>
+                                <div style="font-weight: 800; color: #047857; font-size: 1.05rem; margin-bottom: 12px;">
+                                    مِنْ صَفْحَةِ ١٧ إِلَى صَفْحَةِ ٣٠ • أَرْبَعَةُ حُرُوفٍ وَكَلِمَاتُ قِرَاءَتِي التَّرَاكُمِيَّة
+                                </div>
+                                <button class="btn" onclick="playHarvestIntro()" style="background: #ffffff; color: #065f46; border: 2px solid #10b981; padding: 10px 22px; font-size: 1rem; font-weight: 800; border-radius: 14px; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);">
+                                    🔊 اِسْتَمِعْ لِمُلَخَّصِ حَصَادِ الْوَحْدَةِ مَعَ فَصِيح
+                                </button>
+                            </div>
+
+                            <!-- شبكة الحروف الأربعة المدروسة في الوحدة الأولى -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 24px;">
+                                <!-- حرف الباء -->
+                                <div class="harvest-letter-box" onclick="playHarvestLetter('b')" style="border-top: 5px solid #2563eb;">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #2563eb; margin-bottom: 6px;">بـ  ب</div>
+                                    <div style="font-weight: 800; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 4px;">حَرْفُ الْبَاء (ص ١٨)</div>
+                                    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 8px;">بَـ ، بُـ ، بِـ • بَا ، بُو ، بِي</div>
+                                    <div style="background: #eff6ff; border-radius: 10px; padding: 6px; font-weight: 800; color: #1d4ed8;">
+                                        بَابَا • بَابُ • بَابِي 🔊
+                                    </div>
+                                </div>
+
+                                <!-- حرف الميم -->
+                                <div class="harvest-letter-box" onclick="playHarvestLetter('m')" style="border-top: 5px solid #7c3aed;">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #7c3aed; margin-bottom: 6px;">مـ  م</div>
+                                    <div style="font-weight: 800; color: #5b21b6; font-size: 1.1rem; margin-bottom: 4px;">حَرْفُ الْمِيم (ص ٢١)</div>
+                                    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 8px;">مَـ ، مُـ ، مِـ • مَا ، مُو ، مِي</div>
+                                    <div style="background: #f5f3ff; border-radius: 10px; padding: 6px; font-weight: 800; color: #6d28d9;">
+                                        مَامَا • بُومُ 🔊
+                                    </div>
+                                </div>
+
+                                <!-- حرف الدال -->
+                                <div class="harvest-letter-box" onclick="playHarvestLetter('d')" style="border-top: 5px solid #d97706;">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #d97706; margin-bottom: 6px;">د  ـد</div>
+                                    <div style="font-weight: 800; color: #92400e; font-size: 1.1rem; margin-bottom: 4px;">حَرْفُ الدَّال (ص ٢٤)</div>
+                                    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 8px;">دَ ، دُ ، دِ • دَا ، دُو ، دِي</div>
+                                    <div style="background: #fffbeb; border-radius: 10px; padding: 6px; font-weight: 800; color: #b45309;">
+                                        دَادَا • دُودُ • دَامَ 🔊
+                                    </div>
+                                </div>
+
+                                <!-- حرف الفاء -->
+                                <div class="harvest-letter-box" onclick="playHarvestLetter('f')" style="border-top: 5px solid #0284c7;">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #0284c7; margin-bottom: 6px;">فـ  ـفـ  ف</div>
+                                    <div style="font-weight: 800; color: #0369a1; font-size: 1.1rem; margin-bottom: 4px;">حَرْفُ الْفَاء (ص ٢٧)</div>
+                                    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 8px;">فَـ ، فُـ ، فِـ • فَا ، فُو ، فِي</div>
+                                    <div style="background: #f0f9ff; border-radius: 10px; padding: 6px; font-weight: 800; color: #0284c7;">
+                                        فَادِي • مُفِيدُ • فَمُ 🔊
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- لوحة الشرف التراكمية لقراءة كلمات الوحدة الأولى الست -->
+                            <div style="background: #ffffff; border-radius: 20px; border: 2px solid #6ee7b7; padding: 20px; text-align: center;">
+                                <div style="font-weight: 900; color: #065f46; font-size: 1.25rem; margin-bottom: 14px;">
+                                    ⭐ لَوْحَةُ الشَّرَفِ التَّرَاكُمِيَّة: كَلِمَاتُ الْوَحْدَةِ الْأُولَى السِّتُّ الْكُبْرَى ⭐
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 16px;">
+                                    <div class="read-card" onclick="playWordRead('baba')" style="border-color: #3b82f6; cursor: pointer; padding: 14px;">
+                                        <div style="font-size: 1.6rem;">🧔</div>
+                                        <div style="font-size: 1.85rem; font-weight: 900; color: #1e3a8a;">بَابَا</div>
+                                        <div style="font-size: 0.85rem; color: #2563eb; font-weight: 800;">بَا + بَا 🔊</div>
+                                    </div>
+
+                                    <div class="read-card" onclick="playWordRead('mama')" style="border-color: #8b5cf6; cursor: pointer; padding: 14px;">
+                                        <div style="font-size: 1.6rem;">👩</div>
+                                        <div style="font-size: 1.85rem; font-weight: 900; color: #5b21b6;">مَامَا</div>
+                                        <div style="font-size: 0.85rem; color: #7c3aed; font-weight: 800;">مَا + مَا 🔊</div>
+                                    </div>
+
+                                    <div class="read-card" onclick="playWordRead('dada')" style="border-color: #f59e0b; cursor: pointer; padding: 14px;">
+                                        <div style="font-size: 1.6rem;">👶</div>
+                                        <div style="font-size: 1.85rem; font-weight: 900; color: #92400e;">دَادَا</div>
+                                        <div style="font-size: 0.85rem; color: #d97706; font-weight: 800;">دَا + دَا 🔊</div>
+                                    </div>
+
+                                    <div class="read-card" onclick="playFReadWord('fadi')" style="border-color: #0284c7; cursor: pointer; padding: 14px;">
+                                        <div style="font-size: 1.6rem;">👦</div>
+                                        <div style="font-size: 1.85rem; font-weight: 900; color: #0369a1;">فَادِي</div>
+                                        <div style="font-size: 0.85rem; color: #0284c7; font-weight: 800;">فَا + دِي 🔊</div>
+                                    </div>
+
+                                    <div class="read-card" onclick="playFReadWord('mufeed')" style="border-color: #10b981; cursor: pointer; padding: 14px;">
+                                        <div style="font-size: 1.6rem;">📘</div>
+                                        <div style="font-size: 1.85rem; font-weight: 900; color: #065f46;">مُفِيد</div>
+                                        <div style="font-size: 0.85rem; color: #059669; font-weight: 800;">مُـ + فِيـ + د 🔊</div>
+                                    </div>
+
+                                    <div class="read-card" onclick="playFReadWord('fam')" style="border-color: #e11d48; cursor: pointer; padding: 14px;">
+                                        <div style="font-size: 1.6rem;">👄</div>
+                                        <div style="font-size: 1.85rem; font-weight: 900; color: #9f1239;">فَم</div>
+                                        <div style="font-size: 0.85rem; color: #e11d48; font-weight: 800;">مَقْطَعٌ وَاحِد 🔊</div>
+                                    </div>
+                                </div>
+
+                                <button class="btn" onclick="playAllHarvestWords()" style="background: linear-gradient(135deg, #059669, #10b981); color: white; padding: 12px 28px; font-size: 1.1rem; font-weight: 800; border-radius: 14px; box-shadow: 0 6px 18px rgba(5, 150, 105, 0.25);">
+                                    📢 اقْرَأْ لَوْحَةَ الشَّرَفِ كَامِلَةً مَعَ فَصِيح
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: وسام التخرج والشهادة الرقمية وصفحة الكتاب ص 30 -->
+                    <div class="unit1-quran-station" id="stationQ4" style="display: none;">
+                        <div style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 3px solid #f59e0b; border-radius: 24px; padding: 24px 18px; box-shadow: 0 12px 30px rgba(245, 158, 11, 0.15);">
+                            <!-- خانة اسم التلميذ التفاعلية -->
+                            <div class="no-print" style="max-width: 580px; margin: 0 auto 20px auto; background: #ffffff; border-radius: 18px; padding: 16px; border: 2px solid #fed7aa; text-align: center;">
+                                <div style="font-weight: 800; color: #92400e; font-size: 1.05rem; margin-bottom: 8px;">
+                                    ✍️ اُكْتُبْ اسْمَ التِّلْمِيذِ / التِّلْمِيذَةِ لِتَظْهَرَ عَلَى الشَّهَادَة:
+                                </div>
+                                <input type="text" id="certStudentInput" placeholder="اُكْتُبِ الاسْمَ هُنَا (مِثَال: أَحْمَد ، فَاطِمَة)" oninput="updateCertName(this.value)" style="width: 100%; max-width: 360px; padding: 10px 16px; font-size: 1.15rem; font-family: inherit; font-weight: 800; border: 2px solid #f59e0b; border-radius: 12px; text-align: center; color: #1e3a8a; outline: none;">
+                                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 12px; flex-wrap: wrap;">
+                                    <button class="btn" onclick="launchGradCelebration()" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; padding: 9px 20px; font-weight: 800; border-radius: 12px; box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);">
+                                        🎉 أَطْلِقِ احْتِفَالَ التَّخَرُّج!
+                                    </button>
+                                    <button class="btn" onclick="printCert()" style="background: #ffffff; color: #92400e; border: 2px solid #d97706; padding: 9px 18px; font-weight: 800; border-radius: 12px;">
+                                        🖨️ طِبَاعَةُ الشَّهَادَة
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- شهادة التخرج الملكية المعتمدة -->
+                            <div class="grad-cert-container" id="gradCertPrintArea">
+                                <div class="cert-seal">🏆</div>
+                                <div style="font-size: 1.1rem; font-weight: 800; color: #92400e; letter-spacing: 1px; margin-bottom: 6px;">
+                                    جُمْهُورِيَّةُ الْعِرَاقِ • وِزَارَةُ التَّرْبِيَة
+                                </div>
+                                <h1 style="font-size: 1.95rem; font-weight: 900; color: #1e3a8a; margin: 4px 0 12px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.06);">
+                                    🎓 شَهَادَةُ إِتْمَامِ وَتَفَوُّقِ الْوَحْدَةِ الْأُولَى
+                                </h1>
+                                <div style="font-size: 1.1rem; font-weight: 700; color: #475569; margin-bottom: 12px;">
+                                    يَشْهَدُ كَادِرُ مَنَصَّةِ (قِرَاءَتِي التَّفَاعُلِيَّةِ الذَّكِيَّة) بِأَنَّ التِّلْمِيذَ / التِّلْمِيذَةَ الْبَطَل:
+                                </div>
+                                <div id="certStudentDisplayName" style="font-size: 2.2rem; font-weight: 900; color: #b45309; background: #fffbeb; border: 2px dashed #f59e0b; border-radius: 16px; padding: 8px 24px; display: inline-block; min-width: 260px; margin-bottom: 14px;">
+                                    بَطَلُ قِرَاءَتِي
+                                </div>
+                                <div style="font-size: 1.1rem; font-weight: 700; color: #334155; line-height: 1.8; max-width: 620px; margin: 0 auto 18px auto;">
+                                    قَدْ أَتَمَّ بِنَجَاحٍ وَامْتِيَازٍ دِرَاسَةَ وَإِتْقَانَ مَهَارَاتِ <b>«الْوَحْدَةِ الْأُولَى: أُسْرَتِي»</b> (ص ١٧ - ص ٣٠)
+                                    مِنْ كِتَابِ قِرَاءَتِي الْجَدِيد، وَتَعَرَّفَ إِلَى حُرُوفِ <b>(ب ، م ، د ، ف)</b> وَحُرُوفِ الْمَدِّ وَتَقْطِيعِ وَتَرْكِيبِ وَقِرَاءَةِ الْكَلِمَاتِ، وَحَفِظَ سُورَةَ الْفَاتِحَةِ وَنَشِيدَ مَامَا بَابَا.
+                                </div>
+                                <div style="display: flex; justify-content: space-around; align-items: center; border-top: 2px solid #fed7aa; padding-top: 14px; margin-top: 16px; flex-wrap: wrap; gap: 12px;">
+                                    <div style="text-align: center;">
+                                        <div style="font-size: 0.85rem; color: #64748b; font-weight: 700;">صَدَرَ عَنْ مَنَصَّة:</div>
+                                        <div style="font-size: 1.05rem; font-weight: 900; color: #1e3a8a;">قِرَاءَتِي التَّفَاعُلِيَّةُ الذَّكِيَّة (PWA)</div>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="font-size: 0.85rem; color: #64748b; font-weight: 700;">إِعْدَادُ وَتَطْوِير:</div>
+                                        <div style="font-size: 1.15rem; font-weight: 900; color: #b45309;">الْمُهَنْدِس أُسَامَة خَلِيل هَاشِم</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- صورة الكتاب الأصلية ص 30 -->
+                            <div class="no-print" style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 24px;">
+                                <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px; font-size: 1.05rem;">
+                                    📖 صَفْحَةُ الْكِتَابِ الْأَصْلِيَّة (ص ٣٠):
+                                </div>
+                                <img src="page_30.png" alt="صفحة 30 كتاب قراءتي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1; box-shadow: 0 4px 14px rgba(0,0,0,0.06);">
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
 
 
 
@@ -9204,6 +9791,10 @@
 
                 mascotSpeak('حَرْفُ الْفَاء (فـ ، ـفـ ، ف)! اِسْتَمِعْ لِصَوْتِ الْحَرْفِ النَّقِيّ (فْ) وَأَصْوَاتِ الْمَدُودِ وَرَكِّبْ كَلِمَةَ (فَادِي) وَاقْرَأْ (فَادِي ، مُفِيد ، فَم)!', 'letter_f_intro');
                 setTimeout(initFCanvas, 200);
+
+            } else if (lesson.id === 'tab-unit1_quran') {
+
+                mascotSpeak('خَاتِمَةُ الْوَحْدَةِ الْأُولَى: أُسْرَتِي! اِسْتَمِعْ لِسُورَةِ الْفَاتِحَةِ الْمُبَارَكَةِ وَنَشِيدِ (مَامَا بَابَا) وَشَاهِدْ حَصَادَ الْوَحْدَةِ وَاسْتَلِمْ شَهَادَةَ التَّخَرُّجِ!', 'unit1_quran_welcome');
 
             }
 
@@ -13041,6 +13632,179 @@
             fIsEraser = true;
             document.querySelectorAll('.color-dot-f').forEach(d => d.classList.remove('active'));
             if (el) el.classList.add('active');
+        }
+
+
+
+        // ========================================================
+        // دوال خاتمة الوحدة الأولى: سورة الفاتحة ونشيد ماما بابا (ص ٣٠)
+        // إعداد المهندس أسامة خليل هاشم
+        // ========================================================
+        function switchQStation(stationNum) {
+            document.querySelectorAll('.unit1-quran-station').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('#view-tab-unit1_quran .station-tab').forEach(el => el.classList.remove('active'));
+
+            const targetStation = document.getElementById('stationQ' + stationNum);
+            const targetBtn = document.getElementById('btnStationQ' + stationNum);
+            if (targetStation) targetStation.style.display = 'block';
+            if (targetBtn) targetBtn.classList.add('active');
+
+            if (stationNum === 1) {
+                mascotSpeak('سُورَةُ الْفَاتِحَةِ الْمُبَارَكَة! اِسْتَمِعُوا لِلتِّلَاوَةِ الْعَطِرَةِ بِخُشُوعٍ وَرَدِّدُوا مَعِي آيَةً فَآيَة!', 'unit1_fatiha_intro');
+            } else if (stationNum === 2) {
+                mascotSpeak('نَشِيدُ (مَامَا بَابَا)! نَشِيدٌ بَهِيجٌ نُعَبِّرُ فِيهِ عَنْ حُبِّنَا لِأُمِّنَا وَأَبِينَا وَمُعَلِّمَتِنَا الْغَالِيَة!', 'unit1_nasheed_intro');
+            } else if (stationNum === 3) {
+                mascotSpeak('حَصَادُ الْوَحْدَةِ الْأُولَى: أُسْرَتِي! رَاجِعُوا كَافَّةَ الْحُرُوفِ وَالْكَلِمَاتِ الَّتِي تَعَلَّمْنَاهَا، وَاقْرَؤُوا لَوْحَةَ الشَّرَف!', 'unit1_harvest_intro');
+            } else if (stationNum === 4) {
+                mascotSpeak('مُبَارَكٌ لَكُمْ يَا أَبْطَالَ قِرَاءَتِي! لَقَدْ أَتْمَمْتُمْ دِرَاسَةَ الْوَحْدَةِ الْأُولَى بِنَجَاحٍ وَتَفَوُّق! اِسْتَلِمُوا وِسَامَ التَّمَيُّزِ وَشَهَادَةَ التَّخَرُّج!', 'unit1_grad_intro');
+            }
+        }
+
+        function playFullFatiha() {
+            const btn = document.getElementById('btnFullFatiha');
+            if (currentAudio && !currentAudio.paused && window._currentPlayingKey === 'unit1_fatiha_full') {
+                stopAudio();
+                if (btn) btn.innerHTML = '▶️ اِسْتَمِعْ لِلتِّلَاوَةِ الْكَامِلَةِ مُرَتَّلَة';
+                document.querySelectorAll('.ayah-card').forEach(el => el.classList.remove('active'));
+                return;
+            }
+            mascotCelebrates();
+            if (btn) btn.innerHTML = '⏹️ إِيقَافُ التِّلَاوَة';
+            document.querySelectorAll('.ayah-card').forEach(el => el.classList.remove('active'));
+            mascotSpeak('📖 <b>تِلَاوَةُ سُورَةِ الْفَاتِحَةِ الْمُبَارَكَة:</b><br>اِسْتَمِعُوا بِخُشُوعٍ وَتَدَبُّرٍ لِآيَاتِ اللهِ الْعَظِيمَة.', 'unit1_fatiha_full', () => {
+                if (btn) btn.innerHTML = '▶️ اِسْتَمِعْ لِلتِّلَاوَةِ الْكَامِلَةِ مُرَتَّلَة';
+                document.querySelectorAll('.ayah-card').forEach(el => el.classList.remove('active'));
+            });
+        }
+
+        function playFatihaAyah(num) {
+            mascotCelebrates();
+            document.querySelectorAll('.ayah-card').forEach(el => el.classList.remove('active'));
+            const card = document.getElementById('ayahCard-' + num);
+            if (card) card.classList.add('active');
+
+            const ayahsText = {
+                1: '﴿ بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ ﴾',
+                2: '﴿ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ ﴾',
+                3: '﴿ الرَّحْمَٰنِ الرَّحِيمِ ﴾',
+                4: '﴿ مَالِكِ يَوْمِ الدِّينِ ﴾',
+                5: '﴿ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ ﴾',
+                6: '﴿ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ ﴾',
+                7: '﴿ صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ ﴾'
+            };
+
+            mascotSpeak(`✨ <b>الْآيَةُ (${num}):</b><br><span style="font-size:1.6rem; color:#065f46; font-family:'Amiri', serif;">${ayahsText[num]}</span>`, 'unit1_fatiha_ayah' + num);
+        }
+
+        function playFatihaSadaqa() {
+            mascotCelebrates();
+            document.querySelectorAll('.ayah-card').forEach(el => el.classList.remove('active'));
+            const card = document.getElementById('ayahCard-sadaqa');
+            if (card) card.classList.add('active');
+            mascotSpeak('🤲 <b style="font-size:1.4rem; color:#475569;">صَدَقَ اللَّهُ الْعَلِيُّ الْعَظِيمُ</b>', 'unit1_fatiha_sadaqa');
+        }
+
+        function playFatihaRepeatPrompt() {
+            mascotCelebrates();
+            mascotSpeak('🎙️ <b>أَرَدِّدُ مَعَ فَصِيح:</b><br>اِقْرَأْ كُلَّ آيَةٍ بِصَوْتٍ عَالٍ وَخُشُوعٍ بَعْدَ سَمَاعِهَا!', 'unit1_fatiha_repeat_prompt');
+        }
+
+        function playFullNasheed() {
+            const btn = document.getElementById('btnFullNasheed');
+            if (currentAudio && !currentAudio.paused && window._currentPlayingKey === 'unit1_nasheed_full') {
+                stopAudio();
+                if (btn) btn.innerHTML = '🎶 اِسْتَمِعْ لِلنَّشِيدِ كَامِلاً';
+                document.querySelectorAll('.nasheed-card').forEach(el => el.classList.remove('active'));
+                return;
+            }
+            mascotCelebrates();
+            if (btn) btn.innerHTML = '⏹️ إِيقَافُ النَّشِيد';
+            document.querySelectorAll('.nasheed-card').forEach(el => el.classList.remove('active'));
+            mascotSpeak('🎵 <b>نَشِيدُ (مَامَا بَابَا):</b><br>شِعْرُ: عَبْدِ الْعَزِيز أَبُو غُوش • اِسْتَمِعْ وَأَنْشِدْ مَعَنَا بِفَرَح!', 'unit1_nasheed_full', () => {
+                if (btn) btn.innerHTML = '🎶 اِسْتَمِعْ لِلنَّشِيدِ كَامِلاً';
+                document.querySelectorAll('.nasheed-card').forEach(el => el.classList.remove('active'));
+            });
+        }
+
+        function playNasheedIntro() {
+            mascotCelebrates();
+            mascotSpeak('💡 <b>مُقَدِّمَةُ النَّشِيد:</b><br>نَشِيدُ مَامَا بَابَا يُعَبِّرُ عَنْ مَشَاعِرِ الْمَحَبَّةِ وَالْبِرِّ لِلْأُسْرَةِ وَالْمُعَلِّمَةِ الْفَاضِلَة.', 'unit1_nasheed_intro');
+        }
+
+        function playNasheedVerse(num) {
+            mascotCelebrates();
+            document.querySelectorAll('.nasheed-card').forEach(el => el.classList.remove('active'));
+            const card = document.getElementById('verseCard-' + num);
+            if (card) card.classList.add('active');
+
+            const verses = {
+                1: 'مَامَا بَابَا ... فَرْحَةُ قَلْبِي 💖',
+                2: 'مَامَا بَابَا ... نَبْضُ الْحُبِّ 💓',
+                3: 'مَامَا بَابَا ... خَفْقُ فُؤَادِي 💗',
+                4: 'مَامَا بَابَا ... خَيْرُ عِمَادِ 🛡️',
+                5: 'وَمُعَلِّمَتِي ... أَنْتِ أَنْتِ 👩‍🏫',
+                6: 'أُمِّي الْأُخْرَى ... فِي مَدْرَسَتِي 🏫'
+            };
+
+            mascotSpeak(`🎵 <b>الْبَيْتُ (${num}):</b><br><span style="font-size:1.5rem; color:#e11d48;">${verses[num]}</span>`, 'unit1_nasheed_verse' + num);
+        }
+
+        function playNasheedWord(wordKey) {
+            mascotCelebrates();
+            if (wordKey === 'farha') {
+                mascotSpeak('💖 <b>فَرْحَةُ قَلْبِي:</b> سَعَادَةٌ كَبِيرَةٌ تَمْلَأُ حَيَاتِي بِوُجُودِ مَامَا وَبَابَا!', 'unit1_nasheed_word_farha');
+            } else if (wordKey === 'nabd') {
+                mascotSpeak('💓 <b>نَبْضُ الْحُبّ:</b> دَقَّاتُ قَلْبِي الَّتِي تَنْبِضُ بِالْمَحَبَّةِ وَالْوَفَاء!', 'unit1_nasheed_word_nabd');
+            } else if (wordKey === 'emad') {
+                mascotSpeak('🛡️ <b>خَيْرُ عِمَاد:</b> أَعْظَمُ سَنَدٍ وَعَوْنٍ يَحْمِينِي وَيَرْعَانِي!', 'unit1_nasheed_word_emad');
+            } else if (wordKey === 'moallimati') {
+                mascotSpeak('👩‍🏫 <b>مُعَلِّمَتِي:</b> أُمِّي الْغَالِيَةُ فِي الْمَدْرَسَة، تُعَلِّمُنِي الْقِرَاءَةَ وَالْأَخْلَاق!', 'unit1_nasheed_word_moallimati');
+            }
+        }
+
+        function playHarvestIntro() {
+            mascotCelebrates();
+            mascotSpeak('🏆 <b>حَصَادُ الْوَحْدَةِ الْأُولَى (أُسْرَتِي):</b><br>تَعَلَّمْنَا حُرُوفَ (ب ، م ، د ، ف) وَقَرَأْنَا أَجْمَلَ الْكَلِمَات!', 'unit1_harvest_intro');
+        }
+
+        function playHarvestLetter(letter) {
+            mascotCelebrates();
+            if (letter === 'b') {
+                mascotSpeak('🔵 <b>حَرْفُ الْبَاء (بـ ، ب):</b><br>أَصْوَاتُهُ: (بَـ ، بُـ ، بِـ) • كَلِمَاتُهُ: (بَابَا ، بَابُ ، بَابِي)', 'unit1_review_b');
+            } else if (letter === 'm') {
+                mascotSpeak('🟣 <b>حَرْفُ الْمِيم (مـ ، م):</b><br>أَصْوَاتُهُ: (مَـ ، مُـ ، مِـ) • كَلِمَاتُهُ: (مَامَا ، بُومُ)', 'unit1_review_m');
+            } else if (letter === 'd') {
+                mascotSpeak('🟠 <b>حَرْفُ الدَّال (د ، ـد):</b><br>أَصْوَاتُهُ: (دَ ، دُ ، دِ) • كَلِمَاتُهُ: (دَادَا ، دُودُ ، دَامَ)', 'unit1_review_d');
+            } else if (letter === 'f') {
+                mascotSpeak('🟢 <b>حَرْفُ الْفَاء (فـ ، ـفـ ، ف):</b><br>أَصْوَاتُهُ: (فَـ ، فُـ ، فِـ) • كَلِمَاتُهُ: (فَادِي ، مُفِيدُ ، فَمُ)', 'unit1_review_f');
+            }
+        }
+
+        function playAllHarvestWords() {
+            mascotCelebrates();
+            mascotSpeak('🌟 <b>كَلِمَاتُ لَوْحَةِ الشَّرَفِ التَّرَاكُمِيَّة:</b><br><span style="font-size:1.7rem; color:#065f46;">بَابَا ... مَامَا ... دَادَا ... فَادِي ... مُفِيد ... فَم!</span>', 'unit1_review_all_words');
+        }
+
+        function updateCertName(name) {
+            const display = document.getElementById('certStudentDisplayName');
+            if (display) {
+                display.innerText = name.trim() ? name.trim() : 'بَطَلُ قِرَاءَتِي';
+            }
+        }
+
+        function launchGradCelebration() {
+            mascotCelebrates();
+            mascotSpeak('🎉 <b>عَاشَ الْبَطَل!</b> نَحْنُ فَخُورُونَ بِكَ جِدًّا! أَنْتَ جَاهِزٌ لِلِانْطِلَاقِ نَحْوَ الْوَحْدَةِ الثَّانِيَةِ: مَدْرَسَتِي!', 'unit1_grad_cheer');
+            // تأثيرات احتفالية إضافية
+            const avatar = document.getElementById('mascotAvatar');
+            if (avatar) {
+                avatar.classList.add('mascot-celebrate');
+                setTimeout(() => avatar.classList.remove('mascot-celebrate'), 3000);
+            }
+        }
+
+        function printCert() {
+            window.print();
         }
 
 </script>
