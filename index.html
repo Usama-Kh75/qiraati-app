@@ -4821,7 +4821,8 @@
 
             body * { visibility: hidden !important; }
 
-            .grad-cert-container, .grad-cert-container * {
+            .grad-cert-container, .grad-cert-container *,
+            .unit2-grad-cert-container, .unit2-grad-cert-container * {
 
                 visibility: visible !important;
 
@@ -4847,6 +4848,164 @@
 
         }
 
+
+        /* ========================================================
+           أنماط خاتمة الوحدة الثانية: نشيد مدرستي وحصاد المهارات وإكليل التفوق (ص 48 - 52)
+           إعداد المهندس أسامة خليل هاشم
+        ======================================================== */
+        .unit2-school-board {
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #f0fdfa 100%);
+            border: 3px solid #10b981;
+            border-radius: 24px;
+            padding: 24px 18px;
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .unit2-header-frame {
+            display: inline-block;
+            background: linear-gradient(135deg, #059669, #10b981, #047857);
+            color: #ffffff;
+            padding: 8px 30px;
+            border-radius: 999px;
+            font-size: 1.35rem;
+            font-weight: 900;
+            box-shadow: 0 4px 15px rgba(5, 150, 105, 0.35);
+            border: 2px solid #a7f3d0;
+            margin-bottom: 16px;
+        }
+
+        .unit2-crown-seal {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24, #d97706);
+            border: 4px solid #ffffff;
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.45);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: #ffffff;
+            margin-bottom: 12px;
+            animation: pulse-crown 2.2s infinite ease-in-out;
+        }
+
+        @keyframes pulse-crown {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(4deg); }
+        }
+
+        .unit2-grad-cert-container {
+            max-width: 820px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 5px double #059669;
+            border-radius: 28px;
+            padding: 36px 24px;
+            text-align: center;
+            box-shadow: 0 16px 40px rgba(5, 150, 105, 0.15);
+            position: relative;
+        }
+
+        .unit2-grad-cert-container::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 2px dashed #a7f3d0;
+            border-radius: 20px;
+            pointer-events: none;
+        }
+
+        .unit2-quiz-card {
+            background: #ffffff;
+            border: 2px solid #a7f3d0;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.08);
+            text-align: right;
+            transition: all 0.25s ease;
+        }
+
+        .unit2-quiz-q-title {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #065f46;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .unit2-quiz-options {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .unit2-quiz-btn {
+            flex: 1;
+            min-width: 140px;
+            background: #f8fafc;
+            border: 2px solid #cbd5e1;
+            border-radius: 14px;
+            padding: 12px 18px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #1e293b;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+        }
+
+        .unit2-quiz-btn:hover {
+            border-color: #10b981;
+            background: #f0fdf4;
+            transform: translateY(-2px);
+        }
+
+        .unit2-quiz-btn.correct {
+            background: #dcfce7 !important;
+            border-color: #16a34a !important;
+            color: #166534 !important;
+            box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.25) !important;
+        }
+
+        .unit2-quiz-btn.wrong {
+            background: #fee2e2 !important;
+            border-color: #dc2626 !important;
+            color: #991b1b !important;
+        }
+
+        .unit2-reading-line {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .unit2-reading-line:hover {
+            border-color: #10b981;
+            background: #f0fdf4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(16, 185, 129, 0.12);
+        }
+
+        .unit2-reading-line.active {
+            border-color: #059669;
+            background: #ecfdf5;
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25);
+            transform: scale(1.015);
+        }
 </style>
 
 </head>
@@ -14014,6 +14173,456 @@
                     </div>
                 </div>
 
+                <!-- ========================================================
+                     الدرس الثامن / خاتمة الوحدة الثانية: نشيد (مَدْرَسَتِي) وحصاد المهارات وإكليل التفوق (ص 48 - 52)
+                     إعداد المهندس أسامة خليل هاشم
+                ======================================================== -->
+                <div class="lesson-view" id="view-tab-unit2_nasheed">
+
+                    <!-- شريط المحطات الأربعة لخاتمة الوحدة الثانية -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationU2_1" onclick="switchUnit2Station(1)">
+                            <span>🎵</span> <span>١. نَشِيدُ (مَدْرَسَتِي) الْمُلَحَّن (ص ٤٨)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationU2_2" onclick="switchUnit2Station(2)">
+                            <span>📖</span> <span>٢. لَوْحَةُ الْقِرَاءَةِ وَتَرْكِيبُ الْمَقَاطِع (ص ٤٨)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationU2_3" onclick="switchUnit2Station(3)">
+                            <span>🏆</span> <span>٣. حَصَادُ وَمُرَاجَعَةُ مَهَارَاتِ الْوَحْدَةِ الثَّانِيَة</span>
+                        </button>
+                        <button class="station-tab" id="btnStationU2_4" onclick="switchUnit2Station(4)">
+                            <span>👑</span> <span>٤. إِكْلِيلُ التَّفَوُّقِ وَاخْتِبَارُ التَّحَدِّي وَالشَّهَادَة (ص ٤٨ - ٥٢)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: نشيد (مدرستي) الملحن -->
+                    <div class="unit2-station active" id="stationUnit2_1">
+                        <div class="unit2-school-board">
+                            <!-- الترويسة العلوية للنشيد -->
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <div class="unit2-header-frame">
+                                    🎵 نَشِيدُ ( مَدْرَسَتِي ) الْمُلَحَّن
+                                </div>
+                                <div style="font-weight: 800; color: #065f46; font-size: 1.05rem; margin-bottom: 12px;">
+                                    كِتَابُ قِرَاءَتِي صَفْحَةُ ٤٨ • كَلِمَاتٌ عِرَاقِيَّةٌ أَصِيلَةٌ لِأَبْطَالِ الصَّفِّ الْأَوَّل
+                                </div>
+                                <div style="color: #64748b; font-size: 0.95rem; margin-bottom: 14px;">
+                                    اِسْتَمِعْ لِلنَّشِيدِ كَامِلاً أَوْ انْقُرْ عَلَى كُلِّ بَيْتٍ لِسَمَاعِهِ وَتَرْدِيدِهِ مَعَ فَصِيح 🏫
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                    <button class="btn" id="btnFullUnit2Nasheed" onclick="playUnit2NasheedFull()" style="background: linear-gradient(135deg, #059669, #10b981); color: white; padding: 10px 24px; font-size: 1.05rem; font-weight: 800; border-radius: 14px; box-shadow: 0 6px 16px rgba(5, 150, 105, 0.25);">
+                                        🎶 اِسْتَمِعْ لِلنَّشِيدِ كَامِلاً
+                                    </button>
+                                    <button class="btn" onclick="playUnit2NasheedIntro()" style="background: #ffffff; color: #047857; border: 2px solid #10b981; padding: 10px 20px; font-size: 1rem; font-weight: 800; border-radius: 14px;">
+                                        💡 مُقَدِّمَةُ النَّشِيد مَعَ فَصِيح
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- الإطار الأصلي المقتبس من صفحة 48 في كتاب القراءة -->
+                            <div style="background: #ffffff; border: 2px solid #a7f3d0; border-radius: 18px; padding: 14px; text-align: center; margin-bottom: 22px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.08);">
+                                <div style="font-weight: 800; color: #047857; margin-bottom: 8px; font-size: 0.95rem;">
+                                    ✨ صُورَةُ النَّشِيدِ الْأَصْلِيَّةُ مِنْ كِتَابِ قِرَاءَتِي (ص ٤٨):
+                                </div>
+                                <img src="activity_unit2_nasheed_school.png" alt="نشيد مدرستي كتاب قراءتي ص 48" style="max-width: 600px; width: 100%; border-radius: 12px; border: 1px solid #bbf7d0;">
+                            </div>
+
+                            <!-- أبيات النشيد الأربعة التفاعلية -->
+                            <div id="unit2NasheedList" style="max-width: 680px; margin: 0 auto 24px auto;">
+                                <div class="nasheed-card" id="u2VerseCard-1" onclick="playUnit2NasheedVerse(1)">
+                                    <div class="couplet-col right">مَـــــدْرَسَتِـي</div>
+                                    <div style="font-size: 1.6rem;">🏫</div>
+                                    <div class="couplet-col left">مَـــــدْرَسَتِـي</div>
+                                </div>
+                                <div class="nasheed-card" id="u2VerseCard-2" onclick="playUnit2NasheedVerse(2)">
+                                    <div class="couplet-col right">أُحِبُّـــــهَــا</div>
+                                    <div style="font-size: 1.6rem;">💖</div>
+                                    <div class="couplet-col left">كَـــــإِخْـــوَتِـي</div>
+                                </div>
+                                <div class="nasheed-card" id="u2VerseCard-3" onclick="playUnit2NasheedVerse(3)">
+                                    <div class="couplet-col right">فِيهَـا وَجَـدْتُ</div>
+                                    <div style="font-size: 1.6rem;">🌟</div>
+                                    <div class="couplet-col left">رَاحَتِـــــــي</div>
+                                </div>
+                                <div class="nasheed-card" id="u2VerseCard-4" onclick="playUnit2NasheedVerse(4)">
+                                    <div class="couplet-col right">وَفَـــــرْحَتِــي</div>
+                                    <div style="font-size: 1.6rem;">🇮🇶</div>
+                                    <div class="couplet-col left">وَعِـــــزَّتِـي</div>
+                                </div>
+                            </div>
+
+                            <!-- معجم فصيح الصغير لمعاني وقيم النشيد المدرسية -->
+                            <div style="background: #ffffff; border-radius: 18px; border: 2px dashed #10b981; padding: 18px; max-width: 680px; margin: 0 auto;">
+                                <div style="font-weight: 900; color: #065f46; font-size: 1.15rem; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                    <span>🔍</span> <span>مُعْجَمُ فَصِيح لِلْقِيَمِ الْمَدْرَسِيَّة (اِضْغَطْ عَلَى الْكَلِمَةِ لِسَمَاعِ مَعْنَاهَا):</span>
+                                </div>
+                                <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                                    <button class="btn" onclick="playUnit2NasheedWord('madrasati')" style="background: #f0fdf4; color: #047857; border: 1.5px solid #a7f3d0; border-radius: 12px; font-weight: 800;">
+                                        🏫 مَدْرَسَتِي
+                                    </button>
+                                    <button class="btn" onclick="playUnit2NasheedWord('ekhwati')" style="background: #f0fdf4; color: #047857; border: 1.5px solid #a7f3d0; border-radius: 12px; font-weight: 800;">
+                                        💖 كَإِخْوَتِي
+                                    </button>
+                                    <button class="btn" onclick="playUnit2NasheedWord('rahati')" style="background: #f0fdf4; color: #047857; border: 1.5px solid #a7f3d0; border-radius: 12px; font-weight: 800;">
+                                        🌟 رَاحَتِي
+                                    </button>
+                                    <button class="btn" onclick="playUnit2NasheedWord('farhati')" style="background: #f0fdf4; color: #047857; border: 1.5px solid #a7f3d0; border-radius: 12px; font-weight: 800;">
+                                        🎉 فَرْحَتِي
+                                    </button>
+                                    <button class="btn" onclick="playUnit2NasheedWord('izzati')" style="background: #f0fdf4; color: #047857; border: 1.5px solid #a7f3d0; border-radius: 12px; font-weight: 800;">
+                                        🇮🇶 عِزَّتِي
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: لوحة القراءة المقررة وورشة المقاطع -->
+                    <div class="unit2-station" id="stationUnit2_2" style="display: none;">
+                        <div class="unit2-school-board">
+                            <div style="text-align: center; margin-bottom: 22px;">
+                                <div class="unit2-header-frame">
+                                    📖 لَوْحَةُ الْقِرَاءَةِ الْمُقَرَّرَةِ وَتَرْكِيبُ الْمَقَاطِع (ص ٤٨)
+                                </div>
+                                <div style="font-weight: 800; color: #065f46; font-size: 1.05rem; margin-bottom: 12px;">
+                                    اِقْرَأْ جُمَلَ الْكِتَابِ بِطَلَاقَةٍ وَفَهْمٍ • اِضْغَطْ عَلَى كُلِّ سَطْرٍ لِسَمَاعِهِ وَتَرْدِيدِه
+                                </div>
+                                <button class="btn" onclick="playUnit2ReadingAll()" style="background: linear-gradient(135deg, #059669, #10b981); color: white; padding: 10px 24px; font-size: 1.05rem; font-weight: 800; border-radius: 14px; box-shadow: 0 6px 16px rgba(5, 150, 105, 0.25);">
+                                    📢 اقْرَأْ النُّصُوصَ كَامِلَةً مَعَ فَصِيح
+                                </button>
+                            </div>
+
+                            <!-- أسطر القراءة المقررة -->
+                            <div style="max-width: 680px; margin: 0 auto 26px auto;">
+                                <div class="unit2-reading-line" id="u2ReadLine-1" onclick="playUnit2ReadingSentence('soor')">
+                                    <div style="font-size: 1.7rem;">🏫</div>
+                                    <div style="flex: 1; font-size: 1.5rem; font-weight: 900; color: #1e3a8a; text-align: right;">
+                                        سُوْرُ مَدْرَسَتِي مَتِينٌ
+                                    </div>
+                                    <span style="font-size: 1.3rem;">🔊</span>
+                                </div>
+                                <div class="unit2-reading-line" id="u2ReadLine-2" onclick="playUnit2ReadingSentence('fatin')">
+                                    <div style="font-size: 1.7rem;">🍇</div>
+                                    <div style="flex: 1; font-size: 1.5rem; font-weight: 900; color: #1e3a8a; text-align: right;">
+                                        فِي بُسْتَانِ فَاتِنَ تُوتٌ
+                                    </div>
+                                    <span style="font-size: 1.3rem;">🔊</span>
+                                </div>
+                                <div class="unit2-reading-line" id="u2ReadLine-3" onclick="playUnit2ReadingSentence('teen_tamr')">
+                                    <div style="font-size: 1.7rem;">🌴</div>
+                                    <div style="flex: 1; font-size: 1.5rem; font-weight: 900; color: #1e3a8a; text-align: right;">
+                                        وَتِينٌ وَتَمْرٌ
+                                    </div>
+                                    <span style="font-size: 1.3rem;">🔊</span>
+                                </div>
+                                <div class="unit2-reading-line" id="u2ReadLine-4" onclick="playUnit2ReadingSentence('cumulative')" style="border-style: dashed; border-color: #10b981;">
+                                    <div style="font-size: 1.7rem;">🎨</div>
+                                    <div style="flex: 1; font-size: 1.35rem; font-weight: 800; color: #065f46; text-align: right;">
+                                        سَارَةُ تَرْسُمُ ، دِيمَةُ تَدْرُسُ ، سَرْوَةُ تَبْتَسِمُ
+                                    </div>
+                                    <span style="font-size: 1.3rem;">🔊</span>
+                                </div>
+                            </div>
+
+                            <!-- ورشة التحليل والتركيب الصوتي ص 48 -->
+                            <div style="background: #ffffff; border-radius: 20px; border: 2px solid #6ee7b7; padding: 22px; max-width: 720px; margin: 0 auto;">
+                                <div style="font-weight: 900; color: #065f46; font-size: 1.25rem; margin-bottom: 14px; text-align: center;">
+                                    👏 وَرْشَةُ التَّحْلِيلِ وَالتَّرْكِيبِ الصَّوْتِيِّ (ص ٤٨)
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px;">
+                                    <div class="read-card" onclick="playUnit2Syllable('mateen')" style="border-color: #10b981; cursor: pointer; padding: 14px;">
+                                        <div style="font-size: 1.35rem; font-weight: 900; color: #065f46;">مَتِينٌ</div>
+                                        <div style="font-size: 0.95rem; color: #047857; margin-top: 4px;">👏 مَـ + 👏 تِيـ + 👏 نٌ 🔊</div>
+                                    </div>
+                                    <div class="read-card" onclick="playUnit2Syllable('bustan')" style="border-color: #3b82f6; cursor: pointer; padding: 14px;">
+                                        <div style="font-size: 1.35rem; font-weight: 900; color: #1e3a8a;">بُسْتَانِ</div>
+                                        <div style="font-size: 0.95rem; color: #1d4ed8; margin-top: 4px;">👏 بُسْـ + 👏 تَا + 👏 نِ 🔊</div>
+                                    </div>
+                                    <div class="read-card" onclick="playUnit2Syllable('madrasati')" style="border-color: #d97706; cursor: pointer; padding: 14px;">
+                                        <div style="font-size: 1.35rem; font-weight: 900; color: #92400e;">مَدْرَسَتِي</div>
+                                        <div style="font-size: 0.95rem; color: #b45309; margin-top: 4px;">👏 مَدْ + 👏 رَ + 👏 سَـ + 👏 تِي 🔊</div>
+                                    </div>
+                                </div>
+                                <div style="border-top: 1px dashed #cbd5e1; padding-top: 14px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                    <button class="btn" onclick="playUnit2Syllable('toot')" style="background: #eff6ff; color: #1d4ed8; border: 1.5px solid #bfdbfe; border-radius: 12px; font-weight: 800;">
+                                        🍇 تُو + تٌ = تُوتٌ 🔊
+                                    </button>
+                                    <button class="btn" onclick="playUnit2Syllable('teen')" style="background: #eff6ff; color: #1d4ed8; border: 1.5px solid #bfdbfe; border-radius: 12px; font-weight: 800;">
+                                        🌿 تِيـ + نٌ = تِينٌ 🔊
+                                    </button>
+                                    <button class="btn" onclick="playUnit2Syllable('tamr')" style="background: #eff6ff; color: #1d4ed8; border: 1.5px solid #bfdbfe; border-radius: 12px; font-weight: 800;">
+                                        🌴 تَمْـ + رٌ = تَمْرٌ 🔊
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: حصاد مهارات الوحدة الثانية الشامل -->
+                    <div class="unit2-station" id="stationUnit2_3" style="display: none;">
+                        <div class="unit2-school-board">
+                            <div style="text-align: center; margin-bottom: 22px;">
+                                <div class="unit2-header-frame">
+                                    🏆 حَصَادُ وَمُرَاجَعَةُ مَهَارَاتِ الْوَحْدَةِ الثَّانِيَة (مَدْرَسَتِي)
+                                </div>
+                                <div style="font-weight: 800; color: #047857; font-size: 1.05rem; margin-bottom: 12px;">
+                                    مِنْ صَفْحَةِ ٣١ إِلَى صَفْحَةِ ٤٨ • خَمْسَةُ حُرُوفٍ وَتَنْوِينُ الضَّمِّ وَكَلِمَاتُ قِرَاءَتِي التَّرَاكُمِيَّة
+                                </div>
+                                <button class="btn" onclick="playUnit2HarvestIntro()" style="background: #ffffff; color: #065f46; border: 2px solid #10b981; padding: 10px 22px; font-size: 1rem; font-weight: 800; border-radius: 14px; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);">
+                                    🔊 اِسْتَمِعْ لِمُلَخَّصِ حَصَادِ الْوَحْدَةِ مَعَ فَصِيح
+                                </button>
+                            </div>
+
+                            <!-- شبكة الحروف والمهارات الست للوحدة الثانية -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 24px;">
+                                <!-- حرف الراء -->
+                                <div class="harvest-letter-box" onclick="playUnit2HarvestLetter('r')" style="border-top: 5px solid #2563eb;">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #2563eb; margin-bottom: 6px;">ر  ـر</div>
+                                    <div style="font-weight: 800; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 4px;">حَرْفُ الرَّاء (ص ٣٢)</div>
+                                    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 8px;">رَ ، رُ ، رِ • رَا ، رُو ، رِي</div>
+                                    <div style="background: #eff6ff; border-radius: 10px; padding: 6px; font-weight: 800; color: #1d4ed8;">دَارٌ • دُور • رِيم 🔊</div>
+                                </div>
+                                <!-- حرف السين -->
+                                <div class="harvest-letter-box" onclick="playUnit2HarvestLetter('s')" style="border-top: 5px solid #7c3aed;">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #7c3aed; margin-bottom: 6px;">سـ  س</div>
+                                    <div style="font-weight: 800; color: #5b21b6; font-size: 1.1rem; margin-bottom: 4px;">حَرْفُ السِّين (ص ٣٥)</div>
+                                    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 8px;">سَـ ، سُـ ، سِـ • سَا ، سُو ، سِي</div>
+                                    <div style="background: #f5f3ff; border-radius: 10px; padding: 6px; font-weight: 800; color: #6d28d9;">فِرَاسٌ • أَنِيس • سُور 🔊</div>
+                                </div>
+                                <!-- حرف النون -->
+                                <div class="harvest-letter-box" onclick="playUnit2HarvestLetter('n')" style="border-top: 5px solid #059669;">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #059669; margin-bottom: 6px;">نـ  ن</div>
+                                    <div style="font-weight: 800; color: #065f46; font-size: 1.1rem; margin-bottom: 4px;">حَرْفُ النُّون (ص ٣٨)</div>
+                                    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 8px;">نَـ ، نُـ ، نِـ • نَا ، نُو ، نِي</div>
+                                    <div style="background: #ecfdf5; border-radius: 10px; padding: 6px; font-weight: 800; color: #047857;">نُورٌ • بَان • نَبْنِي 🔊</div>
+                                </div>
+                                <!-- حرف التاء -->
+                                <div class="harvest-letter-box" onclick="playUnit2HarvestLetter('t')" style="border-top: 5px solid #d97706;">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #d97706; margin-bottom: 6px;">تـ  ت</div>
+                                    <div style="font-weight: 800; color: #92400e; font-size: 1.1rem; margin-bottom: 4px;">حَرْفُ التَّاء (ص ٤١)</div>
+                                    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 8px;"> تَـ ، تُـ ، تِـ • تَا ، تُو ، تِي</div>
+                                    <div style="background: #fffbeb; border-radius: 10px; padding: 6px; font-weight: 800; color: #b45309;">بَنَاتٌ • تُوتٌ • تَمْرٌ 🔊</div>
+                                </div>
+                                <!-- التاء المربوطة -->
+                                <div class="harvest-letter-box" onclick="playUnit2HarvestLetter('marboota')" style="border-top: 5px solid #e11d48;">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #e11d48; margin-bottom: 6px;">ـة  ة</div>
+                                    <div style="font-weight: 800; color: #9f1239; font-size: 1.1rem; margin-bottom: 4px;">التَّاءُ الْمَرْبُوطَة (ص ٤٤)</div>
+                                    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 8px;">ـةُ ، ةُ • هـ عِنْدَ الْوَقْف</div>
+                                    <div style="background: #fff1f2; border-radius: 10px; padding: 6px; font-weight: 800; color: #be123c;">سَارَة • مَدْرَسَة • سَفِينَة 🔊</div>
+                                </div>
+                                <!-- تنوين الضم -->
+                                <div class="harvest-letter-box" onclick="playUnit2HarvestLetter('tanween')" style="border-top: 5px solid #0284c7;">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #0284c7; margin-bottom: 6px;">ـٌ  ٌ</div>
+                                    <div style="font-weight: 800; color: #0369a1; font-size: 1.1rem; margin-bottom: 4px;">تَنْوِينُ الضَّمّ (ص ٤٧)</div>
+                                    <div style="font-size: 0.95rem; color: #64748b; margin-bottom: 8px;">صَوْتُ النُّونِ الرَّنَّان (أُنْ)</div>
+                                    <div style="background: #f0f9ff; border-radius: 10px; padding: 6px; font-weight: 800; color: #0284c7;">وَرْدٌ • بَابٌ • كِتَابٌ 🔊</div>
+                                </div>
+                            </div>
+
+                            <!-- لوحة الشرف التراكمية لكلمات الوحدة الثانية الأحد عشر -->
+                            <div style="background: #ffffff; border-radius: 20px; border: 2px solid #6ee7b7; padding: 20px; text-align: center;">
+                                <div style="font-weight: 900; color: #065f46; font-size: 1.25rem; margin-bottom: 14px;">
+                                    ⭐ لَوْحَةُ الشَّرَفِ التَّرَاكُمِيَّة: كَلِمَاتُ الْوَحْدَةِ الثَّانِيَةِ الْكُبْرَى ⭐
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 16px;">
+                                    <div class="read-card" onclick="playWordRead('dar')" style="border-color: #3b82f6; cursor: pointer; padding: 12px;">
+                                        <div style="font-size: 1.5rem;">🏡</div>
+                                        <div style="font-size: 1.6rem; font-weight: 900; color: #1e3a8a;">دَارٌ</div>
+                                    </div>
+                                    <div class="read-card" onclick="playWordRead('firas')" style="border-color: #8b5cf6; cursor: pointer; padding: 12px;">
+                                        <div style="font-size: 1.5rem;">👦</div>
+                                        <div style="font-size: 1.6rem; font-weight: 900; color: #5b21b6;">فِرَاسٌ</div>
+                                    </div>
+                                    <div class="read-card" onclick="playWordRead('noor')" style="border-color: #059669; cursor: pointer; padding: 12px;">
+                                        <div style="font-size: 1.5rem;">👧</div>
+                                        <div style="font-size: 1.6rem; font-weight: 900; color: #065f46;">نُورٌ</div>
+                                    </div>
+                                    <div class="read-card" onclick="playWordRead('banat')" style="border-color: #d97706; cursor: pointer; padding: 12px;">
+                                        <div style="font-size: 1.5rem;">👭</div>
+                                        <div style="font-size: 1.6rem; font-weight: 900; color: #92400e;">بَنَاتٌ</div>
+                                    </div>
+                                    <div class="read-card" onclick="playWordRead('sarah')" style="border-color: #e11d48; cursor: pointer; padding: 12px;">
+                                        <div style="font-size: 1.5rem;">👩‍🎨</div>
+                                        <div style="font-size: 1.6rem; font-weight: 900; color: #9f1239;">سَارَةُ</div>
+                                    </div>
+                                    <div class="read-card" onclick="playWordRead('ward')" style="border-color: #ec4899; cursor: pointer; padding: 12px;">
+                                        <div style="font-size: 1.5rem;">🌹</div>
+                                        <div style="font-size: 1.6rem; font-weight: 900; color: #be185d;">وَرْدٌ</div>
+                                    </div>
+                                    <div class="read-card" onclick="playUnit2NasheedWord('madrasati')" style="border-color: #10b981; cursor: pointer; padding: 12px;">
+                                        <div style="font-size: 1.5rem;">🏫</div>
+                                        <div style="font-size: 1.6rem; font-weight: 900; color: #047857;">مَدْرَسَتِي</div>
+                                    </div>
+                                    <div class="read-card" onclick="playUnit2Syllable('mateen')" style="border-color: #0284c7; cursor: pointer; padding: 12px;">
+                                        <div style="font-size: 1.5rem;">🧱</div>
+                                        <div style="font-size: 1.6rem; font-weight: 900; color: #0369a1;">مَتِينٌ</div>
+                                    </div>
+                                    <div class="read-card" onclick="playUnit2Syllable('toot')" style="border-color: #7c3aed; cursor: pointer; padding: 12px;">
+                                        <div style="font-size: 1.5rem;">🍇</div>
+                                        <div style="font-size: 1.6rem; font-weight: 900; color: #6d28d9;">تُوتٌ</div>
+                                    </div>
+                                    <div class="read-card" onclick="playUnit2Syllable('teen')" style="border-color: #16a34a; cursor: pointer; padding: 12px;">
+                                        <div style="font-size: 1.5rem;">🌿</div>
+                                        <div style="font-size: 1.6rem; font-weight: 900; color: #15803d;">تِينٌ</div>
+                                    </div>
+                                    <div class="read-card" onclick="playUnit2Syllable('tamr')" style="border-color: #b45309; cursor: pointer; padding: 12px;">
+                                        <div style="font-size: 1.5rem;">🌴</div>
+                                        <div style="font-size: 1.6rem; font-weight: 900; color: #78350f;">تَمْرٌ</div>
+                                    </div>
+                                </div>
+                                <button class="btn" onclick="playUnit2HarvestAllWords()" style="background: linear-gradient(135deg, #059669, #10b981); color: white; padding: 12px 28px; font-size: 1.1rem; font-weight: 800; border-radius: 14px; box-shadow: 0 6px 18px rgba(5, 150, 105, 0.25);">
+                                    📢 اقْرَأْ لَوْحَةَ الشَّرَفِ كَامِلَةً مَعَ فَصِيح
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: إكليل التفوق وشهادة التخرج واختبار التحدي ص 48 - 52 -->
+                    <div class="unit2-station" id="stationUnit2_4" style="display: none;">
+                        <div style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #fffbeb 100%); border: 3px solid #f59e0b; border-radius: 24px; padding: 24px 18px; box-shadow: 0 12px 30px rgba(245, 158, 11, 0.15);">
+                            
+                            <!-- خانة اسم التلميذ التفاعلية -->
+                            <div class="no-print" style="max-width: 620px; margin: 0 auto 20px auto; background: #ffffff; border-radius: 18px; padding: 16px; border: 2px solid #fed7aa; text-align: center;">
+                                <div style="font-weight: 800; color: #92400e; font-size: 1.05rem; margin-bottom: 8px;">
+                                    ✍️ اُكْتُبْ اسْمَ التِّلْمِيذِ / التِّلْمِيذَةِ لِتَتْوِيجِهِ بِإِكْلِيلِ التَّفَوُّقِ وَظُهُورِهِ عَلَى الشَّهَادَة:
+                                </div>
+                                <input type="text" id="certUnit2StudentInput" placeholder="اُكْتُبِ الاسْمَ هُنَا (مِثَال: زَيْنَب ، عَلِيّ)" oninput="updateUnit2CertName(this.value)" style="width: 100%; max-width: 360px; padding: 10px 16px; font-size: 1.15rem; font-family: inherit; font-weight: 800; border: 2px solid #f59e0b; border-radius: 12px; text-align: center; color: #1e3a8a; outline: none;">
+                                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 12px; flex-wrap: wrap;">
+                                    <button class="btn" onclick="launchUnit2GradCelebration()" style="background: linear-gradient(135deg, #f59e0b, #d97706); color: white; padding: 9px 20px; font-weight: 800; border-radius: 12px; box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);">
+                                        🎉 أَطْلِقِ احْتِفَالَ إِكْلِيلِ التَّفَوُّق!
+                                    </button>
+                                    <button class="btn" onclick="printUnit2Cert()" style="background: #ffffff; color: #92400e; border: 2px solid #d97706; padding: 9px 18px; font-weight: 800; border-radius: 12px;">
+                                        🖨️ طِبَاعَةُ الشَّهَادَةِ الْمَلَكِيَّة
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- اختبار تحدي حصاد المهارات الذكي -->
+                            <div class="no-print" style="max-width: 720px; margin: 0 auto 26px auto; background: #ffffff; border-radius: 22px; border: 2px solid #10b981; padding: 20px; box-shadow: 0 6px 18px rgba(16, 185, 129, 0.1);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+                                    <div style="font-weight: 900; color: #065f46; font-size: 1.2rem; display: flex; align-items: center; gap: 8px;">
+                                        <span>🎯</span> <span>تَحَدِّي حَصَادِ مَهَارَاتِ الْوَحْدَةِ الثَّانِيَة (٥ أَسْئِلَة):</span>
+                                    </div>
+                                    <div id="unit2QuizScoreBadge" style="background: #fef3c7; color: #92400e; font-weight: 800; padding: 6px 16px; border-radius: 999px; border: 1.5px solid #fde68a;">
+                                        ⭐ النُّجُومُ الْمُكْتَسَبَة: ٠ / ٥
+                                    </div>
+                                </div>
+                                <div style="color: #64748b; font-size: 0.92rem; margin-bottom: 16px;">
+                                    أَجِبْ عَنِ الْأَسْئِلَةِ لِتَجْمَعَ النُّجُومَ الْخَمْسَ وَتَنَالَ إِكْلِيلَ التَّفَوُّقِ الْمَلَكِيّ! 🌟
+                                </div>
+
+                                <!-- السؤال 1 -->
+                                <div class="unit2-quiz-card" id="quizCard-1">
+                                    <div class="unit2-quiz-q-title">١. تَنْوِينُ الضَّمّ: أَيُّ كَلِمَةٍ مِمَّا يَلِي تَنْتَهِي بِتَنْوِينِ الضَّمِّ الرَّنَّانِ (ـٌ)؟</div>
+                                    <div class="unit2-quiz-options">
+                                        <button class="unit2-quiz-btn" onclick="answerUnit2Quiz(1, 1, true, this)">🌹 وَرْدٌ</button>
+                                        <button class="unit2-quiz-btn" onclick="answerUnit2Quiz(1, 2, false, this)">🌸 وَرْدَ</button>
+                                    </div>
+                                </div>
+                                <!-- السؤال 2 -->
+                                <div class="unit2-quiz-card" id="quizCard-2">
+                                    <div class="unit2-quiz-q-title">٢. التَّاءُ الْمَرْبُوطَة: كَيْفَ نَكْتُبُ الْحَرْفَ الْأَخِيرَ فِي كَلِمَةِ (مَدْرَسَـ...) عِنْدَ الْوَقْفِ وَالْوَصْل؟</div>
+                                    <div class="unit2-quiz-options">
+                                        <button class="unit2-quiz-btn" onclick="answerUnit2Quiz(2, 1, true, this)">🏫 ـة (تَاء مَرْبُوطَة)</button>
+                                        <button class="unit2-quiz-btn" onclick="answerUnit2Quiz(2, 2, false, this)">🏛️ ـت (تَاء مَبْسُوطَة)</button>
+                                    </div>
+                                </div>
+                                <!-- السؤال 3 -->
+                                <div class="unit2-quiz-card" id="quizCard-3">
+                                    <div class="unit2-quiz-q-title">٣. التَّحْلِيلُ الصَّوْتِيّ: مَا التَّحْلِيلُ الصَّوْتِيُّ الدَّقِيقُ لِكَلِمَةِ (تُوتٌ)؟</div>
+                                    <div class="unit2-quiz-options">
+                                        <button class="unit2-quiz-btn" onclick="answerUnit2Quiz(3, 1, true, this)">🍇 تُو + تٌ</button>
+                                        <button class="unit2-quiz-btn" onclick="answerUnit2Quiz(3, 2, false, this)">🌿 تُ + وت</button>
+                                    </div>
+                                </div>
+                                <!-- السؤال 4 -->
+                                <div class="unit2-quiz-card" id="quizCard-4">
+                                    <div class="unit2-quiz-q-title">٤. نَشِيدُ مَدْرَسَتِي: فِيهَا وَجَدْتُ رَاحَتِي وَفَرْحَتِي وَعِزَّتِي .. مَنْ هِيَ؟</div>
+                                    <div class="unit2-quiz-options">
+                                        <button class="unit2-quiz-btn" onclick="answerUnit2Quiz(4, 1, true, this)">🏫 مَدْرَسَتِي</button>
+                                        <button class="unit2-quiz-btn" onclick="answerUnit2Quiz(4, 2, false, this)">🚢 سَفِينَتِي</button>
+                                    </div>
+                                </div>
+                                <!-- السؤال 5 -->
+                                <div class="unit2-quiz-card" id="quizCard-5">
+                                    <div class="unit2-quiz-q-title">٥. الصَّوْتُ الْمُشْتَرَك: مَا الْحَرْفُ الْمُشْتَرَكُ فِي كَلِمَاتِ: (نُور ، بَان ، نَبْنِي)؟</div>
+                                    <div class="unit2-quiz-options">
+                                        <button class="unit2-quiz-btn" onclick="answerUnit2Quiz(5, 1, true, this)">🟢 حَرْفُ النُّون (ن)</button>
+                                        <button class="unit2-quiz-btn" onclick="answerUnit2Quiz(5, 2, false, this)">🔵 حَرْفُ الرَّاء (ر)</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- شهادة إكليل التفوق الملكية المعتمدة -->
+                            <div class="unit2-grad-cert-container" id="gradUnit2CertPrintArea">
+                                <div class="unit2-crown-seal">👑</div>
+                                <div style="font-size: 1.15rem; font-weight: 800; color: #047857; letter-spacing: 1px; margin-bottom: 6px;">
+                                    جُمْهُورِيَّةُ الْعِرَاقِ • وِزَارَةُ التَّرْبِيَة
+                                </div>
+                                <h1 style="font-size: 2.1rem; font-weight: 900; color: #1e3a8a; margin: 4px 0 12px 0; text-shadow: 0 2px 4px rgba(0,0,0,0.06);">
+                                    🎓 شَهَادَةُ إِكْلِيلِ التَّفَوُّقِ وَإِتْمَامِ الْوَحْدَةِ الثَّانِيَة (مَدْرَسَتِي)
+                                </h1>
+                                <div style="font-size: 1.15rem; font-weight: 700; color: #475569; margin-bottom: 12px;">
+                                    يَشْهَدُ كَادِرُ مَنَصَّةِ (قِرَاءَتِي التَّفَاعُلِيَّةِ الذَّكِيَّة) بِأَنَّ التِّلْمِيذَ / التِّلْمِيذَةَ الْمُتَفَوِّق:
+                                </div>
+                                <div id="certUnit2StudentDisplayName" style="font-size: 2.3rem; font-weight: 900; color: #065f46; background: #ecfdf5; border: 2px dashed #10b981; border-radius: 16px; padding: 8px 28px; display: inline-block; min-width: 280px; margin-bottom: 14px;">
+                                    بَطَلُ قِرَاءَتِي
+                                </div>
+                                <div style="font-size: 1.1rem; color: #334155; line-height: 1.9; max-width: 660px; margin: 0 auto 20px auto; font-weight: 600;">
+                                    قَدْ أَتَمَّ بِنَجَاحٍ بَاهِرٍ وَتَفَوُّقٍ مُسْتَحَقٍّ كَافَّةَ مَهَارَاتِ وَدُرُوسِ <b style="color: #047857;">الْوَحْدَةِ الثَّانِيَة (مَدْرَسَتِي)</b>، وَأَتْقَنَ حُرُوفَ (ر ، س ، ن ، ت ، ـة) وَمَهَارَةَ تَنْوِينِ الضَّمِّ (ـٌ) وَقِرَاءَةَ نُصُوصِهَا وَنَشِيدِهَا، وَاسْتَحَقَّ إِكْلِيلَ التَّفَوُّقِ الْمَلَكِيَّ لِلِانْطِلَاقِ نَحْوَ الْوَحْدَةِ الثَّالِثَة.
+                                </div>
+                                <div style="display: flex; justify-content: space-around; align-items: center; border-top: 2px solid #e2e8f0; padding-top: 18px; margin-top: 10px; flex-wrap: wrap; gap: 14px;">
+                                    <div style="text-align: center;">
+                                        <div style="font-weight: 800; color: #64748b; font-size: 0.95rem;">الْوَسَامُ الْمَلَكِيّ</div>
+                                        <div style="font-size: 2.2rem; margin-top: 4px;">🌟🥇🌟</div>
+                                        <div style="font-weight: 800; color: #047857; font-size: 0.95rem;">إِكْلِيلُ التَّفَوُّق</div>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="font-weight: 800; color: #64748b; font-size: 0.95rem;">الْخَتْمُ الرَّقْمِيُّ الْمُعْتَمَد</div>
+                                        <div style="display: inline-block; width: 75px; height: 75px; border-radius: 50%; border: 2px solid #059669; padding: 4px; margin-top: 4px;">
+                                            <div style="width: 100%; height: 100%; border-radius: 50%; background: #ecfdf5; display: flex; align-items: center; justify-content: center; font-weight: 900; color: #047857; font-size: 0.82rem;">
+                                                قِرَاءَتِي<br>مُعْتَمَد
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="font-weight: 800; color: #64748b; font-size: 0.95rem;">إِعْدَادٌ وَتَطْوِير</div>
+                                        <div style="font-size: 1.15rem; font-weight: 900; color: #1e3a8a; margin-top: 6px;">
+                                            المهندس أسامة خليل هاشم
+                                        </div>
+                                        <div style="font-size: 0.85rem; color: #94a3b8; font-weight: 700;">مُطَوِّرُ الْمَنَصَّةِ التَّفَاعُلِيَّة</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- استعراض صفحات الكتاب الرسمية للوحدة وخاتمتها ص 48 - 52 -->
+                            <div class="no-print" style="margin-top: 26px; text-align: center; background: #ffffff; border-radius: 18px; border: 2px solid #fed7aa; padding: 16px;">
+                                <div style="font-weight: 800; color: #92400e; font-size: 1.05rem; margin-bottom: 10px;">
+                                    📚 مَعْرِضُ صَفَحَاتِ كِتَابِ قِرَاءَتِي (ص ٤٨ - ٥٢):
+                                </div>
+                                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_48.png', 'الكتاب المدرسي - صفحة ٤٨ (نشيد مدرستي والقراءة المقررة)')">
+                                        <span>📖</span> <span>صَفْحَة ٤٨ (النشيد)</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_49.png', 'الكتاب المدرسي - صفحة ٤٩ (غلاف الوحدة الثالثة: وطني)')">
+                                        <span>📖</span> <span>صَفْحَة ٤٩ (وطني)</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_50.png', 'الكتاب المدرسي - صفحة ٥٠ (أتعرف الحرف و)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٠ (الحرف و)</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_51.png', 'الكتاب المدرسي - صفحة ٥١ (أصوات ومدود و)')">
+                                        <span>📖</span> <span>صَفْحَة ٥١ (المدود)</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_52.png', 'الكتاب المدرسي - صفحة ٥٢ (قراءة وسام ووسن)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٢ (وسام ووسن)</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
 
 <!-- شريط الانتقال المتسلسل بين الدروس -->
 
@@ -14997,6 +15606,8 @@
 
                 mascotSpeak('خَاتِمَةُ الْوَحْدَةِ الْأُولَى: أُسْرَتِي! اِسْتَمِعْ لِسُورَةِ الْفَاتِحَةِ الْمُبَارَكَةِ وَنَشِيدِ (مَامَا بَابَا) وَشَاهِدْ حَصَادَ الْوَحْدَةِ وَاسْتَلِمْ شَهَادَةَ التَّخَرُّجِ!', 'unit1_quran_welcome');
 
+            } else if (lesson.id === 'tab-unit2_nasheed') {
+                mascotSpeak('خَاتِمَةُ الْوَحْدَةِ الثَّانِيَةِ: نَشِيدُ (مَدْرَسَتِي) وَحَصَادُ الْمَهَارَاتِ وَإِكْلِيلُ التَّفَوُّق! اِسْتَمِعُوا لِلنَّشِيدِ، وَاقْرَؤُوا لَوْحَةَ الشَّرَف، وَاجْتَازُوا تَحَدِّي الْحَصَادِ لِتَتَوَّجُوا بِإِكْلِيلِ التَّفَوُّقِ الْمَلَكِيّ!', 'unit2_nasheed_intro');
             } else if (lesson.id === 'tab-tanween_dham') {
                 mascotSpeak('الْوَحْدَةُ الثَّانِيَة: تَنْوِينُ الضَّمِّ (ـٌ) وَتَطْبِيقَاتُهُ وَقِرَاءَةُ (وَرْدٌ)! اِسْتَمِعْ لِصَوْتِ تَنْوِينِ الضَّمِّ الرَّنَّانِ (ـٌ)، وَمَيِّزْ بَيْنَهُ وَبَيْنَ الضَّمَّة، وَحَلِّلْ وَرَكِّبْ الْمَقَاطِعَ، وَاقْرَأْ نَصَّ (سُوْرُ مَدْرَسَتِي مَتِينٌ) وَقِرَاءَةَ (وَرْدٌ)!', 'tanween_dham_intro');
                 setTimeout(initTanweenDhamCanvas, 200);
@@ -21868,6 +22479,214 @@
             mascotSpeak('تم مسح السبورة! ارسم تنوين الضم مرة أخرى بيدك الرائعة!', 'hint_draw');
         }
 
+    
+        /* ========================================================
+           دوال خاتمة الوحدة الثانية: نشيد (مَدْرَسَتِي) وحصاد المهارات وإكليل التفوق (ص 48 - 52)
+           إعداد المهندس أسامة خليل هاشم
+        ======================================================== */
+        function switchUnit2Station(stationNum) {
+            document.querySelectorAll('.unit2-station').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('#view-tab-unit2_nasheed .station-tab').forEach(el => el.classList.remove('active'));
+
+            const targetStation = document.getElementById('stationUnit2_' + stationNum);
+            const targetBtn = document.getElementById('btnStationU2_' + stationNum);
+
+            if (targetStation) targetStation.style.display = 'block';
+            if (targetBtn) targetBtn.classList.add('active');
+
+            if (stationNum === 1) {
+                mascotSpeak('نَشِيدُ (مَدْرَسَتِي) الْجَمِيل! مَدْرَسَتُنَا بَيْتُنَا الثَّانِي، فِيهَا نَتَعَلَّمُ وَنَلْعَبُ وَنَلْتَقِي بِأَصْدِقَائِنَا وَمُعَلِّمِينَا الْأَعِزَّاء! اِسْتَمِعُوا لِلنَّشِيدِ كَامِلاً أَوْ رَدِّدُوا بَيْتاً فَبَيْتاً مَعِي!', 'unit2_nasheed_intro');
+            } else if (stationNum === 2) {
+                mascotSpeak('مَحَطَّةُ الْقِرَاءَةِ الْمُقَرَّرَةِ وَتَرْكِيبِ الْمَقَاطِع! اِقْرَأْ جُمَلَ كِتَابِ قِرَاءَتِي بِطَلَاقَةٍ وَفَهْمٍ وَمَيِّزْ الْحُرُوفَ وَالْمُدُودَ وَتَنْوِينَ الضَّمّ!', 'unit2_reading_intro');
+            } else if (stationNum === 3) {
+                mascotSpeak('حَصَادُ مَهَارَاتِ الْوَحْدَةِ الثَّانِيَة: مَدْرَسَتِي! هَيَّا بِنَا نُرَاجِعُ كَافَّةَ الْحُرُوفِ وَالْأَصْوَاتِ وَتَنْوِينَ الضَّمِّ الَّتِي تَعَلَّمْنَاهَا فِي هَذِهِ الْوَحْدَةِ الْمُبَارَكَة!', 'unit2_harvest_intro');
+            } else if (stationNum === 4) {
+                mascotSpeak('مَرْحَى يَا أَبْطَالَ الصَّفِّ الْأَوَّل! لَقَدْ أَتْمَمْتُمْ دِرَاسَةَ الْوَحْدَةِ الثَّانِيَة (مَدْرَسَتِي) بِنَجَاحٍ بَاهِرٍ وَتَفَوُّقٍ مُسْتَحَقّ! تَسَلَّمُوا الْآنَ إِكْلِيلَ التَّفَوُّقِ الْمَلَكِيَّ وَشَهَادَةَ التَّمَيُّزِ الرَّسْمِيَّة!', 'unit2_grad_intro');
+            }
+        }
+
+        function playUnit2NasheedFull() {
+            const btn = document.getElementById('btnFullUnit2Nasheed');
+            if (currentAudio && !currentAudio.paused && window._currentPlayingKey === 'unit2_nasheed_full') {
+                stopAudio();
+                if (btn) btn.innerHTML = '🎶 اِسْتَمِعْ لِلنَّشِيدِ كَامِلاً';
+                document.querySelectorAll('#unit2NasheedList .nasheed-card').forEach(el => el.classList.remove('active'));
+                return;
+            }
+            mascotCelebrates();
+            if (btn) btn.innerHTML = '⏹️ إِيقَافُ النَّشِيد';
+            document.querySelectorAll('#unit2NasheedList .nasheed-card').forEach(el => el.classList.remove('active'));
+            mascotSpeak('🎵 <b>نَشِيدُ (مَدْرَسَتِي):</b><br>مَـــــدْرَسَتِـي .. مَـــــدْرَسَتِـي .. أُحِبُّـــــهَــا كَـــــإِخْـــوَتِـي .. فِيهَـا وَجَـدْتُ رَاحَتِـــــــي .. وَفَـــــرْحَتِــي وَعِـــــزَّتِـي!', 'unit2_nasheed_full', () => {
+                if (btn) btn.innerHTML = '🎶 اِسْتَمِعْ لِلنَّشِيدِ كَامِلاً';
+                document.querySelectorAll('#unit2NasheedList .nasheed-card').forEach(el => el.classList.remove('active'));
+            });
+        }
+
+        function playUnit2NasheedIntro() {
+            mascotCelebrates();
+            mascotSpeak('💡 <b>مُقَدِّمَةُ النَّشِيد:</b><br>نَشِيدُ مَدْرَسَتِي يُعَبِّرُ عَنْ حُبِّ التِّلْمِيذِ لِمَدْرَسَتِهِ وَمُعَلِّمِيهِ وَزُمَلَائِهِ كَأُسْرَةٍ وَاحِدَة.', 'unit2_nasheed_intro');
+        }
+
+        function playUnit2NasheedVerse(num) {
+            mascotCelebrates();
+            document.querySelectorAll('#unit2NasheedList .nasheed-card').forEach(el => el.classList.remove('active'));
+            const card = document.getElementById('u2VerseCard-' + num);
+            if (card) card.classList.add('active');
+
+            const verses = {
+                1: 'مَـــــدْرَسَتِـي .. مَـــــدْرَسَتِـي 🏫',
+                2: 'أُحِبُّـــــهَــا .. كَـــــإِخْـــوَتِـي 💖',
+                3: 'فِيهَـا وَجَـدْتُ .. رَاحَتِـــــــي 🌟',
+                4: 'وَفَـــــرْحَتِــي .. وَعِـــــزَّتِـي 🇮🇶'
+            };
+            mascotSpeak(`🎵 <b>الْبَيْتُ (${num}):</b><br><span style="font-size:1.6rem; color:#059669; font-weight:900;">${verses[num]}</span>`, 'unit2_nasheed_verse' + num);
+        }
+
+        function playUnit2NasheedWord(wordKey) {
+            mascotCelebrates();
+            if (wordKey === 'madrasati') {
+                mascotSpeak('🏫 <b>مَدْرَسَتِي:</b> الْمَكَانُ الْجَمِيلُ الَّذِي أَتَعَلَّمُ فِيهِ الْقِرَاءَةَ وَالْكِتَابَةَ وَالْأَخْلَاقَ مَعَ زُمَلَائِي!', 'unit2_nasheed_word_madrasati');
+            } else if (wordKey === 'ekhwati') {
+                mascotSpeak('💖 <b>كَإِخْوَتِي:</b> أُحِبُّ مَدْرَسَتِي وَمُعَلِّمَتِي وَأَصْدِقَائِي فِي الصَّفِّ كَمَا أُحِبُّ إِخْوَتِي فِي الْبَيْتِ تَمَاماً!', 'unit2_nasheed_word_ekhwati');
+            } else if (wordKey === 'rahati') {
+                mascotSpeak('🌟 <b>رَاحَتِي:</b> أَشْعُرُ فِي مَدْرَسَتِي بِالْأَمَانِ وَالرَّاحَةِ وَالِاطْمِئْنَان!', 'unit2_nasheed_word_rahati');
+            } else if (wordKey === 'farhati') {
+                mascotSpeak('🎉 <b>فَرْحَتِي:</b> سَعَادَتِي وَبَهْجَتِي حِينَ أَلْعَبُ وَأَنْجَحُ وَأَتَفَوَّق!', 'unit2_nasheed_word_farhati');
+            } else if (wordKey === 'izzati') {
+                mascotSpeak('🇮🇶 <b>عِزَّتِي:</b> فَخْرِي وَاعْتِزَازِي بِعِلْمِي وَاجْتِهَادِي وَحُبِّي لِوَطَنِي الْعِرَاق!', 'unit2_nasheed_word_izzati');
+            }
+        }
+
+        function playUnit2ReadingSentence(key) {
+            mascotCelebrates();
+            document.querySelectorAll('.unit2-reading-line').forEach(el => el.classList.remove('active'));
+            if (key === 'soor') {
+                const line = document.getElementById('u2ReadLine-1');
+                if (line) line.classList.add('active');
+                mascotSpeak('🏫 <b>سُوْرُ مَدْرَسَتِي مَتِينٌ</b>', 'unit2_reading_soor');
+            } else if (key === 'fatin') {
+                const line = document.getElementById('u2ReadLine-2');
+                if (line) line.classList.add('active');
+                mascotSpeak('🍇 <b>فِي بُسْتَانِ فَاتِنَ تُوتٌ</b>', 'unit2_reading_fatin');
+            } else if (key === 'teen_tamr') {
+                const line = document.getElementById('u2ReadLine-3');
+                if (line) line.classList.add('active');
+                mascotSpeak('🌴 <b>وَتِينٌ وَتَمْرٌ</b>', 'unit2_reading_teen_tamr');
+            } else if (key === 'cumulative') {
+                const line = document.getElementById('u2ReadLine-4');
+                if (line) line.classList.add('active');
+                mascotSpeak('🎨 <b>سَارَةُ تَرْسُمُ ، دِيمَةُ تَدْرُسُ ، سَرْوَةُ تَبْتَسِمُ</b>', 'unit2_reading_all_sentences');
+            }
+        }
+
+        function playUnit2ReadingAll() {
+            mascotCelebrates();
+            document.querySelectorAll('.unit2-reading-line').forEach(el => el.classList.add('active'));
+            mascotSpeak('📢 <b>نُصُوصُ الْقِرَاءَةِ الْمُقَرَّرَةِ كَامِلَة:</b><br><span style="font-size:1.4rem; color:#065f46;">سُوْرُ مَدْرَسَتِي مَتِينٌ. فِي بُسْتَانِ فَاتِنَ تُوتٌ وَتِينٌ وَتَمْرٌ. سَارَةُ تَرْسُمُ ، دِيمَةُ تَدْرُسُ ، سَرْوَةُ تَبْتَسِمُ.</span>', 'unit2_reading_all_sentences', () => {
+                document.querySelectorAll('.unit2-reading-line').forEach(el => el.classList.remove('active'));
+            });
+        }
+
+        function playUnit2Syllable(key) {
+            mascotCelebrates();
+            if (key === 'mateen') {
+                mascotSpeak('👏 <b>تَحْلِيلُ كَلِمَةِ مَتِينٌ:</b><br><span style="font-size:1.5rem; color:#065f46;">مَـ (👏) + تِيـ (👏) + نٌ (👏) = مَتِينٌ!</span>', 'unit2_split_mateen');
+            } else if (key === 'bustan') {
+                mascotSpeak('👏 <b>تَحْلِيلُ كَلِمَةِ بُسْتَانِ:</b><br><span style="font-size:1.5rem; color:#1e3a8a;">بُسْـ (👏) + تَا (👏) + نِ (👏) = بُسْتَانِ!</span>', 'unit2_split_bustan');
+            } else if (key === 'madrasati') {
+                mascotSpeak('👏 <b>تَحْلِيلُ كَلِمَةِ مَدْرَسَتِي:</b><br><span style="font-size:1.5rem; color:#92400e;">مَدْ (👏) + رَ (👏) + سَـ (👏) + تِي (👏) = مَدْرَسَتِي!</span>', 'unit2_split_madrasati');
+            } else if (key === 'toot') {
+                mascotSpeak('🍇 <b>تَرْكِيبُ كَلِمَةِ تُوتٌ:</b><br><span style="font-size:1.5rem; color:#1d4ed8;">تُوْ + تٌ = تُوتٌ!</span>', 'unit2_merge_toot');
+            } else if (key === 'teen') {
+                mascotSpeak('🌿 <b>تَرْكِيبُ كَلِمَةِ تِينٌ:</b><br><span style="font-size:1.5rem; color:#1d4ed8;">تِيْـ + نٌ = تِينٌ!</span>', 'unit2_merge_teen');
+            } else if (key === 'tamr') {
+                mascotSpeak('🌴 <b>تَرْكِيبُ كَلِمَةِ تَمْرٌ:</b><br><span style="font-size:1.5rem; color:#1d4ed8;">تَمْـ + رٌ = تَمْرٌ!</span>', 'unit2_merge_tamr');
+            }
+        }
+
+        function playUnit2HarvestIntro() {
+            mascotCelebrates();
+            mascotSpeak('🏆 <b>حَصَادُ مَهَارَاتِ الْوَحْدَةِ الثَّانِيَة (مَدْرَسَتِي):</b><br>تَعَلَّمْنَا حُرُوفَ (ر ، س ، ن ، ت ، ـة) وَتَنْوِينَ الضَّمِّ (ـٌ) وَقَرَأْنَا أَعْظَمَ النُّصُوص!', 'unit2_harvest_intro');
+        }
+
+        function playUnit2HarvestLetter(letter) {
+            mascotCelebrates();
+            if (letter === 'r') {
+                mascotSpeak('🔵 <b>حَرْفُ الرَّاءِ (ر):</b><br>صَوْتُهُ: رْ • أَصْوَاتُهُ: رَ ، رُ ، رِ • كَلِمَاتُهُ: (دَارٌ ، دُور ، رِيم ، مَرَام)', 'unit2_review_r');
+            } else if (letter === 's') {
+                mascotSpeak('🟣 <b>حَرْفُ السِّينِ (سـ ، س):</b><br>صَوْتُهُ: سْ • أَصْوَاتُهُ: سَـ ، سُـ ، سِـ • كَلِمَاتُهُ: (فِرَاسٌ ، أَنِيس ، مَيْسُون ، سُور)', 'unit2_review_s');
+            } else if (letter === 'n') {
+                mascotSpeak('🟢 <b>حَرْفُ النُّونِ (نـ ، ن):</b><br>صَوْتُهُ: نْ • أَصْوَاتُهُ: نَـ ، نُـ ، نِـ • كَلِمَاتُهُ: (نُورٌ ، بَان ، نَبْنِي ، نَامَ)', 'unit2_review_n');
+            } else if (letter === 't') {
+                mascotSpeak('🟠 <b>حَرْفُ التَّاءِ (تـ ، ت):</b><br>صَوْتُهُ: تْ • أَصْوَاتُهُ: تَـ ، تُـ ، تِـ • كَلِمَاتُهُ: (بَنَاتٌ ، بَسْمَة ، تُوتٌ ، تِينٌ ، تَمْرٌ)', 'unit2_review_t');
+            } else if (letter === 'marboota') {
+                mascotSpeak('🔴 <b>التَّاءُ الْمَرْبُوطَةُ (ـة ، ة):</b><br>صَدِيقَةُ الْأَسْمَاءِ الْمُؤَنَّثَة، نَنْطِقُهَا هَاءً عِنْدَ الْوَقْف وَتَاءً عِنْدَ الْوَصْل • كَلِمَاتُهَا: (سَارَة ، حَدِيقَة ، كُرَة ، سَفِينَة)', 'unit2_review_marboota');
+            } else if (letter === 'tanween') {
+                mascotSpeak('🔷 <b>تَنْوِينُ الضَّمِّ (ـٌ / ٌ):</b><br>نُونٌ سَاكِنَةٌ نَنْطِقُهَا رَنَّانَةً (أُنْ) فِي آخِرِ الْأَسْمَاءِ، وَنَكْتُبُهَا ضَمَّتَيْنِ دُونَ كِتَابَةِ النُّون! • كَلِمَاتُهُ: (وَرْدٌ ، بَابٌ ، قِرْدٌ ، كِتَابٌ)', 'unit2_review_tanween');
+            }
+        }
+
+        function playUnit2HarvestAllWords() {
+            mascotCelebrates();
+            mascotSpeak('🌟 <b>لَوْحَةُ الشَّرَفِ لِكَلِمَاتِ الْوَحْدَةِ الثَّانِيَة:</b><br><span style="font-size:1.6rem; color:#065f46;">دَارٌ ، فِرَاسٌ ، نُورٌ ، بَنَاتٌ ، سَارَةُ ، وَرْدٌ ، مَدْرَسَتِي ، مَتِينٌ ، تُوتٌ ، تِينٌ ، تَمْرٌ!</span>', 'unit2_review_all_words');
+        }
+
+        function updateUnit2CertName(name) {
+            const display = document.getElementById('certUnit2StudentDisplayName');
+            if (display) {
+                display.innerText = name.trim() ? name.trim() : 'بَطَلُ قِرَاءَتِي';
+            }
+        }
+
+        function launchUnit2GradCelebration() {
+            mascotCelebrates();
+            mascotSpeak('🎉 <b>أَلْفُ مُبَارَكٍ يَا بَطَل!</b> لَقَدْ تَوَّجْتَ نَفْسَكَ بِإِكْلِيلِ التَّفَوُّقِ الْمَلَكِيِّ لِلْوَحْدَةِ الثَّانِيَة! أَنْتُمْ فَخْرُ الْعِرَاقِ وَقَادَةُ الْمُسْتَقْبَل!', 'unit2_grad_cheer');
+            const avatar = document.getElementById('mascotAvatar');
+            if (avatar) {
+                avatar.classList.add('mascot-celebrate');
+                setTimeout(() => avatar.classList.remove('mascot-celebrate'), 3500);
+            }
+        }
+
+        function printUnit2Cert() {
+            window.print();
+        }
+
+        // منطق اختبار تحدي حصاد الوحدة الثانية
+        let unit2QuizScores = { 1: false, 2: false, 3: false, 4: false, 5: false };
+
+        function answerUnit2Quiz(qNum, optNum, isCorrect, btnEl) {
+            const card = document.getElementById('quizCard-' + qNum);
+            if (!card) return;
+            card.querySelectorAll('.unit2-quiz-btn').forEach(b => {
+                b.classList.remove('correct', 'wrong');
+                b.disabled = true;
+            });
+
+            if (isCorrect) {
+                btnEl.classList.add('correct');
+                unit2QuizScores[qNum] = true;
+                mascotCelebrates();
+                mascotSpeak('🌟 <b>إِجَابَةٌ رَائِعَةٌ وَصَحِيحَة!</b> أَحْسَنْتَ يَا بَطَلَ الْقِرَاءَة!', 'unit2_quiz_correct');
+            } else {
+                btnEl.classList.add('wrong');
+                unit2QuizScores[qNum] = false;
+                mascotSpeak('💡 <b>حَاوِلْ مَرَّةً أُخْرَى بِتَرْكِيز!</b> أَنْتَ بَطَلٌ وَتَسْتَطِيعُ النَّجَاح!', 'unit2_quiz_wrong');
+            }
+
+            // تحديث النجوم
+            const totalCorrect = Object.values(unit2QuizScores).filter(Boolean).length;
+            const badge = document.getElementById('unit2QuizScoreBadge');
+            const arabicNums = ['٠', '١', '٢', '٣', '٤', '٥'];
+            if (badge) badge.innerText = `⭐ النُّجُومُ الْمُكْتَسَبَة: ${arabicNums[totalCorrect]} / ٥`;
+
+            if (totalCorrect === 5) {
+                setTimeout(() => {
+                    mascotCelebrates();
+                    mascotSpeak('👑 <b>إِنْجَازٌ أُسْطُورِيّ!</b> حَصَلْتَ عَلَى جَمِيعِ النُّجُومِ الْخَمْس! هَنِيئاً لَكَ إِكْلِيلُ التَّفَوُّقِ الْمَلَكِيّ!', 'unit2_quiz_finish');
+                }, 1500);
+            }
+        }
     </script>
 
     <!-- ==============================================
