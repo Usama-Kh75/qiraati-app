@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v23';
+const CACHE_NAME = 'qiraati-smart-v24';
 
 const ASSETS_TO_CACHE = [
 
@@ -691,30 +691,29 @@ self.addEventListener('activate', (event) => {
 
 
 self.addEventListener('fetch', (event) => {
-
-  event.respondWith(
-
-    caches.match(event.request).then((cachedResponse) => {
-
-      if (cachedResponse) {
-
-        return cachedResponse;
-
-      }
-
-      return fetch(event.request).catch(() => {
-
-        if (event.request.mode === 'navigate') {
-
-          return caches.match('./index.html');
-
+  // للروابط ومستند HTML الرئيسي: محاولة الجلب من الشبكة أولاً للتحديث الفوري، مع الرجوع للمخزن عند انقطاع الإنترنت
+  if (event.request.mode === 'navigate' || event.request.destination === 'document') {
+    event.respondWith(
+      fetch(event.request).then((networkResponse) => {
+        if (networkResponse && networkResponse.status === 200) {
+          const responseClone = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
         }
+        return networkResponse;
+      }).catch(() => {
+        return caches.match('./index.html', { cacheName: CACHE_NAME });
+      })
+    );
+    return;
+  }
 
-      });
-
+  // لبقية الأصول المخزنة (أصوات، صور، خطوط): القراءة من مخزن التطبيق بالاسم حصراً
+  event.respondWith(
+    caches.match(event.request, { cacheName: CACHE_NAME }).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      return fetch(event.request);
     })
-
   );
-
 });
-
