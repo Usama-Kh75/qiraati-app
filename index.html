@@ -5036,7 +5036,7 @@
 
                         <span>قراءتي التفاعلية الذكية</span>
 
-                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="إصدار المنصة المحدث بصوت المعلمة الميداني الحقيقي">v3.1</span>
+                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="إصدار المنصة المحدث بتعزيز صوت المعلمة والتحكم الصوتي">v3.2</span>
 
                     </div>
 
@@ -5056,13 +5056,18 @@
 
             <!-- زر إيقاف الصوت النشط -->
 
+                        <!-- زر إيقاف الصوت النشط -->
             <button class="btn-top btn-top-stop" id="btnTopStop" onclick="stopAudio()" style="display: none;" title="إيقاف الصوت الحالي فوراً">
-
                 <span>⏹️</span>
-
                 <span>إيقاف الصوت</span>
-
             </button>
+
+            <!-- أداة التحكم السريع في مستوى الصوت ومضاعف التعزيز -->
+            <div class="top-volume-box" style="display: inline-flex; align-items: center; gap: 6px; background: white; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 4px 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);" title="التحكم في مستوى الصوت وتعزيز النطق (حتى 150%)">
+                <span id="topVolIcon" style="cursor: pointer; font-size: 1.1rem;" onclick="toggleMuteAudio()" title="كتم / تشغيل الصوت">🔊</span>
+                <input type="range" id="topVolumeSlider" min="30" max="150" value="100" step="5" oninput="changeMasterVolume(this.value)" style="width: 70px; accent-color: #059669; cursor: pointer; height: 6px;">
+                <span id="topVolBadge" style="font-size: 0.76rem; font-weight: 800; color: #065f46; min-width: 32px;">100%</span>
+            </div>
 
             <!-- زر ضبط النظام واختيار الصوت -->
 
@@ -15356,6 +15361,7 @@
                 if (src) {
                     const audio = new Audio(src);
                     currentAudio = audio;
+                    applyVolumeToAudio(audio, getMasterVolume());
 
                     // تطبيق التمايز الصوتي الفوري على النبرة وطبقة الصوت (Pitch & Formant Adaptation)
                     // لتغيير الصوت فورياً لجميع دروس وكلمات المنصة عند تغيير الخيار من الضبط
@@ -15423,6 +15429,83 @@
 
         // ==============================================================
 
+        
+        // ==============================================================
+        // نظام التحكم بمستوى الصوت ومضاعف التعزيز الرقمي (30% - 150%)
+        // إعداد وتطوير: المهندس أسامة خليل هاشم
+        // ==============================================================
+        function getMasterVolume() {
+            const v = localStorage.getItem('qiraati_smart_volume');
+            return v ? parseInt(v, 10) : 100;
+        }
+
+        function changeMasterVolume(val) {
+            val = parseInt(val, 10);
+            if (isNaN(val)) val = 100;
+            if (val < 0) val = 0;
+            if (val > 150) val = 150;
+            localStorage.setItem('qiraati_smart_volume', val);
+
+            const topSlider = document.getElementById('topVolumeSlider');
+            if (topSlider) topSlider.value = val;
+            const topBadge = document.getElementById('topVolBadge');
+            if (topBadge) topBadge.innerText = val + '%';
+            const topIcon = document.getElementById('topVolIcon');
+            if (topIcon) topIcon.innerText = val === 0 ? '🔇' : (val < 70 ? '🔉' : '🔊');
+
+            const setSlider = document.getElementById('settingsVolSlider');
+            if (setSlider) setSlider.value = val;
+            const setBadge = document.getElementById('settingsVolBadge');
+            if (setBadge) setBadge.innerText = val + '%';
+
+            if (currentAudio) {
+                applyVolumeToAudio(currentAudio, val);
+            }
+        }
+
+        let _lastPreMuteVolume = 100;
+        function toggleMuteAudio() {
+            const cur = getMasterVolume();
+            if (cur > 0) {
+                _lastPreMuteVolume = cur;
+                changeMasterVolume(0);
+            } else {
+                changeMasterVolume(_lastPreMuteVolume || 100);
+            }
+        }
+
+        function applyVolumeToAudio(audio, volPct) {
+            if (!audio) return;
+            if (volPct <= 100) {
+                audio.volume = Math.max(0, Math.min(1.0, volPct / 100));
+            } else {
+                audio.volume = 1.0;
+                try {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    if (AudioContext && !audio._gainApplied) {
+                        if (!window._sharedAudioCtx) {
+                            window._sharedAudioCtx = new AudioContext();
+                        }
+                        if (window._sharedAudioCtx.state === 'suspended') {
+                            window._sharedAudioCtx.resume();
+                        }
+                        const ctx = window._sharedAudioCtx;
+                        const source = ctx.createMediaElementSource(audio);
+                        const gainNode = ctx.createGain();
+                        gainNode.gain.value = volPct / 100;
+                        source.connect(gainNode);
+                        gainNode.connect(ctx.destination);
+                        audio._gainApplied = true;
+                        audio._gainNode = gainNode;
+                    } else if (audio._gainNode) {
+                        audio._gainNode.gain.value = volPct / 100;
+                    }
+                } catch(e) {
+                    audio.volume = 1.0;
+                }
+            }
+        }
+
         function openSettingsModal() {
             const modal = document.getElementById('settingsModal');
             if (!modal) return;
@@ -15431,6 +15514,11 @@
             const isFloating = localStorage.getItem('qiraati_smart_floating_stop') !== 'false';
             const chk = document.getElementById('chkFloatingStop');
             if (chk) chk.checked = isFloating;
+            const curVol = getMasterVolume();
+            const setSlider = document.getElementById('settingsVolSlider');
+            if (setSlider) setSlider.value = curVol;
+            const setBadge = document.getElementById('settingsVolBadge');
+            if (setBadge) setBadge.innerText = curVol + '%';
             modal.style.display = 'flex';
         }
 
@@ -22851,7 +22939,17 @@
                 }, 1500);
             }
         }
-    </script>
+    
+                window.addEventListener('DOMContentLoaded', () => {
+            const curVol = getMasterVolume();
+            const topSlider = document.getElementById('topVolumeSlider');
+            if (topSlider) topSlider.value = curVol;
+            const topBadge = document.getElementById('topVolBadge');
+            if (topBadge) topBadge.innerText = curVol + '%';
+            const topIcon = document.getElementById('topVolIcon');
+            if (topIcon) topIcon.innerText = curVol === 0 ? '🔇' : (curVol < 70 ? '🔉' : '🔊');
+        });
+</script>
 
     <!-- ==============================================
 
@@ -23274,6 +23372,33 @@
             </div>
 
             <div class="modal-body" style="padding: 20px; max-height: calc(85vh - 140px); overflow-y: auto;">
+
+                <!-- قسم التحكم في مستوى الصوت وتعزيز النطق الصفي -->
+                <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2px solid #10b981; border-radius: 16px; padding: 16px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <div style="font-size: 1rem; font-weight: 900; color: #065f46; display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.3rem;">🔊</span>
+                            <span>التحكم في مستوى الصوت ومضاعف التعزيز:</span>
+                        </div>
+                        <span id="settingsVolBadge" style="font-size: 0.88rem; font-weight: 900; background: #059669; color: white; padding: 3px 12px; border-radius: 10px;">100%</span>
+                    </div>
+                    <div style="font-size: 0.82rem; color: #047857; font-weight: 700; margin-bottom: 12px;">
+                        يمكنك رفع الصوت حتى 150% لتضخيم نطق المعلمة ومخارج الحروف لسماعات الصف والأجهزة اللوحية:
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                        <span style="font-size: 1.2rem; cursor: pointer;" onclick="changeMasterVolume(50)" title="خفض">🔉</span>
+                        <input type="range" id="settingsVolSlider" min="30" max="150" value="100" step="5" oninput="changeMasterVolume(this.value)" style="flex: 1; accent-color: #059669; cursor: pointer; height: 8px;">
+                        <span style="font-size: 1.3rem; cursor: pointer;" onclick="changeMasterVolume(150)" title="تضخيم أقصى">🔊</span>
+                    </div>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end;">
+                        <button type="button" class="btn" style="padding: 4px 10px; font-size: 0.78rem; background: white; border: 1px solid #a7f3d0; border-radius: 8px; font-weight: 700; color: #065f46; cursor: pointer;" onclick="changeMasterVolume(50)">50% (هادئ)</button>
+                        <button type="button" class="btn" style="padding: 4px 10px; font-size: 0.78rem; background: white; border: 1px solid #a7f3d0; border-radius: 8px; font-weight: 700; color: #065f46; cursor: pointer;" onclick="changeMasterVolume(100)">100% (طبيعي)</button>
+                        <button type="button" class="btn" style="padding: 4px 10px; font-size: 0.78rem; background: #d1fae5; border: 1.5px solid #059669; border-radius: 8px; font-weight: 800; color: #065f46; cursor: pointer;" onclick="changeMasterVolume(125)">125% (واضح مرتفع)</button>
+                        <button type="button" class="btn" style="padding: 4px 10px; font-size: 0.78rem; background: #059669; color: white; border: none; border-radius: 8px; font-weight: 800; cursor: pointer;" onclick="changeMasterVolume(150)">150% (تعزيز أقصى 🚀)</button>
+                    </div>
+                </div>
+
+
 
                 <!-- القسم 1: اختيار الصوت العراقي الفصيح -->
 
