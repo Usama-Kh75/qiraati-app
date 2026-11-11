@@ -5044,6 +5044,35 @@
         .letter-ta-station.active {
             display: block;
         }
+        .letter-f-reef-station {
+            display: none;
+        }
+        .letter-f-reef-station.active {
+            display: block;
+        }
+        .giant-letter-f-reef-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 3px solid #86efac;
+            border-radius: 20px;
+            padding: 12px 28px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(22, 101, 52, 0.12);
+        }
+        .giant-letter-f-reef-card:hover {
+            transform: scale(1.03);
+            border-color: #22c55e;
+            box-shadow: 0 6px 18px rgba(22, 101, 52, 0.2);
+        }
+        .giant-letter-f-reef-glyph {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #15803d;
+            line-height: 1;
+        }
 </style>
 
 </head>
@@ -5074,7 +5103,7 @@
 
                         <span>قراءتي التفاعلية الذكية</span>
 
-                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="إصدار المنصة المحدث بتطوير صوت فصيح الفونيمي ومطابقة مخارج الحروف">v3.3</span>
+                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="إصدار المنصة المحدث: إطلاق الوحدة الثالثة: حرف الفاء (فـ ، ف) وقراءة (رِيفِ مَنَاف) ص ٥٧ - ٦٠">v3.8</span>
 
                     </div>
 
@@ -15255,6 +15284,357 @@
                 </div>
 
 
+
+                <!-- ========================================================
+                     الوحدة الثالثة: الدرس الثالث - حرف الفاء (فـ ، ف) وقراءة (رِيف) (ص ٥٧ - ٦٠)
+                     إعداد المهندس أسامة خليل هاشم
+                ======================================================== -->
+                <div class="lesson-view" id="view-tab-letter_f_reef">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationFReef1" onclick="switchFReefStation(1)">
+                            <span>🏡</span> <span>١. أتعرف الحرف والمشهد (ص ٥٧ - ٥٨)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationFReef2" onclick="switchFReefStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والتمييز (ص ٥٧ - ٥٨)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationFReef3" onclick="switchFReefStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٥٨ - ٥٩)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationFReef4" onclick="switchFReefStation(4)">
+                            <span>📖</span> <span>٤. قراءة (رِيفُ مَنَاف) والرسم (ص ٥٩ - ٦٠)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد الريفي -->
+                    <div class="letter-f-reef-station active" id="stationFReef1">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div class="giant-letter-f-reef-card" onclick="playFReefLetterSound()" title="انقر لسماع صوت حرف الفاء الفونيمي النقي">
+                                <span class="giant-letter-f-reef-glyph">فـ  ف</span>
+                                <div>
+                                    <div style="font-weight: 900; font-size: 1.25rem; color: #166534;">صَوْتُ حَرْفِ الْفَاءِ: ( فْ... فْ )</div>
+                                    <div style="font-size: 0.85rem; color: #15803d;">اِضْغَطْ لِسَمَاعِ الصَّوْتِ الْفُونِيمِيِّ الْمَهْمُوسِ النَّقِيّ 🔊</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-teach" onclick="playFReefPhonemeFaseeh()" style="margin-top: 8px; background: #166534; padding: 8px 20px; font-size: 0.95rem;">
+                                <span>🤖</span> <span>مَخْرَجُ حَرْفِ الْفَاءِ مَعَ فَصِيح</span>
+                            </button>
+                        </div>
+
+                        <!-- بطاقة مشهد ريف مناف التراثي -->
+                        <div class="family-listen-card" style="border-color: #86efac;">
+                            <div style="font-weight: 900; color: #166534; font-size: 1.15rem; margin-bottom: 8px;">
+                                🏡 رِيفُ مَنَافٍ .. فِي رِيفِ مَنَافٍ بَقَرٌ .. فِي رِيفِ مَنَافٍ وَزٌّ (ص ٥٧ - ٦٠)
+                            </div>
+                            <img src="activity_reef_scene.png" alt="مشهد درس ريف مناف وحرف الفاء" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #bbf7d0; margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+                                <button class="btn btn-teach" onclick="playAudio('letter_f_reef_scene_story')" style="background: #16a34a; padding: 10px 24px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِقِصَّةِ مَشْهَدِ رِيفِ مَنَاف</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playAudio('letter_f_reef_intro')" style="background: #0d9488; padding: 10px 24px;">
+                                    <span>👩‍🏫</span> <span>شَرْحُ الْمُعَلِّمَةِ لِحَرْفِ الْفَاءِ وَقِرَاءَةِ رِيف</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المصورة الناطقة -->
+                        <div class="family-listen-card" style="border-color: #f59e0b; margin-top: 14px;">
+                            <div style="font-weight: 900; color: #b45309; font-size: 1.15rem; margin-bottom: 6px;">
+                                🖼️ كَلِمَاتُ حَرْفِ الْفَاءِ وَرِيفِ مَنَافٍ الْمُصَوَّرَةُ (انْقُرْ عَلَى أَيِّ كَلِمَةٍ لِسَمَاعِهَا)
+                            </div>
+                            <img src="activity_reef_words.png" alt="كلمات حرف الفاء المصورة" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #fde68a; margin-bottom: 14px;">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                <div class="word-card" onclick="playFReefWord('reef')" style="border-color: #10b981; background: #f0fdf4;">
+                                    <div style="font-size: 28px;">🏡</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #065f46;"><span style="color:#dc2626;">رِيـ</span>ـفٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playFReefWord('manaf')" style="border-color: #3b82f6; background: #eff6ff;">
+                                    <div style="font-size: 28px;">👨‍🌾</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #1e40af;">مَـنَـا<span style="color:#dc2626;">فٌ</span></div>
+                                </div>
+                                <div class="word-card" onclick="playFReefWord('farooq')" style="border-color: #f59e0b; background: #fffbeb;">
+                                    <div style="font-size: 28px;">👦</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #b45309;"><span style="color:#dc2626;">فَـ</span>ـارُوقٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playFReefWord('mufeed')" style="border-color: #8b5cf6; background: #f5f3ff;">
+                                    <div style="font-size: 28px;">🧒</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #5b21b6;">مُـ<span style="color:#dc2626;">فِـ</span>ـيدٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playFReefWord('baqar')" style="border-color: #16a34a; background: #f0fdf4;">
+                                    <div style="font-size: 28px;">🐄</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #15803d;">بَـقَـرٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playFReefWord('wazz')" style="border-color: #0284c7; background: #f0f9ff;">
+                                    <div style="font-size: 28px;">🦆</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #0369a1;">وَزٌّ</div>
+                                </div>
+                                <div class="word-card" onclick="playFReefWord('feel')" style="border-color: #64748b; background: #f8fafc;">
+                                    <div style="font-size: 28px;">🐘</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #334155;"><span style="color:#dc2626;">فِـ</span>ـيلٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playFReefWord('kharoof')" style="border-color: #d97706; background: #fffbeb;">
+                                    <div style="font-size: 28px;">🐑</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #92400e;">خَـرُو<span style="color:#dc2626;">فٌ</span></div>
+                                </div>
+                                <div class="word-card" onclick="playFReefWord('farasha')" style="border-color: #ec4899; background: #fdf2f8;">
+                                    <div style="font-size: 28px;">🦋</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #9d174d;"><span style="color:#dc2626;">فَـ</span>ـرَاشَةٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playFReefWord('fustan')" style="border-color: #a855f7; background: #faf5ff;">
+                                    <div style="font-size: 28px;">👗</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #7e22ce;"><span style="color:#dc2626;">فُـ</span>ـسْتَانٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playFReefWord('miftah')" style="border-color: #06b6d4; background: #ecfeff;">
+                                    <div style="font-size: 28px;">🗝️</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #0e7490;">مِـ<span style="color:#dc2626;">فْـ</span>ـتَاحٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playFReefWord('rafeeq')" style="border-color: #14b8a6; background: #f0fdfa;">
+                                    <div style="font-size: 28px;">🤝</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #0f766e;">رَ<span style="color:#dc2626;">فِـ</span>ـيقٌ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود وتمييز المقاطع -->
+                    <div class="letter-f-reef-station" id="stationFReef2">
+                        <div class="family-listen-card" style="border-color: #10b981;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.2rem; margin-bottom: 8px;">
+                                🎵 أَصْوَاتُ حَرْفِ الْفَاءِ مَعَ حَرَكَاتِ الْمَدِّ الْقَصِيرَةِ وَالْمَدِّ الطَّوِيلِ (ص ٥٧ - ٥٨)
+                            </div>
+                            <img src="activity_reef_vowels.png" alt="مدود حرف الفاء" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #a7f3d0; margin-bottom: 14px;">
+
+                            <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 16px;">
+                                <!-- المدود القصيرة -->
+                                <div style="background: #ffffff; border: 2px solid #38bdf8; border-radius: 14px; padding: 14px; flex: 1; min-width: 250px;">
+                                    <div style="color: #0369a1; font-weight: 900; font-size: 1.05rem; margin-bottom: 8px;">🔹 الْمَدُّ الْقَصِيرُ (الْحَرَكَات)</div>
+                                    <div style="display: flex; justify-content: space-around;">
+                                        <div class="vowel-bubble" onclick="playFReefVowel('short_a')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #e11d48;">فَـ</div>
+                                            <div style="font-size: 12px; color: #64748b;">فَرَاشَة</div>
+                                        </div>
+                                        <div class="vowel-bubble" onclick="playFReefVowel('short_u')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #2563eb;">فُـ</div>
+                                            <div style="font-size: 12px; color: #64748b;">فُسْتَان</div>
+                                        </div>
+                                        <div class="vowel-bubble" onclick="playFReefVowel('short_i')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #059669;">فِـ</div>
+                                            <div style="font-size: 12px; color: #64748b;">فِيل</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- المدود الطويلة -->
+                                <div style="background: #ffffff; border: 2px solid #f59e0b; border-radius: 14px; padding: 14px; flex: 1; min-width: 250px;">
+                                    <div style="color: #b45309; font-weight: 900; font-size: 1.05rem; margin-bottom: 8px;">🔸 الْمَدُّ الطَّوِيلُ (حُرُوفُ الْمَدّ)</div>
+                                    <div style="display: flex; justify-content: space-around;">
+                                        <div class="vowel-bubble" onclick="playFReefVowel('long_aa')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #e11d48;">فَا</div>
+                                            <div style="font-size: 12px; color: #64748b;">فَارُوق</div>
+                                        </div>
+                                        <div class="vowel-bubble" onclick="playFReefVowel('long_oo')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #2563eb;">فُو</div>
+                                            <div style="font-size: 12px; color: #64748b;">عُصْفُور</div>
+                                        </div>
+                                        <div class="vowel-bubble" onclick="playFReefVowel('long_ee')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #059669;">فِيـ</div>
+                                            <div style="font-size: 12px; color: #64748b;">رِيف</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- تمييز الفاء الساكنة -->
+                            <div style="background: #ffffff; border: 2px solid #818cf8; border-radius: 14px; padding: 14px; margin-top: 10px;">
+                                <div style="color: #4338ca; font-weight: 900; font-size: 1.1rem; margin-bottom: 6px;">
+                                    🧩 تَمْيِيزُ صَوْتِ حَرْفِ الْفَاءِ السَّاكِنِ (فْ) فِي الْمَقَاطِعِ:
+                                </div>
+                                <img src="activity_reef_syllables.png" alt="المقاطع الساكنة" style="width: 100%; max-width: 600px; border-radius: 12px; border: 2px solid #c7d2fe; margin-bottom: 10px;">
+                                <div style="display: flex; justify-content: space-around; gap: 10px; flex-wrap: wrap;">
+                                    <button class="btn" onclick="playFReefSyllable('tif')" style="background: #f5f3ff; color: #4338ca; border: 2px solid #818cf8; padding: 10px 20px; font-size: 1.1rem; font-weight: 900;">
+                                        طِـفْـ (طِفْل) 👶
+                                    </button>
+                                    <button class="btn" onclick="playFReefSyllable('haf')" style="background: #fdf2f8; color: #be185d; border: 2px solid #f472b6; padding: 10px 20px; font-size: 1.1rem; font-weight: 900;">
+                                        حَـفْـ (حَفْلَة) 🎉
+                                    </button>
+                                    <button class="btn" onclick="playFReefSyllable('dif')" style="background: #ecfeff; color: #0e7490; border: 2px solid #22d3ee; padding: 10px 20px; font-size: 1.1rem; font-weight: 900;">
+                                        ضِـفْـ (ضِفْدَع) 🐸
+                                    </button>
+                                    <button class="btn" onclick="playFReefSyllable('raf')" style="background: #f0fdf4; color: #15803d; border: 2px solid #4ade80; padding: 10px 20px; font-size: 1.1rem; font-weight: 900;">
+                                        رَ‌فْـ (رَفْرَفَ) 🚩
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل الصوتي والتركيب المقطعي -->
+                    <div class="letter-f-reef-station" id="stationFReef3">
+                        <div class="family-listen-card" style="border-color: #ea580c;">
+                            <div style="font-weight: 900; color: #c2410c; font-size: 1.25rem; margin-bottom: 8px;">
+                                🧩 تَحْلِيلُ وَتَرْكِيبُ كَلِمَاتِ حَرْفِ الْفَاءِ وَرِيفِ مَنَافٍ (ص ٥٨ - ٥٩)
+                            </div>
+
+                            <!-- التحليل -->
+                            <div style="background: #ffffff; border: 2px solid #fdba74; border-radius: 14px; padding: 14px; margin-bottom: 16px;">
+                                <div style="color: #9a3412; font-weight: 900; font-size: 1.1rem; margin-bottom: 6px;">
+                                    🔍 تَحْلِيلُ الْكَلِمَاتِ إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ (انْقُرْ لِسَمَاعِ التَّحْلِيلِ بِالتَّصْفِيق):
+                                </div>
+                                <img src="activity_reef_analysis.png" alt="التحليل الصوتي" style="width: 100%; max-width: 600px; border-radius: 12px; margin-bottom: 12px;">
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <button class="btn" onclick="playFReefAnalysis('reef')" style="background: #fff7ed; border: 2px solid #fb923c; color: #9a3412; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        رِيف ⬅️ [ رِيـ ] + [ ف ]
+                                    </button>
+                                    <button class="btn" onclick="playFReefAnalysis('manaf')" style="background: #fff7ed; border: 2px solid #fb923c; color: #9a3412; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        مَنَافٌ ⬅️ [ مَـ ] + [ نَا ] + [ فٌ ]
+                                    </button>
+                                    <button class="btn" onclick="playFReefAnalysis('farooq')" style="background: #fff7ed; border: 2px solid #fb923c; color: #9a3412; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        فَارُوقٌ ⬅️ [ فَا ] + [ رُو ] + [ قٌ ]
+                                    </button>
+                                    <button class="btn" onclick="playFReefAnalysis('mufeed')" style="background: #fff7ed; border: 2px solid #fb923c; color: #9a3412; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        مُفِيدٌ ⬅️ [ مُـ ] + [ فِيـ ] + [ دٌ ]
+                                    </button>
+                                    <button class="btn" onclick="playFReefAnalysis('baqar')" style="background: #fff7ed; border: 2px solid #fb923c; color: #9a3412; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        بَقَرٌ ⬅️ [ بَـ ] + [ قَـ ] + [ رٌ ]
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- التركيب -->
+                            <div style="background: #ffffff; border: 2px solid #86efac; border-radius: 14px; padding: 14px;">
+                                <div style="color: #166534; font-weight: 900; font-size: 1.1rem; margin-bottom: 6px;">
+                                    ⚡ تَرْكِيبُ الْمَقَاطِعِ لِتَكْوِينِ الْكَلِمَاتِ وَقِرَاءَتِهَا:
+                                </div>
+                                <img src="activity_reef_blend.png" alt="تركيب المقاطع" style="width: 100%; max-width: 600px; border-radius: 12px; margin-bottom: 12px;">
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <button class="btn" onclick="playFReefBlend('reef')" style="background: #f0fdf4; border: 2px solid #4ade80; color: #166534; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        [ رِيـ ] + [ ف ] ➡️ رِيـف
+                                    </button>
+                                    <button class="btn" onclick="playFReefBlend('manaf')" style="background: #f0fdf4; border: 2px solid #4ade80; color: #166534; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        [ مَـ ] + [ نَا ] + [ ف ] ➡️ مَـنَاف
+                                    </button>
+                                    <button class="btn" onclick="playFReefBlend('farooq')" style="background: #f0fdf4; border: 2px solid #4ade80; color: #166534; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        [ فَا ] + [ رُو ] + [ ق ] ➡️ فَـارُوق
+                                    </button>
+                                    <button class="btn" onclick="playFReefBlend('mufeed')" style="background: #f0fdf4; border: 2px solid #4ade80; color: #166534; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        [ مُـ ] + [ فِيـ ] + [ د ] ➡️ مُـفِيد
+                                    </button>
+                                    <button class="btn" onclick="playFReefBlend('baqar')" style="background: #f0fdf4; border: 2px solid #4ade80; color: #166534; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        [ بَـ ] + [ قَـ ] + [ ر ] ➡️ بَـقَر
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة والرسم والاختبار -->
+                    <div class="letter-f-reef-station" id="stationFReef4">
+                        <div class="family-listen-card" style="border-color: #15803d; background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #166534; margin-bottom: 8px;">
+                                📜 لَوْحَةُ الْقِرَاءَةِ التُّرَاثِيَّةِ الْمُقَرَّرَةِ: رِيفُ مَنَافٍ (ص ٥٩)
+                            </div>
+                            <img src="activity_reef_read.png" alt="قراءة ريف مناف" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #86efac; margin-bottom: 12px;">
+
+                            <!-- زر الاستماع للقراءة كاملة -->
+                            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;">
+                                <button class="btn" onclick="playFReefReading(0)" style="background: linear-gradient(135deg, #15803d, #16a34a); color: white; padding: 12px 28px; font-size: 1.1rem; font-weight: 900; border-radius: 14px; box-shadow: 0 4px 14px rgba(21,128,61,0.3);">
+                                    <span>🔊</span> <span>اقْرَأِ النَّصَّ كَامِلاً</span>
+                                </button>
+                            </div>
+
+                            <!-- أسطر القراءة التفاعلية سطر بسطر -->
+                            <div style="background: #ffffff; border-radius: 16px; padding: 16px; border: 2px solid #86efac; max-width: 600px; margin: 0 auto 16px auto;">
+                                <div class="reading-line-card" onclick="playFReefReading(1)" id="lineFReef1" style="font-size: 1.35rem; font-weight: 900; color: #166534; padding: 8px 14px; border-radius: 10px; cursor: pointer; margin-bottom: 6px;">
+                                    <span style="color:#dc2626;">رِيـ</span>ـفُ مَـنَـا<span style="color:#dc2626;">فٍ</span> 🔊
+                                </div>
+                                <div class="reading-line-card" onclick="playFReefReading(2)" id="lineFReef2" style="font-size: 1.25rem; font-weight: bold; color: #1e3a8a; padding: 8px 14px; border-radius: 10px; cursor: pointer; margin-bottom: 6px;">
+                                    <span style="color:#dc2626;">فَـ</span>ـارُوقٌ يَـقُـولُ: 🔊
+                                </div>
+                                <div class="reading-line-card" onclick="playFReefReading(3)" id="lineFReef3" style="font-size: 1.2rem; font-weight: bold; color: #047857; padding: 8px 14px; border-radius: 10px; cursor: pointer; margin-bottom: 6px;">
+                                    يَا مُـ<span style="color:#dc2626;">فِـ</span>ـيدُ، نَزُورُ <span style="color:#dc2626;">رِيـ</span>ـفَ مَـنَـا<span style="color:#dc2626;">فٍ</span> 🔊
+                                </div>
+                                <div class="reading-line-card" onclick="playFReefReading(4)" id="lineFReef4" style="font-size: 1.2rem; font-weight: bold; color: #047857; padding: 8px 14px; border-radius: 10px; cursor: pointer; margin-bottom: 6px;">
+                                    <span style="color:#dc2626;">فِـ</span>ـي <span style="color:#dc2626;">رِيـ</span>ـفِ مَـنَـا<span style="color:#dc2626;">فٍ</span> بَـقَـرٌ 🔊
+                                </div>
+                                <div class="reading-line-card" onclick="playFReefReading(5)" id="lineFReef5" style="font-size: 1.25rem; font-weight: 900; color: #b91c1c; padding: 8px 14px; border-radius: 10px; cursor: pointer;">
+                                    <span style="color:#dc2626;">فِـ</span>ـي <span style="color:#dc2626;">رِيـ</span>ـفِ مَـنَـا<span style="color:#dc2626;">فٍ</span> وَزٌّ 🔊
+                                </div>
+                            </div>
+
+                            <!-- سبورة رسم وكتابة حرف الفاء -->
+                            <div style="background: #ffffff; border-radius: 16px; padding: 16px; border: 2px solid #86efac; margin-bottom: 16px;">
+                                <div style="font-weight: 900; color: #166534; font-size: 1.15rem; margin-bottom: 8px;">
+                                    ✍️ سَبُّورَةُ تَدْرِيبِ كِتَابَةِ وَرَسْمِ حَرْفِ الْفَاءِ (فـ ، ف) (ص ٦٠)
+                                </div>
+                                <img src="activity_reef_trace.png" alt="تتبع رسم الفاء" style="width: 100%; max-width: 550px; border-radius: 12px; margin-bottom: 10px;">
+                                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                                    <canvas id="fReefDrawingCanvas" width="600" height="220" style="background: #ffffff; border: 2px dashed #86efac; border-radius: 12px; touch-action: none; cursor: crosshair; max-width: 100%;"></canvas>
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;">
+                                    <button class="btn" onclick="setFReefDrawColor('#15803d')" style="background: #15803d; color: white; padding: 6px 14px;">أخضر</button>
+                                    <button class="btn" onclick="setFReefDrawColor('#dc2626')" style="background: #dc2626; color: white; padding: 6px 14px;">أحمر</button>
+                                    <button class="btn" onclick="setFReefDrawColor('#2563eb')" style="background: #2563eb; color: white; padding: 6px 14px;">أزرق</button>
+                                    <button class="btn" onclick="setFReefEraser()" style="background: #64748b; color: white; padding: 6px 14px;">ممحاة</button>
+                                    <button class="btn" onclick="clearFReefCanvas()" style="background: #ef4444; color: white; padding: 6px 14px;">مسح السبورة</button>
+                                    <button class="btn" onclick="playAudio('letter_f_reef_draw_hint')" style="background: #0d9488; color: white; padding: 6px 14px;">توجيه فصيح 🤖</button>
+                                </div>
+                            </div>
+
+                            <!-- استعراض صفحات الكتاب المدرسي -->
+                            <div style="background: #ffffff; border-radius: 16px; padding: 14px; border: 2px solid #86efac; margin-bottom: 16px;">
+                                <div style="font-weight: 900; color: #166534; font-size: 1.1rem; margin-bottom: 8px;">
+                                    📖 صَفَحَاتُ الْكِتَابِ الْمَدْرَسِيِّ الْمُعْتَمَدَةُ (انْقُرْ لِعَرْضِ الصَّفْحَةِ مُكَبَّرَة):
+                                </div>
+                                <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_57.png', 'الكتاب المدرسي - صفحة ٥٧ (أنشطة ومدخل الدرس)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٧</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_58.png', 'الكتاب المدرسي - صفحة ٥٨ (التحليل والتركيب)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٨</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_59.png', 'الكتاب المدرسي - صفحة ٥٩ (تطبيقات وقراءة)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٩</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_60.png', 'الكتاب المدرسي - صفحة ٦٠ (مهارات القراءة)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٠</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_27.png', 'الكتاب المدرسي - صفحة ٢٧ (أنشطة الحرف ف)')">
+                                        <span>📖</span> <span>صَفْحَة ٢٧</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_28.png', 'الكتاب المدرسي - صفحة ٢٨ (أصوات المدود)')">
+                                        <span>📖</span> <span>صَفْحَة ٢٨</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_29.png', 'الكتاب المدرسي - صفحة ٢٩ (التحليل وقراءة ف)')">
+                                        <span>📖</span> <span>صَفْحَة ٢٩</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- بطاقة اختبار التحدي مع فصيح -->
+                            <div class="quiz-card" style="background: #ffffff; border: 3px solid #f59e0b; border-radius: 16px; padding: 16px;">
+                                <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 8px;">
+                                    <span style="font-size: 26px;">⭐</span>
+                                    <span style="font-size: 1.15rem; font-weight: 900; color: #b45309;">تَحَدِّي فَصِيح الذَّكِيّ لِحَرْفِ الْفَاءِ وَقِرَاءَةِ رِيف:</span>
+                                </div>
+                                <p style="font-size: 1.1rem; font-weight: 800; color: #1e3a8a; margin-bottom: 12px;">
+                                    أَيْنَ يُوجَدُ مَدُّ الْيَاءِ (فِيـ) فِي كَلِمَاتِ الدَّرْسِ التَّالِيَةِ؟
+                                </p>
+                                <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                                    <button class="btn" onclick="checkFReefQuiz(1)" style="background: #15803d; padding: 10px 22px;">
+                                        ١. رِيـفٌ 🏡
+                                    </button>
+                                    <button class="btn" onclick="checkFReefQuiz(2)" style="background: #64748b; padding: 10px 22px;">
+                                        ٢. فَـارُوقٌ 👦
+                                    </button>
+                                    <button class="btn" onclick="checkFReefQuiz(3)" style="background: #64748b; padding: 10px 22px;">
+                                        ٣. فَـرَاشَةٌ 🦋
+                                    </button>
+                                </div>
+                                <div id="fReefQuizFeedback" style="margin-top: 10px; font-weight: bold; font-size: 1.05rem; min-height: 28px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 <!-- شريط الانتقال المتسلسل بين الدروس -->
 
             <div class="lesson-stepper-bar">
@@ -16398,6 +16778,9 @@
             }
             } else if (lesson.id === 'tab-unit3_intro') {
                 mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: أَلْعَابِي وَحَيَوَانَاتِي! مَدْخَلُ الْوَحْدَةِ وَالِاسْتِمَاعُ وَالْمُحَادَثَةُ (ص ٥٣)! اِسْتَمِعُوا لِقِصَّةِ أَلْعَابِي وَحَيَوَانَاتِي الأَلِيفَةِ، وَعَبِّرُوا عَنْ صُوَرِ الْمُحَادَثَةِ، وَاجْتَازُوا تَحَدِّي فَصِيح!', 'unit3_intro_welcome');
+            } else if (lesson.id === 'tab-letter_f_reef') {
+                mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الْفَاءِ (فـ ، ف) وَقِرَاءَةُ (رِيفِ مَنَاف) (ص ٥٧ - ٦٠)! اِسْتَمِعُوا لِصَوْتِ حَرْفِ الْفَاءِ النَّقِيِّ، وَتَعَرَّفُوا عَلَى الْمَدِّ الْقَصِيرِ وَالطَّوِيلِ وَالْمَقَاطِعِ السَّاكِنَةِ، وَاقْرَؤُوا قِرَاءَةَ (رِيفُ مَنَاف) وَتَدَرَّبُوا عَلَى كِتَابَةِ الْحَرْفِ!', 'letter_f_reef_intro');
+                setTimeout(initFReefCanvas, 500);
             } else if (lesson.id === 'tab-letter_ta') {
                 mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الطَّاءِ (طـ ، ط) وَقِرَاءَةُ (بَطّ) (ص ٥٣ - ٥٦)! اِسْتَمِعُوا لِصَوْتِ حَرْفِ الطَّاءِ الْمُفَخَّمِ، وَتَعَرَّفُوا عَلَى الْمَدِّ الْقَصِيرِ وَالطَّوِيلِ وَالْمَقَاطِعِ السَّاكِنَةِ، وَاقْرَؤُوا قِرَاءَةَ (بَطّ وَطُيُور) وَتَدَرَّبُوا عَلَى كِتَابَةِ الْحَرْفِ!', 'letter_ta_intro');
                 setTimeout(initTaCanvas, 200); else if (lesson.id === 'tab-tanween_dham') {
@@ -23754,6 +24137,243 @@
             canvas.addEventListener('touchstart', startDraw, { passive: false });
             canvas.addEventListener('touchmove', draw, { passive: false });
             window.addEventListener('touchend', stopDraw);
+        }
+
+        /* ========================================================
+           الوحدة الثالثة: الدرس الثالث - حرف الفاء (فـ ، ف) وقراءة (رِيف)
+           إعداد المهندس أسامة خليل هاشم
+        ======================================================== */
+        function switchFReefStation(stationNum) {
+            document.querySelectorAll('#view-tab-letter_f_reef .station-tab').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('#view-tab-letter_f_reef .letter-f-reef-station').forEach(el => el.classList.remove('active'));
+
+            const targetStation = document.getElementById('stationFReef' + stationNum);
+            const targetBtn = document.getElementById('btnStationFReef' + stationNum);
+
+            if (targetStation) targetStation.classList.add('active');
+            if (targetBtn) targetBtn.classList.add('active');
+
+            if (stationNum === 1) {
+                mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الْفَاءِ (فـ ، ف) وَقِرَاءَةُ رِيفِ مَنَاف (ص ٥٧ - ٦٠)! اِسْتَمِعُوا لِصَوْتِ الْفَاءِ النَّقِيِّ وَزُورُوا رِيفَ مَنَافٍ الْجَمِيل!', 'letter_f_reef_intro');
+            } else if (stationNum === 2) {
+                mascotSpeak('أَصْوَاتُ الْمُدُودِ وَتَمْيِيزُ الْفَاءِ السَّاكِنَة! قَارِنْ بَيْنَ فَـ فُـ فِـ وَ فَا فُو فِيـ، وَمَيِّزْ مَقَاطِعَ: طِفْـ ، حَفْـ ، ضِفْـ!', 'letter_f_reef_vowels_station');
+            } else if (stationNum === 3) {
+                mascotSpeak('الْتَّحْلِيلُ وَالتَّرْكِيبُ الصَّوْتِيّ! فَكِّكْ كَلِمَاتِ (رِيف ، مَنَاف ، فَارُوق ، مُفِيد) بِالتَّصْفِيق، وَرَكِّبِ الْمَقَاطِعَ لِتَكْوِينِ كَلِمَاتٍ جَدِيدَة!', 'letter_f_reef_analysis_intro');
+            } else if (stationNum === 4) {
+                mascotSpeak('قِرَاءَةُ (رِيفُ مَنَاف) وَالرَّسْم! اقْرَأْ قِرَاءَةً جَهْرِيَّةً سَلِيمَةً سَطْراً بِسَطْر وَتَدَرَّبْ عَلَى كِتَابَةِ حَرْفِ الْفَاءِ عَلَى السَّبُّورَةِ التَّفَاعُلِيَّة!', 'letter_f_reef_read_intro');
+                setTimeout(initFReefCanvas, 100);
+            }
+        }
+
+        function playFReefLetterSound() {
+            mascotCelebrates();
+            playAudio('letter_f_reef_sound');
+        }
+
+        function playFReefPhonemeFaseeh() {
+            mascotCelebrates();
+            playAudio('letter_f_reef_phoneme_faseeh');
+        }
+
+        function playFReefWord(word) {
+            mascotCelebrates();
+            const map = {
+                'reef': 'letter_f_reef_word_reef',
+                'manaf': 'letter_f_reef_word_manaf',
+                'farooq': 'letter_f_reef_word_farooq',
+                'mufeed': 'letter_f_reef_word_mufeed',
+                'baqar': 'letter_f_reef_word_baqar',
+                'wazz': 'letter_f_reef_word_wazz',
+                'feel': 'letter_f_reef_word_feel',
+                'kharoof': 'letter_f_reef_word_kharoof',
+                'rafeeq': 'letter_f_reef_word_rafeeq',
+                'farasha': 'letter_f_reef_word_farasha',
+                'fustan': 'letter_f_reef_word_fustan',
+                'miftah': 'letter_f_reef_word_miftah'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playFReefVowel(vowel) {
+            mascotCelebrates();
+            const map = {
+                'short_a': 'letter_f_reef_short_a',
+                'short_u': 'letter_f_reef_short_u',
+                'short_i': 'letter_f_reef_short_i',
+                'long_aa': 'letter_f_reef_long_aa',
+                'long_oo': 'letter_f_reef_long_oo',
+                'long_ee': 'letter_f_reef_long_ee'
+            };
+            if (map[vowel]) playAudio(map[vowel]);
+        }
+
+        function playFReefSyllable(syl) {
+            mascotCelebrates();
+            const map = {
+                'tif': 'letter_f_reef_syl_tif',
+                'haf': 'letter_f_reef_syl_haf',
+                'dif': 'letter_f_reef_syl_dif',
+                'raf': 'letter_f_reef_syl_raf'
+            };
+            if (map[syl]) playAudio(map[syl]);
+        }
+
+        function playFReefAnalysis(word) {
+            mascotCelebrates();
+            const map = {
+                'reef': 'letter_f_reef_split_reef',
+                'manaf': 'letter_f_reef_split_manaf',
+                'farooq': 'letter_f_reef_split_farooq',
+                'mufeed': 'letter_f_reef_split_mufeed',
+                'baqar': 'letter_f_reef_split_baqar'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playFReefBlend(word) {
+            mascotCelebrates();
+            const map = {
+                'reef': 'letter_f_reef_merge_reef',
+                'manaf': 'letter_f_reef_merge_manaf',
+                'farooq': 'letter_f_reef_merge_farooq',
+                'mufeed': 'letter_f_reef_merge_mufeed',
+                'baqar': 'letter_f_reef_merge_baqar'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playFReefReading(verseNum) {
+            mascotCelebrates();
+            document.querySelectorAll('#view-tab-letter_f_reef .reading-line-card').forEach(el => el.classList.remove('active'));
+            if (verseNum === 0) {
+                playAudio('letter_f_reef_read_full');
+            } else {
+                const lineEl = document.getElementById('lineFReef' + verseNum);
+                if (lineEl) lineEl.classList.add('active');
+                playAudio('letter_f_reef_read_s' + verseNum);
+            }
+        }
+
+        /* سبورة رسم وتتبع حرف الفاء */
+        let fReefIsDrawing = false;
+        let fReefLastX = 0;
+        let fReefLastY = 0;
+        let fReefDrawColor = '#15803d';
+        let fReefIsEraser = false;
+
+        function setFReefDrawColor(color) {
+            fReefDrawColor = color;
+            fReefIsEraser = false;
+        }
+
+        function setFReefEraser() {
+            fReefIsEraser = true;
+        }
+
+        function clearFReefCanvas() {
+            const canvas = document.getElementById('fReefDrawingCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawFReefCanvasGuides(ctx, canvas);
+        }
+
+        function drawFReefCanvasGuides(ctx, canvas) {
+            ctx.save();
+            ctx.strokeStyle = '#e2e8f0';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([6, 6]);
+            const baseLine = canvas.height * 0.65;
+            ctx.beginPath();
+            ctx.moveTo(30, baseLine);
+            ctx.lineTo(canvas.width - 30, baseLine);
+            ctx.stroke();
+
+            ctx.setLineDash([]);
+            ctx.font = 'bold 110px "Segoe UI", Tahoma, sans-serif';
+            ctx.fillStyle = 'rgba(21, 128, 61, 0.12)';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('فـ   ف', canvas.width / 2, canvas.height / 2);
+            ctx.restore();
+        }
+
+        function initFReefCanvas() {
+            const canvas = document.getElementById('fReefDrawingCanvas');
+            if (!canvas || canvas._initialized) return;
+            canvas._initialized = true;
+            const ctx = canvas.getContext('2d');
+            drawFReefCanvasGuides(ctx, canvas);
+
+            function getPos(e) {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                if (e.touches && e.touches[0]) {
+                    return {
+                        x: (e.touches[0].clientX - rect.left) * scaleX,
+                        y: (e.touches[0].clientY - rect.top) * scaleY
+                    };
+                }
+                return {
+                    x: (e.clientX - rect.left) * scaleX,
+                    y: (e.clientY - rect.top) * scaleY
+                };
+            }
+
+            function startDraw(e) {
+                e.preventDefault();
+                fReefIsDrawing = true;
+                const p = getPos(e);
+                fReefLastX = p.x;
+                fReefLastY = p.y;
+            }
+
+            function doDraw(e) {
+                if (!fReefIsDrawing) return;
+                e.preventDefault();
+                const p = getPos(e);
+                ctx.beginPath();
+                ctx.moveTo(fReefLastX, fReefLastY);
+                ctx.lineTo(p.x, p.y);
+                ctx.strokeStyle = fReefIsEraser ? '#ffffff' : fReefDrawColor;
+                ctx.lineWidth = fReefIsEraser ? 24 : 8;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.stroke();
+                fReefLastX = p.x;
+                fReefLastY = p.y;
+            }
+
+            function stopDraw(e) {
+                fReefIsDrawing = false;
+            }
+
+            canvas.addEventListener('mousedown', startDraw);
+            canvas.addEventListener('mousemove', doDraw);
+            window.addEventListener('mouseup', stopDraw);
+
+            canvas.addEventListener('touchstart', startDraw, { passive: false });
+            canvas.addEventListener('touchmove', doDraw, { passive: false });
+            window.addEventListener('touchend', stopDraw);
+        }
+
+        function checkFReefQuiz(opt) {
+            const fb = document.getElementById('fReefQuizFeedback');
+            if (opt === 1) {
+                mascotCelebrates();
+                playAudio('letter_f_reef_correct');
+                if (fb) {
+                    fb.style.color = '#15803d';
+                    fb.innerHTML = '🎉 إِجَابَةٌ نَمُوذَجِيَّةٌ يَا بَطَل! (رِيفٌ) فِيهَا مَدُّ الْيَاءِ (فِيـ)!';
+                }
+            } else {
+                playAudio('letter_f_reef_wrong');
+                if (fb) {
+                    fb.style.color = '#dc2626';
+                    fb.innerHTML = 'حَاوِلْ مَرَّةً ثَانِيَةً يَا بَطَل، اِبْحَثْ عَنِ الْمَدِّ بِالْيَاء (فِيـ).';
+                }
+            }
         }
 
         function checkTaQuiz(opt) {
