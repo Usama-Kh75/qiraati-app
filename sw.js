@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v25';
+const CACHE_NAME = 'qiraati-smart-v26';
 
 const ASSETS_TO_CACHE = [
 
@@ -631,7 +631,30 @@ const ASSETS_TO_CACHE = [
   './audio/teacher_vowel_y_dik.mp3',
   './audio/teacher_vowel_y_halib.mp3',
   './audio/teacher_vowel_y_intro.mp3',
-  './audio/teacher_vowel_y_rish.mp3'
+  './audio/teacher_vowel_y_rish.mp3',
+  './audio/faseeh_blend_dada.mp3',
+  './audio/faseeh_blend_dar.mp3',
+  './audio/faseeh_blend_door.mp3',
+  './audio/faseeh_blend_firas.mp3',
+  './audio/faseeh_blend_noor.mp3',
+  './audio/faseeh_blend_wardun.mp3',
+  './audio/faseeh_encourage_super.mp3',
+  './audio/faseeh_model_ana_wa_antum.mp3',
+  './audio/faseeh_model_ana_wahdi.mp3',
+  './audio/faseeh_model_claps.mp3',
+  './audio/faseeh_phoneme_b.mp3',
+  './audio/faseeh_phoneme_d.mp3',
+  './audio/faseeh_phoneme_f.mp3',
+  './audio/faseeh_phoneme_m.mp3',
+  './audio/faseeh_phoneme_marboota.mp3',
+  './audio/faseeh_phoneme_n.mp3',
+  './audio/faseeh_phoneme_r.mp3',
+  './audio/faseeh_phoneme_s.mp3',
+  './audio/faseeh_phoneme_t.mp3',
+  './audio/faseeh_phoneme_tanween.mp3',
+  './audio/faseeh_vowels_d.mp3',
+  './audio/faseeh_vowels_r.mp3',
+  './audio/faseeh_vowels_s.mp3'
 ];
 
 

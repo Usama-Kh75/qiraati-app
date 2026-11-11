@@ -5036,7 +5036,7 @@
 
                         <span>قراءتي التفاعلية الذكية</span>
 
-                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="إصدار المنصة المحدث بتعزيز صوت المعلمة والتحكم الصوتي">v3.2</span>
+                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="إصدار المنصة المحدث بتطوير صوت فصيح الفونيمي ومطابقة مخارج الحروف">v3.3</span>
 
                     </div>
 
@@ -15313,6 +15313,33 @@
                 'letter_s_read_word_mama': 'letter_s_teacher_word_mama'
             };
 
+            // جدول المطابقة الدقيقة لتحويل أصوات فصيح إلى التسجيلات الفونيمية المطورة
+            const faseehDirectMap = {
+                'word_dada': 'faseeh_blend_dada',
+                'letter_d_read_dada': 'faseeh_blend_dada',
+                'letter_r_read_dar': 'faseeh_blend_dar',
+                'act5_dar': 'faseeh_blend_dar',
+                'letter_d_read_door': 'faseeh_blend_door',
+                'letter_n_read_noor': 'faseeh_blend_noor',
+                'letter_s_read_word_firas': 'faseeh_blend_firas',
+                'tanween_dham_read_ward': 'faseeh_blend_wardun',
+                'letter_d_sound': 'faseeh_phoneme_d',
+                'letter_r_sound': 'faseeh_phoneme_r',
+                'letter_s_sound': 'faseeh_phoneme_s',
+                'letter_m_sound': 'faseeh_phoneme_m',
+                'letter_b_sound': 'faseeh_phoneme_b',
+                'letter_n_sound': 'faseeh_phoneme_n',
+                'letter_f_sound': 'faseeh_phoneme_f',
+                'letter_t_sound': 'faseeh_phoneme_t',
+                'marboota_sound': 'faseeh_phoneme_marboota',
+                'tanween_dham_sound': 'faseeh_phoneme_tanween',
+                'letter_d_vowels_intro': 'faseeh_vowels_d',
+                'letter_r_vowels_intro': 'faseeh_vowels_r',
+                'letter_s_vowels_intro': 'faseeh_vowels_s',
+                'voice_preview_bassel': 'faseeh_model_ana_wahdi',
+                'voice_confirm_bassel': 'faseeh_encourage_super'
+            };
+
             if (window.AUDIO_DATA) {
                 if (voicePref === 'teacher') {
                     if (audioKey && teacherDirectMap[audioKey] && window.AUDIO_DATA[teacherDirectMap[audioKey]]) {
@@ -15328,14 +15355,20 @@
                         finalKey = audioKey;
                     }
                 } else if (voicePref === 'bassel') {
-                    if (window.AUDIO_DATA[audioKey + '_bassel']) finalKey = audioKey + '_bassel';
-                    else if (window.AUDIO_DATA['bassel_' + audioKey]) finalKey = 'bassel_' + audioKey;
+                    if (audioKey && faseehDirectMap[audioKey] && window.AUDIO_DATA[faseehDirectMap[audioKey]]) {
+                        finalKey = faseehDirectMap[audioKey];
+                    } else if (window.AUDIO_DATA[audioKey + '_bassel']) {
+                        finalKey = audioKey + '_bassel';
+                    } else if (window.AUDIO_DATA['bassel_' + audioKey]) {
+                        finalKey = 'bassel_' + audioKey;
+                    }
                 } else if (voicePref === 'rana') {
                     if (window.AUDIO_DATA[audioKey + '_rana']) finalKey = audioKey + '_rana';
                     else if (window.AUDIO_DATA['rana_' + audioKey]) finalKey = 'rana_' + audioKey;
                 } else if (voicePref === 'integrated') {
                     if (audioKey && (audioKey.includes('encourage') || audioKey.includes('hint') || audioKey.includes('mascot') || audioKey.includes('applause') || audioKey.includes('bassel'))) {
-                        if (window.AUDIO_DATA[audioKey + '_bassel']) finalKey = audioKey + '_bassel';
+                        if (audioKey && faseehDirectMap[audioKey] && window.AUDIO_DATA[faseehDirectMap[audioKey]]) finalKey = faseehDirectMap[audioKey];
+                        else if (window.AUDIO_DATA[audioKey + '_bassel']) finalKey = audioKey + '_bassel';
                         else if (window.AUDIO_DATA['bassel_' + audioKey]) finalKey = 'bassel_' + audioKey;
                     } else {
                         if (window.AUDIO_DATA[audioKey + '_rana']) finalKey = audioKey + '_rana';
@@ -15370,13 +15403,8 @@
                             audio.preservesPitch = true;
                             audio.playbackRate = 1.0; // صوت المعلمة الميداني الحقيقي الصافي بدون تغيير نبرة
                         } else if (voicePref === 'bassel') {
-                            if (!finalKey || !finalKey.includes('bassel')) {
-                                audio.preservesPitch = false;
-                                audio.playbackRate = 0.90; // طبقة رخيمة وقورة ذكورية
-                            } else {
-                                audio.preservesPitch = true;
-                                audio.playbackRate = 1.0;
-                            }
+                            audio.preservesPitch = true;
+                            audio.playbackRate = 1.0; // صوت فصيح الذكي المطور بنبرته الطبيعية الدافئة بدون تشويه روبوتي
                         } else if (voicePref === 'rana') {
                             if (!finalKey || !finalKey.includes('rana')) {
                                 audio.preservesPitch = false;
@@ -15540,8 +15568,8 @@
                 confirmKey = 'voice_confirm_rana';
                 msg = '👩‍🏫 تم اعتماد صوت <b>(المعلمة رنا)</b> لجميع الدروس والكلمات والمقاطع!';
             } else if (pref === 'bassel') {
-                confirmKey = 'voice_confirm_bassel';
-                msg = '👨‍🏫 تم اعتماد صوت <b>(المعلم باسل)</b> لكافة الدروس وشخصية فصيح!';
+                confirmKey = 'faseeh_encourage_super';
+                msg = '👨‍🏫 تم اعتماد <b>صوت فصيح الذكي المطور</b> (نطق فونيمي دافئ ومخارج حروف مطابقة للمنهج)!';
             } else {
                 confirmKey = 'voice_confirm_integrated';
                 msg = '🌟 تم اعتماد <b>الوضع التكاملي المشترك</b> (رنا للدروس وباسل لفصيح)!';
@@ -15575,9 +15603,9 @@
                 const bubble = document.getElementById('speechBubble');
                 if (bubble) bubble.classList.add('speaking');
             } else if (pref === 'bassel') {
-                playAudio('voice_preview_bassel');
+                playAudio('faseeh_model_ana_wahdi');
                 const speechText = document.getElementById('speechText');
-                if (speechText) speechText.innerHTML = 'أَهْلاً بِكُمْ يَا أَبْطَال! أَنَا الْمُعَلِّمُ بَاسِل، أَنَا مَعَكُمْ فِي كُلِّ خُطْوَةٍ لِنُحَلِّلَ الْكَلِمَاتِ وَنَقْرَأَ بِطَلَاقَة!';
+                if (speechText) speechText.innerHTML = '👨‍🏫 <b>صَوْتُ فَصِيحٍ الذَّكِيِّ الْمُطَوَّر</b><br>«أَنَا وَحْدِي: أَنْظُرُ إِلَى الْكَلِمَة... دَا... دَا... دَادَا!»<br>بِالنُّطْقِ الْفَوْنِيمِيِّ الدَّافِئِ وَمَخَارِجِ الْحُرُوفِ الصَّافِيَة!';
                 const bubble = document.getElementById('speechBubble');
                 if (bubble) bubble.classList.add('speaking');
             }
@@ -23472,7 +23500,7 @@
 
                     </div>
 
-                    <!-- خيار 2: المعلم باسل -->
+                    <!-- خيار 2: صوت فصيح الذكي المطور -->
 
                     <div class="settings-voice-card" id="cardVoice_bassel" onclick="setVoicePreference('bassel')">
 
@@ -23482,16 +23510,23 @@
 
                             <div>
 
-                                <div style="font-weight: 900; font-size: 0.95rem; color: #1d4ed8;">
+                                <div style="font-weight: 900; font-size: 0.95rem; color: #1d4ed8; display: flex; align-items: center; gap: 6px;">
 
-                                    👨‍🏫 المعلم باسل (ذكر - عراقي فصيح)
+                                    <span>👨‍🏫 صوت فصيح الذكي المطور (عراقي فصيح - نطق فونيمي دافئ)</span>
+                                    <span style="font-size: 0.72rem; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 8px;">مطور ومتقن</span>
 
                                 </div>
 
                                 <div style="font-size: 0.8rem; color: #64748b; font-weight: 700; margin-top: 2px;">
 
-                                    نبرة رخيمة وقورة ومخارج واضحة، مناسبة للتحفيز ونمذجة فصيح.
+                                    نطق فونيمي متأنٍ بنبرة دافئة مع إزالة الرنين المعدني ومطابقة مخارج الحروف لدليل المعلم الوزاري.
 
+                                </div>
+
+                                <div style="margin-top: 8px;">
+                                    <a href="معاينة_الأصوات_العراقية_الفصيحة.html" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; padding: 4px 12px; border-radius: 10px; font-size: 0.78rem; font-weight: 800; text-decoration: none;">
+                                        <span>🔬</span> <span>فتح مختبر تدريب وتطوير صوت فصيح والمخارج الفونيمية</span>
+                                    </a>
                                 </div>
 
                             </div>
