@@ -5073,6 +5073,59 @@
             color: #15803d;
             line-height: 1;
         }
+        /* أنماط درس حرف اللام وقراءة نَبِيل بَقَّال (الوحدة الثالثة ص ٦٥ - ٦٨) */
+        .letter-l-nabeel-station {
+            display: none;
+        }
+        .letter-l-nabeel-station.active {
+            display: block;
+        }
+        .giant-letter-l-nabeel-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 3px solid #2563eb;
+            border-radius: 22px;
+            padding: 14px 32px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+        }
+        .giant-letter-l-nabeel-card:hover {
+            transform: scale(1.03);
+            border-color: #1d4ed8;
+            box-shadow: 0 6px 22px rgba(37, 99, 235, 0.25);
+        }
+        .giant-letter-l-nabeel-glyph {
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: #1e40af;
+            line-height: 1;
+            letter-spacing: 4px;
+        }
+        .l-nabeel-word-chip {
+            background: #ffffff;
+            border: 2px solid #bfdbfe;
+            border-radius: 16px;
+            padding: 10px 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .l-nabeel-word-chip:hover {
+            transform: translateY(-2px);
+            border-color: #2563eb;
+            background: #eff6ff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        }
+
         /* أنماط درس حرف القاف وقراءة بُوق نَدِيم (الوحدة الثالثة ص ٦١ - ٦٤) */
         .letter-q-booq-station {
             display: none;
@@ -16836,6 +16889,9 @@
             } else if (lesson.id === 'tab-letter_q_booq') {
                 mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الْقَافِ (قـ ، ق) وَقِرَاءَةُ (بُوقِ نَدِيم) (ص ٦١ - ٦٤)! اِسْتَمِعُوا لِصَوْتِ حَرْفِ الْقَافِ الْمُفَخَّمِ النَّقِيّ، وَتَعَرَّفُوا عَلَى الْمَدِّ الْقَصِيرِ وَالطَّوِيلِ وَالْمَقَاطِعِ وَاقْرَأُوا مَعَ نَدِيم!', 'letter_q_booq_intro');
                 switchQBooqStation(1);
+            } else if (lesson.id === 'tab-letter_l_nabeel') {
+                mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ اللَّامِ (لـ ، ل) وَقِرَاءَةُ (نَبِيل بَقَّال) (ص ٦٥ - ٦٨)! اِسْتَمِعُوا لِصَوْتِ حَرْفِ اللَّامِ الْمُرَقَّقِ النَّقِيّ، وَتَعَرَّفُوا عَلَى الْمَدِّ الْقَصِيرِ وَالطَّوِيلِ وَالْمَقَاطِعِ وَزُورُوا دُكَّانَ نَبِيل!', 'letter_l_nabeel_intro');
+                switchLNabeelStation(1);
             } else if (lesson.id === 'tab-letter_f_reef') {
                 mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الْفَاءِ (فـ ، ف) وَقِرَاءَةُ (رِيفِ مَنَاف) (ص ٥٧ - ٦٠)! اِسْتَمِعُوا لِصَوْتِ حَرْفِ الْفَاءِ النَّقِيِّ، وَتَعَرَّفُوا عَلَى الْمَدِّ الْقَصِيرِ وَالطَّوِيلِ وَالْمَقَاطِعِ السَّاكِنَةِ، وَاقْرَؤُوا قِرَاءَةَ (رِيفُ مَنَاف) وَتَدَرَّبُوا عَلَى كِتَابَةِ الْحَرْفِ!', 'letter_f_reef_intro');
                 setTimeout(initFReefCanvas, 500);
@@ -24698,6 +24754,270 @@
             }
         }
 
+        /* ====================================================
+           دوال الدرس الخامس: حرف اللام (لـ ، ل) وقراءة (نَبِيل بَقَّال) (ص ٦٥ - ٦٨)
+           ==================================================== */
+        function switchLNabeelStation(stationNum) {
+            document.querySelectorAll('#view-tab-letter_l_nabeel .station-tab').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('#view-tab-letter_l_nabeel .letter-l-nabeel-station').forEach(el => el.classList.remove('active'));
+
+            const targetStation = document.getElementById('stationLNabeel' + stationNum);
+            const targetBtn = document.getElementById('btnStationLNabeel' + stationNum);
+
+            if (targetStation) targetStation.classList.add('active');
+            if (targetBtn) targetBtn.classList.add('active');
+
+            if (stationNum === 1) {
+                mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ اللَّامِ (لـ ، ل) وَقِرَاءَةُ نَبِيل بَقَّال (ص ٦٥ - ٦٨)! اِسْتَمِعُوا لِصَوْتِ اللَّامِ الْمُرَقَّقِ وَزُورُوا نَبِيلَ فِي الدُّكَّانِ الْعَامِر!', 'letter_l_nabeel_intro');
+            } else if (stationNum === 2) {
+                mascotSpeak('أَصْوَاتُ الْمُدُودِ وَتَمْيِيزُ اللَّامِ السَّاكِنَة! قَارِنْ بَيْنَ لَـ لُـ لِـ وَ لَا لُو لِيـ، وَمَيِّزْ مَقَاطِعَ: مَلْـ ، دَلْـ ، فُلْـ ، قُلْـ!', 'letter_l_nabeel_vowels_station');
+            } else if (stationNum === 3) {
+                mascotSpeak('الْتَّحْلِيلُ وَالتَّرْكِيبُ الصَّوْتِيّ! فَكِّكْ كَلِمَاتِ (نَبِيل ، بَقَّال ، لَبَن ، رُمَّان ، قَلِيل) بِالتَّصْفِيق، وَرَكِّبِ الْمَقَاطِعَ لِتَكْوِينِ كَلِمَاتٍ جَدِيدَة!', 'letter_l_nabeel_analysis_intro');
+            } else if (stationNum === 4) {
+                mascotSpeak('قِرَاءَةُ (نَبِيل بَقَّال) وَالرَّسْم! اقْرَأْ قِرَاءَةً جَهْرِيَّةً سَلِيمَةً سَطْراً بِسَطْر وَتَدَرَّبْ عَلَى كِتَابَةِ حَرْفِ اللَّامِ عَلَى السَّبُّورَةِ التَّفَاعُلِيَّة!', 'letter_l_nabeel_read_intro');
+                setTimeout(initLNabeelCanvas, 100);
+            }
+        }
+
+        function playLNabeelLetterSound() {
+            mascotCelebrates();
+            playAudio('letter_l_nabeel_sound');
+        }
+
+        function playLNabeelPhonemeFaseeh() {
+            mascotCelebrates();
+            playAudio('letter_l_nabeel_phoneme_faseeh');
+        }
+
+        function playLNabeelWord(word) {
+            mascotCelebrates();
+            const map = {
+                'nabeel': 'letter_l_nabeel_word_nabeel',
+                'baqqal': 'letter_l_nabeel_word_baqqal',
+                'laban': 'letter_l_nabeel_word_laban',
+                'rumman': 'letter_l_nabeel_word_rumman',
+                'qaleel': 'letter_l_nabeel_word_qaleel',
+                'qulna': 'letter_l_nabeel_word_qulna',
+                'ladayna': 'letter_l_nabeel_word_ladayna',
+                'qala': 'letter_l_nabeel_word_qala',
+                'baladi': 'letter_l_nabeel_word_baladi',
+                'bayti': 'letter_l_nabeel_word_bayti',
+                'bustani': 'letter_l_nabeel_word_bustani',
+                'lubah': 'letter_l_nabeel_word_lubah',
+                'lisan': 'letter_l_nabeel_word_lisan',
+                'lahm': 'letter_l_nabeel_word_lahm',
+                'kalb': 'letter_l_nabeel_word_kalb',
+                'haleeb': 'letter_l_nabeel_word_haleeb',
+                'quloob': 'letter_l_nabeel_word_quloob',
+                'ghazal': 'letter_l_nabeel_word_ghazal',
+                'laib': 'letter_l_nabeel_word_laib',
+                'qalam': 'letter_l_nabeel_word_qalam',
+                'limatha': 'letter_l_nabeel_word_limatha',
+                'aalim': 'letter_l_nabeel_word_aalim',
+                'fulful': 'letter_l_nabeel_word_fulful',
+                'dalw': 'letter_l_nabeel_word_dalw',
+                'malab': 'letter_l_nabeel_word_malab',
+                'namlah': 'letter_l_nabeel_word_namlah',
+                'raml': 'letter_l_nabeel_word_raml',
+                'malabis': 'letter_l_nabeel_word_malabis'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playLNabeelVowel(vowel) {
+            mascotCelebrates();
+            const map = {
+                'short_a': 'letter_l_nabeel_short_a',
+                'short_u': 'letter_l_nabeel_short_u',
+                'short_i': 'letter_l_nabeel_short_i',
+                'long_aa': 'letter_l_nabeel_long_aa',
+                'long_oo': 'letter_l_nabeel_long_oo',
+                'long_ee': 'letter_l_nabeel_long_ee'
+            };
+            if (map[vowel]) playAudio(map[vowel]);
+        }
+
+        function playLNabeelSyllable(syl) {
+            mascotCelebrates();
+            const map = {
+                'mal': 'letter_l_nabeel_syl_mal',
+                'dal': 'letter_l_nabeel_syl_dal',
+                'ful': 'letter_l_nabeel_syl_ful',
+                'qul': 'letter_l_nabeel_syl_qul'
+            };
+            if (map[syl]) playAudio(map[syl]);
+        }
+
+        function playLNabeelAnalysis(word) {
+            mascotCelebrates();
+            const map = {
+                'nabeel': 'letter_l_nabeel_split_nabeel',
+                'baqqal': 'letter_l_nabeel_split_baqqal',
+                'laban': 'letter_l_nabeel_split_laban',
+                'rumman': 'letter_l_nabeel_split_rumman',
+                'qaleel': 'letter_l_nabeel_split_qaleel',
+                'qulna': 'letter_l_nabeel_split_qulna',
+                'qala': 'letter_l_nabeel_split_qala',
+                'baladi': 'letter_l_nabeel_split_baladi',
+                'namlah': 'letter_l_nabeel_split_namlah',
+                'fulful': 'letter_l_nabeel_split_fulful',
+                'malab': 'letter_l_nabeel_split_malab'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playLNabeelBlend(word) {
+            mascotCelebrates();
+            const map = {
+                'nabeel': 'letter_l_nabeel_merge_nabeel',
+                'baqqal': 'letter_l_nabeel_merge_baqqal',
+                'laban': 'letter_l_nabeel_merge_laban',
+                'rumman': 'letter_l_nabeel_merge_rumman',
+                'qaleel': 'letter_l_nabeel_merge_qaleel',
+                'qulna': 'letter_l_nabeel_merge_qulna',
+                'qala': 'letter_l_nabeel_merge_qala',
+                'baladi': 'letter_l_nabeel_merge_baladi',
+                'malabis': 'letter_l_nabeel_merge_malabis'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playLNabeelReading(verseNum) {
+            document.querySelectorAll('#view-tab-letter_l_nabeel .reading-line-card').forEach(el => el.classList.remove('active'));
+            if (verseNum === 0) {
+                mascotCelebrates();
+                playAudio('letter_l_nabeel_read_full');
+            } else {
+                const lineEl = document.getElementById('lineLNabeel' + verseNum);
+                if (lineEl) lineEl.classList.add('active');
+                playAudio('letter_l_nabeel_read_s' + verseNum);
+            }
+        }
+
+        /* سبورة رسم وتتبع حرف اللام */
+        let lNabeelIsDrawing = false;
+        let lNabeelLastX = 0;
+        let lNabeelLastY = 0;
+        let lNabeelDrawColor = '#1d4ed8';
+        let lNabeelIsEraser = false;
+
+        function setLNabeelDrawColor(color) {
+            lNabeelDrawColor = color;
+            lNabeelIsEraser = false;
+        }
+
+        function setLNabeelEraser() {
+            lNabeelIsEraser = true;
+        }
+
+        function clearLNabeelCanvas() {
+            const canvas = document.getElementById('lNabeelDrawingCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawLNabeelCanvasGuides(ctx, canvas);
+        }
+
+        function drawLNabeelCanvasGuides(ctx, canvas) {
+            ctx.save();
+            ctx.strokeStyle = '#bfdbfe';
+            ctx.lineWidth = 1.5;
+            ctx.setLineDash([6, 6]);
+
+            // خط السطر الأساسي
+            ctx.beginPath();
+            ctx.moveTo(30, canvas.height * 0.58);
+            ctx.lineTo(canvas.width - 30, canvas.height * 0.58);
+            ctx.stroke();
+
+            // رسم نموذج خفيف منقط لحرف اللام (لـ  ل)
+            ctx.font = 'bold 88px Cairo, sans-serif';
+            ctx.fillStyle = '#dbeafe';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('لـ        ل', canvas.width / 2, canvas.height * 0.52);
+
+            ctx.restore();
+        }
+
+        function initLNabeelCanvas() {
+            const canvas = document.getElementById('lNabeelDrawingCanvas');
+            if (!canvas || canvas._initialized) return;
+            canvas._initialized = true;
+            const ctx = canvas.getContext('2d');
+            drawLNabeelCanvasGuides(ctx, canvas);
+
+            function getPos(e) {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                let clientX = e.clientX;
+                let clientY = e.clientY;
+                if (e.touches && e.touches.length > 0) {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                }
+                return {
+                    x: (clientX - rect.left) * scaleX,
+                    y: (clientY - rect.top) * scaleY
+                };
+            }
+
+            function startDraw(e) {
+                e.preventDefault();
+                lNabeelIsDrawing = true;
+                const p = getPos(e);
+                lNabeelLastX = p.x;
+                lNabeelLastY = p.y;
+            }
+
+            function doDraw(e) {
+                if (!lNabeelIsDrawing) return;
+                e.preventDefault();
+                const p = getPos(e);
+                ctx.beginPath();
+                ctx.moveTo(lNabeelLastX, lNabeelLastY);
+                ctx.lineTo(p.x, p.y);
+                ctx.strokeStyle = lNabeelIsEraser ? '#f8fafc' : lNabeelDrawColor;
+                ctx.lineWidth = lNabeelIsEraser ? 24 : 8;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.stroke();
+                lNabeelLastX = p.x;
+                lNabeelLastY = p.y;
+            }
+
+            function stopDraw(e) {
+                lNabeelIsDrawing = false;
+            }
+
+            canvas.addEventListener('mousedown', startDraw);
+            canvas.addEventListener('mousemove', doDraw);
+            window.addEventListener('mouseup', stopDraw);
+
+            canvas.addEventListener('touchstart', startDraw, { passive: false });
+            canvas.addEventListener('touchmove', doDraw, { passive: false });
+            window.addEventListener('touchend', stopDraw);
+        }
+
+        function checkLNabeelQuiz(opt) {
+            const fb = document.getElementById('lNabeelQuizFeedback');
+            if (opt === 1) {
+                mascotCelebrates();
+                playAudio('letter_l_nabeel_correct');
+                if (fb) {
+                    fb.style.color = '#1d4ed8';
+                    fb.innerHTML = '🎉 أَحْسَنْتَ يَا بَطَل! كَلِمَةُ (لَـبَـن) تَبْدَأُ بِحَرْفِ اللَّام! أَنْتَ مُمْتَاز! ⭐⭐⭐';
+                }
+            } else {
+                playAudio('letter_l_nabeel_wrong');
+                if (fb) {
+                    fb.style.color = '#dc2626';
+                    fb.innerHTML = '❌ حَاوِلْ مَرَّةً أُخْرَى يَا بَطَل! ابْحَثْ عَنِ الْكَلِمَةِ الَّتِي تَسْمَعُ فِيهَا صَوْتَ (لْ)!';
+                }
+            }
+        }
+
 </script>
 
     
@@ -25098,7 +25418,454 @@
                             </div>
                         </div>
                     </div>
+                
+                <!-- =============================================
+                     الوحدة الثالثة: الدرس الخامس - حرف اللام (لـ ، ل) وقراءة (نَبِيل / نَبِيل بَقَّال) (ص ٦٥ - ٦٨)
+                     ============================================= -->
+                <div class="lesson-view" id="view-tab-letter_l_nabeel">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationLNabeel1" onclick="switchLNabeelStation(1)">
+                            <span>🛒</span> <span>١. أتعرف الحرف والمشهد (ص ٦٥ - ٦٦)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationLNabeel2" onclick="switchLNabeelStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والتمييز (ص ٦٥ - ٦٦)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationLNabeel3" onclick="switchLNabeelStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٦٦ - ٦٧)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationLNabeel4" onclick="switchLNabeelStation(4)">
+                            <span>📖</span> <span>٤. قراءة (نَبِيل بَقَّال) والرسم (ص ٦٧ - ٦٨)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-l-nabeel-station active" id="stationLNabeel1">
+                        <div style="text-align: center; margin-bottom: 14px;">
+                            <div class="giant-letter-l-nabeel-card" onclick="playLNabeelLetterSound()" title="انقر لسماع صوت حرف اللام الفونيمي النقي">
+                                <span class="giant-letter-l-nabeel-glyph">لـ  ـلـ  ـل  ل</span>
+                                <div>
+                                    <div style="font-weight: 900; font-size: 1.3rem; color: #1e3a8a;">صَوْتُ حَرْفِ اللَّامِ: ( لْ... لْ )</div>
+                                    <div style="font-size: 0.88rem; color: #2563eb;">اِضْغَطْ لِسَمَاعِ الصَّوْتِ الْفُونِيمِيِّ الْمُرَقَّقِ النَّقِيّ 🔊</div>
+                                </div>
+                            </div>
+                            <br>
+                            <button class="btn btn-teach" onclick="playLNabeelPhonemeFaseeh()" style="margin-top: 10px; background: #2563eb; padding: 8px 22px; font-size: 0.95rem;">
+                                <span>🤖</span> <span>مَخْرَجُ حَرْفِ اللَّامِ الْمُرَقَّقِ مَعَ فَصِيح</span>
+                            </button>
+                        </div>
+
+                        <!-- بطاقة مشهد دكان نبيل البقال التفاعلي -->
+                        <div class="family-listen-card" style="border-color: #3b82f6;">
+                            <div style="font-weight: 900; color: #1e3a8a; font-size: 1.2rem; margin-bottom: 8px;">
+                                🛒 نَبِيلٌ بَقَّال .. لَدَيْنَا لَبَن .. لَدَيْنَا رُمَّان .. قُلْنَا يَا نَبِيل: رُمَّانٌ وَلَبَنٌ قَلِيل (ص ٦٥ - ٦٨)
+                            </div>
+                            <img src="activity_nabeel_scene.png" alt="مشهد درس نبيل بقال وحرف اللام" style="width: 100%; max-width: 680px; border-radius: 14px; border: 2px solid #bfdbfe; margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+                                <button class="btn btn-teach" onclick="playAudio('letter_l_nabeel_scene_story')" style="background: #2563eb; padding: 10px 24px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِقِصَّةِ مَشْهَدِ دُكَّانِ نَبِيل</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playAudio('letter_l_nabeel_words_intro')" style="background: #1d4ed8; padding: 10px 24px;">
+                                    <span>🗣️</span> <span>كَلِمَاتُ اللَّامِ الْمُصَوَّرَة</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المصورة التفاعلية -->
+                        <div class="family-listen-card" style="border-color: #93c5fd; margin-top: 16px;">
+                            <div style="font-weight: 900; color: #1e3a8a; font-size: 1.15rem; margin-bottom: 12px;">
+                                🌟 بَنْكُ كَلِمَاتِ حَرْفِ اللَّامِ الْمُصَوَّرَة (انْقُرْ عَلَى أَيِّ كَلِمَةٍ لِسَمَاعِهَا):
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('nabeel')"><span>👦</span> <span>نَـبِيـل</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('baqqal')"><span>🏪</span> <span>بَـقَّـال</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('laban')"><span>🥛</span> <span>لَـبَـن</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('rumman')"><span>🍎</span> <span>رُمَّـان</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('qaleel')"><span>🤏</span> <span>قَـلِيـل</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('qulna')"><span>🗣️</span> <span>قُـلْـنَـا</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('ladayna')"><span>📦</span> <span>لَـدَيْـنَـا</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('qala')"><span>💬</span> <span>قَـالَ</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('baladi')"><span>🏡</span> <span>بَـلَـدِي</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('bayti')"><span>🏠</span> <span>بَيْـتِي</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('bustani')"><span>🌳</span> <span>بُسْـتَانِي</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('lubah')"><span>🧸</span> <span>لُـعْـبَـة</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('lisan')"><span>👅</span> <span>لِـسَـان</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('lahm')"><span>🥩</span> <span>لَـحْـم</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('kalb')"><span>🐕</span> <span>كَـلْـب</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('haleeb')"><span>🍶</span> <span>حَـلِيـب</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('quloob')"><span>❤️</span> <span>قُـلُـوب</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('ghazal')"><span>🦌</span> <span>غَـزَال</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('laib')"><span>⚽</span> <span>لَـعِـب</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('qalam')"><span>✏️</span> <span>قَـلَـم</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('limatha')"><span>❓</span> <span>لِـمَـاذَا</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('aalim')"><span>🎓</span> <span>عَـالِـم</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('fulful')"><span>🌶️</span> <span>فُـلْـفُـل</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('dalw')"><span>🪣</span> <span>دَلْـو</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('malab')"><span>🏟️</span> <span>مَـلْـعَـب</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('namlah')"><span>🐜</span> <span>نَـمْـلَـة</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('raml')"><span>🏖️</span> <span>رَمْـل</span></div>
+                                <div class="l-nabeel-word-chip" onclick="playLNabeelWord('malabis')"><span>👕</span> <span>مَـلَابِـس</span></div>
+                            </div>
+
+                            <!-- لوحة أشكال ومواضع حرف اللام -->
+                            <div style="margin-top: 18px; padding-top: 14px; border-top: 2px dashed #bfdbfe;">
+                                <div style="font-weight: 900; color: #1e40af; font-size: 1.05rem; margin-bottom: 8px;">
+                                    📌 أَشْكَالُ وَمَوَاقِعُ حَرْفِ اللَّامِ فِي الْكَلِمَة:
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div style="background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 12px; padding: 8px; text-align: center;">
+                                        <div style="font-size: 1.8rem; font-weight: 900; color: #dc2626;">لـ</div>
+                                        <div style="font-weight: 800; color: #1e3a8a;">فِي أَوَّلِ الْكَلِمَة</div>
+                                        <div style="font-size: 0.95rem; color: #475569;">لَـبَنٌ ، لِـسَانٌ ، لُـعْبَةٌ</div>
+                                    </div>
+                                    <div style="background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 12px; padding: 8px; text-align: center;">
+                                        <div style="font-size: 1.8rem; font-weight: 900; color: #dc2626;">ـلـ</div>
+                                        <div style="font-weight: 800; color: #1e3a8a;">فِي وَسَطِ الْكَلِمَة</div>
+                                        <div style="font-size: 0.95rem; color: #475569;">بَـلَـدِي ، قَـلِـيلٌ ، قَـلَـمٌ</div>
+                                    </div>
+                                    <div style="background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 12px; padding: 8px; text-align: center;">
+                                        <div style="font-size: 1.8rem; font-weight: 900; color: #dc2626;">ـل</div>
+                                        <div style="font-weight: 800; color: #1e3a8a;">فِي آخِرِ الْكَلِمَة (مُتَّصِل)</div>
+                                        <div style="font-size: 0.95rem; color: #475569;">نَبِيـلٌ ، عَمَـلٌ ، فُلْفُـلٌ</div>
+                                    </div>
+                                    <div style="background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 12px; padding: 8px; text-align: center;">
+                                        <div style="font-size: 1.8rem; font-weight: 900; color: #dc2626;">ل</div>
+                                        <div style="font-weight: 800; color: #1e3a8a;">فِي آخِرِ الْكَلِمَة (مُنْفَصِل)</div>
+                                        <div style="font-size: 0.95rem; color: #475569;">بَقَّـالٌ ، غَـزَالٌ ، رَمْـلٌ</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 14px;">
+                                <img src="activity_nabeel_words.png" alt="نشاط ١ ص ٥٩ التعرف على حرف اللام" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #bfdbfe;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود واللام الساكنة -->
+                    <div class="letter-l-nabeel-station" id="stationLNabeel2">
+                        <div class="family-listen-card" style="border-color: #2563eb;">
+                            <div style="font-size: 1.25rem; font-weight: 900; color: #1e3a8a; margin-bottom: 8px;">
+                                🎵 أَصْوَاتُ الْمُدُودِ الْقَصِيرَةِ وَالطَّوِيلَةِ وَاللَّامُ السَّاكِنَة (ص ٦٥ - ٦٦)
+                            </div>
+                            <p style="font-size: 0.95rem; color: #1e40af; margin-bottom: 14px;">
+                                اسْتَمِعْ إِلَى حَرْفِ اللَّامِ مَعَ الْحَرَكَاتِ الثَّلَاثِ (لَـ ، لُـ ، لِـ) وَحُرُوفِ الْمَدِّ (لَا ، لُو ، لِيـ)، ثُمَّ تَدَرَّبْ عَلَى اللَّامِ السَّاكِنَة:
+                            </p>
+
+                            <div style="text-align: center; margin-bottom: 12px;">
+                                <button class="btn btn-teach" onclick="playAudio('letter_l_nabeel_vowels_station')" style="background: #2563eb; padding: 10px 24px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِمَحَطَّةِ الْمُدُودِ وَالسُّكُون</span>
+                                </button>
+                            </div>
+
+                            <!-- شبكة الحركات القصيرة والمدود الطويلة -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 16px;">
+                                <!-- المدود القصيرة -->
+                                <div style="background: #eff6ff; border: 2px solid #93c5fd; border-radius: 16px; padding: 14px; text-align: center;">
+                                    <div style="font-weight: 900; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 10px;">
+                                        ⚡ الْحَرَكَاتُ الْقَصِيرَةُ (لَـ ، لُـ ، لِـ):
+                                    </div>
+                                    <div style="display: flex; justify-content: space-around; gap: 8px;">
+                                        <div class="vowel-card" onclick="playLNabeelVowel('short_a')" style="cursor: pointer; background: #ffffff; border: 2px solid #60a5fa; border-radius: 12px; padding: 8px 14px; flex: 1;">
+                                            <div style="font-size: 2rem; font-weight: 900; color: #dc2626;">لَـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #1e40af;">فَتْحَة (لَـبَن) 🔊</div>
+                                        </div>
+                                        <div class="vowel-card" onclick="playLNabeelVowel('short_u')" style="cursor: pointer; background: #ffffff; border: 2px solid #60a5fa; border-radius: 12px; padding: 8px 14px; flex: 1;">
+                                            <div style="font-size: 2rem; font-weight: 900; color: #dc2626;">لُـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #1e40af;">ضَمَّة (لُعْبَة) 🔊</div>
+                                        </div>
+                                        <div class="vowel-card" onclick="playLNabeelVowel('short_i')" style="cursor: pointer; background: #ffffff; border: 2px solid #60a5fa; border-radius: 12px; padding: 8px 14px; flex: 1;">
+                                            <div style="font-size: 2rem; font-weight: 900; color: #dc2626;">لِـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #1e40af;">كَسْرَة (لِسَان) 🔊</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- المدود الطويلة -->
+                                <div style="background: #eff6ff; border: 2px solid #93c5fd; border-radius: 16px; padding: 14px; text-align: center;">
+                                    <div style="font-weight: 900; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 10px;">
+                                        🌊 الْمُدُودُ الطَّوِيلَةُ (لَا ، لُو ، لِيـ):
+                                    </div>
+                                    <div style="display: flex; justify-content: space-around; gap: 8px;">
+                                        <div class="vowel-card" onclick="playLNabeelVowel('long_aa')" style="cursor: pointer; background: #ffffff; border: 2px solid #3b82f6; border-radius: 12px; padding: 8px 14px; flex: 1;">
+                                            <div style="font-size: 2rem; font-weight: 900; color: #2563eb;">لَا</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #1e40af;">مَدّ بِالأَلِف (بَقَّال) 🔊</div>
+                                        </div>
+                                        <div class="vowel-card" onclick="playLNabeelVowel('long_oo')" style="cursor: pointer; background: #ffffff; border: 2px solid #3b82f6; border-radius: 12px; padding: 8px 14px; flex: 1;">
+                                            <div style="font-size: 2rem; font-weight: 900; color: #2563eb;">لُو</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #1e40af;">مَدّ بِالْوَاو (قُلُوب) 🔊</div>
+                                        </div>
+                                        <div class="vowel-card" onclick="playLNabeelVowel('long_ee')" style="cursor: pointer; background: #ffffff; border: 2px solid #3b82f6; border-radius: 12px; padding: 8px 14px; flex: 1;">
+                                            <div style="font-size: 2rem; font-weight: 900; color: #2563eb;">لِيـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #1e40af;">مَدّ بِالْيَاء (نَبِيل) 🔊</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- تمييز اللام الساكنة -->
+                            <div style="background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 16px; padding: 14px; text-align: center; margin-top: 10px;">
+                                <div style="font-weight: 900; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 8px;">
+                                    🎯 تَمْيِيزُ مَقَاطِعِ اللَّامِ السَّاكِنَة (نشاط ٤ ص ٦٠):
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                    <button class="btn btn-teach" onclick="playLNabeelSyllable('mal')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>🏟️ مَـلْـعَـب ⬅️</span> <span style="font-size: 1.3rem; font-weight: 900;">مَلْـ</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelSyllable('dal')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>🪣 دَلْـو ⬅️</span> <span style="font-size: 1.3rem; font-weight: 900;">دَلْـ</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelSyllable('ful')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>🌶️ فُـلْـفُـل ⬅️</span> <span style="font-size: 1.3rem; font-weight: 900;">فُلْـ</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelSyllable('qul')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>🗣️ قُـلْـنَـا ⬅️</span> <span style="font-size: 1.3rem; font-weight: 900;">قُلْـ</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 14px;">
+                                <img src="activity_nabeel_vowels.png" alt="نشاط ٢ ص ٥٩ المدود" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #bfdbfe; margin-bottom: 10px;">
+                                <br>
+                                <img src="activity_nabeel_syllables.png" alt="نشاط ٤ ص ٦٠ اللام الساكنة" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #bfdbfe;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي -->
+                    <div class="letter-l-nabeel-station" id="stationLNabeel3">
+                        <div class="family-listen-card" style="border-color: #3b82f6;">
+                            <div style="font-size: 1.25rem; font-weight: 900; color: #1e3a8a; margin-bottom: 8px;">
+                                🧩 التَّحْلِيلُ وَالتَّرْكِيبُ الصَّوْتِيُّ لِكَلِمَاتِ الدَّرْس (ص ٦٦ - ٦٧)
+                            </div>
+                            <p style="font-size: 0.95rem; color: #1e40af; margin-bottom: 14px;">
+                                نُفَكِّكُ الْكَلِمَاتِ إِلَى مَقَاطِعَ بِالتَّصْفِيق، ثُمَّ نُرَكِّبُ الْمَقَاطِعَ لِنَبْنِيَ كَلِمَاتٍ جَدِيدَة:
+                            </p>
+
+                            <!-- قسم التحليل المقطعي -->
+                            <div style="background: #eff6ff; border: 2px solid #93c5fd; border-radius: 16px; padding: 14px; margin-bottom: 16px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                                    <div style="font-weight: 900; color: #1e3a8a; font-size: 1.1rem;">
+                                        ✂️ أَوَّلاً: تَحْلِيلُ الْكَلِمَاتِ إِلَى مَقَاطِع (نشاط ٥ ص ٦٠):
+                                    </div>
+                                    <button class="btn btn-teach" onclick="playAudio('letter_l_nabeel_analysis_intro')" style="background: #2563eb; padding: 6px 16px; font-size: 0.85rem;">
+                                        <span>🎧</span> <span>إِرْشَادَاتُ التَّحْلِيل</span>
+                                    </button>
+                                </div>
+                                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+                                    <button class="btn btn-teach" onclick="playLNabeelAnalysis('nabeel')" style="background: #1d4ed8; padding: 8px 18px;">
+                                        <span>نَبِيل = نَـ + بِيـ + ل</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelAnalysis('baqqal')" style="background: #1d4ed8; padding: 8px 18px;">
+                                        <span>بَقَّال = بَقْـ + قَا + ل</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelAnalysis('laban')" style="background: #1d4ed8; padding: 8px 18px;">
+                                        <span>لَبَن = لَـ + بَـ + ن</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelAnalysis('rumman')" style="background: #1d4ed8; padding: 8px 18px;">
+                                        <span>رُمَّان = رُمْـ + مَا + ن</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelAnalysis('qaleel')" style="background: #1d4ed8; padding: 8px 18px;">
+                                        <span>قَلِيل = قَـ + لِيـ + ل</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelAnalysis('qulna')" style="background: #1d4ed8; padding: 8px 18px;">
+                                        <span>قُلْنَا = قُلْـ + نَا</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelAnalysis('qala')" style="background: #1d4ed8; padding: 8px 18px;">
+                                        <span>قَالَ = قَا + لَ</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelAnalysis('baladi')" style="background: #1d4ed8; padding: 8px 18px;">
+                                        <span>بَلَدِي = بَـ + لَـ + دِي</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelAnalysis('namlah')" style="background: #1d4ed8; padding: 8px 18px;">
+                                        <span>نَمْلَة = نَمْـ + لَـ + ة</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelAnalysis('fulful')" style="background: #1d4ed8; padding: 8px 18px;">
+                                        <span>فُلْفُل = فُلْـ + فُـ + ل</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelAnalysis('malab')" style="background: #1d4ed8; padding: 8px 18px;">
+                                        <span>مَلْعَب = مَلْـ + عَـ + ب</span>
+                                    </button>
+                                </div>
+                                <div style="text-align: center; margin-top: 10px;">
+                                    <img src="activity_nabeel_analysis.png" alt="نشاط ٥ ص ٦٠ تحليل الكلمات" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #bfdbfe;">
+                                </div>
+                            </div>
+
+                            <!-- قسم تركيب المقاطع -->
+                            <div style="background: #eff6ff; border: 2px solid #93c5fd; border-radius: 16px; padding: 14px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                                    <div style="font-weight: 900; color: #1e3a8a; font-size: 1.1rem;">
+                                        🧱 ثَانِياً: تَرْكِيبُ الْمَقَاطِعِ لِبِنَاءِ الْكَلِمَات (نشاط ٦ ص ٦١):
+                                    </div>
+                                    <button class="btn btn-teach" onclick="playAudio('letter_l_nabeel_blend_intro')" style="background: #2563eb; padding: 6px 16px; font-size: 0.85rem;">
+                                        <span>🎧</span> <span>إِرْشَادَاتُ التَّرْكِيب</span>
+                                    </button>
+                                </div>
+                                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;">
+                                    <button class="btn btn-teach" onclick="playLNabeelBlend('nabeel')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>نَـ + بِيـ + ل ⬅️ نَبِيل</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelBlend('baqqal')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>بَقْـ + قَا + ل ⬅️ بَقَّال</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelBlend('laban')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>لَـ + بَـ + ن ⬅️ لَبَن</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelBlend('rumman')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>رُمْـ + مَا + ن ⬅️ رُمَّان</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelBlend('qaleel')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>قَـ + لِيـ + ل ⬅️ قَلِيل</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelBlend('qulna')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>قُلْـ + نَا ⬅️ قُلْنَا</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelBlend('qala')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>قَا + لَ ⬅️ قَالَ</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelBlend('baladi')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>بَـ + لَـ + دِي ⬅️ بَلَدِي</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playLNabeelBlend('malabis')" style="background: #0284c7; padding: 8px 18px;">
+                                        <span>مَـ + لَا + بِـ + سُ ⬅️ مَلَابِسُ</span>
+                                    </button>
+                                </div>
+                                <div style="text-align: center; margin-top: 10px;">
+                                    <img src="activity_nabeel_blend.png" alt="نشاط ٦ ص ٦١ تركيب الكلمات" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #bfdbfe;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: قراءة نَبِيل بَقَّال وسبورة الرسم والتحدي -->
+                    <div class="letter-l-nabeel-station" id="stationLNabeel4">
+                        <div class="family-listen-card" style="border-color: #1d4ed8; background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #1e3a8a; margin-bottom: 8px;">
+                                📜 لَوْحَةُ الْقِرَاءَةِ التُّرَاثِيَّةِ الْمُقَرَّرَةِ: نَبِيل بَقَّال (ص ٦٧ - ٦٨)
+                            </div>
+                            <p style="font-size: 0.95rem; color: #1e40af; margin-bottom: 14px;">
+                                اقْرَأْ قِرَاءَةً جَهْرِيَّةً سَلِيمَةً مَعَ نَبَرَاتِ الْمُعَلِّمَةِ وَفَصِيح؛ انْقُرْ عَلَى كُلِّ سَطْرٍ لِسَمَاعِهِ مُفْرَداً:
+                            </p>
+
+                            <!-- لوحة القراءة المصممة -->
+                            <div style="text-align: center; margin-bottom: 16px;">
+                                <img src="activity_nabeel_read.png" alt="لوحة قراءة نبيل بقال ص ٦٥ - ٦٨" style="width: 100%; max-width: 720px; border-radius: 18px; border: 3px solid #3b82f6; box-shadow: 0 8px 24px rgba(37, 99, 235, 0.15);">
+                            </div>
+
+                            <!-- بطاقات الأسطر التفاعلية -->
+                            <div style="display: flex; flex-direction: column; gap: 8px; max-width: 640px; margin: 0 auto 16px auto;">
+                                <div class="reading-line-card" id="lineLNabeel1" onclick="playLNabeelReading(1)" style="border-color: #bfdbfe;">
+                                    <span>🛒</span> <span>نَبِيل بَقَّال</span> <span>🔊</span>
+                                </div>
+                                <div class="reading-line-card" id="lineLNabeel2" onclick="playLNabeelReading(2)" style="border-color: #bfdbfe;">
+                                    <span>🗣️</span> <span>نَبِيل يَقُولُ: لَدَيْنَا لَبَن</span> <span>🔊</span>
+                                </div>
+                                <div class="reading-line-card" id="lineLNabeel3" onclick="playLNabeelReading(3)" style="border-color: #bfdbfe;">
+                                    <span>🍎</span> <span>لَدَيْنَا رُمَّان</span> <span>🔊</span>
+                                </div>
+                                <div class="reading-line-card" id="lineLNabeel4" onclick="playLNabeelReading(4)" style="border-color: #bfdbfe;">
+                                    <span>🥛</span> <span>قُلْنَا يَا نَبِيل: رُمَّانٌ وَلَبَنٌ قَلِيل</span> <span>🔊</span>
+                                </div>
+                                <div class="reading-line-card" id="lineLNabeel5" onclick="playLNabeelReading(5)" style="border-color: #93c5fd; background: #eff6ff;">
+                                    <span>🏡</span> <span>قَالَتْ نَوَال: فِي بَلَدِي بَيْتِي</span> <span>🔊</span>
+                                </div>
+                                <div class="reading-line-card" id="lineLNabeel6" onclick="playLNabeelReading(6)" style="border-color: #93c5fd; background: #eff6ff;">
+                                    <span>🌳</span> <span>قَالَتْ فَاتِن: فِي بَلَدِي بُسْتَانِي</span> <span>🔊</span>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <button class="btn btn-teach" onclick="playLNabeelReading(0)" style="background: #2563eb; padding: 12px 32px; font-size: 1.15rem;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلدَّرْسِ كَامِلاً مَعَ فَصِيح وَالْمُعَلِّمَة</span>
+                                </button>
+                            </div>
+
+                            <!-- سبورة رسم وتتبع حرف اللام -->
+                            <div style="background: #ffffff; border: 3px solid #3b82f6; border-radius: 20px; padding: 16px; margin-top: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                    <div style="font-weight: 900; color: #1e3a8a; font-size: 1.15rem;">
+                                        ✍️ سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ اللَّامِ (لـ ، ل) عَلَى السَّطْر:
+                                    </div>
+                                    <div style="display: flex; gap: 8px; align-items: center;">
+                                        <button class="btn btn-secondary" onclick="playAudio('letter_l_nabeel_draw_hint')" style="font-size: 0.85rem; padding: 6px 14px; background: #eff6ff; border-color: #3b82f6; color: #1e3a8a;">
+                                            <span>💡</span> <span>إِرْشَادَاتُ الْخَطّ</span>
+                                        </button>
+                                        <button class="btn btn-secondary" onclick="clearLNabeelCanvas()" style="font-size: 0.85rem; padding: 6px 14px;">
+                                            <span>🧹</span> <span>مَسْحُ اللَّوْح</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                                    <canvas id="lNabeelDrawingCanvas" width="620" height="240" style="background: #f8fafc; border: 2px dashed #3b82f6; border-radius: 14px; touch-action: none; cursor: crosshair;"></canvas>
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                    <span style="font-weight: 800; color: #64748b; font-size: 0.9rem;">اخْتَرْ لَوْنَ الْقَلَم:</span>
+                                    <button onclick="setLNabeelDrawColor('#1d4ed8')" style="width: 28px; height: 28px; border-radius: 50%; background: #1d4ed8; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                    <button onclick="setLNabeelDrawColor('#dc2626')" style="width: 28px; height: 28px; border-radius: 50%; background: #dc2626; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                    <button onclick="setLNabeelDrawColor('#059669')" style="width: 28px; height: 28px; border-radius: 50%; background: #059669; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                    <button onclick="setLNabeelDrawColor('#d97706')" style="width: 28px; height: 28px; border-radius: 50%; background: #d97706; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                    <button class="btn btn-secondary" onclick="setLNabeelEraser()" style="padding: 4px 12px; font-size: 0.82rem;">
+                                        <span>🧽</span> <span>مِمْحَاة</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- اختبار التحدي التفاعلي -->
+                            <div style="background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 16px; padding: 16px; margin-top: 18px; text-align: center;">
+                                <div style="font-weight: 900; color: #1e3a8a; font-size: 1.15rem; margin-bottom: 10px;">
+                                    ⭐ اخْتَبِرْ نَفْسَكَ يَا بَطَل مَعَ فَصِيح:
+                                </div>
+                                <div style="font-size: 1.05rem; font-weight: 800; color: #1e293b; margin-bottom: 12px;">
+                                    أَيُّ كَلِمَةٍ مِمَّا يَلِي فِيهَا حَرْفُ اللَّامِ (ل)؟
+                                </div>
+                                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                                    <button class="btn btn-teach" onclick="checkLNabeelQuiz(1)" style="background: #2563eb; padding: 10px 24px; font-size: 1.15rem;">
+                                        <span>🥛</span> <span>لَـبَـن</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="checkLNabeelQuiz(2)" style="background: #2563eb; padding: 10px 24px; font-size: 1.15rem;">
+                                        <span>🎺</span> <span>بُـوق</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="checkLNabeelQuiz(3)" style="background: #2563eb; padding: 10px 24px; font-size: 1.15rem;">
+                                        <span>🚪</span> <span>بَـاب</span>
+                                    </button>
+                                </div>
+                                <div id="lNabeelQuizFeedback" style="margin-top: 12px; font-weight: 900; font-size: 1.1rem; min-height: 24px;"></div>
+                            </div>
+
+                            <!-- نوافذ عرض صفحات الكتاب المدرسي -->
+                            <div style="margin-top: 24px; padding-top: 16px; border-top: 2px dashed #bfdbfe; text-align: center;">
+                                <div style="font-weight: 900; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 10px;">
+                                    📖 صَفَحَاتُ الْكِتَابِ الْمَدْرَسِيِّ الْمُعْتَمَدَةُ (انْقُرْ لِعَرْضِ الصَّفْحَةِ مُكَبَّرَة):
+                                </div>
+                                <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_65.png', 'الكتاب المدرسي - صفحة ٦٥ (أنشطة ومدخل درس نَبِيل بَقَّال)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٥</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_66.png', 'الكتاب المدرسي - صفحة ٦٦ (المدود والتحليل)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٦</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_67.png', 'الكتاب المدرسي - صفحة ٦٧ (التركيب وقراءة نَبِيل بَقَّال)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٧</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_68.png', 'الكتاب المدرسي - صفحة ٦٨ (تطبيقات القراءة والخط)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٨</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_59.png', 'كتاب الوزارة - صفحة ٥٩ (حرف اللام وصوره)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٩ (الوزارة)</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_60.png', 'كتاب الوزارة - صفحة ٦٠ (أنشطة المدود والسكون)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٠ (الوزارة)</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_61.png', 'كتاب الوزارة - صفحة ٦١ (قراءة قالت نوال في بلدي بيتي)')">
+                                        <span>📖</span> <span>صَفْحَة ٦١ (الوزارة)</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+</div>
 
                 <!-- ==============================================
 
