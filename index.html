@@ -5073,6 +5073,59 @@
             color: #15803d;
             line-height: 1;
         }
+        /* أنماط درس حرف القاف وقراءة بُوق نَدِيم (الوحدة الثالثة ص ٦١ - ٦٤) */
+        .letter-q-booq-station {
+            display: none;
+        }
+        .letter-q-booq-station.active {
+            display: block;
+        }
+        .giant-letter-q-booq-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 3px solid #f59e0b;
+            border-radius: 22px;
+            padding: 14px 32px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.15);
+        }
+        .giant-letter-q-booq-card:hover {
+            transform: scale(1.03);
+            border-color: #d97706;
+            box-shadow: 0 6px 22px rgba(217, 119, 6, 0.25);
+        }
+        .giant-letter-q-booq-glyph {
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: #b45309;
+            line-height: 1;
+            letter-spacing: 4px;
+        }
+        .q-booq-word-chip {
+            background: #ffffff;
+            border: 2px solid #fde68a;
+            border-radius: 16px;
+            padding: 10px 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #92400e;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .q-booq-word-chip:hover {
+            transform: translateY(-2px);
+            border-color: #f59e0b;
+            background: #fffbeb;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.15);
+        }
+
 </style>
 
 </head>
@@ -5103,7 +5156,7 @@
 
                         <span>قراءتي التفاعلية الذكية</span>
 
-                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="إصدار المنصة المحدث: إطلاق الوحدة الثالثة: حرف الفاء (فـ ، ف) وقراءة (رِيفِ مَنَاف) ص ٥٧ - ٦٠">v3.8</span>
+                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="إصدار المنصة المحدث: إطلاق الوحدة الثالثة: حرف القاف (قـ ، ق) وقراءة (بُوق / بُوق نَدِيم) ص ٦١ - ٦٤">v3.9</span>
 
                     </div>
 
@@ -16780,6 +16833,9 @@
             } else if (lesson.id === 'tab-letter_ta') {
                 mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الطَّاءِ (طـ ، ط) وَقِرَاءَةُ (بَطّ) (ص ٥٣ - ٥٦)! اِسْتَمِعُوا لِصَوْتِ حَرْفِ الطَّاءِ الْمُفَخَّمِ، وَتَعَرَّفُوا عَلَى الْمَدِّ الْقَصِيرِ وَالطَّوِيلِ وَالْمَقَاطِعِ السَّاكِنَةِ، وَاقْرَؤُوا قِرَاءَةَ (بَطّ وَطُيُور) وَتَدَرَّبُوا عَلَى كِتَابَةِ الْحَرْفِ!', 'letter_ta_intro');
                 setTimeout(initTaCanvas, 200);
+            } else if (lesson.id === 'tab-letter_q_booq') {
+                mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الْقَافِ (قـ ، ق) وَقِرَاءَةُ (بُوقِ نَدِيم) (ص ٦١ - ٦٤)! اِسْتَمِعُوا لِصَوْتِ حَرْفِ الْقَافِ الْمُفَخَّمِ النَّقِيّ، وَتَعَرَّفُوا عَلَى الْمَدِّ الْقَصِيرِ وَالطَّوِيلِ وَالْمَقَاطِعِ وَاقْرَأُوا مَعَ نَدِيم!', 'letter_q_booq_intro');
+                switchQBooqStation(1);
             } else if (lesson.id === 'tab-letter_f_reef') {
                 mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الْفَاءِ (فـ ، ف) وَقِرَاءَةُ (رِيفِ مَنَاف) (ص ٥٧ - ٦٠)! اِسْتَمِعُوا لِصَوْتِ حَرْفِ الْفَاءِ النَّقِيِّ، وَتَعَرَّفُوا عَلَى الْمَدِّ الْقَصِيرِ وَالطَّوِيلِ وَالْمَقَاطِعِ السَّاكِنَةِ، وَاقْرَؤُوا قِرَاءَةَ (رِيفُ مَنَاف) وَتَدَرَّبُوا عَلَى كِتَابَةِ الْحَرْفِ!', 'letter_f_reef_intro');
                 setTimeout(initFReefCanvas, 500);
@@ -24394,9 +24450,657 @@
             }
         }
 
+
+        /* ====================================================
+           دوال درس حرف القاف وقراءة بُوق نَدِيم (الوحدة الثالثة ص ٦١ - ٦٤)
+           ==================================================== */
+        function switchQBooqStation(stationNum) {
+            document.querySelectorAll('#view-tab-letter_q_booq .station-tab').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('#view-tab-letter_q_booq .letter-q-booq-station').forEach(el => el.classList.remove('active'));
+
+            const targetStation = document.getElementById('stationQBooq' + stationNum);
+            const targetBtn = document.getElementById('btnStationQBooq' + stationNum);
+
+            if (targetStation) targetStation.classList.add('active');
+            if (targetBtn) targetBtn.classList.add('active');
+
+            if (stationNum === 1) {
+                mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الْقَافِ (قـ ، ق) وَقِرَاءَةُ بُوقِ نَدِيم (ص ٦١ - ٦٤)! اِسْتَمِعُوا لِصَوْتِ الْقَافِ الْمُفَخَّمِ وَزُورُوا نَدِيمَ وَالأَبْقَارَ فِي الْمَرْعَى!', 'letter_q_booq_intro');
+            } else if (stationNum === 2) {
+                mascotSpeak('أَصْوَاتُ الْمُدُودِ وَتَمْيِيزُ الْقَافِ السَّاكِنَة! قَارِنْ بَيْنَ قَـ قُـ قِـ وَ قَا قُو قِيـ، وَمَيِّزْ مَقَاطِعَ: صَقْـ ، حَقْـ ، عَقْـ ، سَقْـ!', 'letter_q_booq_vowels_station');
+            } else if (stationNum === 3) {
+                mascotSpeak('الْتَّحْلِيلُ وَالتَّرْكِيبُ الصَّوْتِيّ! فَكِّكْ كَلِمَاتِ (بُوق ، نَدِيم ، قَدِيم ، يَقُود ، بَقَر) بِالتَّصْفِيق، وَرَكِّبِ الْمَقَاطِعَ لِتَكْوِينِ كَلِمَاتٍ جَدِيدَة!', 'letter_q_booq_analysis_intro');
+            } else if (stationNum === 4) {
+                mascotSpeak('قِرَاءَةُ (بُوقُ نَدِيم) وَالرَّسْم! اقْرَأْ قِرَاءَةً جَهْرِيَّةً سَلِيمَةً سَطْراً بِسَطْر وَتَدَرَّبْ عَلَى كِتَابَةِ حَرْفِ الْقَافِ عَلَى السَّبُّورَةِ التَّفَاعُلِيَّة!', 'letter_q_booq_read_intro');
+                setTimeout(initQBooqCanvas, 100);
+            }
+        }
+
+        function playQBooqLetterSound() {
+            mascotCelebrates();
+            playAudio('letter_q_booq_sound');
+        }
+
+        function playQBooqPhonemeFaseeh() {
+            mascotCelebrates();
+            playAudio('letter_q_booq_phoneme_faseeh');
+        }
+
+        function playQBooqWord(word) {
+            mascotCelebrates();
+            const map = {
+                'booq': 'letter_q_booq_word_booq',
+                'nadeem': 'letter_q_booq_word_nadeem',
+                'qadeem': 'letter_q_booq_word_qadeem',
+                'yaqood': 'letter_q_booq_word_yaqood',
+                'baqar': 'letter_q_booq_word_baqar',
+                'qareeb': 'letter_q_booq_word_qareeb',
+                'qalam': 'letter_q_booq_word_qalam',
+                'qubbaah': 'letter_q_booq_word_qubbaah',
+                'qirsh': 'letter_q_booq_word_qirsh',
+                'batreeq': 'letter_q_booq_word_batreeq',
+                'saqr': 'letter_q_booq_word_saqr',
+                'qaarib': 'letter_q_booq_word_qaarib',
+                'nuqood': 'letter_q_booq_word_nuqood',
+                'daqeeq': 'letter_q_booq_word_daqeeq',
+                'burtuqaal': 'letter_q_booq_word_burtuqaal',
+                'qitt': 'letter_q_booq_word_qitt'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playQBooqVowel(vowel) {
+            mascotCelebrates();
+            const map = {
+                'short_a': 'letter_q_booq_short_a',
+                'short_u': 'letter_q_booq_short_u',
+                'short_i': 'letter_q_booq_short_i',
+                'long_aa': 'letter_q_booq_long_aa',
+                'long_oo': 'letter_q_booq_long_oo',
+                'long_ee': 'letter_q_booq_long_ee'
+            };
+            if (map[vowel]) playAudio(map[vowel]);
+        }
+
+        function playQBooqSyllable(syl) {
+            mascotCelebrates();
+            const map = {
+                'saq': 'letter_q_booq_syl_saq',
+                'haq': 'letter_q_booq_syl_haq',
+                'aq': 'letter_q_booq_syl_aq',
+                'saq2': 'letter_q_booq_syl_saq2'
+            };
+            if (map[syl]) playAudio(map[syl]);
+        }
+
+        function playQBooqAnalysis(word) {
+            mascotCelebrates();
+            const map = {
+                'booq': 'letter_q_booq_split_booq',
+                'nadeem': 'letter_q_booq_split_nadeem',
+                'qadeem': 'letter_q_booq_split_qadeem',
+                'yaqood': 'letter_q_booq_split_yaqood',
+                'baqar': 'letter_q_booq_split_baqar',
+                'saqf': 'letter_q_booq_split_saqf',
+                'minqaar': 'letter_q_booq_split_minqaar'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playQBooqBlend(word) {
+            mascotCelebrates();
+            const map = {
+                'booq': 'letter_q_booq_merge_booq',
+                'nadeem': 'letter_q_booq_merge_nadeem',
+                'qadeem': 'letter_q_booq_merge_qadeem',
+                'yaqood': 'letter_q_booq_merge_yaqood',
+                'baqar': 'letter_q_booq_merge_baqar',
+                'qaarib': 'letter_q_booq_merge_qaarib',
+                'naqeeb': 'letter_q_booq_merge_naqeeb',
+                'qaadim': 'letter_q_booq_merge_qaadim'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playQBooqReading(verseNum) {
+            mascotCelebrates();
+            document.querySelectorAll('#view-tab-letter_q_booq .reading-line-card').forEach(el => el.classList.remove('active'));
+            if (verseNum === 0) {
+                playAudio('letter_q_booq_read_full');
+            } else {
+                const lineEl = document.getElementById('lineQBooq' + verseNum);
+                if (lineEl) lineEl.classList.add('active');
+                playAudio('letter_q_booq_read_s' + verseNum);
+            }
+        }
+
+        /* سبورة رسم وتتبع حرف القاف */
+        let qBooqIsDrawing = false;
+        let qBooqLastX = 0;
+        let qBooqLastY = 0;
+        let qBooqDrawColor = '#b45309';
+        let qBooqIsEraser = false;
+
+        function setQBooqDrawColor(color) {
+            qBooqDrawColor = color;
+            qBooqIsEraser = false;
+        }
+
+        function setQBooqEraser() {
+            qBooqIsEraser = true;
+        }
+
+        function clearQBooqCanvas() {
+            const canvas = document.getElementById('qBooqDrawingCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawQBooqCanvasGuides(ctx, canvas);
+        }
+
+        function drawQBooqCanvasGuides(ctx, canvas) {
+            ctx.save();
+            ctx.strokeStyle = '#fde68a';
+            ctx.lineWidth = 1.5;
+            ctx.setLineDash([6, 6]);
+
+            // خط السطر الأساسي
+            ctx.beginPath();
+            ctx.moveTo(30, canvas.height * 0.58);
+            ctx.lineTo(canvas.width - 30, canvas.height * 0.58);
+            ctx.stroke();
+
+            // رسم نموذج خفيف منقط لحرف القاف (قـ  ق)
+            ctx.font = 'bold 88px Cairo, sans-serif';
+            ctx.fillStyle = '#fef08a';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('قـ        ق', canvas.width / 2, canvas.height * 0.52);
+
+            ctx.restore();
+        }
+
+        function initQBooqCanvas() {
+            const canvas = document.getElementById('qBooqDrawingCanvas');
+            if (!canvas || canvas._initialized) return;
+            canvas._initialized = true;
+            const ctx = canvas.getContext('2d');
+            drawQBooqCanvasGuides(ctx, canvas);
+
+            function getPos(e) {
+                const rect = canvas.getBoundingClientRect();
+                const scaleX = canvas.width / rect.width;
+                const scaleY = canvas.height / rect.height;
+                let clientX = e.clientX;
+                let clientY = e.clientY;
+                if (e.touches && e.touches.length > 0) {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                }
+                return {
+                    x: (clientX - rect.left) * scaleX,
+                    y: (clientY - rect.top) * scaleY
+                };
+            }
+
+            function startDraw(e) {
+                e.preventDefault();
+                qBooqIsDrawing = true;
+                const p = getPos(e);
+                qBooqLastX = p.x;
+                qBooqLastY = p.y;
+            }
+
+            function doDraw(e) {
+                if (!qBooqIsDrawing) return;
+                e.preventDefault();
+                const p = getPos(e);
+                ctx.beginPath();
+                ctx.moveTo(qBooqLastX, qBooqLastY);
+                ctx.lineTo(p.x, p.y);
+                ctx.strokeStyle = qBooqIsEraser ? '#fffdfa' : qBooqDrawColor;
+                ctx.lineWidth = qBooqIsEraser ? 24 : 8;
+                ctx.lineCap = 'round';
+                ctx.lineJoin = 'round';
+                ctx.stroke();
+                qBooqLastX = p.x;
+                qBooqLastY = p.y;
+            }
+
+            function stopDraw(e) {
+                qBooqIsDrawing = false;
+            }
+
+            canvas.addEventListener('mousedown', startDraw);
+            canvas.addEventListener('mousemove', doDraw);
+            window.addEventListener('mouseup', stopDraw);
+
+            canvas.addEventListener('touchstart', startDraw, { passive: false });
+            canvas.addEventListener('touchmove', doDraw, { passive: false });
+            window.addEventListener('touchend', stopDraw);
+        }
+
+        function checkQBooqQuiz(opt) {
+            const fb = document.getElementById('qBooqQuizFeedback');
+            if (opt === 1) {
+                mascotCelebrates();
+                playAudio('letter_q_booq_correct');
+                if (fb) {
+                    fb.style.color = '#b45309';
+                    fb.innerHTML = '🎉 أَحْسَنْتَ يَا بَطَل! كَلِمَةُ (بُـوق) تَنْتَهِي بِحَرْفِ الْقَاف! أَنْتَ مُمْتَاز! ⭐⭐⭐';
+                }
+            } else {
+                playAudio('letter_q_booq_wrong');
+                if (fb) {
+                    fb.style.color = '#dc2626';
+                    fb.innerHTML = '❌ حَاوِلْ مَرَّةً أُخْرَى يَا بَطَل! ابْحَثْ عَنِ الْكَلِمَةِ الَّتِي تَسْمَعُ فِيهَا صَوْتَ (قْ)!';
+                }
+            }
+        }
+
 </script>
 
-    <!-- ==============================================
+    
+                <!-- =============================================
+                     الوحدة الثالثة: الدرس الرابع - حرف القاف (قـ ، ق) وقراءة (بُوق / بُوق نَدِيم) (ص ٦١ - ٦٤)
+                     ============================================= -->
+                <div class="lesson-view" id="view-tab-letter_q_booq">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationQBooq1" onclick="switchQBooqStation(1)">
+                            <span>🎺</span> <span>١. أتعرف الحرف والمشهد (ص ٦١ - ٦٢)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationQBooq2" onclick="switchQBooqStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والتمييز (ص ٦١ - ٦٢)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationQBooq3" onclick="switchQBooqStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٦٢ - ٦٣)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationQBooq4" onclick="switchQBooqStation(4)">
+                            <span>📖</span> <span>٤. قراءة (بُوقُ نَدِيم) والرسم (ص ٦٣ - ٦٤)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-q-booq-station active" id="stationQBooq1">
+                        <div style="text-align: center; margin-bottom: 14px;">
+                            <div class="giant-letter-q-booq-card" onclick="playQBooqLetterSound()" title="انقر لسماع صوت حرف القاف الفونيمي النقي">
+                                <span class="giant-letter-q-booq-glyph">قـ  ـقـ  ق</span>
+                                <div>
+                                    <div style="font-weight: 900; font-size: 1.3rem; color: #92400e;">صَوْتُ حَرْفِ الْقَافِ: ( قْ... قْ )</div>
+                                    <div style="font-size: 0.88rem; color: #b45309;">اِضْغَطْ لِسَمَاعِ الصَّوْتِ الْفُونِيمِيِّ الْمُفَخَّمِ النَّقِيّ 🔊</div>
+                                </div>
+                            </div>
+                            <br>
+                            <button class="btn btn-teach" onclick="playQBooqPhonemeFaseeh()" style="margin-top: 10px; background: #b45309; padding: 8px 22px; font-size: 0.95rem;">
+                                <span>🤖</span> <span>مَخْرَجُ حَرْفِ الْقَافِ الْمُفَخَّمِ مَعَ فَصِيح</span>
+                            </button>
+                        </div>
+
+                        <!-- بطاقة مشهد بُوق نديم التفاعلي -->
+                        <div class="family-listen-card" style="border-color: #f59e0b;">
+                            <div style="font-weight: 900; color: #92400e; font-size: 1.2rem; margin-bottom: 8px;">
+                                🎺 بُوقُ نَدِيمٍ قَدِيم .. نَدِيمٌ يَقُودُ بَقَرَ بَدْرَان .. بَقَرُ بَدْرَانَ قَرِيب (ص ٦١ - ٦٤)
+                            </div>
+                            <img src="activity_booq_scene.png" alt="مشهد درس بوق نديم وحرف القاف" style="width: 100%; max-width: 680px; border-radius: 14px; border: 2px solid #fde68a; margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+                                <button class="btn btn-teach" onclick="playAudio('letter_q_booq_scene_story')" style="background: #d97706; padding: 10px 24px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِقِصَّةِ مَشْهَدِ بُوقِ نَدِيم</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playAudio('letter_q_booq_words_intro')" style="background: #b45309; padding: 10px 24px;">
+                                    <span>🗣️</span> <span>كَلِمَاتُ الْقَافِ الْمُصَوَّرَة</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المصورة التفاعلية لحرف القاف -->
+                        <div class="family-listen-card" style="border-color: #f59e0b; margin-top: 16px;">
+                            <div style="font-weight: 900; color: #92400e; font-size: 1.15rem; margin-bottom: 12px;">
+                                🗂️ شَبَكَةُ كَلِمَاتِ حَرْفِ الْقَافِ (انْقُرْ عَلَى أَيِّ كَلِمَةٍ لِسَمَاعِ نُطْقِهَا الْفَصِيح):
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('booq')"><span>🎺</span> <span>بُـوق</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('nadeem')"><span>👦</span> <span>نَـدِيـم</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('qadeem')"><span>⏳</span> <span>قَـدِيـم</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('yaqood')"><span>🐂</span> <span>يَـقُـود</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('baqar')"><span>🐄</span> <span>بَـقَـر</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('qareeb')"><span>📍</span> <span>قَـرِيـب</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('qalam')"><span>✏️</span> <span>قَـلَـم</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('qubbaah')"><span>🧢</span> <span>قُـبَّـعَـة</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('qirsh')"><span>🦈</span> <span>قِـرْش</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('batreeq')"><span>🐧</span> <span>بِـطْـرِيـق</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('saqr')"><span>🦅</span> <span>صَـقْـر</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('qaarib')"><span>⛵</span> <span>قَـارِب</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('nuqood')"><span>💵</span> <span>نُـقُـود</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('daqeeq')"><span>🌾</span> <span>دَقِـيـق</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('burtuqaal')"><span>🍊</span> <span>بُـرْتُـقَـال</span></div>
+                                <div class="q-booq-word-chip" onclick="playQBooqWord('qitt')"><span>🐱</span> <span>قِـطّ</span></div>
+                            </div>
+
+                            <!-- لوحة أشكال ومواضع حرف القاف -->
+                            <div style="margin-top: 18px; padding-top: 14px; border-top: 2px dashed #fde68a;">
+                                <div style="font-weight: 900; color: #b45309; font-size: 1.05rem; margin-bottom: 8px;">
+                                    📌 أَشْكَالُ وَمَوَاقِعُ حَرْفِ الْقَافِ فِي الْكَلِمَة:
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 12px; padding: 8px; text-align: center;">
+                                        <div style="font-size: 1.8rem; font-weight: 900; color: #dc2626;">قـ</div>
+                                        <div style="font-weight: 800; color: #92400e;">فِي أَوَّلِ الْكَلِمَة</div>
+                                        <div style="font-size: 0.95rem; color: #475569;">قَـلَمٌ ، قَـارِبٌ ، قَـدِيمٌ</div>
+                                    </div>
+                                    <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 12px; padding: 8px; text-align: center;">
+                                        <div style="font-size: 1.8rem; font-weight: 900; color: #dc2626;">ـقـ</div>
+                                        <div style="font-weight: 800; color: #92400e;">فِي وَسَطِ الْكَلِمَة</div>
+                                        <div style="font-size: 0.95rem; color: #475569;">يَـقُـودُ ، بَـقَـرٌ ، صَـقْـرٌ</div>
+                                    </div>
+                                    <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 12px; padding: 8px; text-align: center;">
+                                        <div style="font-size: 1.8rem; font-weight: 900; color: #dc2626;">ـق</div>
+                                        <div style="font-weight: 800; color: #92400e;">فِي آخِرِ الْكَلِمَة (مُتَّصِل)</div>
+                                        <div style="font-size: 0.95rem; color: #475569;">دَقِيـقٌ ، بِطْرِيـقٌ</div>
+                                    </div>
+                                    <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 12px; padding: 8px; text-align: center;">
+                                        <div style="font-size: 1.8rem; font-weight: 900; color: #dc2626;">ق</div>
+                                        <div style="font-weight: 800; color: #92400e;">فِي آخِرِ الْكَلِمَة (مُنْفَصِل)</div>
+                                        <div style="font-size: 0.95rem; color: #475569;">بُـوقٌ ، سُـوقٌ</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- استعراض لوحة أنشطة الكتاب المدرسي ص ٥٦ -->
+                            <div style="margin-top: 16px; text-align: center;">
+                                <img src="activity_booq_words.png" alt="أنشطة حرف القاف ص ٥٦" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #fde68a;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود والتمييز الصوتي -->
+                    <div class="letter-q-booq-station" id="stationQBooq2">
+                        <div class="family-listen-card" style="border-color: #f59e0b;">
+                            <div style="font-weight: 900; color: #92400e; font-size: 1.2rem; margin-bottom: 8px;">
+                                🎵 أَصْوَاتُ حَرْفِ الْقَافِ مَعَ حَرَكَاتِ الْمَدِّ الْقَصِيرَةِ وَالْمَدِّ الطَّوِيلِ (ص ٦١ - ٦٢)
+                            </div>
+                            <p style="font-size: 0.95rem; color: #78350f; margin-bottom: 12px;">
+                                اسْتَمِعْ إِلَى الْفَرْقِ بَيْنَ الصَّوْتِ الْقَصِيرِ بِالْحَرَكَةِ (فَتْحَة، ضَمَّة، كَسْرَة) وَالصَّوْتِ الطَّوِيلِ بِحُرُوفِ الْمَدِّ (ا ، و ، يـ):
+                            </p>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 14px;">
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 12px; text-align: center;">
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #b45309; margin-bottom: 6px;">الْفَتْحَة ↔️ مَدُّ الأَلِف</div>
+                                    <div style="display: flex; justify-content: center; gap: 10px;">
+                                        <button class="btn btn-teach" onclick="playQBooqVowel('short_a')" style="background: #d97706; padding: 6px 16px; font-size: 1.1rem;">
+                                            <span>قَـ</span>
+                                        </button>
+                                        <button class="btn btn-teach" onclick="playQBooqVowel('long_aa')" style="background: #b45309; padding: 6px 16px; font-size: 1.1rem;">
+                                            <span>قَا</span>
+                                        </button>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: #64748b; margin-top: 6px;">مِثَال: قَـلَم / قَـارِب</div>
+                                </div>
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 12px; text-align: center;">
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #b45309; margin-bottom: 6px;">الضَّمَّة ↔️ مَدُّ الْوَاو</div>
+                                    <div style="display: flex; justify-content: center; gap: 10px;">
+                                        <button class="btn btn-teach" onclick="playQBooqVowel('short_u')" style="background: #d97706; padding: 6px 16px; font-size: 1.1rem;">
+                                            <span>قُـ</span>
+                                        </button>
+                                        <button class="btn btn-teach" onclick="playQBooqVowel('long_oo')" style="background: #b45309; padding: 6px 16px; font-size: 1.1rem;">
+                                            <span>قُو</span>
+                                        </button>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: #64748b; margin-top: 6px;">مِثَال: قُـطْن / بُـوق</div>
+                                </div>
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 12px; text-align: center;">
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #b45309; margin-bottom: 6px;">الْكَسْرَة ↔️ مَدُّ الْيَاء</div>
+                                    <div style="display: flex; justify-content: center; gap: 10px;">
+                                        <button class="btn btn-teach" onclick="playQBooqVowel('short_i')" style="background: #d97706; padding: 6px 16px; font-size: 1.1rem;">
+                                            <span>قِـ</span>
+                                        </button>
+                                        <button class="btn btn-teach" onclick="playQBooqVowel('long_ee')" style="background: #b45309; padding: 6px 16px; font-size: 1.1rem;">
+                                            <span>قِيـ</span>
+                                        </button>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: #64748b; margin-top: 6px;">مِثَال: قِـصَّة / حَقِـيبَة</div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 14px;">
+                                <img src="activity_booq_vowels.png" alt="أنشطة المدود ص ٥٦" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #fde68a;">
+                            </div>
+
+                            <!-- تمييز المقاطع الساكنة -->
+                            <div style="padding-top: 14px; border-top: 2px dashed #fde68a;">
+                                <div style="font-weight: 900; color: #92400e; font-size: 1.15rem; margin-bottom: 8px;">
+                                    ✊ تَمْيِيزُ صَوْتِ الْقَافِ السَّاكِنَةِ فِي الْمَقَاطِعِ (نشاط ٤ ص ٥٧):
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                    <button class="btn btn-teach" onclick="playQBooqSyllable('saq')" style="background: #b45309; padding: 8px 20px; font-size: 1.15rem;">
+                                        <span>صَـقْـ 🦅 (صَقْر)</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqSyllable('haq')" style="background: #b45309; padding: 8px 20px; font-size: 1.15rem;">
+                                        <span>حَـقْـ 🌾 (حَقْل)</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqSyllable('aq')" style="background: #b45309; padding: 8px 20px; font-size: 1.15rem;">
+                                        <span>عَـقْـ 🦂 (عَقْرَب)</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqSyllable('saq2')" style="background: #b45309; padding: 8px 20px; font-size: 1.15rem;">
+                                        <span>سَـقْـ 🏠 (سَقْف)</span>
+                                    </button>
+                                </div>
+                                <div style="text-align: center; margin-top: 12px;">
+                                    <img src="activity_booq_syllables.png" alt="أنشطة القاف الساكنة ص ٥٧" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #fde68a;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي -->
+                    <div class="letter-q-booq-station" id="stationQBooq3">
+                        <div class="family-listen-card" style="border-color: #ea580c;">
+                            <div style="font-weight: 900; color: #c2410c; font-size: 1.25rem; margin-bottom: 8px;">
+                                🧩 تَحْلِيلُ وَتَرْكِيبُ كَلِمَاتِ حَرْفِ الْقَافِ وَبُوقِ نَدِيمٍ (ص ٦٢ - ٦٣)
+                            </div>
+                            <p style="font-size: 0.95rem; color: #7c2d12; margin-bottom: 12px;">
+                                وَرْشَةُ التَّفْكِيكِ الْمَقْطَعِيِّ بِالتَّصْفِيق 👏 ثُمَّ إِعَادَةُ الْبِنَاءِ وَالتَّرْكِيبِ لِتَكْوِينِ كَلِمَاتٍ مُتَقَنَة:
+                            </p>
+
+                            <!-- قسم التحليل -->
+                            <div style="background: #fff7ed; border: 2px solid #fed7aa; border-radius: 16px; padding: 14px; margin-bottom: 14px;">
+                                <div style="font-weight: 900; color: #9a3412; font-size: 1.1rem; margin-bottom: 8px;">
+                                    ✂️ أَوْلاً: تَحْلِيلُ الْكَلِمَاتِ إِلَى مَقَاطِعِهَا الصَّوْتِيَّة:
+                                </div>
+                                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                    <button class="btn btn-teach" onclick="playQBooqAnalysis('booq')" style="background: #ea580c; padding: 8px 18px;">
+                                        <span>بُوق = بُو + ق</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqAnalysis('nadeem')" style="background: #ea580c; padding: 8px 18px;">
+                                        <span>نَدِيم = نَـ + دِيـ + م</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqAnalysis('qadeem')" style="background: #ea580c; padding: 8px 18px;">
+                                        <span>قَدِيم = قَـ + دِيـ + م</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqAnalysis('yaqood')" style="background: #ea580c; padding: 8px 18px;">
+                                        <span>يَقُود = يَـ + قُو + د</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqAnalysis('baqar')" style="background: #ea580c; padding: 8px 18px;">
+                                        <span>بَقَر = بَـ + قَـ + ر</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqAnalysis('saqf')" style="background: #ea580c; padding: 8px 18px;">
+                                        <span>سَقْف = سَقْـ + ف</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqAnalysis('minqaar')" style="background: #ea580c; padding: 8px 18px;">
+                                        <span>مِنْقَار = مِنْـ + قَا + ر</span>
+                                    </button>
+                                </div>
+                                <div style="text-align: center; margin-top: 10px;">
+                                    <img src="activity_booq_analysis.png" alt="نشاط ٥ ص ٥٧ تحليل الكلمات" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #fed7aa;">
+                                </div>
+                            </div>
+
+                            <!-- قسم التركيب -->
+                            <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px;">
+                                <div style="font-weight: 900; color: #92400e; font-size: 1.1rem; margin-bottom: 8px;">
+                                    🧩 ثَانِياً: تَرْكِيبُ الْمَقَاطِعِ لِتَكْوِينِ كَلِمَاتٍ مُفِيدَة:
+                                </div>
+                                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                    <button class="btn btn-teach" onclick="playQBooqBlend('booq')" style="background: #d97706; padding: 8px 18px;">
+                                        <span>بُو + ق ⬅️ بُوق</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqBlend('nadeem')" style="background: #d97706; padding: 8px 18px;">
+                                        <span>نَـ + دِيـ + م ⬅️ نَدِيم</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqBlend('qadeem')" style="background: #d97706; padding: 8px 18px;">
+                                        <span>قَـ + دِيـ + م ⬅️ قَدِيم</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqBlend('yaqood')" style="background: #d97706; padding: 8px 18px;">
+                                        <span>يَـ + قُو + د ⬅️ يَقُود</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqBlend('baqar')" style="background: #d97706; padding: 8px 18px;">
+                                        <span>بَـ + قَـ + ر ⬅️ بَقَر</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqBlend('qaarib')" style="background: #d97706; padding: 8px 18px;">
+                                        <span>قَا + رِ + ب ⬅️ قَارِب</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqBlend('naqeeb')" style="background: #d97706; padding: 8px 18px;">
+                                        <span>نَـ + قِيـ + ب ⬅️ نَقِيب</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="playQBooqBlend('qaadim')" style="background: #d97706; padding: 8px 18px;">
+                                        <span>قَا + دِ + م ⬅️ قَادِم</span>
+                                    </button>
+                                </div>
+                                <div style="text-align: center; margin-top: 10px;">
+                                    <img src="activity_booq_blend.png" alt="نشاط ٦ ص ٥٨ تركيب الكلمات" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #fde68a;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: قراءة بُوق نَدِيم وسبورة الرسم والتحدي -->
+                    <div class="letter-q-booq-station" id="stationQBooq4">
+                        <div class="family-listen-card" style="border-color: #b45309; background: linear-gradient(135deg, #fffdfa 0%, #fef3c7 100%);">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #92400e; margin-bottom: 8px;">
+                                📜 لَوْحَةُ الْقِرَاءَةِ التُّرَاثِيَّةِ الْمُقَرَّرَةِ: بُوقُ نَدِيم (ص ٦٣ - ٦٤)
+                            </div>
+                            <p style="font-size: 0.95rem; color: #78350f; margin-bottom: 14px;">
+                                اقْرَأْ قِرَاءَةً جَهْرِيَّةً سَلِيمَةً مَعَ نَبَرَاتِ الْمُعَلِّمَةِ وَفَصِيح؛ انْقُرْ عَلَى كُلِّ سَطْرٍ لِسَمَاعِهِ مُفْرَداً:
+                            </p>
+
+                            <!-- لوحة القراءة المصممة -->
+                            <div style="text-align: center; margin-bottom: 16px;">
+                                <img src="activity_booq_read.png" alt="لوحة قراءة بوق نديم ص ٦١ - ٦٤" style="width: 100%; max-width: 720px; border-radius: 18px; border: 3px solid #f59e0b; box-shadow: 0 8px 24px rgba(217, 119, 6, 0.15);">
+                            </div>
+
+                            <!-- بطاقات الأسطر التفاعلية -->
+                            <div style="display: flex; flex-direction: column; gap: 8px; max-width: 640px; margin: 0 auto 16px auto;">
+                                <div class="reading-line-card" id="lineQBooq1" onclick="playQBooqReading(1)" style="border-color: #fde68a;">
+                                    <span>🎺</span> <span>بُوقُ نَدِيم</span> <span>🔊</span>
+                                </div>
+                                <div class="reading-line-card" id="lineQBooq2" onclick="playQBooqReading(2)" style="border-color: #fde68a;">
+                                    <span>⏳</span> <span>بُوقُ نَدِيمٍ قَدِيم</span> <span>🔊</span>
+                                </div>
+                                <div class="reading-line-card" id="lineQBooq3" onclick="playQBooqReading(3)" style="border-color: #fde68a;">
+                                    <span>🐂</span> <span>نَدِيمٌ يَقُودُ بَقَرَ بَدْرَان</span> <span>🔊</span>
+                                </div>
+                                <div class="reading-line-card" id="lineQBooq4" onclick="playQBooqReading(4)" style="border-color: #fde68a;">
+                                    <span>🐄</span> <span>بَقَرُ بَدْرَانَ قَرِيب</span> <span>🔊</span>
+                                </div>
+                                <div class="reading-line-card" id="lineQBooq5" onclick="playQBooqReading(5)" style="border-color: #fed7aa; background: #fff7ed;">
+                                    <span>🏡</span> <span>قُرْبَ مَدِينَتِنَا قَرْيَةُ رَوَان</span> <span>🔊</span>
+                                </div>
+                                <div class="reading-line-card" id="lineQBooq6" onclick="playQBooqReading(6)" style="border-color: #fed7aa; background: #fff7ed;">
+                                    <span>🛒</span> <span>فِي قَرْيَةِ رَوَان بُسْتَانُ فَاتِن وَسُوق</span> <span>🔊</span>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <button class="btn btn-teach" onclick="playQBooqReading(0)" style="background: #b45309; padding: 12px 32px; font-size: 1.15rem;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلدَّرْسِ كَامِلاً مَعَ فَصِيح وَالْمُعَلِّمَة</span>
+                                </button>
+                            </div>
+
+                            <!-- سبورة رسم وتتبع حرف القاف -->
+                            <div style="background: #ffffff; border: 3px solid #f59e0b; border-radius: 20px; padding: 16px; margin-top: 20px; box-shadow: 0 4px 16px rgba(0,0,0,0.06);">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                    <div style="font-weight: 900; color: #92400e; font-size: 1.15rem;">
+                                        ✍️ سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الْقَافِ (قـ ، ق) عَلَى السَّطْر:
+                                    </div>
+                                    <div style="display: flex; gap: 8px; align-items: center;">
+                                        <button class="btn btn-secondary" onclick="playAudio('letter_q_booq_draw_hint')" style="font-size: 0.85rem; padding: 6px 14px; background: #fffbeb; border-color: #f59e0b; color: #92400e;">
+                                            <span>💡</span> <span>إِرْشَادَاتُ الْخَطّ</span>
+                                        </button>
+                                        <button class="btn btn-secondary" onclick="clearQBooqCanvas()" style="font-size: 0.85rem; padding: 6px 14px;">
+                                            <span>🧹</span> <span>مَسْحُ اللَّوْح</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                                    <canvas id="qBooqDrawingCanvas" width="620" height="240" style="background: #fffdfa; border: 2px dashed #f59e0b; border-radius: 14px; touch-action: none; cursor: crosshair;"></canvas>
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                    <span style="font-weight: 800; color: #64748b; font-size: 0.9rem;">اخْتَرْ لَوْنَ الْقَلَم:</span>
+                                    <button onclick="setQBooqDrawColor('#b45309')" style="width: 28px; height: 28px; border-radius: 50%; background: #b45309; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                    <button onclick="setQBooqDrawColor('#dc2626')" style="width: 28px; height: 28px; border-radius: 50%; background: #dc2626; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                    <button onclick="setQBooqDrawColor('#2563eb')" style="width: 28px; height: 28px; border-radius: 50%; background: #2563eb; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                    <button onclick="setQBooqDrawColor('#16a34a')" style="width: 28px; height: 28px; border-radius: 50%; background: #16a34a; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                    <button class="btn btn-secondary" onclick="setQBooqEraser()" style="padding: 4px 12px; font-size: 0.82rem;">
+                                        <span>🧽</span> <span>مِمْحَاة</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- اختبار التحدي التفاعلي -->
+                            <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 16px; margin-top: 18px; text-align: center;">
+                                <div style="font-weight: 900; color: #92400e; font-size: 1.15rem; margin-bottom: 10px;">
+                                    ⭐ اخْتَبِرْ نَفْسَكَ يَا بَطَل مَعَ فَصِيح:
+                                </div>
+                                <div style="font-size: 1.05rem; font-weight: 800; color: #1e293b; margin-bottom: 12px;">
+                                    أَيُّ كَلِمَةٍ مِمَّا يَلِي فِيهَا حَرْفُ الْقَافِ (ق)؟
+                                </div>
+                                <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                                    <button class="btn btn-teach" onclick="checkQBooqQuiz(1)" style="background: #b45309; padding: 10px 24px; font-size: 1.15rem;">
+                                        <span>🎺</span> <span>بُـوق</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="checkQBooqQuiz(2)" style="background: #b45309; padding: 10px 24px; font-size: 1.15rem;">
+                                        <span>🚪</span> <span>بَاب</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="checkQBooqQuiz(3)" style="background: #b45309; padding: 10px 24px; font-size: 1.15rem;">
+                                        <span>🌧️</span> <span>مَـطَـر</span>
+                                    </button>
+                                </div>
+                                <div id="qBooqQuizFeedback" style="margin-top: 12px; font-weight: 900; font-size: 1.1rem; min-height: 24px;"></div>
+                            </div>
+
+                            <!-- نوافذ عرض صفحات الكتاب المدرسي -->
+                            <div style="margin-top: 24px; padding-top: 16px; border-top: 2px dashed #fde68a; text-align: center;">
+                                <div style="font-weight: 900; color: #92400e; font-size: 1.1rem; margin-bottom: 10px;">
+                                    📖 صَفَحَاتُ الْكِتَابِ الْمَدْرَسِيِّ الْمُعْتَمَدَةُ (انْقُرْ لِعَرْضِ الصَّفْحَةِ مُكَبَّرَة):
+                                </div>
+                                <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_61.png', 'الكتاب المدرسي - صفحة ٦١ (أنشطة ومدخل درس بوق نديم)')">
+                                        <span>📖</span> <span>صَفْحَة ٦١</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_62.png', 'الكتاب المدرسي - صفحة ٦٢ (المدود والتحليل)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٢</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_63.png', 'الكتاب المدرسي - صفحة ٦٣ (التركيب وقراءة بوق نديم)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٣</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_64.png', 'الكتاب المدرسي - صفحة ٦٤ (تطبيقات القراءة والخط)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٤</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_56.png', 'كتاب الوزارة - صفحة ٥٦ (حرف القاف وصوره)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٦ (الوزارة)</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_57.png', 'كتاب الوزارة - صفحة ٥٧ (أنشطة المدود والسكون)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٧ (الوزارة)</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_58.png', 'كتاب الوزارة - صفحة ٥٨ (قراءة قرب مدينتنا)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٨ (الوزارة)</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==============================================
 
          نافذة تثبيت وتشغيل التطبيق على الهاتف والحاسوب
 
