@@ -5080,6 +5080,132 @@
         .letter-l-nabeel-station.active {
             display: block;
         }
+        
+        /* أنماط الدرس السادس: حرف العين (عـ ، ـعـ ، ـع ، ع) وقراءة (سَالِم / سَالِم زَرَّاع) (ص ٦٩ - ٧٢) */
+        .letter-ayn-salim-station {
+            display: none;
+        }
+        .letter-ayn-salim-station.active {
+            display: block;
+        }
+        .giant-letter-ayn-salim-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%);
+            border: 3px solid #059669;
+            border-radius: 22px;
+            padding: 14px 32px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(5, 150, 105, 0.15);
+        }
+        .giant-letter-ayn-salim-card:hover {
+            transform: scale(1.03);
+            border-color: #047857;
+            box-shadow: 0 6px 22px rgba(5, 150, 105, 0.25);
+        }
+        .giant-letter-ayn-salim-glyph {
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: #064e3b;
+            line-height: 1;
+            letter-spacing: 4px;
+        }
+        .ayn-salim-word-chip {
+            background: #ffffff;
+            border: 2px solid #a7f3d0;
+            border-radius: 16px;
+            padding: 10px 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #065f46;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .ayn-salim-word-chip:hover {
+            transform: translateY(-2px);
+            border-color: #059669;
+            background: #ecfdf5;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);
+        }
+        .ayn-salim-vowel-card {
+            background: #ffffff;
+            border: 2px solid #6ee7b7;
+            border-radius: 18px;
+            padding: 16px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 10px rgba(5, 150, 105, 0.08);
+            flex: 1;
+            min-width: 130px;
+        }
+        .ayn-salim-vowel-card:hover {
+            transform: translateY(-3px);
+            border-color: #059669;
+            background: #f0fdf4;
+            box-shadow: 0 6px 16px rgba(5, 150, 105, 0.18);
+        }
+        .ayn-salim-syl-card {
+            background: #ffffff;
+            border: 2px solid #34d399;
+            border-radius: 18px;
+            padding: 14px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+            flex: 1;
+            min-width: 140px;
+        }
+        .ayn-salim-syl-card:hover {
+            transform: translateY(-2px);
+            border-color: #059669;
+            background: #ecfdf5;
+            box-shadow: 0 5px 14px rgba(5, 150, 105, 0.16);
+        }
+        .ayn-salim-analysis-card {
+            background: #ffffff;
+            border: 2px solid #10b981;
+            border-radius: 16px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .ayn-salim-analysis-card:hover {
+            transform: translateY(-2px);
+            border-color: #047857;
+            background: #f0fdf4;
+            box-shadow: 0 5px 14px rgba(5, 150, 105, 0.15);
+        }
+        .ayn-salim-blend-card {
+            background: #ffffff;
+            border: 2px solid #059669;
+            border-radius: 16px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .ayn-salim-blend-card:hover {
+            transform: translateY(-2px);
+            border-color: #047857;
+            background: #ecfdf5;
+            box-shadow: 0 5px 14px rgba(5, 150, 105, 0.15);
+        }
+
         .giant-letter-l-nabeel-card {
             display: inline-flex;
             align-items: center;
@@ -16889,6 +17015,9 @@
             } else if (lesson.id === 'tab-letter_q_booq') {
                 mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الْقَافِ (قـ ، ق) وَقِرَاءَةُ (بُوقِ نَدِيم) (ص ٦١ - ٦٤)! اِسْتَمِعُوا لِصَوْتِ حَرْفِ الْقَافِ الْمُفَخَّمِ النَّقِيّ، وَتَعَرَّفُوا عَلَى الْمَدِّ الْقَصِيرِ وَالطَّوِيلِ وَالْمَقَاطِعِ وَاقْرَأُوا مَعَ نَدِيم!', 'letter_q_booq_intro');
                 switchQBooqStation(1);
+            } else if (lesson.id === 'tab-letter_ayn') {
+                mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الْعَيْنِ (عـ ، ـعـ ، ـع ، ع) وَقِرَاءَةُ (سَالِم زَرَّاع) (ص ٦٩ - ٧٢)! اِسْتَمِعُوا لِصَوْتِ حَرْفِ الْعَيْنِ الْحَلْقِيِّ الأَصِيلِ، وَتَعَرَّفُوا عَلَى الْمُدُودِ وَالْمَقَاطِعِ السَّاكِنَةِ وَالتَّنْوِينِ وَزُورُوا بُسْتَانَ سَالِمٍ الْوَاسِع!', 'letter_ayn_salim_intro');
+                switchAynSalimStation(1);
             } else if (lesson.id === 'tab-letter_l_nabeel') {
                 mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ اللَّامِ (لـ ، ل) وَقِرَاءَةُ (نَبِيل بَقَّال) (ص ٦٥ - ٦٨)! اِسْتَمِعُوا لِصَوْتِ حَرْفِ اللَّامِ الْمُرَقَّقِ النَّقِيّ، وَتَعَرَّفُوا عَلَى الْمَدِّ الْقَصِيرِ وَالطَّوِيلِ وَالْمَقَاطِعِ وَزُورُوا دُكَّانَ نَبِيل!', 'letter_l_nabeel_intro');
                 switchLNabeelStation(1);
@@ -24754,7 +24883,278 @@
             }
         }
 
+        
         /* ====================================================
+           دوال الدرس السادس: حرف العين (عـ ، ـعـ ، ـع ، ع) وقراءة (سَالِم / سَالِم زَرَّاع) (ص ٦٩ - ٧٢)
+           ==================================================== */
+        function switchAynSalimStation(stationNum) {
+            document.querySelectorAll('#view-tab-letter_ayn .station-tab').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('#view-tab-letter_ayn .letter-ayn-salim-station').forEach(el => el.classList.remove('active'));
+
+            const targetStation = document.getElementById('stationAynSalim' + stationNum);
+            const targetBtn = document.getElementById('btnStationAynSalim' + stationNum);
+
+            if (targetStation) targetStation.classList.add('active');
+            if (targetBtn) targetBtn.classList.add('active');
+
+            if (stationNum === 1) {
+                mascotSpeak('الْوَحْدَةُ الثَّالِثَةُ: حَرْفُ الْعَيْنِ (عـ ، ـعـ ، ـع ، ع) وَقِرَاءَةُ سَالِم زَرَّاع (ص ٦٩ - ٧٢)! اِسْتَمِعُوا لِصَوْتِ الْعَيْنِ الْحَلْقِيِّ النَّقِيِّ وَزُورُوا بُسْتَانَ سَالِمٍ الْوَاسِع!', 'letter_ayn_salim_intro');
+            } else if (stationNum === 2) {
+                mascotSpeak('أَصْوَاتُ الْمُدُودِ وَالْعَيْنُ السَّاكِنَةُ وَالتَّنْوِين! قَارِنْ بَيْنَ عَـ عُـ عِـ وَ عَا عُو عِيـ، وَمَيِّزْ مَقَاطِعَ: لُعْـ ، نَعْـ ، ثَعْـ ، زَرْعْ، وَتَنْوِينَاتِ الضَّمِّ وَالْفَتْحِ وَالْكَسْر!', 'letter_ayn_salim_vowels_station');
+            } else if (stationNum === 3) {
+                mascotSpeak('الْتَّحْلِيلُ وَالتَّرْكِيبُ الصَّوْتِيّ! فَكِّكْ كَلِمَاتِ (سَالِم ، زَرَّاع ، بُسْتَان ، وَاسِع ، بَدِيع ، يَزْرَع ، أَبِيع ، الْوَرْد ، الْفُلْفُل) بِالتَّصْفِيق، وَرَكِّبِ الْمَقَاطِعَ لِتَكْوِينِ كَلِمَاتٍ جَدِيدَة!', 'letter_ayn_salim_analysis_intro');
+            } else if (stationNum === 4) {
+                mascotSpeak('قِرَاءَةُ (سَالِم زَرَّاع) وَعَلَمُ وَطَنِي وَالرَّسْم! اقْرَأْ قِرَاءَةً جَهْرِيَّةً سَلِيمَةً سَطْراً بِسَطْر وَتَدَرَّبْ عَلَى كِتَابَةِ حَرْفِ الْعَيْنِ عَلَى السَّبُّورَةِ التَّفَاعُلِيَّة!', 'letter_ayn_salim_read_intro');
+                setTimeout(initAynSalimCanvas, 100);
+            }
+        }
+
+        function playAynSalimLetterSound() {
+            mascotCelebrates();
+            playAudio('letter_ayn_salim_sound');
+        }
+
+        function playAynSalimPhonemeFaseeh() {
+            mascotCelebrates();
+            playAudio('letter_ayn_salim_phoneme_faseeh');
+        }
+
+        function playAynSalimWord(word) {
+            mascotCelebrates();
+            const map = {
+                'salim': 'letter_ayn_salim_word_salim',
+                'zarraa': 'letter_ayn_salim_word_zarraa',
+                'bustani': 'letter_ayn_salim_word_bustani',
+                'wasi': 'letter_ayn_salim_word_wasi',
+                'badee': 'letter_ayn_salim_word_badee',
+                'yaqool': 'letter_ayn_salim_word_yaqool',
+                'abi': 'letter_ayn_salim_word_abi',
+                'yazra': 'letter_ayn_salim_word_yazra',
+                'ward': 'letter_ayn_salim_word_ward',
+                'fulful': 'letter_ayn_salim_word_fulful',
+                'ana': 'letter_ayn_salim_word_ana',
+                'abee': 'letter_ayn_salim_word_abee',
+                'alam': 'letter_ayn_salim_word_alam',
+                'ood': 'letter_ayn_salim_word_ood',
+                'inab': 'letter_ayn_salim_word_inab',
+                'usfoor': 'letter_ayn_salim_word_usfoor',
+                'naanaa': 'letter_ayn_salim_word_naanaa',
+                'thalab': 'letter_ayn_salim_word_thalab',
+                'lubah': 'letter_ayn_salim_word_lubah',
+                'maan': 'letter_ayn_salim_word_maan',
+                'nab': 'letter_ayn_salim_word_nab',
+                'rabee': 'letter_ayn_salim_word_rabee',
+                'zhiraa': 'letter_ayn_salim_word_zhiraa',
+                'mizhyaa': 'letter_ayn_salim_word_mizhyaa',
+                'shaari': 'letter_ayn_salim_word_shaari',
+                'aamir': 'letter_ayn_salim_word_aamir',
+                'marfooa': 'letter_ayn_salim_word_marfooa',
+                'aaliya': 'letter_ayn_salim_word_aaliya',
+                'aalim': 'letter_ayn_salim_word_aalim',
+                'izaam': 'letter_ayn_salim_word_izaam',
+                'isba': 'letter_ayn_salim_word_isba',
+                'shulah': 'letter_ayn_salim_word_shulah',
+                'eadaan': 'letter_ayn_salim_word_eadaan',
+                'naama': 'letter_ayn_salim_word_naama',
+                'iraq': 'letter_ayn_salim_word_iraq',
+                'nalab': 'letter_ayn_salim_word_nalab'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playAynSalimVowel(vowel) {
+            mascotCelebrates();
+            const map = {
+                'short_a': 'letter_ayn_salim_short_a',
+                'short_u': 'letter_ayn_salim_short_u',
+                'short_i': 'letter_ayn_salim_short_i',
+                'long_aa': 'letter_ayn_salim_long_aa',
+                'long_oo': 'letter_ayn_salim_long_oo',
+                'long_ee': 'letter_ayn_salim_long_ee'
+            };
+            if (map[vowel]) playAudio(map[vowel]);
+        }
+
+        function playAynSalimSyllable(syl) {
+            mascotCelebrates();
+            const map = {
+                'lua': 'letter_ayn_salim_syl_lua',
+                'naa': 'letter_ayn_salim_syl_naa',
+                'thaa': 'letter_ayn_salim_syl_thaa',
+                'zar': 'letter_ayn_salim_syl_zar',
+                'tanween_dham': 'letter_ayn_salim_tanween_dham',
+                'tanween_fath': 'letter_ayn_salim_tanween_fath',
+                'tanween_kasr': 'letter_ayn_salim_tanween_kasr'
+            };
+            if (map[syl]) playAudio(map[syl]);
+        }
+
+        function playAynSalimAnalysis(word) {
+            mascotCelebrates();
+            const map = {
+                'salim': 'letter_ayn_salim_split_salim',
+                'zarraa': 'letter_ayn_salim_split_zarraa',
+                'wasi': 'letter_ayn_salim_split_wasi',
+                'badee': 'letter_ayn_salim_split_badee',
+                'yazra': 'letter_ayn_salim_split_yazra',
+                'ward': 'letter_ayn_salim_split_ward',
+                'fulful': 'letter_ayn_salim_split_fulful',
+                'abee': 'letter_ayn_salim_split_abee',
+                'alam': 'letter_ayn_salim_split_alam',
+                'aamir': 'letter_ayn_salim_split_aamir',
+                'naanaa': 'letter_ayn_salim_split_naanaa',
+                'thalab': 'letter_ayn_salim_split_thalab'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playAynSalimMerge(word) {
+            mascotCelebrates();
+            const map = {
+                'salim': 'letter_ayn_salim_merge_salim',
+                'zarraa': 'letter_ayn_salim_merge_zarraa',
+                'wasi': 'letter_ayn_salim_merge_wasi',
+                'badee': 'letter_ayn_salim_merge_badee',
+                'yazra': 'letter_ayn_salim_merge_yazra',
+                'abee': 'letter_ayn_salim_merge_abee',
+                'alam': 'letter_ayn_salim_merge_alam',
+                'aamir': 'letter_ayn_salim_merge_aamir',
+                'saala': 'letter_ayn_salim_merge_saala',
+                'thalab': 'letter_ayn_salim_merge_thalab'
+            };
+            if (map[word]) playAudio(map[word]);
+        }
+
+        function playAynSalimReadingLine(verseNum) {
+            document.querySelectorAll('#view-tab-letter_ayn .reading-line-card').forEach(el => el.classList.remove('active'));
+            if (verseNum === 0) {
+                mascotCelebrates();
+                playAudio('letter_ayn_salim_read_full');
+            } else {
+                mascotCelebrates();
+                const card = document.getElementById('lineAynSalim' + verseNum);
+                if (card) card.classList.add('active');
+                playAudio('letter_ayn_salim_read_s' + verseNum);
+            }
+        }
+
+        /* سبورة رسم وتتبع حرف العين التفاعلية */
+        let aynSalimCanvas, aynSalimCtx, aynSalimDrawing = false;
+        let aynSalimDrawColor = '#059669';
+        let aynSalimIsEraser = false;
+
+        function initAynSalimCanvas() {
+            aynSalimCanvas = document.getElementById('canvasAynSalim');
+            if (!aynSalimCanvas) return;
+            aynSalimCtx = aynSalimCanvas.getContext('2d');
+
+            function getTouchPos(e) {
+                const rect = aynSalimCanvas.getBoundingClientRect();
+                const touch = e.touches[0] || e.changedTouches[0];
+                return {
+                    x: (touch.clientX - rect.left) * (aynSalimCanvas.width / rect.width),
+                    y: (touch.clientY - rect.top) * (aynSalimCanvas.height / rect.height)
+                };
+            }
+
+            function startDraw(x, y) {
+                aynSalimDrawing = true;
+                aynSalimCtx.beginPath();
+                aynSalimCtx.moveTo(x, y);
+            }
+            function draw(x, y) {
+                if (!aynSalimDrawing) return;
+                aynSalimCtx.lineWidth = aynSalimIsEraser ? 24 : 10;
+                aynSalimCtx.lineCap = 'round';
+                aynSalimCtx.lineJoin = 'round';
+                aynSalimCtx.strokeStyle = aynSalimIsEraser ? '#ffffff' : aynSalimDrawColor;
+                aynSalimCtx.lineTo(x, y);
+                aynSalimCtx.stroke();
+            }
+            function stopDraw() {
+                aynSalimDrawing = false;
+            }
+
+            aynSalimCanvas.onmousedown = (e) => startDraw(e.offsetX, e.offsetY);
+            aynSalimCanvas.onmousemove = (e) => draw(e.offsetX, e.offsetY);
+            aynSalimCanvas.onmouseup = stopDraw;
+            aynSalimCanvas.onmouseleave = stopDraw;
+
+            aynSalimCanvas.ontouchstart = (e) => { e.preventDefault(); const p = getTouchPos(e); startDraw(p.x, p.y); };
+            aynSalimCanvas.ontouchmove = (e) => { e.preventDefault(); const p = getTouchPos(e); draw(p.x, p.y); };
+            aynSalimCanvas.ontouchend = stopDraw;
+
+            clearAynSalimCanvas();
+        }
+
+        function clearAynSalimCanvas() {
+            if (!aynSalimCanvas || !aynSalimCtx) return;
+            aynSalimCtx.clearRect(0, 0, aynSalimCanvas.width, aynSalimCanvas.height);
+            aynSalimCtx.fillStyle = '#ffffff';
+            aynSalimCtx.fillRect(0, 0, aynSalimCanvas.width, aynSalimCanvas.height);
+
+            // خطوط السطر الإرشادي
+            aynSalimCtx.save();
+            aynSalimCtx.strokeStyle = '#ef4444';
+            aynSalimCtx.lineWidth = 3;
+            aynSalimCtx.beginPath();
+            aynSalimCtx.moveTo(20, 160);
+            aynSalimCtx.lineTo(aynSalimCanvas.width - 20, 160);
+            aynSalimCtx.stroke();
+
+            // خط علوي منقط
+            aynSalimCtx.setLineDash([8, 6]);
+            aynSalimCtx.strokeStyle = '#94a3b8';
+            aynSalimCtx.lineWidth = 1.5;
+            aynSalimCtx.beginPath();
+            aynSalimCtx.moveTo(20, 90);
+            aynSalimCtx.lineTo(aynSalimCanvas.width - 20, 90);
+            aynSalimCtx.stroke();
+
+            // خط سفلي منقط
+            aynSalimCtx.beginPath();
+            aynSalimCtx.moveTo(20, 230);
+            aynSalimCtx.lineTo(aynSalimCanvas.width - 20, 230);
+            aynSalimCtx.stroke();
+            aynSalimCtx.restore();
+
+            // رسم خفيف إرشادي لحرف العين
+            aynSalimCtx.save();
+            aynSalimCtx.fillStyle = '#f1f5f9';
+            aynSalimCtx.font = 'bold 100px Arial, sans-serif';
+            aynSalimCtx.textAlign = 'center';
+            aynSalimCtx.textBaseline = 'middle';
+            aynSalimCtx.fillText('عـ   ـعـ   ـع   ع', aynSalimCanvas.width / 2, 150);
+            aynSalimCtx.restore();
+        }
+
+        function setAynSalimDrawColor(color) {
+            aynSalimDrawColor = color;
+            aynSalimIsEraser = false;
+        }
+
+        function setAynSalimEraser() {
+            aynSalimIsEraser = true;
+        }
+
+        function checkAynSalimQuiz(opt) {
+            const fb = document.getElementById('aynSalimQuizFeedback');
+            if (!fb) return;
+            if (opt === 1) {
+                mascotCelebrates();
+                playAudio('letter_ayn_salim_correct');
+                setTimeout(() => playAudio('letter_ayn_salim_encourage_super'), 1800);
+                fb.style.color = '#059669';
+                fb.innerHTML = '🎉 صَحِيحٌ يَا بَطَل! كَلِمَةُ (زَ<span style="color:#059669;">رَّا</span>ع) تَحْتَوِي عَلَى حَرْفِ الْعَيْنِ (ع) الْمُنْفَصِل!';
+            } else {
+                mascotSpeaks('حَاوِلْ مَرَّةً أُخْرَى!');
+                playAudio('letter_ayn_salim_wrong');
+                fb.style.color = '#dc2626';
+                fb.innerHTML = '❌ حَاوِلْ مَرَّةً أُخْرَى يَا بَطَل! ابْحَثْ عَنِ الْكَلِمَةِ الَّتِي تَسْمَعُ فِيهَا صَوْتَ (عْ)!';
+            }
+        }
+
+/* ====================================================
            دوال الدرس الخامس: حرف اللام (لـ ، ل) وقراءة (نَبِيل بَقَّال) (ص ٦٥ - ٦٨)
            ==================================================== */
         function switchLNabeelStation(stationNum) {
@@ -25865,6 +26265,487 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ==============================================
+                     عرض الدرس السادس: حرف العين (عـ ، ـعـ ، ـع ، ع) وقراءة (سَالِم / سَالِم زَرَّاع) (ص ٦٩ - ٧٢)
+                =============================================== -->
+                <div class="lesson-view" id="view-tab-letter_ayn">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationAynSalim1" onclick="switchAynSalimStation(1)">
+                            <span>🌱</span> <span>١. أتعرف الحرف والمشهد (ص ٦٥ - ٦٦)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationAynSalim2" onclick="switchAynSalimStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والتنوين (ص ٦٥ - ٦٦)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationAynSalim3" onclick="switchAynSalimStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٦٦ - ٦٧)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationAynSalim4" onclick="switchAynSalimStation(4)">
+                            <span>📖</span> <span>٤. قراءة (سَالِم زَرَّاع) والرسم (ص ٦٧ - ٧٠)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-ayn-salim-station active" id="stationAynSalim1">
+                        <div style="text-align: center; margin-bottom: 14px;">
+                            <div class="giant-letter-ayn-salim-card" onclick="playAynSalimLetterSound()" title="انقر لسماع صوت حرف العين الفونيمي النقي">
+                                <span class="giant-letter-ayn-salim-glyph">عـ  ـعـ  ـع  ع</span>
+                                <div>
+                                    <div style="font-weight: 900; font-size: 1.3rem; color: #065f46;">صَوْتُ حَرْفِ الْعَيْنِ: ( عْ... عْ )</div>
+                                    <div style="font-size: 0.88rem; color: #059669;">اِضْغَطْ لِسَمَاعِ الصَّوْتِ الْفُونِيمِيِّ الْحَلْقِيِّ النَّقِيّ 🔊</div>
+                                </div>
+                            </div>
+                            <br>
+                            <button class="btn btn-teach" onclick="playAynSalimPhonemeFaseeh()" style="margin-top: 10px; background: #059669; padding: 8px 22px; font-size: 0.95rem;">
+                                <span>🤖</span> <span>مَخْرَجُ حَرْفِ الْعَيْنِ الْحَلْقِيِّ مَعَ فَصِيح</span>
+                            </button>
+                        </div>
+
+                        <!-- بطاقة مشهد بستان سالم الزراع التفاعلي -->
+                        <div class="family-listen-card" style="border-color: #059669;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.2rem; margin-bottom: 8px;">
+                                🌱 سَالِمٌ زَرَّاعٌ .. بُسْتَانُ سَالِمٍ وَاسِعٌ .. بَدِيعٌ يَقُولُ: أَبِي يَزْرَعُ الْوَرْدَ وَيَزْرَعُ الْفُلْفُلَ (ص ٦٩ - ٧٢)
+                            </div>
+                            <img src="activity_salim_scene.png" alt="مشهد درس سالم زراع وحرف العين" style="width: 100%; max-width: 680px; border-radius: 14px; border: 2px solid #a7f3d0; margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+                                <button class="btn btn-teach" onclick="playAudio('letter_ayn_salim_scene_story')" style="background: #059669; padding: 10px 24px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِقِصَّةِ مَشْهَدِ بُسْتَانِ سَالِم</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playAudio('letter_ayn_salim_words_intro')" style="background: #047857; padding: 10px 24px;">
+                                    <span>🗣️</span> <span>كَلِمَاتُ الْعَيْنِ الْمُصَوَّرَة</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المصورة التفاعلية -->
+                        <div class="family-listen-card" style="border-color: #a7f3d0; margin-top: 16px;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.15rem; margin-bottom: 12px;">
+                                🌟 بَنْكُ كَلِمَاتِ حَرْفِ الْعَيْنِ الْمُصَوَّرَة (انْقُرْ عَلَى أَيِّ كَلِمَةٍ لِسَمَاعِهَا):
+                            </div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('salim')"><span>👨‍🌾</span> <span>سَـالِـم</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('zarraa')"><span>🌾</span> <span>زَ<span style="color:#059669;">رَّا</span>ع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('bustani')"><span>🏡</span> <span>بُسْـتَان</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('wasi')"><span>🌳</span> <span>وَا<span style="color:#059669;">سِـ</span>ـع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('badee')"><span>👦</span> <span>بَـدِيـع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('yaqool')"><span>🗣️</span> <span>يَـقُول</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('abi')"><span>👨</span> <span>أَبِـي</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('yazra')"><span>🌱</span> <span>يَـزْ<span style="color:#059669;">رَ</span>ع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('ward')"><span>🌹</span> <span>الْـوَرْد</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('fulful')"><span>🌶️</span> <span>الْـفُلْـفُل</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('ana')"><span>🙋</span> <span>أَنَـا</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('abee')"><span>🛒</span> <span>أَبِيـع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('alam')"><span>🇮🇶</span> <span>عَـلَـم</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('ood')"><span>🪵</span> <span>عُـود</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('inab')"><span>🍇</span> <span>عِـنَـب</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('usfoor')"><span>🐦</span> <span>عُـصْـفُور</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('naanaa')"><span>🌿</span> <span>نَـعْـنَـاع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('thalab')"><span>🦊</span> <span>ثَـعْـلَـب</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('lubah')"><span>🧸</span> <span>لُـعْـبَـة</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('maan')"><span>🤝</span> <span>مَـعًـا</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('nab')"><span>💧</span> <span>نَـبْـع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('rabee')"><span>🌸</span> <span>رَبِيـع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('zhiraa')"><span>💪</span> <span>ذِرَاع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('mizhyaa')"><span>📻</span> <span>مِـذْيَـاع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('shaari')"><span>🛣️</span> <span>شَـارِع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('aamir')"><span>👦</span> <span>عَـامِـر</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('marfooa')"><span>🚩</span> <span>مَـرْفُـوعًـا</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('aaliya')"><span>☁️</span> <span>عَـالِـيًـا</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('aalim')"><span>🔬</span> <span>عَـالِـم</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('izaam')"><span>🦴</span> <span>عِـظَـام</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('isba')"><span>☝️</span> <span>إِصْـبَـع</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('shulah')"><span>🔥</span> <span>شُـعْـلَـة</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('eadaan')"><span>🥢</span> <span>عِيـدَان</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('naama')"><span>🪶</span> <span>نَـعَـامَـة</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('iraq')"><span>🦁</span> <span>عِـرَاق</span></div>
+                                <div class="ayn-salim-word-chip" onclick="playAynSalimWord('nalab')"><span>⚽</span> <span>نَـلْـعَـب</span></div>
+                            </div>
+
+                            <div style="margin-top: 18px; text-align: center;">
+                                <img src="activity_salim_words.png" alt="نشاط ١ ص ٦٥ التعرف على حرف العين" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #a7f3d0;">
+                            </div>
+                        </div>
+
+                        <!-- لوحة أشكال ومواضع حرف العين الأربعة -->
+                        <div class="family-listen-card" style="border-color: #10b981; margin-top: 16px;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.15rem; margin-bottom: 12px;">
+                                📍 أَشْكَالُ وَمَوَاضِعُ حَرْفِ الْعَيْنِ الأَرْبَعَة:
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; text-align: center;">
+                                <div style="background: #ecfdf5; border: 2px solid #6ee7b7; border-radius: 14px; padding: 12px;">
+                                    <div style="font-size: 2.5rem; font-weight: 900; color: #059669; line-height: 1;">عـ</div>
+                                    <div style="font-weight: 800; color: #064e3b; margin-top: 6px;">فِي أَوَّلِ الْكَلِمَة</div>
+                                    <div style="font-size: 0.9rem; color: #047857; font-weight: 700;">عَـلَـم ، عُـود ، عِـنَـب</div>
+                                </div>
+                                <div style="background: #ecfdf5; border: 2px solid #6ee7b7; border-radius: 14px; padding: 12px;">
+                                    <div style="font-size: 2.5rem; font-weight: 900; color: #059669; line-height: 1;">ـعـ</div>
+                                    <div style="font-weight: 800; color: #064e3b; margin-top: 6px;">فِي وَسَطِ الْكَلِمَة</div>
+                                    <div style="font-size: 0.9rem; color: #047857; font-weight: 700;">نَـعْـنَاع ، ثَـعْـلَب ، لُـعْـبَة</div>
+                                </div>
+                                <div style="background: #ecfdf5; border: 2px solid #6ee7b7; border-radius: 14px; padding: 12px;">
+                                    <div style="font-size: 2.5rem; font-weight: 900; color: #059669; line-height: 1;">ـع</div>
+                                    <div style="font-weight: 800; color: #064e3b; margin-top: 6px;">آخِرُ الْكَلِمَةِ مُتَّصِل</div>
+                                    <div style="font-size: 0.9rem; color: #047857; font-weight: 700;">بَـدِيـع ، نَـبْـع ، أَبِيـع</div>
+                                </div>
+                                <div style="background: #ecfdf5; border: 2px solid #6ee7b7; border-radius: 14px; padding: 12px;">
+                                    <div style="font-size: 2.5rem; font-weight: 900; color: #059669; line-height: 1;">ع</div>
+                                    <div style="font-weight: 800; color: #064e3b; margin-top: 6px;">آخِرُ الْكَلِمَةِ مُنْفَصِل</div>
+                                    <div style="font-size: 0.9rem; color: #047857; font-weight: 700;">زَ<span style="color:#059669;">رَّا</span>ع ، ذِرَاع ، شَارِع</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود وتمييز المقاطع الساكنة والتنوين -->
+                    <div class="letter-ayn-salim-station" id="stationAynSalim2">
+                        <div class="family-listen-card" style="border-color: #059669;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.2rem; margin-bottom: 12px; text-align: center;">
+                                🎵 أَصْوَاتُ حَرْفِ الْعَيْنِ: الْحَرَكَاتُ الْقَصِيرَةُ ↔️ الْمُدُودُ الطَّوِيلَة (ص ٦٥)
+                            </div>
+                            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px;">
+                                <div class="ayn-salim-vowel-card" onclick="playAynSalimVowel('short_a')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #059669;">عَـ</div>
+                                    <div style="font-weight: 800; color: #064e3b; font-size: 0.95rem;">فَتْحَة قَصِيرَة</div>
+                                    <div style="font-size: 0.85rem; color: #047857;">عَـلَـم 🇮🇶</div>
+                                </div>
+                                <div class="ayn-salim-vowel-card" onclick="playAynSalimVowel('long_aa')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #047857;">عَا</div>
+                                    <div style="font-weight: 800; color: #064e3b; font-size: 0.95rem;">مَدٌّ بِالأَلِف</div>
+                                    <div style="font-size: 0.85rem; color: #047857;">عَـامِـر 👦</div>
+                                </div>
+                                <div class="ayn-salim-vowel-card" onclick="playAynSalimVowel('short_u')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #059669;">عُـ</div>
+                                    <div style="font-weight: 800; color: #064e3b; font-size: 0.95rem;">ضَمَّة قَصِيرَة</div>
+                                    <div style="font-size: 0.85rem; color: #047857;">عُـصْـفُور 🐦</div>
+                                </div>
+                                <div class="ayn-salim-vowel-card" onclick="playAynSalimVowel('long_oo')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #047857;">عُو</div>
+                                    <div style="font-weight: 800; color: #064e3b; font-size: 0.95rem;">مَدٌّ بِالْوَاو</div>
+                                    <div style="font-size: 0.85rem; color: #047857;">يَـعُـود 🏡</div>
+                                </div>
+                                <div class="ayn-salim-vowel-card" onclick="playAynSalimVowel('short_i')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #059669;">عِـ</div>
+                                    <div style="font-weight: 800; color: #064e3b; font-size: 0.95rem;">كَسْرَة قَصِيرَة</div>
+                                    <div style="font-size: 0.85rem; color: #047857;">عِـنَـب 🍇</div>
+                                </div>
+                                <div class="ayn-salim-vowel-card" onclick="playAynSalimVowel('long_ee')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #047857;">عِيـ</div>
+                                    <div style="font-weight: 800; color: #064e3b; font-size: 0.95rem;">مَدٌّ بِالْيَاء</div>
+                                    <div style="font-size: 0.85rem; color: #047857;">عِيـدَان 🥢</div>
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <img src="activity_salim_vowels.png" alt="نشاط ٢ ص ٦٥ المدود" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #a7f3d0; margin-bottom: 10px;">
+                            </div>
+                        </div>
+
+                        <!-- تمييز العين الساكنة والتنوينات -->
+                        <div class="family-listen-card" style="border-color: #34d399; margin-top: 16px;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.2rem; margin-bottom: 12px; text-align: center;">
+                                ✊ تَمْيِيزُ مَقَاطِعِ الْعَيْنِ السَّاكِنَةِ وَالتَّنْوِينَاتِ الثَّلَاثَة (ص ٦٦ - ٦٨):
+                            </div>
+                            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px;">
+                                <div class="ayn-salim-syl-card" onclick="playAynSalimSyllable('lua')">
+                                    <div style="font-size: 2.1rem; font-weight: 900; color: #059669;">لُـعْـ</div>
+                                    <div style="font-weight: 800; color: #064e3b; font-size: 0.95rem;">عَيْنٌ سَاكِنَة ✊</div>
+                                    <div style="font-size: 0.85rem; color: #047857;">لُـعْـبَـة 🧸</div>
+                                </div>
+                                <div class="ayn-salim-syl-card" onclick="playAynSalimSyllable('naa')">
+                                    <div style="font-size: 2.1rem; font-weight: 900; color: #059669;">نَـعْـ</div>
+                                    <div style="font-weight: 800; color: #064e3b; font-size: 0.95rem;">عَيْنٌ سَاكِنَة ✊</div>
+                                    <div style="font-size: 0.85rem; color: #047857;">نَـعْـنَـاع 🌿</div>
+                                </div>
+                                <div class="ayn-salim-syl-card" onclick="playAynSalimSyllable('thaa')">
+                                    <div style="font-size: 2.1rem; font-weight: 900; color: #059669;">ثَـعْـ</div>
+                                    <div style="font-weight: 800; color: #064e3b; font-size: 0.95rem;">عَيْنٌ سَاكِنَة ✊</div>
+                                    <div style="font-size: 0.85rem; color: #047857;">ثَـعْـلَـب 🦊</div>
+                                </div>
+                                <div class="ayn-salim-syl-card" onclick="playAynSalimSyllable('zar')">
+                                    <div style="font-size: 2.1rem; font-weight: 900; color: #059669;">زَرْعْ</div>
+                                    <div style="font-weight: 800; color: #064e3b; font-size: 0.95rem;">مَقْطَعُ زَرْعْ 🌱</div>
+                                    <div style="font-size: 0.85rem; color: #047857;">زَ<span style="color:#059669;">رَّا</span>ع 👨‍🌾</div>
+                                </div>
+                            </div>
+
+                            <!-- بطاقات التنوين -->
+                            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px;">
+                                <div class="ayn-salim-syl-card" onclick="playAynSalimSyllable('tanween_dham')" style="background: #ecfdf5; border-color: #10b981;">
+                                    <div style="font-size: 2.1rem; font-weight: 900; color: #047857;">ـٌ</div>
+                                    <div style="font-weight: 800; color: #064e3b; font-size: 0.95rem;">تَنْوِينُ الضَّمّ</div>
+                                    <div style="font-size: 0.85rem; color: #047857;">زَرَّاعٌ ، وَاسِعٌ ، بَدِيعٌ</div>
+                                </div>
+                                <div class="ayn-salim-syl-card" onclick="playAynSalimSyllable('tanween_fath')" style="background: #eff6ff; border-color: #3b82f6;">
+                                    <div style="font-size: 2.1rem; font-weight: 900; color: #1d4ed8;">ـًا / ً</div>
+                                    <div style="font-weight: 800; color: #1e3a8a; font-size: 0.95rem;">تَنْوِينُ الْفَتْح</div>
+                                    <div style="font-size: 0.85rem; color: #1d4ed8;">عَلَمًا ، مَرْفُوعًا ، عَالِيًا</div>
+                                </div>
+                                <div class="ayn-salim-syl-card" onclick="playAynSalimSyllable('tanween_kasr')" style="background: #fefce8; border-color: #eab308;">
+                                    <div style="font-size: 2.1rem; font-weight: 900; color: #a16207;">ـٍ</div>
+                                    <div style="font-weight: 800; color: #713f12; font-size: 0.95rem;">تَنْوِينُ الْكَسْر</div>
+                                    <div style="font-size: 0.85rem; color: #a16207;">سَالِمٍ ، بَسَاتِينَ خَيْرٍ</div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center;">
+                                <img src="activity_salim_syllables.png" alt="نشاط ٤ ص ٦٦ العين الساكنة" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #a7f3d0;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي -->
+                    <div class="letter-ayn-salim-station" id="stationAynSalim3">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+                            <!-- قسم التحليل الصوتي -->
+                            <div class="family-listen-card" style="border-color: #10b981;">
+                                <div style="font-weight: 900; color: #065f46; font-size: 1.15rem; margin-bottom: 12px; text-align: center;">
+                                    👏 وَرْشَةُ التَّحْلِيلِ الصَّوْتِيِّ (انْقُرْ لِسَمَاعِ التَّصْفِيق):
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('salim')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">سَـالِـم</span>
+                                        <span style="font-weight: 800; color: #059669;">سَا + لِـ + مٌ (٣ 👏)</span>
+                                    </div>
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('zarraa')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">زَ<span style="color:#059669;">رَّا</span>ع</span>
+                                        <span style="font-weight: 800; color: #059669;">زَرْ + رَا + عٌ (٣ 👏)</span>
+                                    </div>
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('wasi')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">وَا<span style="color:#059669;">سِـ</span>ـع</span>
+                                        <span style="font-weight: 800; color: #059669;">وَا + سِـ + عٌ (٣ 👏)</span>
+                                    </div>
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('badee')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">بَـدِيـع</span>
+                                        <span style="font-weight: 800; color: #059669;">بَـ + دِيـ + عٌ (٣ 👏)</span>
+                                    </div>
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('yazra')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">يَـزْ<span style="color:#059669;">رَ</span>ع</span>
+                                        <span style="font-weight: 800; color: #059669;">يَزْ + رَ + عُ (٣ 👏)</span>
+                                    </div>
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('ward')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">الْـوَرْد</span>
+                                        <span style="font-weight: 800; color: #059669;">اَلْـ + وَرْ + دَ (٣ 👏)</span>
+                                    </div>
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('fulful')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">الْـفُلْـفُل</span>
+                                        <span style="font-weight: 800; color: #059669;">اَلْـ + فُلْ + فُـ + لَ (٤ 👏)</span>
+                                    </div>
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('abee')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">أَبِيـع</span>
+                                        <span style="font-weight: 800; color: #059669;">أُ + بِيـ + عُ (٣ 👏)</span>
+                                    </div>
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('alam')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">عَـلَـم</span>
+                                        <span style="font-weight: 800; color: #059669;">عَـ + لَـ + مٌ (٣ 👏)</span>
+                                    </div>
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('aamir')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">عَـامِـر</span>
+                                        <span style="font-weight: 800; color: #059669;">عَا + مِـ + رٌ (٣ 👏)</span>
+                                    </div>
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('naanaa')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">نَـعْـنَـاع</span>
+                                        <span style="font-weight: 800; color: #059669;">نَعْـ + نَا + عٌ (٣ 👏)</span>
+                                    </div>
+                                    <div class="ayn-salim-analysis-card" onclick="playAynSalimAnalysis('thalab')">
+                                        <span style="font-weight: 900; font-size: 1.1rem; color: #065f46;">ثَـعْـلَـب</span>
+                                        <span style="font-weight: 800; color: #059669;">ثَعْـ + لَـ + بُ (٣ 👏)</span>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 14px; text-align: center;">
+                                    <img src="activity_salim_analysis.png" alt="نشاط ٥ ص ٦٦ تحليل الكلمات" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #a7f3d0;">
+                                </div>
+                            </div>
+
+                            <!-- قسم التركيب الصوتي -->
+                            <div class="family-listen-card" style="border-color: #059669;">
+                                <div style="font-weight: 900; color: #065f46; font-size: 1.15rem; margin-bottom: 12px; text-align: center;">
+                                    🧩 أَحَاجِي التَّرْكِيبِ الصَّوْتِيِّ (انْقُرْ لِسَمَاعِ الْبِنَاء):
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    <div class="ayn-salim-blend-card" onclick="playAynSalimMerge('salim')">
+                                        <span style="font-weight: 800; color: #047857;">سَا + لِـ + مٌ</span>
+                                        <span style="font-weight: 900; font-size: 1.15rem; color: #065f46;">سَـالِـمٌ 👨‍🌾</span>
+                                    </div>
+                                    <div class="ayn-salim-blend-card" onclick="playAynSalimMerge('zarraa')">
+                                        <span style="font-weight: 800; color: #047857;">زَرْ + رَا + عٌ</span>
+                                        <span style="font-weight: 900; font-size: 1.15rem; color: #065f46;">زَ<span style="color:#059669;">رَّا</span>عٌ 🌾</span>
+                                    </div>
+                                    <div class="ayn-salim-blend-card" onclick="playAynSalimMerge('wasi')">
+                                        <span style="font-weight: 800; color: #047857;">وَا + سِـ + عٌ</span>
+                                        <span style="font-weight: 900; font-size: 1.15rem; color: #065f46;">وَا<span style="color:#059669;">سِـ</span>ـعٌ 🌳</span>
+                                    </div>
+                                    <div class="ayn-salim-blend-card" onclick="playAynSalimMerge('badee')">
+                                        <span style="font-weight: 800; color: #047857;">بَـ + دِيـ + عٌ</span>
+                                        <span style="font-weight: 900; font-size: 1.15rem; color: #065f46;">بَـدِيـعٌ 👦</span>
+                                    </div>
+                                    <div class="ayn-salim-blend-card" onclick="playAynSalimMerge('yazra')">
+                                        <span style="font-weight: 800; color: #047857;">يَزْ + رَ + عُ</span>
+                                        <span style="font-weight: 900; font-size: 1.15rem; color: #065f46;">يَـزْ<span style="color:#059669;">رَ</span>عُ 🌱</span>
+                                    </div>
+                                    <div class="ayn-salim-blend-card" onclick="playAynSalimMerge('abee')">
+                                        <span style="font-weight: 800; color: #047857;">أُ + بِيـ + عُ</span>
+                                        <span style="font-weight: 900; font-size: 1.15rem; color: #065f46;">أَبِيـعُ 🛒</span>
+                                    </div>
+                                    <div class="ayn-salim-blend-card" onclick="playAynSalimMerge('alam')">
+                                        <span style="font-weight: 800; color: #047857;">عَـ + لَـ + مٌ</span>
+                                        <span style="font-weight: 900; font-size: 1.15rem; color: #065f46;">عَـلَـمٌ 🇮🇶</span>
+                                    </div>
+                                    <div class="ayn-salim-blend-card" onclick="playAynSalimMerge('aamir')">
+                                        <span style="font-weight: 800; color: #047857;">عَا + مِـ + رٌ</span>
+                                        <span style="font-weight: 900; font-size: 1.15rem; color: #065f46;">عَـامِـرٌ 👦</span>
+                                    </div>
+                                    <div class="ayn-salim-blend-card" onclick="playAynSalimMerge('saala')">
+                                        <span style="font-weight: 800; color: #047857;">سَـ + عَـ + لَ</span>
+                                        <span style="font-weight: 900; font-size: 1.15rem; color: #065f46;">سَـعَـلَ 🗣️</span>
+                                    </div>
+                                    <div class="ayn-salim-blend-card" onclick="playAynSalimMerge('thalab')">
+                                        <span style="font-weight: 800; color: #047857;">ثَعْـ + لَـ + بُ</span>
+                                        <span style="font-weight: 900; font-size: 1.15rem; color: #065f46;">ثَـعْـلَـبُ 🦊</span>
+                                    </div>
+                                </div>
+                                <div style="margin-top: 14px; text-align: center;">
+                                    <img src="activity_salim_blend.png" alt="نشاط ٦ ص ٦٧ تركيب الكلمات" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #a7f3d0;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة الذهبية وسبورة الرسم واختبار التحدي -->
+                    <div class="letter-ayn-salim-station" id="stationAynSalim4">
+                        <!-- لوحة القراءة الذهبية -->
+                        <div class="family-listen-card" style="border-color: #059669;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.25rem; margin-bottom: 8px; text-align: center;">
+                                📜 لَوْحَةُ الْقِرَاءَةِ التُّرَاثِيَّةِ الْمُعْتَمَدَة: سَالِم زَرَّاع (ص ٦٩ - ٧٢)
+                            </div>
+                            <div style="text-align: center; margin-bottom: 12px;">
+                                <img src="activity_salim_read.png" alt="لوحة قراءة سالم زراع ص ٦٩ - ٧٢" style="width: 100%; max-width: 720px; border-radius: 18px; border: 3px solid #059669; box-shadow: 0 8px 24px rgba(5, 150, 105, 0.15);">
+                            </div>
+                            <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 16px;">
+                                <button class="btn btn-teach" onclick="playAynSalimReadingLine(0)" style="background: #059669; padding: 12px 28px; font-size: 1.1rem;">
+                                    <span>📢</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلاً مَعَ الْمُعَلِّمَةِ رَنَا</span>
+                                </button>
+                            </div>
+
+                            <!-- أسطر القراءة التفاعلية سطر بسطر -->
+                            <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; margin: 0 auto;">
+                                <div class="reading-line-card" id="lineAynSalim1" onclick="playAynSalimReadingLine(1)">
+                                    <span>🌾</span> <span>سَـالِـمٌ زَ<span style="color:#059669;">رَّا</span>عٌ</span>
+                                </div>
+                                <div class="reading-line-card" id="lineAynSalim2" onclick="playAynSalimReadingLine(2)">
+                                    <span>🌳</span> <span>بُسْـتَانُ سَـالِـمٍ وَا<span style="color:#059669;">سِـ</span>ـعٌ</span>
+                                </div>
+                                <div class="reading-line-card" id="lineAynSalim3" onclick="playAynSalimReadingLine(3)">
+                                    <span>👦</span> <span>بَـدِيـعٌ يَـقُـولُ: أَبِي يَـزْ<span style="color:#059669;">رَ</span>عُ الْـوَرْدَ</span>
+                                </div>
+                                <div class="reading-line-card" id="lineAynSalim4" onclick="playAynSalimReadingLine(4)">
+                                    <span>🌶️</span> <span>وَيَـزْ<span style="color:#059669;">رَ</span>عُ الْـفُلْـفُلَ</span>
+                                </div>
+                                <div class="reading-line-card" id="lineAynSalim5" onclick="playAynSalimReadingLine(5)">
+                                    <span>🌹</span> <span>أَنَا أَبِيـعُ الْـوَرْدَ</span>
+                                </div>
+                                <div class="reading-line-card" id="lineAynSalim6" onclick="playAynSalimReadingLine(6)">
+                                    <span>🫑</span> <span>وَأَبِيـعُ الْـفُلْـفُلَ</span>
+                                </div>
+                                <div class="reading-line-card" id="lineAynSalim7" onclick="playAynSalimReadingLine(7)" style="background: #ecfdf5; border-color: #6ee7b7;">
+                                    <span>🇮🇶</span> <span>يَـرْفَـعُ عَـامِـرٌ عَـلَـمَ وَطَـنِي</span>
+                                </div>
+                                <div class="reading-line-card" id="lineAynSalim8" onclick="playAynSalimReadingLine(8)" style="background: #ecfdf5; border-color: #6ee7b7;">
+                                    <span>🏫</span> <span>عَـلَـمُ وَطَـنِي يُـرَفْـرِفُ فَـوْقَ مَـدْرَسَـتِي</span>
+                                </div>
+                                <div class="reading-line-card" id="lineAynSalim9" onclick="playAynSalimReadingLine(9)" style="background: #eff6ff; border-color: #93c5fd;">
+                                    <span>🚩</span> <span>رَفَـعَ عَـامِـرٌ عَـلَـمًـا فَـوْقَ مَـدْرَسَـتِنَا</span>
+                                </div>
+                                <div class="reading-line-card" id="lineAynSalim10" onclick="playAynSalimReadingLine(10)" style="background: #eff6ff; border-color: #93c5fd;">
+                                    <span>☁️</span> <span>يَـبْـقَى عَـلَـمُ وَطَـنِنَا مَـرْفُـوعًـا وَعَـالِـيًـا</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة الرسم وتتبع حرف العين التفاعلية -->
+                        <div class="family-listen-card" style="border-color: #059669; margin-top: 18px;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.2rem; margin-bottom: 8px; text-align: center;">
+                                ✍️ سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الْعَيْنِ (عـ ، ـعـ ، ـع ، ع)
+                            </div>
+                            <div style="text-align: center; margin-bottom: 10px;">
+                                <img src="activity_salim_trace.png" alt="لوحة رسم وتتبع حرف العين" style="width: 100%; max-width: 640px; border-radius: 14px; border: 2px solid #a7f3d0;">
+                            </div>
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+                                <button class="btn btn-teach" onclick="playAudio('letter_ayn_salim_draw_hint')" style="background: #059669; padding: 8px 20px;">
+                                    <span>💡</span> <span>إِرْشَادَاتُ رَسْمِ حَرْفِ الْعَيْنِ مَعَ فَصِيح</span>
+                                </button>
+                                <button class="btn btn-secondary" onclick="clearAynSalimCanvas()" style="padding: 8px 20px;">
+                                    <span>🔄</span> <span>مَسْحُ السَّبُّورَة</span>
+                                </button>
+                            </div>
+                            <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+                                <canvas id="canvasAynSalim" width="600" height="280" style="border: 3px solid #059669; border-radius: 16px; background: #ffffff; touch-action: none; max-width: 100%; cursor: crosshair; box-shadow: 0 4px 14px rgba(0,0,0,0.08);"></canvas>
+                            </div>
+                            <div style="display: flex; justify-content: center; gap: 10px; align-items: center; flex-wrap: wrap;">
+                                <span style="font-weight: 800; color: #64748b; font-size: 0.9rem;">اخْتَرْ لَوْنَ الْقَلَم:</span>
+                                <button onclick="setAynSalimDrawColor('#059669')" style="width: 28px; height: 28px; border-radius: 50%; background: #059669; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setAynSalimDrawColor('#dc2626')" style="width: 28px; height: 28px; border-radius: 50%; background: #dc2626; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setAynSalimDrawColor('#1d4ed8')" style="width: 28px; height: 28px; border-radius: 50%; background: #1d4ed8; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setAynSalimDrawColor('#d97706')" style="width: 28px; height: 28px; border-radius: 50%; background: #d97706; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button class="btn btn-secondary" onclick="setAynSalimEraser()" style="padding: 4px 12px; font-size: 0.82rem;">
+                                    <span>🧽</span> <span>مِمْحَاة</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي التفاعلي -->
+                        <div style="background: #f0fdf4; border: 2px solid #a7f3d0; border-radius: 16px; padding: 16px; margin-top: 18px; text-align: center;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.15rem; margin-bottom: 10px;">
+                                ⭐ اخْتَبِرْ نَفْسَكَ يَا بَطَل مَعَ فَصِيح:
+                            </div>
+                            <div style="font-size: 1.05rem; font-weight: 800; color: #1e293b; margin-bottom: 12px;">
+                                أَيُّ كَلِمَةٍ مِمَّا يَلِي فِيهَا حَرْفُ الْعَيْنِ (ع)؟
+                            </div>
+                            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                                <button class="btn btn-teach" onclick="checkAynSalimQuiz(1)" style="background: #059669; padding: 10px 24px; font-size: 1.15rem;">
+                                    <span>👨‍🌾</span> <span>زَ<span style="color:#ffffff;">رَّا</span>ع</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="checkAynSalimQuiz(2)" style="background: #059669; padding: 10px 24px; font-size: 1.15rem;">
+                                    <span>🎺</span> <span>بُـوق</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="checkAynSalimQuiz(3)" style="background: #059669; padding: 10px 24px; font-size: 1.15rem;">
+                                    <span>🥛</span> <span>لَـبَـن</span>
+                                </button>
+                            </div>
+                            <div id="aynSalimQuizFeedback" style="margin-top: 12px; font-weight: 900; font-size: 1.1rem; min-height: 24px;"></div>
+                        </div>
+
+                        <!-- نوافذ عرض صفحات الكتاب المدرسي -->
+                        <div style="margin-top: 24px; padding-top: 16px; border-top: 2px dashed #a7f3d0; text-align: center;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.1rem; margin-bottom: 10px;">
+                                📖 صَفَحَاتُ الْكِتَابِ الْمَدْرَسِيِّ الْمُعْتَمَدَةُ (انْقُرْ لِعَرْضِ الصَّفْحَةِ مُكَبَّرَة):
+                            </div>
+                            <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                                <button class="btn btn-secondary" onclick="openBookModal('page_69.png', 'الكتاب المدرسي - صفحة ٦٩ (تنوين الفتح ونشاط ١ و ٢ و ٣)')">
+                                    <span>📖</span> <span>صَفْحَة ٦٩</span>
+                                </button>
+                                <button class="btn btn-secondary" onclick="openBookModal('page_70.png', 'الكتاب المدرسي - صفحة ٧٠ (أركب وأقرأ: رفع عامر علما)')">
+                                    <span>📖</span> <span>صَفْحَة ٧٠</span>
+                                </button>
+                                <button class="btn btn-secondary" onclick="openBookModal('page_71.png', 'الكتاب المدرسي - صفحة ٧١ (محفوظة: نحن أطفال العراق)')">
+                                    <span>📖</span> <span>صَفْحَة ٧١</span>
+                                </button>
+                                <button class="btn btn-secondary" onclick="openBookModal('page_72.png', 'الكتاب المدرسي - صفحة ٧٢ (مدخل الوحدة الرابعة: صحتي وبيئتي)')">
+                                    <span>📖</span> <span>صَفْحَة ٧٢</span>
+                                </button>
+                                <button class="btn btn-secondary" onclick="openBookModal('page_66.png', 'كتاب الوزارة - صفحة ٦٦ (حرف العين وأصوات المدود)')">
+                                    <span>📖</span> <span>صَفْحَة ٦٦ (الوزارة)</span>
+                                </button>
+                                <button class="btn btn-secondary" onclick="openBookModal('page_67.png', 'كتاب الوزارة - صفحة ٦٧ (أنشطة العين الساكنة والتحليل)')">
+                                    <span>📖</span> <span>صَفْحَة ٦٧ (الوزارة)</span>
+                                </button>
+                                <button class="btn btn-secondary" onclick="openBookModal('page_68.png', 'كتاب الوزارة - صفحة ٦٨ (تركيب المقاطع وقراءة يرفع عامر علم وطني)')">
+                                    <span>📖</span> <span>صَفْحَة ٦٨ (الوزارة)</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 </div>
 
                 <!-- ==============================================
