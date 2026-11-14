@@ -12607,7 +12607,560 @@
                         </div>
                     </div>
                 </div>
-            </div> <!-- إغلاق stage-card -->
+            
+                <!-- ===============================================
+                     عرض الدرس الثالث: حرف الشين (شـ ، ـشـ ، ـش ، ش) وقراءة شَامِل شُرْطِيُّ الْمُرُور (ص ٧٥ - ٧٨)
+                =============================================== -->
+                <div class="lesson-view" id="view-tab-letter_sh">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationSh_1" onclick="switchLetterShStation(1)">
+                            <span>☀️</span> <span>١. أتعرف الحرف والمشهد (ص ٧٥)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationSh_2" onclick="switchLetterShStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والتنوين (ص ٧٥ - ٧٦)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationSh_3" onclick="switchLetterShStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٧٦ - ٧٧)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationSh_4" onclick="switchLetterShStation(4)">
+                            <span>👮‍♂️</span> <span>٤. قراءة (شَامِل شُرْطِيُّ الْمُرُور) والرسم (ص ٧٧ - ٧٨)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-sh-station active" id="stationSh_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-sh-card" onclick="playShPhonemeFaseeh()">
+                                <div>
+                                    <div class="giant-letter-sh-glyph">شـ  ـشـ  ـش  ش</div>
+                                    <div style="font-size: 1.15rem; font-weight: 800; color: #b45309; margin-top: 6px;">حَرْفُ الشِّينِ (اضْغَطْ لِسَمَاعِ الصَّوْتِ الفُونِيمِيِّ الصَّافِي 🔊)</div>
+                                </div>
+                                <div style="font-size: 3rem;">👮‍♂️☀️</div>
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <button class="btn-primary" onclick="playShLetterSound()" style="background: linear-gradient(135deg, #d97706, #b45309); font-size: 1.05rem;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِصَوْتِ الحَرْفِ: شْ!</span>
+                                </button>
+                                <button class="btn-secondary" onclick="playShPhonemeFaseeh()" style="font-size: 1.05rem; border-color: #d97706; color: #b45309;">
+                                    <span>🗣️</span> <span>نُطْقُ فَصِيح الصَّافِي (صِفَةُ التَّفَشِّي)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- مشهد الدرس التفاعلي وقصة الدرس -->
+                        <div class="interactive-panel" style="margin-bottom: 24px; border: 2px solid #fde68a; background: #ffffff;">
+                            <div class="panel-header" style="background: linear-gradient(135deg, #fffbeb, #fef3c7); color: #92400e;">
+                                <span>🏙️</span> <span>مَشْهَدُ دَرْسِ حَرْفِ الشِّينِ (ص ٧٥)</span>
+                            </div>
+                            <div style="text-align: center; margin: 16px 0;">
+                                <img src="activity_sh_scene.png" alt="مشهد حرف الشين ص ٧٥" style="width: 100%; max-width: 680px; border-radius: 18px; border: 3px solid #d97706; box-shadow: 0 8px 24px rgba(217, 119, 6, 0.15);">
+                            </div>
+                            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                <button class="btn-primary" onclick="playAudio('letter_sh_scene_story')" style="background: #d97706;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِقِصَّةِ الْمَشْهَدِ (شَامِل شُرْطِيُّ الْمُرُور وَشَمْسُ الصَّبَاح)</span>
+                                </button>
+                                <button class="btn-secondary" onclick="openBookPageModal('page_76.png', 'كتاب قراءتي الجديد: ص ٧٥')" style="border-color: #d97706; color: #b45309;">
+                                    <span>📖</span> <span>عَرْضُ صَفْحَة ٧٥ فِي الْكِتَابِ</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- بطاقات أشكال حرف الشين الأربعة -->
+                        <div class="interactive-panel" style="margin-bottom: 24px; border: 2px solid #fde68a;">
+                            <div class="panel-header" style="background: linear-gradient(135deg, #fffbeb, #fef3c7); color: #92400e;">
+                                <span>✨</span> <span>أَشْكَالُ حَرْفِ الشِّينِ الأَرْبَعَةُ عَلَى السَّطْرِ</span>
+                            </div>
+                            <div class="sh-forms-grid">
+                                <div class="sh-form-card" onclick="playShWord('shams')">
+                                    <div class="sh-form-glyph">شـ</div>
+                                    <div class="sh-form-label">أَوَّلُ الْكَلِمَةِ</div>
+                                    <div class="sh-form-ex">شَمْسٌ ☀️</div>
+                                </div>
+                                <div class="sh-form-card" onclick="playShWord('mishmish')">
+                                    <div class="sh-form-glyph">ـشـ</div>
+                                    <div class="sh-form-label">وَسَطُ الْكَلِمَةِ</div>
+                                    <div class="sh-form-ex">مِشْمِشٌ 🍑</div>
+                                </div>
+                                <div class="sh-form-card" onclick="playShWord('reesh')">
+                                    <div class="sh-form-glyph">ـش</div>
+                                    <div class="sh-form-label">آخِرُ الكَلِمَةِ مُتَّصِلٌ</div>
+                                    <div class="sh-form-ex">رِيشٌ 🪶</div>
+                                </div>
+                                <div class="sh-form-card" onclick="playShWord('farashah')">
+                                    <div class="sh-form-glyph">ش</div>
+                                    <div class="sh-form-label">آخِرُ الكَلِمَةِ مُنْفَصِلٌ</div>
+                                    <div class="sh-form-ex">فَرَاشٌ 🦋</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- شبكة كلمات وصور حرف الشين المقررة في نشاط 1 ص 75 -->
+                        <div class="interactive-panel" style="border: 2px solid #fde68a;">
+                            <div class="panel-header" style="background: linear-gradient(135deg, #fffbeb, #fef3c7); color: #92400e;">
+                                <span>📚</span> <span>١ نَشَاط: أَتَعَرَّفُ كَلِمَاتِ حَرْفِ الشِّينِ الْمُصَوَّرَةِ (ص ٧٥)</span>
+                            </div>
+                            <div style="text-align: center; margin: 12px 0;">
+                                <img src="activity_sh_words.png" alt="أنشطة كلمات حرف الشين" style="width: 100%; max-width: 680px; border-radius: 16px; border: 2px solid #fde68a;">
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-top: 14px;">
+                                <div class="sh-word-card" onclick="playShWord('shamah')">
+                                    <div class="sh-word-icon">🕯️</div>
+                                    <div class="sh-word-text">شَمْعَةٌ</div>
+                                    <div class="sh-word-pos">أَوَّلُ الْكَلِمَة (شَـ)</div>
+                                </div>
+                                <div class="sh-word-card" onclick="playShWord('shubbak')">
+                                    <div class="sh-word-icon">🪟</div>
+                                    <div class="sh-word-text">شُبَّاكٌ</div>
+                                    <div class="sh-word-pos">أَوَّلُ الْكَلِمَة (شُـ)</div>
+                                </div>
+                                <div class="sh-word-card" onclick="playShWord('shiraa')">
+                                    <div class="sh-word-icon">⛵</div>
+                                    <div class="sh-word-text">شِرَاعٌ</div>
+                                    <div class="sh-word-pos">أَوَّلُ الْكَلِمَة (شِـ)</div>
+                                </div>
+                                <div class="sh-word-card" onclick="playShWord('mishmish')">
+                                    <div class="sh-word-icon">🍑</div>
+                                    <div class="sh-word-text">مِشْمِشٌ</div>
+                                    <div class="sh-word-pos">وَسَطٌ وَآخِر (ـشْـ ، ـشٌ)</div>
+                                </div>
+                                <div class="sh-word-card" onclick="playShWord('ashjaar')">
+                                    <div class="sh-word-icon">🌳</div>
+                                    <div class="sh-word-text">أَشْجَارٌ</div>
+                                    <div class="sh-word-pos">وَسَطُ الْكَلِمَة (ـشْـ)</div>
+                                </div>
+                                <div class="sh-word-card" onclick="playShWord('shaari')">
+                                    <div class="sh-word-icon">🛣️</div>
+                                    <div class="sh-word-text">شَارِعٌ</div>
+                                    <div class="sh-word-pos">مَدٌّ بِالأَلِف (شَا)</div>
+                                </div>
+                                <div class="sh-word-card" onclick="playShWord('qushoor')">
+                                    <div class="sh-word-icon">🍌</div>
+                                    <div class="sh-word-text">قُشُورٌ</div>
+                                    <div class="sh-word-pos">مَدٌّ بِالْوَاو (شُو)</div>
+                                </div>
+                                <div class="sh-word-card" onclick="playShWord('manasheer')">
+                                    <div class="sh-word-icon">🪚</div>
+                                    <div class="sh-word-text">مَنَاشِيرُ</div>
+                                    <div class="sh-word-pos">مَدٌّ بِالْيَاء (شِيـ)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود القصيرة والطويلة والتنوين والمقاطع الساكنة -->
+                    <div class="letter-sh-station" id="stationSh_2">
+                        <!-- نشاط 2 ص 75: أصوات المد القصيرة والطويلة -->
+                        <div class="interactive-panel" style="margin-bottom: 24px; border: 2px solid #fde68a;">
+                            <div class="panel-header" style="background: linear-gradient(135deg, #fffbeb, #fef3c7); color: #92400e;">
+                                <span>🎵</span> <span>٢ نَشَاط: أَصْوَاتُ حَرْفِ الشِّينِ مَعَ الْمُدُودِ الْقَصِيرَةِ وَالطَّوِيلَةِ (ص ٧٥)</span>
+                            </div>
+                            <div style="text-align: center; margin: 12px 0;">
+                                <img src="activity_sh_vowels.png" alt="جدول مدود حرف الشين" style="width: 100%; max-width: 680px; border-radius: 16px; border: 2px solid #fde68a;">
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-top: 16px;">
+                                <!-- المدود القصيرة -->
+                                <div style="background: #ffffff; border: 2px solid #fde68a; border-radius: 18px; padding: 16px; text-align: center;">
+                                    <div style="font-weight: 900; color: #b45309; font-size: 1.15rem; margin-bottom: 12px;">🌱 أَصْوَاتُ الْمَدِّ الْقَصِيرَةِ (الْحَرَكَات)</div>
+                                    <div style="display: flex; justify-content: space-around; gap: 8px;">
+                                        <button class="vowel-btn" onclick="playShVowel('short_a')" style="border-color: #d97706;">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #b45309;">شَـ</span>
+                                            <span style="font-size: 0.85rem; color: #92400e;">فَتْحَة (شَمْعَة)</span>
+                                        </button>
+                                        <button class="vowel-btn" onclick="playShVowel('short_u')" style="border-color: #d97706;">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #b45309;">شُـ</span>
+                                            <span style="font-size: 0.85rem; color: #92400e;">ضَمَّة (شُبَّاك)</span>
+                                        </button>
+                                        <button class="vowel-btn" onclick="playShVowel('short_i')" style="border-color: #d97706;">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #b45309;">شِـ</span>
+                                            <span style="font-size: 0.85rem; color: #92400e;">كَسْرَة (شِرَاع)</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- المدود الطويلة -->
+                                <div style="background: #ffffff; border: 2px solid #fed7aa; border-radius: 18px; padding: 16px; text-align: center;">
+                                    <div style="font-weight: 900; color: #ea580c; font-size: 1.15rem; margin-bottom: 12px;">🌟 أَصْوَاتُ الْمَدِّ الطَّوِيلَةِ (حُرُوفُ الْمَدّ)</div>
+                                    <div style="display: flex; justify-content: space-around; gap: 8px;">
+                                        <button class="vowel-btn" onclick="playShVowel('long_aa')" style="border-color: #f97316;">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #c2410c;">شَا</span>
+                                            <span style="font-size: 0.85rem; color: #9a3412;">أَلِف (شَارِع)</span>
+                                        </button>
+                                        <button class="vowel-btn" onclick="playShVowel('long_oo')" style="border-color: #f97316;">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #c2410c;">شُو</span>
+                                            <span style="font-size: 0.85rem; color: #9a3412;">وَاو (قُشُور)</span>
+                                        </button>
+                                        <button class="vowel-btn" onclick="playShVowel('long_ee')" style="border-color: #f97316;">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #c2410c;">شِيـ</span>
+                                            <span style="font-size: 0.85rem; color: #9a3412;">يَاء (مَنَاشِير)</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- محطة التنوينات الثلاثة -->
+                        <div class="interactive-panel" style="margin-bottom: 24px; border: 2px solid #bae6fd;">
+                            <div class="panel-header" style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); color: #0369a1;">
+                                <span>🔔</span> <span>تَنْوِينَاتُ حَرْفِ الشِّينِ (شٌ ، شًا ، شٍ)</span>
+                            </div>
+                            <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-top: 12px;">
+                                <button class="vowel-btn" onclick="playShVowel('tanween_dham')" style="border-color: #0284c7; min-width: 140px;">
+                                    <span style="font-size: 2.2rem; font-weight: 900; color: #0369a1;">شٌ</span>
+                                    <span style="font-size: 0.85rem; color: #0284c7;">تَنْوِينُ الضَّمّ (رِيشٌ)</span>
+                                </button>
+                                <button class="vowel-btn" onclick="playShVowel('tanween_fath')" style="border-color: #0284c7; min-width: 140px;">
+                                    <span style="font-size: 2.2rem; font-weight: 900; color: #0369a1;">شًا</span>
+                                    <span style="font-size: 0.85rem; color: #0284c7;">تَنْوِينُ الْفَتْح (مِشْمِشًا)</span>
+                                </button>
+                                <button class="vowel-btn" onclick="playShVowel('tanween_kasr')" style="border-color: #0284c7; min-width: 140px;">
+                                    <span style="font-size: 2.2rem; font-weight: 900; color: #0369a1;">شٍ</span>
+                                    <span style="font-size: 0.85rem; color: #0284c7;">تَنْوِينُ الْكَسْر (رِيشٍ)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 3 و4 ص 76: تمييز المدود والمقاطع الساكنة -->
+                        <div class="interactive-panel" style="border: 2px solid #fde68a;">
+                            <div class="panel-header" style="background: linear-gradient(135deg, #fffbeb, #fef3c7); color: #92400e;">
+                                <span>✊</span> <span>٣ و٤ نَشَاط: تَمْيِيزُ الْمُدُودِ وَالْمَقَاطِعِ السَّاكِنَةِ (ص ٧٦)</span>
+                            </div>
+                            <div style="text-align: center; margin: 12px 0;">
+                                <img src="activity_sh_syllables.png" alt="أنشطة مقاطع الشين الساكنة" style="width: 100%; max-width: 680px; border-radius: 16px; border: 2px solid #fde68a;">
+                            </div>
+                            <div style="text-align: center; margin-bottom: 14px;">
+                                <div style="font-weight: 800; color: #92400e; font-size: 1.1rem;">انْقُرْ عَلَى الْمَقْطَعِ السَّاكِنِ مَعَ شَارَةِ قَبْضَةِ الْيَدِ (✊) لِسَمَاعِهِ مُنْفَصِلاً:</div>
+                            </div>
+                            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+                                <button class="syllable-chip" onclick="playShSyllable('mish')" style="border-color: #d97706; background: #fffbeb;">
+                                    <span>✊</span> <span style="font-size: 1.3rem; font-weight: 900; color: #b45309;">مِشْـ</span> <span>(مِشْعَلٌ / مِشْطٌ)</span>
+                                </button>
+                                <button class="syllable-chip" onclick="playShSyllable('ush')" style="border-color: #d97706; background: #fffbeb;">
+                                    <span>✊</span> <span style="font-size: 1.3rem; font-weight: 900; color: #b45309;">عُشْـ</span> <span>(عُشْبٌ)</span>
+                                </button>
+                                <button class="syllable-chip" onclick="playShSyllable('sham')" style="border-color: #d97706; background: #fffbeb;">
+                                    <span>✊</span> <span style="font-size: 1.3rem; font-weight: 900; color: #b45309;">شَمْـ</span> <span>(شَمْسٌ / شَمْعَةٌ)</span>
+                                </button>
+                                <button class="syllable-chip" onclick="playShSyllable('min')" style="border-color: #d97706; background: #fffbeb;">
+                                    <span>✊</span> <span style="font-size: 1.3rem; font-weight: 900; color: #b45309;">مِنْـ</span> <span>(مِنْشَارٌ)</span>
+                                </button>
+                            </div>
+                            <div style="text-align: center; margin-top: 16px;">
+                                <button class="btn-secondary" onclick="openBookPageModal('page_77.png', 'كتاب قراءتي الجديد: ص ٧٦')" style="border-color: #d97706; color: #b45309;">
+                                    <span>📖</span> <span>عَرْضُ صَفْحَة ٧٦ فِي الْكِتَابِ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي بالصفقات الحية وقبضة اليد -->
+                    <div class="letter-sh-station" id="stationSh_3">
+                        <!-- ورشة التحليل الصوتي (نشاط 5 ص 76) -->
+                        <div class="interactive-panel" style="margin-bottom: 24px; border: 2px solid #fde68a;">
+                            <div class="panel-header" style="background: linear-gradient(135deg, #fffbeb, #fef3c7); color: #92400e;">
+                                <span>👏</span> <span>٥ نَشَاط: وَرْشَةُ التَّحْلِيلِ الصَّوْتِيِّ لِكَلِمَاتِ حَرْفِ الشِّينِ (ص ٧٦)</span>
+                            </div>
+                            <div style="text-align: center; margin: 12px 0;">
+                                <img src="activity_sh_analysis.png" alt="نشاط التحليل الصوتي" style="width: 100%; border-radius: 14px; border: 2px solid #fde68a;">
+                            </div>
+                            <div style="background: #fffbeb; border-radius: 14px; padding: 12px; margin-bottom: 16px; text-align: center; color: #92400e; font-weight: 800;">
+                                💡 صَفِّقْ مَعَ فَصِيحٍ بَعَدَدِ مَقَاطِعِ كُلِّ كَلِمَةٍ (👏)، وَاقْبِضْ يَدَكَ عِنْدَ الْمَقْطَعِ السَّاكِنِ (✊):
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+                                <div class="split-card" id="cardShSplit_shaari" onclick="playShSplitWord('shaari')">
+                                    <div style="font-size: 1.3rem; font-weight: 900; color: #b45309;">شَارِعٌ</div>
+                                    <div style="font-size: 1.05rem; color: #92400e; margin-top: 4px;">شَا + رِ + عٌ (٣ صَفَقَات 👏)</div>
+                                    <div style="font-size: 0.8rem; color: #475569; margin-top: 2px;">مَدٌّ بِالأَلِف + قَصِير + تَنْوِين</div>
+                                </div>
+                                <div class="split-card" id="cardShSplit_qushoor" onclick="playShSplitWord('qushoor')">
+                                    <div style="font-size: 1.3rem; font-weight: 900; color: #b45309;">قُشُورٌ</div>
+                                    <div style="font-size: 1.05rem; color: #92400e; margin-top: 4px;">قُ + شُو + رٌ (٣ صَفَقَات 👏)</div>
+                                    <div style="font-size: 0.8rem; color: #475569; margin-top: 2px;">قَصِير + مَدٌّ بِالْوَاو + تَنْوِين</div>
+                                </div>
+                                <div class="split-card" id="cardShSplit_minshaar" onclick="playShSplitWord('minshaar')">
+                                    <div style="font-size: 1.3rem; font-weight: 900; color: #b45309;">مِنْشَارٌ</div>
+                                    <div style="font-size: 1.05rem; color: #92400e; margin-top: 4px;">مِنْـ ✊ + شَا + رٌ (٣ صَفَقَات 👏)</div>
+                                    <div style="font-size: 0.8rem; color: #475569; margin-top: 2px;">مَقْطَعٌ سَاكِن + مَدٌّ بِالأَلِف + تَنْوِين</div>
+                                </div>
+                                <div class="split-card" id="cardShSplit_shamil" onclick="playShSplitWord('shamil')">
+                                    <div style="font-size: 1.3rem; font-weight: 900; color: #b45309;">شَامِلٌ</div>
+                                    <div style="font-size: 1.05rem; color: #92400e; margin-top: 4px;">شَا + مِـ + لٌ (٣ صَفَقَات 👏)</div>
+                                    <div style="font-size: 0.8rem; color: #475569; margin-top: 2px;">مَدٌّ بِالأَلِف + قَصِير + تَنْوِين</div>
+                                </div>
+                                <div class="split-card" id="cardShSplit_nasheet" onclick="playShSplitWord('nasheet')">
+                                    <div style="font-size: 1.3rem; font-weight: 900; color: #b45309;">نَشِيطٌ</div>
+                                    <div style="font-size: 1.05rem; color: #92400e; margin-top: 4px;">نَـ + شِيـ + طٌ (٣ صَفَقَات 👏)</div>
+                                    <div style="font-size: 0.8rem; color: #475569; margin-top: 2px;">قَصِير + مَدٌّ بِالْيَاء + تَنْوِين</div>
+                                </div>
+                                <div class="split-card" id="cardShSplit_mishmish" onclick="playShSplitWord('mishmish')">
+                                    <div style="font-size: 1.3rem; font-weight: 900; color: #b45309;">مِشْمِشٌ</div>
+                                    <div style="font-size: 1.05rem; color: #92400e; margin-top: 4px;">مِشْـ ✊ + مِـ + شٌ (٣ صَفَقَات 👏)</div>
+                                    <div style="font-size: 0.8rem; color: #475569; margin-top: 2px;">مَقْطَعٌ سَاكِن + قَصِير + تَنْوِين</div>
+                                </div>
+                                <div class="split-card" id="cardShSplit_shams" onclick="playShSplitWord('shams')">
+                                    <div style="font-size: 1.3rem; font-weight: 900; color: #b45309;">شَمْسٌ</div>
+                                    <div style="font-size: 1.05rem; color: #92400e; margin-top: 4px;">شَمْـ ✊ + سٌ (صَفْقَتَان 👏)</div>
+                                    <div style="font-size: 0.8rem; color: #475569; margin-top: 2px;">مَقْطَعٌ سَاكِن + تَنْوِين</div>
+                                </div>
+                                <div class="split-card" id="cardShSplit_ushb" onclick="playShSplitWord('ushb')">
+                                    <div style="font-size: 1.3rem; font-weight: 900; color: #b45309;">عُشْبٌ</div>
+                                    <div style="font-size: 1.05rem; color: #92400e; margin-top: 4px;">عُشْـ ✊ + بٌ (صَفْقَتَان 👏)</div>
+                                    <div style="font-size: 0.8rem; color: #475569; margin-top: 2px;">مَقْطَعٌ سَاكِن + تَنْوِين</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ورشة التركيب الصوتي (نشاط 8/6 ص 77) -->
+                        <div class="interactive-panel" style="border: 2px solid #bae6fd;">
+                            <div class="panel-header" style="background: linear-gradient(135deg, #f0f9ff, #e0f2fe); color: #0369a1;">
+                                <span>🧩</span> <span>٨ نَشَاط: وَرْشَةُ التَّرْكِيبِ الصَّوْتِيِّ (ص ٧٧)</span>
+                            </div>
+                            <div style="text-align: center; margin: 12px 0;">
+                                <img src="activity_sh_blend.png" alt="نشاط التركيب الصوتي" style="width: 100%; border-radius: 14px; border: 2px solid #bae6fd;">
+                            </div>
+                            <div style="background: #f0fdf4; border-radius: 14px; padding: 12px; margin-bottom: 16px; text-align: center; color: #166534; font-weight: 800;">
+                                ✨ اضْغَطْ عَلَى الْمَقَاطِعِ الْمُلَوَّنَةِ لِدَمْجِهَا وَبِنَاءِ كَلِمَاتٍ جَدِيدَةٍ كَامِلَة:
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+                                <div class="merge-card" id="cardShMerge_farashah" onclick="playShMerge('farashah')">
+                                    <div style="font-size: 1.15rem; font-weight: 800; color: #0369a1;">فَـ + رَا + شَـ + ةٌ</div>
+                                    <div style="font-size: 1.45rem; font-weight: 900; color: #0284c7; margin-top: 6px;">➔ فَرَاشَةٌ 🦋</div>
+                                </div>
+                                <div class="merge-card" id="cardShMerge_shams" onclick="playShMerge('shams')">
+                                    <div style="font-size: 1.15rem; font-weight: 800; color: #0369a1;">شَمْـ + سٌ</div>
+                                    <div style="font-size: 1.45rem; font-weight: 900; color: #0284c7; margin-top: 6px;">➔ شَمْسٌ ☀️</div>
+                                </div>
+                                <div class="merge-card" id="cardShMerge_shamah" onclick="playShMerge('shamah')">
+                                    <div style="font-size: 1.15rem; font-weight: 800; color: #0369a1;">شَمْـ + عَـ + ةٌ</div>
+                                    <div style="font-size: 1.45rem; font-weight: 900; color: #0284c7; margin-top: 6px;">➔ شَمْعَةٌ 🕯️</div>
+                                </div>
+                                <div class="merge-card" id="cardShMerge_shamil" onclick="playShMerge('shamil')">
+                                    <div style="font-size: 1.15rem; font-weight: 800; color: #0369a1;">شَا + مِـ + لٌ</div>
+                                    <div style="font-size: 1.45rem; font-weight: 900; color: #0284c7; margin-top: 6px;">➔ شَامِلٌ 👮‍♂️</div>
+                                </div>
+                                <div class="merge-card" id="cardShMerge_nasheet" onclick="playShMerge('nasheet')">
+                                    <div style="font-size: 1.15rem; font-weight: 800; color: #0369a1;">نَـ + شِيـ + طٌ</div>
+                                    <div style="font-size: 1.45rem; font-weight: 900; color: #0284c7; margin-top: 6px;">➔ نَشِيطٌ 🏃‍♂️</div>
+                                </div>
+                                <div class="merge-card" id="cardShMerge_shurti" onclick="playShMerge('shurti')">
+                                    <div style="font-size: 1.15rem; font-weight: 800; color: #0369a1;">شُـ + رْ + طِـيْـ + يٌ</div>
+                                    <div style="font-size: 1.45rem; font-weight: 900; color: #0284c7; margin-top: 6px;">➔ شُرْطِيٌّ 🚔</div>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 16px;">
+                                <button class="btn-secondary" onclick="openBookPageModal('page_78.png', 'كتاب قراءتي الجديد: ص ٧٧')" style="border-color: #0284c7; color: #0369a1;">
+                                    <span>📖</span> <span>عَرْضُ صَفْحَة ٧٧ فِي الْكِتَابِ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: قراءة النصوص والسبورة واختبار التحدي -->
+                    <div class="letter-sh-station" id="stationSh_4">
+                        <!-- تبويبات لوحة القراءة -->
+                        <div class="reading-tabs-container">
+                            <button class="reading-tab-btn active" id="btnShReadingTab_1" onclick="switchShReadingTab(1)">
+                                <span>👮‍♂️</span> <span>قِرَاءَةُ (شَامِل شُرْطِيُّ الْمُرُور)</span>
+                            </button>
+                            <button class="reading-tab-btn" id="btnShReadingTab_2" onclick="switchShReadingTab(2)">
+                                <span>📖</span> <span>نُصُوصُ الْكِتَابِ الْمَدْرَسِيِّ (ص ٧٧)</span>
+                            </button>
+                        </div>
+
+                        <!-- التبويب الأول: قراءة نص شَامِل شُرْطِيُّ الْمُرُور -->
+                        <div class="sh-reading-panel active" id="shReadingPanel_1">
+                            <div class="interactive-panel" style="margin-bottom: 24px; border: 3px solid #1e3a8a;">
+                                <div class="shamil-police-banner">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span style="font-size: 2.6rem;">👮‍♂️🚔</span>
+                                        <div>
+                                            <div style="font-size: 1.45rem; font-weight: 900;">شَامِل شُرْطِيُّ الْمُرُور</div>
+                                            <div style="font-size: 0.95rem; opacity: 0.9;">بَطَلُ الشَّارِعِ، رَفِيقُ النَّاسِ، وَحَارِسُ الأَمَانِ مَعَ طُلُوعِ الشَّمْسِ!</div>
+                                        </div>
+                                    </div>
+                                    <span class="shamil-badge">✨ نَصُّ الْقِرَاءَةِ التُّرَاثِيُّ الأَصِيلُ</span>
+                                </div>
+
+                                <div style="text-align: center; margin-bottom: 20px;">
+                                    <button class="btn-primary" onclick="playShReadingLine('shamil_full')" style="background: linear-gradient(135deg, #1e3a8a, #2563eb); font-size: 1.25rem; padding: 14px 36px; box-shadow: 0 6px 20px rgba(30, 58, 138, 0.3);">
+                                        <span>▶️</span> <span>اسْتَمِعْ لِلْقِرَاءَةِ الْكَامِلَةِ الْمُعَبِّرَةِ (شَامِل شُرْطِيُّ الْمُرُور)</span>
+                                    </button>
+                                </div>
+
+                                <div class="reading-lines-box" style="background: #f8fafc; border: 2px solid #cbd5e1; border-radius: 20px; padding: 24px;">
+                                    <div class="reading-line-card" onclick="playShReadingLine('sh1')" style="border-right: 6px solid #1e3a8a;">
+                                        <div class="reading-line-text" style="color: #1e3a8a;">شَامِلٌ شُرْطِيُّ الْمُرُورِ.</div>
+                                        <div class="reading-line-hint">اضْغَطْ لِسَمَاعِ السَّطْرِ الأَوَّلِ 🔊</div>
+                                    </div>
+                                    <div class="reading-line-card" onclick="playShReadingLine('sh2')" style="border-right: 6px solid #2563eb;">
+                                        <div class="reading-line-text" style="color: #1e3a8a;">شَامِلٌ نَشِيطٌ.</div>
+                                        <div class="reading-line-hint">اضْغَطْ لِسَمَاعِ السَّطْرِ الثَّانِي 🔊</div>
+                                    </div>
+                                    <div class="reading-line-card" onclick="playShReadingLine('sh3')" style="border-right: 6px solid #0284c7;">
+                                        <div class="reading-line-text" style="color: #1e3a8a;">يَقِفُ فِي الشَّارِعِ.</div>
+                                        <div class="reading-line-hint">اضْغَطْ لِسَمَاعِ السَّطْرِ الثَّالِثِ 🔊</div>
+                                    </div>
+                                    <div class="reading-line-card" onclick="playShReadingLine('sh4')" style="border-right: 6px solid #d97706;">
+                                        <div class="reading-line-text" style="color: #1e3a8a;">مَعَ طُلُوعِ الشَّمْسِ.</div>
+                                        <div class="reading-line-hint">اضْغَطْ لِسَمَاعِ السَّطْرِ الرَّابِعِ 🔊</div>
+                                    </div>
+                                    <div class="reading-line-card" onclick="playShReadingLine('sh5')" style="border-right: 6px solid #16a34a;">
+                                        <div class="reading-line-text" style="color: #1e3a8a;">يُسَاعِدُ النَّاسَ عَلَى عُبُورِ الشَّارِعِ.</div>
+                                        <div class="reading-line-hint">اضْغَطْ لِسَمَاعِ السَّطْرِ الْخَامِسِ 🔊</div>
+                                    </div>
+                                </div>
+
+                                <div style="text-align: center; margin-top: 18px;">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #1e3a8a; letter-spacing: 8px;">شـ  ـشـ  ـش  ش</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- التبويب الثاني: نصوص الكتاب المدرسي الجديد ص 77 -->
+                        <div class="sh-reading-panel" id="shReadingPanel_2">
+                            <div class="interactive-panel" style="margin-bottom: 24px; border: 3px solid #d97706;">
+                                <div class="panel-header" style="background: linear-gradient(135deg, #fffbeb, #fef3c7); color: #92400e;">
+                                    <span>📖</span> <span>نُصُوصُ الْقِرَاءَةِ فِي الْكِتَابِ الْمَدْرَسِيِّ الْجَدِيدِ (ص ٧٧)</span>
+                                </div>
+                                <div style="text-align: center; margin: 16px 0;">
+                                    <img src="activity_sh_read.png" alt="لوحة قراءة درس حرف الشين ص ٧٧" style="width: 100%; max-width: 720px; border-radius: 18px; border: 3px solid #d97706; box-shadow: 0 8px 24px rgba(217, 119, 6, 0.15);">
+                                </div>
+                                <div style="text-align: center; margin-bottom: 20px;">
+                                    <button class="btn-primary" onclick="playShReadingLine('book_full')" style="background: linear-gradient(135deg, #d97706, #b45309); font-size: 1.25rem; padding: 14px 36px; box-shadow: 0 6px 20px rgba(217, 119, 6, 0.3);">
+                                        <span>▶️</span> <span>اسْتَمِعْ لِلْقِرَاءَةِ الْكَامِلَةِ لِنُصُوصِ صَفْحَة ٧٧</span>
+                                    </button>
+                                </div>
+                                <div class="reading-lines-box" style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 20px; padding: 24px;">
+                                    <div class="reading-line-card" onclick="playShReadingLine('b1')" style="border-right: 6px solid #d97706;">
+                                        <div class="reading-line-text" style="color: #92400e;">شِيرِينُ تَحْمِلُ مِشْمِشًا وَوَرْدًا.</div>
+                                        <div class="reading-line-hint">اضْغَطْ لِسَمَاعِ الْجُمْلَةِ 🔊</div>
+                                    </div>
+                                    <div class="reading-line-card" onclick="playShReadingLine('b2')" style="border-right: 6px solid #ea580c;">
+                                        <div class="reading-line-text" style="color: #92400e;">تَقُولُ مَامَا: نَسِيمُ حَدِيقَتِنَا حُلْوٌ، وَشَمْسُنَا مُشْرِقَةٌ.</div>
+                                        <div class="reading-line-hint">اضْغَطْ لِسَمَاعِ الْجُمْلَةِ 🔊</div>
+                                    </div>
+                                    <div class="reading-line-card" onclick="playShReadingLine('b3')" style="border-right: 6px solid #0284c7;">
+                                        <div class="reading-line-text" style="color: #0369a1;">وِدَادُ وَوَسَنُ تَدْرُسَانِ.</div>
+                                        <div class="reading-line-hint">مُرَاجَعَةٌ تَرَاكُمِيَّةٌ 🔊</div>
+                                    </div>
+                                    <div class="reading-line-card" onclick="playShReadingLine('b4')" style="border-right: 6px solid #16a34a;">
+                                        <div class="reading-line-text" style="color: #166534;">سَارَ وِسَامٌ وَنَوْرَسٌ.</div>
+                                        <div class="reading-line-hint">مُرَاجَعَةٌ تَرَاكُمِيَّةٌ 🔊</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة تتبع ورسم حرف الشين بأشكاله الأربعة -->
+                        <div class="interactive-panel" style="margin-bottom: 24px; border: 2px solid #fde68a;">
+                            <div class="panel-header" style="background: linear-gradient(135deg, #fffbeb, #fef3c7); color: #92400e;">
+                                <span>✍️</span> <span>سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الشِّينِ (شـ ، ـشـ ، ـش ، ش)</span>
+                            </div>
+                            <div style="text-align: center; margin-bottom: 12px;">
+                                <img src="activity_sh_trace.png" alt="سبورة تتبع وكتابة حرف الشين" style="width: 100%; max-width: 680px; border-radius: 16px; border: 2px solid #fde68a; box-shadow: 0 4px 14px rgba(217,119,6,0.12);">
+                            </div>
+
+                            <div class="sh-canvas-box" id="shCanvasBox">
+                                <canvas id="canvasShTrace"></canvas>
+                            </div>
+
+                            <!-- أدوات وألوان الكانفاس -->
+                            <div style="display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 14px; flex-wrap: wrap;">
+                                <span style="font-weight: 800; color: #475569;">اخْتَرْ لَوْنَ الْقَلَمِ:</span>
+                                <button onclick="setShCanvasColor('#d97706')" style="width: 32px; height: 32px; border-radius: 50%; background: #d97706; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setShCanvasColor('#2563eb')" style="width: 32px; height: 32px; border-radius: 50%; background: #2563eb; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setShCanvasColor('#059669')" style="width: 32px; height: 32px; border-radius: 50%; background: #059669; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setShCanvasColor('#dc2626')" style="width: 32px; height: 32px; border-radius: 50%; background: #dc2626; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setShCanvasColor('#7c3aed')" style="width: 32px; height: 32px; border-radius: 50%; background: #7c3aed; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button class="btn-secondary" onclick="clearShCanvas()" style="font-size: 0.95rem; padding: 6px 18px; border-color: #ef4444; color: #dc2626;">
+                                    <span>🗑️</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي التفاعلي -->
+                        <div class="interactive-panel" style="border: 3px solid #f59e0b; background: #ffffff;">
+                            <div class="panel-header" style="background: linear-gradient(135deg, #fef3c7, #fde68a); color: #92400e;">
+                                <span>🏆</span> <span>اخْتِبَارُ التَّحَدِّي التَّفَاعُلِيُّ لِحَرْفِ الشِّينِ</span>
+                            </div>
+                            <div style="padding: 18px;">
+                                <!-- السؤال 1 -->
+                                <div class="quiz-question-box" style="margin-bottom: 20px; padding: 16px; background: #fffbeb; border-radius: 16px; border: 1px solid #fde68a;">
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #92400e; margin-bottom: 10px;">
+                                        ١. أَيْنَ يَقَعُ حَرْفُ الشِّينِ فِي كَلِمَةِ (شَمْس)؟
+                                    </div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(1, 'start', this)">فِي أَوَّلِ الْكَلِمَةِ (شـ)</button>
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(1, 'mid', this)">فِي وَسَطِ الْكَلِمَةِ (ـشـ)</button>
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(1, 'end', this)">فِي آخِرِ الْكَلِمَةِ (ش)</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 2 -->
+                                <div class="quiz-question-box" style="margin-bottom: 20px; padding: 16px; background: #fffbeb; border-radius: 16px; border: 1px solid #fde68a;">
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #92400e; margin-bottom: 10px;">
+                                        ٢. مَا الْكَلِمَةُ الَّتِي تَحْوِي صَوْتَ مَدٍّ طَوِيلٍ بِالْوَاوِ (شُو)؟
+                                    </div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(2, 'qushoor', this)">قُشُورٌ 🍌</button>
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(2, 'shubbak', this)">شُبَّاكٌ 🪟</button>
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(2, 'shibl', this)">شِبْلٌ 🦁</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 3 -->
+                                <div class="quiz-question-box" style="margin-bottom: 20px; padding: 16px; background: #fffbeb; border-radius: 16px; border: 1px solid #fde68a;">
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #92400e; margin-bottom: 10px;">
+                                        ٣. مَا التَّحْلِيلُ الصَّوْتِيُّ الدَّقِيقُ لِكَلِمَةِ (شَامِلٌ)؟
+                                    </div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(3, 'shamil_split', this)">شَا + مِـ + لٌ (٣ مَقَاطِع)</button>
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(3, 'shamil_wrong1', this)">شَـ + امِـ + لٌ</button>
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(3, 'shamil_wrong2', this)">شَامْ + لٌ</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 4 -->
+                                <div class="quiz-question-box" style="margin-bottom: 20px; padding: 16px; background: #fffbeb; border-radius: 16px; border: 1px solid #fde68a;">
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #92400e; margin-bottom: 10px;">
+                                        ٤. أَيُّ الْمَقَاطِعِ التَّالِيَةِ مَقْطَعٌ سَاكِنٌ مَغْلُوقٌ (✊)؟
+                                    </div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(4, 'mish', this)">مِشْـ (فِي: مِشْعَل / مِشْط)</button>
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(4, 'sha', this)">شَا (فِي: شَارِع)</button>
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(4, 'shu', this)">شُو (فِي: قُشُور)</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 5 -->
+                                <div class="quiz-question-box" style="padding: 16px; background: #fffbeb; border-radius: 16px; border: 1px solid #fde68a;">
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #92400e; margin-bottom: 10px;">
+                                        ٥. مَا وَظِيفَةُ شَامِلٍ فِي نَصِّ الْقِرَاءَةِ الْمَقْرُورِ؟
+                                    </div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(5, 'police', this)">شُرْطِيُّ الْمُرُورِ 👮‍♂️</button>
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(5, 'farmer', this)">فَلَّاحٌ يَزْرَعُ الْحَقْلَ 🌾</button>
+                                        <button class="quiz-opt-btn" onclick="checkShQuiz(5, 'grocer', this)">بَقَّالٌ يَبِيعُ اللَّبَنَ 🥛</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- أزرار استعراض صفحات كتاب القراءة -->
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 24px; flex-wrap: wrap;">
+                            <button class="btn-secondary" onclick="openBookPageModal('page_76.png', 'كتاب قراءتي الجديد: ص ٧٥')">
+                                <span>📖</span> <span>صَفْحَة ٧٥</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_77.png', 'كتاب قراءتي الجديد: ص ٧٦')">
+                                <span>📖</span> <span>صَفْحَة ٧٦</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_78.png', 'كتاب قراءتي الجديد: ص ٧٧')">
+                                <span>📖</span> <span>صَفْحَة ٧٧</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+</div> <!-- إغلاق stage-card -->
 <!-- شريط الانتقال المتسلسل بين الدروس -->
 
             <div class="lesson-stepper-bar">
