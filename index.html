@@ -40,6 +40,7 @@
     <link rel="stylesheet" href="css/lessons-unit1.css">
     <link rel="stylesheet" href="css/lessons-unit2.css">
     <link rel="stylesheet" href="css/lessons-unit3.css">
+    <link rel="stylesheet" href="css/lessons-unit4.css">
 
 </head>
 
@@ -11926,6 +11927,686 @@
                     </div>
                 </div>
 
+            
+                <!-- ===============================================
+                     عرض مدخل الوحدة الرابعة: الاستماع والمحادثة (صحتي وبيئتي) (ص ٧١ - ٧٢)
+                =============================================== -->
+                <div class="lesson-view" id="view-tab-unit4_intro">
+                    <!-- شريط المحطات التفاعلي لمدخل الوحدة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationUnit4_1" onclick="switchUnit4Station(1)">
+                            <span>🍎</span> <span>١. الاستماع (صحتي وبيئتي)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationUnit4_2" onclick="switchUnit4Station(2)">
+                            <span>🗣️</span> <span>٢. المحادثة والتعبير (أنا أتحدث)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationUnit4_3" onclick="switchUnit4Station(3)">
+                            <span>🌟</span> <span>٣. تَحَدِّي الْعَادَاتِ الصِّحِّيَّةِ</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: الاستماع -->
+                    <div class="unit4-station active" id="stationUnit4_1">
+                        <div class="family-listen-card" style="background: linear-gradient(135deg, #ecfdf5 0%, #eff6ff 100%); border: 2px solid #10b981;">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #065f46; margin-bottom: 6px;">
+                                🍎 قِصَّةُ صِحَّتِي وَبِيئَتِي (الِاسْتِمَاع - ص ٧١)
+                            </div>
+                            <div style="font-size: 0.95rem; color: #475569; margin-bottom: 14px;">
+                                انقر على زر الاستماع للقصة كاملة، أو استكشف العادات الصحية ومظاهر العناية بالبيئة:
+                            </div>
+
+                            <div style="position: relative; display: inline-block; max-width: 680px; width: 100%; margin-bottom: 14px;">
+                                <img src="unit4_health_listen.png" alt="لوحة الاستماع: صحتي وبيئتي" style="width: 100%; border-radius: 16px; border: 2px solid #a7f3d0; box-shadow: 0 4px 14px rgba(16,185,129,0.12);">
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;">
+                                <button class="btn btn-teach" onclick="playUnit4Story('full')" style="font-size: 1.05rem; padding: 12px 28px; background: linear-gradient(135deg, #059669, #047857); box-shadow: 0 4px 14px rgba(5,150,105,0.3);">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلْقِصَّةِ كَامِلَةً</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playUnit4Story('welcome')" style="font-size: 1.05rem; padding: 12px 24px; background: linear-gradient(135deg, #0284c7, #0369a1); box-shadow: 0 4px 14px rgba(2,132,199,0.3);">
+                                    <span>🌟</span> <span>تَرْحِيبُ فَصِيح</span>
+                                </button>
+                            </div>
+
+                            <!-- شبكة عناصر الصحة والبيئة التفاعلية -->
+                            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 720px; margin: 0 auto;">
+                                <div class="health-interactive-chip" onclick="playUnit4Story('health')">
+                                    <span>🧼</span> <span>غَسْلُ الْيَدَيْنِ بِالْمَاءِ وَالصَّابُون</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('clean')">
+                                    <span>🪥</span> <span>تَنْظِيفُ الْأَسْنَانِ بِالْفُرْشَاة</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('food')">
+                                    <span>🍎</span> <span>تَنَاوُلُ الْفَوَاكِهِ وَالْغِذَاءِ الصِّحِّي</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('clean')">
+                                    <span>🌳</span> <span>نَظَافَةُ الْبِيئَةِ وَالْمَدْرَسَة</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('health')">
+                                    <span>🥛</span> <span>شُرْبُ الْحَلِيبِ وَالْمَاءِ النَّقِيّ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: المحادثة والتعبير -->
+                    <div class="unit4-station" id="stationUnit4_2">
+                        <div class="family-listen-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%); border: 2px solid #059669;">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #065f46; margin-bottom: 6px;">
+                                🗣️ لَوْحَةُ الْمُحَادَثَةِ وَالتَّعْبِير (أَنَا أَتَحَدَّث - ص ٧١ - ٧٢)
+                            </div>
+                            <div style="font-size: 0.95rem; color: #475569; margin-bottom: 14px;">
+                                تأمل الصور التوضيحية وتحدث بجمل مفيدة مع فصيح والمعلمة:
+                            </div>
+
+                            <div style="position: relative; display: inline-block; max-width: 680px; width: 100%; margin-bottom: 16px;">
+                                <img src="unit4_story_health.png" alt="لوحة المحادثة صحتي وبيئتي" style="width: 100%; border-radius: 16px; border: 2px solid #a7f3d0; box-shadow: 0 4px 14px rgba(16,185,129,0.12);">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; max-width: 720px; margin: 0 auto;">
+                                <div class="health-interactive-chip" onclick="playUnit4Story('health')" style="justify-content: center; text-align: center; padding: 16px;">
+                                    <div>
+                                        <div style="font-size: 1.8rem; margin-bottom: 4px;">❓</div>
+                                        <div style="color: #065f46; font-size: 1.05rem;">كَيْفَ أُحَافِظُ عَلَى صِحَّتِي؟</div>
+                                        <div style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">انقر للاستماع للإجابة النموذجية</div>
+                                    </div>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('clean')" style="justify-content: center; text-align: center; padding: 16px;">
+                                    <div>
+                                        <div style="font-size: 1.8rem; margin-bottom: 4px;">🏡</div>
+                                        <div style="color: #065f46; font-size: 1.05rem;">النَّظَافَةُ وَالْعِنَايَةُ بِالْبِيئَة</div>
+                                        <div style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">انقر للتحدث عن البيئة المدرسية</div>
+                                    </div>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('food')" style="justify-content: center; text-align: center; padding: 16px;">
+                                    <div>
+                                        <div style="font-size: 1.8rem; margin-bottom: 4px;">🥗</div>
+                                        <div style="color: #065f46; font-size: 1.05rem;">الْغِذَاءُ الصِّحِّيُّ الْمُتَوَازِن</div>
+                                        <div style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">انقر لمعرفة فوائد الفواكه والحليب</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: تحدي العادات الصحية -->
+                    <div class="unit4-station" id="stationUnit4_3">
+                        <div class="family-listen-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #fef3c7 100%); border: 2px solid #10b981;">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #065f46; margin-bottom: 6px;">
+                                🌟 تَحَدِّي الْعَادَاتِ الصِّحِّيَّةِ وَالْبِيئِيَّةِ الذَّكِيّ
+                            </div>
+                            <div style="font-size: 0.95rem; color: #475569; margin-bottom: 16px;">
+                                انقر على العادة لتعرف هل هي عادة صحية سليمة أم ضارة:
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; max-width: 720px; margin: 0 auto;">
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('غَسْلُ الْيَدَيْنِ قَبْلَ الطَّعَامِ وَبَعْدَهُ', true, this)">
+                                    <span>🧼</span> <span>غَسْلُ الْيَدَيْنِ قَبْلَ الْأَكْلِ وَبَعْدَهُ</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('رَمْيُ الْأَوْرَاقِ فِي سَلَّةِ الْمُهْمَلَات', true, this)">
+                                    <span>🗑️</span> <span>رَمْيُ الْقُمَامَةِ فِي السَّلَّة</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('السَّهَرُ الطَّوِيلُ وَتَأَخُّرُ النَّوْم', false, this)">
+                                    <span>📱</span> <span>السَّهَرُ أَمَامَ الشَّاشَات</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('تَنَاوُلُ التُّفَّاحِ وَشُرْبُ الْحَلِيبِ', true, this)">
+                                    <span>🍎</span> <span>شُرْبُ الْحَلِيبِ وَأَكْلُ الْفَوَاكِه</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('الْإِكْثَارُ مِنَ الْحَلْوَى وَالْمَشْرُوبَاتِ الْغَازِيَّة', false, this)">
+                                    <span>🍭</span> <span>الْإِكْثَارُ مِنَ السُّكَّرِيَّاتِ الْمُضِرَّة</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('زِرَاعَةُ الْأَزْهَارِ وَالْعِنَايَةُ بِالْحَدِيقَة', true, this)">
+                                    <span>🌱</span> <span>زِرَاعَةُ النَّبَاتَاتِ وَحِمَايَةُ الْبِيئَة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ===============================================
+                     عرض الدرس الثاني: حرف الحاء (حـ ، ـحـ ، ـح ، ح) وقراءة صَلَاح تِلْمِيذ (ص ٧٢ - ٧٦)
+                =============================================== -->
+                <div class="lesson-view" id="view-tab-letter_h">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationH_1" onclick="switchLetterHStation(1)">
+                            <span>🌱</span> <span>١. أتعرف الحرف والمشهد (ص ٧٢ - ٧٣)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationH_2" onclick="switchLetterHStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والتنوين (ص ٧٢ - ٧٣)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationH_3" onclick="switchLetterHStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٧٣ - ٧٤)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationH_4" onclick="switchLetterHStation(4)">
+                            <span>📖</span> <span>٤. قراءة (صَلَاح تِلْمِيذ) والرسم (ص ٧٤ - ٧٦)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-h-station active" id="stationH_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-h-card" onclick="playHPhonemeFaseeh()">
+                                <div>
+                                    <div class="giant-letter-h-glyph">حـ ـحـ ـح ح</div>
+                                    <div style="font-weight: 800; color: #047857; font-size: 1.15rem; margin-top: 6px;">حَرْفُ الْحَاءِ الْحَلْقِيّ (انقر لسماع النطق الفونيمي الصافي)</div>
+                                </div>
+                                <span style="font-size: 2.8rem;">📢</span>
+                            </div>
+                        </div>
+
+                        <!-- بطاقة مشهد الدرس التفاعلي -->
+                        <div class="family-listen-card" style="border-color: #059669;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.25rem; margin-bottom: 8px;">
+                                🍎 مَشْهَدُ حَرْفِ الْحَاءِ وَصَلَاح (ص ٧٢)
+                            </div>
+                            <div style="text-align: center; margin-bottom: 12px;">
+                                <img src="activity_h_scene.png" alt="مشهد حرف الحاء ص ٧٢" style="width: 100%; max-width: 680px; border-radius: 18px; border: 3px solid #059669; box-shadow: 0 8px 24px rgba(5, 150, 105, 0.15);">
+                            </div>
+                            <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 16px;">
+                                <button class="btn btn-teach" onclick="playAudio('letter_h_scene_story')" style="background: #059669; padding: 12px 28px; font-size: 1.1rem;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِقِصَّةِ الْمَشْهَدِ مَعَ فَصِيح</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playHLetterSound()" style="background: #0284c7; padding: 12px 24px; font-size: 1.1rem;">
+                                    <span>🎵</span> <span>صَوْتُ حَرْفِ الْحَاءِ (حْـ)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المصورة التفاعلية -->
+                        <div class="family-listen-card" style="border-color: #10b981;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.25rem; margin-bottom: 8px; text-align: center;">
+                                🖼️ كَلِمَاتُ حَرْفِ الْحَاءِ الْمُصَوَّرَة (ص ٧٢ - ٧٤)
+                            </div>
+                            <div style="text-align: center; margin-bottom: 14px;">
+                                <img src="activity_h_words.png" alt="أنشطة كلمات حرف الحاء" style="width: 100%; max-width: 680px; border-radius: 16px; border: 2px solid #a7f3d0;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px;">
+                                <div class="h-word-card" onclick="playHWord('salah')">
+                                    <div class="h-word-icon">👦</div>
+                                    <div class="h-word-text">صَـلَا<span style="color:#059669;">حٌ</span></div>
+                                    <div class="h-word-pos">ح منفصل</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('telmeeth')">
+                                    <div class="h-word-icon">🎒</div>
+                                    <div class="h-word-text">تِلْـمِيـذٌ</div>
+                                    <div class="h-word-pos">تلميذ نشيط</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('fallaah')">
+                                    <div class="h-word-icon">🌾</div>
+                                    <div class="h-word-text">فَـلَّا<span style="color:#059669;">حٌ</span></div>
+                                    <div class="h-word-pos">ح منفصل</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('haql')">
+                                    <div class="h-word-icon">🌱</div>
+                                    <div class="h-word-text"><span style="color:#059669;">حَـ</span>قْـلٌ</div>
+                                    <div class="h-word-pos">حـ أول الكلمة</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('qamh')">
+                                    <div class="h-word-icon">🍞</div>
+                                    <div class="h-word-text">قَـمْـ<span style="color:#059669;">حٌ</span></div>
+                                    <div class="h-word-pos">ـح آخر متصل</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('mahasin')">
+                                    <div class="h-word-icon">👩</div>
+                                    <div class="h-word-text">مَـ<span style="color:#059669;">حَـ</span>ا سِـنُ</div>
+                                    <div class="h-word-pos">ـحـ وسط الكلمة</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('hisaan')">
+                                    <div class="h-word-icon">🐎</div>
+                                    <div class="h-word-text"><span style="color:#059669;">حِـ</span>صَـانٌ</div>
+                                    <div class="h-word-pos">حـ أول الكلمة</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('habl')">
+                                    <div class="h-word-icon">🪢</div>
+                                    <div class="h-word-text"><span style="color:#059669;">حَـ</span>بْـلٌ</div>
+                                    <div class="h-word-pos">حـ أول الكلمة</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('milh')">
+                                    <div class="h-word-icon">🧂</div>
+                                    <div class="h-word-text">مِلْـ<span style="color:#059669;">حٌ</span></div>
+                                    <div class="h-word-pos">ـح آخر متصل</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('miftaah')">
+                                    <div class="h-word-icon">🔑</div>
+                                    <div class="h-word-text">مِفْـتَا<span style="color:#059669;">حٌ</span></div>
+                                    <div class="h-word-pos">ح منفصل</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('hamaamah')">
+                                    <div class="h-word-icon">🕊️</div>
+                                    <div class="h-word-text"><span style="color:#059669;">حَـ</span>مَـامَـةٌ</div>
+                                    <div class="h-word-pos">حـ أول الكلمة</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('hoot')">
+                                    <div class="h-word-icon">🐋</div>
+                                    <div class="h-word-text"><span style="color:#059669;">حُـ</span>وتٌ</div>
+                                    <div class="h-word-pos">حـ أول الكلمة</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('nahl')">
+                                    <div class="h-word-icon">🐝</div>
+                                    <div class="h-word-text">نَـ<span style="color:#059669;">حْـ</span>لٌ</div>
+                                    <div class="h-word-pos">ـحـ وسط الكلمة</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('mahfazah')">
+                                    <div class="h-word-icon">💼</div>
+                                    <div class="h-word-text">مَـ<span style="color:#059669;">حْـ</span>فَـظَـةٌ</div>
+                                    <div class="h-word-pos">ـحـ وسط الكلمة</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('mihraar')">
+                                    <div class="h-word-icon">🌡️</div>
+                                    <div class="h-word-text">مِـ<span style="color:#059669;">حْـ</span>رَارٌ</div>
+                                    <div class="h-word-pos">ـحـ وسط الكلمة</div>
+                                </div>
+                                <div class="h-word-card" onclick="playHWord('sahab')">
+                                    <div class="h-word-icon">☁️</div>
+                                    <div class="h-word-text">سَـ<span style="color:#059669;">حَـ</span>ابٌ</div>
+                                    <div class="h-word-pos">ـحـ وسط الكلمة</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- لوحة أشكال ومواضع حرف الحاء الأربعة -->
+                        <div class="family-listen-card" style="border-color: #059669; background: #f0fdf4;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.25rem; margin-bottom: 8px; text-align: center;">
+                                ✍️ أَشْكَالُ حَرْفِ الْحَاءِ فِي الْكَلِمَة
+                            </div>
+                            <div class="h-forms-grid">
+                                <div class="h-form-card" onclick="playHWord('haql')">
+                                    <div class="h-form-glyph">حـ</div>
+                                    <div class="h-form-label">أَوَّلُ الْكَلِمَة</div>
+                                    <div class="h-form-ex">حَـقْلٌ</div>
+                                </div>
+                                <div class="h-form-card" onclick="playHWord('nahl')">
+                                    <div class="h-form-glyph">ـحـ</div>
+                                    <div class="h-form-label">وَسَطُ الْكَلِمَة</div>
+                                    <div class="h-form-ex">نَـحْـلٌ</div>
+                                </div>
+                                <div class="h-form-card" onclick="playHWord('qamh')">
+                                    <div class="h-form-glyph">ـح</div>
+                                    <div class="h-form-label">آخِرُ الكَلِمَةِ مُتَّصِل</div>
+                                    <div class="h-form-ex">قَـمْـحٌ</div>
+                                </div>
+                                <div class="h-form-card" onclick="playHWord('salah')">
+                                    <div class="h-form-glyph">ح</div>
+                                    <div class="h-form-label">آخِرُ الكَلِمَةِ مُنْفَصِل</div>
+                                    <div class="h-form-ex">صَـلَا حٌ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود وتمييز المقاطع الساكنة والتنوين -->
+                    <div class="letter-h-station" id="stationH_2">
+                        <div class="family-listen-card" style="border-color: #059669;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.25rem; margin-bottom: 8px; text-align: center;">
+                                🎵 أَنَا أَنْطِقُ حَرْفَ الْحَاءِ مَعَ أَصْوَاتِ الْمَدِّ الْقَصِيرَةِ وَالطَّوِيلَة (ص ٧٢ - ٧٣)
+                            </div>
+                            <div style="text-align: center; margin-bottom: 14px;">
+                                <img src="activity_h_vowels.png" alt="جدول مدود حرف الحاء" style="width: 100%; max-width: 680px; border-radius: 16px; border: 2px solid #a7f3d0;">
+                            </div>
+
+                            <!-- مقارنة المد القصير مع المد الطويل -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 16px;">
+                                <!-- الفتحة مقابل الألف -->
+                                <div style="background: #ffffff; border: 2px solid #6ee7b7; border-radius: 18px; padding: 14px; text-align: center;">
+                                    <div style="color: #047857; font-weight: 800; margin-bottom: 8px;">مَدُّ الْفَتْح (الْقَصِير وَالطَّوِيل)</div>
+                                    <div style="display: flex; justify-content: center; gap: 14px;">
+                                        <button class="btn btn-teach" onclick="playHVowel('short_a')" style="background: #059669; padding: 10px 20px; font-size: 1.4rem;">
+                                            حَـ
+                                        </button>
+                                        <button class="btn btn-teach" onclick="playHVowel('long_aa')" style="background: #047857; padding: 10px 20px; font-size: 1.4rem;">
+                                            حَا
+                                        </button>
+                                    </div>
+                                    <div style="color: #64748b; font-size: 0.9rem; margin-top: 8px;">حَـمَامَةٌ / حَـائِطٌ</div>
+                                </div>
+
+                                <!-- الضمة مقابل الواو -->
+                                <div style="background: #ffffff; border: 2px solid #6ee7b7; border-radius: 18px; padding: 14px; text-align: center;">
+                                    <div style="color: #047857; font-weight: 800; margin-bottom: 8px;">مَدُّ الضَّم (الْقَصِير وَالطَّوِيل)</div>
+                                    <div style="display: flex; justify-content: center; gap: 14px;">
+                                        <button class="btn btn-teach" onclick="playHVowel('short_u')" style="background: #059669; padding: 10px 20px; font-size: 1.4rem;">
+                                            حُـ
+                                        </button>
+                                        <button class="btn btn-teach" onclick="playHVowel('long_oo')" style="background: #047857; padding: 10px 20px; font-size: 1.4rem;">
+                                            حُو
+                                        </button>
+                                    </div>
+                                    <div style="color: #64748b; font-size: 0.9rem; margin-top: 8px;">حُـبُوبٌ / حُـوتٌ</div>
+                                </div>
+
+                                <!-- الكسرة مقابل الياء -->
+                                <div style="background: #ffffff; border: 2px solid #6ee7b7; border-radius: 18px; padding: 14px; text-align: center;">
+                                    <div style="color: #047857; font-weight: 800; margin-bottom: 8px;">مَدُّ الْكَسْر (الْقَصِير وَالطَّوِيل)</div>
+                                    <div style="display: flex; justify-content: center; gap: 14px;">
+                                        <button class="btn btn-teach" onclick="playHVowel('short_i')" style="background: #059669; padding: 10px 20px; font-size: 1.4rem;">
+                                            حِـ
+                                        </button>
+                                        <button class="btn btn-teach" onclick="playHVowel('long_ee')" style="background: #047857; padding: 10px 20px; font-size: 1.4rem;">
+                                            حِيـ
+                                        </button>
+                                    </div>
+                                    <div style="color: #64748b; font-size: 0.9rem; margin-top: 8px;">حِـصَانٌ / حِـيطَانٌ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- تمييز الحاء الساكنة والتنوينات -->
+                        <div class="family-listen-card" style="border-color: #10b981;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.25rem; margin-bottom: 8px; text-align: center;">
+                                🎯 تَمْيِيزُ صَوْتِ حَرْفِ الْحَاءِ السَّاكِنِ وَالتَّنْوِينَات (ص ٧٣)
+                            </div>
+                            <div style="text-align: center; margin-bottom: 12px;">
+                                <img src="activity_h_syllables.png" alt="أنشطة مقاطع الحاء الساكنة" style="width: 100%; max-width: 680px; border-radius: 16px; border: 2px solid #a7f3d0;">
+                            </div>
+
+                            <!-- مقاطع الحاء الساكنة -->
+                            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px;">
+                                <button class="btn btn-teach" onclick="playHSyllable('mih')" style="background: #059669; font-size: 1.2rem; padding: 10px 22px;">
+                                    <span>🌡️</span> <span>مِـحْـ (مِـحْـرَارٌ)</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playHSyllable('fah')" style="background: #059669; font-size: 1.2rem; padding: 10px 22px;">
+                                    <span>🪵</span> <span>فَـحْـ (فَـحْـمٌ)</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playHSyllable('mah')" style="background: #059669; font-size: 1.2rem; padding: 10px 22px;">
+                                    <span>💼</span> <span>مَـحْـ (مَـحْـفَـظَـةٌ)</span>
+                                </button>
+                            </div>
+
+                            <!-- بطاقات التنوين -->
+                            <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                                <button class="btn btn-teach" onclick="playHVowel('tanween_dham')" style="background: #0284c7; font-size: 1.2rem; padding: 10px 22px;">
+                                    <span>☀️</span> <span>تَنْوِينُ الضَّمّ: حٌ (صَلَاحٌ / فَلَّاحٌ)</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playHVowel('tanween_fath')" style="background: #0284c7; font-size: 1.2rem; padding: 10px 22px;">
+                                    <span>🌤️</span> <span>تَنْوِينُ الْفَتْح: حً (حَلِيبًا / قَمْحًا)</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playHVowel('tanween_kasr')" style="background: #0284c7; font-size: 1.2rem; padding: 10px 22px;">
+                                    <span>🌧️</span> <span>تَنْوِينُ الْكَسْر: حٍ (صَبَاحٍ / صَلَاحٍ)</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي -->
+                    <div class="letter-h-station" id="stationH_3">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px;">
+                            <!-- قسم التحليل الصوتي -->
+                            <div class="family-listen-card" style="border-color: #059669;">
+                                <div style="font-weight: 900; color: #065f46; font-size: 1.2rem; margin-bottom: 8px; text-align: center;">
+                                    ✂️ أَقْرَأُ الْكَلِمَاتِ ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا (ص ٧٣)
+                                </div>
+                                <div style="text-align: center; margin-bottom: 12px;">
+                                    <img src="activity_h_analysis.png" alt="نشاط التحليل الصوتي" style="width: 100%; border-radius: 14px; border: 2px solid #a7f3d0;">
+                                </div>
+
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    <div class="health-interactive-chip" onclick="playHSplitWord('habl')" style="justify-content: space-between;">
+                                        <span>🪢 <b>حَبْلٌ</b></span>
+                                        <span>حَبْـ + لٌ</span>
+                                    </div>
+                                    <div class="health-interactive-chip" onclick="playHSplitWord('nahl')" style="justify-content: space-between;">
+                                        <span>🐝 <b>نَحْلٌ</b></span>
+                                        <span>نَحْـ + لٌ</span>
+                                    </div>
+                                    <div class="health-interactive-chip" onclick="playHSplitWord('haql')" style="justify-content: space-between;">
+                                        <span>🌱 <b>حَقْلٌ</b></span>
+                                        <span>حَقْـ + لٌ</span>
+                                    </div>
+                                    <div class="health-interactive-chip" onclick="playHSplitWord('salah')" style="justify-content: space-between;">
+                                        <span>👦 <b>صَلَاحٌ</b></span>
+                                        <span>صَـ + لَا + حٌ</span>
+                                    </div>
+                                    <div class="health-interactive-chip" onclick="playHSplitWord('fallaah')" style="justify-content: space-between;">
+                                        <span>🌾 <b>فَلَّاحٌ</b></span>
+                                        <span>فَلْـ + لَا + حٌ</span>
+                                    </div>
+                                    <div class="health-interactive-chip" onclick="playHSplitWord('qamh')" style="justify-content: space-between;">
+                                        <span>🍞 <b>قَمْحٌ</b></span>
+                                        <span>قَمْـ + حٌ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- قسم التركيب الصوتي -->
+                            <div class="family-listen-card" style="border-color: #0284c7;">
+                                <div style="font-weight: 900; color: #0369a1; font-size: 1.2rem; margin-bottom: 8px; text-align: center;">
+                                    🧩 أُرَكِّبُ مِنَ الْمَقَاطِعِ كَلِمَاتٍ ثُمَّ أَقْرَأُهَا (ص ٧٤)
+                                </div>
+                                <div style="text-align: center; margin-bottom: 12px;">
+                                    <img src="activity_h_blend.png" alt="نشاط التركيب الصوتي" style="width: 100%; border-radius: 14px; border: 2px solid #bae6fd;">
+                                </div>
+
+                                <div style="display: flex; flex-direction: column; gap: 8px;">
+                                    <div class="health-interactive-chip" onclick="playHMerge('sahab')" style="justify-content: space-between; border-color: #bae6fd;">
+                                        <span>سَـ + حَا + بٌ</span>
+                                        <span style="color:#0284c7;">☁️ <b>سَحَابٌ</b></span>
+                                    </div>
+                                    <div class="health-interactive-chip" onclick="playHMerge('haamid')" style="justify-content: space-between; border-color: #bae6fd;">
+                                        <span>حَا + مِـ + دٌ</span>
+                                        <span style="color:#0284c7;">👦 <b>حَامِدٌ</b></span>
+                                    </div>
+                                    <div class="health-interactive-chip" onclick="playHMerge('haatim')" style="justify-content: space-between; border-color: #bae6fd;">
+                                        <span>حَا + تِـ + مٌ</span>
+                                        <span style="color:#0284c7;">👦 <b>حَاتِمٌ</b></span>
+                                    </div>
+                                    <div class="health-interactive-chip" onclick="playHMerge('haaris')" style="justify-content: space-between; border-color: #bae6fd;">
+                                        <span>حَا + رِ + سٌ</span>
+                                        <span style="color:#0284c7;">🛡️ <b>حَارِسٌ</b></span>
+                                    </div>
+                                    <div class="health-interactive-chip" onclick="playHMerge('mahasin')" style="justify-content: space-between; border-color: #bae6fd;">
+                                        <span>مَـ + حَا + سِـ + نُ</span>
+                                        <span style="color:#0284c7;">👩 <b>مَحَاسِنُ</b></span>
+                                    </div>
+                                    <div class="health-interactive-chip" onclick="playHMerge('hasan')" style="justify-content: space-between; border-color: #bae6fd;">
+                                        <span>حَـ + سَـ + نٌ</span>
+                                        <span style="color:#0284c7;">🕊️ <b>حَسَنٌ</b></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة الذهبية وسبورة الرسم واختبار التحدي -->
+                    <div class="letter-h-station" id="stationH_4">
+                        <!-- تبويبات اختيار نص القراءة -->
+                        <div class="family-listen-card" style="border-color: #059669;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.25rem; margin-bottom: 12px; text-align: center;">
+                                📜 لَوْحَةُ الْقِرَاءَةِ التَّفَاعُلِيَّةِ الشَّامِلَة: حَرْفُ الْحَاءِ (ص ٧٢ - ٧٦)
+                            </div>
+
+                            <div class="reading-tabs-container">
+                                <button class="reading-tab-btn active" id="btnHReading_telmeeth" onclick="switchHReadingTab('telmeeth')">
+                                    <span>👦</span> <span>قِرَاءَةُ (صَلَاح تِلْمِيذ)</span>
+                                </button>
+                                <button class="reading-tab-btn" id="btnHReading_fallaah" onclick="switchHReadingTab('fallaah')">
+                                    <span>🌾</span> <span>قِرَاءَةُ (صَلَاح فَلَّاح) التُّرَاثِيَّة</span>
+                                </button>
+                                <button class="reading-tab-btn" id="btnHReading_book" onclick="switchHReadingTab('book')">
+                                    <span>🕊️</span> <span>نُصُوصُ كِتَابِ الْقِرَاءَةِ ص ٧٤</span>
+                                </button>
+                            </div>
+
+                            <!-- لوحة صورة القراءة الرسمية -->
+                            <div style="text-align: center; margin-bottom: 12px;">
+                                <img src="activity_h_read.png" alt="لوحة قراءة درس حرف الحاء" style="width: 100%; max-width: 720px; border-radius: 18px; border: 3px solid #059669; box-shadow: 0 8px 24px rgba(5, 150, 105, 0.15);">
+                            </div>
+
+                            <!-- النص 1: قراءة صلاح تلميذ -->
+                            <div class="reading-subpanel active" id="subpanelHReading_telmeeth">
+                                <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 16px;">
+                                    <button class="btn btn-teach" onclick="playHReadingLine('telmeeth', 0)" style="background: #059669; padding: 12px 28px; font-size: 1.1rem;">
+                                        <span>📢</span> <span>اسْتَمِعْ لِنَصِّ (صَلَاح تِلْمِيذ) كَامِلاً</span>
+                                    </button>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; margin: 0 auto;">
+                                    <div class="reading-line-card" id="lineHTelmeeth1" onclick="playHReadingLine('telmeeth', 1)">
+                                        <span>🎒</span> <span>صَـلَا<span style="color:#059669;">حٌ</span> تِلْـمِيـذٌ نَـشِيـطٌ</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHTelmeeth2" onclick="playHReadingLine('telmeeth', 2)">
+                                        <span>🏫</span> <span>يَـذْهَـبُ صَـلَا<span style="color:#059669;">حٌ</span> إِلَى الْمَـدْرَسَـةِ صَبَـا<span style="color:#059669;">حً</span>ـا</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHTelmeeth3" onclick="playHReadingLine('telmeeth', 3)">
+                                        <span>💼</span> <span>عِـنْـدَهُ مِـ<span style="color:#059669;">حْـ</span>فَـظَـةٌ وَدَفْـتَـرٌ وَمِـمْـ<span style="color:#059669;">حَـ</span>اةٌ</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHTelmeeth4" onclick="playHReadingLine('telmeeth', 4)">
+                                        <span>🧼</span> <span>يَـغْسِـلُ يَـدَيْـهِ بِالْـمَـاءِ وَالصَّـابُـونِ</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHTelmeeth5" onclick="playHReadingLine('telmeeth', 5)">
+                                        <span>🍎</span> <span>يَـأْكُـلُ تُفَّـا<span style="color:#059669;">حَـ</span>ةً وَيَـشْـرَبُ <span style="color:#059669;">حَـ</span>لِيـبًا طَـازَجًـا</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHTelmeeth6" onclick="playHReadingLine('telmeeth', 6)">
+                                        <span>🌟</span> <span>يُـ<span style="color:#059669;">حَـ</span>افِـظُ عَلَى صِـ<span style="color:#059669;">حَّـ</span>تِـهِ وَنَـظَـافَـةِ بِيـئَـتِـهِ!</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- النص 2: قراءة صلاح فلاح التراثية -->
+                            <div class="reading-subpanel" id="subpanelHReading_fallaah">
+                                <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 16px;">
+                                    <button class="btn btn-teach" onclick="playHReadingLine('fallaah', 0)" style="background: #047857; padding: 12px 28px; font-size: 1.1rem;">
+                                        <span>📢</span> <span>اسْتَمِعْ لِنَصِّ (صَلَاح فَلَّاح) كَامِلاً</span>
+                                    </button>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; margin: 0 auto;">
+                                    <div class="reading-line-card" id="lineHFallaah1" onclick="playHReadingLine('fallaah', 1)">
+                                        <span>🌾</span> <span>صَـلَا<span style="color:#059669;">حٌ</span> فَـلَّا<span style="color:#059669;">حٌ</span></span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHFallaah2" onclick="playHReadingLine('fallaah', 2)">
+                                        <span>🌱</span> <span>عِـنْـدَهُ <span style="color:#059669;">حَـ</span>قْـلٌ</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHFallaah3" onclick="playHReadingLine('fallaah', 3)">
+                                        <span>🍞</span> <span>يَـزْرَعُ فِيـهِ الْـقَـمْـ<span style="color:#059669;">حَ</span></span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHFallaah4" onclick="playHReadingLine('fallaah', 4)">
+                                        <span>👩</span> <span>مَـ<span style="color:#059669;">حَـ</span>ا سِـنُ فَـلَّا<span style="color:#059669;">حَـ</span>ةٌ</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHFallaah5" onclick="playHReadingLine('fallaah', 5)">
+                                        <span>🐄</span> <span>تَـ<span style="color:#059669;">حْـ</span>لُـبُ الْـبَـقَـرَةَ</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHFallaah6" onclick="playHReadingLine('fallaah', 6)">
+                                        <span>🐎</span> <span>تَـرْبِـطُ الْـ<span style="color:#059669;">حِـ</span>صَـانَ بِالْـ<span style="color:#059669;">حَـ</span>بْـلِ</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHFallaah7" onclick="playHReadingLine('fallaah', 7)">
+                                        <span>🌿</span> <span>وَتُـقَدِّمُ لَـهُ الْـ<span style="color:#059669;">حَـ</span>شِيـشَ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- النص 3: قراءة نصوص كتاب المنهج الجديد ص 74 -->
+                            <div class="reading-subpanel" id="subpanelHReading_book">
+                                <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 16px;">
+                                    <button class="btn btn-teach" onclick="playHReadingLine('book', 0)" style="background: #0284c7; padding: 12px 28px; font-size: 1.1rem;">
+                                        <span>📢</span> <span>اسْتَمِعْ لِنُصُوصِ كِتَابِ الْقِرَاءَةِ كَامِلَةً</span>
+                                    </button>
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 10px; max-width: 680px; margin: 0 auto;">
+                                    <div class="reading-line-card" id="lineHBook1" onclick="playHReadingLine('book', 1)">
+                                        <span>🕊️</span> <span>يُـطْعِـمُ <span style="color:#059669;">حَـ</span>سَـنٌ <span style="color:#059669;">حَـ</span>مَـامًا</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHBook2" onclick="playHReadingLine('book', 2)">
+                                        <span>❤️</span> <span>قَالَ <span style="color:#059669;">حَـ</span>سَـنٌ: نَـرْفُـقُ بِـ<span style="color:#059669;">حَـ</span>مَـامِـنَا، وَلَـنْ نَـ<span style="color:#059669;">حْـ</span>بِـسَ <span style="color:#059669;">حَـ</span>يَـوَانًا</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHBook3" onclick="playHReadingLine('book', 3)">
+                                        <span>🐊</span> <span>تِـمْسَـا<span style="color:#059669;">حُ</span> <span style="color:#059669;">حَـ</span>نَان ... مِـفْتَـا<span style="color:#059669;">حٌ</span></span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHBook4" onclick="playHReadingLine('book', 4)">
+                                        <span>🚶</span> <span>سَـارَ وِسَـامٌ وَنَـوْرَسٌ</span>
+                                    </div>
+                                    <div class="reading-line-card" id="lineHBook5" onclick="playHReadingLine('book', 5)">
+                                        <span>👭</span> <span>وِدَادُ وَوَسَـنُ تَـدْرُسَـانِ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة الرسم وتتبع حرف الحاء التفاعلية -->
+                        <div class="family-listen-card" style="border-color: #10b981;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.25rem; margin-bottom: 8px; text-align: center;">
+                                🖌️ سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الْحَاءِ (حـ ، ـحـ ، ـح ، ح)
+                            </div>
+                            <div style="text-align: center; margin-bottom: 12px;">
+                                <img src="activity_h_trace.png" alt="سبورة تتبع وكتابة حرف الحاء" style="width: 100%; max-width: 680px; border-radius: 16px; border: 2px solid #a7f3d0; box-shadow: 0 4px 14px rgba(16,185,129,0.12);">
+                            </div>
+
+                            <div class="h-canvas-box" id="hCanvasBox">
+                                <canvas id="canvasHTrace"></canvas>
+                            </div>
+
+                            <div style="display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 14px; flex-wrap: wrap;">
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="color-btn active" style="background:#059669; width:34px; height:34px; border-radius:50%; border:2px solid #fff; cursor:pointer;" onclick="setHCanvasColor('#059669')" title="أخضر زمردي"></button>
+                                    <button class="color-btn" style="background:#0284c7; width:34px; height:34px; border-radius:50%; border:2px solid #fff; cursor:pointer;" onclick="setHCanvasColor('#0284c7')" title="أزرق ساطع"></button>
+                                    <button class="color-btn" style="background:#ef4444; width:34px; height:34px; border-radius:50%; border:2px solid #fff; cursor:pointer;" onclick="setHCanvasColor('#ef4444')" title="أحمر تفاحي"></button>
+                                    <button class="color-btn" style="background:#1e293b; width:34px; height:34px; border-radius:50%; border:2px solid #fff; cursor:pointer;" onclick="setHCanvasColor('#1e293b')" title="أسود كحلي"></button>
+                                </div>
+                                <button class="btn btn-teach" onclick="clearHCanvas()" style="background: #f43f5e; padding: 8px 20px;">
+                                    <span>🧹</span> <span>امْسَحِ السَّبُّورَة</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playAudio('letter_h_draw_hint')" style="background: #10b981; padding: 8px 20px;">
+                                    <span>💡</span> <span>إِرْشَادَاتُ الرَّسْم</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي التفاعلي -->
+                        <div style="background: #f0fdf4; border: 2px solid #059669; border-radius: 20px; padding: 20px; margin-top: 20px;">
+                            <div style="font-size: 1.25rem; font-weight: 900; color: #065f46; text-align: center; margin-bottom: 14px;">
+                                🏆 تَحَدِّي الْأَبْطَالِ: اخْتِبَارُ حَرْفِ الْحَاءِ الذَّكِيّ
+                            </div>
+                            <div style="display: flex; flex-direction: column; gap: 14px; max-width: 650px; margin: 0 auto;">
+                                <div class="h-quiz-card" style="background: #fff; border: 2px solid #cbd5e1; border-radius: 16px; padding: 14px;">
+                                    <div style="font-weight: 800; color: #1e293b; margin-bottom: 10px;">١. أَيْنَ يَقَعُ حَرْفُ الْحَاءِ فِي كَلِمَةِ (حِـصَان)؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-step" onclick="checkHQuiz(1, 'h_initial', this)" style="flex:1; border: 2px solid #cbd5e1;">أَوَّلُ الْكَلِمَة (حـ)</button>
+                                        <button class="btn-step" onclick="checkHQuiz(1, 'h_medial', this)" style="flex:1; border: 2px solid #cbd5e1;">وَسَطُ الْكَلِمَة (ـحـ)</button>
+                                        <button class="btn-step" onclick="checkHQuiz(1, 'h_final', this)" style="flex:1; border: 2px solid #cbd5e1;">آخِرُ الْكَلِمَة (ح)</button>
+                                    </div>
+                                </div>
+                                <div class="h-quiz-card" style="background: #fff; border: 2px solid #cbd5e1; border-radius: 16px; padding: 14px;">
+                                    <div style="font-weight: 800; color: #1e293b; margin-bottom: 10px;">٢. مَا هُوَ الْمَقْطَعُ الصَّوْتِيُّ الطَّوِيلُ فِي كَلِمَةِ (حَـائِط)؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-step" onclick="checkHQuiz(2, 'haa_short', this)" style="flex:1; border: 2px solid #cbd5e1;">حَـ (قَصِير)</button>
+                                        <button class="btn-step" onclick="checkHQuiz(2, 'haa_long', this)" style="flex:1; border: 2px solid #cbd5e1;">حَا (طَوِيل)</button>
+                                        <button class="btn-step" onclick="checkHQuiz(2, 'hoo_long', this)" style="flex:1; border: 2px solid #cbd5e1;">حُو (طَوِيل)</button>
+                                    </div>
+                                </div>
+                                <div class="h-quiz-card" style="background: #fff; border: 2px solid #cbd5e1; border-radius: 16px; padding: 14px;">
+                                    <div style="font-weight: 800; color: #1e293b; margin-bottom: 10px;">٣. عِنْدَ تَفْكِيكِ كَلِمَةِ (حَبْلٌ)، مَا هِيَ الْمَقَاطِعُ الصَّحِيحَة؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-step" onclick="checkHQuiz(3, 'habl', this)" style="flex:1; border: 2px solid #cbd5e1;">حَبْـ + لٌ</button>
+                                        <button class="btn-step" onclick="checkHQuiz(3, 'wrong1', this)" style="flex:1; border: 2px solid #cbd5e1;">حَـ + بَـ + لٌ</button>
+                                        <button class="btn-step" onclick="checkHQuiz(3, 'wrong2', this)" style="flex:1; border: 2px solid #cbd5e1;">حَـ + بْلٌ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نوافذ عرض صفحات الكتاب المدرسي -->
+                        <div style="margin-top: 24px; padding: 20px; background: #ffffff; border-radius: 20px; border: 2px dashed #059669; text-align: center;">
+                            <div style="font-weight: 900; color: #065f46; font-size: 1.15rem; margin-bottom: 12px;">
+                                📖 صَفَحَاتُ الْكِتَابِ الْمَدْرَسِيِّ الْمُعْتَمَدَة (ص ٧١ - ٧٦)
+                            </div>
+                            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                                <button class="btn btn-teach" style="background: #059669; font-size: 0.95rem; padding: 8px 18px;" onclick="openBookPageModal('page_72.png', 'كتاب قراءتي الجديد: ص ٧١ (مدخل الوحدة الرابعة: صحتي وبيئتي)')">
+                                    <span>📖</span> <span>صَفْحَة ٧١ (مدخل الوحدة)</span>
+                                </button>
+                                <button class="btn btn-teach" style="background: #059669; font-size: 0.95rem; padding: 8px 18px;" onclick="openBookPageModal('page_73.png', 'كتاب قراءتي الجديد: ص ٧٢ (حرف الحاء: أتعرف الحرف وأصوات المدود)')">
+                                    <span>📖</span> <span>صَفْحَة ٧٢ (حرف الحاء)</span>
+                                </button>
+                                <button class="btn btn-teach" style="background: #059669; font-size: 0.95rem; padding: 8px 18px;" onclick="openBookPageModal('page_74.png', 'كتاب قراءتي الجديد: ص ٧٣ (تمييز الحاء الساكنة وتحليل الكلمات)')">
+                                    <span>📖</span> <span>صَفْحَة ٧٣ (التحليل الصوتي)</span>
+                                </button>
+                                <button class="btn btn-teach" style="background: #059669; font-size: 0.95rem; padding: 8px 18px;" onclick="openBookPageModal('page_75.png', 'كتاب قراءتي الجديد: ص ٧٤ (تركيب المقاطع ونصوص القراءة)')">
+                                    <span>📖</span> <span>صَفْحَة ٧٤ (التركيب والقراءة)</span>
+                                </button>
+                                <button class="btn btn-teach" style="background: #0284c7; font-size: 0.95rem; padding: 8px 18px;" onclick="openBookPageModal('page_76.png', 'كتاب قراءتي الجديد: ص ٧٥ (الانتقال للدرس اللاحق)')">
+                                    <span>📖</span> <span>صَفْحَة ٧٥</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div> <!-- إغلاق stage-card -->
 <!-- شريط الانتقال المتسلسل بين الدروس -->
 
@@ -12715,6 +13396,7 @@
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>
     <script src="js/lessons/unit3.js"></script>
+    <script src="js/lessons/unit4.js"></script>
     <script src="js/app.js"></script>
 </body>
 

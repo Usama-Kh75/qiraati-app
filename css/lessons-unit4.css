@@ -1,0 +1,237 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - الوحدة الرابعة: صحتي وبيئتي (Unit 4: Health & Environment)
+ * الدرس الأول: مدخل الوحدة (الاستماع والمحادثة) (ص ٧١ - ٧٢)
+ * الدرس الثاني: حرف الحاء (حـ ، ـحـ ، ـح ، ح) وقراءة صَلَاح تِلْمِيذ (ص ٧٢ - ٧٦)
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* أنماط وتنسيقات مدخل الوحدة الرابعة: صحتي وبيئتي */
+.unit4-station {
+    display: none;
+}
+.unit4-station.active {
+    display: block;
+}
+
+.health-banner-card {
+    background: linear-gradient(135deg, #ecfdf5 0%, #eff6ff 100%);
+    border: 3px solid #10b981;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12);
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.health-interactive-chip {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 18px;
+    padding: 12px 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #065f46;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+}
+.health-interactive-chip:hover {
+    transform: translateY(-3px) scale(1.03);
+    border-color: #10b981;
+    background: #f0fdf4;
+    box-shadow: 0 6px 16px rgba(16, 185, 129, 0.2);
+}
+.health-interactive-chip:active {
+    transform: translateY(0) scale(0.98);
+}
+
+/* محطات وتنسيقات درس حرف الحاء وقراءة صلاح تلميذ وصلاح فلاح */
+.letter-h-station {
+    display: none;
+}
+.letter-h-station.active {
+    display: block;
+}
+
+.giant-letter-h-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #fef3c7 100%);
+    border: 3px solid #059669;
+    border-radius: 24px;
+    padding: 16px 36px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.18);
+}
+.giant-letter-h-card:hover {
+    transform: scale(1.03);
+    border-color: #047857;
+    box-shadow: 0 8px 26px rgba(5, 150, 105, 0.28);
+}
+.giant-letter-h-glyph {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #064e3b;
+    line-height: 1;
+    letter-spacing: 4px;
+    text-shadow: 0 2px 6px rgba(5, 150, 105, 0.2);
+}
+
+.h-word-card {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 20px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.h-word-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #059669;
+    background: #f0fdf4;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.18);
+}
+.h-word-icon {
+    font-size: 2.4rem;
+    line-height: 1;
+}
+.h-word-text {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #065f46;
+}
+.h-word-pos {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #047857;
+    background: #d1fae5;
+    padding: 3px 12px;
+    border-radius: 12px;
+}
+
+/* بطاقات أشكال حرف الحاء الأربعة */
+.h-forms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+.h-form-card {
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.h-form-card:hover {
+    transform: translateY(-2px);
+    border-color: #059669;
+    background: #f0fdf4;
+}
+.h-form-glyph {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #059669;
+    line-height: 1.1;
+}
+.h-form-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #475569;
+    margin-top: 4px;
+}
+.h-form-ex {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin-top: 4px;
+}
+
+/* تبويبات القراءة المتعددة (صلاح تلميذ / صلاح فلاح / نصوص المنهج الجديد) */
+.reading-tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+.reading-tab-btn {
+    padding: 10px 22px;
+    border-radius: 16px;
+    border: 2px solid #059669;
+    background: #ffffff;
+    color: #065f46;
+    font-family: inherit;
+    font-weight: 900;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.reading-tab-btn:hover {
+    background: #d1fae5;
+    transform: translateY(-2px);
+}
+.reading-tab-btn.active {
+    background: #059669;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+}
+
+.reading-subpanel {
+    display: none;
+}
+.reading-subpanel.active {
+    display: block;
+}
+
+/* سبورة تتبع الحرف والرسم التفاعلي */
+.h-canvas-box {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 330px;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 3px solid #059669;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.15);
+    overflow: hidden;
+    touch-action: none;
+}
+.h-canvas-box canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+}
+
+@media (max-width: 768px) {
+    .giant-letter-h-card {
+        padding: 12px 20px;
+        gap: 12px;
+    }
+    .giant-letter-h-glyph {
+        font-size: 3rem;
+    }
+    .h-canvas-box {
+        height: 260px;
+    }
+}
