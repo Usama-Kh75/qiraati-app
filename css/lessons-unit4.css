@@ -414,3 +414,182 @@
         height: 260px;
     }
 }
+
+/* ==========================================================================
+ * الدرس الرابع: حرف الزاي (ز ، ـز) وقراءة مِيزَان قَدُّورِي / وَزّ (ص ٧٨ - ٨٠)
+ * ========================================================================== */
+
+.letter-z-station {
+    display: none;
+}
+.letter-z-station.active {
+    display: block;
+}
+
+.giant-letter-z-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #eff6ff 100%);
+    border: 3px solid #059669;
+    border-radius: 24px;
+    padding: 16px 36px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.18);
+}
+.giant-letter-z-card:hover {
+    transform: scale(1.03);
+    border-color: #047857;
+    box-shadow: 0 8px 26px rgba(5, 150, 105, 0.28);
+}
+.giant-letter-z-glyph {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #065f46;
+    line-height: 1;
+    letter-spacing: 4px;
+    text-shadow: 0 2px 6px rgba(5, 150, 105, 0.2);
+}
+
+.z-word-card {
+    background: #ffffff;
+    border: 2px solid #bbf7d0;
+    border-radius: 20px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.z-word-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #059669;
+    background: #f0fdf4;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.18);
+}
+.z-word-icon {
+    font-size: 2.4rem;
+    line-height: 1;
+}
+.z-word-text {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #065f46;
+}
+.z-word-pos {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #059669;
+    background: #dcfce7;
+    padding: 3px 12px;
+    border-radius: 12px;
+}
+
+/* بطاقات أشكال حرف الزاي */
+.z-forms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+.z-form-card {
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.z-form-card:hover {
+    transform: translateY(-2px);
+    border-color: #059669;
+    background: #f0fdf4;
+}
+.z-form-glyph {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #059669;
+    line-height: 1.1;
+}
+.z-form-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #475569;
+    margin-top: 4px;
+}
+.z-form-ex {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin-top: 4px;
+}
+
+/* بنر مِيزَان قَدُّورِي وَوَزّ */
+.qaddoori-banner {
+    background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%);
+    border-radius: 20px;
+    color: #ffffff;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(4, 120, 87, 0.25);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.qaddoori-badge {
+    background: #fef08a;
+    color: #065f46;
+    font-size: 0.95rem;
+    font-weight: 900;
+    padding: 6px 16px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* سبورة تتبع الحرف والرسم التفاعلي للزاي */
+.z-canvas-box {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 330px;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 3px solid #059669;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.15);
+    overflow: hidden;
+    touch-action: none;
+}
+.z-canvas-box canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+}
+
+@media (max-width: 768px) {
+    .giant-letter-z-card {
+        padding: 12px 20px;
+        gap: 12px;
+    }
+    .giant-letter-z-glyph {
+        font-size: 3rem;
+    }
+    .z-canvas-box {
+        height: 260px;
+    }
+}
+

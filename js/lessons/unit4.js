@@ -731,4 +731,342 @@
         }
     };
 
+
+    /* ========================================================
+       الدرس الرابع: حرف الزاي (ز ، ـز) وقراءة مِيزَان قَدُّورِي / وَزّ (ص ٧٨ - ٨٠)
+    ======================================================== */
+    let currentZStation = 1;
+    let zCanvas = null;
+    let zCtx = null;
+    let isDrawingZ = false;
+    let zStrokeColor = '#059669';
+
+    window.switchLetterZStation = function(stationNum) {
+        currentZStation = stationNum;
+        document.querySelectorAll('.letter-z-station').forEach(el => el.classList.remove('active'));
+        const target = document.getElementById('stationZ_' + stationNum);
+        if (target) target.classList.add('active');
+
+        for (let i = 1; i <= 4; i++) {
+            const btn = document.getElementById('btnStationZ_' + i);
+            if (btn) {
+                if (i === stationNum) btn.classList.add('active');
+                else btn.classList.remove('active');
+            }
+        }
+
+        if (stationNum === 1) {
+            mascotSpeak('أَهْلاً بِكُمْ فِي الْمَحَطَّةِ الأُولَى: أَتَعَرَّفُ حَرْفَ الزَّايِ وَصَوْتَهُ الصَّفِيرِيَّ الصَّافِي وَأَشْكَالَهُ وَكَلِمَاتِهِ الْمُصَوَّرَةِ فِي الْكِتَابِ ص ٧٨!', 'letter_z_intro');
+        } else if (stationNum === 2) {
+            mascotSpeak('الْمَحَطَّةُ الثَّانِيَةُ: أَصْوَاتُ الْمُدُودِ وَالتَّنْوِينِ وَتَمْيِيزُ صَوْتِ الزَّايِ السَّاكِنِ فِي ص ٧٨ - ٧٩!', 'letter_z_vowels_station');
+        } else if (stationNum === 3) {
+            mascotSpeak('الْمَحَطَّةُ الثَّالِثَةُ: وَرْشَةُ التَّحْلِيلِ وَالتَّرْكِيبِ الصَّوْتِيِّ ص ٧٩ - ٨٠! صَفِّقُوا مَعِي لِكُلِّ مَقْطَعٍ وَاقْبِضُوا لِلسَّاكِن!', 'letter_z_analysis_intro');
+        } else if (stationNum === 4) {
+            mascotSpeak('الْمَحَطَّةُ الرَّابِعَةُ: لَوْحَةُ قِرَاءَةِ (مِيزَان قَدُّورِي / وَزّ) وَنُصُوصِ الْكِتَابِ ص ٨٠، مَعَ سَبُّورَةِ الرَّسْمِ وَاخْتِبَارِ التَّحَدِّي!', 'letter_z_read_intro');
+            setTimeout(initZCanvas, 100);
+        }
+    };
+
+    window.playZLetterSound = function() {
+        mascotCelebrates();
+        playAudio('letter_z_sound');
+    };
+
+    window.playZPhonemeFaseeh = function() {
+        mascotCelebrates();
+        playAudio('letter_z_phoneme_faseeh');
+    };
+
+    window.playZWord = function(wordKey) {
+        mascotCelebrates();
+        const map = {
+            'zahrah': 'letter_z_word_zahrah',
+            'zujajah': 'letter_z_word_zujajah',
+            'ghazal': 'letter_z_word_ghazal',
+            'ruzz': 'letter_z_word_ruzz',
+            'halazoon': 'letter_z_word_halazoon',
+            'mizmar': 'letter_z_word_mizmar',
+            'jazeerah': 'letter_z_word_jazeerah',
+            'zaytoon': 'letter_z_word_zaytoon',
+            'zeenah': 'letter_z_word_zeenah',
+            'mizhariyyah': 'letter_z_word_mizhariyyah',
+            'azhaar': 'letter_z_word_azhaar',
+            'zawraq': 'letter_z_word_zawraq',
+            'zaynab': 'letter_z_word_zaynab',
+            'mazraah': 'letter_z_word_mazraah',
+            'zurna': 'letter_z_word_zurna',
+            'mazin': 'letter_z_word_mazin',
+            'nashtari': 'letter_z_word_nashtari',
+            'haleeb': 'letter_z_word_haleeb',
+            'zubd': 'letter_z_word_zubd',
+            'mizan': 'letter_z_word_mizan',
+            'qaddoori': 'letter_z_word_qaddoori',
+            'wazzan': 'letter_z_word_wazzan',
+            'wazana': 'letter_z_word_wazana',
+            'zabeeb': 'letter_z_word_zabeeb',
+            'nadir': 'letter_z_word_nadir',
+            'bazzaz': 'letter_z_word_bazzaz',
+            'marra': 'letter_z_word_marra',
+            'darbina': 'letter_z_word_darbina',
+            'daqqa': 'letter_z_word_daqqa',
+            'babana': 'letter_z_word_babana',
+            'wazz': 'letter_z_word_wazz',
+            'dada': 'letter_z_word_dada',
+            'rabab': 'letter_z_word_rabab',
+            'nameer': 'letter_z_word_nameer',
+            'rabba': 'letter_z_word_rabba',
+            'zayd': 'letter_z_word_zayd',
+            'zaydoon': 'letter_z_word_zaydoon',
+            'qareeb': 'letter_z_word_qareeb',
+            'nazoor': 'letter_z_word_nazoor',
+            'dar': 'letter_z_word_dar',
+            'mawz': 'letter_z_word_mawz',
+            'zirr': 'letter_z_word_zirr',
+            'hizam': 'letter_z_word_hizam'
+        };
+        const audioKey = map[wordKey] || ('letter_z_word_' + wordKey);
+        playAudio(audioKey);
+    };
+
+    window.playZVowel = function(vowelKey) {
+        mascotCelebrates();
+        const map = {
+            'short_a': 'letter_z_short_a',
+            'short_u': 'letter_z_short_u',
+            'short_i': 'letter_z_short_i',
+            'long_aa': 'letter_z_long_aa',
+            'long_oo': 'letter_z_long_oo',
+            'long_ee': 'letter_z_long_ee',
+            'tanween_dham': 'letter_z_tanween_dham',
+            'tanween_fath': 'letter_z_tanween_fath',
+            'tanween_kasr': 'letter_z_tanween_kasr'
+        };
+        const audioKey = map[vowelKey] || ('letter_z_' + vowelKey);
+        playAudio(audioKey);
+    };
+
+    window.playZSyllable = function(sylKey) {
+        mascotCelebrates();
+        const map = {
+            'miz': 'letter_z_syl_miz',
+            'az': 'letter_z_syl_az',
+            'maz': 'letter_z_syl_maz',
+            'zay': 'letter_z_syl_zay'
+        };
+        const audioKey = map[sylKey] || ('letter_z_syl_' + sylKey);
+        playAudio(audioKey);
+    };
+
+    window.playZSplitWord = function(splitKey, count, hasSukoon) {
+        mascotCelebrates();
+        const map = {
+            'mizmar': 'letter_z_split_mizmar',
+            'zaytoon': 'letter_z_split_zaytoon',
+            'zawraq': 'letter_z_split_zawraq',
+            'ghazal': 'letter_z_split_ghazal',
+            'halazoon': 'letter_z_split_halazoon',
+            'mazraah': 'letter_z_split_mazraah',
+            'azhaar': 'letter_z_split_azhaar'
+        };
+        const audioKey = map[splitKey] || ('letter_z_split_' + splitKey);
+        playAudio(audioKey);
+
+        const card = document.getElementById('cardZSplit_' + splitKey);
+        if (card) {
+            card.classList.add('pulse-highlight');
+            setTimeout(() => card.classList.remove('pulse-highlight'), 1200);
+        }
+    };
+
+    window.playZMerge = function(mergeKey) {
+        mascotCelebrates();
+        const map = {
+            'zaytoon': 'letter_z_merge_zaytoon',
+            'zaynab': 'letter_z_merge_zaynab',
+            'mazraah': 'letter_z_merge_mazraah',
+            'mizmar': 'letter_z_merge_mizmar',
+            'ghazal': 'letter_z_merge_ghazal',
+            'halazoon': 'letter_z_merge_halazoon'
+        };
+        const audioKey = map[mergeKey] || ('letter_z_merge_' + mergeKey);
+        playAudio(audioKey);
+
+        const card = document.getElementById('cardZMerge_' + mergeKey);
+        if (card) {
+            card.classList.add('pulse-highlight');
+            setTimeout(() => card.classList.remove('pulse-highlight'), 1200);
+        }
+    };
+
+    window.switchZReadingTab = function(tabIndex) {
+        document.querySelectorAll('.z-reading-panel').forEach(p => p.classList.remove('active'));
+        const panel = document.getElementById('zReadingPanel_' + tabIndex);
+        if (panel) panel.classList.add('active');
+
+        for (let i = 1; i <= 3; i++) {
+            const btn = document.getElementById('btnZReadingTab_' + i);
+            if (btn) {
+                if (i === tabIndex) btn.classList.add('active');
+                else btn.classList.remove('active');
+            }
+        }
+    };
+
+    window.playZReadingLine = function(lineKey) {
+        mascotCelebrates();
+        playAudio('letter_z_read_' + lineKey);
+    };
+
+    window.initZCanvas = function() {
+        const box = document.getElementById('zCanvasBox');
+        if (!box) return;
+
+        zCanvas = document.getElementById('canvasZTrace');
+        if (!zCanvas) return;
+
+        zCanvas.width = box.clientWidth || 600;
+        zCanvas.height = box.clientHeight || 300;
+        zCtx = zCanvas.getContext('2d');
+        zCtx.lineCap = 'round';
+        zCtx.lineJoin = 'round';
+        zCtx.lineWidth = 6;
+        zCtx.strokeStyle = zStrokeColor;
+
+        drawZGuidelines();
+
+        function getPos(e) {
+            const rect = zCanvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return {
+                x: clientX - rect.left,
+                y: clientY - rect.top
+            };
+        }
+
+        function startDraw(e) {
+            isDrawingZ = true;
+            const pos = getPos(e);
+            zCtx.beginPath();
+            zCtx.moveTo(pos.x, pos.y);
+            if (e.touches) e.preventDefault();
+        }
+
+        function moveDraw(e) {
+            if (!isDrawingZ) return;
+            const pos = getPos(e);
+            zCtx.lineTo(pos.x, pos.y);
+            zCtx.stroke();
+            if (e.touches) e.preventDefault();
+        }
+
+        function stopDraw(e) {
+            if (isDrawingZ) {
+                isDrawingZ = false;
+                zCtx.closePath();
+            }
+        }
+
+        zCanvas.onmousedown = startDraw;
+        zCanvas.onmousemove = moveDraw;
+        window.addEventListener('mouseup', stopDraw);
+
+        zCanvas.ontouchstart = startDraw;
+        zCanvas.ontouchmove = moveDraw;
+        zCanvas.ontouchend = stopDraw;
+    };
+
+    function drawZGuidelines() {
+        if (!zCtx || !zCanvas) return;
+        const w = zCanvas.width;
+        const h = zCanvas.height;
+
+        zCtx.clearRect(0, 0, w, h);
+
+        const baseline = h * 0.58;
+        zCtx.save();
+        zCtx.setLineDash([8, 6]);
+        zCtx.strokeStyle = '#cbd5e1';
+        zCtx.lineWidth = 2;
+
+        // خط علوي
+        zCtx.beginPath();
+        zCtx.moveTo(20, h * 0.28);
+        zCtx.lineTo(w - 20, h * 0.28);
+        zCtx.stroke();
+
+        // خط الأساس الرئيسي الأخضر
+        zCtx.setLineDash([]);
+        zCtx.strokeStyle = '#059669';
+        zCtx.lineWidth = 3;
+        zCtx.beginPath();
+        zCtx.moveTo(20, baseline);
+        zCtx.lineTo(w - 20, baseline);
+        zCtx.stroke();
+
+        // خط سفلي
+        zCtx.setLineDash([8, 6]);
+        zCtx.strokeStyle = '#cbd5e1';
+        zCtx.lineWidth = 2;
+        zCtx.beginPath();
+        zCtx.moveTo(20, h * 0.85);
+        zCtx.lineTo(w - 20, h * 0.85);
+        zCtx.stroke();
+
+        // رسم نموذج خفيف منقط لحرف الزاي بأشكاله
+        zCtx.font = 'bold ' + Math.floor(h * 0.38) + 'px "Tajawal", "Traditional Arabic", sans-serif';
+        zCtx.fillStyle = '#bbf7d0';
+        zCtx.textAlign = 'center';
+        zCtx.textBaseline = 'alphabetic';
+        zCtx.fillText('ز', w * 0.72, baseline + (h * 0.08));
+        zCtx.fillText('ـز', w * 0.32, baseline + (h * 0.08));
+
+        zCtx.restore();
+    }
+
+    window.clearZCanvas = function() {
+        if (zCtx && zCanvas) {
+            drawZGuidelines();
+            playAudio('letter_z_draw_hint');
+        }
+    };
+
+    window.setZCanvasColor = function(color) {
+        zStrokeColor = color;
+        if (zCtx) {
+            zCtx.strokeStyle = color;
+        }
+    };
+
+    window.checkZQuiz = function(qNum, answer, btn) {
+        const correctAnswers = {
+            1: 'start',
+            2: 'mizmar',
+            3: 'zaytoon_split',
+            4: 'miz',
+            5: 'qaddoori'
+        };
+
+        const parent = btn.closest('.quiz-question-box');
+        if (parent) {
+            parent.querySelectorAll('button').forEach(b => {
+                b.style.borderColor = '#cbd5e1';
+                b.style.background = '#ffffff';
+            });
+        }
+
+        if (answer === correctAnswers[qNum]) {
+            mascotCelebrates();
+            btn.style.borderColor = '#059669';
+            btn.style.background = '#f0fdf4';
+            playAudio('letter_z_correct');
+            mascotSpeak('أَحْسَنْتَ يَا بَطَل! إِجَابَةٌ صَحِيحَةٌ وَعَبْقَرِيَّة!', 'letter_z_correct');
+        } else {
+            mascotThinks();
+            btn.style.borderColor = '#ef4444';
+            btn.style.background = '#fef2f2';
+            playAudio('letter_z_wrong');
+            mascotSpeak('حَاوِلْ مَرَّةً أُخْرَى، رَكِّزْ جَيِّداً فِي صَوْتِ الزَّايِ وَمَوْضِعِهِ!', 'letter_z_wrong');
+        }
+    };
 })();
