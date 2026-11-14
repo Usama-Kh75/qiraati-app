@@ -1,0 +1,1151 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - الوحدة الأولى: أسرتي (Unit 1: My Family)
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+        /* ========================================================
+
+           أنماط الوحدة الأولى: أسرتي وحرف الباء (بـ ، ب) (ص 17 - 20)
+
+        ======================================================== */
+
+        .giant-letter-b-card {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 16px;
+
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+
+            border: 3px solid #ef4444;
+
+            border-radius: 20px;
+
+            padding: 10px 24px;
+
+            margin-bottom: 12px;
+
+            cursor: pointer;
+
+            box-shadow: 0 6px 16px rgba(239, 68, 68, 0.18);
+
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        }
+
+        .giant-letter-b-card:hover {
+
+            transform: scale(1.04);
+
+            box-shadow: 0 8px 24px rgba(239, 68, 68, 0.3);
+
+        }
+
+        .giant-letter-b-glyph {
+
+            font-size: 3.2rem;
+
+            font-weight: 900;
+
+            color: #dc2626;
+
+            line-height: 1;
+
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        }
+
+        .color-dot-b {
+
+            width: 32px;
+
+            height: 32px;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            border: 3px solid white;
+
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+            transition: transform 0.2s;
+
+        }
+
+        .color-dot-b.active {
+
+            transform: scale(1.25);
+
+            outline: 3px solid #1e293b;
+
+        }
+
+        
+
+        /* ========================================================
+
+           أنماط حرف الدال (د ، ـد) وتكوين كلمة دَادَا (ص 24 - 26)
+
+        ======================================================== */
+
+        .giant-letter-d-card {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 16px;
+
+            background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #d1fae5 100%);
+
+            border: 3px solid #059669;
+
+            border-radius: 20px;
+
+            padding: 10px 24px;
+
+            margin-bottom: 12px;
+
+            cursor: pointer;
+
+            box-shadow: 0 6px 16px rgba(5, 150, 105, 0.18);
+
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        }
+
+        .giant-letter-d-card:hover {
+
+            transform: scale(1.04);
+
+            box-shadow: 0 8px 24px rgba(5, 150, 105, 0.3);
+
+        }
+
+        .giant-letter-d-glyph {
+
+            font-size: 3.2rem;
+
+            font-weight: 900;
+
+            color: #047857;
+
+            line-height: 1;
+
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        }
+
+        .color-dot-d {
+
+            width: 32px;
+
+            height: 32px;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            border: 3px solid white;
+
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+            transition: transform 0.2s;
+
+        }
+
+        .color-dot-d.active {
+
+            transform: scale(1.25);
+
+            outline: 3px solid #1e293b;
+
+        }
+
+        /* ========================================================
+
+           أنماط حرف الفاء (فـ ، ـفـ ، ف) وقراءة فَادِي ومُفِيد وفَم (ص 27 - 29)
+
+        ======================================================== */
+
+        .giant-letter-f-card {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 16px;
+
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+
+            border: 3px solid #0284c7;
+
+            border-radius: 20px;
+
+            padding: 10px 24px;
+
+            margin-bottom: 12px;
+
+            cursor: pointer;
+
+            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.18);
+
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        }
+
+        .giant-letter-f-card:hover {
+
+            transform: scale(1.04);
+
+            box-shadow: 0 8px 24px rgba(2, 132, 199, 0.3);
+
+        }
+
+        .giant-letter-f-glyph {
+
+            font-size: 3.2rem;
+
+            font-weight: 900;
+
+            color: #0369a1;
+
+            line-height: 1;
+
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        }
+
+/* ========================================================
+
+           أنماط حرف الميم (مـ ، م) وتكوين كلمة مَامَا (ص 21 - 23)
+
+        ======================================================== */
+
+        .giant-letter-m-card {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 16px;
+
+            background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+
+            border: 3px solid #d946ef;
+
+            border-radius: 20px;
+
+            padding: 10px 24px;
+
+            margin-bottom: 12px;
+
+            cursor: pointer;
+
+            box-shadow: 0 6px 16px rgba(217, 70, 239, 0.18);
+
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        }
+
+        .giant-letter-m-card:hover {
+
+            transform: scale(1.04);
+
+            box-shadow: 0 8px 24px rgba(217, 70, 239, 0.3);
+
+        }
+
+        .giant-letter-m-glyph {
+
+            font-size: 3.2rem;
+
+            font-weight: 900;
+
+            color: #c026d3;
+
+            line-height: 1;
+
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        }
+
+        .color-dot-m {
+
+            width: 32px;
+
+            height: 32px;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            border: 3px solid white;
+
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+            transition: transform 0.2s;
+
+        }
+
+        .color-dot-m.active {
+
+            transform: scale(1.25);
+
+            outline: 3px solid #1e293b;
+
+        }
+
+        .family-listen-card {
+
+            background: white;
+
+            border-radius: 20px;
+
+            border: 2px solid #e2e8f0;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+
+            overflow: hidden;
+
+            margin-bottom: 20px;
+
+            text-align: center;
+
+            padding: 16px;
+
+        }
+
+        .family-story-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+            gap: 16px;
+
+            margin: 16px 0;
+
+        }
+
+        .story-scene-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            border: 2px solid #e2e8f0;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+            overflow: hidden;
+
+            display: flex;
+
+            flex-direction: column;
+
+            transition: all 0.25s ease;
+
+        }
+
+        .story-scene-card:hover {
+
+            transform: translateY(-4px);
+
+            border-color: #3b82f6;
+
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.15);
+
+        }
+
+        .story-scene-img {
+
+            width: 100%;
+
+            height: 200px;
+
+            object-fit: cover;
+
+            border-bottom: 2px solid #f1f5f9;
+
+        }
+
+        .story-scene-body {
+
+            padding: 14px;
+
+            flex: 1;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: space-between;
+
+        }
+
+        .vowel-pairs-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+            gap: 16px;
+
+            margin: 16px 0;
+
+        }
+
+        .vowel-pair-box {
+
+            background: white;
+
+            border-radius: 18px;
+
+            border: 2px solid #e2e8f0;
+
+            padding: 14px;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-around;
+
+        }
+
+        .vowel-badge-btn {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding: 10px 16px;
+
+            border-radius: 14px;
+
+            cursor: pointer;
+
+            border: 2px solid transparent;
+
+            transition: all 0.2s ease;
+
+            background: #f8fafc;
+
+        }
+
+        .vowel-badge-btn:hover {
+
+            transform: scale(1.06);
+
+        }
+
+        .vowel-badge-btn.short {
+
+            background: #eff6ff;
+
+            border-color: #93c5fd;
+
+            color: #1e40af;
+
+        }
+
+        .vowel-badge-btn.long {
+
+            background: #fef2f2;
+
+            border-color: #fca5a5;
+
+            color: #b91c1c;
+
+        }
+
+        .vowel-badge-glyph {
+
+            font-size: 2.2rem;
+
+            font-weight: 900;
+
+            line-height: 1;
+
+        }
+
+        .b-split-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            border: 2px solid #e2e8f0;
+
+            padding: 16px;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+        .b-word-tag {
+
+            font-size: 2.2rem;
+
+            font-weight: 900;
+
+            color: #1e293b;
+
+            background: #f1f5f9;
+
+            padding: 6px 24px;
+
+            border-radius: 14px;
+
+        }
+
+        .b-syllable-chips {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+        .b-syllable-chip {
+
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+
+            border: 2px solid #3b82f6;
+
+            color: #1e40af;
+
+            font-size: 1.8rem;
+
+            font-weight: 900;
+
+            padding: 8px 18px;
+
+            border-radius: 14px;
+
+            min-width: 60px;
+
+            text-align: center;
+
+            box-shadow: 0 3px 8px rgba(59, 130, 246, 0.2);
+
+            transition: all 0.2s ease;
+
+        }
+
+        .b-syllable-chip:hover {
+
+            transform: scale(1.1);
+
+        }
+
+        .puzzle-merge-container {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 16px;
+
+            margin: 16px 0;
+
+        }
+
+        .puzzle-merge-row {
+
+            background: white;
+
+            border-radius: 18px;
+
+            border: 2px solid #e2e8f0;
+
+            padding: 16px 20px;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            flex-wrap: wrap;
+
+            gap: 14px;
+
+        }
+
+        .puzzle-pieces-group {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+        }
+
+        .puzzle-piece {
+
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+
+            border: 3px solid #f59e0b;
+
+            color: #92400e;
+
+            font-size: 1.8rem;
+
+            font-weight: 900;
+
+            padding: 8px 18px;
+
+            border-radius: 14px;
+
+            cursor: pointer;
+
+            box-shadow: 0 3px 8px rgba(245, 158, 11, 0.2);
+
+            transition: all 0.2s ease;
+
+        }
+
+        .puzzle-piece:hover {
+
+            transform: scale(1.08);
+
+        }
+
+        .puzzle-result {
+
+            background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+
+            border: 3px solid #22c55e;
+
+            color: #15803d;
+
+            font-size: 2rem;
+
+            font-weight: 900;
+
+            padding: 8px 24px;
+
+            border-radius: 16px;
+
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease;
+
+        }
+
+        .puzzle-result:hover {
+
+            transform: scale(1.06);
+
+        }
+
+        .grand-reading-banner {
+
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+
+            border: 3px solid #3b82f6;
+
+            border-radius: 24px;
+
+            padding: 20px 24px;
+
+            margin: 20px 0;
+
+            text-align: center;
+
+            box-shadow: 0 6px 20px rgba(59, 130, 246, 0.15);
+
+        }
+
+        .grand-words-display {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 24px;
+
+            flex-wrap: wrap;
+
+            margin: 16px 0;
+
+        }
+
+        .grand-word-chip {
+
+            background: white;
+
+            border: 3px solid #2563eb;
+
+            color: #1e3a8a;
+
+            font-size: 2.8rem;
+
+            font-weight: 900;
+
+            padding: 10px 28px;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.18);
+
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        }
+
+        .grand-word-chip:hover {
+
+            transform: scale(1.1);
+
+            border-color: #1d4ed8;
+
+            background: #f0f9ff;
+
+        }
+
+        @media (max-width: 992px) {
+
+            .btn-sidebar-toggle { display: inline-flex; }
+
+            .btn-sidebar-close { display: inline-flex; }
+
+            .curriculum-sidebar {
+
+                position: fixed;
+
+                right: 0;
+
+                top: 0;
+
+                width: 85%;
+
+                max-width: 330px;
+
+                height: 100vh;
+
+                transform: translateX(110%);
+
+                z-index: 2000;
+
+                box-shadow: none;
+
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+            }
+
+            .curriculum-sidebar.open {
+
+                transform: translateX(0);
+
+                box-shadow: -10px 0 35px rgba(0,0,0,0.35);
+
+            }
+
+        }
+
+        /* ========================================================
+
+           أنماط خاتمة الوحدة الأولى: سورة الفاتحة ونشيد ماما بابا
+
+           إعداد المهندس أسامة خليل هاشم
+
+        ======================================================== */
+
+        .quran-board {
+
+            background: linear-gradient(135deg, #fffdf5 0%, #fefcf3 100%);
+
+            border: 3px solid #d97706;
+
+            border-radius: 24px;
+
+            padding: 24px 18px;
+
+            box-shadow: 0 12px 30px rgba(217, 119, 6, 0.15);
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+        .quran-header-frame {
+
+            display: inline-block;
+
+            background: linear-gradient(135deg, #b45309, #d97706, #92400e);
+
+            color: #ffffff;
+
+            padding: 8px 30px;
+
+            border-radius: 999px;
+
+            font-size: 1.35rem;
+
+            font-weight: 900;
+
+            box-shadow: 0 4px 15px rgba(180, 83, 9, 0.35);
+
+            border: 2px solid #fef08a;
+
+            margin-bottom: 16px;
+
+        }
+
+        .ayah-card {
+
+            background: #ffffff;
+
+            border: 2px solid #fde68a;
+
+            border-radius: 16px;
+
+            padding: 14px 20px;
+
+            margin-bottom: 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 14px;
+
+            cursor: pointer;
+
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+            position: relative;
+
+        }
+
+        .ayah-card:hover {
+
+            border-color: #d97706;
+
+            background: #fffbeb;
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 8px 20px rgba(217, 119, 6, 0.18);
+
+        }
+
+        .ayah-card.active {
+
+            border-color: #059669;
+
+            background: #ecfdf5;
+
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25), 0 8px 22px rgba(5, 150, 105, 0.2);
+
+            transform: scale(1.015);
+
+        }
+
+        .ayah-text {
+
+            font-family: 'Amiri', 'Traditional Arabic', serif;
+
+            font-size: 1.55rem;
+
+            font-weight: 700;
+
+            color: #1e293b;
+
+            line-height: 1.9;
+
+            flex-grow: 1;
+
+            text-align: right;
+
+        }
+
+        .ayah-card.active .ayah-text {
+
+            color: #065f46;
+
+            font-weight: 800;
+
+        }
+
+        .ayah-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 44px;
+
+            height: 44px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+
+            border: 2px solid #d97706;
+
+            color: #92400e;
+
+            font-weight: 900;
+
+            font-size: 1.15rem;
+
+            flex-shrink: 0;
+
+            box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.8), 0 2px 6px rgba(217, 119, 6, 0.2);
+
+        }
+
+        .ayah-card.active .ayah-badge {
+
+            background: linear-gradient(135deg, #a7f3d0, #6ee7b7);
+
+            border-color: #059669;
+
+            color: #065f46;
+
+        }
+
+        .nasheed-card {
+
+            background: linear-gradient(135deg, #ffffff 0%, #fff7ed 100%);
+
+            border: 2px solid #fed7aa;
+
+            border-radius: 20px;
+
+            padding: 16px 20px;
+
+            margin-bottom: 14px;
+
+            cursor: pointer;
+
+            transition: all 0.25s ease;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 16px;
+
+        }
+
+        .nasheed-card:hover {
+
+            border-color: #f97316;
+
+            background: #fff8f1;
+
+            transform: translateY(-2px);
+
+            box-shadow: 0 8px 18px rgba(249, 115, 22, 0.15);
+
+        }
+
+        .nasheed-card.active {
+
+            border-color: #e11d48;
+
+            background: #fff1f2;
+
+            box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.2);
+
+            transform: scale(1.015);
+
+        }
+
+        .couplet-col {
+
+            flex: 1;
+
+            font-size: 1.35rem;
+
+            font-weight: 800;
+
+            color: #334155;
+
+            text-align: center;
+
+        }
+
+        .couplet-col.left {
+
+            color: #b91c1c;
+
+        }
+
+        .couplet-col.right {
+
+            color: #1e3a8a;
+
+        }
+
+        .harvest-letter-box {
+
+            background: #ffffff;
+
+            border: 2px solid #cbd5e1;
+
+            border-radius: 18px;
+
+            padding: 16px;
+
+            text-align: center;
+
+            transition: all 0.25s ease;
+
+            cursor: pointer;
+
+        }
+
+        .harvest-letter-box:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+
+        }
+
+        .grad-cert-container {
+
+            background: #ffffff;
+
+            border: 6px double #d97706;
+
+            border-radius: 28px;
+
+            padding: 32px 24px;
+
+            position: relative;
+
+            box-shadow: 0 16px 40px rgba(217, 119, 6, 0.2);
+
+            text-align: center;
+
+            margin: 20px auto;
+
+            max-width: 780px;
+
+        }
+
+        .cert-seal {
+
+            width: 90px;
+
+            height: 90px;
+
+            border-radius: 50%;
+
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+
+            border: 4px solid #ffffff;
+
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 2.4rem;
+
+            color: #ffffff;
+
+            margin-bottom: 12px;
+
+            animation: pulse-seal 2s infinite ease-in-out;
+
+        }
+
+        @keyframes pulse-seal {
+
+            0%, 100% { transform: scale(1); }
+
+            50% { transform: scale(1.08); }
+
+        }
+
+        @media print {
+
+            body * { visibility: hidden !important; }
+
+            .grad-cert-container, .grad-cert-container *,
+            .unit2-grad-cert-container, .unit2-grad-cert-container * {
+
+                visibility: visible !important;
+
+            }
+
+            .grad-cert-container {
+
+                position: absolute;
+
+                left: 0;
+
+                top: 0;
+
+                width: 100%;
+
+                border: 4px solid #b45309 !important;
+
+                box-shadow: none !important;
+
+            }
+
+            .no-print { display: none !important; }
+
+        }
+
+

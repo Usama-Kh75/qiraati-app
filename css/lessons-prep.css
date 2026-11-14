@@ -1,0 +1,1025 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - دروس التهيئة والاستعداد وحروف المد (Preparation Lessons)
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+        /* ستايل الدرس الأول: نشاط 2 ونشاط 3 ص 7 */
+
+        .image-container-nasheed {
+            position: relative;
+            width: 100%;
+            max-width: 860px;
+            margin: 0 auto 16px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: #fff;
+            border: 2px solid #fbcfe8;
+            box-shadow: 0 4px 16px rgba(244, 63, 94, 0.08);
+        }
+
+        .image-container-nasheed img {
+            width: 100%;
+            height: auto;
+            max-height: 480px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .image-container-3items {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: #fff;
+            border: 2px solid #fed7aa;
+            box-shadow: 0 4px 16px rgba(234, 88, 12, 0.08);
+        }
+
+        .image-container-3items img {
+            width: 100%;
+            height: auto;
+            max-height: 520px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .hotspot-item3 {
+
+            position: absolute;
+
+            cursor: pointer;
+
+            border-radius: 16px;
+
+            transition: all 0.25s ease;
+
+            z-index: 10;
+
+        }
+
+        .hotspot-item3:hover {
+
+            outline: 3px dashed #2563eb;
+
+            background-color: rgba(37, 99, 235, 0.15);
+
+            transform: scale(1.04);
+
+        }
+
+        .spot-item-mistara { left: 67%; top: 22%; width: 20%; height: 13%; }
+
+        .spot-item-qalam   { left: 65%; top: 39%; width: 22%; height: 10%; }
+
+        .spot-item-melaqa  { left: 67%; top: 51%; width: 19%; height: 14%; }
+
+        .spot-item-miqas   { left: 68%; top: 69%; width: 20%; height: 23%; }
+
+        .spot-item-kitab   { left: 44%; top: 32%; width: 17%; height: 27%; }
+
+        .spot-item-haqiba  { left: 25%; top: 17%; width: 15%; height: 42%; }
+
+        .spot-item-qitar   { left: 25%; top: 63%; width: 35%; height: 27%; }
+
+        .spot-item-safira  { left: 7%;  top: 34%; width: 14%; height: 18%; }
+
+        .spot-item-saa     { left: 7%;  top: 61%; width: 14%; height: 30%; }
+
+        /* ستايل نشاط 5: الحروف في الفراغات */
+
+        .image-container-5 {
+
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 1024 / 451;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            background-color: #fff;
+
+        }
+
+        .image-container-5 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .svg-overlay-5 { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 8; }
+
+        .dot-mask { display: none; }
+
+        .placed-letter { font-family: 'Tajawal', sans-serif; font-size: 40px; font-weight: 900; fill: #e11d48; display: none; }
+
+        .placed-letter.show { display: inline; animation: letter-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+        .letter-selector-bar {
+
+            background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%);
+
+            border: 3px solid #bbf7d0;
+
+            border-radius: 20px;
+
+            padding: 12px 20px;
+
+            margin-bottom: 14px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-around;
+
+            width: 100%;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+        }
+
+        .selector-title { font-size: 1.15rem; font-weight: 800; color: #166534; }
+
+        .selectable-letters { display: flex; gap: 25px; }
+
+        .letter-pick-card {
+
+            width: 75px; height: 75px; background: white; border: 4px solid #3b82f6; border-radius: 20px;
+
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+
+            font-size: 2.8rem; font-weight: 900; color: #1e3a8a; cursor: pointer; transition: all 0.25s ease;
+
+            position: relative;
+
+        }
+
+        .letter-pick-card.selected { background: #dbeafe; border-color: #2563eb; transform: scale(1.15); outline: 4px solid #60a5fa; }
+
+        .letter-pick-card .label-hint { font-size: 0.75rem; font-weight: 800; color: #1e40af; position: absolute; bottom: -22px; white-space: nowrap; }
+
+        .slot-hotspot {
+
+            position: absolute; top: 76.5%; transform: translate(-50%, -50%); border-radius: 8px; cursor: pointer; z-index: 10;
+
+            background-color: transparent;
+
+        }
+
+        .slot-hotspot:not(.filled) { background-color: rgba(254, 240, 138, 0.4); border: 2px dashed #f59e0b; animation: slot-glow 1.5s infinite alternate; }
+
+        .slot-hotspot.filled { border: none; background: transparent; pointer-events: none; }
+
+        .hotspot-nar    { left: 89.6%; width: 2.8%; height: 8.5%; }
+
+        .hotspot-mrma   { left: 66.4%; width: 4.6%; height: 8.5%; }
+
+        .hotspot-dar    { left: 51.8%; width: 2.8%; height: 8.5%; }
+
+        .hotspot-halwa  { left: 27.0%; width: 4.6%; height: 8.5%; }
+
+        .hotspot-asa    { left: 10.0%; width: 4.6%; height: 8.5%; }
+
+        /* ستايل نشاط 4: أتحدث عن الصور (صباحي الممتع والمدرسة) */
+
+        .image-container-4 {
+
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 1120 / 765;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            background-color: #fff;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+
+        }
+
+        .image-container-4 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .hotspot-act4 {
+
+            position: absolute;
+
+            cursor: pointer;
+
+            border-radius: 20px;
+
+            transition: all 0.25s ease;
+
+            z-index: 10;
+
+        }
+
+        .hotspot-act4:hover {
+
+            outline: 4px dashed #2563eb;
+
+            background-color: rgba(37, 99, 235, 0.15);
+
+            transform: scale(1.02);
+
+        }
+
+        .spot-wake      { top: 17%; right: 4%; width: 45%; height: 48%; }
+
+        .spot-breakfast { top: 17%; left: 4%; width: 45%; height: 48%; }
+
+        .spot-school    { top: 48%; left: 26%; width: 48%; height: 49%; }
+
+        /* ستايل نشاط 5: أميز المتشابه والمختلف */
+
+        .image-container-5diff {
+
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 1120 / 860;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            background-color: #fff;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+
+        }
+
+        .image-container-5diff img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .svg-overlay-5diff {
+
+            position: absolute;
+
+            top: 0; left: 0;
+
+            width: 100%; height: 100%;
+
+            pointer-events: none;
+
+            z-index: 8;
+
+        }
+
+        .diff-circle-path {
+
+            fill: none;
+
+            stroke-width: 8;
+
+            stroke-linecap: round;
+
+            stroke-dasharray: 800;
+
+            stroke-dashoffset: 800;
+
+            transition: stroke-dashoffset 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+
+        }
+
+        .diff-circle-path.draw {
+
+            stroke-dashoffset: 0;
+
+        }
+
+        .hotspot-diff {
+
+            position: absolute;
+
+            cursor: pointer;
+
+            border-radius: 50%;
+
+            z-index: 10;
+
+            transition: transform 0.2s ease;
+
+        }
+
+        .hotspot-diff:hover {
+
+            transform: scale(1.1);
+
+            background-color: rgba(225, 29, 72, 0.15);
+
+        }
+
+        .spot-pencils-match  { left: 66%; top: 41%; width: 18%; height: 13%; border-radius: 30px; }
+
+        .spot-pencils-other1 { left: 51%; top: 21%; width: 18%; height: 13%; border-radius: 30px; }
+
+        .spot-pencils-other2 { left: 66%; top: 27%; width: 18%; height: 13%; border-radius: 30px; }
+
+        .spot-pencils-other3 { left: 51%; top: 40%; width: 18%; height: 13%; border-radius: 30px; }
+
+        .spot-hens-match1    { left: 14%; top: 21%; width: 13%; height: 15%; }
+
+        .spot-hens-other     { left: 27%; top: 19%; width: 13%; height: 18%; } /* Ostrich */
+
+        .spot-hens-match2    { left: 14%; top: 39%; width: 13%; height: 15%; }
+
+        .spot-hens-match3    { left: 27%; top: 39%; width: 13%; height: 15%; }
+
+        .spot-tennis         { left: 55%; top: 61%; width: 9%; height: 12%; } /* المختلف */
+
+        .spot-football1      { left: 36%; top: 61%; width: 9%; height: 12%; }
+
+        .spot-football2      { left: 73%; top: 61%; width: 9%; height: 12%; }
+
+        .spot-yellowbook     { left: 33%; top: 79%; width: 15%; height: 12%; } /* المختلف */
+
+        .spot-bluebook1      { left: 53%; top: 79%; width: 15%; height: 12%; }
+
+        .spot-bluebook2      { left: 71%; top: 79%; width: 15%; height: 12%; }
+
+        /* ستايل نشاط 6 (الأطول والأقصر) */
+
+        .image-container-6 { position: relative; width: 100%; aspect-ratio: 1024 / 536; border-radius: 16px; overflow: hidden; background-color: #fffdec; }
+
+        .image-container-6 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .circle-path { fill: none; stroke-width: 9; stroke-linecap: round; stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset 0.8s cubic-bezier(0.65, 0, 0.35, 1); }
+
+        .circle-path.draw { stroke-dashoffset: 0; animation: pulse-circle 1.5s infinite alternate ease-in-out; }
+
+        .spot-tall-pencil  { left: 20%; top: 33%; width: 8%; height: 60%; position: absolute; cursor: pointer; }
+
+        .spot-short-pencil { left: 29%; top: 58%; width: 7%; height: 35%; position: absolute; cursor: pointer; }
+
+        .spot-tall-giraffe { left: 53%; top: 33%; width: 16%; height: 60%; position: absolute; cursor: pointer; }
+
+        .spot-short-giraffe{ left: 72%; top: 48%; width: 12%; height: 45%; position: absolute; cursor: pointer; }
+
+        /* ستايل نشاط 7 (أحدد الأماكن: فوق وتحت، أمام وخلف) */
+
+        .image-container-7places {
+
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 1140 / 580;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            background-color: #fff;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+
+        }
+
+        .image-container-7places img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .hotspot-act7 {
+
+            position: absolute;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            border-radius: 20px;
+
+            transition: all 0.25s ease;
+
+        }
+
+        .hotspot-act7:hover {
+
+            outline: 4px dashed #10b981;
+
+            background-color: rgba(16, 185, 129, 0.15);
+
+            transform: scale(1.05);
+
+        }
+
+        .spot-place-book { left: 61%; top: 40%; width: 17%; height: 17%; }
+
+        .spot-place-cat  { left: 63%; top: 61%; width: 15%; height: 32%; }
+
+        .spot-place-girl { left: 41%; top: 29%; width: 9%; height: 62%; }
+
+        .spot-place-boy  { left: 16%; top: 51%; width: 9%; height: 40%; }
+
+        /* ستايل نشاط 8 (الاتجاهات: يمين ويسار) */
+
+        .image-container-8 {
+
+            position: relative;
+
+            width: 100%;
+
+            aspect-ratio: 1140 / 520;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            background-color: #fff;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+
+        }
+
+        .image-container-8 img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .hotspot-act8 {
+
+            position: absolute;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+            border-radius: 20px;
+
+            transition: all 0.25s ease;
+
+        }
+
+        .hotspot-act8:hover {
+
+            outline: 4px dashed #3b82f6;
+
+            background-color: rgba(59, 130, 246, 0.15);
+
+            transform: scale(1.05);
+
+        }
+
+        .spot-car-left  { left: 30%; top: 54%; width: 14%; height: 38%; }
+
+        .spot-car-right { left: 46%; top: 54%; width: 14%; height: 38%; }
+
+        .spot-police    { left: 60%; top: 48%; width: 11%; height: 46%; }
+
+        .spot-light     { left: 70%; top: 28%; width: 14%; height: 66%; }
+
+        /* ستايل ورشة الحروف والدمج */
+
+        .word-builder-demo { background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%); border: 3px dashed #93c5fd; border-radius: 20px; padding: 25px; text-align: center; width: 100%; }
+
+        .letter-track { display: flex; justify-content: center; align-items: center; gap: 25px; margin: 25px 0; min-height: 130px; }
+
+        .letter-box {
+
+            width: 90px; height: 90px; background: white; border: 4px solid #3b82f6; border-radius: 20px;
+
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+
+            font-size: 3rem; font-weight: 900; color: #1e3a8a; cursor: pointer; transition: all 0.5s ease;
+
+        }
+
+        .merged-word { font-size: 3.5rem; font-weight: 900; color: #15803d; opacity: 0; transform: scale(0.5); transition: all 0.5s ease; display: none; padding: 10px; }
+
+        .merged-word.show { display: block; opacity: 1; transform: scale(1); }
+
+        @keyframes slot-glow { 0% { border-color: #f59e0b; } 100% { border-color: #ef4444; } }
+
+        @keyframes pulse-circle { 0% { transform: scale(1); } 100% { transform: scale(1.03); } }
+
+        @keyframes letter-pop { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-10px); } 40%, 80% { transform: translateX(10px); } }
+
+        .shake { animation: shake 0.5s ease-in-out; }
+
+        /* ========================================================
+
+           أنماط درس حرف المد بالواو (و) (ص 13 - 14)
+
+        ======================================================== */
+
+        .station-nav-bar {
+
+            display: flex;
+
+            gap: 8px;
+
+            margin-bottom: 16px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            background: #f8fafc;
+
+            border: 2px solid #e2e8f0;
+
+            padding: 6px;
+
+            border-radius: 16px;
+
+        }
+
+        .station-tab {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding: 8px 14px;
+
+            border-radius: 12px;
+
+            border: none;
+
+            background: transparent;
+
+            color: #475569;
+
+            font-family: inherit;
+
+            font-size: 0.88rem;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition: all 0.25s ease;
+
+        }
+
+        .station-tab:hover {
+
+            background: #e2e8f0;
+
+            color: #1e293b;
+
+        }
+
+        .station-tab.active {
+
+            background: #2563eb;
+
+            color: white;
+
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+
+        }
+
+        .giant-letter-w-card {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 16px;
+
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+
+            border: 3px solid #f59e0b;
+
+            border-radius: 20px;
+
+            padding: 10px 24px;
+
+            margin-bottom: 12px;
+
+            cursor: pointer;
+
+            box-shadow: 0 6px 16px rgba(245, 158, 11, 0.18);
+
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        }
+
+        .giant-letter-w-card:hover {
+
+            transform: scale(1.04);
+
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);
+
+        }
+
+        .giant-letter-w-glyph {
+
+            font-size: 3.2rem;
+
+            font-weight: 900;
+
+            color: #b45309;
+
+            line-height: 1;
+
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        }
+
+        .w-cards-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 14px;
+
+            margin-top: 14px;
+
+        }
+
+        .w-item-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            border: 2px solid #e2e8f0;
+
+            padding: 14px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+            box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+
+            position: relative;
+
+        }
+
+        .w-item-card:hover {
+
+            transform: translateY(-5px);
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+
+            border-color: #f59e0b;
+
+        }
+
+        .w-item-card.highlighted {
+
+            border-color: #10b981;
+
+            background: #ecfdf5;
+
+            transform: scale(1.03);
+
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+
+        }
+
+        .w-item-icon {
+
+            font-size: 3.2rem;
+
+            margin-bottom: 6px;
+
+            display: inline-block;
+
+            transition: transform 0.3s ease;
+
+        }
+
+        .w-item-card:hover .w-item-icon {
+
+            transform: scale(1.15) rotate(6deg);
+
+        }
+
+        .w-item-word {
+
+            font-size: 1.45rem;
+
+            font-weight: 900;
+
+            color: #1e293b;
+
+            margin-bottom: 2px;
+
+        }
+
+        .w-item-phonics {
+
+            font-size: 0.88rem;
+
+            color: #64748b;
+
+            font-weight: 700;
+
+        }
+
+        .w-vowel-highlight {
+
+            color: #e11d48;
+
+            font-size: 1.6rem;
+
+            font-weight: 900;
+
+        }
+
+        .w-quiz-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+            gap: 14px;
+
+            margin-top: 14px;
+
+        }
+
+        .w-quiz-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            border: 2px solid #cbd5e1;
+
+            padding: 16px 12px;
+
+            text-align: center;
+
+            cursor: pointer;
+
+            transition: all 0.25s ease;
+
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+
+        }
+
+        .w-quiz-card:hover {
+
+            transform: translateY(-4px);
+
+            border-color: #6366f1;
+
+            box-shadow: 0 8px 18px rgba(99, 102, 241, 0.15);
+
+        }
+
+        .w-quiz-card.correct {
+
+            border-color: #10b981;
+
+            background: #ecfdf5;
+
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+
+        }
+
+        .w-quiz-card.info-only {
+
+            border-color: #3b82f6;
+
+            background: #eff6ff;
+
+        }
+
+        .w-fill-cards-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 14px;
+
+            margin-top: 14px;
+
+        }
+
+        .w-fill-card {
+
+            background: white;
+
+            border-radius: 18px;
+
+            border: 2px solid #e2e8f0;
+
+            padding: 16px;
+
+            text-align: center;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+
+        }
+
+        .w-fill-card:hover {
+
+            border-color: #f59e0b;
+
+            transform: translateY(-3px);
+
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.15);
+
+        }
+
+        .w-fill-slot {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 44px;
+
+            height: 50px;
+
+            border-radius: 10px;
+
+            border: 2px dashed #f59e0b;
+
+            background: #fef3c7;
+
+            font-size: 1.8rem;
+
+            font-weight: 900;
+
+            color: #d97706;
+
+            vertical-align: middle;
+
+            margin: 0 4px;
+
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        }
+
+        .w-fill-slot.filled {
+
+            border: 2px solid #10b981;
+
+            background: #d1fae5;
+
+            color: #059669;
+
+            transform: scale(1.1);
+
+        }
+
+        .canvas-wrap {
+
+            background: #ffffff;
+
+            border: 3px solid #cbd5e1;
+
+            border-radius: 20px;
+
+            position: relative;
+
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+
+            margin: 12px auto;
+
+            max-width: 600px;
+
+            overflow: hidden;
+
+            touch-action: none;
+
+        }
+
+        .canvas-tools {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-top: 10px;
+
+        }
+
+        .color-dot {
+
+            width: 32px;
+
+            height: 32px;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            border: 3px solid white;
+
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+            transition: transform 0.2s;
+
+        }
+
+        .color-dot.active {
+
+            transform: scale(1.25);
+
+            outline: 3px solid #1e293b;
+
+        }
+
+        /* أنماط درس حرف المد بالياء (يـ ، ي) (ص 15 - 16) */
+
+        .giant-letter-y-card {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 16px;
+
+            background: linear-gradient(135deg, #ede9fe 0%, #ddd6fe 100%);
+
+            border: 3px solid #7c3aed;
+
+            border-radius: 20px;
+
+            padding: 10px 24px;
+
+            margin-bottom: 12px;
+
+            cursor: pointer;
+
+            box-shadow: 0 6px 16px rgba(124, 58, 237, 0.18);
+
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+        }
+
+        .giant-letter-y-card:hover {
+
+            transform: scale(1.04);
+
+            box-shadow: 0 8px 24px rgba(124, 58, 237, 0.3);
+
+        }
+
+        .giant-letter-y-glyph {
+
+            font-size: 3.2rem;
+
+            font-weight: 900;
+
+            color: #6d28d9;
+
+            line-height: 1;
+
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+        }
+
+        .color-dot-y {
+
+            width: 32px;
+
+            height: 32px;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            border: 3px solid white;
+
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+            transition: transform 0.2s;
+
+        }
+
+        .color-dot-y.active {
+
+            transform: scale(1.25);
+
+            outline: 3px solid #1e293b;
+
+        }
+
+        
+

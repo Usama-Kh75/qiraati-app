@@ -12,6 +12,16 @@
 !/curriculum_data.js
 !/README.md
 
+# ملفات التصميم والمنطق المجزأة للنظام (Modular CSS & JS)
+!/css/
+!/css/*.css
+!/js/
+!/js/*.js
+!/js/core/
+!/js/core/*.js
+!/js/lessons/
+!/js/lessons/*.js
+
 # المجلدات المسموح بها
 !/icons/
 !/audio/

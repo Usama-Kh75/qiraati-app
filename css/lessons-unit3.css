@@ -1,0 +1,303 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - الوحدة الثالثة: ألعابي وحيواناتي (Unit 3: Toys & Animals)
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+        /* أنماط وتنسيقات الوحدة الثالثة: ألعابي وحيواناتي وحرف الطاء */
+        .giant-letter-ta-card {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: linear-gradient(135deg, #e0f2fe 0%, #fef3c7 100%);
+            border: 3px solid #0284c7;
+            border-radius: 20px;
+            padding: 12px 28px;
+            box-shadow: 0 6px 18px rgba(2, 132, 199, 0.2);
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .giant-letter-ta-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 24px rgba(2, 132, 199, 0.3);
+        }
+        .giant-letter-ta-glyph {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #0369a1;
+            line-height: 1;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .unit3-station {
+            display: none;
+        }
+        .unit3-station.active {
+            display: block;
+        }
+        .letter-ta-station {
+            display: none;
+        }
+        .letter-ta-station.active {
+            display: block;
+        }
+        .letter-f-reef-station {
+            display: none;
+        }
+        .letter-f-reef-station.active {
+            display: block;
+        }
+        .giant-letter-f-reef-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border: 3px solid #86efac;
+            border-radius: 20px;
+            padding: 12px 28px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 12px rgba(22, 101, 52, 0.12);
+        }
+        .giant-letter-f-reef-card:hover {
+            transform: scale(1.03);
+            border-color: #22c55e;
+            box-shadow: 0 6px 18px rgba(22, 101, 52, 0.2);
+        }
+        .giant-letter-f-reef-glyph {
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: #15803d;
+            line-height: 1;
+        }
+        /* أنماط درس حرف اللام وقراءة نَبِيل بَقَّال (الوحدة الثالثة ص ٦٥ - ٦٨) */
+        .letter-l-nabeel-station {
+            display: none;
+        }
+        .letter-l-nabeel-station.active {
+            display: block;
+        }
+        
+        /* أنماط الدرس السادس: حرف العين (عـ ، ـعـ ، ـع ، ع) وقراءة (سَالِم / سَالِم زَرَّاع) (ص ٦٩ - ٧٢) */
+        .letter-ayn-salim-station {
+            display: none;
+        }
+        .letter-ayn-salim-station.active {
+            display: block;
+        }
+        .giant-letter-ayn-salim-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%);
+            border: 3px solid #059669;
+            border-radius: 22px;
+            padding: 14px 32px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(5, 150, 105, 0.15);
+        }
+        .giant-letter-ayn-salim-card:hover {
+            transform: scale(1.03);
+            border-color: #047857;
+            box-shadow: 0 6px 22px rgba(5, 150, 105, 0.25);
+        }
+        .giant-letter-ayn-salim-glyph {
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: #064e3b;
+            line-height: 1;
+            letter-spacing: 4px;
+        }
+        .ayn-salim-word-chip {
+            background: #ffffff;
+            border: 2px solid #a7f3d0;
+            border-radius: 16px;
+            padding: 10px 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #065f46;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .ayn-salim-word-chip:hover {
+            transform: translateY(-2px);
+            border-color: #059669;
+            background: #ecfdf5;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.15);
+        }
+        .ayn-salim-vowel-card {
+            background: #ffffff;
+            border: 2px solid #6ee7b7;
+            border-radius: 18px;
+            padding: 16px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 10px rgba(5, 150, 105, 0.08);
+            flex: 1;
+            min-width: 130px;
+        }
+        .ayn-salim-vowel-card:hover {
+            transform: translateY(-3px);
+            border-color: #059669;
+            background: #f0fdf4;
+            box-shadow: 0 6px 16px rgba(5, 150, 105, 0.18);
+        }
+        .ayn-salim-syl-card {
+            background: #ffffff;
+            border: 2px solid #34d399;
+            border-radius: 18px;
+            padding: 14px 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+            flex: 1;
+            min-width: 140px;
+        }
+        .ayn-salim-syl-card:hover {
+            transform: translateY(-2px);
+            border-color: #059669;
+            background: #ecfdf5;
+            box-shadow: 0 5px 14px rgba(5, 150, 105, 0.16);
+        }
+        .ayn-salim-analysis-card {
+            background: #ffffff;
+            border: 2px solid #10b981;
+            border-radius: 16px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .ayn-salim-analysis-card:hover {
+            transform: translateY(-2px);
+            border-color: #047857;
+            background: #f0fdf4;
+            box-shadow: 0 5px 14px rgba(5, 150, 105, 0.15);
+        }
+        .ayn-salim-blend-card {
+            background: #ffffff;
+            border: 2px solid #059669;
+            border-radius: 16px;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .ayn-salim-blend-card:hover {
+            transform: translateY(-2px);
+            border-color: #047857;
+            background: #ecfdf5;
+            box-shadow: 0 5px 14px rgba(5, 150, 105, 0.15);
+        }
+
+        .giant-letter-l-nabeel-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 3px solid #2563eb;
+            border-radius: 22px;
+            padding: 14px 32px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.15);
+        }
+        .giant-letter-l-nabeel-card:hover {
+            transform: scale(1.03);
+            border-color: #1d4ed8;
+            box-shadow: 0 6px 22px rgba(37, 99, 235, 0.25);
+        }
+        .giant-letter-l-nabeel-glyph {
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: #1e40af;
+            line-height: 1;
+            letter-spacing: 4px;
+        }
+        .l-nabeel-word-chip {
+            background: #ffffff;
+            border: 2px solid #bfdbfe;
+            border-radius: 16px;
+            padding: 10px 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #1e3a8a;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .l-nabeel-word-chip:hover {
+            transform: translateY(-2px);
+            border-color: #2563eb;
+            background: #eff6ff;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+        }
+
+        /* أنماط درس حرف القاف وقراءة بُوق نَدِيم (الوحدة الثالثة ص ٦١ - ٦٤) */
+        .letter-q-booq-station {
+            display: none;
+        }
+        .letter-q-booq-station.active {
+            display: block;
+        }
+        .giant-letter-q-booq-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 18px;
+            background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+            border: 3px solid #f59e0b;
+            border-radius: 22px;
+            padding: 14px 32px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.15);
+        }
+        .giant-letter-q-booq-card:hover {
+            transform: scale(1.03);
+            border-color: #d97706;
+            box-shadow: 0 6px 22px rgba(217, 119, 6, 0.25);
+        }
+        .giant-letter-q-booq-glyph {
+            font-size: 3.8rem;
+            font-weight: 900;
+            color: #b45309;
+            line-height: 1;
+            letter-spacing: 4px;
+        }
+        .q-booq-word-chip {
+            background: #ffffff;
+            border: 2px solid #fde68a;
+            border-radius: 16px;
+            padding: 10px 16px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #92400e;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .q-booq-word-chip:hover {
+            transform: translateY(-2px);
+            border-color: #f59e0b;
+            background: #fffbeb;
+            box-shadow: 0 4px 12px rgba(217, 119, 6, 0.15);
+        }
+

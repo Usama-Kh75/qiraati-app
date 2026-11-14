@@ -1,0 +1,801 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - هيكل الصفحة والتجاوب (Layout & Responsiveness)
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+        /* شريط التطبيق العلوي */
+
+        
+        .top-navbar {
+            width: 100%;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 16px;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        }
+
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .top-actions {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+            flex-wrap: nowrap;
+        }
+
+        .btn-top {
+            padding: 6px 12px;
+            font-size: 0.88rem;
+            font-weight: 800;
+            font-family: inherit;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            white-space: nowrap;
+        }
+
+        .btn-sidebar-toggle {
+            display: none;
+            background: #eff6ff;
+            border: 2px solid #bfdbfe;
+            color: #1e40af;
+            font-size: 1.15rem;
+            padding: 6px 14px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 800;
+            font-family: inherit;
+        }
+
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: 900;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-pwa-install {
+
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+
+            color: white;
+
+            display: inline-flex;
+
+        }
+
+        .btn-mobile-connect {
+
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+
+            color: white;
+
+            display: inline-flex;
+
+        }
+
+        .btn-fullscreen {
+
+            background: white;
+
+            color: #334155;
+
+            border: 1px solid #cbd5e1;
+
+        }
+
+        /* الحاوية الرئيسية للتطبيق */
+
+        .app-body {
+
+            display: flex;
+
+            flex: 1;
+
+            width: 100%;
+
+            height: calc(100vh - 64px);
+
+            overflow: hidden;
+
+        }
+
+        /* ========================================================
+
+           القائمة الجانبية اليمنى (Right Curriculum Sidebar)
+
+        ======================================================== */
+
+        .curriculum-sidebar {
+
+            width: var(--sidebar-w);
+
+            min-width: var(--sidebar-w);
+
+            background: #ffffff;
+
+            border-left: 2px solid #e2e8f0;
+
+            height: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            overflow-y: auto;
+
+            box-shadow: -4px 0 15px rgba(0,0,0,0.03);
+
+            z-index: 40;
+
+            transition: transform 0.3s ease;
+
+        }
+
+        .sidebar-header {
+
+            padding: 16px 20px;
+
+            background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+
+            border-bottom: 2px solid #e2e8f0;
+
+        }
+
+        .sidebar-header h2 {
+
+            margin: 0 0 6px 0;
+
+            font-size: 1.25rem;
+
+            font-weight: 900;
+
+            color: #1e3a8a;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+        .sidebar-header p {
+
+            margin: 0;
+
+            font-size: 0.9rem;
+
+            color: #64748b;
+
+            font-weight: 700;
+
+        }
+
+        .units-accordion {
+
+            padding: 12px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 12px;
+
+        }
+
+        .unit-card {
+
+            background: #f8fafc;
+
+            border: 2px solid #e2e8f0;
+
+            border-radius: 16px;
+
+            overflow: hidden;
+
+            transition: all 0.2s ease;
+
+        }
+
+        .unit-card.open {
+
+            border-color: #93c5fd;
+
+            background: #ffffff;
+
+            box-shadow: 0 4px 12px rgba(37,99,235,0.08);
+
+        }
+
+        .unit-title-bar {
+
+            padding: 12px 14px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            cursor: pointer;
+
+            background: transparent;
+
+            font-weight: 800;
+
+            font-size: 1.05rem;
+
+            color: #1e293b;
+
+        }
+
+        .unit-title-bar:hover { background: #f1f5f9; }
+
+        .unit-info-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+        .unit-lessons-list {
+
+            display: flex;
+
+            flex-direction: column;
+
+            padding: 6px 10px 10px 10px;
+
+            gap: 6px;
+
+            border-top: 1px dashed #e2e8f0;
+
+        }
+
+        .lesson-nav-item {
+
+            padding: 10px 12px;
+
+            border-radius: 12px;
+
+            background: #ffffff;
+
+            border: 1.5px solid #e2e8f0;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease;
+
+            font-size: 0.92rem;
+
+            font-weight: 800;
+
+            color: #334155;
+
+        }
+
+        .lesson-nav-item:hover {
+
+            background: #f0fdf4;
+
+            border-color: #86efac;
+
+            transform: translateX(-4px);
+
+        }
+
+        .lesson-nav-item.active {
+
+            background: #eff6ff;
+
+            border-color: #2563eb;
+
+            color: #1d4ed8;
+
+            box-shadow: 0 4px 10px rgba(37,99,235,0.15);
+
+        }
+
+        .lesson-badge {
+
+            font-size: 0.72rem;
+
+            padding: 2px 7px;
+
+            border-radius: 20px;
+
+            font-weight: 800;
+
+            white-space: nowrap;
+
+        }
+
+        .badge-ready { background: #dcfce7; color: #15803d; }
+
+        .badge-upcoming { background: #f1f5f9; color: #94a3b8; }
+
+        /* ========================================================
+
+           مسرح الدرس التفاعلي (Main Stage)
+
+        ======================================================== */
+
+        .main-stage {
+
+            flex: 1;
+
+            height: 100%;
+
+            overflow-y: auto;
+
+            padding: 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            position: relative;
+
+        }
+
+        .stage-card {
+
+            width: 100%;
+
+            max-width: 950px;
+
+            background: white;
+
+            border-radius: 24px;
+
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+            padding: 16px;
+
+            position: relative;
+
+            margin-bottom: 20px;
+
+        }
+
+        /* شريط التنقل المتسلسل بين الدروس (التالي والسابق) */
+
+        .lesson-stepper-bar {
+
+            width: 100%;
+
+            max-width: 950px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            padding: 10px 16px;
+
+            background: white;
+
+            border-radius: 50px;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+
+            margin-bottom: 120px; /* مساحة لفصيح */
+
+        }
+
+        .btn-step {
+
+            padding: 8px 20px;
+
+            font-size: 1rem;
+
+            font-weight: 800;
+
+            font-family: inherit;
+
+            border: 2px solid #cbd5e1;
+
+            border-radius: 30px;
+
+            cursor: pointer;
+
+            background: white;
+
+            color: #334155;
+
+            transition: all 0.2s ease;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+        .btn-step:hover { background: #eff6ff; border-color: #3b82f6; color: #1d4ed8; }
+
+        .btn-step.primary { background: #2563eb; color: white; border-color: #2563eb; }
+
+        .btn-step.primary:hover { background: #1d4ed8; }
+
+        .lesson-view {
+
+            display: none;
+
+            width: 100%;
+
+            flex-direction: column;
+
+            align-items: center;
+
+        }
+
+        .lesson-view.active { display: flex; }
+
+        .controls {
+
+            display: flex;
+
+            gap: 12px;
+
+            margin-bottom: 15px;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            width: 100%;
+
+        }
+
+        .btn {
+
+            padding: 10px 22px;
+
+            font-size: 1.05rem;
+
+            font-weight: 800;
+
+            font-family: inherit;
+
+            border: none;
+
+            border-radius: 50px;
+
+            cursor: pointer;
+
+            transition: all 0.2s ease;
+
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+        }
+
+        .btn:active { transform: scale(0.96); }
+
+        .btn-quiz { background-color: #2563eb; color: white; }
+
+        .btn-quiz:hover { background-color: #1d4ed8; transform: translateY(-2px); }
+
+        .btn-teach { background-color: #059669; color: white; }
+
+        .btn-teach:hover { background-color: #047857; transform: translateY(-2px); }
+
+        .btn-reset { background-color: #ea580c; color: white; }
+
+        .btn-reset:hover { background-color: #c2410c; transform: translateY(-2px); }
+
+        /* ========================================================
+
+           تحسينات الهواتف والأجهزة اللوحية (Mobile & Tablet Responsiveness)
+
+        ======================================================== */
+
+        .sidebar-backdrop {
+
+            display: none;
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100vw;
+
+            height: 100vh;
+
+            background: rgba(15, 23, 42, 0.6);
+
+            backdrop-filter: blur(4px);
+
+            z-index: 1999;
+
+        }
+
+        .sidebar-backdrop.show { display: block; }
+
+        .btn-sidebar-close {
+
+            display: none;
+
+            background: #fee2e2;
+
+            color: #b91c1c;
+
+            border: 1px solid #fca5a5;
+
+            padding: 6px 14px;
+
+            border-radius: 12px;
+
+            font-size: 0.85rem;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            font-family: inherit;
+
+        }
+
+        .mobile-install-banner {
+
+            display: none;
+
+            background: linear-gradient(135deg, #eff6ff 0%, #ecfdf5 100%);
+
+            border: 2px solid #93c5fd;
+
+            border-radius: 16px;
+
+            padding: 10px 14px;
+
+            margin-bottom: 12px;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+
+            width: 100%;
+
+            max-width: 950px;
+
+        }
+
+        .mobile-install-banner strong {
+
+            display: block;
+
+            color: #1e40af;
+
+            font-size: 0.9rem;
+
+            margin-bottom: 2px;
+
+        }
+
+        .mobile-install-banner p {
+
+            margin: 0;
+
+            font-size: 0.82rem;
+
+            color: #334155;
+
+            line-height: 1.4;
+
+        }
+
+        .btn-close-banner {
+
+            background: #cbd5e1;
+
+            border: none;
+
+            width: 28px;
+
+            height: 28px;
+
+            border-radius: 50%;
+
+            cursor: pointer;
+
+            font-weight: 800;
+
+            color: #475569;
+
+            flex-shrink: 0;
+
+        }
+
+        @media (max-width: 768px) {
+
+            .mobile-install-banner { display: flex; }
+
+            .btn-mobile-connect { display: none !important; }
+
+            .btn-pwa-install {
+
+                display: inline-flex !important;
+
+                font-size: 0.8rem !important;
+
+                padding: 6px 10px !important;
+
+                border-radius: 20px !important;
+
+                gap: 4px !important;
+
+            }
+
+            .btn-fullscreen {
+
+                font-size: 0.8rem !important;
+
+                padding: 6px 10px !important;
+
+                border-radius: 20px !important;
+
+            }
+
+            
+
+            .top-navbar {
+
+                height: auto;
+
+                padding: 8px 12px;
+
+                gap: 8px;
+
+            }
+
+            .brand-title {
+
+                gap: 6px !important;
+
+            }
+
+            .brand-title span:first-child { font-size: 1.3rem !important; }
+
+            .brand-title div > div:first-child span:first-child { font-size: 0.95rem !important; }
+
+            .app-body {
+
+                height: auto;
+
+                min-height: calc(100vh - 60px);
+
+                overflow: visible;
+
+            }
+
+            .main-stage {
+
+                padding: 10px 10px 140px 10px;
+
+                overflow: visible;
+
+            }
+
+            .stage-card {
+
+                padding: 12px 8px;
+
+            }
+
+            /* شريط التنقل المتسلسل (العلوي والسفلي) بالموبايل */
+
+            .lesson-stepper-bar {
+
+                padding: 8px 10px;
+
+                margin-bottom: 15px;
+
+                border: 2px solid #e2e8f0;
+
+            }
+
+            .btn-step {
+
+                padding: 6px 12px;
+
+                font-size: 0.85rem;
+
+                flex-shrink: 0;
+
+            }
+
+            .current-lesson-label-top, #currentLessonLabel {
+
+                font-size: 0.82rem !important;
+
+                padding: 0 4px;
+
+            }
+
+            /* شخصية فصيح الكرتونية بالموبايل: مرتفعة عن الأزرار وبدون حجب */
+
+            .mascot-container {
+
+                left: 10px;
+
+                bottom: 80px;
+
+                z-index: 90;
+
+                pointer-events: none;
+
+            }
+
+            .mascot-avatar {
+
+                width: 65px;
+
+                height: 80px;
+
+                pointer-events: auto;
+
+            }
+
+            .speech-bubble {
+
+                max-width: 200px;
+
+                font-size: 0.8rem;
+
+                padding: 6px 10px;
+
+                border-radius: 16px 16px 16px 4px;
+
+                pointer-events: none; /* لا يحجب النقر على ما تحته أبداً! */
+
+            }
+
+        }
+
