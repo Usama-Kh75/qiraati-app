@@ -1,0 +1,134 @@
+                <div class="lesson-view" id="view-tab-unit4_intro">
+                    <!-- شريط المحطات التفاعلي لمدخل الوحدة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationUnit4_1" onclick="switchUnit4Station(1)">
+                            <span>🍎</span> <span>١. الاستماع (صحتي وبيئتي)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationUnit4_2" onclick="switchUnit4Station(2)">
+                            <span>🗣️</span> <span>٢. المحادثة والتعبير (أنا أتحدث)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationUnit4_3" onclick="switchUnit4Station(3)">
+                            <span>🌟</span> <span>٣. تَحَدِّي الْعَادَاتِ الصِّحِّيَّةِ</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: الاستماع -->
+                    <div class="unit4-station active" id="stationUnit4_1">
+                        <div class="family-listen-card" style="background: linear-gradient(135deg, #ecfdf5 0%, #eff6ff 100%); border: 2px solid #10b981;">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #065f46; margin-bottom: 6px;">
+                                🍎 قِصَّةُ صِحَّتِي وَبِيئَتِي (الِاسْتِمَاع - ص ٧١)
+                            </div>
+                            <div style="font-size: 0.95rem; color: #475569; margin-bottom: 14px;">
+                                انقر على زر الاستماع للقصة كاملة، أو استكشف العادات الصحية ومظاهر العناية بالبيئة:
+                            </div>
+
+                            <div style="position: relative; display: inline-block; max-width: 680px; width: 100%; margin-bottom: 14px;">
+                                <img src="unit4_health_listen.png" alt="لوحة الاستماع: صحتي وبيئتي" style="width: 100%; border-radius: 16px; border: 2px solid #a7f3d0; box-shadow: 0 4px 14px rgba(16,185,129,0.12);">
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px;">
+                                <button class="btn btn-teach" onclick="playUnit4Story('full')" style="font-size: 1.05rem; padding: 12px 28px; background: linear-gradient(135deg, #059669, #047857); box-shadow: 0 4px 14px rgba(5,150,105,0.3);">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلْقِصَّةِ كَامِلَةً</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playUnit4Story('welcome')" style="font-size: 1.05rem; padding: 12px 24px; background: linear-gradient(135deg, #0284c7, #0369a1); box-shadow: 0 4px 14px rgba(2,132,199,0.3);">
+                                    <span>🌟</span> <span>تَرْحِيبُ فَصِيح</span>
+                                </button>
+                            </div>
+
+                            <!-- شبكة عناصر الصحة والبيئة التفاعلية -->
+                            <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 720px; margin: 0 auto;">
+                                <div class="health-interactive-chip" onclick="playUnit4Story('health')">
+                                    <span>🧼</span> <span>غَسْلُ الْيَدَيْنِ بِالْمَاءِ وَالصَّابُون</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('clean')">
+                                    <span>🪥</span> <span>تَنْظِيفُ الْأَسْنَانِ بِالْفُرْشَاة</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('food')">
+                                    <span>🍎</span> <span>تَنَاوُلُ الْفَوَاكِهِ وَالْغِذَاءِ الصِّحِّي</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('clean')">
+                                    <span>🌳</span> <span>نَظَافَةُ الْبِيئَةِ وَالْمَدْرَسَة</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('health')">
+                                    <span>🥛</span> <span>شُرْبُ الْحَلِيبِ وَالْمَاءِ النَّقِيّ</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: المحادثة والتعبير -->
+                    <div class="unit4-station" id="stationUnit4_2">
+                        <div class="family-listen-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfeff 100%); border: 2px solid #059669;">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #065f46; margin-bottom: 6px;">
+                                🗣️ لَوْحَةُ الْمُحَادَثَةِ وَالتَّعْبِير (أَنَا أَتَحَدَّث - ص ٧١ - ٧٢)
+                            </div>
+                            <div style="font-size: 0.95rem; color: #475569; margin-bottom: 14px;">
+                                تأمل الصور التوضيحية وتحدث بجمل مفيدة مع فصيح والمعلمة:
+                            </div>
+
+                            <div style="position: relative; display: inline-block; max-width: 680px; width: 100%; margin-bottom: 16px;">
+                                <img src="unit4_story_health.png" alt="لوحة المحادثة صحتي وبيئتي" style="width: 100%; border-radius: 16px; border: 2px solid #a7f3d0; box-shadow: 0 4px 14px rgba(16,185,129,0.12);">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; max-width: 720px; margin: 0 auto;">
+                                <div class="health-interactive-chip" onclick="playUnit4Story('health')" style="justify-content: center; text-align: center; padding: 16px;">
+                                    <div>
+                                        <div style="font-size: 1.8rem; margin-bottom: 4px;">❓</div>
+                                        <div style="color: #065f46; font-size: 1.05rem;">كَيْفَ أُحَافِظُ عَلَى صِحَّتِي؟</div>
+                                        <div style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">انقر للاستماع للإجابة النموذجية</div>
+                                    </div>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('clean')" style="justify-content: center; text-align: center; padding: 16px;">
+                                    <div>
+                                        <div style="font-size: 1.8rem; margin-bottom: 4px;">🏡</div>
+                                        <div style="color: #065f46; font-size: 1.05rem;">النَّظَافَةُ وَالْعِنَايَةُ بِالْبِيئَة</div>
+                                        <div style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">انقر للتحدث عن البيئة المدرسية</div>
+                                    </div>
+                                </div>
+                                <div class="health-interactive-chip" onclick="playUnit4Story('food')" style="justify-content: center; text-align: center; padding: 16px;">
+                                    <div>
+                                        <div style="font-size: 1.8rem; margin-bottom: 4px;">🥗</div>
+                                        <div style="color: #065f46; font-size: 1.05rem;">الْغِذَاءُ الصِّحِّيُّ الْمُتَوَازِن</div>
+                                        <div style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">انقر لمعرفة فوائد الفواكه والحليب</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: تحدي العادات الصحية -->
+                    <div class="unit4-station" id="stationUnit4_3">
+                        <div class="family-listen-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #fef3c7 100%); border: 2px solid #10b981;">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #065f46; margin-bottom: 6px;">
+                                🌟 تَحَدِّي الْعَادَاتِ الصِّحِّيَّةِ وَالْبِيئِيَّةِ الذَّكِيّ
+                            </div>
+                            <div style="font-size: 0.95rem; color: #475569; margin-bottom: 16px;">
+                                انقر على العادة لتعرف هل هي عادة صحية سليمة أم ضارة:
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; max-width: 720px; margin: 0 auto;">
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('غَسْلُ الْيَدَيْنِ قَبْلَ الطَّعَامِ وَبَعْدَهُ', true, this)">
+                                    <span>🧼</span> <span>غَسْلُ الْيَدَيْنِ قَبْلَ الْأَكْلِ وَبَعْدَهُ</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('رَمْيُ الْأَوْرَاقِ فِي سَلَّةِ الْمُهْمَلَات', true, this)">
+                                    <span>🗑️</span> <span>رَمْيُ الْقُمَامَةِ فِي السَّلَّة</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('السَّهَرُ الطَّوِيلُ وَتَأَخُّرُ النَّوْم', false, this)">
+                                    <span>📱</span> <span>السَّهَرُ أَمَامَ الشَّاشَات</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('تَنَاوُلُ التُّفَّاحِ وَشُرْبُ الْحَلِيبِ', true, this)">
+                                    <span>🍎</span> <span>شُرْبُ الْحَلِيبِ وَأَكْلُ الْفَوَاكِه</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('الْإِكْثَارُ مِنَ الْحَلْوَى وَالْمَشْرُوبَاتِ الْغَازِيَّة', false, this)">
+                                    <span>🍭</span> <span>الْإِكْثَارُ مِنَ السُّكَّرِيَّاتِ الْمُضِرَّة</span>
+                                </div>
+                                <div class="health-interactive-chip" onclick="checkUnit4Habit('زِرَاعَةُ الْأَزْهَارِ وَالْعِنَايَةُ بِالْحَدِيقَة', true, this)">
+                                    <span>🌱</span> <span>زِرَاعَةُ النَّبَاتَاتِ وَحِمَايَةُ الْبِيئَة</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ===============================================
+                     عرض الدرس الثاني: حرف الحاء (حـ ، ـحـ ، ـح ، ح) وقراءة صَلَاح تِلْمِيذ (ص ٧٢ - ٧٦)
+                =============================================== -->

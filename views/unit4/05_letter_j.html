@@ -1,0 +1,612 @@
+                <div class="lesson-view" id="view-tab-letter_j">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationJ_1" onclick="switchLetterJStation(1)">
+                            <span>🐪</span> <span>١. أتعرف الحرف والمشهد (ص ٨١)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationJ_2" onclick="switchLetterJStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والتنوين (ص ٨١ - ٨٢)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationJ_3" onclick="switchLetterJStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٨٢ - ٨٣)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationJ_4" onclick="switchLetterJStation(4)">
+                            <span>🧵</span> <span>٤. قراءة (فَرَج نَسَّاج) والرسم (ص ٨٣)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-j-station active" id="stationJ_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-j-card" onclick="playJPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #7c3aed; margin-bottom: 4px;">حَرْفُ الْجِيمِ الصَّافِي</div>
+                                    <div class="giant-letter-j-glyph">جـ ـجـ ـج ج</div>
+                                </div>
+                                <div style="border-right: 2px dashed #ddd6fe; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #5b21b6;">صَوْتُ الْجِيمِ: جْ... اِجْـ</div>
+                                    <div style="font-size: 0.9rem; color: #64748b; font-weight: 700;">حَرْفٌ شَدِيدٌ مَجْهُورٌ نَقِيّ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playJLetterSound()" style="background: #7c3aed; border-color: #6d28d9;">
+                                <span>🔊</span> <span>صَوْتُ الْجِيمِ الصَّافِي (جْ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playJPhonemeFaseeh()" style="background: #6d28d9; border-color: #5b21b6;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِمَخْرَجِ الْجِيمِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_j_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_82.png', 'كتاب قراءتي الجديد: ص ٨١')">
+                                <span>📖</span> <span>صَفْحَة ٨١ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- صورة رأس الصفحة الرسمية من الكتاب -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #5b21b6; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ حَرْفِ الْجِيمِ (الْكِتَابُ الْمَدْرَسِيُّ ص ٨١)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #ddd6fe; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_j_scene_story')">
+                                <img src="activity_j_scene.png" alt="مشهد رأس صفحة حرف الجيم" style="width: 100%; max-height: 380px; object-fit: contain; background: #faf5ff;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(91, 33, 182, 0.85); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المصورة نشاط 1 ص 81 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #5b21b6; margin: 0; font-weight: 900;">🐪 ١. كَلِمَاتُ حَرْفِ الْجِيمِ الْمُصَوَّرَةِ (نَشَاط ١ ص ٨١)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_j_words_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْكَلِمَاتِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 12px;">
+                                <div class="j-word-card" onclick="playJWord('jamal')">
+                                    <span class="j-word-icon">🐪</span>
+                                    <span class="j-word-text">جَمَلٌ</span>
+                                    <span class="j-word-pos">أَوَّلُ الْكَلِمَةِ (جـ)</span>
+                                </div>
+                                <div class="j-word-card" onclick="playJWord('jazar')">
+                                    <span class="j-word-icon">🥕</span>
+                                    <span class="j-word-text">جَزَرٌ</span>
+                                    <span class="j-word-pos">أَوَّلُ الْكَلِمَةِ (جـ)</span>
+                                </div>
+                                <div class="j-word-card" onclick="playJWord('jubn')">
+                                    <span class="j-word-icon">🧀</span>
+                                    <span class="j-word-text">جُبْنٌ</span>
+                                    <span class="j-word-pos">أَوَّلُ الْكَلِمَةِ (جـ)</span>
+                                </div>
+                                <div class="j-word-card" onclick="playJWord('jisr')">
+                                    <span class="j-word-icon">🌉</span>
+                                    <span class="j-word-text">جِسْرٌ</span>
+                                    <span class="j-word-pos">أَوَّلُ الْكَلِمَةِ (جـ)</span>
+                                </div>
+                                <div class="j-word-card" onclick="playJWord('thalj')">
+                                    <span class="j-word-icon">❄️</span>
+                                    <span class="j-word-text">ثَلْجٌ</span>
+                                    <span class="j-word-pos">آخِرٌ مُتَّصِلٌ (ـج)</span>
+                                </div>
+                                <div class="j-word-card" onclick="playJWord('najm')">
+                                    <span class="j-word-icon">⭐</span>
+                                    <span class="j-word-text">نَجْمٌ</span>
+                                    <span class="j-word-pos">وَسَطُ الْكَلِمَةِ (ـجـ)</span>
+                                </div>
+                                <div class="j-word-card" onclick="playJWord('ajeen')">
+                                    <span class="j-word-icon">🥣</span>
+                                    <span class="j-word-text">عَجِينٌ</span>
+                                    <span class="j-word-pos">وَسَطُ الْكَلِمَةِ (ـجـ)</span>
+                                </div>
+                                <div class="j-word-card" onclick="playJWord('nujoom')">
+                                    <span class="j-word-icon">✨</span>
+                                    <span class="j-word-text">نُجُومٌ</span>
+                                    <span class="j-word-pos">وَسَطُ الْكَلِمَةِ (ـجـ)</span>
+                                </div>
+                                <div class="j-word-card" onclick="playJWord('jaami')">
+                                    <span class="j-word-icon">🕌</span>
+                                    <span class="j-word-text">جَامِعٌ</span>
+                                    <span class="j-word-pos">أَوَّلُ الْكَلِمَةِ (جـ)</span>
+                                </div>
+                                <div class="j-word-card" onclick="playJWord('jaamoosah')">
+                                    <span class="j-word-icon">🐃</span>
+                                    <span class="j-word-text">جَامُوسَةٌ</span>
+                                    <span class="j-word-pos">أَوَّلُ الْكَلِمَةِ (جـ)</span>
+                                </div>
+                                <div class="j-word-card" onclick="playJWord('majoon')">
+                                    <span class="j-word-icon">🧴</span>
+                                    <span class="j-word-text">مَعْجُونٌ</span>
+                                    <span class="j-word-pos">وَسَطُ الْكَلِمَةِ (ـجـ)</span>
+                                </div>
+                                <div class="j-word-card" onclick="playJWord('faraj')">
+                                    <span class="j-word-icon">🧵</span>
+                                    <span class="j-word-text">فَرَجٌ</span>
+                                    <span class="j-word-pos">آخِرٌ مُنْفَصِلٌ (ج)</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_j_words.png" alt="نشاط 1 ص 81" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- لوحة أشكال حرف الجيم ومواضعها -->
+                        <div class="lesson-card">
+                            <h3 style="color: #5b21b6; margin-bottom: 14px; font-weight: 900;">✍️ أَشْكَالُ حَرْفِ الْجِيمِ الأَرْبَعَةِ عَلَى السَّطْرِ</h3>
+                            <div class="j-forms-grid">
+                                <div class="j-form-card" onclick="playJWord('jamal')">
+                                    <div class="j-form-glyph">جـ</div>
+                                    <div class="j-form-label">أَوَّلُ الْكَلِمَةِ</div>
+                                    <div class="j-form-ex">جَمَلٌ 🐪</div>
+                                </div>
+                                <div class="j-form-card" onclick="playJWord('najm')">
+                                    <div class="j-form-glyph">ـجـ</div>
+                                    <div class="j-form-label">وَسَطُ الْكَلِمَةِ</div>
+                                    <div class="j-form-ex">نَجْمٌ ⭐</div>
+                                </div>
+                                <div class="j-form-card" onclick="playJWord('thalj')">
+                                    <div class="j-form-glyph">ـج</div>
+                                    <div class="j-form-label">آخِرٌ مُتَّصِلٌ</div>
+                                    <div class="j-form-ex">ثَلْجٌ ❄️</div>
+                                </div>
+                                <div class="j-form-card" onclick="playJWord('faraj')">
+                                    <div class="j-form-glyph">ج</div>
+                                    <div class="j-form-label">آخِرٌ مُنْفَصِلٌ</div>
+                                    <div class="j-form-ex">فَرَجٌ 🧵</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود والتنوين والمقاطع الساكنة -->
+                    <div class="letter-j-station" id="stationJ_2">
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #5b21b6; margin: 0; font-weight: 900;">🎵 ٢. مُقَارَنَةُ الْحَرَكَاتِ الْقَصِيرَةِ وَالْمُدُودِ الطَّوِيلَةِ (ص ٨١ - ٨٢)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_j_vowels_station')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْمَحَطَّةِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+                                <!-- الفتحة ومد الألف -->
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 18px; padding: 14px;">
+                                    <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 10px;">
+                                        <div style="text-align: center; cursor: pointer;" onclick="playJVowel('short_a')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #7c3aed;">جَـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">فَتْحَة قَصِيرَة</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #5b21b6;">جَزَرٌ 🥕</div>
+                                        </div>
+                                        <div style="font-size: 1.5rem; color: #cbd5e1;">↔️</div>
+                                        <div style="text-align: center; cursor: pointer;" onclick="playJVowel('long_aa')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #5b21b6;">جَا</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">مَدٌّ طَوِيلٌ بِالأَلِف</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #5b21b6;">جَامِعٌ 🕌</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- الضمة ومد الواو -->
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 18px; padding: 14px;">
+                                    <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 10px;">
+                                        <div style="text-align: center; cursor: pointer;" onclick="playJVowel('short_u')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #7c3aed;">جُـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">ضَمَّة قَصِيرَة</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #5b21b6;">جُبْنٌ 🧀</div>
+                                        </div>
+                                        <div style="font-size: 1.5rem; color: #cbd5e1;">↔️</div>
+                                        <div style="text-align: center; cursor: pointer;" onclick="playJVowel('long_oo')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #5b21b6;">جُو</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">مَدٌّ طَوِيلٌ بِالْوَاو</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #5b21b6;">نُجُومٌ ✨</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- الكسرة ومد الياء -->
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 18px; padding: 14px;">
+                                    <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 10px;">
+                                        <div style="text-align: center; cursor: pointer;" onclick="playJVowel('short_i')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #7c3aed;">جِـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">كَسْرَة قَصِيرَة</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #5b21b6;">جِسْرٌ 🌉</div>
+                                        </div>
+                                        <div style="font-size: 1.5rem; color: #cbd5e1;">↔️</div>
+                                        <div style="text-align: center; cursor: pointer;" onclick="playJVowel('long_ee')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #5b21b6;">جِيـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">مَدٌّ طَوِيلٌ بِالْيَاء</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #5b21b6;">عَجِينٌ 🥣</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_j_vowels.png" alt="نشاط 2 ص 81" style="width: 100%; max-height: 240px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- بطاقات التنوين الثلاثة -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <h3 style="color: #5b21b6; margin-bottom: 14px; font-weight: 900;">🔔 تَنْوِينَاتُ حَرْفِ الْجِيمِ (جٌ ، جًا ، جٍ)</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                                <div class="j-word-card" onclick="playJVowel('tanween_dham')">
+                                    <div style="font-size: 2.6rem; font-weight: 900; color: #7c3aed;">جٌ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">تَنْوِينُ الضَّمّ (ـٌ)</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #5b21b6;">فَرَجٌ نَسَّاجٌ 🧵</div>
+                                </div>
+                                <div class="j-word-card" onclick="playJVowel('tanween_fath')">
+                                    <div style="font-size: 2.6rem; font-weight: 900; color: #7c3aed;">جًا</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">تَنْوِينُ الْفَتْح (ـً)</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #5b21b6;">نَسِيجًا جَدِيدًا 🧶</div>
+                                </div>
+                                <div class="j-word-card" onclick="playJVowel('tanween_kasr')">
+                                    <div style="font-size: 2.6rem; font-weight: 900; color: #7c3aed;">جٍ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">تَنْوِينُ الْكَسْر (ـٍ)</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #5b21b6;">فِي بُرْجٍ 🏰</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- تمييز الجيم الساكنة نشاط 4 ص 82 -->
+                        <div class="lesson-card">
+                            <h3 style="color: #5b21b6; margin-bottom: 14px; font-weight: 900;">🛑 تَمْيِيزُ صَوْتِ الْجِيمِ السَّاكِنِ فِي الْمَقَاطِعِ (نَشَاط ٤ ص ٨٢)</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 18px;">
+                                <div class="j-word-card" onclick="playJSyllable('naj')">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #7c3aed;">نَجْـ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">مَقْطَعٌ سَاكِنٌ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #5b21b6;">نَجْمٌ ⭐</div>
+                                </div>
+                                <div class="j-word-card" onclick="playJSyllable('rij')">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #7c3aed;">رِجْـ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">مَقْطَعٌ سَاكِنٌ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #5b21b6;">رِجْلٌ 🦵</div>
+                                </div>
+                                <div class="j-word-card" onclick="playJSyllable('mij')">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #7c3aed;">مِجْـ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">مَقْطَعٌ سَاكِنٌ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #5b21b6;">مِجْهَرٌ 🔬</div>
+                                </div>
+                                <div class="j-word-card" onclick="playJSyllable('yaj')">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #7c3aed;">يَجْـ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">مَقْطَعٌ سَاكِنٌ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #5b21b6;">يَجْلِسُ 🪑</div>
+                                </div>
+                            </div>
+
+                            <div style="border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_j_syllables.png" alt="نشاط 3 و 4 ص 82" style="width: 100%; max-height: 380px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي -->
+                    <div class="letter-j-station" id="stationJ_3">
+                        <!-- التحليل الصوتي نشاط 5 ص 82 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #5b21b6; margin: 0; font-weight: 900;">✂️ ٣. وَرْشَةُ التَّحْلِيلِ الصَّوْتِيِّ (نَشَاط ٥ ص ٨٢)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_j_analysis_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>تَعْلِيمَاتُ التَّحْلِيلِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 12px 18px; cursor: pointer;" onclick="playJSplitWord('ajeen')">
+                                    <div style="font-size: 1.35rem; font-weight: 900; color: #5b21b6; min-width: 100px;">عَجِينٌ</div>
+                                    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">عَـ</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">جِيـ</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">نٌ</span>
+                                    </div>
+                                    <span style="background: #ede9fe; color: #7c3aed; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">٣ مَقَاطِع 👏</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; justify-content: space-between; background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 12px 18px; cursor: pointer;" onclick="playJSplitWord('majoon')">
+                                    <div style="font-size: 1.35rem; font-weight: 900; color: #5b21b6; min-width: 100px;">مَعْجُونٌ</div>
+                                    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">مَعْـ</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">جُو</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">نٌ</span>
+                                    </div>
+                                    <span style="background: #ede9fe; color: #7c3aed; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">٣ مَقَاطِع 👏</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; justify-content: space-between; background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 12px 18px; cursor: pointer;" onclick="playJSplitWord('jaamoos')">
+                                    <div style="font-size: 1.35rem; font-weight: 900; color: #5b21b6; min-width: 100px;">جَامُوسٌ</div>
+                                    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">جَا</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">مُو</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">سٌ</span>
+                                    </div>
+                                    <span style="background: #ede9fe; color: #7c3aed; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">٣ مَقَاطِع 👏</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; justify-content: space-between; background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 12px 18px; cursor: pointer;" onclick="playJSplitWord('jazar')">
+                                    <div style="font-size: 1.35rem; font-weight: 900; color: #5b21b6; min-width: 100px;">جَزَرٌ</div>
+                                    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">جَـ</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">زَ</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">رٌ</span>
+                                    </div>
+                                    <span style="background: #ede9fe; color: #7c3aed; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">٣ مَقَاطِع 👏</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; justify-content: space-between; background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 12px 18px; cursor: pointer;" onclick="playJSplitWord('najm')">
+                                    <div style="font-size: 1.35rem; font-weight: 900; color: #5b21b6; min-width: 100px;">نَجْمٌ</div>
+                                    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">نَجْـ</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #8b5cf6; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">مٌ</span>
+                                    </div>
+                                    <span style="background: #ede9fe; color: #7c3aed; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">مَقْطَعَانِ 👏</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_j_analysis.png" alt="نشاط 5 ص 82" style="width: 100%; max-height: 240px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- التركيب الصوتي نشاط 6 ص 83 -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #5b21b6; margin: 0; font-weight: 900;">🧩 ٤. وَرْشَةُ التَّرْكِيبِ الصَّوْتِيِّ (نَشَاط ٦ ص ٨٣)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_j_blend_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>تَعْلِيمَاتُ التَّرْكِيبِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playJMerge('jimaal')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #7c3aed; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900;">جِـ</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #7c3aed; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900;">مَالٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #5b21b6; margin-top: 6px;">جِمَالٌ 🐪</div>
+                                </div>
+
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playJMerge('jaami')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #7c3aed; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900;">جَا</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #7c3aed; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900;">مِـ</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #7c3aed; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900;">عٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #5b21b6; margin-top: 6px;">جَامِعٌ 🕌</div>
+                                </div>
+
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playJMerge('jaalis')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #7c3aed; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900;">جَا</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #7c3aed; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900;">لِـ</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #7c3aed; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900;">سٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #5b21b6; margin-top: 6px;">جَالِسٌ 🪑</div>
+                                </div>
+
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playJMerge('jameel')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #7c3aed; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900;">جَـ</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #7c3aed; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900;">مِيـ</span>
+                                        <span style="color: #7c3aed; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #7c3aed; color: #5b21b6; padding: 6px 14px; border-radius: 12px; font-weight: 900;">لٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #5b21b6; margin-top: 6px;">جَمِيلٌ 🌟</div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_j_blend.png" alt="نشاط 6 ص 83" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: قراءة النصوص والسبورة والتحدي -->
+                    <div class="letter-j-station" id="stationJ_4">
+                        <!-- مبدل نصوص القراءة -->
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+                            <button id="btnJReadBook" class="btn-primary active" onclick="switchJReadingTab('book')" style="background: #7c3aed; border-color: #6d28d9; padding: 10px 22px; font-weight: 900;">
+                                <span>📖</span> <span>نَصُّ الْكِتَابِ الْمَدْرَسِيِّ ص ٨٣</span>
+                            </button>
+                            <button id="btnJReadFaraj" class="btn-primary" onclick="switchJReadingTab('faraj')" style="background: #ede9fe; color: #5b21b6; border-color: #ddd6fe; padding: 10px 22px; font-weight: 900;">
+                                <span>🧵</span> <span>الْقِرَاءَةُ التُّرَاثِيَّةُ (فَرَج نَسَّاج)</span>
+                            </button>
+                        </div>
+
+                        <!-- 1. نص الكتاب المدرسي ص 83 -->
+                        <div id="jReadingBookContent" class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #5b21b6; margin: 0; font-weight: 900;">📖 تَعْبُرُ جَنَى شَارِعَنَا (ص ٨٣)</h3>
+                                <button class="btn-primary" onclick="playJReadingLine('b_full')" style="background: #7c3aed; border-color: #6d28d9; font-size: 0.9rem;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلاً</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 20px; font-size: 1.4rem; font-weight: 900; color: #5b21b6; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playJReadingLine('b1')">
+                                    <span>تَعْبُرُ جَنَى شَارِعَنَا.</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 20px; font-size: 1.4rem; font-weight: 900; color: #5b21b6; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playJReadingLine('b2')">
+                                    <span>فِي شَارِعِنَا جَامِعٌ، وَحَدِيقَةٌ، وَمَدْرَسَةٌ.</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 20px; font-size: 1.4rem; font-weight: 900; color: #5b21b6; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playJReadingLine('b3')">
+                                    <span>شَارِعُنَا جَمِيلٌ.</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 20px; font-size: 1.4rem; font-weight: 900; color: #5b21b6; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playJReadingLine('b4')">
+                                    <span>سَارَ وِسَامٌ وَنَوْرَسٌ.</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 20px; font-size: 1.4rem; font-weight: 900; color: #5b21b6; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playJReadingLine('b5')">
+                                    <span>وِدَادُ وَوَسَنُ تَدْرُسَانِ.</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_j_read.png" alt="نشاط 7 قراءة ص 83" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- 2. نص فَرَج نَسَّاج التراثي -->
+                        <div id="jReadingFarajContent" class="lesson-card" style="display: none; margin-bottom: 24px;">
+                            <div class="faraj-banner">
+                                <div>
+                                    <div class="faraj-badge">🧶 قِرَاءَةٌ تُرَاثِيَّةٌ عِرَاقِيَّةٌ أَصِيلَةٌ</div>
+                                    <h2 style="margin: 8px 0 0; font-size: 1.8rem; font-weight: 900;">فَرَجٌ نَسَّاجٌ</h2>
+                                </div>
+                                <button class="btn-primary" onclick="playJReadingLine('f_full')" style="background: #fef08a; color: #4c1d95; border: none; font-weight: 900; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْقِرَاءَةِ كَامِلَةً</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #4c1d95; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playJReadingLine('f1')">
+                                    <span>فَرَجٌ نَسَّاجٌ. 🧵</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #4c1d95; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playJReadingLine('f2')">
+                                    <span>يَنْسِجُ بِسَاطًا جَدِيدًا. 🧶</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #4c1d95; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playJReadingLine('f3')">
+                                    <span>جَمِيلَةُ نَسَّاجَةٌ مَاهِرَةٌ. 👩‍🎨</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #4c1d95; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playJReadingLine('f4')">
+                                    <span>تَنْسِجُ قُمَاشًا جَمِيلًا. 👗</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #4c1d95; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playJReadingLine('f5')">
+                                    <span>تُنَقِّشُ عَلَيْهِ وَرْدًا وَأَشْجَارًا. 🌺🌳</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #7c3aed; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playJReadingLine('f6')">
+                                    <span>جـ ـجـ ـج ج ✨</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة تتبع الحرف والرسم التفاعلي للجيم -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #5b21b6; margin: 0; font-weight: 900;">🎨 سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الْجِيمِ التَّفَاعُلِيَّةِ</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_j_draw_hint')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>💡</span> <span>إِرْشَادَاتُ الرَّسْمِ</span>
+                                </button>
+                            </div>
+
+                            <div style="margin-bottom: 16px; border-radius: 14px; overflow: hidden; border: 2px solid #ddd6fe; text-align: center;">
+                                <img src="activity_j_trace.png" alt="اتجاه رسم حرف الجيم" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+
+                            <div class="j-canvas-box">
+                                <canvas id="letterJDrawCanvas"></canvas>
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; align-items: center;">
+                                <span style="font-weight: 800; color: #475569; font-size: 0.9rem;">اختر لون القلم:</span>
+                                <button onclick="setJCanvasColor('#7c3aed')" style="width: 32px; height: 32px; border-radius: 50%; background: #7c3aed; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setJCanvasColor('#059669')" style="width: 32px; height: 32px; border-radius: 50%; background: #059669; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setJCanvasColor('#dc2626')" style="width: 32px; height: 32px; border-radius: 50%; background: #dc2626; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setJCanvasColor('#2563eb')" style="width: 32px; height: 32px; border-radius: 50%; background: #2563eb; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-secondary" onclick="clearJCanvas()" style="margin-right: 15px; font-size: 0.85rem; padding: 6px 16px;">
+                                    <span>🧹</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي الذكي لحرف الجيم (5 أسئلة) -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #5b21b6; margin: 0; font-weight: 900;">🏆 اخْتِبَارُ التَّحَدِّي الذَّكِيِّ لِحَرْفِ الْجِيمِ</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_j_quiz_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>📢</span> <span>بِدَايَةُ التَّحَدِّي</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <!-- السؤال 1 -->
+                                <div class="quiz-question-box" style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 18px;">
+                                    <div style="font-weight: 900; color: #5b21b6; margin-bottom: 10px; font-size: 1.15rem;">١. أَيْنَ يَقَعُ حَرْفُ الْجِيمِ فِي كَلِمَةِ (جَمَلٌ)؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-secondary" onclick="checkJQuiz(1, 'start', this)" style="flex: 1; min-width: 120px; font-weight: 800;">أَوَّلُ الْكَلِمَةِ (جـ)</button>
+                                        <button class="btn-secondary" onclick="checkJQuiz(1, 'middle', this)" style="flex: 1; min-width: 120px; font-weight: 800;">وَسَطُ الْكَلِمَةِ (ـجـ)</button>
+                                        <button class="btn-secondary" onclick="checkJQuiz(1, 'end', this)" style="flex: 1; min-width: 120px; font-weight: 800;">آخِرُ الْكَلِمَةِ (ج)</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 2 -->
+                                <div class="quiz-question-box" style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 18px;">
+                                    <div style="font-weight: 900; color: #5b21b6; margin-bottom: 10px; font-size: 1.15rem;">٢. مَا هُوَ الْمَقْطَعُ السَّاكِنُ فِي كَلِمَةِ (نَجْمٌ)؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-secondary" onclick="checkJQuiz(2, 'naj', this)" style="flex: 1; min-width: 120px; font-weight: 800;">نَجْـ</button>
+                                        <button class="btn-secondary" onclick="checkJQuiz(2, 'jum', this)" style="flex: 1; min-width: 120px; font-weight: 800;">جُمْـ</button>
+                                        <button class="btn-secondary" onclick="checkJQuiz(2, 'min', this)" style="flex: 1; min-width: 120px; font-weight: 800;">مٌ</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 3 -->
+                                <div class="quiz-question-box" style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 18px;">
+                                    <div style="font-weight: 900; color: #5b21b6; margin-bottom: 10px; font-size: 1.15rem;">٣. مَا هُوَ التَّحْلِيلُ الصَّوْتِيُّ الصَّحِيحُ لِكَلِمَةِ (عَجِينٌ)؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-secondary" onclick="checkJQuiz(3, 'ajeen_split', this)" style="flex: 1; min-width: 120px; font-weight: 800;">عَـ + جِيـ + نٌ</button>
+                                        <button class="btn-secondary" onclick="checkJQuiz(3, 'wrong1', this)" style="flex: 1; min-width: 120px; font-weight: 800;">عَجْـ + يِنْ</button>
+                                        <button class="btn-secondary" onclick="checkJQuiz(3, 'wrong2', this)" style="flex: 1; min-width: 120px; font-weight: 800;">عَـ + جِـ + يـ + ن</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 4 -->
+                                <div class="quiz-question-box" style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 18px;">
+                                    <div style="font-weight: 900; color: #5b21b6; margin-bottom: 10px; font-size: 1.15rem;">٤. مَا الْكَلِمَةُ الَّتِي تَبْدَأُ بِمَدِّ الأَلِفِ (جَا)؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-secondary" onclick="checkJQuiz(4, 'jaami', this)" style="flex: 1; min-width: 120px; font-weight: 800;">جَامِعٌ 🕌</button>
+                                        <button class="btn-secondary" onclick="checkJQuiz(4, 'jisr', this)" style="flex: 1; min-width: 120px; font-weight: 800;">جِسْرٌ 🌉</button>
+                                        <button class="btn-secondary" onclick="checkJQuiz(4, 'jubn', this)" style="flex: 1; min-width: 120px; font-weight: 800;">جُبْنٌ 🧀</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 5 -->
+                                <div class="quiz-question-box" style="background: #faf5ff; border: 2px solid #ddd6fe; border-radius: 16px; padding: 14px 18px;">
+                                    <div style="font-weight: 900; color: #5b21b6; margin-bottom: 10px; font-size: 1.15rem;">٥. مَاذَا يَنْسِجُ فَرَجٌ النَّسَّاجُ؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-secondary" onclick="checkJQuiz(5, 'bisaat', this)" style="flex: 1; min-width: 120px; font-weight: 800;">بِسَاطًا جَدِيدًا 🧶</button>
+                                        <button class="btn-secondary" onclick="checkJQuiz(5, 'thawb', this)" style="flex: 1; min-width: 120px; font-weight: 800;">ثَوْبًا أَبْيَضَ 👕</button>
+                                        <button class="btn-secondary" onclick="checkJQuiz(5, 'khaymah', this)" style="flex: 1; min-width: 120px; font-weight: 800;">خَيْمَةً كَبِيرَةً ⛺</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- أزرار استعراض صفحات الكتاب المدرسي الرسمية -->
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 20px; flex-wrap: wrap;">
+                            <button class="btn-secondary" onclick="openBookPageModal('page_82.png', 'كتاب قراءتي الجديد: ص ٨١')">
+                                <span>📖</span> <span>صَفْحَة ٨١</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_83.png', 'كتاب قراءتي الجديد: ص ٨٢')">
+                                <span>📖</span> <span>صَفْحَة ٨٢</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_84.png', 'كتاب قراءتي الجديد: ص ٨٣')">
+                                <span>📖</span> <span>صَفْحَة ٨٣</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>

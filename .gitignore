@@ -22,6 +22,12 @@
 !/js/lessons/
 !/js/lessons/*.js
 
+# ملفات الواجهات المجزأة وأدوات النظام (Modular Views & Tools)
+!/views/
+!/views/**
+!/tools/
+!/tools/**
+
 # المجلدات المسموح بها
 !/icons/
 !/audio/

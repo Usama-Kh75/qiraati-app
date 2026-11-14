@@ -1,0 +1,409 @@
+                <div class="lesson-view" id="view-tab-vowel_y">
+
+                    <!-- شريط صوت المعلمة الميداني الأصيل -->
+                    <div class="teacher-voice-banner" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2.5px solid #10b981; border-radius: 20px; padding: 14px 20px; margin-bottom: 18px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="font-size: 2.2rem;">👩‍🏫</span>
+                            <div>
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #065f46; display: flex; align-items: center; gap: 8px;">
+                                    <span>نُطْقُ وَشَرْحُ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ لِحَرْفِ الْمَدِّ (ي) (ص ١٥ - ١٦)</span>
+                                    <span style="font-size: 0.75rem; background: #10b981; color: white; padding: 2px 8px; border-radius: 8px; font-weight: 800;">تسجيل ميداني أصيل</span>
+                                </div>
+                                <div style="font-size: 0.85rem; color: #047857; font-weight: 700; margin-top: 2px;">
+                                    استمع لنطق المعلمة لصوت المد (يِي) وكلمات: دِيك ، رِيش ، بِسَاط ، حَلِيب
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-teach" style="background: #059669; color: white; border: none; padding: 10px 22px; font-size: 0.95rem; font-weight: 800; border-radius: 14px; box-shadow: 0 3px 8px rgba(5,150,105,0.3); cursor: pointer;" onclick="playAudio('teacher_vowel_y_all')">
+                            ▶️ اِسْتَمِعْ لِقِرَاءَةِ الْمُعَلِّمَةِ كَامِلَةً
+                        </button>
+                    </div>
+
+                    <!-- محطة التبديل بين أنشطة الدرس -->
+
+                    <div class="station-nav-bar">
+
+                        <button class="station-tab active" id="btnStationY1" onclick="switchYStation(1)">
+
+                            <span>🐘</span> <span>١. أتعرف وأردد (ص ١٥)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationY2" onclick="switchYStation(2)">
+
+                            <span>🎯</span> <span>٢. تمييز صوت المد (ص ١٥)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationY3" onclick="switchYStation(3)">
+
+                            <span>✏️</span> <span>٣. إكمال الفراغات (ص ١٦)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationY4" onclick="switchYStation(4)">
+
+                            <span>🎨</span> <span>٤. تتبع ورسم الياء (ص ١٦)</span>
+
+                        </button>
+
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت المد بالياء -->
+
+                    <div class="vowel-y-station active" id="stationY1">
+
+                        <div style="text-align: center; margin-bottom: 12px;">
+
+                            <div class="giant-letter-y-card" onclick="playYLetterSound()" title="انقر لسماع صوت حرف المد">
+
+                                <span class="giant-letter-y-glyph">يـ  ي</span>
+
+                                <div>
+
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #5b21b6;">صوت المد بالياء: ( ييييي )</div>
+
+                                    <div style="font-size: 0.85rem; color: #7c3aed;">اضغط لسماع الصوت الفونيمي النقي 🔊</div>
+
+                                </div>
+
+                            </div>
+
+                            <div style="font-size: 1rem; color: #334155; font-weight: 700;">
+
+                                انقر على أي صورة لتتعرف على اسمها وتستمع لصوت المد:
+
+                            </div>
+
+                        </div>
+
+                        <!-- شبكة البطاقات التفاعلية الأربعة -->
+
+                        <div class="w-cards-grid">
+
+                            <div class="w-item-card y-item-card" id="card-y-fil" onclick="clickYItem('fil')">
+
+                                <div class="w-item-icon">🐘</div>
+
+                                <div class="w-item-word">فِـ<span class="w-vowel-highlight" style="color:#7c3aed;">ـيْـ</span>ـلُ</div>
+
+                                <div class="w-item-phonics">فِـ... <b style="color:#7c3aed;">ييي</b>... ل</div>
+
+                                <div class="w-badge" style="background:#ede9fe; color:#6d28d9; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">🔊 صوت المد بالوسط</div>
+
+                            </div>
+
+                            <div class="w-item-card y-item-card" id="card-y-tin" onclick="clickYItem('tin')">
+
+                                <div class="w-item-icon">🫐</div>
+
+                                <div class="w-item-word">تِـ<span class="w-vowel-highlight" style="color:#7c3aed;">ـيْـ</span>ـنٌ</div>
+
+                                <div class="w-item-phonics">تِـ... <b style="color:#7c3aed;">ييي</b>... ن</div>
+
+                                <div class="w-badge" style="background:#ede9fe; color:#6d28d9; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">🔊 صوت مد مكسور</div>
+
+                            </div>
+
+                            <div class="w-item-card y-item-card" id="card-y-mizan" onclick="clickYItem('mizan')">
+
+                                <div class="w-item-icon">⚖️</div>
+
+                                <div class="w-item-word">مِـ<span class="w-vowel-highlight" style="color:#7c3aed;">ـيْـ</span>ـزَانٌ</div>
+
+                                <div class="w-item-phonics">مِـ... <b style="color:#7c3aed;">ييي</b>... زَان</div>
+
+                                <div class="w-badge" style="background:#ede9fe; color:#6d28d9; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">🔊 صوت مد نقي</div>
+
+                            </div>
+
+                            <div class="w-item-card y-item-card" id="card-y-siwar" onclick="clickYItem('siwar')">
+
+                                <div class="w-item-icon">📿</div>
+
+                                <div class="w-item-word">سِـوَارٌ</div>
+
+                                <div class="w-item-phonics">سِـ... وَ... ار</div>
+
+                                <div class="w-badge" style="background:#eff6ff; color:#1d4ed8; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">💡 كسرة قصيرة (سِـ)</div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- عرض صورة الكتاب التفاعلية الأصلية أسفل البطاقات -->
+
+                        <div style="margin-top: 18px; text-align: center;">
+
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 8px; font-size: 0.95rem;">
+
+                                📖 صورة النشاط كما في صفحة ١٥ من كتاب قراءتي:
+
+                            </div>
+
+                            <div class="image-container-w" style="position:relative; width:100%; border-radius:16px; overflow:hidden; border:2px solid #cbd5e1; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+
+                                <img src="activity_y_showcase.png" alt="نشاط 1 - أردد منتبها لصوت حرف المد ي" style="width:100%; display:block;">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الثانية: نشاط التمييز (ديك، ريش، حليب، بساط) -->
+
+                    <div class="vowel-y-station" id="stationY2" style="display:none;">
+
+                        <div style="text-align: center; margin-bottom: 12px;">
+
+                            <div style="background: #f5f3ff; border: 2px solid #ddd6fe; border-radius: 14px; padding: 10px 16px; display: inline-block; margin-bottom: 10px;">
+
+                                <strong style="color: #6d28d9; font-size: 1.05rem;">🎯 نشاط ٣ ص ١٥: أستمع وأميز الكلمات التي تحوي صوت (يـ ، ي)</strong>
+
+                                <p style="margin: 4px 0 0; color: #5b21b6; font-size: 0.85rem;">اضغط على الكلمة لتستمع لها وتعرف هل تحوي صوت المد بالياء أم لا!</p>
+
+                            </div>
+
+                            <div class="controls" style="margin-top: 5px;">
+
+                                <button class="btn btn-teach" onclick="autoSolveYQuiz()">💡 حل وشرح المعلمة الفونيمي</button>
+
+                                <button class="btn btn-reset" onclick="resetYQuiz()">🔄 إعادة ضبط النشاط</button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="w-quiz-grid">
+
+                            <div class="w-quiz-card" id="quiz-y-dik" onclick="checkYQuiz('dik')">
+
+                                <div style="font-size: 3rem; margin-bottom: 6px;">🐓</div>
+
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">دِيْـكٌ</div>
+
+                                <div class="quiz-badge" id="badge-y-dik" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+
+                            </div>
+
+                            <div class="w-quiz-card" id="quiz-y-rish" onclick="checkYQuiz('rish')">
+
+                                <div style="font-size: 3rem; margin-bottom: 6px;">🪶</div>
+
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">رِيْـشٌ</div>
+
+                                <div class="quiz-badge" id="badge-y-rish" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+
+                            </div>
+
+                            <div class="w-quiz-card" id="quiz-y-halib" onclick="checkYQuiz('halib')">
+
+                                <div style="font-size: 3rem; margin-bottom: 6px;">🥛</div>
+
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">حَـلِـيْـبُ</div>
+
+                                <div class="quiz-badge" id="badge-y-halib" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+
+                            </div>
+
+                            <div class="w-quiz-card" id="quiz-y-bisat" onclick="checkYQuiz('bisat')">
+
+                                <div style="font-size: 3rem; margin-bottom: 6px;">🛋️</div>
+
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">بِـسَـاطٌ</div>
+
+                                <div class="quiz-badge" id="badge-y-bisat" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية لنشاط 3 ص 15 -->
+
+                        <div style="margin-top: 18px; text-align: center;">
+
+                            <div class="image-container-w" style="position:relative; width:100%; border-radius:16px; overflow:hidden; border:2px solid #cbd5e1; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+
+                                <img src="activity_y_words.png" alt="نشاط 3 ص 15 - كلمات الياء" style="width:100%; display:block;">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الثالثة: إكمال الفراغات بحرف المد (يـ ، ي) -->
+
+                    <div class="vowel-y-station" id="stationY3" style="display:none;">
+
+                        <div style="text-align: center; margin-bottom: 12px;">
+
+                            <div style="background: #ede9fe; border: 2px solid #ddd6fe; border-radius: 14px; padding: 10px 16px; display: inline-block; margin-bottom: 10px;">
+
+                                <strong style="color: #5b21b6; font-size: 1.05rem;">✏️ نشاط ٥ ص ١٦: أرسم حرف المد (يـ ، ي) في الكلمات الآتية</strong>
+
+                                <p style="margin: 4px 0 0; color: #6d28d9; font-size: 0.85rem;">انقر على الفراغ لوضع حرف الياء واكتمال نطق الكلمة!</p>
+
+                            </div>
+
+                            <div class="controls" style="margin-top: 5px;">
+
+                                <button class="btn btn-teach" onclick="autoSolveYFill()">💡 حل وشرح المعلمة بالترتيب</button>
+
+                                <button class="btn btn-reset" onclick="resetYFill()">🔄 إعادة ضبط الفراغات</button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="w-fill-cards-grid">
+
+                            <!-- بِطِّـ[يـ]ـخُ -->
+
+                            <div class="w-fill-card" onclick="fillYWord('bittikh')">
+
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">🍉</div>
+
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+
+                                    بِطِّـ<span class="w-fill-slot" id="slot-y-bittikh" style="color:#7c3aed; border-color:#8b5cf6; background:#f5f3ff;">..</span>ـخُ
+
+                                </div>
+
+                                <div id="label-y-bittikh" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (يـ)</div>
+
+                            </div>
+
+                            <!-- سَفِـ[يـ]ـنَةُ -->
+
+                            <div class="w-fill-card" onclick="fillYWord('safina')">
+
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">⛵</div>
+
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+
+                                    سَفِـ<span class="w-fill-slot" id="slot-y-safina" style="color:#7c3aed; border-color:#8b5cf6; background:#f5f3ff;">..</span>ـنَةُ
+
+                                </div>
+
+                                <div id="label-y-safina" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (يـ)</div>
+
+                            </div>
+
+                            <!-- فِـ[يـ]ـلُ -->
+
+                            <div class="w-fill-card" onclick="fillYWord('fil')">
+
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">🐘</div>
+
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+
+                                    فِـ<span class="w-fill-slot" id="slot-y-fil" style="color:#7c3aed; border-color:#8b5cf6; background:#f5f3ff;">..</span>ـلُ
+
+                                </div>
+
+                                <div id="label-y-fil" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (يـ)</div>
+
+                            </div>
+
+                            <!-- رِ[يـ]ـشُ -->
+
+                            <div class="w-fill-card" onclick="fillYWord('rish')">
+
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">🪶</div>
+
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+
+                                    رِ<span class="w-fill-slot" id="slot-y-rish" style="color:#7c3aed; border-color:#8b5cf6; background:#f5f3ff;">..</span>ـشُ
+
+                                </div>
+
+                                <div id="label-y-rish" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (يـ)</div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية لنشاط 5 ص 16 -->
+
+                        <div style="margin-top: 18px; text-align: center;">
+
+                            <div class="image-container-w" style="position:relative; width:100%; border-radius:16px; overflow:hidden; border:2px solid #cbd5e1; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+
+                                <img src="activity_y_fill.png" alt="نشاط 5 ص 16 - إكمال الفراغ بالياء" style="width:100%; display:block;">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الرابعة: تتبع ورسم حرف (يـ ، ي) -->
+
+                    <div class="vowel-y-station" id="stationY4" style="display:none;">
+
+                        <div style="text-align: center; margin-bottom: 10px;">
+
+                            <div style="background: #f5f3ff; border: 2px solid #ddd6fe; border-radius: 14px; padding: 10px 16px; display: inline-block; margin-bottom: 8px;">
+
+                                <strong style="color: #6d28d9; font-size: 1.05rem;">🎨 نشاط ٦ ص ١٦: أرسم حرف (يـ ، ي) بخط واضح</strong>
+
+                                <p style="margin: 4px 0 0; color: #5b21b6; font-size: 0.85rem;">ارسم بإصبعك أو بالفأرة على السبورة شكلي حرف الياء!</p>
+
+                            </div>
+
+                            <div>
+
+                                <button class="btn btn-teach" onclick="mascotSpeak('لِرَسْمِ حَرْفِ اليَاء: نَرْسُمُ رَأْسَ البَطَّةِ أَعْلَى السَّطْر، ثُمَّ جِسْمَهَا تَحْتَ السَّطْرِ مَعَ نُقْطَتَيْنِ فِي الأَسْفَل! وَلِلْيَاءِ فِي أَوَّلِ الكَلِمَة: سِنٌّ صَغِيرٌ يَمْشِي عَلَى السَّطْرِ وَتَحْتَهُ نُقْطَتَان! جَرِّبْ مَعِي!', 'vowel_y_draw_hint')">
+
+                                    💡 استمع لطريقة رسم الحرف
+
+                                </button>
+
+                                <button class="btn btn-reset" onclick="clearYCanvas()">🔄 مسح السبورة</button>
+
+                            </div>
+
+                        </div>
+
+                        <!-- سبورة الرسم التفاعلية للياء -->
+
+                        <div class="canvas-wrap" id="yCanvasContainer">
+
+                            <canvas id="yDrawingCanvas" width="550" height="320" style="display:block; width:100%; height:auto; background:#ffffff;"></canvas>
+
+                        </div>
+
+                        <!-- ألوان وأدوات الرسم -->
+
+                        <div class="canvas-tools">
+
+                            <span style="font-weight: 800; color: #334155; font-size: 0.9rem;">اختر لون الرسم:</span>
+
+                            <div class="color-dot-y active" style="background:#7c3aed;" onclick="setYDrawColor('#7c3aed', this)"></div>
+
+                            <div class="color-dot-y" style="background:#2563eb;" onclick="setYDrawColor('#2563eb', this)"></div>
+
+                            <div class="color-dot-y" style="background:#059669;" onclick="setYDrawColor('#059669', this)"></div>
+
+                            <div class="color-dot-y" style="background:#d97706;" onclick="setYDrawColor('#d97706', this)"></div>
+
+                            <div class="color-dot-y" style="background:#dc2626;" onclick="setYDrawColor('#dc2626', this)"></div>
+
+                            <button class="btn" style="background:#64748b; color:white; padding:6px 12px; font-size:0.8rem;" onclick="setYEraser(this)">🧹 ممحاة</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                
+
+                <!-- ========================================================
+
+                     الوحدة الأولى: أسرتي - الدرس الأول: الاستماع والمحادثة (ص 17)
+
+                ======================================================== -->
+

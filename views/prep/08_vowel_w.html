@@ -1,0 +1,403 @@
+                <div class="lesson-view" id="view-tab-vowel_w">
+
+                    <!-- شريط صوت المعلمة الميداني الأصيل -->
+                    <div class="teacher-voice-banner" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2.5px solid #10b981; border-radius: 20px; padding: 14px 20px; margin-bottom: 18px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="font-size: 2.2rem;">👩‍🏫</span>
+                            <div>
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #065f46; display: flex; align-items: center; gap: 8px;">
+                                    <span>نُطْقُ وَشَرْحُ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ لِحَرْفِ الْمَدِّ (و) (ص ١٣ - ١٤)</span>
+                                    <span style="font-size: 0.75rem; background: #10b981; color: white; padding: 2px 8px; border-radius: 8px; font-weight: 800;">تسجيل ميداني أصيل</span>
+                                </div>
+                                <div style="font-size: 0.85rem; color: #047857; font-weight: 700; margin-top: 2px;">
+                                    استمع لنطق المعلمة لصوت المد (وُو) وكلمات: بُومَة ، خَرُوف ، صُوص ، طَاوُوس ، عُصْفُور
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-teach" style="background: #059669; color: white; border: none; padding: 10px 22px; font-size: 0.95rem; font-weight: 800; border-radius: 14px; box-shadow: 0 3px 8px rgba(5,150,105,0.3); cursor: pointer;" onclick="playAudio('teacher_vowel_w_all')">
+                            ▶️ اِسْتَمِعْ لِقِرَاءَةِ الْمُعَلِّمَةِ كَامِلَةً
+                        </button>
+                    </div>
+
+                    <!-- محطة التبديل بين أنشطة الدرس -->
+
+                    <div class="station-nav-bar">
+
+                        <button class="station-tab active" id="btnStationW1" onclick="switchWStation(1)">
+
+                            <span>🦉</span> <span>١. أتعرف وأردد (ص ١٣)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationW2" onclick="switchWStation(2)">
+
+                            <span>🎯</span> <span>٢. تمييز صوت المد (ص ١٣)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationW3" onclick="switchWStation(3)">
+
+                            <span>✏️</span> <span>٣. إكمال الفراغات (ص ١٤)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationW4" onclick="switchWStation(4)">
+
+                            <span>🎨</span> <span>٤. تتبع ورسم الحرف (ص ١٤)</span>
+
+                        </button>
+
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت المد بالواو -->
+
+                    <div class="vowel-w-station active" id="stationW1">
+
+                        <div style="text-align: center; margin-bottom: 12px;">
+
+                            <div class="giant-letter-w-card" onclick="playWLetterSound()" title="انقر لسماع صوت حرف المد">
+
+                                <span class="giant-letter-w-glyph">وُ</span>
+
+                                <div>
+
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #92400e;">صوت المد بالواو: ( وووو )</div>
+
+                                    <div style="font-size: 0.85rem; color: #b45309;">اضغط لسماع الصوت الفونيمي النقي 🔊</div>
+
+                                </div>
+
+                            </div>
+
+                            <div style="font-size: 1rem; color: #334155; font-weight: 700;">
+
+                                انقر على أي صورة لتتعرف على اسمها وتستمع لصوت المد:
+
+                            </div>
+
+                        </div>
+
+                        <!-- شبكة البطاقات التفاعلية الأربعة -->
+
+                        <div class="w-cards-grid">
+
+                            <div class="w-item-card" id="card-w-buma" onclick="clickWItem('buma')">
+
+                                <div class="w-item-icon">🦉</div>
+
+                                <div class="w-item-word">بُـ<span class="w-vowel-highlight">ـوْ</span>مَـةُ</div>
+
+                                <div class="w-item-phonics">بُـ... <b style="color:#d97706;">ووو</b>... مَـة</div>
+
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">🔊 صوت المد بالوسط</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-w-nujum" onclick="clickWItem('nujum')">
+
+                                <div class="w-item-icon">⭐</div>
+
+                                <div class="w-item-word">نُـجُـ<span class="w-vowel-highlight">ـوْ</span>مٌ</div>
+
+                                <div class="w-item-phonics">نُـ... جُـ... <b style="color:#d97706;">ووو</b>... م</div>
+
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">🔊 صوت مد ممدود</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-w-kharuf" onclick="clickWItem('kharuf')">
+
+                                <div class="w-item-icon">🐑</div>
+
+                                <div class="w-item-word">خَـرُ<span class="w-vowel-highlight">وْ</span>فٌ</div>
+
+                                <div class="w-item-phonics">خَـ... رُ... <b style="color:#d97706;">ووو</b>... ف</div>
+
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">🔊 صوت مد نقي</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-w-dumya" onclick="clickWItem('dumya')">
+
+                                <div class="w-item-icon">🧸</div>
+
+                                <div class="w-item-word">دُمْـيَـةُ</div>
+
+                                <div class="w-item-phonics">دُ... مْـ... يَـة</div>
+
+                                <div class="w-badge" style="background:#eff6ff; color:#1d4ed8; border-radius:20px; font-size:0.75rem; padding:3px 8px; margin-top:6px; display:inline-block;">💡 ضمة قصيرة (دُ)</div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- عرض صورة الكتاب التفاعلية الأصلية أسفل البطاقات -->
+
+                        <div style="margin-top: 18px; text-align: center;">
+
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 8px; font-size: 0.95rem;">
+
+                                📖 صورة النشاط كما في صفحة ١٣ من كتاب قراءتي:
+
+                            </div>
+
+                            <div class="image-container-w" style="position:relative; width:100%; border-radius:16px; overflow:hidden; border:2px solid #cbd5e1; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+
+                                <img src="activity_w_showcase.png" alt="نشاط 1 - أردد منتبها لصوت حرف المد و" style="width:100%; display:block;">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الثانية: نشاط التمييز (حاسوب، بوق، توت، بندق) -->
+
+                    <div class="vowel-w-station" id="stationW2" style="display:none;">
+
+                        <div style="text-align: center; margin-bottom: 12px;">
+
+                            <div style="background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 14px; padding: 10px 16px; display: inline-block; margin-bottom: 10px;">
+
+                                <strong style="color: #1e40af; font-size: 1.05rem;">🎯 نشاط ٣ ص ١٣: أستمع وأميز الكلمات التي تحوي صوت (و)</strong>
+
+                                <p style="margin: 4px 0 0; color: #475569; font-size: 0.85rem;">اضغط على الكلمة لتستمع لها وتعرف هل تحوي صوت المد بالواو أم لا!</p>
+
+                            </div>
+
+                            <div class="controls" style="margin-top: 5px;">
+
+                                <button class="btn btn-teach" onclick="autoSolveWQuiz()">💡 حل وشرح المعلمة الفونيمي</button>
+
+                                <button class="btn btn-reset" onclick="resetWQuiz()">🔄 إعادة ضبط النشاط</button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="w-quiz-grid">
+
+                            <div class="w-quiz-card" id="quiz-w-hasub" onclick="checkWQuiz('hasub')">
+
+                                <div style="font-size: 3rem; margin-bottom: 6px;">💻</div>
+
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">حَـاسُـوْبُ</div>
+
+                                <div class="quiz-badge" id="badge-w-hasub" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+
+                            </div>
+
+                            <div class="w-quiz-card" id="quiz-w-buq" onclick="checkWQuiz('buq')">
+
+                                <div style="font-size: 3rem; margin-bottom: 6px;">🎺</div>
+
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">بُـوْقٌ</div>
+
+                                <div class="quiz-badge" id="badge-w-buq" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+
+                            </div>
+
+                            <div class="w-quiz-card" id="quiz-w-tut" onclick="checkWQuiz('tut')">
+
+                                <div style="font-size: 3rem; margin-bottom: 6px;">🫐</div>
+
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">تُـوْتٌ</div>
+
+                                <div class="quiz-badge" id="badge-w-tut" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+
+                            </div>
+
+                            <div class="w-quiz-card" id="quiz-w-bunduq" onclick="checkWQuiz('bunduq')">
+
+                                <div style="font-size: 3rem; margin-bottom: 6px;">🌰</div>
+
+                                <div style="font-size: 1.4rem; font-weight: 800; color: #1e293b;">بُـنْـدُقٌ</div>
+
+                                <div class="quiz-badge" id="badge-w-bunduq" style="margin-top: 8px; font-weight: 800; font-size: 0.85rem; color: #64748b;">اضغط للفحص 🔍</div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية لنشاط 3 -->
+
+                        <div style="margin-top: 18px; text-align: center;">
+
+                            <div class="image-container-w" style="position:relative; width:100%; border-radius:16px; overflow:hidden; border:2px solid #cbd5e1; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+
+                                <img src="activity_w_words.png" alt="نشاط 3 ص 13 - كلمات الواو" style="width:100%; display:block;">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الثالثة: إكمال الفراغات بحرف المد (و) -->
+
+                    <div class="vowel-w-station" id="stationW3" style="display:none;">
+
+                        <div style="text-align: center; margin-bottom: 12px;">
+
+                            <div style="background: #fef3c7; border: 2px solid #fde68a; border-radius: 14px; padding: 10px 16px; display: inline-block; margin-bottom: 10px;">
+
+                                <strong style="color: #92400e; font-size: 1.05rem;">✏️ نشاط ٥ ص ١٤: أرسم حرف المد (و) في الكلمات الآتية</strong>
+
+                                <p style="margin: 4px 0 0; color: #78350f; font-size: 0.85rem;">انقر على الفراغ لوضع حرف الواو واكتمال نطق الكلمة!</p>
+
+                            </div>
+
+                            <div class="controls" style="margin-top: 5px;">
+
+                                <button class="btn btn-teach" onclick="autoSolveWFill()">💡 حل وشرح المعلمة بالترتيب</button>
+
+                                <button class="btn btn-reset" onclick="resetWFill()">🔄 إعادة ضبط الفراغات</button>
+
+                            </div>
+
+                        </div>
+
+                        <div class="w-fill-cards-grid">
+
+                            <!-- خَـرُ[و]فُ -->
+
+                            <div class="w-fill-card" onclick="fillWWord('kharuf')">
+
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">🐑</div>
+
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+
+                                    خَـرُ<span class="w-fill-slot" id="slot-w-kharuf">..</span>فُ
+
+                                </div>
+
+                                <div id="label-w-kharuf" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (و)</div>
+
+                            </div>
+
+                            <!-- صُـ[و]فُ -->
+
+                            <div class="w-fill-card" onclick="fillWWord('suf')">
+
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">🧶</div>
+
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+
+                                    صُـ<span class="w-fill-slot" id="slot-w-suf">..</span>فُ
+
+                                </div>
+
+                                <div id="label-w-suf" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (و)</div>
+
+                            </div>
+
+                            <!-- لَيْـمُـ[و]نُ -->
+
+                            <div class="w-fill-card" onclick="fillWWord('laymun')">
+
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">🍋</div>
+
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+
+                                    لَيْـمُـ<span class="w-fill-slot" id="slot-w-laymun">..</span>نُ
+
+                                </div>
+
+                                <div id="label-w-laymun" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (و)</div>
+
+                            </div>
+
+                            <!-- نُـسُـ[و]رُ -->
+
+                            <div class="w-fill-card" onclick="fillWWord('nusur')">
+
+                                <div style="font-size: 2.8rem; margin-bottom: 4px;">🦅</div>
+
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #1e293b; direction: rtl;">
+
+                                    نُـسُـ<span class="w-fill-slot" id="slot-w-nusur">..</span>رُ
+
+                                </div>
+
+                                <div id="label-w-nusur" style="font-size: 0.85rem; color: #64748b; margin-top: 6px; font-weight: 700;">انقر لوضع حرف (و)</div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية لنشاط 5 ص 14 -->
+
+                        <div style="margin-top: 18px; text-align: center;">
+
+                            <div class="image-container-w" style="position:relative; width:100%; border-radius:16px; overflow:hidden; border:2px solid #cbd5e1; box-shadow:0 4px 12px rgba(0,0,0,0.06);">
+
+                                <img src="activity_w_fill.png" alt="نشاط 5 ص 14 - إكمال الفراغ بالواو" style="width:100%; display:block;">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الرابعة: تتبع ورسم حرف (و) -->
+
+                    <div class="vowel-w-station" id="stationW4" style="display:none;">
+
+                        <div style="text-align: center; margin-bottom: 10px;">
+
+                            <div style="background: #ecfdf5; border: 2px solid #a7f3d0; border-radius: 14px; padding: 10px 16px; display: inline-block; margin-bottom: 8px;">
+
+                                <strong style="color: #065f46; font-size: 1.05rem;">🎨 نشاط ٦ ص ١٤: أرسم حرف (و) بخط واضح</strong>
+
+                                <p style="margin: 4px 0 0; color: #047857; font-size: 0.85rem;">ارسم بإصبعك أو بالفأرة على السبورة باتجاه الأسهم الإرشادية!</p>
+
+                            </div>
+
+                            <div>
+
+                                <button class="btn btn-teach" onclick="mascotSpeak('لِرَسْمِ حَرْفِ الوَاو: نَبْدَأُ بِدَائِرَةٍ صَغِيرَةٍ أَعْلَى السَّطْر، ثُمَّ نَنْزِلُ خَطّاً مُنْحَنِياً تَحْتَ السَّطْرِ كَالزُّحْلَيْقَةِ المَرِحَة! جَرِّبْ مَعِي!', 'vowel_w_draw_hint')">
+
+                                    💡 استمع لطريقة رسم الحرف
+
+                                </button>
+
+                                <button class="btn btn-reset" onclick="clearWCanvas()">🔄 مسح السبورة</button>
+
+                            </div>
+
+                        </div>
+
+                        <!-- سبورة الرسم التفاعلية -->
+
+                        <div class="canvas-wrap" id="wCanvasContainer">
+
+                            <canvas id="wDrawingCanvas" width="550" height="320" style="display:block; width:100%; height:auto; background:#ffffff;"></canvas>
+
+                        </div>
+
+                        <!-- ألوان وأدوات الرسم -->
+
+                        <div class="canvas-tools">
+
+                            <span style="font-weight: 800; color: #334155; font-size: 0.9rem;">اختر لون الرسم:</span>
+
+                            <div class="color-dot active" style="background:#2563eb;" onclick="setWDrawColor('#2563eb', this)"></div>
+
+                            <div class="color-dot" style="background:#059669;" onclick="setWDrawColor('#059669', this)"></div>
+
+                            <div class="color-dot" style="background:#d97706;" onclick="setWDrawColor('#d97706', this)"></div>
+
+                            <div class="color-dot" style="background:#dc2626;" onclick="setWDrawColor('#dc2626', this)"></div>
+
+                            <div class="color-dot" style="background:#7c3aed;" onclick="setWDrawColor('#7c3aed', this)"></div>
+
+                            <button class="btn" style="background:#64748b; color:white; padding:6px 12px; font-size:0.8rem;" onclick="setWEraser(this)">🧹 ممحاة</button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- درس صوت حرف المد (يـ ، ي) وأنشطته التفاعلية (ص 15 - 16 في الكتاب) -->
+

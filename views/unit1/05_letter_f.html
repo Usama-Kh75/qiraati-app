@@ -1,0 +1,800 @@
+                <div class="lesson-view" id="view-tab-letter_f">
+
+                    <!-- شريط المحطات الأربعة -->
+
+                    <div class="station-nav-bar">
+
+                        <button class="station-tab active" id="btnStationF1" onclick="switchFStation(1)">
+
+                            <span>🦋</span> <span>١. أتعرف الحرف والكلمات (ص ٢٧)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationF2" onclick="switchFStation(2)">
+
+                            <span>🎵</span> <span>٢. أصوات المدود (ص ٢٧ - ٢٨)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationF3" onclick="switchFStation(3)">
+
+                            <span>🧩</span> <span>٣. المقاطع والتحليل الصوتي (ص ٢٨ - ٢٩)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationF4" onclick="switchFStation(4)">
+
+                            <span>👦</span> <span>٤. تركيب وقراءة (فَادِي) والرسم (ص ٢٩)</span>
+
+                        </button>
+
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والكلمات الثمانية -->
+
+                    <div class="letter-f-station active" id="stationF1">
+
+                        <div style="text-align: center; margin-bottom: 12px;">
+
+                            <div class="giant-letter-f-card" onclick="playFLetterSound()" title="انقر لسماع صوت حرف الفاء النقي">
+
+                                <span class="giant-letter-f-glyph">فـ  ـفـ  ف</span>
+
+                                <div>
+
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #0369a1;">صَوْتُ حَرْفِ الْفَاءِ: ( فْ... فْ )</div>
+
+                                    <div style="font-size: 0.85rem; color: #0284c7;">اِضْغَطْ لِسَمَاعِ الصَّوْتِ الْفُونِيمِيِّ النَّقِيّ 🔊</div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- بطاقة مشهد حديقة فادي في بيت الأسرة -->
+
+                        <div class="family-listen-card" style="border-color: #7dd3fc;">
+
+                            <div style="font-weight: 900; color: #0369a1; font-size: 1.1rem; margin-bottom: 8px;">
+
+                                👦 فِي حَدِيقَةِ فَادِي (عَنَاصِرُ حَرْفِ الْفَاءِ فِي الدَّار)
+
+                            </div>
+
+                            <img src="activity_f_scene.png" alt="مشهد حديقة فادي وحرف الفاء" style="max-width: 650px; width: 100%; border-radius: 14px; border: 2px solid #cbd5e1; margin-bottom: 10px;">
+
+                            <div>
+
+                                <button class="btn btn-teach" id="btnFSceneStory" style="background:#0284c7; color:white;" onclick="playFSceneStory()">
+
+                                    🔊 اِسْتَمِعْ لِقِصَّةِ حَدِيقَةِ فَادِي وَعَنَاصِرِ حَرْفِ الْفَاء
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <!-- شبكة الكلمات الثمانية المصورة -->
+
+                        <div style="text-align: center; font-weight: 800; color: #1e3a8a; margin: 14px 0 8px;">
+
+                            ⭐ نَشَاط ١: أُرَدِّدُ مُنْتَبِهاً لِصَوْتِ حَرْفِ (ف):
+
+                        </div>
+
+                        <div class="w-cards-grid">
+
+                            <div class="w-item-card" id="card-f-farasha" onclick="clickFItem('farasha')">
+
+                                <div class="w-item-icon">🦋</div>
+
+                                <div class="w-item-word"><span style="color:#0284c7; font-weight:900;">فَـ</span>ـرَاشَةٌ</div>
+
+                                <div class="w-item-phonics">فَـ... رَاشَة</div>
+
+                                <div class="w-badge" style="background:#f0f9ff; color:#0369a1;">🔊 فَـ (فتحة بأول الكلمة)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-f-fustan" onclick="clickFItem('fustan')">
+
+                                <div class="w-item-icon">👗</div>
+
+                                <div class="w-item-word"><span style="color:#0284c7; font-weight:900;">فُـ</span>ـسْتَانٌ</div>
+
+                                <div class="w-item-phonics">فُـ... سْتَان</div>
+
+                                <div class="w-badge" style="background:#f0f9ff; color:#0369a1;">🔊 فُـ (ضمة بأول الكلمة)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-f-fijl" onclick="clickFItem('fijl')">
+
+                                <div class="w-item-icon">🥗</div>
+
+                                <div class="w-item-word"><span style="color:#0284c7; font-weight:900;">فِـ</span>ـجْلٌ</div>
+
+                                <div class="w-item-phonics">فِـ... جْل</div>
+
+                                <div class="w-badge" style="background:#f0f9ff; color:#0369a1;">🔊 فِـ (كسرة بأول الكلمة)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-f-miftah" onclick="clickFItem('miftah')">
+
+                                <div class="w-item-icon">🔑</div>
+
+                                <div class="w-item-word">مِـ<span style="color:#0284c7; font-weight:900;">فْـ</span>ـتَاحٌ</div>
+
+                                <div class="w-item-phonics">مِفْـ... تَاح</div>
+
+                                <div class="w-badge" style="background:#e0f2fe; color:#0284c7;">🔊 ـفْـ (ساكنة في الوسط)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-f-fam" onclick="clickFItem('fam')">
+
+                                <div class="w-item-icon">👄</div>
+
+                                <div class="w-item-word"><span style="color:#0284c7; font-weight:900;">فَـ</span>ـمٌ</div>
+
+                                <div class="w-item-phonics">فَـ... م</div>
+
+                                <div class="w-badge" style="background:#f0f9ff; color:#0369a1;">🔊 فَـ (مفتوحة - حرفان)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-f-fanous" onclick="clickFItem('fanous')">
+
+                                <div class="w-item-icon">🏮</div>
+
+                                <div class="w-item-word"><span style="color:#0284c7; font-weight:900;">فَا</span>نُوسٌ</div>
+
+                                <div class="w-item-phonics">فَا... نُوس</div>
+
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309;">🔊 فَا (مد بالألف)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-f-nafoora" onclick="clickFItem('nafoora')">
+
+                                <div class="w-item-icon">⛲</div>
+
+                                <div class="w-item-word">نَا<span style="color:#0284c7; font-weight:900;">فُو</span>رَةٌ</div>
+
+                                <div class="w-item-phonics">نَا... فُو... رَة</div>
+
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309;">🔊 ـفُوـ (مد بالواو بالوسط)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-f-feel" onclick="clickFItem('feel')">
+
+                                <div class="w-item-icon">🐘</div>
+
+                                <div class="w-item-word"><span style="color:#0284c7; font-weight:900;">فِيـ</span>ـلٌ</div>
+
+                                <div class="w-item-phonics">فِيـ... ل</div>
+
+                                <div class="w-badge" style="background:#ede9fe; color:#6d28d9;">🔊 فِيـ (مد بالياء)</div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية ص 27 -->
+
+                        <div style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 16px;">
+
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">
+
+                                📖 صفحة الكتاب الأصلية (ص ٢٧):
+
+                            </div>
+
+                            <img src="page_27.png" alt="صفحة 27 كتاب قراءتي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1;">
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المد القصيرة والطويلة (ص 27 - 28) -->
+
+                    <div class="letter-f-station" id="stationF2" style="display: none;">
+
+                        <div style="text-align: center; margin-bottom: 14px;">
+
+                            <div style="font-size: 1.25rem; font-weight: 900; color: #1e3a8a;">
+
+                                🎵 نَشَاط ٢: أَنْطِقُ صَوْتَ (ف) مَعَ أَصْوَاتِ الْمَدِّ الْقَصِيرَةِ وَالطَّوِيلَة
+
+                            </div>
+
+                            <div style="font-size: 0.9rem; color: #475569;">قارن بين الصوت القصير والصوت الطويل بالنقر على كل زر:</div>
+
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 20px;">
+
+                            <!-- الفتحة vs الألف -->
+
+                            <div style="background: white; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; text-align: center; min-width: 220px; box-shadow: 0 4px 12px rgba(2,132,199,0.08);">
+
+                                <div style="font-weight: 800; color: #0369a1; margin-bottom: 8px;">الْفَتْحَةُ ↔️ الْمَدُّ بِالأَلِف</div>
+
+                                <div style="display: flex; justify-content: center; gap: 14px;">
+
+                                    <button class="btn" style="background: #f0f9ff; color: #0284c7; border: 2px solid #38bdf8; font-size: 1.4rem; font-weight: 900; padding: 8px 18px;" onclick="playFVowel('short', 'a')">
+
+                                        فَـ <span style="font-size: 0.75rem; display: block; font-weight: normal;">(قصير)</span>
+
+                                    </button>
+
+                                    <button class="btn" style="background: #e0f2fe; color: #0369a1; border: 2px solid #0284c7; font-size: 1.4rem; font-weight: 900; padding: 8px 18px;" onclick="playFVowel('long', 'a')">
+
+                                        فَا <span style="font-size: 0.75rem; display: block; font-weight: normal;">(طويل)</span>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- الضمة vs الواو -->
+
+                            <div style="background: white; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; text-align: center; min-width: 220px; box-shadow: 0 4px 12px rgba(2,132,199,0.08);">
+
+                                <div style="font-weight: 800; color: #0369a1; margin-bottom: 8px;">الضَّمَّةُ ↔️ الْمَدُّ بِالْوَاو</div>
+
+                                <div style="display: flex; justify-content: center; gap: 14px;">
+
+                                    <button class="btn" style="background: #f0f9ff; color: #0284c7; border: 2px solid #38bdf8; font-size: 1.4rem; font-weight: 900; padding: 8px 18px;" onclick="playFVowel('short', 'u')">
+
+                                        فُـ <span style="font-size: 0.75rem; display: block; font-weight: normal;">(قصير)</span>
+
+                                    </button>
+
+                                    <button class="btn" style="background: #e0f2fe; color: #0369a1; border: 2px solid #0284c7; font-size: 1.4rem; font-weight: 900; padding: 8px 18px;" onclick="playFVowel('long', 'u')">
+
+                                        فُو <span style="font-size: 0.75rem; display: block; font-weight: normal;">(طويل)</span>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- الكسرة vs الياء -->
+
+                            <div style="background: white; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; text-align: center; min-width: 220px; box-shadow: 0 4px 12px rgba(2,132,199,0.08);">
+
+                                <div style="font-weight: 800; color: #0369a1; margin-bottom: 8px;">الْكَسْرَةُ ↔️ الْمَدُّ بِالْيَاء</div>
+
+                                <div style="display: flex; justify-content: center; gap: 14px;">
+
+                                    <button class="btn" style="background: #f0f9ff; color: #0284c7; border: 2px solid #38bdf8; font-size: 1.4rem; font-weight: 900; padding: 8px 18px;" onclick="playFVowel('short', 'i')">
+
+                                        فِـ <span style="font-size: 0.75rem; display: block; font-weight: normal;">(قصير)</span>
+
+                                    </button>
+
+                                    <button class="btn" style="background: #e0f2fe; color: #0369a1; border: 2px solid #0284c7; font-size: 1.4rem; font-weight: 900; padding: 8px 18px;" onclick="playFVowel('long', 'i')">
+
+                                        فِيـ <span style="font-size: 0.75rem; display: block; font-weight: normal;">(طويل)</span>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- تمييز أصوات المد في الكلمات الست ص 28 -->
+
+                        <div style="text-align: center; font-weight: 800; color: #1e3a8a; margin: 16px 0 10px;">
+
+                            ⭐ نَشَاط ٣: أَنْتَبِهُ لِلْفَرْقِ السَّمْعِيِّ بَيْنَ أَصْوَاتِ الْمَدِّ فِي الْكَلِمَاتِ الْمُصَوَّرَة:
+
+                        </div>
+
+                        <div class="w-cards-grid">
+
+                            <div class="w-item-card" onclick="clickFItem('fahd_vowel')">
+
+                                <div class="w-item-icon">🐆</div>
+
+                                <div class="w-item-word"><span style="color:#0284c7; font-weight:900;">فَـ</span>ـهْدٌ</div>
+
+                                <div class="w-badge" style="background:#f0f9ff; color:#0369a1;">🔊 فَـ (مد قصير - فتحة)</div>
+
+                            </div>
+
+                            <div class="w-item-card" onclick="clickFItem('furn_vowel')">
+
+                                <div class="w-item-icon">🍞</div>
+
+                                <div class="w-item-word"><span style="color:#0284c7; font-weight:900;">فُـ</span>ـرْنٌ</div>
+
+                                <div class="w-badge" style="background:#f0f9ff; color:#0369a1;">🔊 فُـ (مد قصير - ضمة)</div>
+
+                            </div>
+
+                            <div class="w-item-card" onclick="clickFItem('finjan_vowel')">
+
+                                <div class="w-item-icon">☕</div>
+
+                                <div class="w-item-word"><span style="color:#0284c7; font-weight:900;">فِـ</span>ـنْجَانٌ</div>
+
+                                <div class="w-badge" style="background:#f0f9ff; color:#0369a1;">🔊 فِـ (مد قصير - كسرة)</div>
+
+                            </div>
+
+                            <div class="w-item-card" onclick="clickFItem('fanous_vowel')">
+
+                                <div class="w-item-icon">🏮</div>
+
+                                <div class="w-item-word"><span style="color:#0284c7; font-weight:900;">فَا</span>نُوسٌ</div>
+
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309;">🔊 فَا (مد طويل بالألف)</div>
+
+                            </div>
+
+                            <div class="w-item-card" onclick="clickFItem('osfoor_vowel')">
+
+                                <div class="w-item-icon">🐦</div>
+
+                                <div class="w-item-word">عُصْـ<span style="color:#0284c7; font-weight:900;">فُو</span>رٌ</div>
+
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309;">🔊 فُو (مد طويل بالواو)</div>
+
+                            </div>
+
+                            <div class="w-item-card" onclick="clickFItem('feel_vowel')">
+
+                                <div class="w-item-icon">🐘</div>
+
+                                <div class="w-item-word"><span style="color:#0284c7; font-weight:900;">فِيـ</span>ـلٌ</div>
+
+                                <div class="w-badge" style="background:#ede9fe; color:#6d28d9;">🔊 فِيـ (مد طويل بالياء)</div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية ص 28 -->
+
+                        <div style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 16px;">
+
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">
+
+                                📖 صفحة الكتاب الأصلية (ص ٢٨):
+
+                            </div>
+
+                            <img src="page_28.png" alt="صفحة 28 كتاب قراءتي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1;">
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الثالثة: المقاطع والتحليل الصوتي (ص 28 - 29) -->
+
+                    <div class="letter-f-station" id="stationF3" style="display: none;">
+
+                        <div style="text-align: center; margin-bottom: 14px;">
+
+                            <div style="font-size: 1.25rem; font-weight: 900; color: #1e3a8a;">
+
+                                🧩 نَشَاط ٤: أُمَيِّزُ صَوْتَ حَرْفِ (ف) السَّاكِنِ فِي الْمَقَاطِعِ الْمُغْلَقَة
+
+                            </div>
+
+                            <div style="font-size: 0.9rem; color: #475569;">اِضْغَطْ لِسَمَاعِ الْمَقْطَعِ السَّاكِنِ مَعَ شَارَةِ قَبْضَةِ الْيَد ✊:</div>
+
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;">
+
+                            <div class="w-item-card" onclick="playFSyllable('difda')" style="min-width: 170px;">
+
+                                <div class="w-item-icon">🐸</div>
+
+                                <div class="w-item-word">ضِفْـدَعُ</div>
+
+                                <div style="font-weight: 900; color: #0284c7; font-size: 1.4rem; margin: 4px 0;">ضِفْ ✊</div>
+
+                                <div class="w-badge" style="background: #e0f2fe; color: #0369a1;">🔊 مَقْطَعٌ سَاكِن</div>
+
+                            </div>
+
+                            <div class="w-item-card" onclick="playFSyllable('hafla')" style="min-width: 170px;">
+
+                                <div class="w-item-icon">🎈</div>
+
+                                <div class="w-item-word">حَفْـلَةُ</div>
+
+                                <div style="font-weight: 900; color: #0284c7; font-size: 1.4rem; margin: 4px 0;">حَفْ ✊</div>
+
+                                <div class="w-badge" style="background: #e0f2fe; color: #0369a1;">🔊 مَقْطَعٌ سَاكِن</div>
+
+                            </div>
+
+                            <div class="w-item-card" onclick="playFSyllable('tifl')" style="min-width: 170px;">
+
+                                <div class="w-item-icon">👶</div>
+
+                                <div class="w-item-word">طِفْـلُ</div>
+
+                                <div style="font-weight: 900; color: #0284c7; font-size: 1.4rem; margin: 4px 0;">طِفْ ✊</div>
+
+                                <div class="w-badge" style="background: #e0f2fe; color: #0369a1;">🔊 مَقْطَعٌ سَاكِن</div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- نشاط 5: ورشة تحليل الكلمات لمقاطعها بالصفقات الحية ص 29 -->
+
+                        <div style="background: #f8fafc; border: 2px solid #bae6fd; border-radius: 20px; padding: 20px; margin-bottom: 20px;">
+
+                            <div style="text-align: center; margin-bottom: 14px;">
+
+                                <div style="font-size: 1.25rem; font-weight: 900; color: #0369a1;">
+
+                                    ✂️ نَشَاط ٥: وَرْشَةُ تَحْلِيلِ الْكَلِمَاتِ إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ (بِالصَّفْقَاتِ الحَيَّة 👏)
+
+                                </div>
+
+                                <div style="font-size: 0.9rem; color: #64748b;">اختر طور النمذجة ثم انقر على الكلمة لتشاهد وتسمع التقطيع الصوتي المتقن:</div>
+
+                                
+
+                                <div class="modeling-toggle-container" style="margin-top: 10px;">
+
+                                    <button class="modeling-btn active" id="btnFModel1" onclick="switchModelingMode('model')">
+
+                                        🎓 فَصِيح يُنَمْذِج («أَنَا وَحْدِي»)
+
+                                    </button>
+
+                                    <button class="modeling-btn" id="btnFModel2" onclick="switchModelingMode('practice')">
+
+                                        ⭐ أَنَا أُحَلِّلُ وَحْدِي («أَنْتُمْ وَحْدَكُمْ»)
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+
+                                <!-- فَمُ -->
+
+                                <div style="background: white; border: 2px solid #bae6fd; border-radius: 18px; padding: 18px; text-align: center; width: 230px; box-shadow: 0 4px 14px rgba(2,132,199,0.08);">
+
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: #0f172a; margin-bottom: 6px;">👄 فَمُ</div>
+
+                                    <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">كَلِمَةٌ مِنْ مَقْطَعٍ وَاحِد (صفقة واحدة 👏)</div>
+
+                                    <div id="chips-split-fam" style="display: flex; justify-content: center; gap: 8px; margin-bottom: 12px; transition: transform 0.3s;">
+
+                                        <span style="background: #e0f2fe; color: #0369a1; padding: 6px 16px; border-radius: 12px; font-weight: 900; font-size: 1.3rem; border: 2px solid #0284c7;">فَمُ</span>
+
+                                    </div>
+
+                                    <button class="btn btn-teach" style="background:#0284c7; color:white; width: 100%; font-size: 0.9rem;" onclick="splitFWord('fam')">
+
+                                        ✂️ حَلِّلْ (فَمُ) بِالصَّفْقَة
+
+                                    </button>
+
+                                </div>
+
+                                <!-- مُفِيدُ -->
+
+                                <div style="background: white; border: 2px solid #bae6fd; border-radius: 18px; padding: 18px; text-align: center; width: 260px; box-shadow: 0 4px 14px rgba(2,132,199,0.08);">
+
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: #0f172a; margin-bottom: 6px;">🌟 مُفِيدُ</div>
+
+                                    <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">ثَلاثَةُ مَقَاطِعَ (ثلاث صفقات 👏 👏 👏)</div>
+
+                                    <div id="chips-split-mufeed" style="display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; transition: transform 0.3s;">
+
+                                        <span style="background: #f0fdf4; color: #166534; padding: 6px 12px; border-radius: 12px; font-weight: 900; font-size: 1.25rem; border: 2px solid #22c55e;">مُـ</span>
+
+                                        <span style="font-weight: 900; font-size: 1.2rem; color: #94a3b8;">➕</span>
+
+                                        <span style="background: #e0f2fe; color: #0369a1; padding: 6px 12px; border-radius: 12px; font-weight: 900; font-size: 1.25rem; border: 2px solid #0284c7;">فِيـ</span>
+
+                                        <span style="font-weight: 900; font-size: 1.2rem; color: #94a3b8;">➕</span>
+
+                                        <span style="background: #fef2f2; color: #991b1b; padding: 6px 12px; border-radius: 12px; font-weight: 900; font-size: 1.25rem; border: 2px solid #ef4444;">دُ</span>
+
+                                    </div>
+
+                                    <button class="btn btn-teach" style="background:#0284c7; color:white; width: 100%; font-size: 0.9rem;" onclick="splitFWord('mufeed')">
+
+                                        ✂️ حَلِّلْ (مُفِيدُ) بِالصَّفْقَات
+
+                                    </button>
+
+                                </div>
+
+                                <!-- دُفُوفُ -->
+
+                                <div style="background: white; border: 2px solid #bae6fd; border-radius: 18px; padding: 18px; text-align: center; width: 260px; box-shadow: 0 4px 14px rgba(2,132,199,0.08);">
+
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: #0f172a; margin-bottom: 6px;">🥁 دُفُوفُ</div>
+
+                                    <div style="font-size: 0.85rem; color: #64748b; margin-bottom: 10px;">ثَلاثَةُ مَقَاطِعَ (ثلاث صفقات 👏 👏 👏)</div>
+
+                                    <div id="chips-split-dufoof" style="display: flex; justify-content: center; gap: 6px; margin-bottom: 12px; transition: transform 0.3s;">
+
+                                        <span style="background: #fef2f2; color: #991b1b; padding: 6px 12px; border-radius: 12px; font-weight: 900; font-size: 1.25rem; border: 2px solid #ef4444;">دُ</span>
+
+                                        <span style="font-weight: 900; font-size: 1.2rem; color: #94a3b8;">➕</span>
+
+                                        <span style="background: #e0f2fe; color: #0369a1; padding: 6px 12px; border-radius: 12px; font-weight: 900; font-size: 1.25rem; border: 2px solid #0284c7;">فُو</span>
+
+                                        <span style="font-weight: 900; font-size: 1.2rem; color: #94a3b8;">➕</span>
+
+                                        <span style="background: #f0fdf4; color: #166534; padding: 6px 12px; border-radius: 12px; font-weight: 900; font-size: 1.25rem; border: 2px solid #22c55e;">فُ</span>
+
+                                    </div>
+
+                                    <button class="btn btn-teach" style="background:#0284c7; color:white; width: 100%; font-size: 0.9rem;" onclick="splitFWord('dufoof')">
+
+                                        ✂️ حَلِّلْ (دُفُوفُ) بِالصَّفْقَات
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الرابعة: تركيب المقاطع بالأحاجي، القراءة الكبرى، وسبورة الرسم (ص 29) -->
+
+                    <div class="letter-f-station" id="stationF4" style="display: none;">
+
+                        <div style="text-align: center; margin-bottom: 14px;">
+
+                            <div style="font-size: 1.25rem; font-weight: 900; color: #1e3a8a;">
+
+                                🧩 نَشَاط ٦: أَحَاجِي تَرْكِيبِ الْكَلِمَاتِ مِنَ الْمَقَاطِع (ص ٢٩)
+
+                            </div>
+
+                            <div style="font-size: 0.9rem; color: #475569;">اضغط زر "ادمج" لتشاهد كيف تلتئم المقاطع لتكوين الكلمة:</div>
+
+                        </div>
+
+                        <!-- شبكة أحاجي التركيب -->
+
+                        <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; margin-bottom: 24px;">
+
+                            <!-- فَا + دِي = فَادِي -->
+
+                            <div style="background: white; border: 2px solid #bae6fd; border-radius: 16px; padding: 16px; text-align: center; min-width: 200px; box-shadow: 0 4px 12px rgba(2,132,199,0.08);">
+
+                                <div style="font-size: 1.4rem; font-weight: 900; color: #0284c7; margin-bottom: 8px;">
+
+                                    [ فَا ] ➕ [ دِي ]
+
+                                </div>
+
+                                <button class="btn btn-teach" style="background: #0284c7; color: white;" onclick="mergeFPuzzle('fadi')">
+
+                                    🧩 اِدْمِجْ ➔ 👦 فَادِي
+
+                                </button>
+
+                            </div>
+
+                            <!-- بَا + دِي = بَادِي -->
+
+                            <div style="background: white; border: 2px solid #bae6fd; border-radius: 16px; padding: 16px; text-align: center; min-width: 200px; box-shadow: 0 4px 12px rgba(2,132,199,0.08);">
+
+                                <div style="font-size: 1.4rem; font-weight: 900; color: #0284c7; margin-bottom: 8px;">
+
+                                    [ بَا ] ➕ [ دِي ]
+
+                                </div>
+
+                                <button class="btn btn-teach" style="background: #0284c7; color: white;" onclick="mergeFPuzzle('badi')">
+
+                                    🧩 اِدْمِجْ ➔ 🌟 بَادِي
+
+                                </button>
+
+                            </div>
+
+                            <!-- بَا + بَا = بَابَا -->
+
+                            <div style="background: white; border: 2px solid #bae6fd; border-radius: 16px; padding: 16px; text-align: center; min-width: 200px; box-shadow: 0 4px 12px rgba(2,132,199,0.08);">
+
+                                <div style="font-size: 1.4rem; font-weight: 900; color: #0284c7; margin-bottom: 8px;">
+
+                                    [ بَا ] ➕ [ بَا ]
+
+                                </div>
+
+                                <button class="btn btn-teach" style="background: #0284c7; color: white;" onclick="mergeFPuzzle('baba')">
+
+                                    🧩 اِدْمِجْ ➔ 👨‍👧‍👦 بَابَا
+
+                                </button>
+
+                            </div>
+
+                            <!-- مَا + مَا = مَامَا -->
+
+                            <div style="background: white; border: 2px solid #bae6fd; border-radius: 16px; padding: 16px; text-align: center; min-width: 200px; box-shadow: 0 4px 12px rgba(2,132,199,0.08);">
+
+                                <div style="font-size: 1.4rem; font-weight: 900; color: #0284c7; margin-bottom: 8px;">
+
+                                    [ مَا ] ➕ [ مَا ]
+
+                                </div>
+
+                                <button class="btn btn-teach" style="background: #0284c7; color: white;" onclick="mergeFPuzzle('mama')">
+
+                                    🧩 اِدْمِجْ ➔ 👩‍👧‍👦 مَامَا
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <!-- لوحة القراءة الكبرى مع العصفور المغرد -->
+
+                        <div class="teacher-voice-banner" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2.5px solid #10b981; border-radius: 20px; padding: 14px 20px; margin-bottom: 18px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-size: 2.2rem;">👩‍🏫</span>
+        <div>
+            <div style="font-weight: 900; font-size: 1.15rem; color: #065f46; display: flex; align-items: center; gap: 8px;">
+                <span>قِرَاءَةُ نَشَاطِ ٧ بِصَوْتِ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ الْحَقِيقِيِّ (ص ٢٩)</span>
+                <span style="font-size: 0.75rem; background: #10b981; color: white; padding: 2px 8px; border-radius: 8px; font-weight: 800;">تسجيل ميداني أصيل</span>
+            </div>
+            <div style="font-size: 0.85rem; color: #047857; font-weight: 700; margin-top: 2px;">
+                نشاط ٧: قراءة وتركيب الكلمات (فَمٌ ، فَادِي ، مُفِيدٌ ، دُفُوفٌ) بصوت المعلمة الفصيح
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-teach" style="background: #059669; color: white; border: none; padding: 10px 22px; font-size: 0.95rem; font-weight: 800; border-radius: 14px; box-shadow: 0 3px 8px rgba(5,150,105,0.3); cursor: pointer;" onclick="playAudio('teacher_letter_f_read_all')">
+        ▶️ اِسْتَمِعْ لِقِرَاءَةِ الْمُعَلِّمَةِ لِنَشَاطِ ٧ كَامِلاً (فَمٌ ، فَادِي ، مُفِيدٌ ، دُفُوفٌ)
+    </button>
+</div>
+
+                        <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%); border: 3px solid #0284c7; border-radius: 22px; padding: 22px; text-align: center; margin-bottom: 24px; box-shadow: 0 6px 20px rgba(2,132,199,0.15);">
+
+                            <div style="font-size: 1.3rem; font-weight: 900; color: #0369a1; margin-bottom: 12px;">
+
+                                🐦✨ أَقْرَأُ مَعَ الْعُصْفُورِ الْمُغَرِّد (كَلِمَاتُ الْوَحْدَةِ الأُولَى):
+
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 16px;">
+
+                                <div style="background: white; border: 3px solid #0284c7; border-radius: 18px; padding: 12px 28px; cursor: pointer; transition: transform 0.2s;" onclick="playFReadWord('fadi')" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+
+                                    <div style="font-size: 2.5rem; font-weight: 900; color: #0369a1;">فَادِي</div>
+
+                                    <div style="font-size: 0.85rem; color: #0284c7;">(فَا... دِي) 🔊</div>
+
+                                </div>
+
+                                <div style="background: white; border: 3px solid #059669; border-radius: 18px; padding: 12px 28px; cursor: pointer; transition: transform 0.2s;" onclick="playFReadWord('mufeed')" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+
+                                    <div style="font-size: 2.5rem; font-weight: 900; color: #059669;">مُفِيد</div>
+
+                                    <div style="font-size: 0.85rem; color: #10b981;">(مُـ... فِيـ... د) 🔊</div>
+
+                                </div>
+
+                                <div style="background: white; border: 3px solid #dc2626; border-radius: 18px; padding: 12px 28px; cursor: pointer; transition: transform 0.2s;" onclick="playFReadWord('fam')" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform='scale(1)'">
+
+                                    <div style="font-size: 2.5rem; font-weight: 900; color: #dc2626;">فَم</div>
+
+                                    <div style="font-size: 0.85rem; color: #ef4444;">(فَـ... م) 🔊</div>
+
+                                </div>
+
+                            </div>
+
+                            <button class="btn btn-teach" style="background: #0284c7; color: white; font-size: 1.1rem; padding: 10px 28px; border-radius: 30px;" onclick="playFReadAll()">
+
+                                🔊 اقْرَأِ الْكَلِمَاتِ كُلَّهَا مَعَ الْعُصْفُور (فَادِي ، مُفِيد ، فَم)
+
+                            </button>
+
+                        </div>
+
+                        <!-- سبورة تتبع ورسم حرف الفاء التفاعلية -->
+
+                        <div style="background: white; border-radius: 20px; border: 2px solid #bae6fd; padding: 20px; text-align: center; margin-bottom: 20px; box-shadow: 0 4px 14px rgba(2,132,199,0.08);">
+
+                            <div style="font-weight: 900; color: #0369a1; font-size: 1.2rem; margin-bottom: 8px;">
+
+                                🎨 سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الْفَاءِ (فـ ، ـفـ ، ف)
+
+                            </div>
+
+                            <div style="font-size: 0.9rem; color: #64748b; margin-bottom: 12px;">
+
+                                تَتَبَّعِ الْخَطَّ الْمُنَقَّطَ بِإِصْبَعِكَ أَوْ بِالْفَأْرَةِ لِتَتَعَلَّمَ رَسْمَ حَرْفِ الْفَاء:
+
+                            </div>
+
+                            <canvas id="fDrawingCanvas" width="600" height="200" style="border: 2px dashed #0284c7; border-radius: 14px; background: #f8fafc; cursor: crosshair; touch-action: none; max-width: 100%;"></canvas>
+
+                            <div style="display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 14px; flex-wrap: wrap;">
+
+                                <span style="font-weight: 800; color: #334155; font-size: 0.9rem;">الأَلْوَان:</span>
+
+                                <div class="color-dot-f active" style="background: #0284c7;" onclick="setFDrawColor('#0284c7', this)"></div>
+
+                                <div class="color-dot-f" style="background: #059669;" onclick="setFDrawColor('#059669', this)"></div>
+
+                                <div class="color-dot-f" style="background: #dc2626;" onclick="setFDrawColor('#dc2626', this)"></div>
+
+                                <div class="color-dot-f" style="background: #7c3aed;" onclick="setFDrawColor('#7c3aed', this)"></div>
+
+                                <div class="color-dot-f" style="background: #f59e0b;" onclick="setFDrawColor('#f59e0b', this)"></div>
+
+                                <button class="btn" style="background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; padding: 6px 14px; font-size: 0.85rem;" onclick="setFEraser(this)">
+
+                                    🧹 مِمْحَاة
+
+                                </button>
+
+                                <button class="btn" style="background: #fee2e2; color: #991b1b; border: 1px solid #f87171; padding: 6px 14px; font-size: 0.85rem;" onclick="clearFCanvas()">
+
+                                    🗑️ مَسْحُ الْكُلّ
+
+                                </button>
+
+                                <button class="btn" style="background: #e0f2fe; color: #0369a1; border: 1px solid #38bdf8; padding: 6px 14px; font-size: 0.85rem;" onclick="playFDrawHint()">
+
+                                    💡 إِرْشَادُ الرَّسْم
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية ص 29 -->
+
+                        <div style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 16px;">
+
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">
+
+                                📖 صفحة الكتاب الأصلية (ص ٢٩):
+
+                            </div>
+
+                            <img src="page_29.png" alt="صفحة 29 كتاب قراءتي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1;">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ========================================================
+
+                     الوحدة الأولى: أسرتي - خاتمة الوحدة: سورة الفاتحة ونشيد (مَامَا بَابَا) وحصاد الوحدة الأولى (ص ٣٠)
+
+                     إعداد المهندس أسامة خليل هاشم
+
+                ======================================================== -->
+

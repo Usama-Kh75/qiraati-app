@@ -1,0 +1,822 @@
+                <div class="lesson-view" id="view-tab-letter_z">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationZ_1" onclick="switchLetterZStation(1)">
+                            <span>🌸</span> <span>١. أتعرف الحرف والمشهد (ص ٧٨)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationZ_2" onclick="switchLetterZStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والتنوين (ص ٧٨ - ٧٩)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationZ_3" onclick="switchLetterZStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٧٩ - ٨٠)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationZ_4" onclick="switchLetterZStation(4)">
+                            <span>⚖️</span> <span>٤. قراءة (مِيزَان قَدُّورِي / وَزّ) والرسم (ص ٨٠)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-z-station active" id="stationZ_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-z-card" onclick="playZPhonemeFaseeh()">
+                                <div>
+                                    <div class="giant-letter-z-glyph">ز  ـز</div>
+                                    <div style="font-size: 1.15rem; font-weight: 800; color: #047857; margin-top: 6px;">حَرْفُ الزَّايِ (اضْغَطْ لِسَمَاعِ الصَّوْتِ الفُونِيمِيِّ الصَّافِي 🔊)</div>
+                                </div>
+                                <div style="font-size: 3rem;">🐝🌸</div>
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <button class="btn-primary" onclick="playZLetterSound()" style="background: linear-gradient(135deg, #059669, #047857); font-size: 1.05rem;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِصَوْتِ الحَرْفِ: زْ!</span>
+                                </button>
+                                <span style="margin: 0 10px; color: #64748b; font-weight: 700;">|</span>
+                                <button class="btn-secondary" onclick="playZPhonemeFaseeh()" style="border-color: #059669; color: #065f46;">
+                                    <span>🎭</span> <span>نَصِيحَةُ فَصِيح لِمَخْرَجِ الزَّايِ الصَّفِيرِيِّ</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- مشهد الدرس التفاعلي: مزرعة مازن -->
+                        <div class="reading-card" style="margin-bottom: 25px;">
+                            <div class="card-header-styled" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                                <div>
+                                    <h3 style="margin:0; font-size:1.3rem;">🏡 مَزْرَعَةُ مَازِنٍ الْخَضْرَاءُ وَبِيئَتُنَا الصِّحِّيَّةُ 🌸</h3>
+                                    <div style="font-size: 0.95rem; opacity: 0.95;">قِصَّةُ الدَّرْسِ التَّفَاعُلِيَّةِ وَعَالَمُ الزَّرْعِ وَالْخَيْرَاتِ</div>
+                                </div>
+                                <button class="btn-audio-circle" onclick="playAudio('letter_z_scene_story')" title="استمع لقصة مزرعة مازن">
+                                    <span>🔊</span>
+                                </button>
+                            </div>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <img src="activity_z_scene.png" alt="مشهد درس حرف الزاي في مزرعة مازن" style="max-width: 100%; border-radius: 16px; box-shadow: 0 4px 14px rgba(0,0,0,0.08); border: 2px solid #bbf7d0;">
+                            </div>
+                            <div style="background: #f0fdf4; border-radius: 16px; padding: 18px; border: 1px solid #bbf7d0; font-size: 1.15rem; line-height: 2; color: #065f46; text-align: justify;">
+                                <strong>قِصَّةُ الدَّرْسِ:</strong> فِي مَزْرَعَةِ مَازِنٍ الْخَضْرَاءِ، تُزْهِرُ الأَزْهَارُ الْعَطِرَةُ 🌸، وَتَنْمُو أَشْجَارُ الزَّيْتُونِ الْمُبَارَكَةُ 🫒، وَيَسْبَحُ الْوَزُّ فِي الْغَدِيرِ 🦆، وَنَشْتَرِي مِنْهَا الْحَلِيبَ الطَّازَجَ وَالزُّبْدَ اللَّذِيذَ 🥛!
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المصورة بنشاط 1 ص 78 -->
+                        <div class="reading-card" style="margin-bottom: 25px;">
+                            <div class="card-header-styled" style="background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);">
+                                <div>
+                                    <h3 style="margin:0; font-size:1.25rem;">🖼️ نَشَاط ١: أَتَعَرَّفُ حَرْفَ (ز) وَأَسْتَمِعُ لِلْكَلِمَاتِ الْمُصَوَّرَةِ (ص ٧٨)</h3>
+                                    <div style="font-size: 0.9rem; opacity: 0.95;">انْقُرْ عَلَى أَيِّ كَلِمَةٍ لِسَمَاعِ نُطْقِهَا الْفُونِيمِيِّ النَّقِيِّ</div>
+                                </div>
+                                <button class="btn-audio-circle" onclick="playAudio('letter_z_words_intro')" title="استمع لمقدمة الكلمات">
+                                    <span>🔊</span>
+                                </button>
+                            </div>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <img src="activity_z_words.png" alt="نشاط 1 كلمات حرف الزاي المصورة ص 78" style="max-width: 100%; border-radius: 16px; border: 2px solid #99f6e4;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px; margin-top: 15px;">
+                                <div class="z-word-card" onclick="playZWord('zahrah')">
+                                    <div class="z-word-icon">🌸</div>
+                                    <div class="z-word-text">زَهْرَةٌ</div>
+                                    <div class="z-word-pos">أَوَّلُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('zujajah')">
+                                    <div class="z-word-icon">🧴</div>
+                                    <div class="z-word-text">زُجَاجَةُ مَاءٍ</div>
+                                    <div class="z-word-pos">أَوَّلُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('ghazal')">
+                                    <div class="z-word-icon">🦌</div>
+                                    <div class="z-word-text">غَزَالٌ</div>
+                                    <div class="z-word-pos">وَسَطُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('ruzz')">
+                                    <div class="z-word-icon">🍚</div>
+                                    <div class="z-word-text">رُزٌّ</div>
+                                    <div class="z-word-pos">آخِرُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('halazoon')">
+                                    <div class="z-word-icon">🐌</div>
+                                    <div class="z-word-text">حَلَزُونٌ</div>
+                                    <div class="z-word-pos">وَسَطُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('mizmar')">
+                                    <div class="z-word-icon">🎺</div>
+                                    <div class="z-word-text">مِزْمَارٌ</div>
+                                    <div class="z-word-pos">وَسَطُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('jazeerah')">
+                                    <div class="z-word-icon">🏝️</div>
+                                    <div class="z-word-text">جَزِيرَةٌ</div>
+                                    <div class="z-word-pos">وَسَطُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('zaytoon')">
+                                    <div class="z-word-icon">🫒</div>
+                                    <div class="z-word-text">زَيْتُونٌ</div>
+                                    <div class="z-word-pos">أَوَّلُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('zeenah')">
+                                    <div class="z-word-icon">🎊</div>
+                                    <div class="z-word-text">زِينَةٌ</div>
+                                    <div class="z-word-pos">أَوَّلُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('azhaar')">
+                                    <div class="z-word-icon">💐</div>
+                                    <div class="z-word-text">أَزْهَارٌ</div>
+                                    <div class="z-word-pos">وَسَطُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('zawraq')">
+                                    <div class="z-word-icon">⛵</div>
+                                    <div class="z-word-text">زَوْرَقٌ</div>
+                                    <div class="z-word-pos">أَوَّلُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('zaynab')">
+                                    <div class="z-word-icon">👧</div>
+                                    <div class="z-word-text">زَيْنَبُ</div>
+                                    <div class="z-word-pos">أَوَّلُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('mazraah')">
+                                    <div class="z-word-icon">🏡</div>
+                                    <div class="z-word-text">مَزْرَعَةٌ</div>
+                                    <div class="z-word-pos">وَسَطُ الكَلِمَةِ</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZWord('wazz')">
+                                    <div class="z-word-icon">🦆</div>
+                                    <div class="z-word-text">وَزٌّ</div>
+                                    <div class="z-word-pos">آخِرُ الكَلِمَةِ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- لوحة أشكال ومواضع حرف الزاي -->
+                        <div class="reading-card">
+                            <div class="card-header-styled" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);">
+                                <div>
+                                    <h3 style="margin:0; font-size:1.25rem;">📝 أشكالُ حَرْفِ الزَّايِ وَمَوَاضِعُهُ عَلَى السَّطْرِ</h3>
+                                    <div style="font-size: 0.9rem; opacity: 0.95;">حَرْفٌ انْفِصَالِيٌّ يَتَّصِلُ بِمَا قَبْلَهُ وَلا يَتَّصِلُ بِمَا بَعْدَهُ</div>
+                                </div>
+                            </div>
+                            <div class="z-forms-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                                <div class="z-form-card" onclick="playZWord('zahrah')">
+                                    <div class="z-form-glyph">ز</div>
+                                    <div class="z-form-label">مُنْفَصِلٌ (أَوَّلُ وَآخِرُ الْكَلِمَةِ)</div>
+                                    <div class="z-form-ex">زَهْرَةٌ 🌸 / رُزٌّ 🍚</div>
+                                </div>
+                                <div class="z-form-card" onclick="playZWord('ghazal')">
+                                    <div class="z-form-glyph">ـز</div>
+                                    <div class="z-form-label">مُتَّصِلٌ (يَتَّصِلُ بِمَا قَبْلَهُ فَقَطْ)</div>
+                                    <div class="z-form-ex">غَزَالٌ 🦌 / مِزْمَارٌ 🎺</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- زر استعراض صفحة الكتاب الأصلية -->
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button class="btn-secondary" onclick="openBookPageModal('page_79.png', 'كتاب قراءتي الجديد: ص ٧٨')" style="border-color: #059669; color: #065f46;">
+                                <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ ص ٧٨</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود والتنوين والمقاطع الساكنة -->
+                    <div class="letter-z-station" id="stationZ_2">
+                        <!-- نطق أصوات المدود القصيرة والطويلة -->
+                        <div class="reading-card" style="margin-bottom: 25px;">
+                            <div class="card-header-styled" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                                <div>
+                                    <h3 style="margin:0; font-size:1.25rem;">🎵 نَشَاط ٢: أَصْوَاتُ الْمُدُودِ الْقَصِيرَةِ وَالطَّوِيلَةِ (ص ٧٨)</h3>
+                                    <div style="font-size: 0.9rem; opacity: 0.95;">قَارِنْ بَيْنَ الْحَرَكَةِ الْقَصِيرَةِ وَحَرْفِ الْمَدِّ الطَّوِيلِ مَعَ أَمْثِلَةِ الْكِتَابِ</div>
+                                </div>
+                                <button class="btn-audio-circle" onclick="playAudio('letter_z_vowels_station')" title="استمع لمحطة المدود">
+                                    <span>🔊</span>
+                                </button>
+                            </div>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <img src="activity_z_vowels.png" alt="نشاط 2 مدود حرف الزاي ص 78" style="max-width: 100%; border-radius: 16px; border: 2px solid #bbf7d0;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 15px;">
+                                <!-- الفتحة والمد بالألف -->
+                                <div style="background: #f0fdf4; border: 2px solid #bbf7d0; border-radius: 18px; padding: 16px; text-align: center;">
+                                    <div style="font-weight: 800; color: #047857; margin-bottom: 10px;">الْفَتْحَةُ ↔️ الْمَدُّ بِالأَلِفِ</div>
+                                    <div style="display: flex; justify-content: space-around; align-items: center;">
+                                        <button class="btn-vowel-play" onclick="playZVowel('short_a')">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #059669;">زَ</span>
+                                            <span style="font-size: 0.85rem; color: #047857;">فَتْحَة (زَهْرَةٌ 🌸)</span>
+                                        </button>
+                                        <span style="font-size: 1.5rem; color: #059669;">↔️</span>
+                                        <button class="btn-vowel-play" onclick="playZVowel('long_aa')">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #065f46;">زَا</span>
+                                            <span style="font-size: 0.85rem; color: #047857;">مَدٌّ بِالأَلِفِ (غَزَالٌ 🦌)</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- الضمة والمد بالواو -->
+                                <div style="background: #eff6ff; border: 2px solid #bfdbfe; border-radius: 18px; padding: 16px; text-align: center;">
+                                    <div style="font-weight: 800; color: #1e40af; margin-bottom: 10px;">الضَّمَّةُ ↔️ الْمَدُّ بِالْوَاوِ</div>
+                                    <div style="display: flex; justify-content: space-around; align-items: center;">
+                                        <button class="btn-vowel-play" onclick="playZVowel('short_u')">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #2563eb;">زُ</span>
+                                            <span style="font-size: 0.85rem; color: #1e40af;">ضَمَّة (زُجَاجَةٌ 🧴)</span>
+                                        </button>
+                                        <span style="font-size: 1.5rem; color: #2563eb;">↔️</span>
+                                        <button class="btn-vowel-play" onclick="playZVowel('long_oo')">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #1e3a8a;">زُو</span>
+                                            <span style="font-size: 0.85rem; color: #1e40af;">مَدٌّ بِالْوَاوِ (حَلَزُونٌ 🐌)</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- الكسرة والمد بالياء -->
+                                <div style="background: #faf5ff; border: 2px solid #e9d5ff; border-radius: 18px; padding: 16px; text-align: center;">
+                                    <div style="font-weight: 800; color: #7e22ce; margin-bottom: 10px;">الْكَسْرَةُ ↔️ الْمَدُّ بِالْيَاءِ</div>
+                                    <div style="display: flex; justify-content: space-around; align-items: center;">
+                                        <button class="btn-vowel-play" onclick="playZVowel('short_i')">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #9333ea;">زِ</span>
+                                            <span style="font-size: 0.85rem; color: #7e22ce;">كَسْرَة (زِرٌّ 🔘)</span>
+                                        </button>
+                                        <span style="font-size: 1.5rem; color: #9333ea;">↔️</span>
+                                        <button class="btn-vowel-play" onclick="playZVowel('long_ee')">
+                                            <span style="font-size: 2.2rem; font-weight: 900; color: #581c87;">زِيـ</span>
+                                            <span style="font-size: 0.85rem; color: #7e22ce;">مَدٌّ بِالْيَاءِ (جَزِيرَةٌ 🏝️)</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- تمييز أصوات التنوين الثلاثة -->
+                        <div class="reading-card" style="margin-bottom: 25px;">
+                            <div class="card-header-styled" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);">
+                                <div>
+                                    <h3 style="margin:0; font-size:1.25rem;">🔔 أَصْوَاتُ التَّنْوِينَاتِ الثَّلاثَةِ لِحَرْفِ الزَّايِ</h3>
+                                    <div style="font-size: 0.9rem; opacity: 0.95;">اسْتَمِعْ إِلَى صَوْتِ رَنِينِ النُّونِ السَّاكِنَةِ فِي آخِرِ الاسْمِ</div>
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 15px;">
+                                <div class="z-word-card" onclick="playZVowel('tanween_dham')">
+                                    <div style="font-size: 2.8rem; font-weight: 900; color: #059669;">زٌ</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #065f46;">تَنْوِينُ الضَّمِّ</div>
+                                    <div class="z-word-pos">رُزٌّ 🍚 / غَزَالٌ 🦌</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZVowel('tanween_fath')">
+                                    <div style="font-size: 2.8rem; font-weight: 900; color: #0d9488;">زًا</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #115e59;">تَنْوِينُ الْفَتْحِ</div>
+                                    <div class="z-word-pos">رُزًّا / غَزَالاً</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZVowel('tanween_kasr')">
+                                    <div style="font-size: 2.8rem; font-weight: 900; color: #15803d;">زٍ</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #14532d;">تَنْوِينُ الْكَسْرِ</div>
+                                    <div class="z-word-pos">رُزٍّ / غَزَالٍ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 4: تمييز الزاي الساكنة في المقاطع الصوتية -->
+                        <div class="reading-card">
+                            <div class="card-header-styled" style="background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);">
+                                <div>
+                                    <h3 style="margin:0; font-size:1.25rem;">✊ نَشَاط ٤: تَمْيِيزُ صَوْتِ حَرْفِ (ز) السَّاكِنِ فِي الْمَقَاطِعِ (ص ٧٩)</h3>
+                                    <div style="font-size: 0.9rem; opacity: 0.95;">قَبْضَةُ الْيَدِ ✊ عِنْدَ نُطْقِ الْمَقْطَعِ السَّاكِنِ الْمُقْفَلِ</div>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <img src="activity_z_syllables.png" alt="نشاط 3 و 4 تمييز مقاطع الزاي الساكنة ص 79" style="max-width: 100%; border-radius: 16px; border: 2px solid #99f6e4;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 15px;">
+                                <div class="z-word-card" onclick="playZSyllable('miz')">
+                                    <div style="font-size: 2.4rem;">✊🎺</div>
+                                    <div style="font-size: 2rem; font-weight: 900; color: #059669;">مِزْـ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 800; color: #065f46;">مِزْمَارٌ / مِزْهَرِيَّةٌ</div>
+                                    <div class="z-word-pos">مَقْطَعٌ سَاكِنٌ (مِ + زْ)</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZSyllable('az')">
+                                    <div style="font-size: 2.4rem;">✊💐</div>
+                                    <div style="font-size: 2rem; font-weight: 900; color: #059669;">أَزْـ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 800; color: #065f46;">أَزْهَارٌ</div>
+                                    <div class="z-word-pos">مَقْطَعٌ سَاكِنٌ (أَ + زْ)</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZSyllable('maz')">
+                                    <div style="font-size: 2.4rem;">✊🏡</div>
+                                    <div style="font-size: 2rem; font-weight: 900; color: #059669;">مَزْـ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 800; color: #065f46;">مَزْرَعَةٌ</div>
+                                    <div class="z-word-pos">مَقْطَعٌ سَاكِنٌ (مَ + زْ)</div>
+                                </div>
+                                <div class="z-word-card" onclick="playZSyllable('zay')">
+                                    <div style="font-size: 2.4rem;">✊🫒</div>
+                                    <div style="font-size: 2rem; font-weight: 900; color: #059669;">زَيْـ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 800; color: #065f46;">زَيْتُونٌ / زَيْنَبُ</div>
+                                    <div class="z-word-pos">مَقْطَعٌ لَيِّنٌ (زَ + يْ)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- زر استعراض صفحة الكتاب الأصلية ص 79 -->
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button class="btn-secondary" onclick="openBookPageModal('page_80.png', 'كتاب قراءتي الجديد: ص ٧٩')" style="border-color: #059669; color: #065f46;">
+                                <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ ص ٧٩</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي ص 79 - 80 -->
+                    <div class="letter-z-station" id="stationZ_3">
+                        <!-- ورشة التحليل الصوتي (نشاط 5 ص 79) -->
+                        <div class="reading-card" style="margin-bottom: 25px;">
+                            <div class="card-header-styled" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                                <div>
+                                    <h3 style="margin:0; font-size:1.25rem;">👏 نَشَاط ٥: أَقْرَأُ الْكَلِمَاتِ ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا (ص ٧٩)</h3>
+                                    <div style="font-size: 0.9rem; opacity: 0.95;">صَفِّقْ مَعَ كُلِّ مَقْطَعٍ 👏، وَاقْبِضْ يَدَكَ لِلْمَقْطَعِ السَّاكِنِ ✊</div>
+                                </div>
+                                <button class="btn-audio-circle" onclick="playAudio('letter_z_analysis_intro')" title="استمع لورشة التحليل">
+                                    <span>🔊</span>
+                                </button>
+                            </div>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <img src="activity_z_analysis.png" alt="نشاط 5 تحليل كلمات حرف الزاي ص 79" style="max-width: 100%; border-radius: 16px; border: 2px solid #bbf7d0;">
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px;">
+                                <!-- مِزْمَار -->
+                                <div class="split-workshop-card" id="cardZSplit_mizmar" onclick="playZSplitWord('mizmar', 2, true)">
+                                    <div class="split-target-word">مِزْمَارٌ 🎺</div>
+                                    <div class="split-equals">=</div>
+                                    <div class="split-chips-row">
+                                        <div class="split-chip sukoon">مِزْ ✊</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">مَارٌ 👏</div>
+                                    </div>
+                                    <div class="split-badge-count">مَقْطَعَانِ</div>
+                                </div>
+
+                                <!-- زَيْتُون -->
+                                <div class="split-workshop-card" id="cardZSplit_zaytoon" onclick="playZSplitWord('zaytoon', 3, true)">
+                                    <div class="split-target-word">زَيْتُونٌ 🫒</div>
+                                    <div class="split-equals">=</div>
+                                    <div class="split-chips-row">
+                                        <div class="split-chip sukoon">زَيْـ ✊</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">تُو 👏</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">نٌ 👏</div>
+                                    </div>
+                                    <div class="split-badge-count">٣ مَقَاطِعَ</div>
+                                </div>
+
+                                <!-- زَوْرَق -->
+                                <div class="split-workshop-card" id="cardZSplit_zawraq" onclick="playZSplitWord('zawraq', 2, true)">
+                                    <div class="split-target-word">زَوْرَقٌ ⛵</div>
+                                    <div class="split-equals">=</div>
+                                    <div class="split-chips-row">
+                                        <div class="split-chip sukoon">زَوْ ✊</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">رَقٌ 👏</div>
+                                    </div>
+                                    <div class="split-badge-count">مَقْطَعَانِ</div>
+                                </div>
+
+                                <!-- غَزَال -->
+                                <div class="split-workshop-card" id="cardZSplit_ghazal" onclick="playZSplitWord('ghazal', 3, false)">
+                                    <div class="split-target-word">غَزَالٌ 🦌</div>
+                                    <div class="split-equals">=</div>
+                                    <div class="split-chips-row">
+                                        <div class="split-chip">غَـ 👏</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">زَا 👏</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">لٌ 👏</div>
+                                    </div>
+                                    <div class="split-badge-count">٣ مَقَاطِعَ</div>
+                                </div>
+
+                                <!-- حَلَزُون -->
+                                <div class="split-workshop-card" id="cardZSplit_halazoon" onclick="playZSplitWord('halazoon', 4, false)">
+                                    <div class="split-target-word">حَلَزُونٌ 🐌</div>
+                                    <div class="split-equals">=</div>
+                                    <div class="split-chips-row">
+                                        <div class="split-chip">حَـ 👏</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">لَـ 👏</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">زُو 👏</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">نٌ 👏</div>
+                                    </div>
+                                    <div class="split-badge-count">٤ مَقَاطِعَ</div>
+                                </div>
+
+                                <!-- مَزْرَعَة -->
+                                <div class="split-workshop-card" id="cardZSplit_mazraah" onclick="playZSplitWord('mazraah', 4, true)">
+                                    <div class="split-target-word">مَزْرَعَةٌ 🏡</div>
+                                    <div class="split-equals">=</div>
+                                    <div class="split-chips-row">
+                                        <div class="split-chip sukoon">مَزْ ✊</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">رَ 👏</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">عَـ 👏</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">ةٌ 👏</div>
+                                    </div>
+                                    <div class="split-badge-count">٤ مَقَاطِعَ</div>
+                                </div>
+
+                                <!-- أَزْهَار -->
+                                <div class="split-workshop-card" id="cardZSplit_azhaar" onclick="playZSplitWord('azhaar', 3, true)">
+                                    <div class="split-target-word">أَزْهَارٌ 💐</div>
+                                    <div class="split-equals">=</div>
+                                    <div class="split-chips-row">
+                                        <div class="split-chip sukoon">أَزْ ✊</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">هَا 👏</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">رٌ 👏</div>
+                                    </div>
+                                    <div class="split-badge-count">٣ مَقَاطِعَ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ورشة التركيب الصوتي (نشاط 6 ص 80) -->
+                        <div class="reading-card">
+                            <div class="card-header-styled" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);">
+                                <div>
+                                    <h3 style="margin:0; font-size:1.25rem;">🧩 نَشَاط ٦: أُرَكِّبُ مِنَ الْمَقَاطِعِ كَلِمَاتٍ ثُمَّ أَقْرَأُهَا (ص ٨٠)</h3>
+                                    <div style="font-size: 0.9rem; opacity: 0.95;">ادْمَجِ الْمَقَاطِعَ لِبِنَاءِ كَلِمَاتِ الْكِتَابِ الصَّحِيحَةِ</div>
+                                </div>
+                                <button class="btn-audio-circle" onclick="playAudio('letter_z_blend_intro')" title="استمع لورشة التركيب">
+                                    <span>🔊</span>
+                                </button>
+                            </div>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <img src="activity_z_blend.png" alt="نشاط 6 تركيب كلمات حرف الزاي ص 80" style="max-width: 100%; border-radius: 16px; border: 2px solid #bbf7d0;">
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 14px; margin-top: 15px;">
+                                <!-- زَيْتُون -->
+                                <div class="split-workshop-card" id="cardZMerge_zaytoon" onclick="playZMerge('zaytoon')">
+                                    <div class="split-chips-row">
+                                        <div class="split-chip sukoon">زَيْـ</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">تُو</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">نٌ</div>
+                                    </div>
+                                    <div class="split-equals">➔</div>
+                                    <div class="split-target-word" style="color: #059669;">زَيْتُونٌ 🫒</div>
+                                </div>
+
+                                <!-- زَيْنَب -->
+                                <div class="split-workshop-card" id="cardZMerge_zaynab" onclick="playZMerge('zaynab')">
+                                    <div class="split-chips-row">
+                                        <div class="split-chip sukoon">زَيْـ</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">نَـ</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">بُ</div>
+                                    </div>
+                                    <div class="split-equals">➔</div>
+                                    <div class="split-target-word" style="color: #059669;">زَيْنَبُ 👧</div>
+                                </div>
+
+                                <!-- مَزْرَعَة -->
+                                <div class="split-workshop-card" id="cardZMerge_mazraah" onclick="playZMerge('mazraah')">
+                                    <div class="split-chips-row">
+                                        <div class="split-chip sukoon">مَزْ</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">رَ</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">عَـ</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">ةٌ</div>
+                                    </div>
+                                    <div class="split-equals">➔</div>
+                                    <div class="split-target-word" style="color: #059669;">مَزْرَعَةٌ 🏡</div>
+                                </div>
+
+                                <!-- مِزْمَار -->
+                                <div class="split-workshop-card" id="cardZMerge_mizmar" onclick="playZMerge('mizmar')">
+                                    <div class="split-chips-row">
+                                        <div class="split-chip sukoon">مِزْ</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">مَارٌ</div>
+                                    </div>
+                                    <div class="split-equals">➔</div>
+                                    <div class="split-target-word" style="color: #059669;">مِزْمَارٌ 🎺</div>
+                                </div>
+
+                                <!-- غَزَال -->
+                                <div class="split-workshop-card" id="cardZMerge_ghazal" onclick="playZMerge('ghazal')">
+                                    <div class="split-chips-row">
+                                        <div class="split-chip">غَـ</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">زَا</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">لٌ</div>
+                                    </div>
+                                    <div class="split-equals">➔</div>
+                                    <div class="split-target-word" style="color: #059669;">غَزَالٌ 🦌</div>
+                                </div>
+
+                                <!-- حَلَزُون -->
+                                <div class="split-workshop-card" id="cardZMerge_halazoon" onclick="playZMerge('halazoon')">
+                                    <div class="split-chips-row">
+                                        <div class="split-chip">حَـ</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">لَـ</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">زُو</div>
+                                        <div class="split-plus">+</div>
+                                        <div class="split-chip">نٌ</div>
+                                    </div>
+                                    <div class="split-equals">➔</div>
+                                    <div class="split-target-word" style="color: #059669;">حَلَزُونٌ 🐌</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- زر استعراض صفحة الكتاب ص 80 -->
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button class="btn-secondary" onclick="openBookPageModal('page_81.png', 'كتاب قراءتي الجديد: ص ٨٠')" style="border-color: #059669; color: #065f46;">
+                                <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ ص ٨٠</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة التراثية والمدرسية والرسم واختبار التحدي ص 80 -->
+                    <div class="letter-z-station" id="stationZ_4">
+                        <!-- بنر التبديل بين نصوص القراءة الثلاثة -->
+                        <div class="qaddoori-banner">
+                            <div>
+                                <div class="qaddoori-badge">🌟 قِرَاءَاتُ حَرْفِ الزَّايِ التَّأْسِيسِيَّةُ وَالتُّرَاثِيَّةُ</div>
+                                <h3 style="margin: 8px 0 0 0; font-size: 1.35rem;">مَزْرَعَةُ مَازِنٍ • مِيزَانُ قَدُّورِي • وَزّ</h3>
+                            </div>
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <button class="btn-teach active" id="btnZReadingTab_1" onclick="switchZReadingTab(1)" style="font-size: 0.95rem; padding: 8px 14px; background: #ffffff; color: #065f46;">
+                                    <span>🏡</span> <span>نَصُّ الْكِتَابِ (ص ٨٠)</span>
+                                </button>
+                                <button class="btn-teach" id="btnZReadingTab_2" onclick="switchZReadingTab(2)" style="font-size: 0.95rem; padding: 8px 14px; background: rgba(255,255,255,0.2); color: #ffffff;">
+                                    <span>⚖️</span> <span>مِيزَانُ قَدُّورِي</span>
+                                </button>
+                                <button class="btn-teach" id="btnZReadingTab_3" onclick="switchZReadingTab(3)" style="font-size: 0.95rem; padding: 8px 14px; background: rgba(255,255,255,0.2); color: #ffffff;">
+                                    <span>🦆</span> <span>وَزّ... وَزّ</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 1. لوحة نصوص الكتاب المدرسي الجديد (ص 80) -->
+                        <div class="z-reading-panel active" id="zReadingPanel_1">
+                            <div class="reading-card" style="margin-bottom: 25px;">
+                                <div class="card-header-styled" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                                    <div>
+                                        <h3 style="margin:0; font-size:1.25rem;">📖 أَقْرَأُ: نَصُّ الْكِتَابِ الْمَدْرَسِيِّ الْجَدِيدِ (ص ٨٠)</h3>
+                                        <div style="font-size: 0.9rem; opacity: 0.95;">زُرْنَا مَزْرَعَةَ مَازِنٍ • نَشْتَرِي مِنْ مَزْرَعَةِ مَازِنٍ حَلِيبًا وَزُبْدًا</div>
+                                    </div>
+                                    <button class="btn-audio-circle" onclick="playAudio('letter_z_read_book_full')" title="استمع للنص كاملاً">
+                                        <span>🔊</span>
+                                    </button>
+                                </div>
+                                <div style="text-align: center; margin: 15px 0;">
+                                    <img src="activity_z_read.png" alt="نص قراءة الكتاب المدرسي ص 80" style="max-width: 100%; border-radius: 16px; border: 2px solid #bbf7d0;">
+                                </div>
+
+                                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 15px;">
+                                    <div class="sentence-interactive-box" onclick="playZReadingLine('b1')">
+                                        <div class="sentence-arabic-text" style="color: #065f46;">زُرْنَا مَزْرَعَةَ مَازِنٍ.</div>
+                                        <button class="btn-audio-sentence" title="استمع للسطر">🔊</button>
+                                    </div>
+                                    <div class="sentence-interactive-box" onclick="playZReadingLine('b2')">
+                                        <div class="sentence-arabic-text" style="color: #065f46;">نَشْتَرِي مِنْ مَزْرَعَةِ مَازِنٍ حَلِيبًا وَزُبْدًا.</div>
+                                        <button class="btn-audio-sentence" title="استمع للسطر">🔊</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. لوحة قراءة (مِيزَانُ قَدُّورِي) التراثية الأصيلة -->
+                        <div class="z-reading-panel" id="zReadingPanel_2" style="display: none;">
+                            <div class="reading-card" style="margin-bottom: 25px;">
+                                <div class="card-header-styled" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);">
+                                    <div>
+                                        <h3 style="margin:0; font-size:1.25rem;">⚖️ قِرَاءَةُ (مِيزَانُ قَدُّورِي) التُّرَاثِيَّةُ الأَصِيلَةُ</h3>
+                                        <div style="font-size: 0.9rem; opacity: 0.95;">قَدُّورِي وَزَّانٌ • وَزَنَ زَبِيبَ مَازِنٍ • نَادِرٌ بَزَّازٌ</div>
+                                    </div>
+                                    <button class="btn-audio-circle" onclick="playAudio('letter_z_read_qaddoori_full')" title="استمع لدرس ميزان قدوري كاملاً">
+                                        <span>🔊</span>
+                                    </button>
+                                </div>
+
+                                <div style="background: #f0fdf4; border-radius: 18px; padding: 22px; border: 2px solid #bbf7d0; margin: 15px 0;">
+                                    <div style="text-align: center; margin-bottom: 18px;">
+                                        <span style="background: #059669; color: #ffffff; font-size: 1.25rem; font-weight: 900; padding: 6px 24px; border-radius: 20px; box-shadow: 0 4px 10px rgba(5,150,105,0.3);">
+                                            مِيزَانُ قَدُّورِي ⚖️
+                                        </span>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('q1')">
+                                            <div class="sentence-arabic-text" style="color: #065f46;">مِيزَانُ قَدُّورِي.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('q2')">
+                                            <div class="sentence-arabic-text" style="color: #065f46;">قَدُّورِي وَزَّانٌ.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('q3')">
+                                            <div class="sentence-arabic-text" style="color: #065f46;">وَزَنَ زَبِيبَ مَازِنٍ.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('q4')">
+                                            <div class="sentence-arabic-text" style="color: #065f46;">نَادِرٌ بَزَّازٌ.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('q5')">
+                                            <div class="sentence-arabic-text" style="color: #065f46;">نَادِرٌ مَرَّ مِنْ دَرْبِنَا.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('q6')">
+                                            <div class="sentence-arabic-text" style="color: #065f46;">مَازِنٌ دَقَّ بَابَنَا.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. لوحة قراءة (وَزّ... وَزّ) التراثية الأصيلة -->
+                        <div class="z-reading-panel" id="zReadingPanel_3" style="display: none;">
+                            <div class="reading-card" style="margin-bottom: 25px;">
+                                <div class="card-header-styled" style="background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);">
+                                    <div>
+                                        <h3 style="margin:0; font-size:1.25rem;">🦆 قِرَاءَةُ (وَزّ... وَزّ) التُّرَاثِيَّةُ الأَصِيلَةُ</h3>
+                                        <div style="font-size: 0.9rem; opacity: 0.95;">وَزّ وَزّ • دَادَا رَبَابُ • نَمِيرٌ رَبَّى وَزّ • زَوْرَقُ زَيْدُونَ قَرِيبٌ</div>
+                                    </div>
+                                    <button class="btn-audio-circle" onclick="playAudio('letter_z_read_wazz_full')" title="استمع لنص وَزّ كاملاً">
+                                        <span>🔊</span>
+                                    </button>
+                                </div>
+
+                                <div style="background: #f0fdf4; border-radius: 18px; padding: 22px; border: 2px solid #99f6e4; margin: 15px 0;">
+                                    <div style="text-align: center; margin-bottom: 18px;">
+                                        <span style="background: #0d9488; color: #ffffff; font-size: 1.25rem; font-weight: 900; padding: 6px 24px; border-radius: 20px; box-shadow: 0 4px 10px rgba(13,148,136,0.3);">
+                                            وَزٌّ... وَزٌّ 🦆
+                                        </span>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('w1')">
+                                            <div class="sentence-arabic-text" style="color: #115e59;">وَزّ... وَزّ.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('w2')">
+                                            <div class="sentence-arabic-text" style="color: #115e59;">دَادَا رَبَابُ.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('w3')">
+                                            <div class="sentence-arabic-text" style="color: #115e59;">نَمِيرٌ رَبَّى وَزّ.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('w4')">
+                                            <div class="sentence-arabic-text" style="color: #115e59;">زَيْد... زَيْد.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('w5')">
+                                            <div class="sentence-arabic-text" style="color: #115e59;">زَوْرَقُ زَيْدُونَ قَرِيبٌ.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                        <div class="sentence-interactive-box" onclick="playZReadingLine('w6')">
+                                            <div class="sentence-arabic-text" style="color: #115e59;">نَزُورُ دَارَ زَيْد.</div>
+                                            <button class="btn-audio-sentence">🔊</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- كراسة تتبع حرف الزاي والرسم التفاعلي -->
+                        <div class="reading-card" style="margin-bottom: 25px;">
+                            <div class="card-header-styled" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);">
+                                <div>
+                                    <h3 style="margin:0; font-size:1.25rem;">✍️ كُرَّاسَةُ تَتَبُّعِ حَرْفِ الزَّايِ (ز ، ـز) وَالرَّسْمِ التَّفَاعُلِيِّ</h3>
+                                    <div style="font-size: 0.9rem; opacity: 0.95;">تَعَلَّمْ كِتَابَةَ الزَّايِ وِفْقَ اتِّجَاهِ الرَّسْمِ الصَّحِيحِ لِخَطِّ النَّسْخِ</div>
+                                </div>
+                                <button class="btn-audio-circle" onclick="playAudio('letter_z_draw_hint')" title="استمع لإرشادات الرسم">
+                                    <span>🔊</span>
+                                </button>
+                            </div>
+                            <div style="text-align: center; margin: 15px 0;">
+                                <img src="activity_z_trace.png" alt="كراسة تتبع حرف الزاي" style="max-width: 100%; border-radius: 16px; border: 2px solid #bbf7d0;">
+                            </div>
+
+                            <div style="background: #f0fdf4; border-radius: 20px; padding: 18px; border: 2px solid #bbf7d0;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+                                    <div style="font-weight: 800; color: #065f46;">
+                                        🎨 سَبُّورَةُ التَّدْرِيبِ الرَّقْمِيَّةِ (اكْتُبْ بِإِصْبَعِكَ أَوْ بِالْفَأْرَةِ):
+                                    </div>
+                                    <div style="display: flex; gap: 8px; align-items: center;">
+                                        <button onclick="setZCanvasColor('#059669')" style="width: 28px; height: 28px; border-radius: 50%; background: #059669; border: 2px solid #ffffff; cursor: pointer;" title="أخضر زمردي"></button>
+                                        <button onclick="setZCanvasColor('#0284c7')" style="width: 28px; height: 28px; border-radius: 50%; background: #0284c7; border: 2px solid #ffffff; cursor: pointer;" title="أزرق"></button>
+                                        <button onclick="setZCanvasColor('#dc2626')" style="width: 28px; height: 28px; border-radius: 50%; background: #dc2626; border: 2px solid #ffffff; cursor: pointer;" title="أحمر"></button>
+                                        <button onclick="clearZCanvas()" class="btn-secondary" style="padding: 4px 12px; font-size: 0.85rem; border-color: #059669; color: #065f46;">
+                                            <span>🧹</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="z-canvas-box" id="zCanvasBox">
+                                    <canvas id="canvasZTrace"></canvas>
+                                </div>
+                                <div style="text-align: center; font-size: 0.85rem; color: #059669; margin-top: 8px; font-weight: 700;">
+                                    💡 ابْدَأْ بِسِنٍّ صَغِيرٍ فَوْقَ السَّطْرِ الأَخْضَرِ، ثُمَّ انْزِلْ هِلالِيّاً تَحْتَهُ، وَضَعِ النُّقْطَةَ فَوْقَهُ!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي التفاعلي لحرف الزاي -->
+                        <div class="reading-card" style="margin-bottom: 25px;">
+                            <div class="card-header-styled" style="background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);">
+                                <div>
+                                    <h3 style="margin:0; font-size:1.25rem;">🏆 اخْتِبَارُ التَّحَدِّي الذَّكِيِّ لِحَرْفِ الزَّايِ (٥ أَسْئِلَةٍ)</h3>
+                                    <div style="font-size: 0.9rem; opacity: 0.95;">أَجِبْ عَنِ الأَسْئِلَةِ وَاكْسِبْ إِكْلِيلَ التَّفَوُّقِ الْمَلَكِيِّ 👑</div>
+                                </div>
+                                <button class="btn-audio-circle" onclick="playAudio('letter_z_quiz_intro')" title="استمع لمقدمة التحدي">
+                                    <span>🔊</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 15px;">
+                                <!-- السؤال 1 -->
+                                <div class="quiz-question-box" style="background: #ffffff; border: 2px solid #bbf7d0; border-radius: 16px; padding: 16px;">
+                                    <div style="font-weight: 800; color: #065f46; font-size: 1.1rem; margin-bottom: 10px;">
+                                        ١. أَيْنَ يَقَعُ حَرْفُ الزَّايِ فِي كَلِمَةِ (زَهْرَةٌ 🌸)؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(1, 'start', this)">فِي أَوَّلِ الْكَلِمَةِ</button>
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(1, 'middle', this)">فِي وَسَطِ الْكَلِمَةِ</button>
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(1, 'end', this)">فِي آخِرِ الْكَلِمَةِ</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 2 -->
+                                <div class="quiz-question-box" style="background: #ffffff; border: 2px solid #bbf7d0; border-radius: 16px; padding: 16px;">
+                                    <div style="font-weight: 800; color: #065f46; font-size: 1.1rem; margin-bottom: 10px;">
+                                        ٢. مَا الْكَلِمَةُ الَّتِي تَبْدَأُ بِالْمَقْطَعِ السَّاكِنِ (مِزْ)؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(2, 'mizmar', this)">مِزْمَارٌ 🎺</button>
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(2, 'ghazal', this)">غَزَالٌ 🦌</button>
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(2, 'zaytoon', this)">زَيْتُونٌ 🫒</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 3 -->
+                                <div class="quiz-question-box" style="background: #ffffff; border: 2px solid #bbf7d0; border-radius: 16px; padding: 16px;">
+                                    <div style="font-weight: 800; color: #065f46; font-size: 1.1rem; margin-bottom: 10px;">
+                                        ٣. كَيْفَ نُحَلِّلُ كَلِمَةَ (زَيْتُونٌ) إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(3, 'zaytoon_split', this)">زَيْـ + تُو + نٌ (٣ مَقَاطِعَ)</button>
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(3, 'wrong_1', this)">زَ + يـ + تـ + و + ن</button>
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(3, 'wrong_2', this)">زَيْت + ون</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 4 -->
+                                <div class="quiz-question-box" style="background: #ffffff; border: 2px solid #bbf7d0; border-radius: 16px; padding: 16px;">
+                                    <div style="font-weight: 800; color: #065f46; font-size: 1.1rem; margin-bottom: 10px;">
+                                        ٤. مَا هُوَ الْمَقْطَعُ السَّاكِنُ فِي كَلِمَةِ (مِزْهَرِيَّةٌ 🏺)؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(4, 'miz', this)">مِزْ ✊</button>
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(4, 'ha', this)">هَـ</button>
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(4, 'ree', this)">رِيـ</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 5 -->
+                                <div class="quiz-question-box" style="background: #ffffff; border: 2px solid #bbf7d0; border-radius: 16px; padding: 16px;">
+                                    <div style="font-weight: 800; color: #065f46; font-size: 1.1rem; margin-bottom: 10px;">
+                                        ٥. فِي نَصِّ مِيزَانِ قَدُّورِي، مَا هِيَ مِهْنَةُ قَدُّورِي؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(5, 'qaddoori', this)">وَزَّانٌ ⚖️</button>
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(5, 'bazzaz', this)">بَزَّازٌ 🧵</button>
+                                        <button class="btn-quiz-opt" onclick="checkZQuiz(5, 'fallah', this)">فَلَّاحٌ 🌾</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- أزرار استعراض صفحات الكتاب المدرسي الأصلية ص 78 - 80 -->
+                        <div style="text-align: center; margin-top: 25px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                            <button class="btn-secondary" onclick="openBookPageModal('page_79.png', 'كتاب قراءتي الجديد: ص ٧٨')">
+                                <span>📖</span> <span>صَفْحَة ٧٨</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_80.png', 'كتاب قراءتي الجديد: ص ٧٩')">
+                                <span>📖</span> <span>صَفْحَة ٧٩</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_81.png', 'كتاب قراءتي الجديد: ص ٨٠')">
+                                <span>📖</span> <span>صَفْحَة ٨٠</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===============================================
+                     عرض الدرس الخامس: حرف الجيم (جـ ، ـجـ ، ـج ، ج) وقراءة فَرَج نَسَّاج (ص ٨١ - ٨٣)
+                =============================================== -->

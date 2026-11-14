@@ -1,0 +1,538 @@
+                <div class="lesson-view" id="view-tab-tanween_dham">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationTanween1" onclick="switchTanweenDhamStation(1)">
+                            <span>🎨</span> <span>١. أتعرف تنوين الضم والكلمات (ص ٤٧)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationTanween2" onclick="switchTanweenDhamStation(2)">
+                            <span>🎵</span> <span>٢. التمييز السمعي وتطبيقات التنوين (ص ٤٧)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationTanween3" onclick="switchTanweenDhamStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٤٧ - ٤٨)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationTanween4" onclick="switchTanweenDhamStation(4)">
+                            <span>📖</span> <span>٤. القراءة المقررة (سُوْرٌ / وَرْدٌ) والرسم (ص ٤٨)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت تنوين الضم والكلمات المصورة (ص 47) -->
+                    <div class="tanween-dham-station active" id="stationTanween1">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div class="giant-tanween-dham-card" onclick="playTanweenDhamSound()" title="انقر لسماع صوت تنوين الضم الرنان">
+                                <span class="giant-tanween-dham-glyph">ـٌ  ٌ</span>
+                                <div>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #b45309;">صَوْتُ تَنْوِينِ الضَّمِّ: ( أُنْ... أُنْ )</div>
+                                    <div style="font-size: 0.85rem; color: #d97706;">نُونٌ سَاكِنَةٌ نَنْطِقُهَا رَنَّانَةً وَلَا نَكْتُبُهَا 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- مشهد أتعرف تنوين الضم (ص 47) -->
+                        <div class="family-listen-card" style="border-color: #fde68a;">
+                            <div style="font-weight: 900; color: #b45309; font-size: 1.1rem; margin-bottom: 8px;">
+                                👧 أَتَعَرَّفُ تَنْوِينِ الضَّمِّ (صَفْحَة ٤٧)
+                            </div>
+                            <img src="activity_tanween_dham_scene.png" alt="مشهد أتعرف تنوين الضم" style="max-width: 650px; width: 100%; border-radius: 14px; border: 2px solid #fffbeb; box-shadow: 0 4px 12px rgba(0,0,0,0.06); margin-bottom: 10px; object-fit: contain;">
+                            <div>
+                                <button class="btn btn-teach" id="btnTanweenSceneStory" onclick="playTanweenDhamSceneStory()" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
+                                    <span>🔊</span> <span>اِسْتَمِعْ لِقِصَّةِ تَنْوِينِ الضَّمِّ وَالصَّفِّ النَّشِيط</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- صندوق استراتيجية النمذجة الصريحة -->
+                        <div style="background: #fffbeb; border: 2px dashed #f59e0b; border-radius: 16px; padding: 14px 18px; margin-bottom: 16px; text-align: center;">
+                            <div style="font-weight: 900; color: #b45309; font-size: 1rem; margin-bottom: 8px;">
+                                🎓 نَمْذَجَةُ فَصِيح الصَّرِيحَة (دَلِيلُ الْمُعَلِّمِ ص ٥٠):
+                            </div>
+                            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                                <button class="btn btn-listen" style="background:#fef3c7; color:#92400e; border:1.5px solid #f59e0b; font-size:0.88rem; padding:6px 14px;" onclick="playTanweenDhamModel('alone')">
+                                    <span>1️⃣</span> <span>فَصِيح يُنَمْذِج («أَنَا وَحْدِي» مع قِرْدٌ)</span>
+                                </button>
+                                <button class="btn btn-listen" style="background:#fef3c7; color:#92400e; border:1.5px solid #f59e0b; font-size:0.88rem; padding:6px 14px;" onclick="playTanweenDhamModel('we')">
+                                    <span>2️⃣</span> <span>مُمَارَسَةٌ مُوَجَّهَة («أَنَا وَأَنْتُمْ» مع كِتَابٌ)</span>
+                                </button>
+                                <button class="btn btn-listen" style="background:#fef3c7; color:#92400e; border:1.5px solid #f59e0b; font-size:0.88rem; padding:6px 14px;" onclick="playTanweenDhamModel('you')">
+                                    <span>3️⃣</span> <span>اِسْتِقْلالِيَّة («أَنْتُمْ وَحْدَكُمْ» انقر الصور)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 1: الكلمات المصورة الأربعة لتنوين الضم -->
+                        <div style="background: white; border: 2px solid #fde68a; border-radius: 18px; padding: 16px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; color: #b45309; font-size: 1.05rem;">
+                                    📸 ١ نَشَاط: أُرَدِّدُ مُنْتَبِهاً لِصَوْتِ تَنْوِينِ الضَّمِّ (ـٌ) - كتاب ص ٤٧
+                                </div>
+                                <span style="font-size: 0.82rem; background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 10px; font-weight: 800;">
+                                    اضغط على البطاقة للاستماع 🔊
+                                </span>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                                <!-- قِرْدٌ -->
+                                <div class="word-card-n" onclick="clickTanweenDhamItem('qird')">
+                                    <div class="word-card-n-icon">🐒</div>
+                                    <div class="word-card-n-title">قِـرْدٌ</div>
+                                    <div class="word-card-n-badge" style="background:#fef3c7; color:#b45309;">دٌ (دال مع تنوين الضم)</div>
+                                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">قِرْدٌ ذَكِيٌّ وَمَرِح</div>
+                                </div>
+
+                                <!-- كِتَابٌ -->
+                                <div class="word-card-n" onclick="clickTanweenDhamItem('kitab')">
+                                    <div class="word-card-n-icon">📖</div>
+                                    <div class="word-card-n-title">كِـتَـابٌ</div>
+                                    <div class="word-card-n-badge" style="background:#fef3c7; color:#b45309;">بٌ (باء مع تنوين الضم)</div>
+                                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">كِتَابُ قِرَاءَتِي الْمُفِيد</div>
+                                </div>
+
+                                <!-- لَحْمٌ -->
+                                <div class="word-card-n" onclick="clickTanweenDhamItem('lahm')">
+                                    <div class="word-card-n-icon">🥩</div>
+                                    <div class="word-card-n-title">لَـحْـمٌ</div>
+                                    <div class="word-card-n-badge" style="background:#fef3c7; color:#b45309;">مٌ (ميم مع تنوين الضم)</div>
+                                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">غِذَاءٌ صِحِّيٌّ مُفِيد</div>
+                                </div>
+
+                                <!-- حَقِيبَةٌ -->
+                                <div class="word-card-n" onclick="clickTanweenDhamItem('haqeebah')">
+                                    <div class="word-card-n-icon">🎒</div>
+                                    <div class="word-card-n-title">حَـقِـيـبَـةٌ</div>
+                                    <div class="word-card-n-badge" style="background:#fef3c7; color:#b45309;">ـةٌ (تاء مربوطة منونة بالضم)</div>
+                                    <div style="font-size:0.8rem; color:#64748b; margin-top:4px;">حَقِيبَةٌ مَدْرَسِيَّةٌ جَمِيلَة</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- زر معاينة صفحة الكتاب 47 -->
+                        <div style="text-align: center; margin: 10px 0 16px;">
+                            <button class="btn btn-secondary" onclick="openBookModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (أتعرف تنوين الضم)')">
+                                <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ الأَصْلِيَّةِ ص ٤٧</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: التمييز السمعي وتطبيقات التنوين (ص 47) -->
+                    <div class="tanween-dham-station" id="stationTanween2">
+                        <!-- نشاط 2: أستمع لنطق الكلمات التالية، وأميز فيها صوت تنوين الضم -->
+                        <div style="background: white; border: 2px solid #fde68a; border-radius: 18px; padding: 18px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; color: #b45309; font-size: 1.05rem;">
+                                    🎵 ٢ نَشَاط: أَسْتَمِعُ لِنُطْقِ الْكَلِمَاتِ، وَأُمَيِّزُ فِيهَا صَوْتَ تَنْوِينِ الضَّمِّ ( ٌ ) - كتاب ص ٤٧
+                                </div>
+                                <button class="btn btn-listen" onclick="playTanweenDhamAct2Intro()" style="background:#fef3c7; color:#92400e; border:1.5px solid #f59e0b; font-size:0.85rem; padding:4px 12px;">
+                                    <span>🔊</span> <span>استمع لتوجيه فصيح</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 16px;">
+                                <!-- مُدِيرَةٌ -->
+                                <div class="tanween-check-card" onclick="clickTanweenDhamAct2Item('mudeerah')">
+                                    <div style="font-size: 2.2rem; margin-bottom: 4px;">👩‍🏫</div>
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-bottom: 4px;">مُـدِيـرَةٌ</div>
+                                    <div style="font-size: 0.85rem; color: #d97706; font-weight: 800;">ـةٌ : رَنَّةُ التَّنْوِين</div>
+                                    <div style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">مُدِيرَةُ الْمَدْرَسَةِ الْفَاضِلَة</div>
+                                </div>
+
+                                <!-- بَابٌ -->
+                                <div class="tanween-check-card" onclick="clickTanweenDhamAct2Item('bab')">
+                                    <div style="font-size: 2.2rem; margin-bottom: 4px;">🚪</div>
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-bottom: 4px;">بَـابٌ</div>
+                                    <div style="font-size: 0.85rem; color: #d97706; font-weight: 800;">بٌ : رَنَّةُ التَّنْوِين</div>
+                                    <div style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">بَابُ الصَّفِّ الْمَفْتُوح</div>
+                                </div>
+
+                                <!-- لَوْحٌ -->
+                                <div class="tanween-check-card" onclick="clickTanweenDhamAct2Item('lawh')">
+                                    <div style="font-size: 2.2rem; margin-bottom: 4px;">📋</div>
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-bottom: 4px;">لَـوْحٌ</div>
+                                    <div style="font-size: 0.85rem; color: #d97706; font-weight: 800;">حٌ : رَنَّةُ التَّنْوِين</div>
+                                    <div style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">لَوْحٌ لِلْكِتَابَةِ وَالتَّعْلِيم</div>
+                                </div>
+
+                                <!-- فَارِسٌ -->
+                                <div class="tanween-check-card" onclick="clickTanweenDhamAct2Item('faris')">
+                                    <div style="font-size: 2.2rem; margin-bottom: 4px;">🏇</div>
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #1e293b; margin-bottom: 4px;">فَـارِسٌ</div>
+                                    <div style="font-size: 0.85rem; color: #d97706; font-weight: 800;">سٌ : رَنَّةُ التَّنْوِين</div>
+                                    <div style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">فَارِسٌ شُجَاعٌ وَمِقْدَام</div>
+                                </div>
+                            </div>
+
+                            <!-- صندوق المقارنة الفونيمية المزدوجة بين الضمة وتنوين الضم -->
+                            <div style="background: linear-gradient(135deg, #fffdf5 0%, #fef3c7 100%); border: 2px dashed #f59e0b; border-radius: 18px; padding: 16px; margin-bottom: 16px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
+                                    <div style="font-weight: 900; color: #b45309; font-size: 1.05rem;">
+                                        🌟 الْمُقَارَنَةُ الْفُونِيمِيَّة: الضَّمَّةُ الْوَاحِدَة (ـُ) ↔️ تَنْوِينُ الضَّمِّ (ـٌ)
+                                    </div>
+                                    <button class="btn btn-listen" onclick="playTanweenDhamCompareIntro()" style="background:#d97706; color:white; font-size:0.82rem; padding:4px 10px;">
+                                        <span>🔊</span> <span>استمع للمقارنة</span>
+                                    </button>
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-bottom: 12px;">
+                                    <div style="background: white; border: 1.5px solid #fde68a; border-radius: 12px; padding: 12px; text-align: center;">
+                                        <div style="font-weight: 900; color: #2563eb; font-size: 0.95rem; margin-bottom: 4px;">🔵 ضَمَّةٌ وَاحِدَةٌ قَصِيرَة (ـُ)</div>
+                                        <div style="font-size: 1.25rem; font-weight: 900; color: #1e293b; margin-bottom: 4px;">دَارُ... بَابُ... وَرْدُ</div>
+                                        <div style="font-size: 0.8rem; color: #64748b;">صَوْتُ ضَمَّةٍ خَفِيفَةٍ بِلَا نُون</div>
+                                    </div>
+                                    <div style="background: white; border: 1.5px solid #fde68a; border-radius: 12px; padding: 12px; text-align: center;">
+                                        <div style="font-weight: 900; color: #d97706; font-size: 0.95rem; margin-bottom: 4px;">🔔 تَنْوِينُ الضَّمِّ الرَّنَّان (ـٌ)</div>
+                                        <div style="font-size: 1.25rem; font-weight: 900; color: #1e293b; margin-bottom: 4px;">دَارٌ... بَابٌ... وَرْدٌ</div>
+                                        <div style="font-size: 0.8rem; color: #64748b;">صَوْتُ ضَمَّةٍ مَعَ نُونٍ سَاكِنَةٍ رَنَّانَة (أُنْ)</div>
+                                    </div>
+                                </div>
+
+                                <!-- شبكة أزرار المقارنة الصوتية الحية -->
+                                <div style="font-weight: 800; color: #b45309; font-size: 0.95rem; margin-bottom: 10px;">
+                                    🎧 اِضْغَطْ وَاسْتَمِعْ لِلْفَرْقِ الصَّوْتِيِّ الدَّقِيق:
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                    <button class="btn btn-listen" style="background:white; color:#b45309; border:1.5px solid #fde68a; padding:8px 12px; font-weight:800; text-align:right;" onclick="playTanweenDhamPair('da')">
+                                        <span>🏡</span> <span>دَارُ ↔️ دَارٌ</span>
+                                    </button>
+                                    <button class="btn btn-listen" style="background:white; color:#b45309; border:1.5px solid #fde68a; padding:8px 12px; font-weight:800; text-align:right;" onclick="playTanweenDhamPair('ba')">
+                                        <span>🚪</span> <span>بَابُ ↔️ بَابٌ</span>
+                                    </button>
+                                    <button class="btn btn-listen" style="background:white; color:#b45309; border:1.5px solid #fde68a; padding:8px 12px; font-weight:800; text-align:right;" onclick="playTanweenDhamPair('ra')">
+                                        <span>🧱</span> <span>سُوْرُ ↔️ سُوْرٌ</span>
+                                    </button>
+                                    <button class="btn btn-listen" style="background:white; color:#b45309; border:1.5px solid #fde68a; padding:8px 12px; font-weight:800; text-align:right;" onclick="playTanweenDhamPair('ta')">
+                                        <span>🫐</span> <span>تُوتُ ↔️ تُوتٌ</span>
+                                    </button>
+                                    <button class="btn btn-listen" style="background:white; color:#b45309; border:1.5px solid #fde68a; padding:8px 12px; font-weight:800; text-align:right;" onclick="playTanweenDhamPair('na')">
+                                        <span>🌿</span> <span>تِينُ ↔️ تِينٌ</span>
+                                    </button>
+                                    <button class="btn btn-listen" style="background:white; color:#b45309; border:1.5px solid #fde68a; padding:8px 12px; font-weight:800; text-align:right;" onclick="playTanweenDhamPair('ward')">
+                                        <span>🌸</span> <span>وَرْدُ ↔️ وَرْدٌ</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- لعبة صيد تنوين الضم التفاعلية -->
+                            <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 16px; text-align: center;">
+                                <div style="font-weight: 900; color: #b45309; font-size: 1rem; margin-bottom: 6px;">
+                                    🎯 لُعْبَةُ صَيْدِ تَنْوِينِ الضَّمِّ: اِخْتَرِ الْكَلِمَاتِ الَّتِي تَحْوِي تَنْوِينِ الضَّمِّ (ـٌ) فَقَطْ:
+                                </div>
+                                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px;" id="tanweenQuizGrid">
+                                    <div class="tanween-check-card" id="tquiz-qird" onclick="checkTanweenDhamQuiz('tquiz-qird', true)" style="min-width: 120px;">
+                                        <div style="font-size: 1.4rem; font-weight: 900;">قِـرْدٌ</div>
+                                        <div class="feedback-txt" style="font-size:0.75rem; font-weight:800; margin-top:4px;"></div>
+                                    </div>
+                                    <div class="tanween-check-card" id="tquiz-daaru" onclick="checkTanweenDhamQuiz('tquiz-daaru', false)" style="min-width: 120px;">
+                                        <div style="font-size: 1.4rem; font-weight: 900;">دَارُ</div>
+                                        <div class="feedback-txt" style="font-size:0.75rem; font-weight:800; margin-top:4px;"></div>
+                                    </div>
+                                    <div class="tanween-check-card" id="tquiz-baabun" onclick="checkTanweenDhamQuiz('tquiz-baabun', true)" style="min-width: 120px;">
+                                        <div style="font-size: 1.4rem; font-weight: 900;">بَـابٌ</div>
+                                        <div class="feedback-txt" style="font-size:0.75rem; font-weight:800; margin-top:4px;"></div>
+                                    </div>
+                                    <div class="tanween-check-card" id="tquiz-saarat" onclick="checkTanweenDhamQuiz('tquiz-saarat', false)" style="min-width: 120px;">
+                                        <div style="font-size: 1.4rem; font-weight: 900;">سَارَتْ</div>
+                                        <div class="feedback-txt" style="font-size:0.75rem; font-weight:800; margin-top:4px;"></div>
+                                    </div>
+                                    <div class="tanween-check-card" id="tquiz-wardun" onclick="checkTanweenDhamQuiz('tquiz-wardun', true)" style="min-width: 120px;">
+                                        <div style="font-size: 1.4rem; font-weight: 900;">وَرْدٌ</div>
+                                        <div class="feedback-txt" style="font-size:0.75rem; font-weight:800; margin-top:4px;"></div>
+                                    </div>
+                                    <div class="tanween-check-card" id="tquiz-nooru" onclick="checkTanweenDhamQuiz('tquiz-nooru', false)" style="min-width: 120px;">
+                                        <div style="font-size: 1.4rem; font-weight: 900;">نُورُ</div>
+                                        <div class="feedback-txt" style="font-size:0.75rem; font-weight:800; margin-top:4px;"></div>
+                                    </div>
+                                    <div class="tanween-check-card" id="tquiz-haqeebatun" onclick="checkTanweenDhamQuiz('tquiz-haqeebatun', true)" style="min-width: 120px;">
+                                        <div style="font-size: 1.4rem; font-weight: 900;">حَقِيبَةٌ</div>
+                                        <div class="feedback-txt" style="font-size:0.75rem; font-weight:800; margin-top:4px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- صورة نشاط 2 من الكتاب -->
+                        <div style="text-align: center; margin: 10px 0 16px;">
+                            <img src="activity_tanween_dham_distinguish.png" alt="نشاط 2 الاستماع والتمييز" style="max-width: 650px; width: 100%; border-radius: 12px; border: 1.5px solid #fde68a; box-shadow: 0 4px 10px rgba(0,0,0,0.04); margin-bottom: 8px;">
+                            <div>
+                                <button class="btn btn-secondary" onclick="openBookModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (التمييز السمعي لتنوين الضم)')">
+                                    <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ الأَصْلِيَّةِ ص ٤٧</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي للمقاطع (ص 47 - 48) -->
+                    <div class="tanween-dham-station" id="stationTanween3">
+                        <!-- نشاط 3: أقرأ الكلمات ثم أحللها الى مقاطعها -->
+                        <div style="background: white; border: 2px solid #fde68a; border-radius: 18px; padding: 18px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; color: #b45309; font-size: 1.05rem;">
+                                    👏 ٣ نَشَاط: أَقْرَأُ الْكَلِمَاتِ، ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا (كتاب ص ٤٧)
+                                </div>
+                                <button class="btn btn-listen" onclick="playTanweenDhamAnalysisIntro()" style="background:#fef3c7; color:#92400e; border:1.5px solid #f59e0b; font-size:0.85rem; padding:4px 12px;">
+                                    <span>🔊</span> <span>استمع لتوجيه الصفقات</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+                                <!-- سُوْرٌ -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px; text-align: center; cursor: pointer;" onclick="playTanweenDhamSplit('soor')">
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #b45309; margin-bottom: 8px;">سُـوْرٌ</div>
+                                    <div style="display: flex; gap: 8px; justify-content: center; align-items: center; margin-bottom: 8px;">
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:4px 12px; font-weight:900; color:#b45309; font-size:1.2rem;">👏 سُو</span>
+                                        <span style="font-weight:900; color:#d97706; font-size:1.2rem;">+</span>
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:4px 12px; font-weight:900; color:#b45309; font-size:1.2rem;">👏 رٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.82rem; color: #64748b;">٢ صَفَقَاتٍ إِيقَاعِيَّة (سُو + رٌ) 👏</div>
+                                </div>
+
+                                <!-- سِرْبٌ -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px; text-align: center; cursor: pointer;" onclick="playTanweenDhamSplit('sirb')">
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #b45309; margin-bottom: 8px;">سِـرْبٌ</div>
+                                    <div style="display: flex; gap: 8px; justify-content: center; align-items: center; margin-bottom: 8px;">
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:4px 12px; font-weight:900; color:#b45309; font-size:1.2rem;">👏 سِرْ</span>
+                                        <span style="font-weight:900; color:#d97706; font-size:1.2rem;">+</span>
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:4px 12px; font-weight:900; color:#b45309; font-size:1.2rem;">👏 بٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.82rem; color: #64748b;">٢ صَفَقَاتٍ إِيقَاعِيَّة (سِرْ + بٌ) 👏</div>
+                                </div>
+
+                                <!-- وَرْدٌ -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px; text-align: center; cursor: pointer;" onclick="playTanweenDhamSplit('ward')">
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #b45309; margin-bottom: 8px;">وَرْدٌ</div>
+                                    <div style="display: flex; gap: 8px; justify-content: center; align-items: center; margin-bottom: 8px;">
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:4px 12px; font-weight:900; color:#b45309; font-size:1.2rem;">👏 وَرْ</span>
+                                        <span style="font-weight:900; color:#d97706; font-size:1.2rem;">+</span>
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:4px 12px; font-weight:900; color:#b45309; font-size:1.2rem;">👏 دٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.82rem; color: #64748b;">٢ صَفَقَاتٍ إِيقَاعِيَّة (وَرْ + دٌ) 👏</div>
+                                </div>
+                            </div>
+
+                            <!-- صورة نشاط 3 من الكتاب -->
+                            <div style="text-align: center; margin-top: 14px;">
+                                <img src="activity_tanween_dham_analysis.png" alt="نشاط 3 التحليل المقاطعي ص 47" style="max-width: 620px; width: 100%; border-radius: 12px; border: 1.5px solid #fde68a; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                            </div>
+                        </div>
+
+                        <!-- نشاط 4: أركب الكلمات من المقاطع (ص 48) -->
+                        <div style="background: white; border: 2px solid #fde68a; border-radius: 18px; padding: 18px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; color: #b45309; font-size: 1.05rem;">
+                                    🧩 ٤ نَشَاط: أُرَكِّبُ الْكَلِمَاتِ مِنَ الْمَقَاطِعِ، ثُمَّ أَقْرَأُهَا (كتاب ص ٤٨)
+                                </div>
+                                <button class="btn btn-listen" onclick="playTanweenDhamBlendIntro()" style="background:#fef3c7; color:#92400e; border:1.5px solid #f59e0b; font-size:0.85rem; padding:4px 12px;">
+                                    <span>🔊</span> <span>استمع لتوجيه التركيب</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                                <!-- تُوْ + تٌ = تُوتٌ -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px; text-align: center; cursor: pointer;" onclick="playTanweenDhamMerge('toot')">
+                                    <div style="display: flex; gap: 8px; justify-content: center; align-items: center; margin-bottom: 8px;">
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:6px 14px; font-size:1.3rem; font-weight:900; color:#b45309;">تُوْ</span>
+                                        <span style="font-weight:900; color:#d97706;">+</span>
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:6px 14px; font-size:1.3rem; font-weight:900; color:#b45309;">تٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: #16a34a; margin-bottom: 4px;">= تُـوْتٌ</div>
+                                    <div style="font-size: 0.8rem; color: #64748b;">تُوتٌ حُلْوٌ وَلَذِيذ 🫐</div>
+                                </div>
+
+                                <!-- تِيْـ + نٌ = تِينٌ -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px; text-align: center; cursor: pointer;" onclick="playTanweenDhamMerge('teen')">
+                                    <div style="display: flex; gap: 8px; justify-content: center; align-items: center; margin-bottom: 8px;">
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:6px 14px; font-size:1.3rem; font-weight:900; color:#b45309;">تِيْـ</span>
+                                        <span style="font-weight:900; color:#d97706;">+</span>
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:6px 14px; font-size:1.3rem; font-weight:900; color:#b45309;">نٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: #16a34a; margin-bottom: 4px;">= تِـيـنٌ</div>
+                                    <div style="font-size: 0.8rem; color: #64748b;">تِينٌ مُبَارَكٌ شَهِيّ 🌿</div>
+                                </div>
+
+                                <!-- تَمْـ + رٌ = تَمْرٌ -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px; text-align: center; cursor: pointer;" onclick="playTanweenDhamMerge('tamr')">
+                                    <div style="display: flex; gap: 8px; justify-content: center; align-items: center; margin-bottom: 8px;">
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:6px 14px; font-size:1.3rem; font-weight:900; color:#b45309;">تَمْـ</span>
+                                        <span style="font-weight:900; color:#d97706;">+</span>
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:6px 14px; font-size:1.3rem; font-weight:900; color:#b45309;">رٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: #16a34a; margin-bottom: 4px;">= تَـمْـرٌ</div>
+                                    <div style="font-size: 0.8rem; color: #64748b;">تَمْرُ الْعِرَاقِ الطَّيِّب 🌴</div>
+                                </div>
+
+                                <!-- وَرْ + دٌ = وَرْدٌ -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px; text-align: center; cursor: pointer;" onclick="playTanweenDhamMerge('ward')">
+                                    <div style="display: flex; gap: 8px; justify-content: center; align-items: center; margin-bottom: 8px;">
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:6px 14px; font-size:1.3rem; font-weight:900; color:#b45309;">وَرْ</span>
+                                        <span style="font-weight:900; color:#d97706;">+</span>
+                                        <span style="background:white; border:1.5px solid #f59e0b; border-radius:8px; padding:6px 14px; font-size:1.3rem; font-weight:900; color:#b45309;">دٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: #16a34a; margin-bottom: 4px;">= وَرْدٌ</div>
+                                    <div style="font-size: 0.8rem; color: #64748b;">وَرْدٌ عَطِرٌ لَطِيف 🌸</div>
+                                </div>
+                            </div>
+
+                            <!-- صورة نشاط 4 من الكتاب -->
+                            <div style="text-align: center; margin-top: 14px;">
+                                <img src="activity_tanween_dham_blend.png" alt="نشاط 4 تركيب المقاطع ص 48" style="max-width: 620px; width: 100%; border-radius: 12px; border: 1.5px solid #fde68a; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                            </div>
+                        </div>
+
+                        <!-- أزرار معاينة صفحات الكتاب -->
+                        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 10px 0 16px;">
+                            <button class="btn btn-secondary" onclick="openBookModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (التحليل الصوتي)')">
+                                <span>📖</span> <span>صَفْحَة ٤٧</span>
+                            </button>
+                            <button class="btn btn-secondary" onclick="openBookModal('page_48.png', 'الكتاب المدرسي - صفحة ٤٨ (تركيب المقاطع)')">
+                                <span>📖</span> <span>صَفْحَة ٤٨</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة المقررة (سُوْرُ مَدْرَسَتِي مَتِينٌ / وَرْدٌ) والرسم (ص ٤٨) -->
+                    <div class="tanween-dham-station" id="stationTanween4">
+                        <!-- لوحة القراءة المقررة ص 48 -->
+                        <div style="background: white; border: 2px solid #fde68a; border-radius: 20px; padding: 20px; margin-bottom: 16px; box-shadow: 0 6px 16px rgba(0,0,0,0.06);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; color: #b45309; font-size: 1.15rem;">
+                                    📖 أَقْرَأُ: سُوْرُ مَدْرَسَتِي مَتِينٌ (كتاب ص ٤٨)
+                                </div>
+                                <button class="btn btn-teach" onclick="playTanweenDhamReadAll()" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); font-size:0.9rem; padding:6px 16px;">
+                                    <span>🔊</span> <span>اِسْتَمِعْ لِلْقِرَاءَةِ كَامِلَةً بِلِسَانٍ عِرَاقِيٍّ فَصِيح</span>
+                                </button>
+                            </div>
+
+                            <!-- بطاقات أسطر القراءة التفاعلية -->
+                            <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px;">
+                                <!-- السطر 1: سُوْرُ مَدْرَسَتِي مَتِينٌ -->
+                                <div style="background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #1e293b; cursor: pointer;" onclick="playTanweenDhamSentence('1')">
+                                        🧱 سُـوْرُ مَدْرَسَتِـي مَتِـيـنٌ
+                                    </div>
+                                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                        <button class="btn btn-secondary" onclick="playTanweenDhamWord('sooru')" style="padding:2px 10px; font-size:0.85rem;">سُوْرُ</button>
+                                        <button class="btn btn-secondary" onclick="playTanweenDhamWord('madrasati')" style="padding:2px 10px; font-size:0.85rem;">مَدْرَسَتِي</button>
+                                        <button class="btn btn-secondary" onclick="playTanweenDhamWord('mateen')" style="padding:2px 10px; font-size:0.85rem; font-weight:900; color:#d97706;">مَتِينٌ</button>
+                                    </div>
+                                </div>
+
+                                <!-- السطر 2: فِي بُسْتَانِ فَاتِنَ تُوتٌ -->
+                                <div style="background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #1e293b; cursor: pointer;" onclick="playTanweenDhamSentence('2')">
+                                        🌳 فِـي بُسْتَانِ فَاتِـنَ تُـوْتٌ
+                                    </div>
+                                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                        <button class="btn btn-secondary" onclick="playTanweenDhamWord('fee')" style="padding:2px 10px; font-size:0.85rem;">فِي</button>
+                                        <button class="btn btn-secondary" onclick="playTanweenDhamWord('bustaani')" style="padding:2px 10px; font-size:0.85rem;">بُسْتَانِ</button>
+                                        <button class="btn btn-secondary" onclick="playTanweenDhamWord('faatina')" style="padding:2px 10px; font-size:0.85rem;">فَاتِنَ</button>
+                                        <button class="btn btn-secondary" onclick="playTanweenDhamWord('tootun')" style="padding:2px 10px; font-size:0.85rem; font-weight:900; color:#d97706;">تُوتٌ</button>
+                                    </div>
+                                </div>
+
+                                <!-- السطر 3: وَتِينٌ وَتَمْرٌ -->
+                                <div style="background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 14px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #1e293b; cursor: pointer;" onclick="playTanweenDhamSentence('3')">
+                                        🌴 وَتِـيـنٌ وَتَـمْـرٌ
+                                    </div>
+                                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                                        <button class="btn btn-secondary" onclick="playTanweenDhamWord('wateenun')" style="padding:2px 10px; font-size:0.85rem; font-weight:900; color:#d97706;">وَتِينٌ</button>
+                                        <button class="btn btn-secondary" onclick="playTanweenDhamWord('watamrun')" style="padding:2px 10px; font-size:0.85rem; font-weight:900; color:#d97706;">وَتَمْرٌ</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- صورة لوحة القراءة من الكتاب ص 48 -->
+                            <div style="text-align: center; margin-bottom: 16px;">
+                                <img src="activity_tanween_dham_read.png" alt="لوحة قراءة سور مدرستي متين ص 48" style="max-width: 600px; width: 100%; border-radius: 12px; border: 1.5px solid #fde68a; box-shadow: 0 4px 10px rgba(0,0,0,0.04);">
+                            </div>
+
+                            <!-- بطاقة قراءة وتطبيقات (وَرْدٌ) التراثية المنهجية -->
+                            <div style="background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border: 2px solid #fb923c; border-radius: 18px; padding: 18px; text-align: center; margin-bottom: 8px;">
+                                <div style="font-weight: 900; color: #c2410c; font-size: 1.15rem; margin-bottom: 8px;">
+                                    🌸 قِرَاءَةُ (وَرْدٌ) وَتَطْبِيقَاتُ تَنْوِينِ الضَّمِّ
+                                </div>
+                                <div style="font-size: 2.2rem; font-weight: 900; color: #9a3412; cursor: pointer; margin-bottom: 10px;" onclick="playTanweenDhamSentence('ward')">
+                                    وَرْدٌ لَطِيفٌ... وَرْدٌ جَمِيلٌ
+                                </div>
+                                <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                                    <button class="btn btn-listen" onclick="playTanweenDhamWord('wardun')" style="background:white; color:#c2410c; border:1.5px solid #fb923c; padding:6px 16px; font-size:1.1rem; font-weight:900;">
+                                        <span>🌸</span> <span>وَرْدٌ</span>
+                                    </button>
+                                    <button class="btn btn-listen" onclick="playTanweenDhamWord('lateefun')" style="background:white; color:#c2410c; border:1.5px solid #fb923c; padding:6px 16px; font-size:1.1rem; font-weight:900;">
+                                        <span>✨</span> <span>لَطِيفٌ</span>
+                                    </button>
+                                    <button class="btn btn-listen" onclick="playTanweenDhamWord('jameelun')" style="background:white; color:#c2410c; border:1.5px solid #fb923c; padding:6px 16px; font-size:1.1rem; font-weight:900;">
+                                        <span>🌿</span> <span>جَمِيلٌ</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة رسم وتتبع تنوين الضم (ـٌ / ٌ) التفاعلية -->
+                        <div style="background: white; border: 2px solid #fde68a; border-radius: 18px; padding: 18px; margin-bottom: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.04);">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; color: #b45309; font-size: 1.05rem;">
+                                    🎨 سَبُّورَةُ رَسْمِ وَتَتَبُّعِ تَنْوِينِ الضَّمِّ (ـٌ / ٌ) التَّفَاعُلِيَّة
+                                </div>
+                                <button class="btn btn-listen" onclick="playTanweenDhamDrawHint()" style="background:#fef3c7; color:#92400e; border:1.5px solid #f59e0b; font-size:0.85rem; padding:4px 12px;">
+                                    <span>🔊</span> <span>إرشاد فصيح للرسم</span>
+                                </button>
+                            </div>
+
+                            <!-- مرشد رسم تنوين الضم -->
+                            <div style="text-align: center; margin-bottom: 12px;">
+                                <img src="activity_tanween_dham_trace.png" alt="مرشد رسم تنوين الضم" style="max-width: 650px; width: 100%; border-radius: 12px; border: 1.5px solid #fde68a; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+                            </div>
+
+                            <!-- شريط أدوات الرسم -->
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap;">
+                                <div style="font-weight: 800; font-size: 0.88rem; color: #64748b;">اختر اللون:</div>
+                                <div class="color-dot-tanween active" style="background:#d97706;" onclick="setTanweenDhamColor('#d97706', this)"></div>
+                                <div class="color-dot-tanween" style="background:#2563eb;" onclick="setTanweenDhamColor('#2563eb', this)"></div>
+                                <div class="color-dot-tanween" style="background:#dc2626;" onclick="setTanweenDhamColor('#dc2626', this)"></div>
+                                <div class="color-dot-tanween" style="background:#16a34a;" onclick="setTanweenDhamColor('#16a34a', this)"></div>
+                                <div class="color-dot-tanween" style="background:#0f172a;" onclick="setTanweenDhamColor('#0f172a', this)"></div>
+                                <button class="btn btn-secondary" onclick="setTanweenDhamEraser(this)" style="font-size:0.85rem; padding:4px 10px;">
+                                    <span>🧹</span> <span>ممحاة</span>
+                                </button>
+                                <button class="btn btn-secondary" onclick="clearTanweenDhamCanvas()" style="font-size:0.85rem; padding:4px 10px; background:#fef2f2; color:#dc2626; border-color:#fca5a5;">
+                                    <span>🗑️</span> <span>مسح الكل</span>
+                                </button>
+                            </div>
+
+                            <!-- مساحة الكانفاس -->
+                            <div style="text-align: center;">
+                                <canvas id="tanweenDhamDrawingCanvas" width="700" height="240" style="background: white; border: 2px solid #fde68a; border-radius: 14px; max-width: 100%; touch-action: none; cursor: crosshair; box-shadow: inset 0 2px 6px rgba(0,0,0,0.03);"></canvas>
+                                <div style="font-size: 0.8rem; color: #64748b; margin-top: 6px;">
+                                    ✍️ تدرّب بإصبعك أو بالفأرة على رسم تنوين الضم (ـٌ / ٌ) فوق الحرف وخط الأساس الأحمر.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- تلخيص قاعدة فصيح الذهبية -->
+                        <div style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px dashed #f59e0b; border-radius: 18px; padding: 16px; margin-bottom: 16px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; color: #b45309; font-size: 1.05rem;">
+                                    🌟 خُلَاصَةُ قَاعِدَةِ فَصِيح الذَّهَبِيَّة لِتَنْوِينِ الضَّمّ
+                                </div>
+                                <button class="btn btn-listen" onclick="playTanweenDhamRuleSummary()" style="background:#d97706; color:white; font-size:0.82rem; padding:4px 10px;">
+                                    <span>🔊</span> <span>استمع للقاعدة</span>
+                                </button>
+                            </div>
+                            <div style="font-size: 0.95rem; color: #1e293b; line-height: 1.8;">
+                                «تَنْوِينُ الضَّمِّ (ـٌ) هُوَ ضَمَّتَانِ تَقَعَانِ فَوْقَ الْحَرْفِ الْأَخِيرِ مِنَ الِاسْم، نَنْطِقُهُ نُوناً سَاكِنَةً رَنَّانَةً (أُنْ)، وَلَا نَكْتُبُ النُّونَ أَبَداً: كِتَابٌ ، بَابٌ ، وَرْدٌ!»
+                            </div>
+                        </div>
+
+                        <!-- أزرار معاينة صفحات الكتاب -->
+                        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 10px 0 16px;">
+                            <button class="btn btn-secondary" onclick="openBookModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (تنوين الضم)')">
+                                <span>📖</span> <span>صَفْحَة ٤٧</span>
+                            </button>
+                            <button class="btn btn-secondary" onclick="openBookModal('page_48.png', 'الكتاب المدرسي - صفحة ٤٨ (القراءة المقررة)')">
+                                <span>📖</span> <span>صَفْحَة ٤٨</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     الدرس الثامن / خاتمة الوحدة الثانية: نشيد (مَدْرَسَتِي) وحصاد المهارات وإكليل التفوق (ص 48 - 52)
+                     إعداد المهندس أسامة خليل هاشم
+                ======================================================== -->

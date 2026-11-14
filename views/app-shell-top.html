@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم</title>
+
+    
+
+    <!-- PWA Meta Tags & Manifest -->
+
+    <link rel="manifest" href="manifest.json">
+
+    <meta name="theme-color" content="#2563eb">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="apple-mobile-web-app-title" content="قراءتي الذكية">
+
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+    <!-- Fonts -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+    <!-- منظومة الأنماط والتصميم المجزأة - إعداد المهندس أسامة خليل هاشم -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/stations.css">
+    <link rel="stylesheet" href="css/lessons-prep.css">
+    <link rel="stylesheet" href="css/lessons-unit1.css">
+    <link rel="stylesheet" href="css/lessons-unit2.css">
+    <link rel="stylesheet" href="css/lessons-unit3.css">
+    <link rel="stylesheet" href="css/lessons-unit4.css">
+
+</head>
+
+<body>
+
+    <!-- الشريط العلوي -->
+
+    <header class="top-navbar">
+
+        <div class="brand-section">
+
+            <button class="btn-sidebar-toggle" onclick="toggleSidebar()">
+
+                <span>📚</span>
+
+                <span>فهرس الدروس</span>
+
+            </button>
+
+            <div class="brand-title">
+
+                <span style="font-size: 1.6rem;">📖</span>
+
+                <div>
+
+                    <div style="display: flex; align-items: center; gap: 8px;">
+
+                        <span>قراءتي التفاعلية الذكية</span>
+
+                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="إصدار المنصة المحدث: إطلاق الوحدة الثالثة: حرف القاف (قـ ، ق) وقراءة (بُوق / بُوق نَدِيم) ص ٦١ - ٦٤">v3.9</span>
+
+                    </div>
+
+                    <div style="font-size: 0.8rem; font-weight: 800; color: #059669; margin-top: 1px;">
+
+                        إعداد: المهندس أسامة خليل هاشم
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="top-actions">
+
+            <!-- زر إيقاف الصوت النشط -->
+
+                        <!-- زر إيقاف الصوت النشط -->
+            <button class="btn-top btn-top-stop" id="btnTopStop" onclick="stopAudio()" style="display: none;" title="إيقاف الصوت الحالي فوراً">
+                <span>⏹️</span>
+                <span>إيقاف الصوت</span>
+            </button>
+
+            <!-- أداة التحكم السريع في مستوى الصوت ومضاعف التعزيز -->
+            <div class="top-volume-box" style="display: inline-flex; align-items: center; gap: 6px; background: white; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 4px 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);" title="التحكم في مستوى الصوت وتعزيز النطق (حتى 150%)">
+                <span id="topVolIcon" style="cursor: pointer; font-size: 1.1rem;" onclick="toggleMuteAudio()" title="كتم / تشغيل الصوت">🔊</span>
+                <input type="range" id="topVolumeSlider" min="30" max="150" value="100" step="5" oninput="changeMasterVolume(this.value)" style="width: 70px; accent-color: #059669; cursor: pointer; height: 6px;">
+                <span id="topVolBadge" style="font-size: 0.76rem; font-weight: 800; color: #065f46; min-width: 32px;">100%</span>
+            </div>
+
+            <!-- زر ضبط النظام واختيار الصوت -->
+
+            <button class="btn-top btn-settings" id="btnTopSettings" onclick="openSettingsModal()" title="إعدادات وضبط النظام وتخصيص الصوت">
+
+                <span>⚙️</span>
+
+                <span>الضبط</span>
+
+            </button>
+
+            <button class="btn-top btn-teacher-guide" id="btnTopGuide" onclick="openCurrentLessonGuide()" title="عرض نتاجات وإرشادات الدرس من دليل المعلم الرسمي">
+
+                <span>📘</span>
+
+                <span>دليل المعلم</span>
+
+            </button>
+
+            <button class="btn-top btn-mobile-connect" onclick="showMobileModal()">
+
+                <span>📱</span>
+
+                <span>الهاتف واللوحي</span>
+
+            </button>
+
+            <button class="btn-top btn-pwa-install" id="btnPwaInstall" onclick="installPWA()">
+
+                <span>📲</span>
+
+                <span>تثبيت التطبيق</span>
+
+            </button>
+
+            <button class="btn-top btn-fullscreen" onclick="toggleFullScreen()">
+
+                <span>⛶</span>
+
+                <span id="fullscreenText">تكبير</span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- هيكل التطبيق: مسرح الدرس على اليسار + القائمة اليمنى للمنهج -->
+
+    <div class="sidebar-backdrop" id="sidebarBackdrop" onclick="toggleSidebar()"></div>
+
+    <div class="app-body">
+
+        <!-- ==============================================
+
+             القائمة الجانبية اليمنى (Right Curriculum Sidebar)
+
+        =============================================== -->
+
+        <aside class="curriculum-sidebar" id="curriculumSidebar">
+
+            <div class="sidebar-header">
+
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+
+                    <h2 style="margin: 0;"><span>📑</span> فهرس منهج قراءتي</h2>
+
+                    <button class="btn-sidebar-close" onclick="toggleSidebar()">✕ إغلاق</button>
+
+                </div>
+
+                <div style="font-size: 0.85rem; font-weight: 900; color: #047857; background: #ecfdf5; border: 1px solid #a7f3d0; padding: 4px 10px; border-radius: 8px; margin: 4px 0 6px 0; display: inline-block;">
+
+                    👨‍💻 إعداد: المهندس أسامة خليل هاشم
+
+                </div>
+
+                <p style="margin: 0; font-size: 0.85rem; color: #64748b;">تدرج دروس الكتاب من البداية للنهاية:</p>
+
+            </div>
+
+            <div class="units-accordion" id="unitsAccordion"></div>
+
+        </aside>
+
+        <!-- ==============================================
+
+             مسرح الدرس التفاعلي (Main Stage)
+
+        =============================================== -->
+
+        <main class="main-stage">
+
+            <!-- بانر التثبيت التوضيحي للأجهزة الذكية (Mobile Install Banner) -->
+
+            <div class="mobile-install-banner" id="mobileInstallBanner">
+
+                <div style="display: flex; align-items: center; gap: 8px;">
+
+                    <span style="font-size: 1.4rem;">📲</span>
+
+                    <div>
+
+                        <strong>تثبيت التطبيق على جهازك:</strong>
+
+                        <p>اضغط قائمة المتصفح <code>⋮</code> في الأعلى ثم اختر <b>«إضافة إلى الشاشة الرئيسية»</b> ليعمل كتطبيق مستقل دائماً!</p>
+
+                    </div>
+
+                </div>
+
+                <button onclick="document.getElementById('mobileInstallBanner').style.display='none'" class="btn-close-banner">✕</button>
+
+            </div>
+
+            <!-- شريط التنقل المتسلسل العلوي (للهواتف والتابلت لتصفح فوري ومريح) -->
+
+            <div class="lesson-stepper-bar top-stepper">
+
+                <button class="btn-step" onclick="stepLesson(-1)">
+
+                    <span>➡️ السابق</span>
+
+                </button>
+
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;">
+
+                    <span class="current-lesson-label-top" style="font-weight: 800; color: #1e3a8a; font-size: 0.95rem; text-align: center;">
+
+                        الدرس الأول: نشيد البطة وتسمية الأشياء
+
+                    </span>
+
+                    <button class="btn-guide-pill" onclick="openCurrentLessonGuide()" title="عرض نتاجات وإرشادات هذا الدرس من دليل المعلم الرسمي">
+
+                        <span>📘</span> <span>دليل المعلم</span>
+
+                    </button>
+
+                </div>
+
+                <button class="btn-step primary" onclick="stepLesson(1)">
+
+                    <span>التالي ⬅️</span>
+
+                </button>
+
+            </div>
+
+            <div class="stage-card">

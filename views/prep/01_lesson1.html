@@ -1,0 +1,73 @@
+
+                <!-- 1. الدرس الأول: نشيد البطة وتسمية الأشياء (ص 7 في الكتاب) -->
+
+                <div class="lesson-view active" id="view-tab-lesson1">
+
+                    <div class="controls">
+
+                        <button class="btn btn-teach" id="btnLesson1Nasheed" onclick="playNasheed()">🎵 نشاط ٢: استمع لنشيد البطة وردد</button>
+
+                        <button class="btn btn-quiz" id="btnLesson1Items" onclick="explorePicturePrompt()">🔍 نشاط ٣: أُسَمِّي الأشياء التي في الصورة</button>
+
+                    </div>
+
+                    <!-- نشاط 2: نشيد البطة الأصلي -->
+
+                    <div class="image-container-nasheed" id="card-nasheed-section">
+
+                        <img src="activity_nasheed_box.png" alt="نشاط 2 - أستمع إلى النشيد وأردد (نشيد البطة)">
+
+                    </div>
+
+                    <!-- نشاط 3: أسمي الأشياء التي في الصورة (الأدوات التسعة الحقيقية) -->
+
+                    <div class="image-container-3items" id="card-items3-section">
+
+                        <img src="activity_3_items.png" alt="نشاط 3 - أسمي الأشياء التي في الصورة">
+
+                        <svg class="svg-overlay-5diff" viewBox="0 0 1140 500">
+
+                            <rect id="circle-item-mistara" class="diff-circle-path" x="765" y="110" width="225" height="60" rx="15" stroke="#10b981" />
+
+                            <rect id="circle-item-qalam" class="diff-circle-path" x="745" y="195" width="250" height="45" rx="15" stroke="#f59e0b" />
+
+                            <rect id="circle-item-melaqa" class="diff-circle-path" x="770" y="255" width="210" height="65" rx="20" stroke="#64748b" />
+
+                            <rect id="circle-item-miqas" class="diff-circle-path" x="785" y="345" width="225" height="110" rx="20" stroke="#2563eb" />
+
+                            <rect id="circle-item-kitab" class="diff-circle-path" x="505" y="160" width="185" height="130" rx="20" stroke="#3b82f6" />
+
+                            <rect id="circle-item-haqiba" class="diff-circle-path" x="285" y="85" width="165" height="205" rx="30" stroke="#ea580c" />
+
+                            <rect id="circle-item-qitar" class="diff-circle-path" x="285" y="315" width="395" height="130" rx="20" stroke="#e11d48" />
+
+                            <rect id="circle-item-safira" class="diff-circle-path" x="80" y="170" width="155" height="85" rx="20" stroke="#dc2626" />
+
+                            <ellipse id="circle-item-saa" class="diff-circle-path" cx="155" cy="375" rx="72" ry="72" stroke="#4f46e5" />
+
+                        </svg>
+
+                        <!-- النقاط التفاعلية الدقيقة لكل عنصر من العناصر التسعة -->
+
+                        <div class="hotspot-item3 spot-item-mistara" onclick="clickObjectItem('mistara')" title="مِسْطَرَة"></div>
+
+                        <div class="hotspot-item3 spot-item-qalam"   onclick="clickObjectItem('qalam')"   title="قَلَمُ رَصَاص"></div>
+
+                        <div class="hotspot-item3 spot-item-melaqa"  onclick="clickObjectItem('melaqa')"  title="مِلْعَقَة"></div>
+
+                        <div class="hotspot-item3 spot-item-miqas"   onclick="clickObjectItem('miqas')"   title="مِقَصّ"></div>
+
+                        <div class="hotspot-item3 spot-item-kitab"   onclick="clickObjectItem('kitab')"   title="كِتَاب"></div>
+
+                        <div class="hotspot-item3 spot-item-haqiba"  onclick="clickObjectItem('haqiba')"  title="حَقِيبَةُ مَدْرَسِيَّة"></div>
+
+                        <div class="hotspot-item3 spot-item-qitar"   onclick="clickObjectItem('qitar')"   title="قِطَار"></div>
+
+                        <div class="hotspot-item3 spot-item-safira"  onclick="clickObjectItem('safira')"  title="صَافِرَة"></div>
+
+                        <div class="hotspot-item3 spot-item-saa"     onclick="clickObjectItem('saa')"     title="سَاعَةُ حَائِط"></div>
+
+                    </div>
+
+                </div>
+

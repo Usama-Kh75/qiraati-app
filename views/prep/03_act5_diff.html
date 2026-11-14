@@ -1,0 +1,78 @@
+                <div class="lesson-view" id="view-tab-act5_diff">
+
+                    <div class="controls">
+
+                        <button class="btn btn-teach" onclick="teachAct5Diff()">💡 شرح المعلم للمتشابه والمختلف</button>
+
+                        <button class="btn btn-quiz" onclick="quizAct5Diff()">🎯 ابدأ الاختبار: ضع دائرة حول الإجابة</button>
+
+                        <button class="btn btn-reset" onclick="resetAct5Diff()">🔄 إعادة ضبط الدوائر</button>
+
+                    </div>
+
+                    <div class="image-container-5diff" id="card-act5diff">
+
+                        <img src="activity_5_diff.png" alt="نشاط 5 - أميز المتشابه والمختلف">
+
+                        <svg class="svg-overlay-5diff" viewBox="0 0 1120 860">
+
+                            <!-- دائرة القلمين المتشابهين -->
+
+                            <ellipse id="circle-diff-pencils" class="diff-circle-path" cx="815" cy="415" rx="90" ry="48" stroke="#16a34a" />
+
+                            <!-- دائرة الدجاجة المتشابهة -->
+
+                            <ellipse id="circle-diff-hens" class="diff-circle-path" cx="210" cy="245" rx="55" ry="55" stroke="#16a34a" />
+
+                            <!-- دائرة كرة التنس المختلفة -->
+
+                            <circle id="circle-diff-tennis" class="diff-circle-path" cx="658" cy="580" r="44" stroke="#e11d48" />
+
+                            <!-- دائرة الكتاب الأصفر المختلف -->
+
+                            <ellipse id="circle-diff-yellowbook" class="diff-circle-path" cx="438" cy="735" rx="75" ry="45" stroke="#e11d48" />
+
+                        </svg>
+
+                        <!-- الأقلام (المتشابه) -->
+
+                        <div class="hotspot-diff spot-pencils-match" onclick="clickDiffItem('pencils_match')" title="انقر على القلمين المتشابهين"></div>
+
+                        <div class="hotspot-diff spot-pencils-other1" onclick="clickDiffItem('pencils_wrong')"></div>
+
+                        <div class="hotspot-diff spot-pencils-other2" onclick="clickDiffItem('pencils_wrong')"></div>
+
+                        <div class="hotspot-diff spot-pencils-other3" onclick="clickDiffItem('pencils_wrong')"></div>
+
+                        <!-- الطيور (المتشابه) -->
+
+                        <div class="hotspot-diff spot-hens-match1" onclick="clickDiffItem('hens_match')" title="انقر على الدجاجة المتشابهة"></div>
+
+                        <div class="hotspot-diff spot-hens-match2" onclick="clickDiffItem('hens_match')"></div>
+
+                        <div class="hotspot-diff spot-hens-match3" onclick="clickDiffItem('hens_match')"></div>
+
+                        <div class="hotspot-diff spot-hens-other" onclick="clickDiffItem('ostrich')" title="هذه نعامة مختلفة"></div>
+
+                        <!-- الكرات (المختلف) -->
+
+                        <div class="hotspot-diff spot-tennis" onclick="clickDiffItem('tennis')" title="كرة التنس هي المختلفة"></div>
+
+                        <div class="hotspot-diff spot-football1" onclick="clickDiffItem('football_wrong')"></div>
+
+                        <div class="hotspot-diff spot-football2" onclick="clickDiffItem('football_wrong')"></div>
+
+                        <!-- الكتب (المختلف) -->
+
+                        <div class="hotspot-diff spot-yellowbook" onclick="clickDiffItem('yellowbook')" title="الكتاب الأصفر هو المختلف"></div>
+
+                        <div class="hotspot-diff spot-bluebook1" onclick="clickDiffItem('bluebook_wrong')"></div>
+
+                        <div class="hotspot-diff spot-bluebook2" onclick="clickDiffItem('bluebook_wrong')"></div>
+
+                    </div>
+
+                </div>
+
+                <!-- 4. الدرس الرابع: نشاط 6 - الأطول والأقصر (ص 9 في الكتاب) -->
+

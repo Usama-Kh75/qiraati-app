@@ -1,0 +1,165 @@
+                <div class="lesson-view" id="view-tab-unit3_intro">
+                    <!-- شريط المحطات التفاعلي لمدخل الوحدة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationUnit3_1" onclick="switchUnit3Station(1)">
+                            <span>⚽</span> <span>١. الاستماع (ألعابي وحيواناتي الأليفة)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationUnit3_2" onclick="switchUnit3Station(2)">
+                            <span>🗣️</span> <span>٢. المحادثة والتعبير (أنا أتحدث)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationUnit3_3" onclick="switchUnit3Station(3)">
+                            <span>🎮</span> <span>٣. تَحَدِّي الْأَلْعَابِ وَالْحَيَوَانَاتِ</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: الاستماع -->
+                    <div class="unit3-station active" id="stationUnit3_1">
+                        <div class="family-listen-card" style="background: linear-gradient(135deg, #f0fdf4 0%, #eff6ff 100%); border: 2px solid #60a5fa;">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #1e40af; margin-bottom: 6px;">
+                                ⚽ قِصَّةُ أَلْعَابِي وَحَيَوَانَاتِي الْأَلِيفَةِ (الِاسْتِمَاع - ص ٥٣)
+                            </div>
+                            <div style="font-size: 0.95rem; color: #475569; margin-bottom: 14px;">
+                                انقر على زر الاستماع للقصة كاملة، أو استكشف الألعاب والحيوانات المحبوبة:
+                            </div>
+
+                            <div style="position: relative; display: inline-block; max-width: 650px; width: 100%; margin-bottom: 14px;">
+                                <img src="unit3_toys_listen.png" alt="ألعابي وحيواناتي" style="width: 100%; border-radius: 16px; border: 2px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+                                <button class="btn btn-teach" onclick="playUnit3Story('full')" style="font-size: 1.05rem; padding: 12px 28px; background: linear-gradient(135deg, #2563eb, #1d4ed8); box-shadow: 0 4px 14px rgba(37,99,235,0.3);">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلْقِصَّةِ كَامِلَةً</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playUnit3Story('welcome')" style="font-size: 1.05rem; padding: 12px 24px; background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 14px rgba(16,185,129,0.3);">
+                                    <span>🌟</span> <span>تَرْحِيبُ فَصِيح</span>
+                                </button>
+                            </div>
+
+                            <!-- شبكة عناصر الألعاب والحيوانات الناطقة -->
+                            <div style="background: #ffffff; border-radius: 16px; padding: 16px; border: 2px solid #e2e8f0; margin-top: 10px;">
+                                <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px; font-size: 1.05rem;">
+                                    🧩 اِضْغَطْ عَلَى أَيِّ عُنْصُرٍ لِسَمَاعِ اسْمِهِ وَصَوْتِهِ:
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                                    <div class="word-card" onclick="playAudio('letter_ta_word_bat')" style="border-color: #f59e0b; background: #fffbeb;">
+                                        <div style="font-size: 32px;">🦆</div>
+                                        <div style="font-size: 1.25rem; font-weight: 900; color: #b45309;">بَـطّ</div>
+                                    </div>
+                                    <div class="word-card" onclick="playAudio('letter_ta_word_tuyoort')" style="border-color: #3b82f6; background: #eff6ff;">
+                                        <div style="font-size: 32px;">🕊️</div>
+                                        <div style="font-size: 1.25rem; font-weight: 900; color: #1e40af;">طُـيُورٌ</div>
+                                    </div>
+                                    <div class="word-card" onclick="playAudio('letter_ta_word_qitaar')" style="border-color: #10b981; background: #f0fdf4;">
+                                        <div style="font-size: 32px;">🚂</div>
+                                        <div style="font-size: 1.25rem; font-weight: 900; color: #065f46;">قِـطَارٌ</div>
+                                    </div>
+                                    <div class="word-card" onclick="playAudio('letter_ta_word_tabl')" style="border-color: #8b5cf6; background: #f5f3ff;">
+                                        <div style="font-size: 32px;">🥁</div>
+                                        <div style="font-size: 1.25rem; font-weight: 900; color: #5b21b6;">طَـبْلٌ</div>
+                                    </div>
+                                    <div class="word-card" onclick="playAudio('letter_ta_word_bitreeq')" style="border-color: #06b6d4; background: #ecfeff;">
+                                        <div style="font-size: 32px;">🐧</div>
+                                        <div style="font-size: 1.25rem; font-weight: 900; color: #0e7490;">بِـطْرِيقٌ</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: المحادثة والتعبير -->
+                    <div class="unit3-station" id="stationUnit3_2">
+                        <div class="family-listen-card" style="background: linear-gradient(135deg, #fffbeb 0%, #ecfdf5 100%); border: 2px solid #10b981;">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #065f46; margin-bottom: 6px;">
+                                🗣️ الْمُحَادَثَةُ وَالتَّعْبِيرُ الشَّفَهِيُّ: أَنَا أَتَحَدَّثُ (ص ٥٣)
+                            </div>
+                            <div style="font-size: 0.95rem; color: #475569; margin-bottom: 14px;">
+                                شَاهِدْ مَشَاهِدَ الْقِصَّةِ الْمُصَوَّرَةِ ثُمَّ عَبِّرْ عَنْهَا بِجُمَلٍ عَرَبِيَّةٍ فَصِيحَةٍ:
+                            </div>
+
+                            <div style="position: relative; display: inline-block; max-width: 650px; width: 100%; margin-bottom: 14px;">
+                                <img src="unit3_story_toys.png" alt="قصة المحادثة" style="width: 100%; border-radius: 16px; border: 2px solid #a7f3d0; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+                                <button class="btn btn-teach" onclick="playUnit3Talk('toys')" style="font-size: 0.95rem; padding: 10px 20px; background: #1e40af;">
+                                    <span>🎮</span> <span>أَلْعَابِي الْمُفَضَّلَة</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playUnit3Talk('animals')" style="font-size: 0.95rem; padding: 10px 20px; background: #047857;">
+                                    <span>🌿</span> <span>الرِّفْقُ بِالْحَيَوَان</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playUnit3Talk('questions')" style="font-size: 0.95rem; padding: 10px 20px; background: #b45309;">
+                                    <span>❓</span> <span>أَسْئِلَةُ فصيح لِلْمُحَادَثَة</span>
+                                </button>
+                            </div>
+
+                            <!-- بطاقات أسئلة الحوار -->
+                            <div style="background: #ffffff; border-radius: 14px; padding: 14px; border: 2px solid #bbf7d0; text-align: right; line-height: 1.8;">
+                                <div style="font-weight: 800; color: #065f46; font-size: 1.05rem; margin-bottom: 6px;">
+                                    💬 تَوَجَّهْ بِالإِجَابَةِ عَنِ الأَسْئِلَةِ التَّالِيَةِ مَعَ أُسْرَتِكَ أَوْ زُمَلائِكَ:
+                                </div>
+                                <div style="color: #1e293b; font-size: 0.95rem; margin-bottom: 4px;">• <b>مَا هِيَ أَلْعَابُكَ الْمُفَضَّلَةُ؟</b> وَكَيْفَ تُحَافِظُ عَلَيْهَا وَتُرَتِّبُهَا بَعْدَ اللَّعِبِ؟</div>
+                                <div style="color: #1e293b; font-size: 0.95rem; margin-bottom: 4px;">• <b>كَيْفَ نَرْعَى الطُّيُورَ وَالْبَطَّ وَالْحَيَوَانَاتِ الأَلِيفَةَ؟</b> وَمَا وَاجِبُنَا فِي إِطْعَامِهَا وَسِقَايَتِهَا؟</div>
+                                <div style="color: #1e293b; font-size: 0.95rem;">• <b>صِفْ مَا يَفْعَلُهُ طَارِقٌ</b> فِي مَشَاهِدِ الْقِصَّةِ الثَّلاثَةِ.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: تحدي الألعاب والحيوانات ومعرض الكتاب -->
+                    <div class="unit3-station" id="stationUnit3_3">
+                        <div class="family-listen-card" style="background: linear-gradient(135deg, #eff6ff 0%, #fef3c7 100%); border: 2px solid #f59e0b;">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #b45309; margin-bottom: 6px;">
+                                🎮 تَحَدِّي الأَلْعَابِ وَالْحَيَوَانَاتِ وَمَعْرِضُ كِتَابِ قِرَاءَتِي (ص ٥٣)
+                            </div>
+                            <div style="font-size: 0.95rem; color: #475569; margin-bottom: 14px;">
+                                هَلْ تُمَيِّزُ بَيْنَ اسْمِ اللُّعْبَةِ وَاسْمِ الْحَيَوَانِ أَوْ الطَّائِرِ الأَلِيفِ؟
+                            </div>
+
+                            <div style="background: #ffffff; border-radius: 16px; padding: 18px; border: 2px solid #fde68a; margin-bottom: 16px;">
+                                <div style="font-size: 1.15rem; font-weight: 800; color: #1e3a8a; margin-bottom: 12px;">
+                                    🏆 اخْتَبِرْ مَعْلُومَاتِكَ مَعَ فَصِيح:
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                    <button class="btn btn-teach" onclick="checkUnit3Quiz('toy')" style="background: #2563eb; font-size: 1rem; padding: 10px 22px;">
+                                        <span>⚽</span> <span>الْكُرَةُ وَالْقِطَارُ: أَلْعَابٌ</span>
+                                    </button>
+                                    <button class="btn btn-teach" onclick="checkUnit3Quiz('animal')" style="background: #059669; font-size: 1rem; padding: 10px 22px;">
+                                        <span>🦆</span> <span>الْبَطُّ وَالْبُلْبُلُ: طُيُورٌ وَحَيَوَانَاتٌ</span>
+                                    </button>
+                                </div>
+                                <div id="unit3QuizFeedback" style="margin-top: 12px; font-weight: bold; font-size: 1.05rem; min-height: 28px;"></div>
+                            </div>
+
+                            <!-- أزرار معرض صفحات الكتاب المدرسي -->
+                            <div style="background: #ffffff; border-radius: 16px; padding: 14px; border: 2px solid #cbd5e1;">
+                                <div style="font-weight: 800; color: #334155; margin-bottom: 10px; font-size: 1rem;">
+                                    📖 تَصَفَّحْ صَفَحَاتِ كِتَابِ قِرَاءَتِي الْمَدْرَسِيِّ الْمُعْتَمَدَةِ:
+                                </div>
+                                <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_53.png', 'الكتاب المدرسي - صفحة ٥٣ (مدخل الوحدة الثالثة)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٣</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_54.png', 'الكتاب المدرسي - صفحة ٥٤ (أنشطة الوحدة)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٤</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_55.png', 'الكتاب المدرسي - صفحة ٥٥ (قراءة الوحدة)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٥</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_56.png', 'الكتاب المدرسي - صفحة ٥٦ (مهارات الوحدة)')">
+                                        <span>📖</span> <span>صَفْحَة ٥٦</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_62.png', 'الكتاب المدرسي - صفحة ٦٢ (أتعرف الحرف ط)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٢ (حرف الطاء)</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_63.png', 'الكتاب المدرسي - صفحة ٦٣ (أنشطة ومدود ط)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٣ (مدود ط)</span>
+                                    </button>
+                                    <button class="btn btn-secondary" onclick="openBookModal('page_64.png', 'الكتاب المدرسي - صفحة ٦٤ (قراءة ط)')">
+                                        <span>📖</span> <span>صَفْحَة ٦٤ (قراءة ط)</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الدرس الثاني من الوحدة الثالثة: حرف الطاء (ط) وقراءة (بَطّ) (ص 53 - 56) -->

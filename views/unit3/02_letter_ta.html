@@ -1,0 +1,307 @@
+                <div class="lesson-view" id="view-tab-letter_ta">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationTa1" onclick="switchTaStation(1)">
+                            <span>🎨</span> <span>١. أتعرف الحرف والكلمات (ص ٥٣ - ٥٤)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationTa2" onclick="switchTaStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والتمييز (ص ٥٣ - ٥٤)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationTa3" onclick="switchTaStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٥٤ - ٥٥)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationTa4" onclick="switchTaStation(4)">
+                            <span>📖</span> <span>٤. قراءة (بَطّ وَطُيُور) والرسم (ص ٥٥ - ٥٦)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والكلمات المصورة -->
+                    <div class="letter-ta-station active" id="stationTa1">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div class="giant-letter-ta-card" onclick="playTaLetterSound()" title="انقر لسماع صوت حرف الطاء الفونيمي النقي">
+                                <span class="giant-letter-ta-glyph">طـ  ط</span>
+                                <div>
+                                    <div style="font-weight: 900; font-size: 1.25rem; color: #0369a1;">صَوْتُ حَرْفِ الطَّاءِ: ( طْ... طْ )</div>
+                                    <div style="font-size: 0.85rem; color: #0284c7;">اِضْغَطْ لِسَمَاعِ الصَّوْتِ الْفُونِيمِيِّ الْمُفَخَّمِ النَّقِيّ 🔊</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-teach" onclick="playTaPhonemeFaseeh()" style="margin-top: 8px; background: #0369a1; padding: 8px 20px; font-size: 0.95rem;">
+                                <span>🤖</span> <span>مَخْرَجُ حَرْفِ الطَّاءِ مَعَ فَصِيح</span>
+                            </button>
+                        </div>
+
+                        <!-- بطاقة مشهد درس حرف الطاء والبط -->
+                        <div class="family-listen-card" style="border-color: #38bdf8;">
+                            <div style="font-weight: 900; color: #0369a1; font-size: 1.15rem; margin-bottom: 8px;">
+                                🦆 فِي دَارِنَا بَطٌّ .. وَفِي دَارِ طَالِبٍ بُلْبُل (ص ٥٣ - ٥٦)
+                            </div>
+                            <img src="activity_ta_scene.png" alt="مشهد درس حرف الطاء والبط" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #bae6fd; margin-bottom: 12px;">
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 12px;">
+                                <button class="btn btn-teach" onclick="playAudio('letter_ta_scene_story')" style="background: #0284c7; padding: 10px 24px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِقِصَّةِ الْمَشْهَدِ</span>
+                                </button>
+                                <button class="btn btn-teach" onclick="playAudio('letter_ta_intro')" style="background: #0d9488; padding: 10px 24px;">
+                                    <span>👩‍🏫</span> <span>شَرْحُ الْمُعَلِّمَةِ لِحَرْفِ الطَّاءِ</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المصورة الناطقة -->
+                        <div class="family-listen-card" style="border-color: #f59e0b; margin-top: 14px;">
+                            <div style="font-weight: 900; color: #b45309; font-size: 1.15rem; margin-bottom: 6px;">
+                                🖼️ كَلِمَاتُ حَرْفِ الطَّاءِ الْمُصَوَّرَةُ (انْقُرْ عَلَى أَيِّ كَلِمَةٍ لِسَمَاعِهَا)
+                            </div>
+                            <img src="activity_ta_words.png" alt="كلمات حرف الطاء" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #fde68a; margin-bottom: 14px;">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px;">
+                                <div class="word-card" onclick="playTaWord('bat')" style="border-color: #f59e0b; background: #fffbeb;">
+                                    <div style="font-size: 28px;">🦆</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #b45309;">بَـ<span style="color:#dc2626;">طّ</span></div>
+                                </div>
+                                <div class="word-card" onclick="playTaWord('tuyoort')" style="border-color: #3b82f6; background: #eff6ff;">
+                                    <div style="font-size: 28px;">🕊️</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #1e40af;"><span style="color:#dc2626;">طُـ</span>ـيُورٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playTaWord('taariq')" style="border-color: #10b981; background: #f0fdf4;">
+                                    <div style="font-size: 28px;">👦</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #065f46;"><span style="color:#dc2626;">طَـ</span>ـارِقٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playTaWord('tabeeb')" style="border-color: #ec4899; background: #fdf2f8;">
+                                    <div style="font-size: 28px;">🩺</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #9d174d;"><span style="color:#dc2626;">طَـ</span>ـبِيبٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playTaWord('tifl')" style="border-color: #8b5cf6; background: #f5f3ff;">
+                                    <div style="font-size: 28px;">👶</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #5b21b6;"><span style="color:#dc2626;">طِـ</span>ـفْلٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playTaWord('qubtaan')" style="border-color: #64748b; background: #f8fafc;">
+                                    <div style="font-size: 28px;">⚓</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #334155;">قُبْـ<span style="color:#dc2626;">طَـ</span>ـانٌ</div>
+                                </div>
+                                <div class="word-card" onclick="playTaWord('bisaat')" style="border-color: #ea580c; background: #fff7ed;">
+                                    <div style="font-size: 28px;">🧶</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #9a3412;">بِسَـا<span style="color:#dc2626;">طٌ</span></div>
+                                </div>
+                                <div class="word-card" onclick="playTaWord('mitraqah')" style="border-color: #06b6d4; background: #ecfeff;">
+                                    <div style="font-size: 28px;">🔨</div>
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #0e7490;">مِـ<span style="color:#dc2626;">طْـ</span>ـرَقَةٌ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود وتمييز المقاطع -->
+                    <div class="letter-ta-station" id="stationTa2">
+                        <div class="family-listen-card" style="border-color: #0d9488;">
+                            <div style="font-weight: 900; color: #0f766e; font-size: 1.2rem; margin-bottom: 8px;">
+                                🎵 أَصْوَاتُ حَرْفِ الطَّاءِ مَعَ حَرَكَاتِ الْمَدِّ الْقَصِيرَةِ وَالْمَدِّ الطَّوِيلِ
+                            </div>
+                            <img src="activity_ta_vowels.png" alt="مدود حرف الطاء" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #99f6e4; margin-bottom: 14px;">
+                            
+                            <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-bottom: 16px;">
+                                <!-- المدود القصيرة -->
+                                <div style="background: #ffffff; border: 2px solid #38bdf8; border-radius: 14px; padding: 14px; flex: 1; min-width: 250px;">
+                                    <div style="color: #0369a1; font-weight: 900; font-size: 1.05rem; margin-bottom: 8px;">🔹 الْمَدُّ الْقَصِيرُ (الْحَرَكَات)</div>
+                                    <div style="display: flex; justify-content: space-around;">
+                                        <div class="vowel-bubble" onclick="playTaVowel('short_a')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #e11d48;">طَ</div>
+                                            <div style="font-size: 12px; color: #64748b;">طَبِيب</div>
+                                        </div>
+                                        <div class="vowel-bubble" onclick="playTaVowel('short_u')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #2563eb;">طُ</div>
+                                            <div style="font-size: 12px; color: #64748b;">طُيُور</div>
+                                        </div>
+                                        <div class="vowel-bubble" onclick="playTaVowel('short_i')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #059669;">طِ</div>
+                                            <div style="font-size: 12px; color: #64748b;">طِفْل</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- المدود الطويلة -->
+                                <div style="background: #ffffff; border: 2px solid #f59e0b; border-radius: 14px; padding: 14px; flex: 1; min-width: 250px;">
+                                    <div style="color: #b45309; font-weight: 900; font-size: 1.05rem; margin-bottom: 8px;">🔸 الْمَدُّ الطَّوِيلُ (حُرُوفُ الْمَدّ)</div>
+                                    <div style="display: flex; justify-content: space-around;">
+                                        <div class="vowel-bubble" onclick="playTaVowel('long_aa')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #e11d48;">طَا</div>
+                                            <div style="font-size: 12px; color: #64748b;">طَارِق</div>
+                                        </div>
+                                        <div class="vowel-bubble" onclick="playTaVowel('long_oo')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #2563eb;">طُو</div>
+                                            <div style="font-size: 12px; color: #64748b;">فُطُور</div>
+                                        </div>
+                                        <div class="vowel-bubble" onclick="playTaVowel('long_ee')">
+                                            <div style="font-size: 32px; font-weight: 900; color: #059669;">طِيـ</div>
+                                            <div style="font-size: 12px; color: #64748b;">طِين</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- تمييز الطاء الساكنة -->
+                            <div style="background: #ffffff; border: 2px solid #818cf8; border-radius: 14px; padding: 14px; margin-top: 10px;">
+                                <div style="color: #4338ca; font-weight: 900; font-size: 1.1rem; margin-bottom: 6px;">
+                                    🧩 تَمْيِيزُ صَوْتِ حَرْفِ الطَّاءِ السَّاكِنِ (طْ) فِي الْمَقَاطِعِ:
+                                </div>
+                                <img src="activity_ta_syllables.png" alt="المقاطع الساكنة" style="width: 100%; max-width: 600px; border-radius: 12px; border: 2px solid #c7d2fe; margin-bottom: 10px;">
+                                <div style="display: flex; justify-content: space-around; gap: 10px; flex-wrap: wrap;">
+                                    <button class="btn" onclick="playTaSyllable('mat')" style="background: #f5f3ff; color: #4338ca; border: 2px solid #818cf8; padding: 10px 20px; font-size: 1.1rem; font-weight: 900;">
+                                        مَـطْـ (مَطْبَخ) 🍳
+                                    </button>
+                                    <button class="btn" onclick="playTaSyllable('mit')" style="background: #fdf2f8; color: #be185d; border: 2px solid #f472b6; padding: 10px 20px; font-size: 1.1rem; font-weight: 900;">
+                                        مِـطْـ (مِطْرَقَة) 🔨
+                                    </button>
+                                    <button class="btn" onclick="playTaSyllable('bit')" style="background: #ecfeff; color: #0e7490; border: 2px solid #22d3ee; padding: 10px 20px; font-size: 1.1rem; font-weight: 900;">
+                                        بِـطْـ (بِطْرِيق) 🐧
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل الصوتي والتركيب المقطعي -->
+                    <div class="letter-ta-station" id="stationTa3">
+                        <div class="family-listen-card" style="border-color: #ea580c;">
+                            <div style="font-weight: 900; color: #c2410c; font-size: 1.25rem; margin-bottom: 8px;">
+                                🧩 تَحْلِيلُ وَتَرْكِيبُ كَلِمَاتِ حَرْفِ الطَّاءِ (ص ٥٤ - ٥٥)
+                            </div>
+
+                            <!-- التحليل -->
+                            <div style="background: #ffffff; border: 2px solid #fdba74; border-radius: 14px; padding: 14px; margin-bottom: 16px;">
+                                <div style="color: #9a3412; font-weight: 900; font-size: 1.1rem; margin-bottom: 6px;">
+                                    🔍 تَحْلِيلُ الْكَلِمَاتِ إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ (انْقُرْ لِسَمَاعِ التَّحْلِيلِ بِالتَّصْفِيق):
+                                </div>
+                                <img src="activity_ta_analysis.png" alt="التحليل الصوتي" style="width: 100%; max-width: 600px; border-radius: 12px; margin-bottom: 12px;">
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <button class="btn" onclick="playTaAnalysis('bat')" style="background: #fff7ed; border: 2px solid #fb923c; color: #9a3412; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        بَطّ ⬅️ [ بَـ ] + [ طّ ]
+                                    </button>
+                                    <button class="btn" onclick="playTaAnalysis('qubtaan')" style="background: #fff7ed; border: 2px solid #fb923c; color: #9a3412; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        قُبْطَانٌ ⬅️ [ قُبْـ ] + [ طَا ] + [ نٌ ]
+                                    </button>
+                                    <button class="btn" onclick="playTaAnalysis('tareeq')" style="background: #fff7ed; border: 2px solid #fb923c; color: #9a3412; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        طَرِيقٌ ⬅️ [ طَ ] + [ رِيـ ] + [ قٌ ]
+                                    </button>
+                                    <button class="btn" onclick="playTaAnalysis('bisaat')" style="background: #fff7ed; border: 2px solid #fb923c; color: #9a3412; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        بِسَاطٌ ⬅️ [ بِـ ] + [ سَا ] + [ طٌ ]
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- التركيب -->
+                            <div style="background: #ffffff; border: 2px solid #86efac; border-radius: 14px; padding: 14px;">
+                                <div style="color: #166534; font-weight: 900; font-size: 1.1rem; margin-bottom: 6px;">
+                                    ⚡ تَرْكِيبُ الْمَقَاطِعِ لِتَكْوِينِ الْكَلِمَاتِ وَقِرَاءَتِهَا:
+                                </div>
+                                <img src="activity_ta_blend.png" alt="تركيب المقاطع" style="width: 100%; max-width: 600px; border-radius: 12px; margin-bottom: 12px;">
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <button class="btn" onclick="playTaBlend('bat')" style="background: #f0fdf4; border: 2px solid #4ade80; color: #166534; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        [ بَـ ] + [ طّ ] ➡️ بَـطّ
+                                    </button>
+                                    <button class="btn" onclick="playTaBlend('taariq')" style="background: #f0fdf4; border: 2px solid #4ade80; color: #166534; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        [ طَا ] + [ رِ ] + [ ق ] ➡️ طَـارِق
+                                    </button>
+                                    <button class="btn" onclick="playTaBlend('toofaan')" style="background: #f0fdf4; border: 2px solid #4ade80; color: #166534; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        [ طُو ] + [ فَا ] + [ ن ] ➡️ طُـوفَان
+                                    </button>
+                                    <button class="btn" onclick="playTaBlend('qitaar')" style="background: #f0fdf4; border: 2px solid #4ade80; color: #166534; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        [ قِـ ] + [ طَا ] + [ ر ] ➡️ قِـطَار
+                                    </button>
+                                    <button class="btn" onclick="playTaBlend('taalib')" style="background: #f0fdf4; border: 2px solid #4ade80; color: #166534; padding: 10px; font-weight: 800; font-size: 1rem;">
+                                        [ طَا ] + [ لِـ ] + [ ب ] ➡️ طَـالِب
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة والرسم والاختبار -->
+                    <div class="letter-ta-station" id="stationTa4">
+                        <div class="family-listen-card" style="border-color: #d97706; background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);">
+                            <div style="font-size: 1.35rem; font-weight: 900; color: #b45309; margin-bottom: 8px;">
+                                📜 لَوْحَةُ الْقِرَاءَةِ التُّرَاثِيَّةِ الْمُقَرَّرَةِ: بَطّ .. طُيُور (ص ٥٥)
+                            </div>
+                            <img src="activity_ta_read.png" alt="قراءة بط وطيور" style="width: 100%; max-width: 650px; border-radius: 14px; border: 2px solid #fde68a; margin-bottom: 12px;">
+
+                            <!-- زر الاستماع للقراءة كاملة -->
+                            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;">
+                                <button class="btn" onclick="playTaReading(0)" style="background: linear-gradient(135deg, #b45309, #d97706); color: white; padding: 12px 28px; font-size: 1.1rem; font-weight: 900; border-radius: 14px; box-shadow: 0 4px 14px rgba(180,83,9,0.3);">
+                                    <span>🔊</span> <span>اقْرَأِ النَّصَّ كَامِلاً</span>
+                                </button>
+                                <button class="btn" onclick="playTaReadingFatima()" style="background: #ffffff; color: #1e40af; border: 2px solid #3b82f6; padding: 12px 24px; font-size: 1rem; font-weight: 900; border-radius: 14px;">
+                                    <span>🇮🇶</span> <span>قِرَاءَةُ (فَاطِمَةُ فِي مَدْرَسَتِي)</span>
+                                </button>
+                            </div>
+
+                            <!-- أسطر القراءة التفاعلية سطر بسطر -->
+                            <div style="background: #ffffff; border-radius: 16px; padding: 16px; border: 2px solid #fde68a; max-width: 600px; margin: 0 auto 16px auto;">
+                                <div class="reading-line-card" onclick="playTaReading(1)" id="lineTa1" style="font-size: 1.35rem; font-weight: 900; color: #b45309; padding: 8px 14px; border-radius: 10px; cursor: pointer; margin-bottom: 6px;">
+                                    بَـ<span style="color:#dc2626;">طّ</span> .. <span style="color:#dc2626;">طُـ</span>ـيُورٌ 🔊
+                                </div>
+                                <div class="reading-line-card" onclick="playTaReading(2)" id="lineTa2" style="font-size: 1.25rem; font-weight: bold; color: #1e3a8a; padding: 8px 14px; border-radius: 10px; cursor: pointer; margin-bottom: 6px;">
+                                    <span style="color:#dc2626;">طَـ</span>ـارِقٌ يَقُولُ: 🔊
+                                </div>
+                                <div class="reading-line-card" onclick="playTaReading(3)" id="lineTa3" style="font-size: 1.2rem; font-weight: bold; color: #047857; padding: 8px 14px; border-radius: 10px; cursor: pointer; margin-bottom: 6px;">
+                                    فِي دَارِنَا بَـ<span style="color:#dc2626;">طّ</span> 🔊
+                                </div>
+                                <div class="reading-line-card" onclick="playTaReading(4)" id="lineTa4" style="font-size: 1.2rem; font-weight: bold; color: #047857; padding: 8px 14px; border-radius: 10px; cursor: pointer; margin-bottom: 6px;">
+                                    فِي دَارِ لُـ<span style="color:#dc2626;">طْـ</span>ـفِي وَزّ 🔊
+                                </div>
+                                <div class="reading-line-card" onclick="playTaReading(5)" id="lineTa5" style="font-size: 1.2rem; font-weight: bold; color: #047857; padding: 8px 14px; border-radius: 10px; cursor: pointer; margin-bottom: 6px;">
+                                    فِي دَارِ <span style="color:#dc2626;">طَـ</span>ـالِبٍ بُلْبُلٌ 🔊
+                                </div>
+                                <div class="reading-line-card" onclick="playTaReading(6)" id="lineTa6" style="font-size: 1.25rem; font-weight: 900; color: #b91c1c; padding: 8px 14px; border-radius: 10px; cursor: pointer;">
+                                    بُلْبُلُ <span style="color:#dc2626;">طَـ</span>ـالِبٍ <span style="color:#dc2626;">طَـ</span>ـارَ 🔊
+                                </div>
+                            </div>
+
+                            <!-- سبورة رسم وكتابة حرف الطاء -->
+                            <div style="background: #ffffff; border-radius: 16px; padding: 16px; border: 2px solid #a78bfa; margin-bottom: 16px;">
+                                <div style="font-weight: 900; color: #6d28d9; font-size: 1.15rem; margin-bottom: 8px;">
+                                    ✍️ سَبُّورَةُ تَدْرِيبِ كِتَابَةِ وَرَسْمِ حَرْفِ الطَّاءِ (طـ ، ط) (ص ٥٦)
+                                </div>
+                                <img src="activity_ta_trace.png" alt="اتجاهات كتابة الطاء" style="width: 100%; max-width: 550px; border-radius: 10px; margin-bottom: 12px;">
+                                
+                                <div style="display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+                                    <button class="btn" onclick="setTaDrawColor('#dc2626')" style="background: #dc2626; color: white; padding: 6px 14px; border-radius: 8px;">أحمر</button>
+                                    <button class="btn" onclick="setTaDrawColor('#2563eb')" style="background: #2563eb; color: white; padding: 6px 14px; border-radius: 8px;">أزرق</button>
+                                    <button class="btn" onclick="setTaDrawColor('#059669')" style="background: #059669; color: white; padding: 6px 14px; border-radius: 8px;">أخضر</button>
+                                    <button class="btn" onclick="setTaDrawColor('#7c3aed')" style="background: #7c3aed; color: white; padding: 6px 14px; border-radius: 8px;">بنفسجي</button>
+                                    <button class="btn" onclick="setTaEraser()" style="background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; padding: 6px 14px; border-radius: 8px;">ممحاة 🧽</button>
+                                    <button class="btn" onclick="clearTaCanvas()" style="background: #fee2e2; color: #b91c1c; border: 1px solid #fca5a5; padding: 6px 14px; border-radius: 8px;">مسح الكل 🗑️</button>
+                                </div>
+
+                                <div style="display: flex; justify-content: center;">
+                                    <canvas id="taDrawingCanvas" width="550" height="260" style="background: #fffaf0; border: 3px dashed #7c3aed; border-radius: 14px; cursor: crosshair; touch-action: none; max-width: 100%;"></canvas>
+                                </div>
+                            </div>
+
+                            <!-- اختبار وتطبيقات حرف الطاء -->
+                            <div style="background: #ffffff; border-radius: 16px; padding: 16px; border: 2px solid #fde68a;">
+                                <div style="font-weight: 900; color: #b45309; font-size: 1.15rem; margin-bottom: 8px;">
+                                    🏆 اخْتَبِرْ نَفْسَكَ فِي كَلِمَاتِ وَمَقَاطِعِ حَرْفِ الطَّاءِ:
+                                </div>
+                                <div id="taQuizQuestionText" style="font-size: 1.1rem; color: #1e3a8a; font-weight: bold; margin-bottom: 12px;">
+                                    أَيُّ كَلِمَةٍ تَبْدَأُ بِحَرْفِ الطَّاءِ الْمَمْدُودِ بِالأَلِفِ (طَا)؟
+                                </div>
+                                <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                                    <button class="btn btn-teach" onclick="checkTaQuiz(1)" style="background: #2563eb; padding: 10px 22px;">
+                                        ١. طَـارِقٌ
+                                    </button>
+                                    <button class="btn btn-teach" onclick="checkTaQuiz(2)" style="background: #64748b; padding: 10px 22px;">
+                                        ٢. بَـطّ
+                                    </button>
+                                    <button class="btn btn-teach" onclick="checkTaQuiz(3)" style="background: #64748b; padding: 10px 22px;">
+                                        ٣. طِـفْلٌ
+                                    </button>
+                                </div>
+                                <div id="taQuizFeedback" style="margin-top: 10px; font-weight: bold; font-size: 1.05rem; min-height: 28px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- ========================================================
+                     الوحدة الثالثة: الدرس الثالث - حرف الفاء (فـ ، ف) وقراءة (رِيف) (ص ٥٧ - ٦٠)
+                     إعداد المهندس أسامة خليل هاشم
+                ======================================================== -->

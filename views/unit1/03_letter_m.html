@@ -1,0 +1,767 @@
+                <div class="lesson-view" id="view-tab-letter_m">
+
+                    <!-- شريط صوت المعلمة الميداني الأصيل -->
+                    <div class="teacher-voice-banner" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2.5px solid #10b981; border-radius: 20px; padding: 14px 20px; margin-bottom: 18px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="font-size: 2.2rem;">👩‍🏫</span>
+                            <div>
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #065f46; display: flex; align-items: center; gap: 8px;">
+                                    <span>نُطْقُ وَشَرْحُ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ لِحَرْفِ (م) وَكَلِمَاتِهِ (ص ٢٤ - ٢٦)</span>
+                                    <span style="font-size: 0.75rem; background: #10b981; color: white; padding: 2px 8px; border-radius: 8px; font-weight: 800;">تسجيل ميداني أصيل</span>
+                                </div>
+                                <div style="font-size: 0.85rem; color: #047857; font-weight: 700; margin-top: 2px;">
+                                    استمع لنطق المعلمة لكلمات حرف الميم: مَوْز ، مِيزَان ، مِفْتَاح ، مِزْمَار ، مُرَبَّى ، لَيْمُون ، ثَوْم ، قَمْح
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-teach" style="background: #059669; color: white; border: none; padding: 10px 22px; font-size: 0.95rem; font-weight: 800; border-radius: 14px; box-shadow: 0 3px 8px rgba(5,150,105,0.3); cursor: pointer;" onclick="playAudio('teacher_letter_m_words_all')">
+                            ▶️ اِسْتَمِعْ لِكَلِمَاتِ حَرْفِ الْمِيمِ كَامِلَةً
+                        </button>
+                    </div>
+
+                    <!-- شريط المحطات الأربعة -->
+
+                    <div class="station-nav-bar">
+
+                        <button class="station-tab active" id="btnStationM1" onclick="switchMStation(1)">
+
+                            <span>🌸</span> <span>١. أتعرف الحرف والكلمات (ص ٢١)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationM2" onclick="switchMStation(2)">
+
+                            <span>🎵</span> <span>٢. أصوات المدود (ص ٢١ - ٢٢)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationM3" onclick="switchMStation(3)">
+
+                            <span>🧩</span> <span>٣. المقاطع والتحليل الصوتي (ص ٢٢)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationM4" onclick="switchMStation(4)">
+
+                            <span>👩‍👧‍👦</span> <span>٤. تركيب وقراءة (مَامَا) والرسم (ص ٢٣)</span>
+
+                        </button>
+
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والكلمات الثمانية -->
+
+                    <div class="letter-m-station active" id="stationM1">
+
+                        <div style="text-align: center; margin-bottom: 12px;">
+
+                            <div class="giant-letter-m-card" onclick="playMLetterSound()" title="انقر لسماع صوت حرف الميم النقي">
+
+                                <span class="giant-letter-m-glyph">مـ  م</span>
+
+                                <div>
+
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #86198f;">صَوْتُ حَرْفِ الْمِيم: ( مْ... مْ )</div>
+
+                                    <div style="font-size: 0.85rem; color: #c026d3;">اِضْغَطْ لِسَمَاعِ الصَّوْتِ الْفُونِيمِيِّ النَّقِيّ 🔊</div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- بطاقة مشهد الأسرة وماما الكبرى -->
+
+                        <div class="family-listen-card" style="border-color: #f0abfc;">
+
+                            <div style="font-weight: 900; color: #86198f; font-size: 1.1rem; margin-bottom: 8px;">
+
+                                👩‍👧‍👦 فِي بَيْتِ الأُسْرَةِ السَّعِيدَة (مَامَا وَعَنَاصِرُ حَرْفِ الْمِيم)
+
+                            </div>
+
+                            <img src="activity_m_scene.png" alt="مشهد ماما وحرف الميم" style="max-width: 650px; width: 100%; border-radius: 14px; border: 2px solid #cbd5e1; margin-bottom: 10px;">
+
+                            <div>
+
+                                <button class="btn btn-teach" style="background:#a21caf; color:white;" onclick="playMSceneStory()">
+
+                                    🔊 اِسْتَمِعْ لِقِصَّةِ مَامَا وَعَنَاصِرِ حَرْفِ الْمِيم
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <!-- شبكة الكلمات الثمانية المصورة -->
+
+                        <div style="text-align: center; font-weight: 800; color: #1e3a8a; margin: 14px 0 8px;">
+
+                            ⭐ نَشَاط ١: أُرَدِّدُ مُنْتَبِهاً لِصَوْتِ حَرْفِ (م):
+
+                        </div>
+
+                        <div class="w-cards-grid">
+
+                            <div class="w-item-card" id="card-m-mawz" onclick="clickMItem('mawz')">
+
+                                <div class="w-item-icon">🍌</div>
+
+                                <div class="w-item-word"><span style="color:#c026d3; font-weight:900;">مَـ</span>ـوْزٌ</div>
+
+                                <div class="w-item-phonics">مَـ... وْز</div>
+
+                                <div class="w-badge" style="background:#fdf4ff; color:#a21caf;">🔊 مَـ (فتحة بأول الكلمة)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-m-murabba" onclick="clickMItem('murabba')">
+
+                                <div class="w-item-icon">🟩</div>
+
+                                <div class="w-item-word"><span style="color:#c026d3; font-weight:900;">مُـ</span>ـرَبَّـعٌ</div>
+
+                                <div class="w-item-phonics">مُـ... رَبَّـع</div>
+
+                                <div class="w-badge" style="background:#fdf4ff; color:#a21caf;">🔊 مُـ (ضمة بأول الكلمة)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-m-miftah" onclick="clickMItem('miftah')">
+
+                                <div class="w-item-icon">🗝️</div>
+
+                                <div class="w-item-word"><span style="color:#c026d3; font-weight:900;">مِـ</span>ـفْـتَـاحٌ</div>
+
+                                <div class="w-item-phonics">مِـ... فْتَاح</div>
+
+                                <div class="w-badge" style="background:#fdf4ff; color:#a21caf;">🔊 مِـ (كسرة بأول الكلمة)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-m-thawm" onclick="clickMItem('thawm')">
+
+                                <div class="w-item-icon">🧄</div>
+
+                                <div class="w-item-word">ثُـو<span style="color:#c026d3; font-weight:900;">مٌ</span></div>
+
+                                <div class="w-item-phonics">ثُو... مْ</div>
+
+                                <div class="w-badge" style="background:#eff6ff; color:#1d4ed8;">🔊 ـمْ (بآخر الكلمة)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-m-qamh" onclick="clickMItem('qamh')">
+
+                                <div class="w-item-icon">🌾</div>
+
+                                <div class="w-item-word">قَـ<span style="color:#c026d3; font-weight:900;">ـمْـ</span>ـحٌ</div>
+
+                                <div class="w-item-phonics">قَـ... مْـ... ح</div>
+
+                                <div class="w-badge" style="background:#eff6ff; color:#1d4ed8;">🔊 ـمْـ (ساكن بالوسط)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-m-mizmar" onclick="clickMItem('mizmar')">
+
+                                <div class="w-item-icon">🎺</div>
+
+                                <div class="w-item-word"><span style="color:#c026d3; font-weight:900;">مِـ</span>ـزْ<span style="color:#e11d48; font-weight:900;">مَـا</span>رٌ</div>
+
+                                <div class="w-item-phonics">مِـ... زْ... مَا... ر</div>
+
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309;">🔊 مِـ بالكسر و مَا بالمد</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-m-laymun" onclick="clickMItem('laymun')">
+
+                                <div class="w-item-icon">🍋</div>
+
+                                <div class="w-item-word">لَـيْـ<span style="color:#c026d3; font-weight:900;">مُـو</span>نٌ</div>
+
+                                <div class="w-item-phonics">لَيْـ... مُووو... ن</div>
+
+                                <div class="w-badge" style="background:#fef3c7; color:#b45309;">🔊 مُو (مد بالواو)</div>
+
+                            </div>
+
+                            <div class="w-item-card" id="card-m-mizan" onclick="clickMItem('mizan')">
+
+                                <div class="w-item-icon">⚖️</div>
+
+                                <div class="w-item-word"><span style="color:#c026d3; font-weight:900;">مِـيـ</span>ـزَانٌ</div>
+
+                                <div class="w-item-phonics">مِييي... زَان</div>
+
+                                <div class="w-badge" style="background:#ede9fe; color:#6d28d9;">🔊 مِي (مد بالياء)</div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية ص 21 -->
+
+                        <div style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 16px;">
+
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">
+
+                                📖 صفحة الكتاب الأصلية (ص ٢١):
+
+                            </div>
+
+                            <img src="page_21.png" alt="صفحة 21 كتاب قراءتي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1;">
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المد القصيرة والطويلة (ص 21 - 22) -->
+
+                    <div class="letter-m-station" id="stationM2" style="display: none;">
+
+                        <div style="text-align: center; margin-bottom: 14px;">
+
+                            <div style="font-size: 1.25rem; font-weight: 900; color: #1e3a8a;">
+
+                                🎵 نَشَاط ٢: أَنْطِقُ صَوْتَ (م) مَعَ أَصْوَاتِ الْمَدِّ الْقَصِيرَةِ وَالطَّوِيلَة
+
+                            </div>
+
+                            <div style="font-size: 0.9rem; color: #475569;">قارن بين الصوت القصير والصوت الطويل بالنقر على كل زر:</div>
+
+                        </div>
+
+                        <div class="vowel-pairs-grid">
+
+                            <!-- زوج الفتحة والمد بالألف -->
+
+                            <div class="vowel-pair-box">
+
+                                <div class="vowel-badge-btn short" onclick="playMVowel('short', 'a')">
+
+                                    <span class="vowel-badge-glyph">مَـ</span>
+
+                                    <span style="font-size: 0.85rem; font-weight: 800;">فَتْحَة (قَصِير)</span>
+
+                                </div>
+
+                                <span style="font-size: 1.8rem; font-weight: 900; color: #94a3b8;">↔️</span>
+
+                                <div class="vowel-badge-btn long" onclick="playMVowel('long', 'a')">
+
+                                    <span class="vowel-badge-glyph" style="color:#c026d3;">مَا</span>
+
+                                    <span style="font-size: 0.85rem; font-weight: 800;">مَدٌّ بِالْأَلِف (طَوِيل)</span>
+
+                                </div>
+
+                            </div>
+
+                            <!-- زوج الضمة والمد بالواو -->
+
+                            <div class="vowel-pair-box">
+
+                                <div class="vowel-badge-btn short" onclick="playMVowel('short', 'u')">
+
+                                    <span class="vowel-badge-glyph">مُـ</span>
+
+                                    <span style="font-size: 0.85rem; font-weight: 800;">ضَمَّة (قَصِير)</span>
+
+                                </div>
+
+                                <span style="font-size: 1.8rem; font-weight: 900; color: #94a3b8;">↔️</span>
+
+                                <div class="vowel-badge-btn long" onclick="playMVowel('long', 'u')">
+
+                                    <span class="vowel-badge-glyph" style="color:#c026d3;">مُو</span>
+
+                                    <span style="font-size: 0.85rem; font-weight: 800;">مَدٌّ بِالْوَاو (طَوِيل)</span>
+
+                                </div>
+
+                            </div>
+
+                            <!-- زوج الكسرة والمد بالياء -->
+
+                            <div class="vowel-pair-box">
+
+                                <div class="vowel-badge-btn short" onclick="playMVowel('short', 'i')">
+
+                                    <span class="vowel-badge-glyph">مِـ</span>
+
+                                    <span style="font-size: 0.85rem; font-weight: 800;">كَسْرَة (قَصِير)</span>
+
+                                </div>
+
+                                <span style="font-size: 1.8rem; font-weight: 900; color: #94a3b8;">↔️</span>
+
+                                <div class="vowel-badge-btn long" onclick="playMVowel('long', 'i')">
+
+                                    <span class="vowel-badge-glyph" style="color:#c026d3;">مِي</span>
+
+                                    <span style="font-size: 0.85rem; font-weight: 800;">مَدٌّ بِالْيَاء (طَوِيل)</span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- نشاط 3 التطبيقي ص 22 -->
+
+                        <div style="background: white; border-radius: 20px; border: 2px solid #e2e8f0; padding: 18px; margin-top: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+                            <div style="font-size: 1.15rem; font-weight: 900; color: #1e3a8a; margin-bottom: 10px; text-align: center;">
+
+                                🎯 نَشَاط ٣: أَسْتَمِعُ لِلَّفْظِ وَأُمَيِّزُ نَوْعَ الْمَدِّ فِي الْكَلِمَات (ص ٢٢)
+
+                            </div>
+
+                            <div class="w-cards-grid">
+
+                                <div class="w-item-card" onclick="clickMItem('mawz_vowel')">
+
+                                    <div class="w-item-icon">🍌</div>
+
+                                    <div class="w-item-word"><span style="color:#2563eb;">مَـ</span>ـوْزٌ</div>
+
+                                    <div class="w-badge" style="background:#eff6ff; color:#1e40af;">صَوْتٌ قَصِير (مَـ)</div>
+
+                                </div>
+
+                                <div class="w-item-card" onclick="clickMItem('muthallath')">
+
+                                    <div class="w-item-icon">🔺</div>
+
+                                    <div class="w-item-word"><span style="color:#2563eb;">مُـ</span>ـثَلَّثٌ</div>
+
+                                    <div class="w-badge" style="background:#eff6ff; color:#1e40af;">صَوْتٌ قَصِير (مُـ)</div>
+
+                                </div>
+
+                                <div class="w-item-card" onclick="clickMItem('miqas')">
+
+                                    <div class="w-item-icon">✂️</div>
+
+                                    <div class="w-item-word"><span style="color:#2563eb;">مِـ</span>ـقَصٌّ</div>
+
+                                    <div class="w-badge" style="background:#eff6ff; color:#1e40af;">صَوْتٌ قَصِير (مِـ)</div>
+
+                                </div>
+
+                                <div class="w-item-card" onclick="clickMItem('mizmar_vowel')">
+
+                                    <div class="w-item-icon">🎺</div>
+
+                                    <div class="w-item-word">مِزْ<span style="color:#c026d3;">مَا</span>رٌ</div>
+
+                                    <div class="w-badge" style="background:#fdf4ff; color:#86198f;">مَدٌّ طَوِيل (مَا)</div>
+
+                                </div>
+
+                                <div class="w-item-card" onclick="clickMItem('laymun_vowel')">
+
+                                    <div class="w-item-icon">🍋</div>
+
+                                    <div class="w-item-word">لَيْـ<span style="color:#c026d3;">مُو</span>نٌ</div>
+
+                                    <div class="w-badge" style="background:#fdf4ff; color:#86198f;">مَدٌّ طَوِيل (مُو)</div>
+
+                                </div>
+
+                                <div class="w-item-card" onclick="clickMItem('mizan_vowel')">
+
+                                    <div class="w-item-icon">⚖️</div>
+
+                                    <div class="w-item-word"><span style="color:#c026d3;">مِي</span>ـزَانٌ</div>
+
+                                    <div class="w-badge" style="background:#fdf4ff; color:#86198f;">مَدٌّ طَوِيل (مِي)</div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية ص 22 -->
+
+                        <div style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 16px;">
+
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">
+
+                                📖 صفحة الكتاب الأصلية (ص ٢٢):
+
+                            </div>
+
+                            <img src="page_22.png" alt="صفحة 22 كتاب قراءتي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1;">
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الثالثة: المقاطع والتحليل الصوتي (ص 22) -->
+
+                    <div class="letter-m-station" id="stationM3" style="display: none;">
+
+                        <!-- نشاط 4: المقطع الساكن -->
+
+                        <div style="background: white; border-radius: 20px; border: 2px solid #e2e8f0; padding: 18px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+                            <div style="text-align: center; margin-bottom: 14px;">
+
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #1e3a8a;">
+
+                                    🥁 نَشَاط ٤: أُمَيِّزُ صَوْتَ حَرْفِ (م) السَّاكِن فِي الْمَقَاطِع
+
+                                </div>
+
+                                <div style="font-size: 0.9rem; color: #475569;">انقر على أي بطاقة لسماع المقطع الصوتي الساكن بوضوح:</div>
+
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+
+                                <div class="b-split-card" onclick="playMSyllable('tamr')" style="cursor: pointer;">
+
+                                    <div style="font-size: 2.8rem;">🌴</div>
+
+                                    <div class="b-word-tag">تَمْرُ</div>
+
+                                    <div class="b-syllable-chips">
+
+                                        <span class="b-syllable-chip" style="background:#fdf4ff; border-color:#d946ef; color:#a21caf;">تَمْـ</span>
+
+                                        <span style="font-size:1.5rem; font-weight:800; color:#64748b;">➕</span>
+
+                                        <span class="b-syllable-chip">رٌ</span>
+
+                                    </div>
+
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #a21caf;">🔊 انقر لسماع: تَمْـ</div>
+
+                                </div>
+
+                                <div class="b-split-card" onclick="playMSyllable('namr')" style="cursor: pointer;">
+
+                                    <div style="font-size: 2.8rem;">🐆</div>
+
+                                    <div class="b-word-tag">نَمْرُ</div>
+
+                                    <div class="b-syllable-chips">
+
+                                        <span class="b-syllable-chip" style="background:#fdf4ff; border-color:#d946ef; color:#a21caf;">نَمْـ</span>
+
+                                        <span style="font-size:1.5rem; font-weight:800; color:#64748b;">➕</span>
+
+                                        <span class="b-syllable-chip">رٌ</span>
+
+                                    </div>
+
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #a21caf;">🔊 انقر لسماع: نَمْـ</div>
+
+                                </div>
+
+                                <div class="b-split-card" onclick="playMSyllable('timsah')" style="cursor: pointer;">
+
+                                    <div style="font-size: 2.8rem;">🐊</div>
+
+                                    <div class="b-word-tag">تِمْسَاحُ</div>
+
+                                    <div class="b-syllable-chips">
+
+                                        <span class="b-syllable-chip" style="background:#fdf4ff; border-color:#d946ef; color:#a21caf;">تِمْـ</span>
+
+                                        <span style="font-size:1.5rem; font-weight:800; color:#64748b;">➕</span>
+
+                                        <span class="b-syllable-chip">سَاحٌ</span>
+
+                                    </div>
+
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #a21caf;">🔊 انقر لسماع: تِمْـ</div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- نشاط 5: ورشة تحليل الكلمات لمقاطع -->
+
+                        <div style="background: white; border-radius: 20px; border: 2px solid #e2e8f0; padding: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+                            <div style="text-align: center; margin-bottom: 14px;">
+
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #1e3a8a;">
+
+                                    ✂️ نَشَاط ٥: أَقْرَأُ الْكَلِمَاتِ ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا
+
+                                </div>
+
+                                <div style="font-size: 0.9rem; color: #475569;">اضغط على زر التحليل لمشاهدة وانفصال مقاطع الكلمة صوتياً:</div>
+
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+
+                                <div class="b-split-card">
+
+                                    <div class="b-word-tag" id="tag-split-mama">مَامَا</div>
+
+                                    <div class="b-syllable-chips" id="chips-split-mama">
+
+                                        <span class="b-syllable-chip" style="background:#fdf4ff; border-color:#d946ef; color:#a21caf;">مَا</span>
+
+                                        <span style="font-size:1.4rem; font-weight:800; color:#64748b;">➕</span>
+
+                                        <span class="b-syllable-chip" style="background:#fdf4ff; border-color:#d946ef; color:#a21caf;">مَا</span>
+
+                                    </div>
+
+                                    <button class="btn btn-teach" style="background:#a21caf; color:white; font-size:0.85rem; padding:8px 16px;" onclick="splitMWord('mama')">
+
+                                        🔊 حَلِّلْ كَلِمَةَ (مَامَا)
+
+                                    </button>
+
+                                </div>
+
+                                <div class="b-split-card">
+
+                                    <div class="b-word-tag" id="tag-split-bum">بُوْمُ</div>
+
+                                    <div class="b-syllable-chips" id="chips-split-bum">
+
+                                        <span class="b-syllable-chip" style="background:#eff6ff; border-color:#3b82f6; color:#1d4ed8;">بُو</span>
+
+                                        <span style="font-size:1.4rem; font-weight:800; color:#64748b;">➕</span>
+
+                                        <span class="b-syllable-chip" style="background:#fdf4ff; border-color:#d946ef; color:#a21caf;">مُ</span>
+
+                                    </div>
+
+                                    <button class="btn btn-teach" style="background:#a21caf; color:white; font-size:0.85rem; padding:8px 16px;" onclick="splitMWord('bum')">
+
+                                        🔊 حَلِّلْ كَلِمَةَ (بُوْم)
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الرابعة: ورشة التركيب وقراءة (مَامَا) والرسم (ص 23) -->
+
+                    <div class="letter-m-station" id="stationM4" style="display: none;">
+
+                        <!-- نشاط 6: لعبة تركيب المقاطع بالأحاجي (مَامَا) -->
+
+                        <div style="background: white; border-radius: 20px; border: 2px solid #e2e8f0; padding: 18px; margin-bottom: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+
+                            <div style="text-align: center; margin-bottom: 14px;">
+
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #1e3a8a;">
+
+                                    🧩 نَشَاط ٦: أُرَكِّبُ مِنَ الْمَقَاطِعِ كَلِمَاتٍ ثُمَّ أَقْرَأُهَا (ص ٢٣)
+
+                                </div>
+
+                                <div style="font-size: 0.9rem; color: #475569;">انقر على قطع الأحجية لتركيب الكلمات وقراءتها:</div>
+
+                            </div>
+
+                            <div class="puzzle-merge-container">
+
+                                <div class="puzzle-merge-row">
+
+                                    <div class="puzzle-pieces-group">
+
+                                        <div class="puzzle-piece" style="background:#fdf4ff; border-color:#d946ef; color:#a21caf;" onclick="mergeMPuzzle('mama')">مَا</div>
+
+                                        <span style="font-size:1.8rem; font-weight:900; color:#f59e0b;">➕</span>
+
+                                        <div class="puzzle-piece" style="background:#fdf4ff; border-color:#d946ef; color:#a21caf;" onclick="mergeMPuzzle('mama')">مَا</div>
+
+                                    </div>
+
+                                    <span style="font-size:2rem; font-weight:900; color:#10b981;">➔</span>
+
+                                    <div class="puzzle-result" style="border-color:#d946ef; background:#fdf4ff;" onclick="mergeMPuzzle('mama')">
+
+                                        <span>👩‍👧‍👦</span> <span style="color:#86198f;">مَامَا</span>
+
+                                    </div>
+
+                                    <button class="btn btn-teach" style="background:#a21caf; color:white; font-size:0.85rem;" onclick="mergeMPuzzle('mama')">🔊 ادمج واقرأ</button>
+
+                                </div>
+
+                                <div class="puzzle-merge-row">
+
+                                    <div class="puzzle-pieces-group">
+
+                                        <div class="puzzle-piece" onclick="mergeMPuzzle('bum')">بُو</div>
+
+                                        <span style="font-size:1.8rem; font-weight:900; color:#f59e0b;">➕</span>
+
+                                        <div class="puzzle-piece" style="background:#fdf4ff; border-color:#d946ef; color:#a21caf;" onclick="mergeMPuzzle('bum')">مُ</div>
+
+                                    </div>
+
+                                    <span style="font-size:2rem; font-weight:900; color:#10b981;">➔</span>
+
+                                    <div class="puzzle-result" onclick="mergeMPuzzle('bum')">
+
+                                        <span>🦉</span> <span>بُوْمُ</span>
+
+                                    </div>
+
+                                    <button class="btn btn-teach" style="font-size:0.85rem;" onclick="mergeMPuzzle('bum')">🔊 ادمج واقرأ</button>
+
+                                </div>
+
+                                <div class="puzzle-merge-row">
+
+                                    <div class="puzzle-pieces-group">
+
+                                        <div class="puzzle-piece" onclick="mergeMPuzzle('baba')">بَا</div>
+
+                                        <span style="font-size:1.8rem; font-weight:900; color:#f59e0b;">➕</span>
+
+                                        <div class="puzzle-piece" onclick="mergeMPuzzle('baba')">بَا</div>
+
+                                    </div>
+
+                                    <span style="font-size:2rem; font-weight:900; color:#10b981;">➔</span>
+
+                                    <div class="puzzle-result" onclick="mergeMPuzzle('baba')">
+
+                                        <span>👨‍👧‍👦</span> <span>بَابَا</span>
+
+                                    </div>
+
+                                    <button class="btn btn-teach" style="font-size:0.85rem;" onclick="mergeMPuzzle('baba')">🔊 ادمج واقرأ</button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- لوحة القراءة الكبرى مع العصفور المغرد -->
+
+                        <div class="grand-reading-banner" style="border-color:#d946ef; background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);">
+
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px;">
+
+                                <span style="font-size: 2.6rem;">🐦✨</span>
+
+                                <div>
+
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #86198f;">أَقْرَأُ مَعَ الْعُصْفُورِ الْمُغَرِّد (ص ٢٣)</div>
+
+                                    <div style="font-size: 0.95rem; color: #a21caf; font-weight: 700;">اضغط على أي كلمة لقراءتها، أو اضغط زر القراءة الجماعية:</div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="grand-words-display">
+
+                                <div class="grand-word-chip" style="border-color:#ef4444; color:#dc2626;" onclick="playMReadWord('baba')">بَابَا</div>
+
+                                <div class="grand-word-chip" style="border-color:#d946ef; color:#a21caf;" onclick="playMReadWord('mama')">مَامَا</div>
+
+                                <div class="grand-word-chip" style="border-color:#3b82f6; color:#1d4ed8;" onclick="playMReadWord('bum')">بُوْمُ</div>
+
+                            </div>
+
+                            <button class="btn btn-quiz" style="background:#a21caf; font-size: 1.1rem; padding: 12px 28px; margin-top: 10px;" onclick="playMReadAll()">
+
+                                🌟 اِقْرَأِ الْكَلِمَاتِ الثَّلَاثَ مَعَ فَصِيح 🌟
+
+                            </button>
+
+                        </div>
+
+                        <!-- سبورة تتبع ورسم حرف الميم (مـ ، م) -->
+
+                        <div style="background: white; border-radius: 20px; border: 2px solid #e2e8f0; padding: 18px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-top: 16px;">
+
+                            <div style="font-size: 1.2rem; font-weight: 900; color: #1e3a8a; margin-bottom: 6px;">
+
+                                🎨 سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الْمِيم (مـ ، م)
+
+                            </div>
+
+                            <div style="font-size: 0.9rem; color: #475569; margin-bottom: 14px;">
+
+                                تتبع الحرف بإصبعك أو بالقلم (دائرة صغيرة من أعلى ثم مد السطر لليمين، أو العصا للأسفل):
+
+                            </div>
+
+                            <div class="controls" style="margin-bottom: 12px;">
+
+                                <button class="btn btn-teach" style="background:#a21caf; color:white;" onclick="playMDrawHint()">🔊 اِسْتَمِعْ لِإِرْشَادِ الرَّسْم</button>
+
+                                <button class="btn btn-reset" onclick="clearMCanvas()">🔄 مَسْحُ السَّبُّورَة</button>
+
+                            </div>
+
+                            <div class="trace-canvas-container">
+
+                                <canvas id="mDrawingCanvas" width="600" height="320"></canvas>
+
+                            </div>
+
+                            <div class="canvas-tools">
+
+                                <span style="font-weight: 800; color: #334155; font-size: 0.9rem;">اختر لون الرسم:</span>
+
+                                <div class="color-dot-m active" style="background:#c026d3;" onclick="setMDrawColor('#c026d3', this)"></div>
+
+                                <div class="color-dot-m" style="background:#dc2626;" onclick="setMDrawColor('#dc2626', this)"></div>
+
+                                <div class="color-dot-m" style="background:#2563eb;" onclick="setMDrawColor('#2563eb', this)"></div>
+
+                                <div class="color-dot-m" style="background:#059669;" onclick="setMDrawColor('#059669', this)"></div>
+
+                                <div class="color-dot-m" style="background:#d97706;" onclick="setMDrawColor('#d97706', this)"></div>
+
+                                <button class="btn" style="background:#64748b; color:white; padding:6px 12px; font-size:0.8rem;" onclick="setMEraser(this)">🧹 ممحاة</button>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صورة الكتاب الأصلية ص 23 -->
+
+                        <div style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 16px;">
+
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">
+
+                                📖 صفحة الكتاب الأصلية (ص ٢٣):
+
+                            </div>
+
+                            <img src="page_23.png" alt="صفحة 23 كتاب قراءتي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1;">
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ========================================================
+
+                     الوحدة الأولى: أسرتي - الدرس الرابع: حرف الدال (د) وتكوين ودمج (دَادَا) وقراءة (بَابَا ، مَامَا ، دَادَا) (ص 24 - 26)
+
+                ======================================================== -->
+

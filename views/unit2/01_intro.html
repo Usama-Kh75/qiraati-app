@@ -1,0 +1,322 @@
+                <div class="lesson-view" id="view-tab-unit2_intro">
+
+                    <!-- شريط المحطات التفاعلي للدرس -->
+
+                    <div class="station-nav-bar">
+
+                        <button class="station-tab active" id="btnStationUnit2_1" onclick="switchUnit2Station(1)">
+
+                            <span>🎒</span> <span>١. الاستماع (قصة مدرستي الجميلة)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationUnit2_2" onclick="switchUnit2Station(2)">
+
+                            <span>🗣️</span> <span>٢. المحادثة والتعبير (أنا أتحدث)</span>
+
+                        </button>
+
+                        <button class="station-tab" id="btnStationUnit2_3" onclick="switchUnit2Station(3)">
+
+                            <span>🎮</span> <span>٣. جَوْلَتِي فِي الْمَدْرَسَةِ (اخْتَبِرْ نَفْسَك)</span>
+
+                        </button>
+
+                    </div>
+
+                    <!-- المحطة الأولى: الاستماع لقصة مدرستي الجميلة -->
+
+                    <div class="unit2-station active" id="stationUnit2_1">
+
+                        <div class="family-listen-card" style="background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%); border: 2px solid #bfdbfe;">
+
+                            <div style="font-size: 1.3rem; font-weight: 900; color: #1e3a8a; margin-bottom: 6px;">
+
+                                🎒 قِصَّةُ مَدْرَسَتِي الْجَمِيلَة (الِاسْتِمَاع - ص ٣١)
+
+                            </div>
+
+                            <div style="font-size: 0.95rem; color: #475569; margin-bottom: 14px;">
+
+                                انقر على زر الاستماع للقصة كاملة، أو استكشف مرافق وأركان مدرستنا الحبيبة:
+
+                            </div>
+
+                            <div style="position: relative; display: inline-block; max-width: 650px; width: 100%; margin-bottom: 14px;">
+
+                                <img src="unit2_school_listen.png" alt="مدرستي الجميلة" style="width: 100%; border-radius: 16px; border: 2px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+
+                            </div>
+
+                            <!-- زر الاستماع للقصة كاملة -->
+
+                            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
+
+                                <button class="btn btn-teach" onclick="playSchoolStory('full')" style="font-size: 1.05rem; padding: 12px 28px; background: linear-gradient(135deg, #2563eb, #1d4ed8); box-shadow: 0 4px 14px rgba(37,99,235,0.3);">
+
+                                    🔊 اِسْتَمِعْ لِقِصَّةِ الْمَدْرَسَةِ كَامِلَة
+
+                                </button>
+
+                            </div>
+
+                            <!-- بطاقات استكشاف مرافق وأركان المدرسة الأربعة -->
+
+                            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+
+                                <button class="btn" style="background:#eff6ff; color:#1e40af; border:2px solid #bfdbfe; font-size:0.95rem;" onclick="playSchoolStory('building')">
+
+                                    🏫 بِنَاءُ الْمَدْرَسَةِ وَبَوَّابَتُهَا
+
+                                </button>
+
+                                <button class="btn" style="background:#ecfdf5; color:#065f46; border:2px solid #a7f3d0; font-size:0.95rem;" onclick="playSchoolStory('yard')">
+
+                                    🌳 سَاحَةُ الْمَدْرَسَةِ وَالْحَدِيقَة
+
+                                </button>
+
+                                <button class="btn" style="background:#fdf2f8; color:#9d174d; border:2px solid #fbcfe8; font-size:0.95rem;" onclick="playSchoolStory('teacher')">
+
+                                    🧑‍🏫 الْمُعَلِّمَةُ الْفَاضِلَة
+
+                                </button>
+
+                                <button class="btn" style="background:#fffbeb; color:#92400e; border:2px solid #fde68a; font-size:0.95rem;" onclick="playSchoolStory('pupils')">
+
+                                    🎒 التَّلَامِيذُ الْمُجْتَهِدُونَ
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صورة صفحة الكتاب الأصلية ص 31 -->
+
+                        <div style="background: white; border-radius: 18px; border: 2px solid #e2e8f0; padding: 16px; text-align: center; margin-top: 16px;">
+
+                            <div style="font-weight: 800; color: #1e3a8a; margin-bottom: 10px;">
+
+                                📖 صفحة الكتاب الأصلية (ص ٣١):
+
+                            </div>
+
+                            <img src="page_31.png" alt="صفحة 31 كتاب قراءتي - الوحدة الثانية مدرستي" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1px solid #cbd5e1; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الثانية: المحادثة والتعبير الشفوي (أنا أتحدث) -->
+
+                    <div class="unit2-station" id="stationUnit2_2" style="display: none;">
+
+                        <div style="text-align: center; margin-bottom: 14px;">
+
+                            <div style="font-size: 1.25rem; font-weight: 900; color: #1e3a8a;">🗣️ أَنَا أَتَحَدَّثُ: أُعَبِّرُ عَنِ الصُّوَرِ الثَّلَاث (ص ٣١)</div>
+
+                            <div style="font-size: 0.92rem; color: #475569;">اضغط على أي صورة لتستمع لتعبير فصيح، ثم ناقش أسئلة المحادثة المنهجية:</div>
+
+                        </div>
+
+                        <!-- شبكة المشاهد الثلاثة المصورة -->
+
+                        <div class="family-story-grid">
+
+                            <!-- المشهد 1: ساحة المدرسة والاصطفاف الصباحي -->
+
+                            <div class="story-scene-card" onclick="playUnit2StoryScene('yard')" style="cursor: pointer;">
+
+                                <img src="unit2_story_yard.png" alt="ساحة المدرسة والاصطفاف" class="story-scene-img" style="object-fit: cover;">
+
+                                <div class="story-scene-body">
+
+                                    <div style="font-weight: 900; font-size: 1.05rem; color: #065f46; margin-bottom: 6px;">١. سَاحَةُ الْمَدْرَسَةِ وَالِاصْطِفَاف</div>
+
+                                    <div style="font-size: 0.88rem; color: #334155; line-height: 1.5;">نَقِفُ فِي سَاحَةِ الْمَدْرَسَةِ بِنِظَام، نُحَيِّي عَلَمَ الْعِرَاقِ الْغَالِي، وَنُؤَدِّي الرِّيَاضَةَ الصَّبَاحِيَّةَ بِنَشَاط!</div>
+
+                                    <button class="btn" style="background:#dcfce7; color:#166534; font-size:0.82rem; margin-top:10px; width:100%;">🔊 استمع للشرح</button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- المشهد 2: الغرفة الصفية وطلب العلم -->
+
+                            <div class="story-scene-card" onclick="playUnit2StoryScene('classroom')" style="cursor: pointer;">
+
+                                <img src="unit2_story_classroom.png" alt="الغرفة الصفية" class="story-scene-img" style="object-fit: cover;">
+
+                                <div class="story-scene-body">
+
+                                    <div style="font-weight: 900; font-size: 1.05rem; color: #1e40af; margin-bottom: 6px;">٢. الْغُرْفَةُ الصَّفِّيَّةُ وَطَلَبُ الْعِلْم</div>
+
+                                    <div style="font-size: 0.88rem; color: #334155; line-height: 1.5;">نَجْلِسُ فِي صَفِّنَا بِنِظَامٍ وَهُدُوء، نَسْتَمِعُ لِمُعَلِّمَتِنَا، نَقْرَأُ الْكُتُبَ، وَنَسْتَأْذِنُ بِرَفْعِ الْيَدِ قَبْلَ الْكَلَام!</div>
+
+                                    <button class="btn" style="background:#dbeafe; color:#1e40af; font-size:0.82rem; margin-top:10px; width:100%;">🔊 استمع للشرح</button>
+
+                                </div>
+
+                            </div>
+
+                            <!-- المشهد 3: حسن التعامل مع المعلمة والزملاء -->
+
+                            <div class="story-scene-card" onclick="playUnit2StoryScene('friends')" style="cursor: pointer;">
+
+                                <img src="unit2_story_friends.png" alt="حسن التعامل مع الزملاء" class="story-scene-img" style="object-fit: cover;">
+
+                                <div class="story-scene-body">
+
+                                    <div style="font-weight: 900; font-size: 1.05rem; color: #9d174d; margin-bottom: 6px;">٣. حُسْنُ التَّعَامُلِ مَعَ الْمُعَلِّمَةِ وَالزُّمَلَاء</div>
+
+                                    <div style="font-size: 0.88rem; color: #334155; line-height: 1.5;">نَحْتَرِمُ مُعَلِّمَتَنَا، وَنَتَعَاوَنُ مَعَ زُمَلَائِنَا بِمَحَبَّةٍ وَإِيثَار، نَتَشَارَكُ الْأَدَوَاتِ وَنَقُولُ: شُكْراً وَمِنْ فَضْلِك!</div>
+
+                                    <button class="btn" style="background:#fce7f3; color:#9d174d; font-size:0.82rem; margin-top:10px; width:100%;">🔊 استمع للشرح</button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!-- صندوق أسئلة المحادثة المنهجية الخمسة من الكتاب الوزاري ص 31 -->
+
+                        <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 3px solid #f59e0b; border-radius: 18px; padding: 18px; margin: 16px 0; box-shadow: 0 4px 12px rgba(245,158,11,0.15);">
+
+                            <div style="font-weight: 900; color: #92400e; font-size: 1.15rem; margin-bottom: 12px; text-align: center;">
+
+                                🌟 أَسْئِلَةُ الْمُحَادَثَةِ الْمَنْهَجِيَّةِ مَعَ «فَصِيح» (كتاب ص ٣١):
+
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+
+                                <button class="btn" style="background: white; color: #92400e; text-align: right; justify-content: flex-start; padding: 12px 18px; font-size: 0.95rem; border: 1.5px solid #fcd34d; border-radius: 12px;" onclick="playUnit2Question(1)">
+
+                                    <span style="font-size: 1.2rem; margin-left: 8px;">❓</span>
+
+                                    <span><b>• أَصِفُ مَا أُشَاهِدُهُ فِي كُلِّ صُورَة.</b> <span style="font-size: 0.82rem; color: #b45309;">(انقر للاستماع للوصف المفصل)</span></span>
+
+                                </button>
+
+                                <button class="btn" style="background: white; color: #92400e; text-align: right; justify-content: flex-start; padding: 12px 18px; font-size: 0.95rem; border: 1.5px solid #fcd34d; border-radius: 12px;" onclick="playUnit2Question(2)">
+
+                                    <span style="font-size: 1.2rem; margin-left: 8px;">❓</span>
+
+                                    <span><b>• لِمَاذَا يَجْتَمِعُ التَّلَامِيذُ فِي سَاحَةِ الْمَدْرَسَة؟</b> <span style="font-size: 0.82rem; color: #b45309;">(انقر للاستماع للإجابة)</span></span>
+
+                                </button>
+
+                                <button class="btn" style="background: white; color: #92400e; text-align: right; justify-content: flex-start; padding: 12px 18px; font-size: 0.95rem; border: 1.5px solid #fcd34d; border-radius: 12px;" onclick="playUnit2Question(3)">
+
+                                    <span style="font-size: 1.2rem; margin-left: 8px;">❓</span>
+
+                                    <span><b>• تَخَيَّلْ نَفْسَكَ فِي هَذِهِ الْغُرْفَةِ الصَّفِّيَّة، مَا الْأَعْمَالُ الَّتِي تَقُومُ بِهَا؟</b> <span style="font-size: 0.82rem; color: #b45309;">(انقر للاستماع للإجابة)</span></span>
+
+                                </button>
+
+                                <button class="btn" style="background: white; color: #92400e; text-align: right; justify-content: flex-start; padding: 12px 18px; font-size: 0.95rem; border: 1.5px solid #fcd34d; border-radius: 12px;" onclick="playUnit2Question(4)">
+
+                                    <span style="font-size: 1.2rem; margin-left: 8px;">❓</span>
+
+                                    <span><b>• قَدِّمْ نَصِيحَةً لِزَمِيلِكَ تَحُثُّهُ فِيهَا عَلَى حُسْنِ التَّعَامُلِ مَعَ الْمُعَلِّمَةِ وَالزُّمَلَاء.</b> <span style="font-size: 0.82rem; color: #b45309;">(انقر لسماع النصيحة)</span></span>
+
+                                </button>
+
+                                <button class="btn" style="background: white; color: #92400e; text-align: right; justify-content: flex-start; padding: 12px 18px; font-size: 0.95rem; border: 1.5px solid #fcd34d; border-radius: 12px;" onclick="playUnit2Question(5)">
+
+                                    <span style="font-size: 1.2rem; margin-left: 8px;">❓</span>
+
+                                    <span><b>• كَوِّنْ قِصَّةً مِنَ الصُّوَرِ الَّتِي أَمَامَك.</b> <span style="font-size: 0.82rem; color: #b45309;">(انقر لسماع القصة التوليفية الشاملة)</span></span>
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- المحطة الثالثة: جولتِي في المدرسة (اختبر نفسك مع فصيح) -->
+
+                    <div class="unit2-station" id="stationUnit2_3" style="display: none;">
+
+                        <div style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2px solid #86efac; border-radius: 18px; padding: 20px; text-align: center; margin-bottom: 16px;">
+
+                            <div style="font-size: 1.3rem; font-weight: 900; color: #166534; margin-bottom: 8px;">
+
+                                🎮 لُعْبَةُ جَوْلَتِي التَّفَاعُلِيَّةُ فِي الْمَدْرَسَة (مَعَ فَصِيح)
+
+                            </div>
+
+                            <div id="unit2QuizPromptText" style="font-size: 1.05rem; font-weight: 800; color: #1e3a8a; background: white; padding: 12px 18px; border-radius: 14px; border: 2px dashed #3b82f6; display: inline-block; margin-bottom: 16px;">
+
+                                انقر على زر "ابدأ اللعبة" لتسمع سؤال فصيح، ثم اختر الصورة الصحيحة!
+
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 16px;">
+
+                                <button class="btn btn-teach" id="btnStartUnit2Quiz" onclick="startUnit2Quiz()" style="font-size: 1rem; padding: 10px 24px; background: #16a34a;">
+
+                                    ▶️ اِبْدَأِ اللُّعْبَةَ مَعَ فَصِيح
+
+                                </button>
+
+                            </div>
+
+                            <!-- بطاقات الاختيار التفاعلية للعبة -->
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;" id="unit2QuizOptions">
+
+                                <div class="story-scene-card quiz-card" id="quizCardYard" onclick="answerUnit2Quiz('yard')" style="cursor: pointer;">
+
+                                    <img src="unit2_story_yard.png" alt="ساحة المدرسة" class="story-scene-img" style="height: 160px; object-fit: cover;">
+
+                                    <div style="padding: 10px; font-weight: 800; color: #1e40af; font-size: 0.95rem;">
+
+                                        🌳 سَاحَةُ الْمَدْرَسَة (تَحِيَّةُ الْعَلَمِ وَالرِّيَاضَة)
+
+                                    </div>
+
+                                </div>
+
+                                <div class="story-scene-card quiz-card" id="quizCardClassroom" onclick="answerUnit2Quiz('classroom')" style="cursor: pointer;">
+
+                                    <img src="unit2_story_classroom.png" alt="الغرفة الصفية" class="story-scene-img" style="height: 160px; object-fit: cover;">
+
+                                    <div style="padding: 10px; font-weight: 800; color: #1e40af; font-size: 0.95rem;">
+
+                                        📚 الْغُرْفَةُ الصَّفِّيَّة (الْقِرَاءَةُ وَالْكِتَابَة)
+
+                                    </div>
+
+                                </div>
+
+                                <div class="story-scene-card quiz-card" id="quizCardFriends" onclick="answerUnit2Quiz('friends')" style="cursor: pointer;">
+
+                                    <img src="unit2_story_friends.png" alt="التعاون ومساعدة الزملاء" class="story-scene-img" style="height: 160px; object-fit: cover;">
+
+                                    <div style="padding: 10px; font-weight: 800; color: #1e40af; font-size: 0.95rem;">
+
+                                        🤝 التَّعَاوُنُ وَمُسَاعَدَةُ الزُّمَلَاء (بِمَحَبَّة)
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div id="unit2QuizFeedback" style="margin-top: 16px; font-size: 1.1rem; font-weight: 900; display: none;"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            
+                <!-- ========================================================
+                     الدرس الثاني: حرف الراء (ر) وتركيب كلمة (دَار) (ص 32 - 34)
+                ======================================================== -->

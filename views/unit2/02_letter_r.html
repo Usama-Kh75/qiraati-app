@@ -1,0 +1,537 @@
+                <div class="lesson-view" id="view-tab-letter_r">
+                    <!-- شريط المحطات الأربعة -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationR1" onclick="switchRStation(1)">
+                            <span>🏡</span> <span>١. أتعرف الحرف والكلمات (ص ٣٢)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationR2" onclick="switchRStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود (ص ٣٢ - ٣٣)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationR3" onclick="switchRStation(3)">
+                            <span>🧩</span> <span>٣. المقاطع والتحليل الصوتي (ص ٣٣)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationR4" onclick="switchRStation(4)">
+                            <span>👦</span> <span>٤. تركيب وقراءة (دَار) والرسم (ص ٣٤)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والكلمات السبع (ص 32) -->
+                    <div class="letter-r-station active" id="stationR1">
+                        <div style="text-align: center; margin-bottom: 12px;">
+                            <div class="giant-letter-r-card" onclick="playRLetterSound()" title="انقر لسماع صوت حرف الراء النقي">
+                                <span class="giant-letter-r-glyph">ر  ـر</span>
+                                <div>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #b45309;">صَوْتُ حَرْفِ الرَّاءِ: ( رْ... رْ )</div>
+                                    <div style="font-size: 0.85rem; color: #d97706;">اِضْغَطْ لِسَمَاعِ الصَّوْتِ الْفُونِيمِيِّ النَّقِيّ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- بطاقة مشهد دارنا الجميلة وعناصر حرف الراء -->
+                        <div class="family-listen-card" style="border-color: #fcd34d;">
+                            <div style="font-weight: 900; color: #b45309; font-size: 1.1rem; margin-bottom: 8px;">
+                                🏡 فِي دَارِنَا الْجَمِيلَة (عَنَاصِرُ حَرْفِ الرَّاءِ فِي الدَّارِ وَالْحَدِيقَة)
+                            </div>
+                            <img src="activity_r_scene.png" alt="مشهد دارنا الجميلة وحرف الراء" style="max-width: 650px; width: 100%; border-radius: 14px; border: 2px solid #fef3c7; box-shadow: 0 4px 12px rgba(0,0,0,0.06); margin-bottom: 10px; object-fit: contain;">
+                            <div>
+                                <button class="btn btn-teach" id="btnRSceneStory" onclick="playRSceneStory()">
+                                    <span>🔊</span> <span>اِسْتَمِعْ لِقِصَّةِ دَارِنَا وَعَنَاصِرِ حَرْفِ الرَّاءِ</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- صندوق استراتيجية النمذجة الصريحة للفظ الكلمات -->
+                        <div style="background: #fffbeb; border: 2px dashed #f59e0b; border-radius: 16px; padding: 14px 18px; margin-bottom: 16px; text-align: center;">
+                            <div style="font-weight: 900; color: #92400e; font-size: 1rem; margin-bottom: 8px;">
+                                🎓 نَمْذَجَةُ فَصِيح الصَّرِيحَة (دَلِيلُ الْمُعَلِّمِ ص ٤٤ - ٤٥):
+                            </div>
+                            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                                <button class="btn btn-listen" style="background:#fef3c7; color:#92400e; border:1.5px solid #f59e0b; font-size:0.88rem; padding:6px 14px;" onclick="playRModel('alone')">
+                                    <span>1️⃣</span> <span>فَصِيح يُنَمْذِج («أَنَا وَحْدِي» مع رَمْل)</span>
+                                </button>
+                                <button class="btn btn-listen" style="background:#fef3c7; color:#92400e; border:1.5px solid #f59e0b; font-size:0.88rem; padding:6px 14px;" onclick="playRModel('we')">
+                                    <span>2️⃣</span> <span>مُمَارَسَةٌ مُوَجَّهَة («أَنَا وَأَنْتُمْ» مع جَزَر)</span>
+                                </button>
+                                <button class="btn btn-listen" style="background:#fef3c7; color:#92400e; border:1.5px solid #f59e0b; font-size:0.88rem; padding:6px 14px;" onclick="playRModel('you')">
+                                    <span>3️⃣</span> <span>اِسْتِقْلالِيَّة («أَنْتُمْ وَحْدَكُمْ» انقر الصور)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- نشاط ١: أردد منتبها لصوت حرف ر في الكلمات المصورة -->
+                        <div class="interactive-stage-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #b45309;">
+                                    📸 نَشَاطُ ١: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ حَرْفِ ( ر ) فِي الْكَلِمَاتِ الْمُصَوَّرَة (كتاب ص ٣٢)
+                                </div>
+                                <span style="font-size: 0.85rem; background: #fef3c7; color: #b45309; padding: 4px 10px; border-radius: 12px; font-weight: 800;">
+                                    ٧ كلمات مصورة 🔊
+                                </span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); gap: 12px; margin-bottom: 16px;">
+                                <div class="word-chip-card" onclick="clickRItem('raml')">
+                                    <span style="font-size: 2.2rem;">🏖️</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #92400e;">رَمْلٌ</div>
+                                    <div style="font-size: 0.75rem; color: #b45309;">رَ (أول الكلمة)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickRItem('rijl')">
+                                    <span style="font-size: 2.2rem;">🦵</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #92400e;">رِجْلٌ</div>
+                                    <div style="font-size: 0.75rem; color: #b45309;">رِ (أول الكلمة)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickRItem('qird')">
+                                    <span style="font-size: 2.2rem;">🐒</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #92400e;">قِرْدٌ</div>
+                                    <div style="font-size: 0.75rem; color: #b45309;">ـرْ (ساكن بالوسط)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickRItem('jazar')">
+                                    <span style="font-size: 2.2rem;">🥕</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #92400e;">جَزَرٌ</div>
+                                    <div style="font-size: 0.75rem; color: #b45309;">ـرٌ (آخر الكلمة)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickRItem('kharoof')">
+                                    <span style="font-size: 2.2rem;">🐑</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #92400e;">خَرُوفٌ</div>
+                                    <div style="font-size: 0.75rem; color: #b45309;">ـرُوـ (مد بالواو)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickRItem('sareer')">
+                                    <span style="font-size: 2.2rem;">🛏️</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #92400e;">سَرِيرٌ</div>
+                                    <div style="font-size: 0.75rem; color: #b45309;">ـرِيـ (مد بالياء)</div>
+                                </div>
+                                <div class="word-chip-card" onclick="clickRItem('mibraat')">
+                                    <span style="font-size: 2.2rem;">✏️</span>
+                                    <div style="font-weight: 900; font-size: 1.1rem; color: #92400e;">مِبْرَاةٌ</div>
+                                    <div style="font-size: 0.75rem; color: #b45309;">ـرَا (مد بالألف)</div>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 10px;">
+                                <img src="activity_r_words.png" alt="الكلمات المصورة ص 32" style="max-width: 600px; width: 100%; border-radius: 12px; border: 1.5px solid #fef3c7; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- بطاقة صورة صفحة الكتاب الأصلية ص 32 -->
+                        <div class="interactive-stage-card" style="text-align: center; background: #fffbeb;">
+                            <div style="font-weight: 800; font-size: 0.95rem; color: #92400e; margin-bottom: 8px;">
+                                📖 صَفْحَةُ الْكِتَابِ الْمَدْرَسِيِّ الأَصْلِيَّة (ص ٣٢):
+                            </div>
+                            <img src="page_32.png" alt="كتاب قراءتي ص 32" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 10px rgba(0,0,0,0.05); object-fit: contain;">
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود القصيرة والطويلة ونشاط 3 ص 32 - 33 -->
+                    <div class="letter-r-station" id="stationR2">
+                        <div class="interactive-stage-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #b45309;">
+                                    🎵 نَشَاطُ ٢: أَصْوَاتُ الْمَدِّ الْقَصِيرَةِ (الْحَرَكَات) وَأَصْوَاتُ الْمَدِّ الطَّوِيلَةِ (ص ٣٢)
+                                </div>
+                                <button class="btn btn-teach" style="padding: 4px 12px; font-size: 0.82rem;" onclick="mascotSpeak('أصوات المد القصيرة والطويلة! قارن بين الفتحة والمد بالألف، والضمة والواو، والكسرة والياء!', 'letter_r_vowels_intro')">
+                                    <span>🔊</span> <span>شرح المدود</span>
+                                </button>
+                            </div>
+
+                            <!-- لوحة المقارنة المزدوجة التفاعلية -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 20px;">
+                                <!-- الفتحة والمد بالألف -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px; text-align: center;">
+                                    <div style="font-weight: 800; color: #92400e; font-size: 0.95rem; margin-bottom: 8px;">الْفَتْحَةُ ↔️ الْمَدُّ بِالأَلِف</div>
+                                    <div style="display: flex; justify-content: space-around; align-items: center;">
+                                        <button class="btn" style="background: white; border: 2px solid #f59e0b; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #b45309;" onclick="playRVowel('short', 'a')">
+                                            <span>رَ</span> <span style="font-size: 0.75rem; display: block; color: #78350f;">قَصِير 🔊</span>
+                                        </button>
+                                        <span style="font-size: 1.4rem; color: #d97706;">↔️</span>
+                                        <button class="btn" style="background: white; border: 2px solid #d97706; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #92400e;" onclick="playRVowel('long', 'a')">
+                                            <span>رَا</span> <span style="font-size: 0.75rem; display: block; color: #78350f;">طَوِيل 🔊</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- الضمة والمد بالواو -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px; text-align: center;">
+                                    <div style="font-weight: 800; color: #92400e; font-size: 0.95rem; margin-bottom: 8px;">الضَّمَّةُ ↔️ الْمَدُّ بِالْوَاو</div>
+                                    <div style="display: flex; justify-content: space-around; align-items: center;">
+                                        <button class="btn" style="background: white; border: 2px solid #f59e0b; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #b45309;" onclick="playRVowel('short', 'u')">
+                                            <span>رُ</span> <span style="font-size: 0.75rem; display: block; color: #78350f;">قَصِير 🔊</span>
+                                        </button>
+                                        <span style="font-size: 1.4rem; color: #d97706;">↔️</span>
+                                        <button class="btn" style="background: white; border: 2px solid #d97706; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #92400e;" onclick="playRVowel('long', 'u')">
+                                            <span>رُو</span> <span style="font-size: 0.75rem; display: block; color: #78350f;">طَوِيل 🔊</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- الكسرة والمد بالياء -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px; text-align: center;">
+                                    <div style="font-weight: 800; color: #92400e; font-size: 0.95rem; margin-bottom: 8px;">الْكَسْرَةُ ↔️ الْمَدُّ بِالْيَاء</div>
+                                    <div style="display: flex; justify-content: space-around; align-items: center;">
+                                        <button class="btn" style="background: white; border: 2px solid #f59e0b; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #b45309;" onclick="playRVowel('short', 'i')">
+                                            <span>رِ</span> <span style="font-size: 0.75rem; display: block; color: #78350f;">قَصِير 🔊</span>
+                                        </button>
+                                        <span style="font-size: 1.4rem; color: #d97706;">↔️</span>
+                                        <button class="btn" style="background: white; border: 2px solid #d97706; padding: 10px 18px; border-radius: 14px; font-size: 1.5rem; font-weight: 900; color: #92400e;" onclick="playRVowel('long', 'i')">
+                                            <span>رِيـ</span> <span style="font-size: 0.75rem; display: block; color: #78350f;">طَوِيل 🔊</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- نشاط 3 ص 33: أستمع للفظ الكلمات ثم أنطق حرف ر مع أصوات المد -->
+                            <div style="background: #f8fafc; border: 2px solid #e2e8f0; border-radius: 16px; padding: 14px; margin-bottom: 16px;">
+                                <div style="font-weight: 900; font-size: 1.05rem; color: #0f172a; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px;">
+                                    <span>🔍 نَشَاطُ ٣: أُمَيِّزُ صَوْتَ حَرْفِ ( ر ) فِي الْكَلِمَاتِ الْمُقَارَنَة (كتاب ص ٣٣)</span>
+                                    <span style="font-size: 0.8rem; background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 8px; font-weight: 700;">انقر البطاقة لسماع التمييز الفونيمي</span>
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px;">
+                                    <div class="word-chip-card" onclick="clickRItem('saffara')">
+                                        <span style="font-size: 2rem;">📯</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">صَفَّارَةُ</div>
+                                        <div style="font-size: 0.75rem; color: #b45309; font-weight: 800;">رَ (قصير)</div>
+                                    </div>
+                                    <div class="word-chip-card" onclick="clickRItem('qarib')">
+                                        <span style="font-size: 2rem;">⛵</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">قَارِبُ</div>
+                                        <div style="font-size: 0.75rem; color: #d97706; font-weight: 800;">رَا (طويل)</div>
+                                    </div>
+                                    <div class="word-chip-card" onclick="clickRItem('zurr')">
+                                        <span style="font-size: 2rem;">🔘</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">زِرٌّ</div>
+                                        <div style="font-size: 0.75rem; color: #b45309; font-weight: 800;">رِ (قصير)</div>
+                                    </div>
+                                    <div class="word-chip-card" onclick="clickRItem('kharoof_vowel')">
+                                        <span style="font-size: 2rem;">🐑</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">خَرُوفُ</div>
+                                        <div style="font-size: 0.75rem; color: #d97706; font-weight: 800;">رُو (طويل)</div>
+                                    </div>
+                                    <div class="word-chip-card" onclick="clickRItem('mibraat_vowel')">
+                                        <span style="font-size: 2rem;">✏️</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">مِبْرَاةُ</div>
+                                        <div style="font-size: 0.75rem; color: #d97706; font-weight: 800;">ـرَا (طويل)</div>
+                                    </div>
+                                    <div class="word-chip-card" onclick="clickRItem('reesha')">
+                                        <span style="font-size: 2rem;">🪶</span>
+                                        <div style="font-weight: 900; color: #1e3a8a;">رِيشَةُ</div>
+                                        <div style="font-size: 0.75rem; color: #d97706; font-weight: 800;">رِيـ (طويل)</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 10px;">
+                                <img src="activity_r_vowel_words.png" alt="مقارنة المدود ص 33" style="max-width: 600px; width: 100%; border-radius: 12px; border: 1.5px solid #fef3c7; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- صورة الكتاب المنهجي ص 33 -->
+                        <div class="interactive-stage-card" style="text-align: center; background: #fffbeb;">
+                            <div style="font-weight: 800; font-size: 0.95rem; color: #92400e; margin-bottom: 8px;">
+                                📖 صَفْحَةُ الْكِتَابِ الْمَدْرَسِيِّ الأَصْلِيَّة (ص ٣٣):
+                            </div>
+                            <img src="page_33.png" alt="كتاب قراءتي ص 33" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 10px rgba(0,0,0,0.05); object-fit: contain;">
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: المقاطع والتحليل الصوتي (ص 33) -->
+                    <div class="letter-r-station" id="stationR3">
+                        <!-- نشاط ٤: المقاطع الساكنة مع شارة قبضة اليد -->
+                        <div class="interactive-stage-card" style="border-color: #fde68a;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #b45309;">
+                                    ✊ نَشَاطُ ٤: صَوْتُ حَرْفِ ( ر ) السَّاكِنِ فِي الْمَقَاطِعِ (كتاب ص ٣٣)
+                                </div>
+                                <span style="font-size: 0.85rem; background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 12px; font-weight: 800;">
+                                    لغة الجسد: شارة قبضة اليد للسكون ✊
+                                </span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                                <div class="word-chip-card" style="padding: 16px;" onclick="playRSyllable('qird')">
+                                    <span style="font-size: 2.2rem;">🐒</span>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #1e3a8a;">قِرْدُ</div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #d97706; margin: 4px 0;">[ قِرْ ✊ ]</div>
+                                    <div style="font-size: 0.78rem; color: #64748b;">مقطع ساكن مغلق</div>
+                                </div>
+                                <div class="word-chip-card" style="padding: 16px;" onclick="playRSyllable('furshaat')">
+                                    <span style="font-size: 2.2rem;">🖌️</span>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #1e3a8a;">فُرْشَاةُ</div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #d97706; margin: 4px 0;">[ فُرْ ✊ ]</div>
+                                    <div style="font-size: 0.78rem; color: #64748b;">مقطع ساكن مغلق</div>
+                                </div>
+                                <div class="word-chip-card" style="padding: 16px;" onclick="playRSyllable('birka')">
+                                    <span style="font-size: 2.2rem;">🌊</span>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #1e3a8a;">بِرْكَةُ</div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #d97706; margin: 4px 0;">[ بِرْ ✊ ]</div>
+                                    <div style="font-size: 0.78rem; color: #64748b;">مقطع ساكن مغلق</div>
+                                </div>
+                            </div>
+                            <div style="text-align: center;">
+                                <img src="activity_r_syllables.png" alt="نشاط 4 المقاطع الساكنة ص 33" style="max-width: 580px; width: 100%; border-radius: 12px; border: 1.5px solid #fef3c7; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- نشاط ٥: ورشة تحليل الكلمات لمقاطعها بالصفقات الحية -->
+                        <div class="interactive-stage-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #b45309;">
+                                    👏 نَشَاطُ ٥: أَقْرَأُ الْكَلِمَاتِ، ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا (كتاب ص ٣٣)
+                                </div>
+                                <div style="display: flex; gap: 6px;">
+                                    <button class="btn btn-listen" style="padding: 4px 10px; font-size: 0.8rem;" onclick="setModelingMode('model')">
+                                        <span>🎓 فَصِيح يُنَمْذِج</span>
+                                    </button>
+                                    <button class="btn btn-teach" style="padding: 4px 10px; font-size: 0.8rem;" onclick="setModelingMode('alone')">
+                                        <span>⭐ أَنَا أُحَلِّلُ وَحْدِي</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- قائمة الكلمات للتحليل -->
+                            <div style="display: flex; flex-direction: column; gap: 14px;">
+                                <!-- كلمة رِيمُ -->
+                                <div class="split-workshop-card" onclick="splitRWord('reem')">
+                                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #1e3a8a; min-width: 80px;">رِيمُ</span>
+                                        <span style="color: #d97706; font-size: 1.3rem;">⬅️</span>
+                                        <div id="chips-split-reem" style="display: flex; gap: 8px; transition: transform 0.3s ease;">
+                                            <span class="syllable-chip" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">رِيـ</span>
+                                            <span style="font-size: 1.4rem; color: #f59e0b; font-weight: 900;">+</span>
+                                            <span class="syllable-chip" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">مُ</span>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span style="font-size: 0.82rem; background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 8px; font-weight: 800;">صفقتان 👏 👏</span>
+                                        <span style="font-size: 1.2rem;">🔊</span>
+                                    </div>
+                                </div>
+
+                                <!-- كلمة رَمَى -->
+                                <div class="split-workshop-card" onclick="splitRWord('rama')">
+                                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #1e3a8a; min-width: 80px;">رَمَى</span>
+                                        <span style="color: #d97706; font-size: 1.3rem;">⬅️</span>
+                                        <div id="chips-split-rama" style="display: flex; gap: 8px; transition: transform 0.3s ease;">
+                                            <span class="syllable-chip" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">رَ</span>
+                                            <span style="font-size: 1.4rem; color: #f59e0b; font-weight: 900;">+</span>
+                                            <span class="syllable-chip" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">مَى</span>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span style="font-size: 0.82rem; background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 8px; font-weight: 800;">صفقتان 👏 👏</span>
+                                        <span style="font-size: 1.2rem;">🔊</span>
+                                    </div>
+                                </div>
+
+                                <!-- كلمة مَرَامُ -->
+                                <div class="split-workshop-card" onclick="splitRWord('maram')">
+                                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #1e3a8a; min-width: 80px;">مَرَامُ</span>
+                                        <span style="color: #d97706; font-size: 1.3rem;">⬅️</span>
+                                        <div id="chips-split-maram" style="display: flex; gap: 8px; transition: transform 0.3s ease;">
+                                            <span class="syllable-chip" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">مَـ</span>
+                                            <span style="font-size: 1.4rem; color: #f59e0b; font-weight: 900;">+</span>
+                                            <span class="syllable-chip" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">رَا</span>
+                                            <span style="font-size: 1.4rem; color: #f59e0b; font-weight: 900;">+</span>
+                                            <span class="syllable-chip" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">مُ</span>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span style="font-size: 0.82rem; background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 8px; font-weight: 800;">٣ صفقات 👏 👏 👏</span>
+                                        <span style="font-size: 1.2rem;">🔊</span>
+                                    </div>
+                                </div>
+
+                                <!-- كلمة دَارُ (تطبيق تأسيسي إضافي لمنهج الكلمة) -->
+                                <div class="split-workshop-card" onclick="splitRWord('dar')">
+                                    <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #1e3a8a; min-width: 80px;">دَارُ</span>
+                                        <span style="color: #d97706; font-size: 1.3rem;">⬅️</span>
+                                        <div id="chips-split-dar" style="display: flex; gap: 8px; transition: transform 0.3s ease;">
+                                            <span class="syllable-chip" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">دَا</span>
+                                            <span style="font-size: 1.4rem; color: #f59e0b; font-weight: 900;">+</span>
+                                            <span class="syllable-chip" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 16px; border-radius:12px; font-weight:900; font-size:1.25rem;">رُ</span>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <span style="font-size: 0.82rem; background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 8px; font-weight: 800;">صفقتان 👏 👏</span>
+                                        <span style="font-size: 1.2rem;">🔊</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 14px;">
+                                <img src="activity_r_analysis.png" alt="نشاط 5 تحليل الكلمات ص 33" style="max-width: 580px; width: 100%; border-radius: 12px; border: 1.5px solid #fef3c7; object-fit: contain;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: تركيب المقاطع، القراءة المنهجية، وسبورة الرسم (ص 34) -->
+                    <div class="letter-r-station" id="stationR4">
+                        <!-- نشاط ٦: تركيب المقاطع لتكوين الكلمات -->
+                        <div class="interactive-stage-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #b45309;">
+                                    🧩 نَشَاطُ ٦: أُرَكِّبُ مِنَ الْمَقَاطِعِ التَّالِيَةِ كَلِمَاتٍ، ثُمَّ أَقْرَأُهَا (كتاب ص ٣٤)
+                                </div>
+                                <span style="font-size: 0.82rem; background: #fef3c7; color: #92400e; padding: 4px 10px; border-radius: 10px; font-weight: 800;">
+                                    اضغط على الأحجية للدمج 🧩
+                                </span>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 16px;">
+                                <!-- أحجية رَا + فِـ + دُ = رَافِدُ -->
+                                <div class="puzzle-merge-card" onclick="mergeRPuzzle('rafid')">
+                                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                        <span class="puzzle-piece" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 14px; border-radius:12px; font-weight:900; font-size:1.2rem;">رَا</span>
+                                        <span style="font-weight: 900; color: #d97706;">+</span>
+                                        <span class="puzzle-piece" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 14px; border-radius:12px; font-weight:900; font-size:1.2rem;">فِـ</span>
+                                        <span style="font-weight: 900; color: #d97706;">+</span>
+                                        <span class="puzzle-piece" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 14px; border-radius:12px; font-weight:900; font-size:1.2rem;">دُ</span>
+                                        <span style="font-size: 1.3rem; color: #d97706;">⬅️</span>
+                                        <span id="result-merge-rafid" style="font-size: 1.45rem; font-weight: 900; color: #b45309; background: #fef3c7; padding: 4px 18px; border-radius: 12px; border: 2px dashed #f59e0b;">............</span>
+                                    </div>
+                                    <button class="btn btn-teach" style="padding: 4px 12px; font-size: 0.85rem;">
+                                        <span>دمج ونطق</span> <span>🔊</span>
+                                    </button>
+                                </div>
+
+                                <!-- أحجية رَا + مِي = رَامِي -->
+                                <div class="puzzle-merge-card" onclick="mergeRPuzzle('rami')">
+                                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                        <span class="puzzle-piece" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 14px; border-radius:12px; font-weight:900; font-size:1.2rem;">رَا</span>
+                                        <span style="font-weight: 900; color: #d97706;">+</span>
+                                        <span class="puzzle-piece" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 14px; border-radius:12px; font-weight:900; font-size:1.2rem;">مِي</span>
+                                        <span style="font-size: 1.3rem; color: #d97706;">⬅️</span>
+                                        <span id="result-merge-rami" style="font-size: 1.45rem; font-weight: 900; color: #b45309; background: #fef3c7; padding: 4px 18px; border-radius: 12px; border: 2px dashed #f59e0b;">............</span>
+                                    </div>
+                                    <button class="btn btn-teach" style="padding: 4px 12px; font-size: 0.85rem;">
+                                        <span>دمج ونطق</span> <span>🔊</span>
+                                    </button>
+                                </div>
+
+                                <!-- أحجية دَا + رُ = دَارُ (تطبيق تركيب كلمة دَار كما في عنوان الدرس) -->
+                                <div class="puzzle-merge-card" onclick="mergeRPuzzle('dar')">
+                                    <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                                        <span class="puzzle-piece" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 14px; border-radius:12px; font-weight:900; font-size:1.2rem;">دَا</span>
+                                        <span style="font-weight: 900; color: #d97706;">+</span>
+                                        <span class="puzzle-piece" style="background:#fef3c7; color:#92400e; border:2px solid #f59e0b; padding:6px 14px; border-radius:12px; font-weight:900; font-size:1.2rem;">رُ</span>
+                                        <span style="font-size: 1.3rem; color: #d97706;">⬅️</span>
+                                        <span id="result-merge-dar" style="font-size: 1.45rem; font-weight: 900; color: #b45309; background: #fef3c7; padding: 4px 18px; border-radius: 12px; border: 2px dashed #f59e0b;">............</span>
+                                    </div>
+                                    <button class="btn btn-teach" style="padding: 4px 12px; font-size: 0.85rem;">
+                                        <span>دمج ونطق (دَار)</span> <span>🔊</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center;">
+                                <img src="activity_r_blend.png" alt="نشاط 6 تركيب المقاطع ص 34" style="max-width: 580px; width: 100%; border-radius: 12px; border: 1.5px solid #fef3c7; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- لوحة أَقْرَأُ المنهجية الكبرى ص 34 مع العصفور المغرد -->
+                        <div class="interactive-stage-card" style="border: 3px solid #f59e0b; background: linear-gradient(180deg, #ffffff 0%, #fffbeb 100%);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="font-size: 1.8rem;">🐦✨</span>
+                                    <div>
+                                        <div style="font-weight: 900; font-size: 1.25rem; color: #92400e;">لَوْحَةُ «أَقْرَأُ» الْمَنْهَجِيَّةُ الْكُبْرَى (كتاب ص ٣٤)</div>
+                                        <div style="font-size: 0.85rem; color: #b45309;">اِقْرَأْ مَعَ الْعُصْفُورِ الْمُغَرِّدِ وَفَصِيح نُصُوصَ الدَّرْسِ الثَّرِيَّة</div>
+                                    </div>
+                                </div>
+                                <button class="btn btn-teach" style="padding: 8px 18px; font-size: 0.95rem;" onclick="playRReadAll()">
+                                    <span>📢</span> <span>قِرَاءَةٌ جَمَاعِيَّةٌ شَامِلَة</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-bottom: 16px;">
+                                <!-- بَابَا رَامِي -->
+                                <div class="reading-banner-card" onclick="playRReadWord('baba_rami')">
+                                    <div style="font-size: 0.85rem; color: #78350f; font-weight: 800; margin-bottom: 4px;">جُمْلَةُ ١</div>
+                                    <div style="font-weight: 900; font-size: 1.55rem; color: #1e3a8a;">بَابَا رَامِي</div>
+                                    <div style="font-size: 0.8rem; color: #b45309; margin-top: 4px;">انقر للاستماع 🔊</div>
+                                </div>
+
+                                <!-- مَامَا رِيمُ -->
+                                <div class="reading-banner-card" onclick="playRReadWord('mama_reem')">
+                                    <div style="font-size: 0.85rem; color: #78350f; font-weight: 800; margin-bottom: 4px;">جُمْلَةُ ٢</div>
+                                    <div style="font-weight: 900; font-size: 1.55rem; color: #1e3a8a;">مَامَا رِيـْمُ</div>
+                                    <div style="font-size: 0.8rem; color: #b45309; margin-top: 4px;">انقر للاستماع 🔊</div>
+                                </div>
+
+                                <!-- دَادَا مَرَامُ -->
+                                <div class="reading-banner-card" onclick="playRReadWord('dada_maram')">
+                                    <div style="font-size: 0.85rem; color: #78350f; font-weight: 800; margin-bottom: 4px;">جُمْلَةُ ٣</div>
+                                    <div style="font-weight: 900; font-size: 1.55rem; color: #1e3a8a;">دَادَا مَرَام</div>
+                                    <div style="font-size: 0.8rem; color: #b45309; margin-top: 4px;">انقر للاستماع 🔊</div>
+                                </div>
+
+                                <!-- دَارُ رَامِي (التكامل مع كلمة دَار) -->
+                                <div class="reading-banner-card" onclick="playRReadWord('dar_rami')">
+                                    <div style="font-size: 0.85rem; color: #78350f; font-weight: 800; margin-bottom: 4px;">جُمْلَةُ ٤ (دَار)</div>
+                                    <div style="font-weight: 900; font-size: 1.55rem; color: #1e3a8a;">دَارُ رَامِي</div>
+                                    <div style="font-size: 0.8rem; color: #b45309; margin-top: 4px;">انقر للاستماع 🔊</div>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 10px;">
+                                <img src="activity_r_read.png" alt="لوحة أقرأ ص 34" style="max-width: 580px; width: 100%; border-radius: 12px; border: 1.5px solid #fef3c7; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- سبورة تتبع ورسم حرف الراء (ر) -->
+                        <div class="interactive-stage-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <div style="font-weight: 900; font-size: 1.15rem; color: #b45309;">
+                                        ✍️ سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الرَّاءِ ( ر ) كَالزُّحْلَيْقَة
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: #64748b;">
+                                        ابدأ من النقطة الحمراء فوق السطر وانزل منحنياً تحت السطر!
+                                    </div>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn btn-listen" style="padding: 4px 12px; font-size: 0.85rem;" onclick="playRDrawHint()">
+                                        <span>💡 إرشاد الرسم</span> <span>🔊</span>
+                                    </button>
+                                    <button class="btn btn-teach" style="padding: 4px 12px; font-size: 0.85rem;" onclick="clearRCanvas()">
+                                        <span>🔄 مسح الكل</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- لوحة الألوان والأدوات -->
+                            <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap;">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: #475569;">اختر لون القلم:</span>
+                                <button class="btn-color-dot" style="background: #2563eb; width: 28px; height: 28px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); cursor: pointer;" onclick="setRDrawColor('#2563eb')"></button>
+                                <button class="btn-color-dot" style="background: #059669; width: 28px; height: 28px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); cursor: pointer;" onclick="setRDrawColor('#059669')"></button>
+                                <button class="btn-color-dot" style="background: #d97706; width: 28px; height: 28px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); cursor: pointer;" onclick="setRDrawColor('#d97706')"></button>
+                                <button class="btn-color-dot" style="background: #dc2626; width: 28px; height: 28px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); cursor: pointer;" onclick="setRDrawColor('#dc2626')"></button>
+                                <button class="btn-color-dot" style="background: #7c3aed; width: 28px; height: 28px; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2); cursor: pointer;" onclick="setRDrawColor('#7c3aed')"></button>
+                                <button class="btn btn-listen" style="padding: 4px 10px; font-size: 0.8rem;" onclick="setREraser(true)">
+                                    <span>🧹 ممحاة</span>
+                                </button>
+                            </div>
+
+                            <!-- منطقة الكانفاس -->
+                            <div style="display: flex; justify-content: center; margin-bottom: 14px;">
+                                <div style="position: relative; border: 3px solid #fde68a; border-radius: 20px; overflow: hidden; background: #fffdf5; box-shadow: inset 0 2px 8px rgba(0,0,0,0.04);">
+                                    <canvas id="rDrawingCanvas" width="620" height="230" style="touch-action: none; cursor: crosshair; display: block;"></canvas>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 10px;">
+                                <img src="activity_r_trace.png" alt="تتبع حرف الراء ص 34" style="max-width: 580px; width: 100%; border-radius: 12px; border: 1.5px solid #fef3c7; object-fit: contain;">
+                            </div>
+                        </div>
+
+                        <!-- صورة صفحة الكتاب ص 34 -->
+                        <div class="interactive-stage-card" style="text-align: center; background: #fffbeb;">
+                            <div style="font-weight: 800; font-size: 0.95rem; color: #92400e; margin-bottom: 8px;">
+                                📖 صَفْحَةُ الْكِتَابِ الْمَدْرَسِيِّ الأَصْلِيَّة (ص ٣٤):
+                            </div>
+                            <img src="page_34.png" alt="كتاب قراءتي ص 34" style="max-width: 550px; width: 100%; border-radius: 12px; border: 1.5px solid #cbd5e1; box-shadow: 0 4px 10px rgba(0,0,0,0.05); object-fit: contain;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========================================================
+                     درس حرف السين (سـ ، س) وقراءة (فِرَاس) (ص 35 - 37)
+                ======================================================== -->

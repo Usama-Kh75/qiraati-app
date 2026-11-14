@@ -1,0 +1,105 @@
+                <div class="lesson-view" id="view-tab-act5">
+
+                    <!-- شريط صوت المعلمة الميداني الأصيل -->
+                    <div class="teacher-voice-banner" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 2.5px solid #10b981; border-radius: 20px; padding: 14px 20px; margin-bottom: 18px; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.12); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="font-size: 2.2rem;">👩‍🏫</span>
+                            <div>
+                                <div style="font-weight: 900; font-size: 1.15rem; color: #065f46; display: flex; align-items: center; gap: 8px;">
+                                    <span>شَرْحُ وَنُطْقُ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ الْحَقِيقِيِّ (ص ١٢)</span>
+                                    <span style="font-size: 0.75rem; background: #10b981; color: white; padding: 2px 8px; border-radius: 8px; font-weight: 800;">تسجيل ميداني أصيل</span>
+                                </div>
+                                <div style="font-size: 0.85rem; color: #047857; font-weight: 700; margin-top: 2px;">
+                                    استمع لنطق وشرح المعلمة لكلمات نشاط ٥ (نَارُ ، مَرْمَى ، دَارُ ، حَلْوَى ، عَصَا ، غَزَال)
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-teach" style="background: #059669; color: white; border: none; padding: 10px 22px; font-size: 0.95rem; font-weight: 800; border-radius: 14px; box-shadow: 0 3px 8px rgba(5,150,105,0.3); cursor: pointer;" onclick="playAudio('teacher_act5_all')">
+                            ▶️ اِسْتَمِعْ لِشَرْحِ وَنُطْقِ الْمُعَلِّمَةِ كَامِلاً
+                        </button>
+                    </div>
+
+                    <div class="letter-selector-bar">
+
+                        <div class="selector-title">
+
+                            👈 اختر الصوت المطلوب، ثم انقر على الفراغ:
+
+                        </div>
+
+                        <div class="selectable-letters">
+
+                            <div class="letter-pick-card selected" id="pick-alif" onclick="selectPhonics('ا')">
+
+                                ا
+
+                                <span class="label-hint">صوت المد: آاا</span>
+
+                            </div>
+
+                            <div class="letter-pick-card" id="pick-maqsura" onclick="selectPhonics('ى')">
+
+                                ى
+
+                                <span class="label-hint">صوت: ى (الألف اللينة)</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="controls">
+
+                        <button class="btn btn-teach" onclick="autoSolveAct5()">💡 حل وشرح المعلمة الفونيمي</button>
+
+                        <button class="btn btn-quiz" onclick="startAct5Quiz()">🎯 ابدأ التفاعل والاختبار</button>
+
+                        <button class="btn btn-reset" onclick="resetAct5()">🔄 إعادة ضبط الفراغات</button>
+
+                    </div>
+
+                    <div class="image-container-5" id="card-act5">
+
+                        <img src="activity_5.png" alt="نشاط 5 - ارسم حرف ا و ى">
+
+                        <svg class="svg-overlay-5" viewBox="0 0 1024 451">
+
+                            <rect id="mask-nar" class="dot-mask" x="902" y="343" width="26" height="9" fill="#ffffff" />
+
+                            <text id="text-nar" class="placed-letter" x="924" y="348" text-anchor="middle">ا</text>
+
+                            <rect id="mask-mrma" class="dot-mask" x="656" y="343" width="46" height="9" fill="#ffffff" />
+
+                            <text id="text-mrma" class="placed-letter" x="678" y="348" text-anchor="middle">ى</text>
+
+                            <rect id="mask-dar" class="dot-mask" x="516" y="342" width="27" height="9" fill="#ffffff" />
+
+                            <text id="text-dar" class="placed-letter" x="528" y="348" text-anchor="middle">ا</text>
+
+                            <rect id="mask-halwa" class="dot-mask" x="254" y="343" width="46" height="9" fill="#ffffff" />
+
+                            <text id="text-halwa" class="placed-letter" x="276" y="348" text-anchor="middle">ى</text>
+
+                            <rect id="mask-asa" class="dot-mask" x="80" y="343" width="46" height="9" fill="#ffffff" />
+
+                            <text id="text-asa" class="placed-letter" x="108" y="348" text-anchor="middle">ا</text>
+
+                        </svg>
+
+                        <div class="slot-hotspot hotspot-nar" id="spot-nar" onclick="fillSlot('nar', 'ا', 'act5_nar', 'نَـ... آاا... رُ $\\rightarrow$ نَارُ')"></div>
+
+                        <div class="slot-hotspot hotspot-mrma" id="spot-mrma" onclick="fillSlot('mrma', 'ى', 'act5_mrma', 'مَرْ... مَى $\\rightarrow$ مَرْمَى')"></div>
+
+                        <div class="slot-hotspot hotspot-dar" id="spot-dar" onclick="fillSlot('dar', 'ا', 'act5_dar', 'دَ... آاا... رُ $\\rightarrow$ دَارُ')"></div>
+
+                        <div class="slot-hotspot hotspot-halwa" id="spot-halwa" onclick="fillSlot('halwa', 'ى', 'act5_halwa', 'حَلْـ... وَى $\\rightarrow$ حَلْوَى')"></div>
+
+                        <div class="slot-hotspot hotspot-asa" id="spot-asa" onclick="fillSlot('asa', 'ا', 'act5_asa', 'عَصَـ... آاا $\\rightarrow$ عَصَا')"></div>
+
+                    </div>
+
+                </div>
+
+                <!-- درس صوت حرف المد (و) وأنشطته التفاعلية (ص 13 - 14 في الكتاب) -->
+
