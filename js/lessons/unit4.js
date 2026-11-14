@@ -1069,4 +1069,357 @@
             mascotSpeak('حَاوِلْ مَرَّةً أُخْرَى، رَكِّزْ جَيِّداً فِي صَوْتِ الزَّايِ وَمَوْضِعِهِ!', 'letter_z_wrong');
         }
     };
+
+    /* ========================================================
+       الدرس الخامس: حرف الجيم (جـ ، ـجـ ، ـج ، ج) وقراءة فَرَج نَسَّاج (ص ٨١ - ٨٣)
+    ======================================================== */
+    let currentJStation = 1;
+    let jCanvas = null;
+    let jCtx = null;
+    let isDrawingJ = false;
+    let jStrokeColor = '#7c3aed';
+
+    window.switchLetterJStation = function(stationNum) {
+        currentJStation = stationNum;
+        document.querySelectorAll('.letter-j-station').forEach(el => el.classList.remove('active'));
+        const target = document.getElementById('stationJ_' + stationNum);
+        if (target) target.classList.add('active');
+
+        for (let i = 1; i <= 4; i++) {
+            const btn = document.getElementById('btnStationJ_' + i);
+            if (btn) {
+                if (i === stationNum) btn.classList.add('active');
+                else btn.classList.remove('active');
+            }
+        }
+
+        if (stationNum === 1) {
+            mascotSpeak('أَهْلاً بِكُمْ فِي الْمَحَطَّةِ الأُولَى: أَتَعَرَّفُ حَرْفَ الْجِيمِ وَصَوْتَهُ الشَّدِيدَ الْمَجْهُورَ وَأَشْكَالَهُ الأَرْبَعَةَ وَكَلِمَاتِهِ الْمُصَوَّرَةِ فِي الْكِتَابِ ص ٨١!', 'letter_j_intro');
+        } else if (stationNum === 2) {
+            mascotSpeak('الْمَحَطَّةُ الثَّانِيَةُ: نَسْتَمِعُ إِلَى أَصْوَاتِ الْجِيمِ مَعَ الْحَرَكَاتِ وَالْمُدُودِ وَالتَّنْوِينِ وَالْمَقَاطِعِ السَّاكِنَةِ (ص ٨١ - ٨٢)!', 'letter_j_vowels_station');
+        } else if (stationNum === 3) {
+            mascotSpeak('الْمَحَطَّةُ الثَّالِثَةُ: وَرْشَةُ التَّحْلِيلِ وَالتَّرْكِيبِ الصَّوْتِيِّ لِحَرْفِ الْجِيمِ (ص ٨٢ - ٨٣)!', 'letter_j_analysis_intro');
+        } else if (stationNum === 4) {
+            mascotSpeak('الْمَحَطَّةُ الرَّابِعَةُ: قِرَاءَةُ نَصِّ (تَعْبُرُ جَنَى شَارِعَنَا) وَنَصِّ (فَرَج نَسَّاج)، مَعَ سَبُّورَةِ الرَّسْمِ وَاخْتِبَارِ التَّحَدِّي الذَّكِيّ!', 'letter_j_read_intro');
+            setTimeout(initJCanvas, 100);
+        }
+    };
+
+    window.playLetterJSound = function() {
+        mascotCelebrates();
+        playAudio('letter_j_sound');
+    };
+
+    window.playJLetterSound = function() {
+        mascotCelebrates();
+        playAudio('letter_j_sound');
+    };
+
+    window.playJPhonemeFaseeh = function() {
+        mascotCelebrates();
+        playAudio('letter_j_phoneme_faseeh');
+    };
+
+    window.playJWord = function(wordKey) {
+        mascotCelebrates();
+        const map = {
+            'jamal': 'letter_j_word_jamal',
+            'jazar': 'letter_j_word_jazar',
+            'jubn': 'letter_j_word_jubn',
+            'jisr': 'letter_j_word_jisr',
+            'thalj': 'letter_j_word_thalj',
+            'najm': 'letter_j_word_najm',
+            'nujoom': 'letter_j_word_nujoom',
+            'ajeen': 'letter_j_word_ajeen',
+            'jaami': 'letter_j_word_jaami',
+            'jaamoos': 'letter_j_word_jaamoos',
+            'jaamoosah': 'letter_j_word_jaamoosah',
+            'majoon': 'letter_j_word_majoon',
+            'rijl': 'letter_j_word_rijl',
+            'mijhar': 'letter_j_word_mijhar',
+            'jimaal': 'letter_j_word_jimaal',
+            'jaalis': 'letter_j_word_jaalis',
+            'jana': 'letter_j_word_jana',
+            'jameel': 'letter_j_word_jameel',
+            'jameelah': 'letter_j_word_jameelah',
+            'faraj': 'letter_j_word_faraj',
+            'nassaaj': 'letter_j_word_nassaaj',
+            'nassaajah': 'letter_j_word_nassaajah',
+            'yansiju': 'letter_j_word_yansiju',
+            'tansiju': 'letter_j_word_tansiju',
+            'bisaat': 'letter_j_word_bisaat',
+            'qumaash': 'letter_j_word_qumaash',
+            'jadeedan': 'letter_j_word_jadeedan',
+            'mahirah': 'letter_j_word_mahirah',
+            'tunaqqishu': 'letter_j_word_tunaqqishu',
+            'wardan': 'letter_j_word_wardan',
+            'ashjaaran': 'letter_j_word_ashjaaran',
+            'shaariuna': 'letter_j_word_shaariuna',
+            'hadeeqah': 'letter_j_word_hadeeqah',
+            'madrasah': 'letter_j_word_madrasah',
+            'taaburu': 'letter_j_word_taaburu',
+            'saara': 'letter_j_word_saara',
+            'wisaam': 'letter_j_word_wisaam',
+            'nawras': 'letter_j_word_nawras',
+            'widaad': 'letter_j_word_widaad',
+            'wasan': 'letter_j_word_wasan',
+            'tadrusaan': 'letter_j_word_tadrusaan',
+            'shajarah': 'letter_j_word_shajarah',
+            'burj': 'letter_j_word_burj',
+            'jazeerah': 'letter_j_word_jazeerah',
+            'jawrab': 'letter_j_word_jawrab',
+            'jaras': 'letter_j_word_jaras',
+            'hajar': 'letter_j_word_hajar',
+            'taaj': 'letter_j_word_taaj',
+            'dajaajah': 'letter_j_word_dajaajah',
+            'khurooj': 'letter_j_word_khurooj'
+        };
+        const audioKey = map[wordKey] || ('letter_j_word_' + wordKey);
+        playAudio(audioKey);
+    };
+
+    window.playJVowel = function(vowelKey) {
+        mascotCelebrates();
+        const map = {
+            'short_a': 'letter_j_short_a',
+            'short_u': 'letter_j_short_u',
+            'short_i': 'letter_j_short_i',
+            'long_aa': 'letter_j_long_aa',
+            'long_oo': 'letter_j_long_oo',
+            'long_ee': 'letter_j_long_ee',
+            'tanween_dham': 'letter_j_tanween_dham',
+            'tanween_fath': 'letter_j_tanween_fath',
+            'tanween_kasr': 'letter_j_tanween_kasr'
+        };
+        const audioKey = map[vowelKey] || ('letter_j_' + vowelKey);
+        playAudio(audioKey);
+    };
+
+    window.playJSyllable = function(sylKey) {
+        mascotCelebrates();
+        const map = {
+            'naj': 'letter_j_syl_naj',
+            'rij': 'letter_j_syl_rij',
+            'mij': 'letter_j_syl_mij',
+            'yaj': 'letter_j_syl_yaj'
+        };
+        const audioKey = map[sylKey] || ('letter_j_syl_' + sylKey);
+        playAudio(audioKey);
+    };
+
+    window.playJSplitWord = function(wordKey) {
+        mascotCelebrates();
+        const map = {
+            'ajeen': 'letter_j_split_ajeen',
+            'majoon': 'letter_j_split_majoon',
+            'jaamoos': 'letter_j_split_jaamoos',
+            'jazar': 'letter_j_split_jazar',
+            'najm': 'letter_j_split_najm',
+            'faraj': 'letter_j_split_faraj',
+            'nassaaj': 'letter_j_split_nassaaj'
+        };
+        const audioKey = map[wordKey] || ('letter_j_split_' + wordKey);
+        playAudio(audioKey);
+    };
+
+    window.playJMerge = function(mergeKey) {
+        mascotCelebrates();
+        const map = {
+            'jimaal': 'letter_j_merge_jimaal',
+            'jaami': 'letter_j_merge_jaami',
+            'jaalis': 'letter_j_merge_jaalis',
+            'jameel': 'letter_j_merge_jameel',
+            'jubn': 'letter_j_merge_jubn',
+            'thalj': 'letter_j_merge_thalj'
+        };
+        const audioKey = map[mergeKey] || ('letter_j_merge_' + mergeKey);
+        playAudio(audioKey);
+    };
+
+    window.switchJReadingTab = function(tabId) {
+        const bookTab = document.getElementById('jReadingBookContent');
+        const farajTab = document.getElementById('jReadingFarajContent');
+        const btnBook = document.getElementById('btnJReadBook');
+        const btnFaraj = document.getElementById('btnJReadFaraj');
+
+        if (tabId === 'book') {
+            if (bookTab) bookTab.style.display = 'block';
+            if (farajTab) farajTab.style.display = 'none';
+            if (btnBook) { btnBook.classList.add('active'); btnBook.style.background = '#7c3aed'; btnBook.style.color = '#ffffff'; }
+            if (btnFaraj) { btnFaraj.classList.remove('active'); btnFaraj.style.background = '#ede9fe'; btnFaraj.style.color = '#5b21b6'; }
+            mascotSpeak('نَقْرَأُ نَصَّ الْكِتَابِ الْمَدْرَسِيِّ ص ٨٣: تَعْبُرُ جَنَى شَارِعَنَا!', 'letter_j_read_intro');
+        } else {
+            if (bookTab) bookTab.style.display = 'none';
+            if (farajTab) farajTab.style.display = 'block';
+            if (btnFaraj) { btnFaraj.classList.add('active'); btnFaraj.style.background = '#7c3aed'; btnFaraj.style.color = '#ffffff'; }
+            if (btnBook) { btnBook.classList.remove('active'); btnBook.style.background = '#ede9fe'; btnBook.style.color = '#5b21b6'; }
+            mascotSpeak('نَقْرَأُ الْقِرَاءَةَ التُّرَاثِيَّةَ الْعِرَاقِيَّةَ الأَصِيلَةَ: فَرَجٌ نَسَّاجٌ يَنْسِجُ بِسَاطًا جَدِيدًا!', 'letter_j_read_faraj_full');
+        }
+    };
+
+    window.playJReadingLine = function(lineKey) {
+        mascotCelebrates();
+        const map = {
+            'b_full': 'letter_j_read_book_full',
+            'b1': 'letter_j_read_b1',
+            'b2': 'letter_j_read_b2',
+            'b3': 'letter_j_read_b3',
+            'b4': 'letter_j_read_b4',
+            'b5': 'letter_j_read_b5',
+            'f_full': 'letter_j_read_faraj_full',
+            'f1': 'letter_j_read_f1',
+            'f2': 'letter_j_read_f2',
+            'f3': 'letter_j_read_f3',
+            'f4': 'letter_j_read_f4',
+            'f5': 'letter_j_read_f5',
+            'f6': 'letter_j_read_f6'
+        };
+        const audioKey = map[lineKey] || ('letter_j_read_' + lineKey);
+        playAudio(audioKey);
+    };
+
+    window.initJCanvas = function() {
+        jCanvas = document.getElementById('letterJDrawCanvas');
+        if (!jCanvas) return;
+        jCtx = jCanvas.getContext('2d');
+
+        const rect = jCanvas.parentElement.getBoundingClientRect();
+        jCanvas.width = rect.width || 600;
+        jCanvas.height = 300;
+
+        drawJGuidelines();
+
+        function getPos(e) {
+            const r = jCanvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return {
+                x: (clientX - r.left) * (jCanvas.width / r.width),
+                y: (clientY - r.top) * (jCanvas.height / r.height)
+            };
+        }
+
+        function startDraw(e) {
+            isDrawingJ = true;
+            const pos = getPos(e);
+            jCtx.beginPath();
+            jCtx.moveTo(pos.x, pos.y);
+            e.preventDefault();
+        }
+
+        function draw(e) {
+            if (!isDrawingJ) return;
+            const pos = getPos(e);
+            jCtx.lineTo(pos.x, pos.y);
+            jCtx.strokeStyle = jStrokeColor;
+            jCtx.lineWidth = 6;
+            jCtx.lineCap = 'round';
+            jCtx.lineJoin = 'round';
+            jCtx.stroke();
+            e.preventDefault();
+        }
+
+        function stopDraw() {
+            isDrawingJ = false;
+        }
+
+        jCanvas.onmousedown = startDraw;
+        jCanvas.onmousemove = draw;
+        window.addEventListener('mouseup', stopDraw);
+
+        jCanvas.ontouchstart = startDraw;
+        jCanvas.ontouchmove = draw;
+        window.addEventListener('touchend', stopDraw);
+    };
+
+    function drawJGuidelines() {
+        if (!jCtx || !jCanvas) return;
+        const w = jCanvas.width;
+        const h = jCanvas.height;
+        jCtx.clearRect(0, 0, w, h);
+
+        jCtx.save();
+        const baseline = h * 0.52;
+
+        // خط الأساس الأخضر
+        jCtx.strokeStyle = '#10b981';
+        jCtx.lineWidth = 3;
+        jCtx.beginPath();
+        jCtx.moveTo(20, baseline);
+        jCtx.lineTo(w - 20, baseline);
+        jCtx.stroke();
+
+        // خط علوي منقط
+        jCtx.strokeStyle = '#cbd5e1';
+        jCtx.lineWidth = 1.5;
+        jCtx.setLineDash([6, 6]);
+        jCtx.beginPath();
+        jCtx.moveTo(20, h * 0.22);
+        jCtx.lineTo(w - 20, h * 0.22);
+        jCtx.stroke();
+
+        // خط سفلي منقط لنزول بطن الجيم
+        jCtx.beginPath();
+        jCtx.moveTo(20, h * 0.85);
+        jCtx.lineTo(w - 20, h * 0.85);
+        jCtx.stroke();
+
+        // رسم نموذج خفيف منقط لحرف الجيم بأشكاله الأربعة
+        jCtx.font = 'bold ' + Math.floor(h * 0.32) + 'px "Tajawal", "Traditional Arabic", sans-serif';
+        jCtx.fillStyle = '#ddd6fe';
+        jCtx.textAlign = 'center';
+        jCtx.textBaseline = 'alphabetic';
+        jCtx.fillText('جـ', w * 0.82, baseline);
+        jCtx.fillText('ـجـ', w * 0.58, baseline);
+        jCtx.fillText('ـج', w * 0.35, baseline + (h * 0.12));
+        jCtx.fillText('ج', w * 0.14, baseline + (h * 0.12));
+
+        jCtx.restore();
+    }
+
+    window.clearJCanvas = function() {
+        if (jCtx && jCanvas) {
+            drawJGuidelines();
+            playAudio('letter_j_draw_hint');
+        }
+    };
+
+    window.setJCanvasColor = function(color) {
+        jStrokeColor = color;
+        if (jCtx) {
+            jCtx.strokeStyle = color;
+        }
+    };
+
+    window.checkJQuiz = function(qNum, answer, btn) {
+        const correctAnswers = {
+            1: 'start',
+            2: 'naj',
+            3: 'ajeen_split',
+            4: 'jaami',
+            5: 'bisaat'
+        };
+
+        const parent = btn.closest('.quiz-question-box');
+        if (parent) {
+            parent.querySelectorAll('button').forEach(b => {
+                b.style.borderColor = '#cbd5e1';
+                b.style.background = '#ffffff';
+            });
+        }
+
+        if (answer === correctAnswers[qNum]) {
+            mascotCelebrates();
+            btn.style.borderColor = '#7c3aed';
+            btn.style.background = '#faf5ff';
+            playAudio('letter_j_correct');
+            mascotSpeak('أَحْسَنْتَ يَا بَطَل! إِجَابَةٌ صَحِيحَةٌ وَعَبْقَرِيَّة!', 'letter_j_correct');
+        } else {
+            mascotThinks();
+            btn.style.borderColor = '#ef4444';
+            btn.style.background = '#fef2f2';
+            playAudio('letter_j_wrong');
+            mascotSpeak('حَاوِلْ مَرَّةً أُخْرَى، رَكِّزْ جَيِّداً فِي صَوْتِ الْجِيمِ وَمَوْضِعِهِ!', 'letter_j_wrong');
+        }
+    };
 })();
