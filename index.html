@@ -14598,6 +14598,720 @@
                         </div>
                     </div>
                 </div>
+                <div class="lesson-view" id="view-tab-letter_sad">
+                    <!-- شريط المحطات الأربعة لدرس حرف الصاد وتنوين الكسر -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationSad_1" onclick="switchLetterSadStation(1)">
+                            <span>🦅</span> <span>١. أتعرف الحرف والمشهد (ص ٨٤)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationSad_2" onclick="switchLetterSadStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والمقاطع الساكنة (ص ٨٤ - ٨٥)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationSad_3" onclick="switchLetterSadStation(3)">
+                            <span>🔔</span> <span>٣. تنوين الكسر والتحليل والتركيب (ص ٨٦ - ٨٨)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationSad_4" onclick="switchLetterSadStation(4)">
+                            <span>🪁</span> <span>٤. قراءة (طَيَّارَةُ وَقَّاص) والرسم (ص ٨٦ - ٨٨)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-sad-station active" id="stationSad_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-sad-card" onclick="playSadPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #0284c7; margin-bottom: 4px;">حَرْفُ الصَّادِ الْمُفَخَّمِ</div>
+                                    <div class="giant-letter-sad-glyph">صـ ـصـ ـص ص</div>
+                                </div>
+                                <div style="border-right: 2px dashed #bae6fd; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0369a1;">صَوْتُ الصَّادِ: صْ... اِصْـ</div>
+                                    <div style="font-size: 0.9rem; color: #64748b; font-weight: 700;">مُفَخَّمٌ مُسْتَعْلٍ ذُو صَفِيرٍ رَنَّان 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playSadLetterSound()" style="background: #0284c7; border-color: #0369a1;">
+                                <span>🔊</span> <span>صَوْتُ الصَّادِ الصَّافِي (صْ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playSadPhonemeFaseeh()" style="background: #0369a1; border-color: #0c4a6e;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِمَخْرَجِ الصَّادِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_sad_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_85.png', 'كتاب قراءتي الجديد: ص ٨٤')">
+                                <span>📖</span> <span>صَفْحَة ٨٤ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- صورة رأس الصفحة الرسمية من الكتاب -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #0369a1; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ حَرْفِ الصَّادِ (الْكِتَابُ الْمَدْرَسِيُّ ص ٨٤)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #bae6fd; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_sad_scene_story')">
+                                <img src="activity_sad_scene.png" alt="مشهد رأس صفحة حرف الصاد" style="width: 100%; max-height: 380px; object-fit: contain; background: #f0f9ff;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(3, 105, 161, 0.88); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المصورة نشاط 1 ص 84 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🎣 ١. كَلِمَاتُ حَرْفِ الصَّادِ الْمُصَوَّرَةِ (نَشَاط ١ ص ٨٤)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_sad_words_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْكَلِمَاتِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 12px;">
+                                <div class="sad-word-card" onclick="playSadWord('sayyad')">
+                                    <span class="sad-word-icon">🎣</span>
+                                    <span class="sad-word-text">صَيَّادٌ</span>
+                                    <span class="sad-word-pos">أَوَّلُ الْكَلِمَةِ (صـ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('sundooq')">
+                                    <span class="sad-word-icon">📦</span>
+                                    <span class="sad-word-text">صُنْدُوقٌ</span>
+                                    <span class="sad-word-pos">أَوَّلُ الْكَلِمَةِ (صـ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('sinnarah')">
+                                    <span class="sad-word-icon">🪝</span>
+                                    <span class="sad-word-text">صِنَّارَةٌ</span>
+                                    <span class="sad-word-pos">أَوَّلُ الْكَلِمَةِ (صـ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('qafas')">
+                                    <span class="sad-word-icon">🦜</span>
+                                    <span class="sad-word-text">قَفَصٌ</span>
+                                    <span class="sad-word-pos">آخِرٌ مُتَّصِلٌ (ـص)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('isba')">
+                                    <span class="sad-word-icon">☝️</span>
+                                    <span class="sad-word-text">إِصْبَعٌ</span>
+                                    <span class="sad-word-pos">وَسَطُ الْكَلِمَةِ (ـصـ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('safirah')">
+                                    <span class="sad-word-icon">📢</span>
+                                    <span class="sad-word-text">صَافِرَةٌ</span>
+                                    <span class="sad-word-pos">أَوَّلُ الْكَلِمَةِ (صـ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('soos')">
+                                    <span class="sad-word-icon">🐥</span>
+                                    <span class="sad-word-text">صُوصٌ</span>
+                                    <span class="sad-word-pos">أَوَّلٌ وَآخِرٌ (صـ ، ص)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('seesan')">
+                                    <span class="sad-word-icon">🐣</span>
+                                    <span class="sad-word-text">صِيصَانٌ</span>
+                                    <span class="sad-word-pos">أَوَّلٌ وَوَسَطٌ (صـ ، ـصـ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('saarookh')">
+                                    <span class="sad-word-icon">🚀</span>
+                                    <span class="sad-word-text">صَارُوخٌ</span>
+                                    <span class="sad-word-pos">أَوَّلُ الْكَلِمَةِ (صـ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('soorah')">
+                                    <span class="sad-word-icon">🖼️</span>
+                                    <span class="sad-word-text">صُورَةٌ</span>
+                                    <span class="sad-word-pos">أَوَّلُ الْكَلِمَةِ (صـ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('saqr')">
+                                    <span class="sad-word-icon">🦅</span>
+                                    <span class="sad-word-text">صَقْرٌ</span>
+                                    <span class="sad-word-pos">أَوَّلُ الْكَلِمَةِ (صـ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('aseer')">
+                                    <span class="sad-word-icon">🧃</span>
+                                    <span class="sad-word-text">عَصِيرٌ</span>
+                                    <span class="sad-word-pos">وَسَطُ الْكَلِمَةِ (ـصـ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('soof')">
+                                    <span class="sad-word-icon">🧶</span>
+                                    <span class="sad-word-text">صُوفٌ</span>
+                                    <span class="sad-word-pos">أَوَّلُ الْكَلِمَةِ (صـ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadWord('waqqas')">
+                                    <span class="sad-word-icon">🪁</span>
+                                    <span class="sad-word-text">وَقَّاصٌ</span>
+                                    <span class="sad-word-pos">آخِرٌ مُنْفَصِلٌ (ص)</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_sad_words.png" alt="نشاط 1 ص 84" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- لوحة أشكال حرف الصاد الأربعة ومواضعها -->
+                        <div class="lesson-card">
+                            <h3 style="color: #0369a1; margin-bottom: 14px; font-weight: 900;">✍️ أَشْكَالُ حَرْفِ الصَّادِ الأَرْبَعَةِ عَلَى السَّطْرِ</h3>
+                            <div class="sad-forms-grid">
+                                <div class="sad-form-card" onclick="playSadWord('sayyad')">
+                                    <div class="sad-form-glyph">صـ</div>
+                                    <div class="sad-form-label">أَوَّلُ الْكَلِمَةِ</div>
+                                    <div class="sad-form-ex">صَيَّادٌ 🎣</div>
+                                </div>
+                                <div class="sad-form-card" onclick="playSadWord('aseer')">
+                                    <div class="sad-form-glyph">ـصـ</div>
+                                    <div class="sad-form-label">وَسَطُ الْكَلِمَةِ</div>
+                                    <div class="sad-form-ex">عَصِيرٌ 🧃</div>
+                                </div>
+                                <div class="sad-form-card" onclick="playSadWord('qafas')">
+                                    <div class="sad-form-glyph">ـص</div>
+                                    <div class="sad-form-label">آخِرٌ مُتَّصِلٌ</div>
+                                    <div class="sad-form-ex">قَفَصٌ 🦜</div>
+                                </div>
+                                <div class="sad-form-card" onclick="playSadWord('waqqas')">
+                                    <div class="sad-form-glyph">ص</div>
+                                    <div class="sad-form-label">آخِرٌ مُنْفَصِلٌ</div>
+                                    <div class="sad-form-ex">وَقَّاصٌ 🪁</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود والتنوين والمقاطع الساكنة -->
+                    <div class="letter-sad-station" id="stationSad_2">
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🎵 ٢. مُقَارَنَةُ الْحَرَكَاتِ الْقَصِيرَةِ وَالْمُدُودِ الطَّوِيلَةِ (ص ٨٤ - ٨٥)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_sad_vowels_station')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْمَحَطَّةِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+                                <!-- الفتحة ومد الألف -->
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px;">
+                                    <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 10px;">
+                                        <div style="text-align: center; cursor: pointer;" onclick="playSadVowel('short_a')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #0284c7;">صَـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">فَتْحَة قَصِيرَة</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #0369a1;">صَبَاحٌ 🌅</div>
+                                        </div>
+                                        <div style="font-size: 1.5rem; color: #cbd5e1;">↔️</div>
+                                        <div style="text-align: center; cursor: pointer;" onclick="playSadVowel('long_aa')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #0369a1;">صَا</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">مَدٌّ طَوِيلٌ بِالأَلِف</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #0369a1;">صَادِقٌ 👦</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- الضمة ومد الواو -->
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px;">
+                                    <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 10px;">
+                                        <div style="text-align: center; cursor: pointer;" onclick="playSadVowel('short_u')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #0284c7;">صُـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">ضَمَّة قَصِيرَة</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #0369a1;">صُنْدُوقٌ 📦</div>
+                                        </div>
+                                        <div style="font-size: 1.5rem; color: #cbd5e1;">↔️</div>
+                                        <div style="text-align: center; cursor: pointer;" onclick="playSadVowel('long_oo')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #0369a1;">صُو</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">مَدٌّ طَوِيلٌ بِالْوَاو</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #0369a1;">صُوصٌ 🐥</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- الكسرة ومد الياء -->
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px;">
+                                    <div style="display: flex; justify-content: space-around; align-items: center; margin-bottom: 10px;">
+                                        <div style="text-align: center; cursor: pointer;" onclick="playSadVowel('short_i')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #0284c7;">صِـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">كَسْرَة قَصِيرَة</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #0369a1;">صِنَّارَةٌ 🪝</div>
+                                        </div>
+                                        <div style="font-size: 1.5rem; color: #cbd5e1;">↔️</div>
+                                        <div style="text-align: center; cursor: pointer;" onclick="playSadVowel('long_ee')">
+                                            <div style="font-size: 2.2rem; font-weight: 900; color: #0369a1;">صِيـ</div>
+                                            <div style="font-size: 0.85rem; font-weight: 800; color: #64748b;">مَدٌّ طَوِيلٌ بِالْيَاء</div>
+                                            <div style="font-size: 1rem; font-weight: 900; color: #0369a1;">صِيصَانٌ 🐣</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_sad_vowels.png" alt="نشاط 2 ص 84" style="width: 100%; max-height: 240px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- بطاقات التنوين الثلاثة -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <h3 style="color: #0369a1; margin-bottom: 14px; font-weight: 900;">🔔 تَنْوِينَاتُ حَرْفِ الصَّادِ (صٌ ، صًا ، صٍ)</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                                <div class="sad-word-card" onclick="playSadVowel('tanween_dham')">
+                                    <div style="font-size: 2.6rem; font-weight: 900; color: #0284c7;">صٌ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">تَنْوِينُ الضَّمّ (ـٌ)</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0369a1;">قَفَصٌ جَمِيلٌ 🦜</div>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadVowel('tanween_fath')">
+                                    <div style="font-size: 2.6rem; font-weight: 900; color: #0284c7;">صًا</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">تَنْوِينُ الْفَتْح (ـً)</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0369a1;">قَفَصًا كَبِيرًا 🏡</div>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadVowel('tanween_kasr')">
+                                    <div style="font-size: 2.6rem; font-weight: 900; color: #0284c7;">صٍ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">تَنْوِينُ الْكَسْر (ـٍ)</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0369a1;">فِي قَفَصٍ 🦜</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- تمييز الصاد الساكنة نشاط 4 ص 85 -->
+                        <div class="lesson-card">
+                            <h3 style="color: #0369a1; margin-bottom: 14px; font-weight: 900;">🛑 تَمْيِيزُ صَوْتِ الصَّادِ السَّاكِنِ فِي الْمَقَاطِعِ (نَشَاط ٤ ص ٨٥)</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 18px;">
+                                <div class="sad-word-card" onclick="playSadSyllable('mis')">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #0284c7;">مِصْـ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">مَقْطَعٌ سَاكِنٌ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #0369a1;">مِصْبَاحٌ 💡</div>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadSyllable('is')">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #0284c7;">إِصْـ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">مَقْطَعٌ سَاكِنٌ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #0369a1;">إِصْبَعٌ ☝️</div>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadSyllable('qas')">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #0284c7;">قَصْـ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">مَقْطَعٌ سَاكِنٌ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #0369a1;">قَصْرٌ 🏰</div>
+                                </div>
+                                <div class="sad-word-card" onclick="playSadSyllable('fas')">
+                                    <div style="font-size: 2.2rem; font-weight: 900; color: #0284c7;">فَصْـ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">مَقْطَعٌ سَاكِنٌ</div>
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #0369a1;">فَصْلٌ 🏫</div>
+                                </div>
+                            </div>
+
+                            <div style="border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_sad_syllables.png" alt="نشاط 3 و 4 ص 85" style="width: 100%; max-height: 380px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: تنوين الكسر والتحليل والتركيب -->
+                    <div class="letter-sad-station" id="stationSad_3">
+                        <!-- بانر محطة تنوين الكسر الشاملة ص 87 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div class="tanween-banner">
+                                <div>
+                                    <div class="tanween-badge">🔔 مَحَطَّةُ الْوَعْيِ الصَّوْتِيِّ وَالإِمْلائِيِّ</div>
+                                    <h2 style="margin: 8px 0 0; font-size: 1.8rem; font-weight: 900;">أَتَعَرَّفُ إِلَى تَنْوِينِ الْكَسْرِ ( ٍ )</h2>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('tanween_kasr_intro')" style="background: #fef08a; color: #0369a1; border: none; font-weight: 900; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِشَرْحِ التَّنْوِينِ</span>
+                                </button>
+                            </div>
+
+                            <p style="font-size: 1.05rem; color: #0369a1; font-weight: 800; margin-bottom: 14px; line-height: 1.6;">
+                                نَشَاط ١ (ص ٨٧): أُرَدِّدُ مُنْتَبِهاً لِصَوْتِ تَنْوِينِ الْكَسْرِ (نُونٌ سَاكِنَةٌ تَلْفِظُهَا وَلَا تَكْتُبُهَا):
+                            </p>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 18px;">
+                                <div class="sad-word-card" onclick="playAudio('tanween_kasr_word_mawz')">
+                                    <span class="sad-word-icon">🍌</span>
+                                    <span class="sad-word-text" style="color: #0284c7;">مَوْزٍ</span>
+                                    <span class="sad-word-pos">زٍ (ـٍ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playAudio('tanween_kasr_word_zaytoon')">
+                                    <span class="sad-word-icon">🫒</span>
+                                    <span class="sad-word-text" style="color: #0284c7;">زَيْتُونٍ</span>
+                                    <span class="sad-word-pos">نٍ (ـٍ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playAudio('tanween_kasr_word_hoot')">
+                                    <span class="sad-word-icon">🐋</span>
+                                    <span class="sad-word-text" style="color: #0284c7;">حُوتٍ</span>
+                                    <span class="sad-word-pos">تٍ (ـٍ)</span>
+                                </div>
+                                <div class="sad-word-card" onclick="playAudio('tanween_kasr_word_banaat')">
+                                    <span class="sad-word-icon">👧</span>
+                                    <span class="sad-word-text" style="color: #0284c7;">بَنَاتٍ</span>
+                                    <span class="sad-word-pos">تٍ (ـٍ)</span>
+                                </div>
+                            </div>
+
+                            <h4 style="color: #0c4a6e; font-weight: 900; margin: 18px 0 10px;">جُمَلُ تَنْوِينِ الْكَسْرِ (نَشَاط ٢ ص ٨٧):</h4>
+                            <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px;">
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 14px; padding: 12px 18px; font-size: 1.25rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playAudio('tanween_kasr_sentence_malab')">
+                                    <span>لَعِبْتُ فِي <span style="color: #0284c7; text-decoration: underline;">مَلْعَبٍ</span> <span style="color: #0284c7; text-decoration: underline;">وَاسِعٍ</span>. ⚽</span>
+                                    <span>🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 14px; padding: 12px 18px; font-size: 1.25rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playAudio('tanween_kasr_sentence_qitaar')">
+                                    <span>سَافَرْتُ <span style="color: #0284c7; text-decoration: underline;">بِقِطَارٍ</span> <span style="color: #0284c7; text-decoration: underline;">سَرِيعٍ</span>. 🚆</span>
+                                    <span>🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 14px; padding: 12px 18px; font-size: 1.25rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playAudio('tanween_kasr_sentence_wisadah')">
+                                    <span>نَامَ حُسَيْنٌ عَلَى <span style="color: #0284c7; text-decoration: underline;">وِسَادَةٍ</span> <span style="color: #0284c7; text-decoration: underline;">نَاعِمَةٍ</span>. 🛏️</span>
+                                    <span>🔊</span>
+                                </div>
+                            </div>
+
+                            <div style="border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_sad_tanween_kasr.png" alt="أنشطة تنوين الكسر ص 87" style="width: 100%; max-height: 380px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- التحليل الصوتي نشاط 5 ص 85 ونشاط 3 ص 87 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">✂️ وَرْشَةُ التَّحْلِيلِ الصَّوْتِيِّ (ص ٨٥ وَص ٨٧)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_sad_analysis_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>تَعْلِيمَاتُ التَّحْلِيلِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 12px 18px; cursor: pointer;" onclick="playSadSplitWord('aseer')">
+                                    <div style="font-size: 1.35rem; font-weight: 900; color: #0369a1; min-width: 100px;">عَصِيرٌ</div>
+                                    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">عَـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">صِيـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">رٌ</span>
+                                    </div>
+                                    <span style="background: #e0f2fe; color: #0284c7; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">٣ مَقَاطِع 👏</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; justify-content: space-between; background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 12px 18px; cursor: pointer;" onclick="playSadSplitWord('saarookh')">
+                                    <div style="font-size: 1.35rem; font-weight: 900; color: #0369a1; min-width: 100px;">صَارُوخٌ</div>
+                                    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">صَا</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">رُو</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">خٌ</span>
+                                    </div>
+                                    <span style="background: #e0f2fe; color: #0284c7; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">٣ مَقَاطِع 👏</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; justify-content: space-between; background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 12px 18px; cursor: pointer;" onclick="playSadSplitWord('soof')">
+                                    <div style="font-size: 1.35rem; font-weight: 900; color: #0369a1; min-width: 100px;">صُوفٌ</div>
+                                    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">صُو</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">فٌ</span>
+                                    </div>
+                                    <span style="background: #e0f2fe; color: #0284c7; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">مَقْطَعَانِ 👏</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; justify-content: space-between; background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 12px 18px; cursor: pointer;" onclick="playSadSplitWord('misbaah')">
+                                    <div style="font-size: 1.35rem; font-weight: 900; color: #0369a1; min-width: 100px;">مِصْبَاحٌ</div>
+                                    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">مِصْـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">بَا</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">حٌ</span>
+                                    </div>
+                                    <span style="background: #e0f2fe; color: #0284c7; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">٣ مَقَاطِع 👏</span>
+                                </div>
+
+                                <div style="display: flex; align-items: center; justify-content: space-between; background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 12px 18px; cursor: pointer;" onclick="playSadSplitWord('malab')">
+                                    <div style="font-size: 1.35rem; font-weight: 900; color: #0369a1; min-width: 100px;">مَلْعَبٍ</div>
+                                    <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">مَلْـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">عَـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900; font-size: 1.15rem;">بٍ</span>
+                                    </div>
+                                    <span style="background: #e0f2fe; color: #0284c7; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">تَنْوِينُ كَسْرٍ 👏</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_sad_analysis.png" alt="نشاط 5 ص 85" style="width: 100%; max-height: 240px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- التركيب الصوتي نشاط 8 ص 86 -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🧩 وَرْشَةُ التَّرْكِيبِ الصَّوْتِيِّ (نَشَاط ٨ ص ٨٦)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_sad_blend_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>تَعْلِيمَاتُ التَّرْكِيبِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playSadMerge('saboon')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">صَا</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">بُو</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">نٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #0369a1; margin-top: 6px;">صَابُونٌ 🧼</div>
+                                </div>
+
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playSadMerge('saadiq')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">صَا</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">دِ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">قٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #0369a1; margin-top: 6px;">صَادِقٌ 👦</div>
+                                </div>
+
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playSadMerge('sidq')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">صِـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">دْ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">قٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #0369a1; margin-top: 6px;">صِدْقٌ 💎</div>
+                                </div>
+
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playSadMerge('aseer')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">عَـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">صِيـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">رٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #0369a1; margin-top: 6px;">عَصِيرٌ 🧃</div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_sad_blend.png" alt="نشاط 8 ص 86" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: قراءة النصوص والسبورة والتحدي -->
+                    <div class="letter-sad-station" id="stationSad_4">
+                        <!-- مبدل نصوص القراءة الثلاثة -->
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+                            <button id="btnSadReadBook" class="btn-primary active" onclick="switchSadReadingTab('book')" style="background: #0284c7; border-color: #0369a1; padding: 10px 22px; font-weight: 900;">
+                                <span>📖</span> <span>نَصُّ صَادِقٍ يَقُولُ (ص ٨٦)</span>
+                            </button>
+                            <button id="btnSadReadSaba" class="btn-primary" onclick="switchSadReadingTab('saba')" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd; padding: 10px 22px; font-weight: 900;">
+                                <span>🌅</span> <span>نَصُّ صَبَا وَالْحَدِيثُ الشَّرِيفُ (ص ٨٨)</span>
+                            </button>
+                            <button id="btnSadReadWaqqas" class="btn-primary" onclick="switchSadReadingTab('waqqas')" style="background: #e0f2fe; color: #0369a1; border-color: #bae6fd; padding: 10px 22px; font-weight: 900;">
+                                <span>🪁</span> <span>طَيَّارَةُ وَقَّاص (تُرَاثِيٌّ خَالِدٌ)</span>
+                            </button>
+                        </div>
+
+                        <!-- 1. نص الكتاب المدرسي ص 86 -->
+                        <div id="sadReadingBookContent" class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">📖 صَادِقٌ يَقُولُ (ص ٨٦)</h3>
+                                <button class="btn-primary" onclick="playSadReadingLine('b_full')" style="background: #0284c7; border-color: #0369a1; font-size: 0.9rem;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلاً</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('b1')">
+                                    <span>صَادِقٌ يَقُولُ: 👦</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('b2')">
+                                    <span>صَبَاحٌ جَمِيلٌ يَا مَامَا وَبَابَا. ☀️</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('b3')">
+                                    <span>صَبَا تُرِيدُ فَطُورًا مُفِيدًا. 🥛🍞</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_sad_read.png" alt="نشاط القراءة ص 86" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- 2. نص ص 88 والحديث الشريف -->
+                        <div id="sadReadingSabaContent" class="lesson-card" style="display: none; margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🌅 تَقُولُ صَبَا وَالْحَدِيثُ الشَّرِيفُ (ص ٨٨)</h3>
+                                <button class="btn-primary" onclick="playSadReadingLine('s_full')" style="background: #0284c7; border-color: #0369a1; font-size: 0.9rem;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلاً</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('s1')">
+                                    <span>تَقُولُ صَبَا بِفَرَحٍ: 👧</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('s2')">
+                                    <span>فِي صَبَاحٍ جَمِيلٍ نَصْحُو بِنَشَاطٍ وَرَاحَةٍ. 🌸</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('s3')">
+                                    <span>قَالَ النَّبِيُّ مُحَمَّدٌ (صَلَّى اللهُ عَلَيْهِ وَآلِهِ وَسَلَّمَ): 🕊️</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #e0f2fe; border: 2px solid #0284c7; border-radius: 16px; padding: 16px 20px; font-size: 1.6rem; font-weight: 900; color: #0369a1; text-align: center; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('s4')">
+                                    <span style="width: 100%; text-align: center;">«النَّظَافَةُ مِنَ الإِيمَانِ» صَدَقَ رَسُولُ اللهِ ✨</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. نص طَيَّارَةُ وَقَّاص التراثي الأصيل -->
+                        <div id="sadReadingWaqqasContent" class="lesson-card" style="display: none; margin-bottom: 24px;">
+                            <div class="waqqas-banner">
+                                <div>
+                                    <div class="waqqas-badge">🪁 قِرَاءَةٌ تُرَاثِيَّةٌ عِرَاقِيَّةٌ أَصِيلَةٌ</div>
+                                    <h2 style="margin: 8px 0 0; font-size: 1.8rem; font-weight: 900;">طَيَّارَةُ وَقَّاص</h2>
+                                </div>
+                                <button class="btn-primary" onclick="playSadReadingLine('w_full')" style="background: #fef08a; color: #0369a1; border: none; font-weight: 900; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْقِرَاءَةِ كَامِلَةً</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('w1')">
+                                    <span>عَادَ وَقَّاصٌ مِنَ الْمَدْرَسَةِ. 🎒</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('w2')">
+                                    <span>طَلَبَ الْمِقَصَّ مِنْ أُمِّهِ. ✂️</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('w3')">
+                                    <span>قَصَّ بِهِ الْوَرَقَ. 📄</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('w4')">
+                                    <span>صَنَعَ مِنْهُ طَيَّارَةً. 🪁</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('w5')">
+                                    <span>لَعِبَ بِهَا مَعَ صَدِيقِهِ مَنْصُورٍ. 👦👦</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #0284c7; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playSadReadingLine('w6')">
+                                    <span>صـ ـصـ ـص ص ✨</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة تتبع الحرف والرسم التفاعلي للصاد -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🎨 سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الصَّادِ التَّفَاعُلِيَّةِ</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_sad_draw_hint')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>💡</span> <span>إِرْشَادَاتُ الرَّسْمِ</span>
+                                </button>
+                            </div>
+
+                            <div style="margin-bottom: 16px; border-radius: 14px; overflow: hidden; border: 2px solid #bae6fd; text-align: center;">
+                                <img src="activity_sad_trace.png" alt="اتجاه رسم حرف الصاد" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+
+                            <div class="sad-canvas-box">
+                                <canvas id="letterSadDrawCanvas"></canvas>
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; align-items: center;">
+                                <span style="font-weight: 800; color: #475569; font-size: 0.9rem;">اختر لون القلم:</span>
+                                <button onclick="setSadCanvasColor('#0284c7')" style="width: 32px; height: 32px; border-radius: 50%; background: #0284c7; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setSadCanvasColor('#059669')" style="width: 32px; height: 32px; border-radius: 50%; background: #059669; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setSadCanvasColor('#dc2626')" style="width: 32px; height: 32px; border-radius: 50%; background: #dc2626; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setSadCanvasColor('#7c3aed')" style="width: 32px; height: 32px; border-radius: 50%; background: #7c3aed; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-secondary" onclick="clearSadCanvas()" style="margin-right: 15px; font-size: 0.85rem; padding: 6px 16px;">
+                                    <span>🧹</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي الذكي لحرف الصاد وتنوين الكسر (5 أسئلة) -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🏆 اخْتِبَارُ التَّحَدِّي الذَّكِيِّ لِحَرْفِ الصَّادِ وَتَنْوِينِ الْكَسْرِ</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_sad_quiz_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>📢</span> <span>بِدَايَةُ التَّحَدِّي</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <!-- السؤال 1 -->
+                                <div class="quiz-question-box" style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 18px;">
+                                    <div style="font-weight: 900; color: #0369a1; margin-bottom: 10px; font-size: 1.15rem;">١. أَيْنَ يَقَعُ حَرْفُ الصَّادِ فِي كَلِمَةِ (صَيَّادٌ)؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-secondary" onclick="checkSadQuiz(1, 'start', this)" style="flex: 1; min-width: 120px; font-weight: 800;">أَوَّلُ الْكَلِمَةِ (صـ)</button>
+                                        <button class="btn-secondary" onclick="checkSadQuiz(1, 'middle', this)" style="flex: 1; min-width: 120px; font-weight: 800;">وَسَطُ الْكَلِمَةِ (ـصـ)</button>
+                                        <button class="btn-secondary" onclick="checkSadQuiz(1, 'end', this)" style="flex: 1; min-width: 120px; font-weight: 800;">آخِرُ الْكَلِمَةِ (ص)</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 2 -->
+                                <div class="quiz-question-box" style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 18px;">
+                                    <div style="font-weight: 900; color: #0369a1; margin-bottom: 10px; font-size: 1.15rem;">٢. مَا هُوَ الْمَقْطَعُ السَّاكِنُ فِي كَلِمَةِ (مِصْبَاحٌ)؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-secondary" onclick="checkSadQuiz(2, 'mis', this)" style="flex: 1; min-width: 120px; font-weight: 800;">مِصْـ</button>
+                                        <button class="btn-secondary" onclick="checkSadQuiz(2, 'ba', this)" style="flex: 1; min-width: 120px; font-weight: 800;">بَا</button>
+                                        <button class="btn-secondary" onclick="checkSadQuiz(2, 'hun', this)" style="flex: 1; min-width: 120px; font-weight: 800;">حٌ</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 3 -->
+                                <div class="quiz-question-box" style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 18px;">
+                                    <div style="font-weight: 900; color: #0369a1; margin-bottom: 10px; font-size: 1.15rem;">٣. مَا الْكَلِمَةُ الَّتِي تَنْتَهِي بِتَنْوِينِ الْكَسْرِ ( ٍ )؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-secondary" onclick="checkSadQuiz(3, 'wasee', this)" style="flex: 1; min-width: 120px; font-weight: 800;">وَاسِعٍ ⚽</button>
+                                        <button class="btn-secondary" onclick="checkSadQuiz(3, 'waqqas', this)" style="flex: 1; min-width: 120px; font-weight: 800;">وَقَّاصٌ 🪁</button>
+                                        <button class="btn-secondary" onclick="checkSadQuiz(3, 'tayyara', this)" style="flex: 1; min-width: 120px; font-weight: 800;">طَيَّارَةً ✈️</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 4 -->
+                                <div class="quiz-question-box" style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 18px;">
+                                    <div style="font-weight: 900; color: #0369a1; margin-bottom: 10px; font-size: 1.15rem;">٤. مَا هُوَ التَّحْلِيلُ الصَّوْتِيُّ الصَّحِيحُ لِكَلِمَةِ (عَصِيرٌ)؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-secondary" onclick="checkSadQuiz(4, 'aseer_split', this)" style="flex: 1; min-width: 120px; font-weight: 800;">عَـ + صِيـ + رٌ</button>
+                                        <button class="btn-secondary" onclick="checkSadQuiz(4, 'wrong1', this)" style="flex: 1; min-width: 120px; font-weight: 800;">عَصْـ + يِرْ</button>
+                                        <button class="btn-secondary" onclick="checkSadQuiz(4, 'wrong2', this)" style="flex: 1; min-width: 120px; font-weight: 800;">عَـ + صِـ + يـ + ر</button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 5 -->
+                                <div class="quiz-question-box" style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 14px 18px;">
+                                    <div style="font-weight: 900; color: #0369a1; margin-bottom: 10px; font-size: 1.15rem;">٥. مَعَ مَنْ لَعِبَ وَقَّاصٌ بِطَيَّارَتِهِ الْوَرَقِيَّةِ؟</div>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                        <button class="btn-secondary" onclick="checkSadQuiz(5, 'mansoor', this)" style="flex: 1; min-width: 120px; font-weight: 800;">مَعَ صَدِيقِهِ مَنْصُورٍ 👦</button>
+                                        <button class="btn-secondary" onclick="checkSadQuiz(5, 'faraj', this)" style="flex: 1; min-width: 120px; font-weight: 800;">مَعَ فَرَج 🧵</button>
+                                        <button class="btn-secondary" onclick="checkSadQuiz(5, 'nabeel', this)" style="flex: 1; min-width: 120px; font-weight: 800;">مَعَ نَبِيل 🛒</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- أزرار استعراض صفحات الكتاب المدرسي الرسمية -->
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-top: 20px; flex-wrap: wrap;">
+                            <button class="btn-secondary" onclick="openBookPageModal('page_85.png', 'كتاب قراءتي الجديد: ص ٨٤')">
+                                <span>📖</span> <span>صَفْحَة ٨٤</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_86.png', 'كتاب قراءتي الجديد: ص ٨٥')">
+                                <span>📖</span> <span>صَفْحَة ٨٥</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_87.png', 'كتاب قراءتي الجديد: ص ٨٦')">
+                                <span>📖</span> <span>صَفْحَة ٨٦</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_88.png', 'كتاب قراءتي الجديد: ص ٨٧')">
+                                <span>📖</span> <span>صَفْحَة ٨٧</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_89.png', 'كتاب قراءتي الجديد: ص ٨٨')">
+                                <span>📖</span> <span>صَفْحَة ٨٨</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 </div> <!-- إغلاق stage-card -->
 <!-- شريط الانتقال المتسلسل بين الدروس -->
 

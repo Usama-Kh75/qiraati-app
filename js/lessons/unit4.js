@@ -1422,4 +1422,386 @@
             mascotSpeak('حَاوِلْ مَرَّةً أُخْرَى، رَكِّزْ جَيِّداً فِي صَوْتِ الْجِيمِ وَمَوْضِعِهِ!', 'letter_j_wrong');
         }
     };
+
+    /* ========================================================
+       الدرس السادس: حرف الصاد (صـ ، ـصـ ، ـص ، ص) وتنوين الكسر وقراءة طَيَّارَةُ وَقَّاص (ص ٨٤ - ٨٨)
+    ======================================================== */
+    let currentSadStation = 1;
+    let sadCanvas = null;
+    let sadCtx = null;
+    let isDrawingSad = false;
+    let sadStrokeColor = '#0284c7';
+
+    window.switchLetterSadStation = function(stationNum) {
+        currentSadStation = stationNum;
+        document.querySelectorAll('.letter-sad-station').forEach(el => el.classList.remove('active'));
+        const target = document.getElementById('stationSad_' + stationNum);
+        if (target) target.classList.add('active');
+
+        for (let i = 1; i <= 4; i++) {
+            const btn = document.getElementById('btnStationSad_' + i);
+            if (btn) {
+                if (i === stationNum) btn.classList.add('active');
+                else btn.classList.remove('active');
+            }
+        }
+
+        if (stationNum === 1) {
+            mascotSpeak('أَهْلاً بِكُمْ فِي الْمَحَطَّةِ الأُولَى: أَتَعَرَّفُ حَرْفَ الصَّادِ الْمُفَخَّمِ الرَّنَّانِ وَأَشْكَالَهُ الأَرْبَعَةَ وَكَلِمَاتِهِ الْمُصَوَّرَةِ فِي الْكِتَابِ ص ٨٤!', 'letter_sad_intro');
+        } else if (stationNum === 2) {
+            mascotSpeak('الْمَحَطَّةُ الثَّانِيَةُ: نَسْتَمِعُ إِلَى أَصْوَاتِ الصَّادِ مَعَ الْحَرَكَاتِ وَالْمُدُودِ وَالتَّنْوِينِ وَالْمَقَاطِعِ السَّاكِنَةِ (ص ٨٤ - ٨٥)!', 'letter_sad_vowels_station');
+        } else if (stationNum === 3) {
+            mascotSpeak('الْمَحَطَّةُ الثَّالِثَةُ: مَحَطَّةُ تَنْوِينِ الْكَسْرِ الشَّامِلَةِ ( ٍ ) وَوَرْشَةُ التَّحْلِيلِ وَالتَّرْكِيبِ الصَّوْتِيِّ (ص ٨٥ - ٨٨)!', 'tanween_kasr_intro');
+        } else if (stationNum === 4) {
+            mascotSpeak('الْمَحَطَّةُ الرَّابِعَةُ: قِرَاءَةُ نُصُوصِ الْكِتَابِ ص ٨٦ وَص ٨٨ وَطَيَّارَةُ وَقَّاص، مَعَ سَبُّورَةِ الرَّسْمِ وَاخْتِبَارِ التَّحَدِّي الذَّكِيّ!', 'letter_sad_read_intro');
+            setTimeout(initSadCanvas, 100);
+        }
+    };
+
+    window.playLetterSadSound = function() {
+        mascotCelebrates();
+        playAudio('letter_sad_sound');
+    };
+
+    window.playSadLetterSound = function() {
+        mascotCelebrates();
+        playAudio('letter_sad_sound');
+    };
+
+    window.playSadPhonemeFaseeh = function() {
+        mascotCelebrates();
+        playAudio('letter_sad_phoneme_faseeh');
+    };
+
+    window.playSadWord = function(wordKey) {
+        mascotCelebrates();
+        const map = {
+            'sayyad': 'letter_sad_word_sayyad',
+            'sundooq': 'letter_sad_word_sundooq',
+            'sinnarah': 'letter_sad_word_sinnarah',
+            'qafas': 'letter_sad_word_qafas',
+            'isba': 'letter_sad_word_isba',
+            'safirah': 'letter_sad_word_safirah',
+            'soos': 'letter_sad_word_soos',
+            'seesan': 'letter_sad_word_seesan',
+            'saarookh': 'letter_sad_word_saarookh',
+            'soorah': 'letter_sad_word_soorah',
+            'saqr': 'letter_sad_word_saqr',
+            'misbaah': 'letter_sad_word_misbaah',
+            'qasr': 'letter_sad_word_qasr',
+            'aseer': 'letter_sad_word_aseer',
+            'soof': 'letter_sad_word_soof',
+            'saadiq': 'letter_sad_word_saadiq',
+            'sabah': 'letter_sad_word_sabah',
+            'saba': 'letter_sad_word_saba',
+            'saaboon': 'letter_sad_word_saaboon',
+            'sidq': 'letter_sad_word_sidq',
+            'waqqas': 'letter_sad_word_waqqas',
+            'mansoor': 'letter_sad_word_mansoor',
+            'miqas': 'letter_sad_word_miqas',
+            'tayyarah': 'letter_sad_word_tayyarah',
+            'qas': 'letter_sad_word_qas',
+            'sanaa': 'letter_sad_word_sanaa',
+            'sadeeq': 'letter_sad_word_sadeeq',
+            'waraq': 'letter_sad_word_waraq',
+            'farah': 'letter_sad_word_farah',
+            'nasheeda': 'letter_sad_word_nasheeda',
+            'raaha': 'letter_sad_word_raaha',
+            'nazafah': 'letter_sad_word_nazafah',
+            'eemaan': 'letter_sad_word_eemaan',
+            'furookh': 'letter_sad_word_furookh'
+        };
+        const audioKey = map[wordKey] || ('letter_sad_word_' + wordKey);
+        playAudio(audioKey);
+    };
+
+    window.playSadVowel = function(vowelKey) {
+        mascotCelebrates();
+        const map = {
+            'short_a': 'letter_sad_short_a',
+            'short_u': 'letter_sad_short_u',
+            'short_i': 'letter_sad_short_i',
+            'long_aa': 'letter_sad_long_aa',
+            'long_oo': 'letter_sad_long_oo',
+            'long_ee': 'letter_sad_long_ee',
+            'tanween_dham': 'letter_sad_tanween_dham',
+            'tanween_fath': 'letter_sad_tanween_fath',
+            'tanween_kasr': 'letter_sad_tanween_kasr'
+        };
+        const audioKey = map[vowelKey] || ('letter_sad_' + vowelKey);
+        playAudio(audioKey);
+    };
+
+    window.playSadSyllable = function(sylKey) {
+        mascotCelebrates();
+        const map = {
+            'mis': 'letter_sad_syl_mis',
+            'is': 'letter_sad_syl_is',
+            'qas': 'letter_sad_syl_qas',
+            'fas': 'letter_sad_syl_fas'
+        };
+        const audioKey = map[sylKey] || ('letter_sad_syl_' + sylKey);
+        playAudio(audioKey);
+    };
+
+    window.playSadSplitWord = function(wordKey) {
+        mascotCelebrates();
+        const map = {
+            'aseer': 'letter_sad_split_aseer',
+            'saarookh': 'letter_sad_split_saarookh',
+            'soof': 'letter_sad_split_soof',
+            'misbaah': 'letter_sad_split_misbaah',
+            'isba': 'letter_sad_split_isba',
+            'qasr': 'letter_sad_split_qasr',
+            'saadiq': 'letter_sad_split_saadiq',
+            'saboon': 'letter_sad_split_saboon',
+            'malab': 'tanween_kasr_split_malab',
+            'wasee': 'tanween_kasr_split_wasee',
+            'qitaar': 'tanween_kasr_split_qitaar',
+            'saree': 'tanween_kasr_split_saree',
+            'wisadah': 'tanween_kasr_split_wisadah',
+            'naimah': 'tanween_kasr_split_naimah'
+        };
+        const audioKey = map[wordKey] || ('letter_sad_split_' + wordKey);
+        playAudio(audioKey);
+    };
+
+    window.playSadMerge = function(mergeKey) {
+        mascotCelebrates();
+        const map = {
+            'saboon': 'letter_sad_merge_saboon',
+            'saadiq': 'letter_sad_merge_saadiq',
+            'sidq': 'letter_sad_merge_sidq',
+            'aseer': 'letter_sad_merge_aseer',
+            'soos': 'letter_sad_merge_soos'
+        };
+        const audioKey = map[mergeKey] || ('letter_sad_merge_' + mergeKey);
+        playAudio(audioKey);
+    };
+
+    window.switchSadReadingTab = function(tabId) {
+        const bookTab = document.getElementById('sadReadingBookContent');
+        const sabaTab = document.getElementById('sadReadingSabaContent');
+        const waqqasTab = document.getElementById('sadReadingWaqqasContent');
+        const btnBook = document.getElementById('btnSadReadBook');
+        const btnSaba = document.getElementById('btnSadReadSaba');
+        const btnWaqqas = document.getElementById('btnSadReadWaqqas');
+
+        if (tabId === 'book') {
+            if (bookTab) bookTab.style.display = 'block';
+            if (sabaTab) sabaTab.style.display = 'none';
+            if (waqqasTab) waqqasTab.style.display = 'none';
+            if (btnBook) { btnBook.classList.add('active'); btnBook.style.background = '#0284c7'; btnBook.style.color = '#ffffff'; }
+            if (btnSaba) { btnSaba.classList.remove('active'); btnSaba.style.background = '#e0f2fe'; btnSaba.style.color = '#0369a1'; }
+            if (btnWaqqas) { btnWaqqas.classList.remove('active'); btnWaqqas.style.background = '#e0f2fe'; btnWaqqas.style.color = '#0369a1'; }
+            mascotSpeak('نَقْرَأُ نَصَّ الْكِتَابِ الْمَدْرَسِيِّ ص ٨٦: صَادِقٌ يَقُولُ!', 'letter_sad_read_intro');
+        } else if (tabId === 'saba') {
+            if (bookTab) bookTab.style.display = 'none';
+            if (sabaTab) sabaTab.style.display = 'block';
+            if (waqqasTab) waqqasTab.style.display = 'none';
+            if (btnBook) { btnBook.classList.remove('active'); btnBook.style.background = '#e0f2fe'; btnBook.style.color = '#0369a1'; }
+            if (btnSaba) { btnSaba.classList.add('active'); btnSaba.style.background = '#0284c7'; btnSaba.style.color = '#ffffff'; }
+            if (btnWaqqas) { btnWaqqas.classList.remove('active'); btnWaqqas.style.background = '#e0f2fe'; btnWaqqas.style.color = '#0369a1'; }
+            mascotSpeak('نَقْرَأُ نَصَّ صَبَا وَالْحَدِيثَ الشَّرِيفَ ص ٨٨: النَّظَافَةُ مِنَ الإِيمَانِ!', 'letter_sad_read_saba_full');
+        } else if (tabId === 'waqqas') {
+            if (bookTab) bookTab.style.display = 'none';
+            if (sabaTab) sabaTab.style.display = 'none';
+            if (waqqasTab) waqqasTab.style.display = 'block';
+            if (btnBook) { btnBook.classList.remove('active'); btnBook.style.background = '#e0f2fe'; btnBook.style.color = '#0369a1'; }
+            if (btnSaba) { btnSaba.classList.remove('active'); btnSaba.style.background = '#e0f2fe'; btnSaba.style.color = '#0369a1'; }
+            if (btnWaqqas) { btnWaqqas.classList.add('active'); btnWaqqas.style.background = '#0284c7'; btnWaqqas.style.color = '#ffffff'; }
+            mascotSpeak('نَقْرَأُ الْقِصَّةَ التُّرَاثِيَّةَ الْعِرَاقِيَّةَ الأَصِيلَةَ: طَيَّارَةُ وَقَّاص!', 'letter_sad_read_waqqas_full');
+        }
+    };
+
+    window.playSadReadingLine = function(lineId) {
+        mascotCelebrates();
+        const map = {
+            'b_full': 'letter_sad_read_book_full',
+            'b1': 'letter_sad_read_b1',
+            'b2': 'letter_sad_read_b2',
+            'b3': 'letter_sad_read_b3',
+            's_full': 'letter_sad_read_saba_full',
+            's1': 'letter_sad_read_s1',
+            's2': 'letter_sad_read_s2',
+            's3': 'letter_sad_read_s3',
+            's4': 'letter_sad_read_s4',
+            'w_full': 'letter_sad_read_waqqas_full',
+            'w1': 'letter_sad_read_w1',
+            'w2': 'letter_sad_read_w2',
+            'w3': 'letter_sad_read_w3',
+            'w4': 'letter_sad_read_w4',
+            'w5': 'letter_sad_read_w5',
+            'w6': 'letter_sad_read_w6'
+        };
+        const audioKey = map[lineId] || ('letter_sad_read_' + lineId);
+        playAudio(audioKey);
+    };
+
+    function initSadCanvas() {
+        sadCanvas = document.getElementById('letterSadDrawCanvas');
+        if (!sadCanvas) return;
+        sadCtx = sadCanvas.getContext('2d');
+
+        function resizeSadCanvas() {
+            if (!sadCanvas) return;
+            const rect = sadCanvas.parentElement.getBoundingClientRect();
+            sadCanvas.width = rect.width;
+            sadCanvas.height = rect.height;
+            drawSadGuidelines();
+        }
+
+        resizeSadCanvas();
+        window.addEventListener('resize', resizeSadCanvas);
+
+        function getSadPos(e) {
+            const rect = sadCanvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return {
+                x: clientX - rect.left,
+                y: clientY - rect.top
+            };
+        }
+
+        sadCanvas.onmousedown = function(e) {
+            isDrawingSad = true;
+            const pos = getSadPos(e);
+            sadCtx.beginPath();
+            sadCtx.moveTo(pos.x, pos.y);
+            sadCtx.strokeStyle = sadStrokeColor;
+            sadCtx.lineWidth = 6;
+            sadCtx.lineCap = 'round';
+            sadCtx.lineJoin = 'round';
+        };
+
+        sadCanvas.onmousemove = function(e) {
+            if (!isDrawingSad) return;
+            const pos = getSadPos(e);
+            sadCtx.lineTo(pos.x, pos.y);
+            sadCtx.stroke();
+        };
+
+        window.onmouseup = function() {
+            isDrawingSad = false;
+        };
+
+        sadCanvas.ontouchstart = function(e) {
+            e.preventDefault();
+            isDrawingSad = true;
+            const pos = getSadPos(e);
+            sadCtx.beginPath();
+            sadCtx.moveTo(pos.x, pos.y);
+            sadCtx.strokeStyle = sadStrokeColor;
+            sadCtx.lineWidth = 6;
+            sadCtx.lineCap = 'round';
+            sadCtx.lineJoin = 'round';
+        };
+
+        sadCanvas.ontouchmove = function(e) {
+            e.preventDefault();
+            if (!isDrawingSad) return;
+            const pos = getSadPos(e);
+            sadCtx.lineTo(pos.x, pos.y);
+            sadCtx.stroke();
+        };
+
+        sadCanvas.ontouchend = function(e) {
+            e.preventDefault();
+            isDrawingSad = false;
+        };
+    }
+
+    function drawSadGuidelines() {
+        if (!sadCtx || !sadCanvas) return;
+        const w = sadCanvas.width;
+        const h = sadCanvas.height;
+
+        sadCtx.save();
+        sadCtx.fillStyle = '#ffffff';
+        sadCtx.fillRect(0, 0, w, h);
+
+        const baseline = h * 0.62;
+
+        // خط السطر الأساسي باللون الأزرق
+        sadCtx.strokeStyle = '#0284c7';
+        sadCtx.lineWidth = 3;
+        sadCtx.beginPath();
+        sadCtx.moveTo(20, baseline);
+        sadCtx.lineTo(w - 20, baseline);
+        sadCtx.stroke();
+
+        // خط علوي منقط
+        sadCtx.strokeStyle = '#cbd5e1';
+        sadCtx.lineWidth = 1.5;
+        sadCtx.setLineDash([6, 6]);
+        sadCtx.beginPath();
+        sadCtx.moveTo(20, h * 0.28);
+        sadCtx.lineTo(w - 20, h * 0.28);
+        sadCtx.stroke();
+
+        // خط سفلي منقط لنزول كاسة الصاد
+        sadCtx.beginPath();
+        sadCtx.moveTo(20, h * 0.85);
+        sadCtx.lineTo(w - 20, h * 0.85);
+        sadCtx.stroke();
+
+        // رسم نموذج خفيف منقط لحرف الصاد بأشكاله الأربعة
+        sadCtx.font = 'bold ' + Math.floor(h * 0.30) + 'px "Tajawal", "Traditional Arabic", sans-serif';
+        sadCtx.fillStyle = '#bae6fd';
+        sadCtx.textAlign = 'center';
+        sadCtx.textBaseline = 'alphabetic';
+        sadCtx.fillText('صـ', w * 0.82, baseline);
+        sadCtx.fillText('ـصـ', w * 0.58, baseline);
+        sadCtx.fillText('ـص', w * 0.35, baseline + (h * 0.10));
+        sadCtx.fillText('ص', w * 0.14, baseline + (h * 0.10));
+
+        sadCtx.restore();
+    }
+
+    window.clearSadCanvas = function() {
+        if (sadCtx && sadCanvas) {
+            drawSadGuidelines();
+            playAudio('letter_sad_draw_hint');
+        }
+    };
+
+    window.setSadCanvasColor = function(color) {
+        sadStrokeColor = color;
+        if (sadCtx) {
+            sadCtx.strokeStyle = color;
+        }
+    };
+
+    window.checkSadQuiz = function(qNum, answer, btn) {
+        const correctAnswers = {
+            1: 'start',
+            2: 'mis',
+            3: 'wasee',
+            4: 'aseer_split',
+            5: 'mansoor'
+        };
+
+        const parent = btn.closest('.quiz-question-box');
+        if (parent) {
+            parent.querySelectorAll('button').forEach(b => {
+                b.style.borderColor = '#cbd5e1';
+                b.style.background = '#ffffff';
+            });
+        }
+
+        if (answer === correctAnswers[qNum]) {
+            mascotCelebrates();
+            btn.style.borderColor = '#0284c7';
+            btn.style.background = '#f0f9ff';
+            playAudio('letter_sad_correct');
+            mascotSpeak('أَحْسَنْتَ يَا بَطَل! إِجَابَةٌ صَحِيحَةٌ وَعَبْقَرِيَّة!', 'letter_sad_correct');
+        } else {
+            mascotThinks();
+            btn.style.borderColor = '#ef4444';
+            btn.style.background = '#fef2f2';
+            playAudio('letter_sad_wrong');
+            mascotSpeak('حَاوِلْ مَرَّةً أُخْرَى، رَكِّزْ جَيِّداً فِي صَوْتِ الصَّادِ وَتَنْوِينِ الْكَسْرِ!', 'letter_sad_wrong');
+        }
+    };
 })();

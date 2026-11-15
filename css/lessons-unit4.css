@@ -771,3 +771,213 @@
         height: 260px;
     }
 }
+
+
+/* ==========================================================================
+ * الدرس السادس: حرف الصاد (صـ ، ـصـ ، ـص ، ص) وتنوين الكسر وقراءة طَيَّارَةُ وَقَّاص
+ * ========================================================================== */
+
+.letter-sad-station {
+    display: none;
+    animation: fadeInStation 0.35s ease;
+}
+.letter-sad-station.active {
+    display: block;
+}
+
+/* بطاقة حرف الصاد العملاقة */
+.giant-letter-sad-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 3px solid #7dd3fc;
+    border-radius: 28px;
+    padding: 16px 36px;
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.18);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.giant-letter-sad-card:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.28);
+    border-color: #0284c7;
+}
+.giant-letter-sad-glyph {
+    font-size: 3.8rem;
+    font-weight: 900;
+    color: #0369a1;
+    line-height: 1;
+    letter-spacing: 4px;
+    text-shadow: 0 2px 6px rgba(2, 132, 199, 0.2);
+}
+
+/* بطاقات كلمات حرف الصاد */
+.sad-word-card {
+    background: #ffffff;
+    border: 2px solid #bae6fd;
+    border-radius: 20px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.sad-word-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #0284c7;
+    background: #f0f9ff;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.18);
+}
+.sad-word-icon {
+    font-size: 2.4rem;
+    line-height: 1;
+}
+.sad-word-text {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #0369a1;
+}
+.sad-word-pos {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #0284c7;
+    background: #e0f2fe;
+    padding: 3px 12px;
+    border-radius: 12px;
+}
+
+/* بطاقات أشكال حرف الصاد الأربعة */
+.sad-forms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin: 16px 0;
+}
+.sad-form-card {
+    background: #ffffff;
+    border: 2px solid #bae6fd;
+    border-radius: 18px;
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+.sad-form-card:hover {
+    transform: translateY(-3px);
+    border-color: #0284c7;
+    background: #f0f9ff;
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.15);
+}
+.sad-form-glyph {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #0369a1;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+.sad-form-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #64748b;
+    margin-bottom: 4px;
+}
+.sad-form-ex {
+    font-size: 1rem;
+    font-weight: 900;
+    color: #0284c7;
+}
+
+/* بانر قراءة طيارة وقاص التراثية */
+.waqqas-banner {
+    background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #38bdf8 100%);
+    border-radius: 20px;
+    color: #ffffff;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(3, 105, 161, 0.25);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.waqqas-badge {
+    background: #fef08a;
+    color: #0369a1;
+    font-size: 0.95rem;
+    font-weight: 900;
+    padding: 6px 16px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* بانر محطة تنوين الكسر */
+.tanween-banner {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    border-radius: 20px;
+    color: #ffffff;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.25);
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.tanween-badge {
+    background: #fef08a;
+    color: #0369a1;
+    font-size: 0.95rem;
+    font-weight: 900;
+    padding: 6px 16px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* سبورة تتبع الحرف والرسم التفاعلي للصاد */
+.sad-canvas-box {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    height: 330px;
+    margin: 0 auto;
+    border-radius: 20px;
+    border: 3px solid #0284c7;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.15);
+    overflow: hidden;
+    touch-action: none;
+}
+.sad-canvas-box canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+}
+
+@media (max-width: 768px) {
+    .giant-letter-sad-card {
+        padding: 12px 20px;
+        gap: 12px;
+    }
+    .giant-letter-sad-glyph {
+        font-size: 3rem;
+    }
+    .sad-canvas-box {
+        height: 260px;
+    }
+}

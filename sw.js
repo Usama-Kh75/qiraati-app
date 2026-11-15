@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v39';
+const CACHE_NAME = 'qiraati-smart-v40';
 
 const ASSETS_TO_CACHE = [
 
@@ -268,6 +268,24 @@ const ASSETS_TO_CACHE = [
 
   './activity_s_words.png',
 
+  './activity_sad_analysis.png',
+
+  './activity_sad_blend.png',
+
+  './activity_sad_read.png',
+
+  './activity_sad_scene.png',
+
+  './activity_sad_syllables.png',
+
+  './activity_sad_tanween_kasr.png',
+
+  './activity_sad_trace.png',
+
+  './activity_sad_vowels.png',
+
+  './activity_sad_words.png',
+
   './activity_salim_analysis.png',
 
   './activity_salim_blend.png',
@@ -517,6 +535,16 @@ const ASSETS_TO_CACHE = [
   './page_83.png',
 
   './page_84.png',
+
+  './page_85.png',
+
+  './page_86.png',
+
+  './page_87.png',
+
+  './page_88.png',
+
+  './page_89.png',
 
   './unit1_family_listen.png',
 
@@ -2452,6 +2480,186 @@ const ASSETS_TO_CACHE = [
 
   './audio/letter_s_vowels_intro.mp3',
 
+  './audio/letter_sad_analysis_intro.mp3',
+
+  './audio/letter_sad_blend_intro.mp3',
+
+  './audio/letter_sad_correct.mp3',
+
+  './audio/letter_sad_draw_hint.mp3',
+
+  './audio/letter_sad_encourage_super.mp3',
+
+  './audio/letter_sad_intro.mp3',
+
+  './audio/letter_sad_long_aa.mp3',
+
+  './audio/letter_sad_long_ee.mp3',
+
+  './audio/letter_sad_long_oo.mp3',
+
+  './audio/letter_sad_merge_aseer.mp3',
+
+  './audio/letter_sad_merge_saadiq.mp3',
+
+  './audio/letter_sad_merge_saboon.mp3',
+
+  './audio/letter_sad_merge_sidq.mp3',
+
+  './audio/letter_sad_merge_soos.mp3',
+
+  './audio/letter_sad_phoneme_faseeh.mp3',
+
+  './audio/letter_sad_quiz_intro.mp3',
+
+  './audio/letter_sad_read_b1.mp3',
+
+  './audio/letter_sad_read_b2.mp3',
+
+  './audio/letter_sad_read_b3.mp3',
+
+  './audio/letter_sad_read_book_full.mp3',
+
+  './audio/letter_sad_read_intro.mp3',
+
+  './audio/letter_sad_read_s1.mp3',
+
+  './audio/letter_sad_read_s2.mp3',
+
+  './audio/letter_sad_read_s3.mp3',
+
+  './audio/letter_sad_read_s4.mp3',
+
+  './audio/letter_sad_read_saba_full.mp3',
+
+  './audio/letter_sad_read_w1.mp3',
+
+  './audio/letter_sad_read_w2.mp3',
+
+  './audio/letter_sad_read_w3.mp3',
+
+  './audio/letter_sad_read_w4.mp3',
+
+  './audio/letter_sad_read_w5.mp3',
+
+  './audio/letter_sad_read_w6.mp3',
+
+  './audio/letter_sad_read_waqqas_full.mp3',
+
+  './audio/letter_sad_scene_story.mp3',
+
+  './audio/letter_sad_short_a.mp3',
+
+  './audio/letter_sad_short_i.mp3',
+
+  './audio/letter_sad_short_u.mp3',
+
+  './audio/letter_sad_sound.mp3',
+
+  './audio/letter_sad_split_aseer.mp3',
+
+  './audio/letter_sad_split_isba.mp3',
+
+  './audio/letter_sad_split_misbaah.mp3',
+
+  './audio/letter_sad_split_qasr.mp3',
+
+  './audio/letter_sad_split_saadiq.mp3',
+
+  './audio/letter_sad_split_saarookh.mp3',
+
+  './audio/letter_sad_split_saboon.mp3',
+
+  './audio/letter_sad_split_soof.mp3',
+
+  './audio/letter_sad_syl_fas.mp3',
+
+  './audio/letter_sad_syl_is.mp3',
+
+  './audio/letter_sad_syl_mis.mp3',
+
+  './audio/letter_sad_syl_qas.mp3',
+
+  './audio/letter_sad_tanween_dham.mp3',
+
+  './audio/letter_sad_tanween_fath.mp3',
+
+  './audio/letter_sad_tanween_kasr.mp3',
+
+  './audio/letter_sad_vowels_station.mp3',
+
+  './audio/letter_sad_word_aseer.mp3',
+
+  './audio/letter_sad_word_eemaan.mp3',
+
+  './audio/letter_sad_word_farah.mp3',
+
+  './audio/letter_sad_word_furookh.mp3',
+
+  './audio/letter_sad_word_isba.mp3',
+
+  './audio/letter_sad_word_mansoor.mp3',
+
+  './audio/letter_sad_word_miqas.mp3',
+
+  './audio/letter_sad_word_misbaah.mp3',
+
+  './audio/letter_sad_word_nasheeda.mp3',
+
+  './audio/letter_sad_word_nazafah.mp3',
+
+  './audio/letter_sad_word_qafas.mp3',
+
+  './audio/letter_sad_word_qas.mp3',
+
+  './audio/letter_sad_word_qasr.mp3',
+
+  './audio/letter_sad_word_raaha.mp3',
+
+  './audio/letter_sad_word_saaboon.mp3',
+
+  './audio/letter_sad_word_saadiq.mp3',
+
+  './audio/letter_sad_word_saarookh.mp3',
+
+  './audio/letter_sad_word_saba.mp3',
+
+  './audio/letter_sad_word_sabah.mp3',
+
+  './audio/letter_sad_word_sadeeq.mp3',
+
+  './audio/letter_sad_word_safirah.mp3',
+
+  './audio/letter_sad_word_sanaa.mp3',
+
+  './audio/letter_sad_word_saqr.mp3',
+
+  './audio/letter_sad_word_sayyad.mp3',
+
+  './audio/letter_sad_word_seesan.mp3',
+
+  './audio/letter_sad_word_sidq.mp3',
+
+  './audio/letter_sad_word_sinnarah.mp3',
+
+  './audio/letter_sad_word_soof.mp3',
+
+  './audio/letter_sad_word_soorah.mp3',
+
+  './audio/letter_sad_word_soos.mp3',
+
+  './audio/letter_sad_word_sundooq.mp3',
+
+  './audio/letter_sad_word_tayyarah.mp3',
+
+  './audio/letter_sad_word_waqqas.mp3',
+
+  './audio/letter_sad_word_waraq.mp3',
+
+  './audio/letter_sad_words_intro.mp3',
+
+  './audio/letter_sad_wrong.mp3',
+
   './audio/letter_sh_analysis_intro.mp3',
 
   './audio/letter_sh_blend_intro.mp3',
@@ -3197,6 +3405,34 @@ const ASSETS_TO_CACHE = [
   './audio/tanween_dham_word_wateenun.mp3',
 
   './audio/tanween_dham_wrong.mp3',
+
+  './audio/tanween_kasr_intro.mp3',
+
+  './audio/tanween_kasr_sentence_malab.mp3',
+
+  './audio/tanween_kasr_sentence_qitaar.mp3',
+
+  './audio/tanween_kasr_sentence_wisadah.mp3',
+
+  './audio/tanween_kasr_split_malab.mp3',
+
+  './audio/tanween_kasr_split_naimah.mp3',
+
+  './audio/tanween_kasr_split_qitaar.mp3',
+
+  './audio/tanween_kasr_split_saree.mp3',
+
+  './audio/tanween_kasr_split_wasee.mp3',
+
+  './audio/tanween_kasr_split_wisadah.mp3',
+
+  './audio/tanween_kasr_word_banaat.mp3',
+
+  './audio/tanween_kasr_word_hoot.mp3',
+
+  './audio/tanween_kasr_word_mawz.mp3',
+
+  './audio/tanween_kasr_word_zaytoon.mp3',
 
   './audio/teach_giraffe.mp3',
 
