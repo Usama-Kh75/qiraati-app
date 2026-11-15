@@ -1,0 +1,726 @@
+                <div class="lesson-view" id="view-tab-letter_kha">
+                    <!-- شريط المحطات الأربعة لدرس حرف الخاء وتطبيقاته -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationKha_1" onclick="switchLetterKhaStation(1)">
+                            <span>🌾</span> <span>١. أتعرف الحرف والمشهد (ص ٩٦)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationKha_2" onclick="switchLetterKhaStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والمقاطع الساكنة (ص ٩٦ - ٩٧)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationKha_3" onclick="switchLetterKhaStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٩٧ - ٩٨)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationKha_4" onclick="switchLetterKhaStation(4)">
+                            <span>🍞</span> <span>٤. القراءة ونصوص الكتاب والسبورة (ص ٩٨)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-kha-station active" id="stationKha_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-kha-card" onclick="playKhaPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #b45309; margin-bottom: 4px;">حَرْفُ الْخَاءِ الْمُفَخَّمِ الرَّخْوِ</div>
+                                    <div class="giant-letter-kha-glyph">خـ ـخـ ـخ خ</div>
+                                </div>
+                                <div style="border-right: 2px dashed #fde68a; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #78350f;">صَوْتُ الْخَاءِ: خْ... اِخْـ</div>
+                                    <div style="font-size: 0.9rem; color: #64748b; font-weight: 700;">حَلْقِيٌّ مُفَخَّمٌ رَخْوٌ مَهْمُوسٌ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playKhaLetterSound()" style="background: #d97706; border-color: #b45309;">
+                                <span>🔊</span> <span>صَوْتُ الْخَاءِ الصَّافِي (خْ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playKhaPhonemeFaseeh()" style="background: #b45309; border-color: #78350f;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِمَخْرَجِ الْخَاءِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_kha_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_97.png', 'كتاب قراءتي الجديد: ص ٩٦')">
+                                <span>📖</span> <span>صَفْحَة ٩٦ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_98.png', 'كتاب قراءتي الجديد: ص ٩٧')">
+                                <span>📖</span> <span>صَفْحَة ٩٧ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_99.png', 'كتاب قراءتي الجديد: ص ٩٨')">
+                                <span>📖</span> <span>صَفْحَة ٩٨ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- صورة رأس الصفحة الرسمية من الكتاب ص 96 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #78350f; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ حَرْفِ الْخَاءِ (الْكِتَابُ الْمَدْرَسِيُّ ص ٩٦)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #fde68a; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_kha_scene_story')">
+                                <img src="activity_kha_scene.png" alt="مشهد رأس صفحة حرف الخاء" style="width: 100%; max-height: 380px; object-fit: contain; background: #fffbeb;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(217, 119, 6, 0.88); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- النشاط الأول: أردد منتبهاً لصوت حرف الخاء ص 96 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #78350f; margin: 0; font-weight: 900;">🎨 نَشَاطُ ١: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ حَرْفِ (خ) (ص ٩٦)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_words_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('letter_kha_words_intro')">
+                                <img src="activity_kha_words.png" alt="نشاط 1 كلمات وصور حرف الخاء" style="width: 100%; max-height: 300px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <!-- شبكة الكلمات المصورة التفاعلية لدرس الخاء -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;">
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_khiyaar')">
+                                    <div class="kha-word-icon">🥒</div>
+                                    <div class="kha-word-text">خِيَارٌ</div>
+                                    <div class="kha-word-pos">خِـ (أَوَّل)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_khubz')">
+                                    <div class="kha-word-icon">🍞</div>
+                                    <div class="kha-word-text">خُبْزٌ</div>
+                                    <div class="kha-word-pos">خُـ (أَوَّل)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_khashab')">
+                                    <div class="kha-word-icon">🪵</div>
+                                    <div class="kha-word-text">خَشَبٌ</div>
+                                    <div class="kha-word-pos">خَـ (أَوَّل)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_khaatam')">
+                                    <div class="kha-word-icon">💍</div>
+                                    <div class="kha-word-text">خَاتَمٌ</div>
+                                    <div class="kha-word-pos">خَا (مَدّ)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_khookh')">
+                                    <div class="kha-word-icon">🍑</div>
+                                    <div class="kha-word-text">خُوخٌ</div>
+                                    <div class="kha-word-pos">خُو... خ (آخِر)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_ukhtuboot')">
+                                    <div class="kha-word-icon">🐙</div>
+                                    <div class="kha-word-text">أَخْطُبُوطٌ</div>
+                                    <div class="kha-word-pos">أَخْـ (سَاكِن)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_nakheel')">
+                                    <div class="kha-word-icon">🌴</div>
+                                    <div class="kha-word-text">نَخِيلٌ</div>
+                                    <div class="kha-word-pos">ـخِـ (وَسَط)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_kharoof')">
+                                    <div class="kha-word-icon">🐑</div>
+                                    <div class="kha-word-text">خَرُوفٌ</div>
+                                    <div class="kha-word-pos">خَـ (أَوَّل)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_khass')">
+                                    <div class="kha-word-icon">🥬</div>
+                                    <div class="kha-word-text">خَسٌّ</div>
+                                    <div class="kha-word-pos">خَـ (أَوَّل)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_khoodhah')">
+                                    <div class="kha-word-icon">🪖</div>
+                                    <div class="kha-word-text">خُوذَةٌ</div>
+                                    <div class="kha-word-pos">خُو (مَدّ)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_nakhla')">
+                                    <div class="kha-word-icon">🌴</div>
+                                    <div class="kha-word-text">نَخْلَةٌ</div>
+                                    <div class="kha-word-pos">نَخْـ (سَاكِن)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_sakhrah')">
+                                    <div class="kha-word-icon">🪨</div>
+                                    <div class="kha-word-text">صَخْرَةٌ</div>
+                                    <div class="kha-word-pos">صَخْـ (سَاكِن)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_matbakh')">
+                                    <div class="kha-word-icon">🍳</div>
+                                    <div class="kha-word-text">مَطْبَخٌ</div>
+                                    <div class="kha-word-pos">ـخٌ (آخِر مُتَّصِل)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_kholood')">
+                                    <div class="kha-word-icon">👧</div>
+                                    <div class="kha-word-text">خُلُودٌ</div>
+                                    <div class="kha-word-pos">خُـ (أَوَّل)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_khaldoon')">
+                                    <div class="kha-word-icon">👨‍🌾</div>
+                                    <div class="kha-word-text">خَلْدُونُ</div>
+                                    <div class="kha-word-pos">خَـ (أَوَّل)</div>
+                                </div>
+                                <div class="kha-word-card" onclick="playAudio('letter_kha_word_khitaam')">
+                                    <div class="kha-word-icon">👩‍🍳</div>
+                                    <div class="kha-word-text">خِتَامُ</div>
+                                    <div class="kha-word-pos">خِـ (أَوَّل)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات الحركات والمدود والمقاطع الساكنة وأشكال الحرف -->
+                    <div class="letter-kha-station" id="stationKha_2">
+                        <!-- نشاط 2: أصوات الحركات والمدود ص 96 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #78350f; margin: 0; font-weight: 900;">🎵 نَشَاطُ ٢: أَنْطِقُ صَوْتَ حَرْفِ (خ) مَعَ أَصْوَاتِ الْمَدِّ الْقَصِيرَةِ وَالطَّوِيلَةِ (ص ٩٦)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_vowels_station')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>شَرْحُ الْمَحَطَّةِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('letter_kha_vowels_station')">
+                                <img src="activity_kha_vowels.png" alt="نشاط 2 حركات ومدود حرف الخاء" style="width: 100%; max-height: 240px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div class="kha-vowel-grid">
+                                <div class="kha-vowel-card" onclick="playAudio('letter_kha_short_a')">
+                                    <div class="kha-vowel-type">فَتْحَةٌ قَصِيرَةٌ</div>
+                                    <div class="kha-vowel-glyph">خَـ</div>
+                                    <div class="kha-vowel-sound">خَـ خَـ خَـ</div>
+                                    <div class="kha-vowel-word">خَشَبٌ 🪵</div>
+                                </div>
+                                <div class="kha-vowel-card" onclick="playAudio('letter_kha_short_u')">
+                                    <div class="kha-vowel-type">ضَمَّةٌ قَصِيرَةٌ</div>
+                                    <div class="kha-vowel-glyph">خُـ</div>
+                                    <div class="kha-vowel-sound">خُـ خُـ خُـ</div>
+                                    <div class="kha-vowel-word">خُبْزٌ 🍞</div>
+                                </div>
+                                <div class="kha-vowel-card" onclick="playAudio('letter_kha_short_i')">
+                                    <div class="kha-vowel-type">كَسْرَةٌ قَصِيرَةٌ</div>
+                                    <div class="kha-vowel-glyph">خِـ</div>
+                                    <div class="kha-vowel-sound">خِـ خِـ خِـ</div>
+                                    <div class="kha-vowel-word">خِيَارٌ 🥒</div>
+                                </div>
+                                <div class="kha-vowel-card" onclick="playAudio('letter_kha_long_aa')">
+                                    <div class="kha-vowel-type" style="background: #fef3c7; color: #b45309;">مَدٌّ طَوِيلٌ (ا)</div>
+                                    <div class="kha-vowel-glyph" style="color: #b45309;">خَا</div>
+                                    <div class="kha-vowel-sound">خَااااا</div>
+                                    <div class="kha-vowel-word">خَاتَمٌ 💍</div>
+                                </div>
+                                <div class="kha-vowel-card" onclick="playAudio('letter_kha_long_oo')">
+                                    <div class="kha-vowel-type" style="background: #fef3c7; color: #b45309;">مَدٌّ طَوِيلٌ (و)</div>
+                                    <div class="kha-vowel-glyph" style="color: #b45309;">خُو</div>
+                                    <div class="kha-vowel-sound">خُوووو</div>
+                                    <div class="kha-vowel-word">صُخُورٌ 🪨</div>
+                                </div>
+                                <div class="kha-vowel-card" onclick="playAudio('letter_kha_long_ee')">
+                                    <div class="kha-vowel-type" style="background: #fef3c7; color: #b45309;">مَدٌّ طَوِيلٌ (ي)</div>
+                                    <div class="kha-vowel-glyph" style="color: #b45309;">خِيـ</div>
+                                    <div class="kha-vowel-sound">خِييييي</div>
+                                    <div class="kha-vowel-word">نَخِيلٌ 🌴</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 3: استماع للفظ الكلمات وتحويط حرف الخاء ص 97 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <h3 style="color: #78350f; margin-bottom: 12px; font-weight: 900;">🔍 نَشَاطُ ٣: أَسْتَمِعُ لِلَفْظِ الْكَلِمَاتِ ثُمَّ أُحَوِّطُ حَرْفَ (خ) مَعَ الْمُدُودِ (ص ٩٧)</h3>
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a;">
+                                <img src="activity_kha_vowel_words.png" alt="نشاط 3 تحويط حرف الخاء مع المدود" style="width: 100%; max-height: 280px; object-fit: contain; background: #fffbeb;">
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;">
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_word_khaabirah')" style="padding: 12px; border-color: #fde68a;">
+                                    <span style="font-size: 1.25rem; font-weight: 900; color: #78350f;">خَابِرَةٌ 🏺</span>
+                                </button>
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_word_khubz')" style="padding: 12px; border-color: #fde68a;">
+                                    <span style="font-size: 1.25rem; font-weight: 900; color: #78350f;">خُبْزٌ 🍞</span>
+                                </button>
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_word_khass')" style="padding: 12px; border-color: #fde68a;">
+                                    <span style="font-size: 1.25rem; font-weight: 900; color: #78350f;">خَسٌّ 🥬</span>
+                                </button>
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_word_nakheel')" style="padding: 12px; border-color: #fde68a;">
+                                    <span style="font-size: 1.25rem; font-weight: 900; color: #78350f;">نَخِيلٌ 🌴</span>
+                                </button>
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_word_khoodhah')" style="padding: 12px; border-color: #fde68a;">
+                                    <span style="font-size: 1.25rem; font-weight: 900; color: #78350f;">خُوذَةٌ 🪖</span>
+                                </button>
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_word_khaatam')" style="padding: 12px; border-color: #fde68a;">
+                                    <span style="font-size: 1.25rem; font-weight: 900; color: #78350f;">خَاتَمٌ 💍</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- أشكال حرف الخاء الأربعة -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #78350f; margin: 0; font-weight: 900;">✨ أَرْبَعَةُ أَشْكَالٍ لِحَرْفِ الْخَاءِ فِي الْكَلِمَةِ</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_shapes_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلأَشْكَالِ</span>
+                                </button>
+                            </div>
+
+                            <div class="kha-shape-grid">
+                                <div class="kha-shape-card" onclick="playAudio('letter_kha_shape_first')">
+                                    <div class="kha-shape-glyph">خـ</div>
+                                    <div class="kha-shape-title">فِي أَوَّلِ الْكَلِمَةِ</div>
+                                    <div class="kha-shape-example">خَرُوفٌ ، خِيَارٌ</div>
+                                </div>
+                                <div class="kha-shape-card" onclick="playAudio('letter_kha_shape_mid')">
+                                    <div class="kha-shape-glyph">ـخـ</div>
+                                    <div class="kha-shape-title">فِي وَسَطِ الْكَلِمَةِ</div>
+                                    <div class="kha-shape-example">نَخِيلٌ ، صَخْرَةٌ</div>
+                                </div>
+                                <div class="kha-shape-card" onclick="playAudio('letter_kha_shape_last_conn')">
+                                    <div class="kha-shape-glyph">ـخ</div>
+                                    <div class="kha-shape-title">فِي آخِرِ الْكَلِمَةِ مُتَّصِلًا</div>
+                                    <div class="kha-shape-example">مَطْبَخٌ ، بَطِّيخٌ</div>
+                                </div>
+                                <div class="kha-shape-card" onclick="playAudio('letter_kha_shape_last_sep')">
+                                    <div class="kha-shape-glyph">خ</div>
+                                    <div class="kha-shape-title">فِي آخِرِ الْكَلِمَةِ مُنْفَصِلًا</div>
+                                    <div class="kha-shape-example">خُوخٌ ، كُوخٌ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 4: تمييز حرف الخاء الساكن في المقاطع ص 97 -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #78350f; margin: 0; font-weight: 900;">⚡ نَشَاطُ ٤: أُمَيِّزُ صَوْتَ حَرْفِ (خ) السَّاكِنِ فِي الْمَقَاطِعِ (ص ٩٧)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_syl_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ الْمَقَاطِعِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a;">
+                                <img src="activity_kha_syllables.png" alt="نشاط 4 المقاطع الساكنة للخاء" style="width: 100%; max-height: 220px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;">
+                                <div class="kha-syllable-card" onclick="playAudio('letter_kha_syl_nakh')">
+                                    <div class="kha-syllable-glyph">نَخْـ</div>
+                                    <div class="kha-syllable-word">نَخْلَةٌ 🌴</div>
+                                    <div class="kha-syllable-desc">نُونٌ مَفْتُوحَةٌ + خَاءٌ سَاكِنَةٌ</div>
+                                </div>
+                                <div class="kha-syllable-card" onclick="playAudio('letter_kha_syl_akh')">
+                                    <div class="kha-syllable-glyph">أَخْـ</div>
+                                    <div class="kha-syllable-word">أَخْطُبُوطٌ 🐙</div>
+                                    <div class="kha-syllable-desc">هَمْزَةٌ مَفْتُوحَةٌ + خَاءٌ سَاكِنَةٌ</div>
+                                </div>
+                                <div class="kha-syllable-card" onclick="playAudio('letter_kha_syl_sakh')">
+                                    <div class="kha-syllable-glyph">صَخْـ</div>
+                                    <div class="kha-syllable-word">صَخْرَةٌ 🪨</div>
+                                    <div class="kha-syllable-desc">صَادٌ مَفْتُوحَةٌ + خَاءٌ سَاكِنَةٌ</div>
+                                </div>
+                                <div class="kha-syllable-card" onclick="playAudio('letter_kha_syl_mat')">
+                                    <div class="kha-syllable-glyph">مَطْـ</div>
+                                    <div class="kha-syllable-word">مَطْبَخٌ 🍳</div>
+                                    <div class="kha-syllable-desc">مِيمٌ مَفْتُوحَةٌ + طَاءٌ سَاكِنَةٌ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي -->
+                    <div class="letter-kha-station" id="stationKha_3">
+                        <!-- نشاط 5: أحلل الكلمات إلى مقاطعها ص 97 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #78350f; margin: 0; font-weight: 900;">✂️ نَشَاطُ ٥: أَقْرَأُ الْكَلِمَاتِ ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا (ص ٩٧)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_analysis_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ التَّحْلِيلِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a;">
+                                <img src="activity_kha_analysis.png" alt="نشاط 5 تحليل الكلمات" style="width: 100%; max-height: 240px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div class="kha-analysis-card" onclick="playAudio('letter_kha_split_kholood')">
+                                    <div class="kha-analysis-full">خُلُودٌ 👧</div>
+                                    <div class="kha-analysis-parts">
+                                        <span class="kha-part-tag">خُـ</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">لُو</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">دٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #b45309;">(٣ مَقَاطِع) 👏</div>
+                                </div>
+
+                                <div class="kha-analysis-card" onclick="playAudio('letter_kha_split_matbakh')">
+                                    <div class="kha-analysis-full">مَطْبَخٌ 🍳</div>
+                                    <div class="kha-analysis-parts">
+                                        <span class="kha-part-tag">مَطْـ</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">بَـ</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">خٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #b45309;">(٣ مَقَاطِع) 👏</div>
+                                </div>
+
+                                <div class="kha-analysis-card" onclick="playAudio('letter_kha_split_kharaja')">
+                                    <div class="kha-analysis-full">خَرَجَ 🚪</div>
+                                    <div class="kha-analysis-parts">
+                                        <span class="kha-part-tag">خَـ</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">رَ</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">جَ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #b45309;">(٣ مَقَاطِع) 👏</div>
+                                </div>
+
+                                <div class="kha-analysis-card" onclick="playAudio('letter_kha_split_khaatam')">
+                                    <div class="kha-analysis-full">خَاتَمٌ 💍</div>
+                                    <div class="kha-analysis-parts">
+                                        <span class="kha-part-tag">خَا</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">تَـ</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">مٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #b45309;">(٣ مَقَاطِع) 👏</div>
+                                </div>
+
+                                <div class="kha-analysis-card" onclick="playAudio('letter_kha_split_nakhla')">
+                                    <div class="kha-analysis-full">نَخْلَةٌ 🌴</div>
+                                    <div class="kha-analysis-parts">
+                                        <span class="kha-part-tag">نَخْـ</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">لَـ</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">تُنْ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #b45309;">(٣ مَقَاطِع) 👏</div>
+                                </div>
+
+                                <div class="kha-analysis-card" onclick="playAudio('letter_kha_split_sukhoor')">
+                                    <div class="kha-analysis-full">صُخُورٌ 🪨</div>
+                                    <div class="kha-analysis-parts">
+                                        <span class="kha-part-tag">صُـ</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">خُو</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">رٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #b45309;">(٣ مَقَاطِع) 👏</div>
+                                </div>
+
+                                <div class="kha-analysis-card" onclick="playAudio('letter_kha_split_fakhoor')">
+                                    <div class="kha-analysis-full">فَخُورٌ 🌟</div>
+                                    <div class="kha-analysis-parts">
+                                        <span class="kha-part-tag">فَـ</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">خُو</span>
+                                        <span>+</span>
+                                        <span class="kha-part-tag">رٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; font-weight: 800; color: #b45309;">(٣ مَقَاطِع) 👏</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 6 و 7: تركيب المقاطع والكلمات ص 98 -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #78350f; margin: 0; font-weight: 900;">🧩 نَشَاطُ ٦ وَ ٧: أُرَكِّبُ مِنَ الْمَقَاطِعِ كَلِمَاتٍ وَجُمَلًا (ص ٩٨)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_kha_blend_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ التَّرْكِيبِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a;">
+                                <img src="activity_kha_blend.png" alt="نشاط 6 و 7 تركيب المقاطع والجمل" style="width: 100%; max-height: 280px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div class="kha-blend-row" onclick="playAudio('letter_kha_merge_khaatam')">
+                                <div class="kha-blend-parts">
+                                    <span class="kha-part-tag">خَا</span>
+                                    <span>+</span>
+                                    <span class="kha-part-tag">تَـ</span>
+                                    <span>+</span>
+                                    <span class="kha-part-tag">مٌ</span>
+                                </div>
+                                <div class="kha-blend-arrow">⬅️</div>
+                                <div class="kha-blend-result">خَاتَمٌ 💍</div>
+                            </div>
+
+                            <div class="kha-blend-row" onclick="playAudio('letter_kha_merge_sukhoor')">
+                                <div class="kha-blend-parts">
+                                    <span class="kha-part-tag">صُـ</span>
+                                    <span>+</span>
+                                    <span class="kha-part-tag">خُو</span>
+                                    <span>+</span>
+                                    <span class="kha-part-tag">رٌ</span>
+                                </div>
+                                <div class="kha-blend-arrow">⬅️</div>
+                                <div class="kha-blend-result">صُخُورٌ 🪨</div>
+                            </div>
+
+                            <div class="kha-blend-row" onclick="playAudio('letter_kha_merge_fakhoor')">
+                                <div class="kha-blend-parts">
+                                    <span class="kha-part-tag">فَـ</span>
+                                    <span>+</span>
+                                    <span class="kha-part-tag">خُو</span>
+                                    <span>+</span>
+                                    <span class="kha-part-tag">رٌ</span>
+                                </div>
+                                <div class="kha-blend-arrow">⬅️</div>
+                                <div class="kha-blend-result">فَخُورٌ 🌟</div>
+                            </div>
+
+                            <div class="kha-blend-row" onclick="playAudio('letter_kha_merge_kholood')">
+                                <div class="kha-blend-parts">
+                                    <span class="kha-part-tag">خُـ</span>
+                                    <span>+</span>
+                                    <span class="kha-part-tag">لُو</span>
+                                    <span>+</span>
+                                    <span class="kha-part-tag">دٌ</span>
+                                </div>
+                                <div class="kha-blend-arrow">⬅️</div>
+                                <div class="kha-blend-result">خُلُودٌ 👧</div>
+                            </div>
+
+                            <div class="kha-blend-row" onclick="playAudio('letter_kha_merge_matbakh')">
+                                <div class="kha-blend-parts">
+                                    <span class="kha-part-tag">مَطْـ</span>
+                                    <span>+</span>
+                                    <span class="kha-part-tag">بَـ</span>
+                                    <span>+</span>
+                                    <span class="kha-part-tag">خٌ</span>
+                                </div>
+                                <div class="kha-blend-arrow">⬅️</div>
+                                <div class="kha-blend-result">مَطْبَخٌ 🍳</div>
+                            </div>
+
+                            <!-- تركيب الجملة المفيدة بنشاط 7 ص 98 -->
+                            <div class="kha-blend-row" onclick="playAudio('letter_kha_merge_sentence')" style="background: #fef3c7; border-color: #d97706;">
+                                <div style="font-size: 1.15rem; font-weight: 900; color: #78350f;">
+                                    📝 تَرْكِيبُ الْجُمْلَةِ: يَبِيعُ خَلْدُونُ خُضَارًا مُتَنَوِّعَةً بِأَلْوَانٍ جَمِيلَةٍ.
+                                </div>
+                                <div style="font-size: 1.3rem;">🔊</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة ونصوص الكتاب والسبورة واختبار التحدي -->
+                    <div class="letter-kha-station" id="stationKha_4">
+                        <!-- نص قراءة الكتاب ص 98 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #78350f; margin: 0; font-weight: 900;">📖 نَصُّ الْكِتَابِ الْمَدْرَسِيِّ ص ٩٨: خِتَامُ تَطْبَخُ فِي مَطْبَخِ خَالَتِي</h3>
+                                    <span style="font-size: 0.85rem; color: #b45309; font-weight: 800;">كتاب قراءتي الجديد للصف الأول الابتدائي ص ٩٨</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('letter_kha_read_book_full')" style="background: #d97706; border-color: #b45309;">
+                                    <span>🔊</span> <span>قِرَاءَةُ النَّصِّ كَامِلًا</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a;">
+                                <img src="activity_kha_read.png" alt="نص القراءة ختام تطبخ في مطبخ خالتي" style="width: 100%; max-height: 280px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div class="kha-reading-line" onclick="playAudio('letter_kha_read_b1')">
+                                    <div class="kha-line-icon">👩‍🍳</div>
+                                    <div class="kha-line-text">خِتَامُ تَطْبَخُ فِي مَطْبَخِ خَالَتِي،</div>
+                                    <div class="kha-line-audio">🔊</div>
+                                </div>
+                                <div class="kha-reading-line" onclick="playAudio('letter_kha_read_b2')">
+                                    <div class="kha-line-icon">🥕</div>
+                                    <div class="kha-line-text">أَحْضَرَتْ خُضَارًا، وَوَضَعَتْ</div>
+                                    <div class="kha-line-audio">🔊</div>
+                                </div>
+                                <div class="kha-reading-line" onclick="playAudio('letter_kha_read_b3')">
+                                    <div class="kha-line-icon">🍞</div>
+                                    <div class="kha-line-text">خُبْزًا سَاخِنًا.</div>
+                                    <div class="kha-line-audio">🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي: خروف خليل -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #78350f; margin: 0; font-weight: 900;">🌾 النَّصُّ التُّرَاثِيُّ الْعِرَاقِيُّ: خَرُوفُ خَلِيلٍ</h3>
+                                    <span style="font-size: 0.85rem; color: #b45309; font-weight: 800;">من تراث القراءة العراقية الأصيلة لترسيخ حرف الخاء</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('letter_kha_read_khaleel_full')" style="background: #b45309; border-color: #78350f;">
+                                    <span>🔊</span> <span>قِرَاءَةُ النَّصِّ التُّرَاثِيِّ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div class="kha-reading-line" onclick="playAudio('letter_kha_read_k1')">
+                                    <div class="kha-line-icon">🐑</div>
+                                    <div class="kha-line-text">خَرُوفُ خَلِيلٍ.</div>
+                                    <div class="kha-line-audio">🔊</div>
+                                </div>
+                                <div class="kha-reading-line" onclick="playAudio('letter_kha_read_k2')">
+                                    <div class="kha-line-icon">👦</div>
+                                    <div class="kha-line-text">خَلِيلٌ عِنْدَهُ خَرُوفٌ جَمِيلٌ.</div>
+                                    <div class="kha-line-audio">🔊</div>
+                                </div>
+                                <div class="kha-reading-line" onclick="playAudio('letter_kha_read_k3')">
+                                    <div class="kha-line-icon">🥬</div>
+                                    <div class="kha-line-text">يَأْكُلُ خَسًّا وَعُشْبًا أَخْضَرَ.</div>
+                                    <div class="kha-line-audio">🔊</div>
+                                </div>
+                                <div class="kha-reading-line" onclick="playAudio('letter_kha_read_k4')">
+                                    <div class="kha-line-icon">🌴</div>
+                                    <div class="kha-line-text">يَسِيرُ مَعَهُ فِي الْحَقْلِ بَيْنَ النَّخِيلِ.</div>
+                                    <div class="kha-line-audio">🔊</div>
+                                </div>
+                                <div class="kha-reading-line" onclick="playAudio('letter_kha_read_k5')">
+                                    <div class="kha-line-icon">🎉</div>
+                                    <div class="kha-line-text">نَحْنُ نَفْرَحُ بِخَرُوفِ خَلِيلٍ.</div>
+                                    <div class="kha-line-audio">🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة رسم وتدريب كتابة حرف الخاء -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #78350f; margin: 0; font-weight: 900;">✍️ سَبُّورَةُ رَسْمِ وَتَدْرِيبِ حَرْفِ الْخَاءِ (خـ ، خ)</h3>
+                                    <span style="font-size: 0.85rem; color: #b45309; font-weight: 800;">تدرّب على رسم القوس الحاجبي والنقطة فوق الرأس</span>
+                                </div>
+                                <div style="display: flex; gap: 8px; align-items: center;">
+                                    <button class="btn-secondary" onclick="playAudio('letter_kha_draw_hint')" style="font-size: 0.85rem; padding: 6px 12px;">
+                                        <span>💡</span> <span>تَوْجِيهُ الْكِتَابَةِ</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="clearKhaCanvas()" style="font-size: 0.85rem; padding: 6px 12px; background: #fee2e2; border-color: #fca5a5; color: #b91c1c;">
+                                        <span>🗑️</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- ألوان الرسم ونموذج الحرف للشف -->
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <div style="display: flex; gap: 8px; align-items: center;">
+                                    <span style="font-size: 0.85rem; font-weight: 800; color: #78350f;">لَوْنُ الْقَلَمِ:</span>
+                                    <button onclick="setKhaCanvasColor('#d97706')" style="width: 28px; height: 28px; border-radius: 50%; background: #d97706; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"></button>
+                                    <button onclick="setKhaCanvasColor('#b45309')" style="width: 28px; height: 28px; border-radius: 50%; background: #b45309; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"></button>
+                                    <button onclick="setKhaCanvasColor('#059669')" style="width: 28px; height: 28px; border-radius: 50%; background: #059669; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"></button>
+                                    <button onclick="setKhaCanvasColor('#0284c7')" style="width: 28px; height: 28px; border-radius: 50%; background: #0284c7; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"></button>
+                                    <button onclick="setKhaCanvasColor('#9333ea')" style="width: 28px; height: 28px; border-radius: 50%; background: #9333ea; border: 2px solid #fff; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"></button>
+                                </div>
+                                <div style="font-size: 1.6rem; font-weight: 900; color: #d97706; letter-spacing: 4px;">
+                                    خـ  ـخـ  ـخ  خ
+                                </div>
+                            </div>
+
+                            <div class="kha-canvas-box">
+                                <canvas id="khaDrawingCanvas"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي الفونيمي التفاعلي لدرس الخاء -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #78350f; margin: 0; font-weight: 900;">🏆 اخْتِبَارُ التَّحَدِّي الْفُونِيمِيِّ لِحَرْفِ الْخَاءِ</h3>
+                                    <span style="font-size: 0.85rem; color: #b45309; font-weight: 800;">أجب عن الأسئلة الخمسة واحصل على وسام الإتقان!</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <button class="btn-secondary" onclick="playAudio('letter_kha_quiz_intro')" style="font-size: 0.85rem; padding: 6px 12px;">
+                                        <span>🎧</span> <span>تَعْلِيمَاتُ الاخْتِبَارِ</span>
+                                    </button>
+                                    <div style="background: #fef3c7; border: 2px solid #fde68a; border-radius: 14px; padding: 6px 14px; font-weight: 900; color: #78350f;">
+                                        ⭐ النَّتِيجَة: <span id="khaQuizScore">0</span> / 5
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 18px;">
+                                <!-- السؤال 1 -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #78350f; margin-bottom: 10px;">
+                                        ١. أَيُّ كَلِمَةٍ تَبْدَأُ بِحَرْفِ الْخَاءِ الْمَفْتُوحَةِ (خَـ)؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(1, 'خَشَبٌ', true, this)">
+                                            <span>خَشَبٌ 🪵</span>
+                                        </button>
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(1, 'خُبْزٌ', false, this)">
+                                            <span>خُبْزٌ 🍞</span>
+                                        </button>
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(1, 'خِيَارٌ', false, this)">
+                                            <span>خِيَارٌ 🥒</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 2 -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #78350f; margin-bottom: 10px;">
+                                        ٢. مَا هُوَ شَكْلُ وَمَوْقِعُ حَرْفِ الْخَاءِ فِي كَلِمَةِ (مَطْبَخ)؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(2, 'في آخر الكلمة متصلاً', true, this)">
+                                            <span>آخِرُ الْكَلِمَةِ مُتَّصِلٌ (ـخ) 🍳</span>
+                                        </button>
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(2, 'في أول الكلمة', false, this)">
+                                            <span>أَوَّلُ الْكَلِمَةِ (خـ)</span>
+                                        </button>
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(2, 'في وسط الكلمة', false, this)">
+                                            <span>وَسَطُ الْكَلِمَةِ (ـخـ)</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 3 -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #78350f; margin-bottom: 10px;">
+                                        ٣. مَا هُوَ صَوْتُ الْمَدِّ الطَّوِيلِ فِي كَلِمَةِ (خَاتَم)؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(3, 'خَا', true, this)">
+                                            <span>خَا (مَدٌّ بِالأَلِفِ) 💍</span>
+                                        </button>
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(3, 'خُو', false, this)">
+                                            <span>خُو (مَدٌّ بِالْوَاوِ)</span>
+                                        </button>
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(3, 'خِيـ', false, this)">
+                                            <span>خِيـ (مَدٌّ بِالْيَاءِ)</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 4 -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #78350f; margin-bottom: 10px;">
+                                        ٤. مَا هُوَ الْمَقْطَعُ السَّاكِنُ فِي كَلِمَةِ (نَخْلَة)؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(4, 'نَخْـ', true, this)">
+                                            <span>نَخْـ 🌴</span>
+                                        </button>
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(4, 'خَلْـ', false, this)">
+                                            <span>خَلْـ</span>
+                                        </button>
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(4, 'لَتْـ', false, this)">
+                                            <span>لَتْـ</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال 5 -->
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #78350f; margin-bottom: 10px;">
+                                        ٥. حَلِّلْ كَلِمَةَ (خُلُودٌ) إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ الصَّحِيحَةِ:
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px;">
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(5, 'خُـ / لُو / دٌ', true, this)">
+                                            <span>خُـ / لُو / دٌ 👧</span>
+                                        </button>
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(5, 'خُلْـ / و / دٌ', false, this)">
+                                            <span>خُلْـ / و / دٌ</span>
+                                        </button>
+                                        <button class="kha-quiz-option" onclick="answerKhaQuiz(5, 'خُـ / لَوْ / دٌ', false, this)">
+                                            <span>خُـ / لَوْ / دٌ</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

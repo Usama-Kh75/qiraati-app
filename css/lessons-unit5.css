@@ -675,3 +675,396 @@
     border-color: #ef4444 !important;
     color: #991b1b !important;
 }
+
+
+/* ==========================================================================
+ * الدرس الثالث: حرف الخاء (خـ ، خ) وتطبيقاته (ص ٩٦ - ٩٨)
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* محطات درس الخاء */
+.letter-kha-station {
+    display: none;
+}
+.letter-kha-station.active {
+    display: block;
+    animation: fadeInKha 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInKha {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* بطاقة الخاء العملاقة التفاعلية */
+.giant-letter-kha-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 50%, #fed7aa 100%);
+    border: 3px solid #d97706;
+    border-radius: 26px;
+    padding: 18px 36px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 24px rgba(217, 119, 6, 0.16);
+}
+.giant-letter-kha-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #b45309;
+    box-shadow: 0 12px 30px rgba(217, 119, 6, 0.25);
+}
+.giant-letter-kha-glyph {
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: #b45309;
+    line-height: 1;
+    letter-spacing: 6px;
+    text-shadow: 0 3px 8px rgba(217, 119, 6, 0.2);
+}
+
+/* بطاقات الكلمات المصورة للخاء */
+.kha-word-card {
+    background: #ffffff;
+    border: 2px solid #fde68a;
+    border-radius: 20px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.kha-word-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #d97706;
+    background: #fffbeb;
+    box-shadow: 0 8px 20px rgba(217, 119, 6, 0.18);
+}
+.kha-word-icon {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.kha-word-text {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #92400e;
+}
+.kha-word-pos {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #b45309;
+    background: #fef3c7;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+/* لوحة وبطاقات أشكال الخاء الأربعة */
+.kha-shape-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+.kha-shape-card {
+    background: #ffffff;
+    border: 2px solid #fde68a;
+    border-radius: 20px;
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.kha-shape-card:hover {
+    transform: translateY(-4px);
+    border-color: #d97706;
+    background: #fffbeb;
+    box-shadow: 0 8px 22px rgba(217, 119, 6, 0.18);
+}
+.kha-shape-glyph {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #b45309;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+.kha-shape-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #92400e;
+    margin-bottom: 6px;
+}
+.kha-shape-example {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #78350f;
+    background: #fef3c7;
+    padding: 4px 12px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* بطاقات حركات ومدود الخاء */
+.kha-vowel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+.kha-vowel-card {
+    background: #ffffff;
+    border: 2px solid #fde68a;
+    border-radius: 20px;
+    padding: 18px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.kha-vowel-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #d97706;
+    background: #fffbeb;
+    box-shadow: 0 8px 22px rgba(217, 119, 6, 0.16);
+}
+.kha-vowel-type {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #b45309;
+    background: #fef3c7;
+    padding: 3px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 8px;
+}
+.kha-vowel-glyph {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #b45309;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+.kha-vowel-sound {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #78350f;
+    margin-bottom: 4px;
+}
+.kha-vowel-word {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #92400e;
+}
+
+/* بطاقات المقاطع الساكنة للخاء */
+.kha-syllable-card {
+    background: #ffffff;
+    border: 2px solid #fed7aa;
+    border-radius: 18px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.kha-syllable-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #ea580c;
+    background: #fff7ed;
+    box-shadow: 0 8px 20px rgba(234, 88, 12, 0.16);
+}
+.kha-syllable-glyph {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #c2410c;
+    line-height: 1.1;
+    margin-bottom: 6px;
+}
+.kha-syllable-word {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #9a3412;
+    margin-bottom: 4px;
+}
+.kha-syllable-desc {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #7c2d12;
+    background: #ffedd5;
+    padding: 3px 10px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* بطاقات التحليل الصوتي للخاء */
+.kha-analysis-card {
+    background: #ffffff;
+    border: 2px solid #fde68a;
+    border-radius: 20px;
+    padding: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+}
+.kha-analysis-card:hover {
+    transform: translateY(-3px);
+    border-color: #d97706;
+    background: #fffbeb;
+    box-shadow: 0 8px 22px rgba(217, 119, 6, 0.16);
+}
+.kha-analysis-full {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #92400e;
+}
+.kha-analysis-parts {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.kha-part-tag {
+    background: #fef3c7;
+    border: 1px solid #fde68a;
+    color: #b45309;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 1.15rem;
+    font-weight: 900;
+}
+
+/* صفوف التركيب الصوتي للخاء */
+.kha-blend-row {
+    background: #ffffff;
+    border: 2px solid #fde68a;
+    border-radius: 18px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+    margin-bottom: 12px;
+}
+.kha-blend-row:hover {
+    transform: translateY(-3px);
+    border-color: #d97706;
+    background: #fffbeb;
+    box-shadow: 0 8px 22px rgba(217, 119, 6, 0.15);
+}
+.kha-blend-parts {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #b45309;
+}
+.kha-blend-arrow {
+    font-size: 1.4rem;
+    color: #d97706;
+}
+.kha-blend-result {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #78350f;
+    background: #fef3c7;
+    padding: 6px 18px;
+    border-radius: 14px;
+}
+
+/* سطور القراءة لنصوص درس الخاء */
+.kha-reading-line {
+    display: flex;
+    align-items: center;
+    background: #fffbeb;
+    border: 2px solid #fde68a;
+    border-radius: 16px;
+    padding: 14px 20px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.kha-reading-line:hover {
+    transform: translateX(-4px);
+    border-color: #d97706;
+    background: #fef3c7;
+    box-shadow: 0 6px 16px rgba(217, 119, 6, 0.14);
+}
+.kha-line-icon {
+    font-size: 1.8rem;
+}
+.kha-line-text {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #78350f;
+    flex: 1;
+    margin: 0 16px;
+}
+.kha-line-audio {
+    font-size: 1.3rem;
+    color: #d97706;
+}
+
+/* سبورة رسم الخاء */
+.kha-canvas-box {
+    border: 3px solid #fde68a;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+    position: relative;
+    touch-action: none;
+}
+.kha-canvas-box canvas {
+    width: 100%;
+    height: 320px;
+    display: block;
+    cursor: crosshair;
+}
+
+/* أسئلة اختبار التحدي الفونيمي للخاء */
+.kha-quiz-option {
+    background: #ffffff;
+    border: 2px solid #fde68a;
+    border-radius: 16px;
+    padding: 14px 20px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #78350f;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.kha-quiz-option:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: #d97706;
+    background: #fffbeb;
+    box-shadow: 0 6px 18px rgba(217, 119, 6, 0.16);
+}
+.kha-quiz-option.correct {
+    background: #ecfdf5 !important;
+    border-color: #10b981 !important;
+    color: #065f46 !important;
+}
+.kha-quiz-option.wrong {
+    background: #fef2f2 !important;
+    border-color: #ef4444 !important;
+    color: #991b1b !important;
+}

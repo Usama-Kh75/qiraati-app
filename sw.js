@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v42';
+const CACHE_NAME = 'qiraati-smart-v43';
 
 const ASSETS_TO_CACHE = [
 
@@ -189,6 +189,24 @@ const ASSETS_TO_CACHE = [
   './activity_j_vowels.png',
 
   './activity_j_words.png',
+
+  './activity_kha_analysis.png',
+
+  './activity_kha_blend.png',
+
+  './activity_kha_read.png',
+
+  './activity_kha_scene.png',
+
+  './activity_kha_syllables.png',
+
+  './activity_kha_trace.png',
+
+  './activity_kha_vowel_words.png',
+
+  './activity_kha_vowels.png',
+
+  './activity_kha_words.png',
 
   './activity_m_analysis.png',
 
@@ -599,6 +617,12 @@ const ASSETS_TO_CACHE = [
   './page_95.png',
 
   './page_96.png',
+
+  './page_97.png',
+
+  './page_98.png',
+
+  './page_99.png',
 
   './unit1_family_listen.png',
 
@@ -2097,6 +2121,188 @@ const ASSETS_TO_CACHE = [
   './audio/letter_j_words_intro.mp3',
 
   './audio/letter_j_wrong.mp3',
+
+  './audio/letter_kha_analysis_intro.mp3',
+
+  './audio/letter_kha_blend_intro.mp3',
+
+  './audio/letter_kha_correct.mp3',
+
+  './audio/letter_kha_draw_hint.mp3',
+
+  './audio/letter_kha_encourage_super.mp3',
+
+  './audio/letter_kha_intro.mp3',
+
+  './audio/letter_kha_long_aa.mp3',
+
+  './audio/letter_kha_long_ee.mp3',
+
+  './audio/letter_kha_long_oo.mp3',
+
+  './audio/letter_kha_merge_fakhoor.mp3',
+
+  './audio/letter_kha_merge_khaatam.mp3',
+
+  './audio/letter_kha_merge_kholood.mp3',
+
+  './audio/letter_kha_merge_matbakh.mp3',
+
+  './audio/letter_kha_merge_sentence.mp3',
+
+  './audio/letter_kha_merge_sukhoor.mp3',
+
+  './audio/letter_kha_phoneme_faseeh.mp3',
+
+  './audio/letter_kha_quiz_intro.mp3',
+
+  './audio/letter_kha_read_b1.mp3',
+
+  './audio/letter_kha_read_b2.mp3',
+
+  './audio/letter_kha_read_b3.mp3',
+
+  './audio/letter_kha_read_book_full.mp3',
+
+  './audio/letter_kha_read_intro.mp3',
+
+  './audio/letter_kha_read_k1.mp3',
+
+  './audio/letter_kha_read_k2.mp3',
+
+  './audio/letter_kha_read_k3.mp3',
+
+  './audio/letter_kha_read_k4.mp3',
+
+  './audio/letter_kha_read_k5.mp3',
+
+  './audio/letter_kha_read_khaleel_full.mp3',
+
+  './audio/letter_kha_scene_story.mp3',
+
+  './audio/letter_kha_shape_first.mp3',
+
+  './audio/letter_kha_shape_last_conn.mp3',
+
+  './audio/letter_kha_shape_last_sep.mp3',
+
+  './audio/letter_kha_shape_mid.mp3',
+
+  './audio/letter_kha_shapes_intro.mp3',
+
+  './audio/letter_kha_short_a.mp3',
+
+  './audio/letter_kha_short_i.mp3',
+
+  './audio/letter_kha_short_u.mp3',
+
+  './audio/letter_kha_sound.mp3',
+
+  './audio/letter_kha_split_fakhoor.mp3',
+
+  './audio/letter_kha_split_khaatam.mp3',
+
+  './audio/letter_kha_split_khaleel.mp3',
+
+  './audio/letter_kha_split_kharaja.mp3',
+
+  './audio/letter_kha_split_kholood.mp3',
+
+  './audio/letter_kha_split_matbakh.mp3',
+
+  './audio/letter_kha_split_nakhla.mp3',
+
+  './audio/letter_kha_split_sukhoor.mp3',
+
+  './audio/letter_kha_syl_akh.mp3',
+
+  './audio/letter_kha_syl_intro.mp3',
+
+  './audio/letter_kha_syl_mat.mp3',
+
+  './audio/letter_kha_syl_nakh.mp3',
+
+  './audio/letter_kha_syl_sakh.mp3',
+
+  './audio/letter_kha_vowels_station.mp3',
+
+  './audio/letter_kha_word_ahdarat.mp3',
+
+  './audio/letter_kha_word_akhdar.mp3',
+
+  './audio/letter_kha_word_battikh.mp3',
+
+  './audio/letter_kha_word_bi-alwaan.mp3',
+
+  './audio/letter_kha_word_dukhaan.mp3',
+
+  './audio/letter_kha_word_fakhoor.mp3',
+
+  './audio/letter_kha_word_jameelah.mp3',
+
+  './audio/letter_kha_word_khaabirah.mp3',
+
+  './audio/letter_kha_word_khaalatee.mp3',
+
+  './audio/letter_kha_word_khaatam.mp3',
+
+  './audio/letter_kha_word_khaldoon.mp3',
+
+  './audio/letter_kha_word_khaleel.mp3',
+
+  './audio/letter_kha_word_kharaja.mp3',
+
+  './audio/letter_kha_word_kharoof.mp3',
+
+  './audio/letter_kha_word_khashab.mp3',
+
+  './audio/letter_kha_word_khass.mp3',
+
+  './audio/letter_kha_word_khaymah.mp3',
+
+  './audio/letter_kha_word_khayt.mp3',
+
+  './audio/letter_kha_word_khitaam.mp3',
+
+  './audio/letter_kha_word_khiyaar.mp3',
+
+  './audio/letter_kha_word_kholood.mp3',
+
+  './audio/letter_kha_word_khoodhah.mp3',
+
+  './audio/letter_kha_word_khookh.mp3',
+
+  './audio/letter_kha_word_khubz.mp3',
+
+  './audio/letter_kha_word_khudaaran.mp3',
+
+  './audio/letter_kha_word_kookh.mp3',
+
+  './audio/letter_kha_word_matbakh.mp3',
+
+  './audio/letter_kha_word_mutanawwiah.mp3',
+
+  './audio/letter_kha_word_nakheel.mp3',
+
+  './audio/letter_kha_word_nakhla.mp3',
+
+  './audio/letter_kha_word_saakhinan.mp3',
+
+  './audio/letter_kha_word_sakhrah.mp3',
+
+  './audio/letter_kha_word_sukhoor.mp3',
+
+  './audio/letter_kha_word_tatbakhu.mp3',
+
+  './audio/letter_kha_word_ukhtuboot.mp3',
+
+  './audio/letter_kha_word_wadaat.mp3',
+
+  './audio/letter_kha_word_yabeeu.mp3',
+
+  './audio/letter_kha_words_intro.mp3',
+
+  './audio/letter_kha_wrong.mp3',
 
   './audio/letter_l_nabeel_analysis_intro.mp3',
 

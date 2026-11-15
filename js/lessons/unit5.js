@@ -634,4 +634,185 @@
             }, 1200);
         }
     };
+
+    /* ==========================================================================
+       الدرس الثالث: حرف الخاء (خـ ، خ) وتطبيقاته (ص ٩٦ - ٩٨)
+       ========================================================================== */
+
+    /* ========================================================
+       القسم 15: التنقل بين محطات درس حرف الخاء
+    ======================================================== */
+    window.switchLetterKhaStation = function(stationNum) {
+        for (let i = 1; i <= 4; i++) {
+            const st = document.getElementById(`stationKha_${i}`);
+            const btn = document.getElementById(`btnStationKha_${i}`);
+            if (st) st.classList.remove('active');
+            if (btn) btn.classList.remove('active');
+        }
+
+        const activeSt = document.getElementById(`stationKha_${stationNum}`);
+        const activeBtn = document.getElementById(`btnStationKha_${stationNum}`);
+        if (activeSt) activeSt.classList.add('active');
+        if (activeBtn) activeBtn.classList.add('active');
+
+        if (stationNum === 1) {
+            mascotSpeak('الْمَحَطَّةُ الأُولَى: أَتَعَرَّفُ حَرْفَ الْخَاءِ (خـ ، خ) وَصُوَرَ الْكِتَابِ فِي صَفْحَةِ ٩٦! اِسْتَمِعْ لِصَوْتِ الْخَاءِ الْمُفَخَّمِ وَقِصَّةِ الْمَشْهَد!', 'letter_kha_intro');
+        } else if (stationNum === 2) {
+            mascotSpeak('الْمَحَطَّةُ الثَّانِيَةُ: أَصْوَاتُ الْحَرَكَاتِ وَالْمُدُودِ وَالْمَقَاطِعِ السَّاكِنَةِ وَأَشْكَالِ حَرْفِ الْخَاء (ص ٩٦ - ٩٧)! مَيِّزْ بَيْنَ خَـ ، خُـ ، خِـ وَ خَا ، خُو ، خِيـ، وَمَقَاطِعِ: نَخْـ ، أَخْـ ، صَخْـ!', 'letter_kha_vowels_station');
+        } else if (stationNum === 3) {
+            mascotSpeak('الْمَحَطَّةُ الثَّالِثَةُ: التَّحْلِيلُ وَالتَّرْكِيبُ الصَّوْتِيُّ (ص ٩٧ - ٩٨)! حَلِّلْ وَرَكِّبْ كَلِمَاتِ (خُلُودٌ ، مَطْبَخٌ ، خَرَجَ ، خَاتَمٌ ، صُخُورٌ ، فَخُورٌ) وَجُمْلَةَ: يَبِيعُ خَلْدُونُ خُضَارًا مُتَنَوِّعَةً!', 'letter_kha_analysis_intro');
+        } else if (stationNum === 4) {
+            mascotSpeak('الْمَحَطَّةُ الرَّابِعَةُ: الْقِرَاءَةُ الْمُعَبِّرَةُ لِنَصِّ الْكِتَابِ (خِتَامُ تَطْبَخُ فِي مَطْبَخِ خَالَتِي) وَالنَّصِّ التُّرَاثِيِّ (خَرُوفُ خَلِيلٍ)، وَالسَّبُّورَةُ وَاخْتِبَارُ التَّحَدِّي!', 'letter_kha_read_intro');
+            setTimeout(window.initKhaCanvas, 150);
+        }
+    };
+
+    /* ========================================================
+       القسم 16: نطق صوت حرف الخاء وفصيح
+    ======================================================== */
+    window.playKhaLetterSound = function() {
+        mascotSpeak('صَوْتُ حَرْفِ الْخَاءِ الصَّافِي: خْ... اِخْـ! حَرْفٌ حَلْقِيٌّ مُفَخَّمٌ رَخْوٌ مَهْمُوسٌ.', 'letter_kha_sound');
+    };
+
+    window.playKhaPhonemeFaseeh = function() {
+        mascotSpeak('أَهْلًا بِكُمْ يَا أَبْطَالَ الْقِرَاءَةِ! أَنَا صَدِيقُكُمْ فَصِيح! حَرْفُ الْخَاءِ حَرْفٌ حَلْقِيٌّ مُفَخَّمٌ جَمِيل، يَخْرُجُ صَوْتُهُ مِنْ أَدْنَى الْحَلْقِ، وَيَتَمَيَّزُ بِالتَّفْخِيمِ وَالرَّخَاوَةِ وَالْهَمْسِ، وَيَجْلِسُ كَالْقَوْسِ الْمُمَوَّجِ مَعَ نُقْطَةٍ وَاحِدَةٍ فِي أَعْلَاهُ كَالْجَوْهَرَةِ التَّاجِيَّة!', 'letter_kha_phoneme_faseeh');
+    };
+
+    /* ========================================================
+       القسم 17: سبورة رسم حرف الخاء
+    ======================================================== */
+    let khaCanvas = null;
+    let khaCtx = null;
+    let isDrawingKha = false;
+    let currentKhaColor = '#d97706';
+
+    window.initKhaCanvas = function() {
+        khaCanvas = document.getElementById('khaDrawingCanvas');
+        if (!khaCanvas) return;
+        khaCtx = khaCanvas.getContext('2d');
+
+        const rect = khaCanvas.getBoundingClientRect();
+        if (rect.width > 0) {
+            khaCanvas.width = rect.width * 2;
+            khaCanvas.height = 320 * 2;
+            khaCtx.scale(2, 2);
+
+            // Draw baseline
+            khaCtx.save();
+            khaCtx.strokeStyle = '#cbd5e1';
+            khaCtx.lineWidth = 2;
+            khaCtx.setLineDash([8, 6]);
+            khaCtx.beginPath();
+            khaCtx.moveTo(20, 220);
+            khaCtx.lineTo(rect.width - 20, 220);
+            khaCtx.stroke();
+            khaCtx.restore();
+
+            const getPos = (e) => {
+                const r = khaCanvas.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                return {
+                    x: clientX - r.left,
+                    y: clientY - r.top
+                };
+            };
+
+            const startDraw = (e) => {
+                e.preventDefault();
+                isDrawingKha = true;
+                const pos = getPos(e);
+                khaCtx.beginPath();
+                khaCtx.moveTo(pos.x, pos.y);
+                khaCtx.strokeStyle = currentKhaColor;
+                khaCtx.lineWidth = 6;
+                khaCtx.lineCap = 'round';
+                khaCtx.lineJoin = 'round';
+            };
+
+            const drawMove = (e) => {
+                if (!isDrawingKha) return;
+                e.preventDefault();
+                const pos = getPos(e);
+                khaCtx.lineTo(pos.x, pos.y);
+                khaCtx.stroke();
+            };
+
+            const endDraw = (e) => {
+                if (!isDrawingKha) return;
+                e.preventDefault();
+                isDrawingKha = false;
+                khaCtx.closePath();
+            };
+
+            khaCanvas.addEventListener('mousedown', startDraw);
+            khaCanvas.addEventListener('mousemove', drawMove);
+            window.addEventListener('mouseup', endDraw);
+
+            khaCanvas.addEventListener('touchstart', startDraw, { passive: false });
+            khaCanvas.addEventListener('touchmove', drawMove, { passive: false });
+            window.addEventListener('touchend', endDraw, { passive: false });
+        }
+    };
+
+    window.clearKhaCanvas = function() {
+        if (!khaCtx || !khaCanvas) return;
+        khaCtx.clearRect(0, 0, khaCanvas.width, khaCanvas.height);
+        // Draw baseline
+        const w = khaCanvas.width / 2;
+        khaCtx.save();
+        khaCtx.strokeStyle = '#cbd5e1';
+        khaCtx.lineWidth = 2;
+        khaCtx.setLineDash([8, 6]);
+        khaCtx.beginPath();
+        khaCtx.moveTo(20, 220);
+        khaCtx.lineTo(w - 20, 220);
+        khaCtx.stroke();
+        khaCtx.restore();
+    };
+
+    window.setKhaCanvasColor = function(color) {
+        currentKhaColor = color;
+        if (khaCtx) khaCtx.strokeStyle = color;
+    };
+
+    /* ========================================================
+       القسم 18: اختبار التحدي الفونيمي التفاعلي للخاء
+    ======================================================== */
+    let khaScore = 0;
+    const answeredKhaQuestions = {};
+
+    window.answerKhaQuiz = function(qNum, selectedOption, isCorrect, btn) {
+        if (answeredKhaQuestions[qNum]) return;
+        answeredKhaQuestions[qNum] = true;
+
+        const parent = btn.parentElement;
+        parent.querySelectorAll('.kha-quiz-option').forEach(b => {
+            b.style.pointerEvents = 'none';
+        });
+
+        if (isCorrect) {
+            btn.classList.add('correct');
+            khaScore++;
+            mascotCelebrates();
+            playAudio('letter_kha_correct');
+            mascotSpeak('أَحْسَنْتَ يَا عَبْقَرِيّ! إِجَابَةٌ صَحِيحَةٌ وَمُمَيَّزَةٌ جِدًّا! 🌟', 'letter_kha_correct');
+        } else {
+            btn.classList.add('wrong');
+            mascotThinks();
+            playAudio('letter_kha_wrong');
+            mascotSpeak('فَكِّرْ جَيِّدًا فِي مَخْرَجِ وَشَكْلِ حَرْفِ الْخَاءِ يَا بَطَل! حَاوِلْ مَرَّةً أُخْرَى! 💡', 'letter_kha_wrong');
+        }
+
+        const scoreEl = document.getElementById('khaQuizScore');
+        if (scoreEl) scoreEl.innerText = khaScore;
+
+        if (Object.keys(answeredKhaQuestions).length === 5) {
+            setTimeout(() => {
+                mascotCelebrates();
+                playAudio('letter_kha_encourage_super');
+                mascotSpeak(`مَا شَاءَ اللَّه! أَتْمَمْتَ اخْتِبَارَ التَّحَدِّي لِدَرْسِ حَرْفِ الْخَاءِ بِنَجَاحٍ بَاهِر: ${khaScore} مِنْ ٥! أَنْتَ بَطَلُ الْقِرَاءَةِ! 🏆🎉`, 'letter_kha_encourage_super');
+            }, 1200);
+        }
+    };
 })();
