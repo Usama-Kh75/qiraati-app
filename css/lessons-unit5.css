@@ -1,0 +1,269 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - الوحدة الخامسة: هواياتي وألعابي (Unit 5: Hobbies & Games)
+ * الدرس الأول: الهمزة (ء ، أ ، إ ، ؤ ، ئ) وأشكالها وتطبيقاتها (ص ٨٩ - ٩٢)
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* محطات درس الهمزة وأشكالها */
+.letter-hamza-station {
+    display: none;
+}
+.letter-hamza-station.active {
+    display: block;
+    animation: fadeInHamza 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInHamza {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* بطاقة الهمزة العملاقة التفاعلية */
+.giant-letter-hamza-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #fef3c7 100%);
+    border: 3px solid #0284c7;
+    border-radius: 26px;
+    padding: 18px 36px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.16);
+}
+.giant-letter-hamza-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #0369a1;
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.25);
+}
+.giant-letter-hamza-glyph {
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: #0369a1;
+    line-height: 1;
+    letter-spacing: 6px;
+    text-shadow: 0 3px 8px rgba(2, 132, 199, 0.2);
+}
+
+/* بطاقات الكلمات المصورة للهمزة */
+.hamza-word-card {
+    background: #ffffff;
+    border: 2px solid #bae6fd;
+    border-radius: 20px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.hamza-word-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #0284c7;
+    background: #f0f9ff;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.18);
+}
+.hamza-word-icon {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.hamza-word-text {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #0369a1;
+}
+.hamza-word-pos {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #0284c7;
+    background: #e0f2fe;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+/* لوحة وبطاقات أشكال الهمزة الخمسة */
+.hamza-shape-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+.hamza-shape-card {
+    background: #ffffff;
+    border: 2px solid #bae6fd;
+    border-radius: 20px;
+    padding: 18px 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.hamza-shape-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #0284c7;
+    box-shadow: 0 10px 24px rgba(2, 132, 199, 0.18);
+    background: #f0f9ff;
+}
+.hamza-shape-glyph {
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+}
+.hamza-shape-badge {
+    font-size: 0.95rem;
+    font-weight: 900;
+    padding: 4px 14px;
+    border-radius: 14px;
+}
+.hamza-shape-examples {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #334155;
+    margin-top: 4px;
+}
+
+/* بطاقات أصوات المدود القصيرة والطويلة */
+.hamza-vowel-card {
+    background: #ffffff;
+    border: 2px solid #bae6fd;
+    border-radius: 18px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+.hamza-vowel-card:hover {
+    transform: translateY(-3px) scale(1.03);
+    border-color: #0284c7;
+    background: #f0f9ff;
+    box-shadow: 0 8px 18px rgba(2, 132, 199, 0.16);
+}
+
+/* بطاقات المقاطع الصوتية الساكنة */
+.hamza-syl-chip {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 2px solid #7dd3fc;
+    border-radius: 16px;
+    padding: 12px 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 8px rgba(2, 132, 199, 0.08);
+}
+.hamza-syl-chip:hover {
+    transform: translateY(-3px) scale(1.04);
+    border-color: #0284c7;
+    background: #dbeafe;
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.2);
+}
+
+/* بطاقات التحليل والتركيب */
+.hamza-analysis-box {
+    background: #ffffff;
+    border: 2px solid #bae6fd;
+    border-radius: 18px;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+.hamza-analysis-box:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: #0284c7;
+    background: #f0f9ff;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.16);
+}
+
+/* لافتات القراءة التراثية */
+.ameen-banner {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    box-shadow: 0 6px 20px rgba(217, 119, 6, 0.25);
+    margin-bottom: 20px;
+}
+.ayman-banner {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 18px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    box-shadow: 0 6px 20px rgba(79, 70, 229, 0.25);
+    margin-bottom: 20px;
+}
+
+/* سبورة رسم الهمزة */
+.hamza-canvas-box {
+    border: 3px solid #bae6fd;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+    position: relative;
+    touch-action: none;
+}
+.hamza-canvas-box canvas {
+    width: 100%;
+    height: 320px;
+    display: block;
+    cursor: crosshair;
+}
+
+/* أسئلة اختبار التحدي الفونيمي */
+.hamza-quiz-option {
+    background: #ffffff;
+    border: 2px solid #bae6fd;
+    border-radius: 16px;
+    padding: 14px 20px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #0369a1;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.hamza-quiz-option:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: #0284c7;
+    background: #f0f9ff;
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.16);
+}
+.hamza-quiz-option.correct {
+    background: #ecfdf5 !important;
+    border-color: #10b981 !important;
+    color: #065f46 !important;
+}
+.hamza-quiz-option.wrong {
+    background: #fef2f2 !important;
+    border-color: #ef4444 !important;
+    color: #991b1b !important;
+}

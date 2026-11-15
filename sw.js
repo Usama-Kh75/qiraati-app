@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v40';
+const CACHE_NAME = 'qiraati-smart-v41';
 
 const ASSETS_TO_CACHE = [
 
@@ -32,6 +32,8 @@ const ASSETS_TO_CACHE = [
 
   './css/lessons-unit4.css',
 
+  './css/lessons-unit5.css',
+
   './js/core/modals.js',
 
   './js/core/audio.js',
@@ -47,6 +49,8 @@ const ASSETS_TO_CACHE = [
   './js/lessons/unit3.js',
 
   './js/lessons/unit4.js',
+
+  './js/lessons/unit5.js',
 
   './js/app.js',
 
@@ -133,6 +137,24 @@ const ASSETS_TO_CACHE = [
   './activity_h_vowels.png',
 
   './activity_h_words.png',
+
+  './activity_hamza_analysis.png',
+
+  './activity_hamza_blend.png',
+
+  './activity_hamza_read.png',
+
+  './activity_hamza_scene.png',
+
+  './activity_hamza_syllables.png',
+
+  './activity_hamza_trace.png',
+
+  './activity_hamza_vowel_words.png',
+
+  './activity_hamza_vowels.png',
+
+  './activity_hamza_words.png',
 
   './activity_j_analysis.png',
 
@@ -546,6 +568,14 @@ const ASSETS_TO_CACHE = [
 
   './page_89.png',
 
+  './page_90.png',
+
+  './page_91.png',
+
+  './page_92.png',
+
+  './page_93.png',
+
   './unit1_family_listen.png',
 
   './unit1_story_grandma.png',
@@ -569,6 +599,10 @@ const ASSETS_TO_CACHE = [
   './unit4_health_listen.png',
 
   './unit4_story_health.png',
+
+  './unit5_hobbies_listen.png',
+
+  './unit5_story_hobbies.png',
 
   './audio/act4_full_story.mp3',
 
@@ -1443,6 +1477,218 @@ const ASSETS_TO_CACHE = [
   './audio/letter_h_words_intro.mp3',
 
   './audio/letter_h_wrong.mp3',
+
+  './audio/letter_hamza_analysis_intro.mp3',
+
+  './audio/letter_hamza_blend_intro.mp3',
+
+  './audio/letter_hamza_correct.mp3',
+
+  './audio/letter_hamza_draw_hint.mp3',
+
+  './audio/letter_hamza_encourage_super.mp3',
+
+  './audio/letter_hamza_intro.mp3',
+
+  './audio/letter_hamza_long_aa.mp3',
+
+  './audio/letter_hamza_long_ee.mp3',
+
+  './audio/letter_hamza_long_oo.mp3',
+
+  './audio/letter_hamza_merge_ameen.mp3',
+
+  './audio/letter_hamza_merge_ashjaar.mp3',
+
+  './audio/letter_hamza_merge_bannaa.mp3',
+
+  './audio/letter_hamza_merge_faar.mp3',
+
+  './audio/letter_hamza_merge_ureed.mp3',
+
+  './audio/letter_hamza_phoneme_faseeh.mp3',
+
+  './audio/letter_hamza_quiz_intro.mp3',
+
+  './audio/letter_hamza_read_a1.mp3',
+
+  './audio/letter_hamza_read_a2.mp3',
+
+  './audio/letter_hamza_read_a3.mp3',
+
+  './audio/letter_hamza_read_a4.mp3',
+
+  './audio/letter_hamza_read_a5.mp3',
+
+  './audio/letter_hamza_read_ameen_full.mp3',
+
+  './audio/letter_hamza_read_ayman_full.mp3',
+
+  './audio/letter_hamza_read_book_full.mp3',
+
+  './audio/letter_hamza_read_intro.mp3',
+
+  './audio/letter_hamza_read_s1.mp3',
+
+  './audio/letter_hamza_read_s2.mp3',
+
+  './audio/letter_hamza_read_y1.mp3',
+
+  './audio/letter_hamza_read_y2.mp3',
+
+  './audio/letter_hamza_read_y3.mp3',
+
+  './audio/letter_hamza_read_y4.mp3',
+
+  './audio/letter_hamza_scene_story.mp3',
+
+  './audio/letter_hamza_shape_alif_down.mp3',
+
+  './audio/letter_hamza_shape_alif_up.mp3',
+
+  './audio/letter_hamza_shape_line.mp3',
+
+  './audio/letter_hamza_shape_nabra.mp3',
+
+  './audio/letter_hamza_shape_waw.mp3',
+
+  './audio/letter_hamza_shapes_intro.mp3',
+
+  './audio/letter_hamza_short_a.mp3',
+
+  './audio/letter_hamza_short_i.mp3',
+
+  './audio/letter_hamza_short_u.mp3',
+
+  './audio/letter_hamza_sound.mp3',
+
+  './audio/letter_hamza_split_ashjaar.mp3',
+
+  './audio/letter_hamza_split_azra.mp3',
+
+  './audio/letter_hamza_split_faar.mp3',
+
+  './audio/letter_hamza_split_ihsaan.mp3',
+
+  './audio/letter_hamza_split_maa.mp3',
+
+  './audio/letter_hamza_split_raas.mp3',
+
+  './audio/letter_hamza_split_ureed.mp3',
+
+  './audio/letter_hamza_split_yaqra.mp3',
+
+  './audio/letter_hamza_syl_ash.mp3',
+
+  './audio/letter_hamza_syl_az.mp3',
+
+  './audio/letter_hamza_syl_fa.mp3',
+
+  './audio/letter_hamza_syl_ih.mp3',
+
+  './audio/letter_hamza_syl_intro.mp3',
+
+  './audio/letter_hamza_syl_ma.mp3',
+
+  './audio/letter_hamza_syl_ra.mp3',
+
+  './audio/letter_hamza_syl_yaq.mp3',
+
+  './audio/letter_hamza_vowels_station.mp3',
+
+  './audio/letter_hamza_word_adeeb.mp3',
+
+  './audio/letter_hamza_word_ahmad.mp3',
+
+  './audio/letter_hamza_word_ameen.mp3',
+
+  './audio/letter_hamza_word_ana.mp3',
+
+  './audio/letter_hamza_word_arnab.mp3',
+
+  './audio/letter_hamza_word_asad.mp3',
+
+  './audio/letter_hamza_word_ashjaar.mp3',
+
+  './audio/letter_hamza_word_ayman.mp3',
+
+  './audio/letter_hamza_word_azhaar.mp3',
+
+  './audio/letter_hamza_word_azra.mp3',
+
+  './audio/letter_hamza_word_bannaa.mp3',
+
+  './audio/letter_hamza_word_bi_r.mp3',
+
+  './audio/letter_hamza_word_binaa.mp3',
+
+  './audio/letter_hamza_word_daafi.mp3',
+
+  './audio/letter_hamza_word_darana.mp3',
+
+  './audio/letter_hamza_word_eemaan.mp3',
+
+  './audio/letter_hamza_word_faar.mp3',
+
+  './audio/letter_hamza_word_faas.mp3',
+
+  './audio/letter_hamza_word_fuad.mp3',
+
+  './audio/letter_hamza_word_hadeeqatina.mp3',
+
+  './audio/letter_hamza_word_hawaa.mp3',
+
+  './audio/letter_hamza_word_hizan.mp3',
+
+  './audio/letter_hamza_word_ibreeq.mp3',
+
+  './audio/letter_hamza_word_ihsaan.mp3',
+
+  './audio/letter_hamza_word_inaa.mp3',
+
+  './audio/letter_hamza_word_iqbaal.mp3',
+
+  './audio/letter_hamza_word_iwazzah.mp3',
+
+  './audio/letter_hamza_word_lu_lu.mp3',
+
+  './audio/letter_hamza_word_maa.mp3',
+
+  './audio/letter_hamza_word_mamoon.mp3',
+
+  './audio/letter_hamza_word_qaraa.mp3',
+
+  './audio/letter_hamza_word_qaraana.mp3',
+
+  './audio/letter_hamza_word_raas.mp3',
+
+  './audio/letter_hamza_word_samaa.mp3',
+
+  './audio/letter_hamza_word_shaati.mp3',
+
+  './audio/letter_hamza_word_suaal.mp3',
+
+  './audio/letter_hamza_word_taqool.mp3',
+
+  './audio/letter_hamza_word_ukhtuboot.mp3',
+
+  './audio/letter_hamza_word_ummee.mp3',
+
+  './audio/letter_hamza_word_ureed.mp3',
+
+  './audio/letter_hamza_word_uzun.mp3',
+
+  './audio/letter_hamza_word_yabnee.mp3',
+
+  './audio/letter_hamza_word_yalab.mp3',
+
+  './audio/letter_hamza_word_yaqra.mp3',
+
+  './audio/letter_hamza_word_zi_b.mp3',
+
+  './audio/letter_hamza_words_intro.mp3',
+
+  './audio/letter_hamza_wrong.mp3',
 
   './audio/letter_j_analysis_intro.mp3',
 
@@ -3781,6 +4027,8 @@ const ASSETS_TO_CACHE = [
   './audio/unit4_talk_food.mp3',
 
   './audio/unit4_talk_health.mp3',
+
+  './audio/unit5_hobbies_story.mp3',
 
   './audio/voice_confirm_bassel.mp3',
 

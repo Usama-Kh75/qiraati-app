@@ -41,6 +41,7 @@
     <link rel="stylesheet" href="css/lessons-unit2.css">
     <link rel="stylesheet" href="css/lessons-unit3.css">
     <link rel="stylesheet" href="css/lessons-unit4.css">
+    <link rel="stylesheet" href="css/lessons-unit5.css">
 
 </head>
 
@@ -15312,6 +15313,736 @@
                         </div>
                     </div>
                 </div>
+                <div class="lesson-view" id="view-tab-letter_hamza">
+                    <!-- شريط المحطات الأربعة لدرس الهمزة وأشكالها -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationHamza_1" onclick="switchLetterHamzaStation(1)">
+                            <span>🎨</span> <span>١. أتعرف الحرف والمشهد (ص ٨٩ - ٩٠)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationHamza_2" onclick="switchLetterHamzaStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود وأشكال الهمزة (ص ٩٠ - ٩١)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationHamza_3" onclick="switchLetterHamzaStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٩١ - ٩٢)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationHamza_4" onclick="switchLetterHamzaStation(4)">
+                            <span>📖</span> <span>٤. القراءة ونصوص الكتاب والسبورة (ص ٩٢)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-hamza-station active" id="stationHamza_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-hamza-card" onclick="playHamzaPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #0284c7; margin-bottom: 4px;">الْهَمْزَةُ وَأَشْكَالُهَا</div>
+                                    <div class="giant-letter-hamza-glyph">ء أ إ ؤ ئ</div>
+                                </div>
+                                <div style="border-right: 2px dashed #bae6fd; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0369a1;">صَوْتُ الْهَمْزَةِ: ءْ... اِءْ</div>
+                                    <div style="font-size: 0.9rem; color: #64748b; font-weight: 700;">حَنْجَرِيٌّ شَدِيدٌ مِنْ أَقْصَى الْحَلْقِ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playHamzaLetterSound()" style="background: #0284c7; border-color: #0369a1;">
+                                <span>🔊</span> <span>صَوْتُ الْهَمْزَةِ الصَّافِي (ءْ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playHamzaPhonemeFaseeh()" style="background: #0369a1; border-color: #0c4a6e;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِمَخْرَجِ الْهَمْزَةِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_hamza_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('unit5_hobbies_story')">
+                                <span>🎨</span> <span>قِصَّةُ هِوَايَاتِي وَأَلْعَابِي</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_90.png', 'كتاب قراءتي الجديد: ص ٨٩')">
+                                <span>📖</span> <span>صَفْحَة ٨٩ (الْمَدْخَلُ)</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_91.png', 'كتاب قراءتي الجديد: ص ٩٠')">
+                                <span>📖</span> <span>صَفْحَة ٩٠ (حَرْفُ الْهَمْزَةِ)</span>
+                            </button>
+                        </div>
+
+                        <!-- لوحة مدخل الوحدة: الاستماع والمحادثة ص 89 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; border: 2px solid #bae6fd; background: #f8fafc;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🎨 لَوْحَةُ الِاسْتِمَاعِ وَالْمُحَادَثَةِ: هِوَايَاتِي وَأَلْعَابِي (ص ٨٩)</h3>
+                                <button class="btn-secondary" onclick="playAudio('unit5_hobbies_story')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلْقِصَّةِ</span>
+                                </button>
+                            </div>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; align-items: center;">
+                                <div style="border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playAudio('unit5_hobbies_story')">
+                                    <img src="unit5_hobbies_listen.png" alt="مدخل الوحدة الخامسة" style="width: 100%; max-height: 240px; object-fit: contain; background: #ffffff;">
+                                </div>
+                                <div style="background: #ffffff; border-radius: 16px; padding: 16px; border: 2px solid #e0f2fe;">
+                                    <h4 style="color: #0284c7; margin-top: 0; margin-bottom: 8px; font-weight: 900;">🗣️ أَنَا أَتَحَدَّثُ (أَسْئِلَةُ فَصِيحِ):</h4>
+                                    <ul style="margin: 0; padding-right: 20px; color: #334155; font-weight: 800; line-height: 1.8;">
+                                        <li>أَصِفُ مَا أُشَاهِدُهُ فِي صُورَةِ غُرْفَةِ الأَلْعَابِ.</li>
+                                        <li>أَيْنَ يَجْلِسُ الأَطْفَالُ؟ (يَجْلِسُونَ حَوْلَ الْمِنْضَدَةِ بِنَشَاطٍ).</li>
+                                        <li>مَاذَا يُمْكِنُ أَنْ تَصْنَعَ مِنَ الْوَرَقِ؟ (طَيَّارَةٌ، زَوْرَقٌ، أَشْكَالٌ فَنِّيَّةٌ).</li>
+                                        <li>كِتَابَةُ قِصَّةٍ قَصِيرَةٍ عَنْ حُبِّ الْقِرَاءَةِ وَالْهِوَايَاتِ الْمُفِيدَةِ.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- صورة رأس الصفحة الرسمية من الكتاب ص 90 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #0369a1; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ حَرْفِ الْهَمْزَةِ (الْكِتَابُ الْمَدْرَسِيُّ ص ٩٠)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #bae6fd; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_hamza_scene_story')">
+                                <img src="activity_hamza_scene.png" alt="مشهد رأس صفحة الهمزة" style="width: 100%; max-height: 380px; object-fit: contain; background: #f0f9ff;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(3, 105, 161, 0.88); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المصورة نشاط 1 ص 90 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🐇 ١. كَلِمَاتُ الْهَمْزَةِ الْمُصَوَّرَةِ (نَشَاط ١ ص ٩٠)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_hamza_words_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْكَلِمَاتِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 12px;">
+                                <div class="hamza-word-card" onclick="playHamzaWord('arnab')">
+                                    <span class="hamza-word-icon">🐇</span>
+                                    <span class="hamza-word-text">أَرْنَبٌ</span>
+                                    <span class="hamza-word-pos">أَوَّلُ (أَ) مَفْتُوحَة</span>
+                                </div>
+                                <div class="hamza-word-card" onclick="playHamzaWord('asad')">
+                                    <span class="hamza-word-icon">🦁</span>
+                                    <span class="hamza-word-text">أَسَدٌ</span>
+                                    <span class="hamza-word-pos">أَوَّلُ (أَ) مَفْتُوحَة</span>
+                                </div>
+                                <div class="hamza-word-card" onclick="playHamzaWord('uzun')">
+                                    <span class="hamza-word-icon">👂</span>
+                                    <span class="hamza-word-text">أُذُنٌ</span>
+                                    <span class="hamza-word-pos">أَوَّلُ (أُ) مَضْمُومَة</span>
+                                </div>
+                                <div class="hamza-word-card" onclick="playHamzaWord('ukhtuboot')">
+                                    <span class="hamza-word-icon">🐙</span>
+                                    <span class="hamza-word-text">أُخْطُبُوطٌ</span>
+                                    <span class="hamza-word-pos">أَوَّلُ (أُ) مَضْمُومَة</span>
+                                </div>
+                                <div class="hamza-word-card" onclick="playHamzaWord('ibreeq')">
+                                    <span class="hamza-word-icon">🫖</span>
+                                    <span class="hamza-word-text">إِبْرِيقٌ</span>
+                                    <span class="hamza-word-pos">أَوَّلُ (إِ) مَكْسُورَة</span>
+                                </div>
+                                <div class="hamza-word-card" onclick="playHamzaWord('iwazzah')">
+                                    <span class="hamza-word-icon">🪿</span>
+                                    <span class="hamza-word-text">إِوَزَّةٌ</span>
+                                    <span class="hamza-word-pos">أَوَّلُ (إِ) مَكْسُورَة</span>
+                                </div>
+                                <div class="hamza-word-card" onclick="playHamzaWord('faar')">
+                                    <span class="hamza-word-icon">🐁</span>
+                                    <span class="hamza-word-text">فَأْرٌ</span>
+                                    <span class="hamza-word-pos">وَسَطُ (ـأْ) سَاكِنَة</span>
+                                </div>
+                                <div class="hamza-word-card" onclick="playHamzaWord('maa')">
+                                    <span class="hamza-word-icon">💧</span>
+                                    <span class="hamza-word-text">مَاءٌ</span>
+                                    <span class="hamza-word-pos">آخِرُ (ء) عَلَى السَّطْرِ</span>
+                                </div>
+                                <div class="hamza-word-card" onclick="playHamzaWord('lu_lu')">
+                                    <span class="hamza-word-icon">🦪</span>
+                                    <span class="hamza-word-text">لُؤْلُؤٌ</span>
+                                    <span class="hamza-word-pos">وَسَطٌ وَآخِرٌ (ؤ)</span>
+                                </div>
+                                <div class="hamza-word-card" onclick="playHamzaWord('zi_b')">
+                                    <span class="hamza-word-icon">🐺</span>
+                                    <span class="hamza-word-text">ذِئْبٌ</span>
+                                    <span class="hamza-word-pos">وَسَطُ (ئـ) عَلَى النَّبْرَةِ</span>
+                                </div>
+                                <div class="hamza-word-card" onclick="playHamzaWord('shaati')">
+                                    <span class="hamza-word-icon">🏖️</span>
+                                    <span class="hamza-word-text">شَاطِئٌ</span>
+                                    <span class="hamza-word-pos">آخِرُ (ئ) عَلَى الْيَاءِ</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_hamza_words.png" alt="كلمات نشاط 1 ص 90" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات الحركات والمدود والمقاطع وأشكال الهمزة -->
+                    <div class="letter-hamza-station" id="stationHamza_2">
+                        <!-- نشاط 2: الحركات القصيرة والمدود الطويلة ص 90 - 91 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🎵 ٢. أَصْوَاتُ الْحَرَكَاتِ وَالْمُدُودِ (نَشَاط ٢ وَ ٣ ص ٩٠ - ٩١)</h3>
+                                <button class="btn-primary" onclick="playHamzaVowel('all')" style="background: #0284c7; border-color: #0369a1; font-size: 0.9rem;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِجَمِيعِ الأَصْوَاتِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 16px;">
+                                <div class="hamza-vowel-card" onclick="playHamzaVowel('short_a')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #0284c7;">أَ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">هَمْزَةٌ مَفْتُوحَةٌ (فَتْحَة)</div>
+                                    <div style="font-size: 1rem; font-weight: 900; color: #0369a1; margin-top: 4px;">أَرْنَبٌ 🐇</div>
+                                </div>
+                                <div class="hamza-vowel-card" onclick="playHamzaVowel('short_u')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #0284c7;">أُ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">هَمْزَةٌ مَضْمُومَةٌ (ضَمَّة)</div>
+                                    <div style="font-size: 1rem; font-weight: 900; color: #0369a1; margin-top: 4px;">أُذُنٌ 👂</div>
+                                </div>
+                                <div class="hamza-vowel-card" onclick="playHamzaVowel('short_i')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #0284c7;">إِ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">هَمْزَةٌ مَكْسُورَةٌ (كَسْرَة)</div>
+                                    <div style="font-size: 1rem; font-weight: 900; color: #0369a1; margin-top: 4px;">إِبْرِيقٌ 🫖</div>
+                                </div>
+                                <div class="hamza-vowel-card" onclick="playHamzaVowel('long_aa')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #059669;">آ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">مَدُّ الأَلِفِ (آ / ءَا)</div>
+                                    <div style="font-size: 1rem; font-weight: 900; color: #047857; margin-top: 4px;">آمِين 🤲</div>
+                                </div>
+                                <div class="hamza-vowel-card" onclick="playHamzaVowel('long_oo')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #059669;">أُو</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">مَدُّ الْوَاوِ (أُو)</div>
+                                    <div style="font-size: 1rem; font-weight: 900; color: #047857; margin-top: 4px;">أُولَى 🥇</div>
+                                </div>
+                                <div class="hamza-vowel-card" onclick="playHamzaVowel('long_ee')">
+                                    <div style="font-size: 2.4rem; font-weight: 900; color: #059669;">إِيـ</div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">مَدُّ الْيَاءِ (إِيـ)</div>
+                                    <div style="font-size: 1rem; font-weight: 900; color: #047857; margin-top: 4px;">إِيمَانُ 👧</div>
+                                </div>
+                            </div>
+
+                            <!-- استكشاف كلمات نشاط 3 ص 91 -->
+                            <div style="background: #f0fdf4; border: 2px solid #bbf7d0; border-radius: 16px; padding: 14px; text-align: center; margin-bottom: 14px;">
+                                <div style="font-size: 1.1rem; font-weight: 900; color: #166534; margin-bottom: 8px;">🌸 كَلِمَاتُ نَشَاط ٣ (ص ٩١) - تَمْيِيزُ الْحَرَكَاتِ:</div>
+                                <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
+                                    <button class="btn-secondary" onclick="playHamzaWord('azhaar')" style="font-size: 1.15rem; font-weight: 900; padding: 8px 18px;">
+                                        <span>🌸</span> <span>أَزْهَارٌ (أَ)</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="playHamzaWord('uzun')" style="font-size: 1.15rem; font-weight: 900; padding: 8px 18px;">
+                                        <span>👂</span> <span>أُذْنٌ (أُ)</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="playHamzaWord('iwazzah')" style="font-size: 1.15rem; font-weight: 900; padding: 8px 18px;">
+                                        <span>🪿</span> <span>إِوَزَّةٌ (إِ)</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 14px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_hamza_vowels.png" alt="نشاط 2 ص 90" style="width: 100%; max-height: 220px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- نشاط 4: الهمزة الساكنة في المقاطع الصوتية ص 91 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">⚡ ٣. الْهَمْزَةُ السَّاكِنَةُ فِي الْمَقَاطِعِ الصَّوْتِيَّةِ (نَشَاط ٤ ص ٩١)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_hamza_syl_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْمَقَاطِعِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 16px;">
+                                <div class="hamza-syl-chip" onclick="playHamzaSyllable('fa')">
+                                    <span style="font-size: 1.8rem; font-weight: 900; color: #0284c7;">فَأْ</span>
+                                    <span style="font-size: 1rem; font-weight: 800; color: #475569;">(فَأْسٌ 🪓 / فَأْرٌ 🐁)</span>
+                                </div>
+                                <div class="hamza-syl-chip" onclick="playHamzaSyllable('ra')">
+                                    <span style="font-size: 1.8rem; font-weight: 900; color: #0284c7;">رَأْ</span>
+                                    <span style="font-size: 1rem; font-weight: 800; color: #475569;">(رَأْسٌ 🧑)</span>
+                                </div>
+                                <div class="hamza-syl-chip" onclick="playHamzaSyllable('ma')">
+                                    <span style="font-size: 1.8rem; font-weight: 900; color: #0284c7;">مَأْ</span>
+                                    <span style="font-size: 1rem; font-weight: 800; color: #475569;">(مَأْمُونٌ 👦)</span>
+                                </div>
+                                <div class="hamza-syl-chip" onclick="playHamzaSyllable('az')">
+                                    <span style="font-size: 1.8rem; font-weight: 900; color: #0284c7;">أَزْ</span>
+                                    <span style="font-size: 1rem; font-weight: 800; color: #475569;">(أَزْرَعُ 🌱)</span>
+                                </div>
+                                <div class="hamza-syl-chip" onclick="playHamzaSyllable('yaq')">
+                                    <span style="font-size: 1.8rem; font-weight: 900; color: #0284c7;">يَقْ</span>
+                                    <span style="font-size: 1rem; font-weight: 800; color: #475569;">(يَقْرَأُ 📖)</span>
+                                </div>
+                                <div class="hamza-syl-chip" onclick="playHamzaSyllable('ih')">
+                                    <span style="font-size: 1.8rem; font-weight: 900; color: #0284c7;">إِحْ</span>
+                                    <span style="font-size: 1rem; font-weight: 800; color: #475569;">(إِحْسَانُ ✨)</span>
+                                </div>
+                                <div class="hamza-syl-chip" onclick="playHamzaSyllable('ash')">
+                                    <span style="font-size: 1.8rem; font-weight: 900; color: #0284c7;">أَشْـ</span>
+                                    <span style="font-size: 1rem; font-weight: 800; color: #475569;">(أَشْجَارٌ 🌳)</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 14px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_hamza_syllables.png" alt="نشاط 4 ص 91" style="width: 100%; max-height: 240px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- لوحة أشكال الهمزة الخمسة الشاملة -->
+                        <div class="lesson-card" style="margin-bottom: 24px; border: 2px solid #bae6fd; background: #f0f9ff;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">👑 ٤. لَوْحَةُ أَشْكَالِ الْهَمْزَةِ الْخَمْسَةِ الشَّامِلَة</h3>
+                                <button class="btn-primary" onclick="playAudio('letter_hamza_shapes_intro')" style="background: #0284c7; border-color: #0369a1; font-size: 0.9rem;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِشَرْحِ الأَشْكَالِ</span>
+                                </button>
+                            </div>
+
+                            <div class="hamza-shape-grid">
+                                <div class="hamza-shape-card" onclick="playHamzaShape('alif_up')">
+                                    <div class="hamza-shape-glyph" style="color: #0284c7;">أَ / أُ</div>
+                                    <span class="hamza-shape-badge" style="background: #e0f2fe; color: #0369a1;">فَوْقَ الأَلِفِ</span>
+                                    <div class="hamza-shape-examples">أَرْنَبٌ ، أُذُنٌ ، أَسَدٌ</div>
+                                </div>
+                                <div class="hamza-shape-card" onclick="playHamzaShape('alif_down')">
+                                    <div class="hamza-shape-glyph" style="color: #7c3aed;">إِ</div>
+                                    <span class="hamza-shape-badge" style="background: #ede9fe; color: #5b21b6;">تَحْتَ الأَلِفِ</span>
+                                    <div class="hamza-shape-examples">إِبْرِيقٌ ، إِوَزَّةٌ ، إِيمَانُ</div>
+                                </div>
+                                <div class="hamza-shape-card" onclick="playHamzaShape('waw')">
+                                    <div class="hamza-shape-glyph" style="color: #ea580c;">ؤ</div>
+                                    <span class="hamza-shape-badge" style="background: #ffedd5; color: #9a3412;">عَلَى الْوَاوِ</span>
+                                    <div class="hamza-shape-examples">لُؤْلُؤٌ ، فُؤَادٌ ، سُؤَالٌ</div>
+                                </div>
+                                <div class="hamza-shape-card" onclick="playHamzaShape('nabra')">
+                                    <div class="hamza-shape-glyph" style="color: #d97706;">ئـ / ئ</div>
+                                    <span class="hamza-shape-badge" style="background: #fef3c7; color: #b45309;">عَلَى النَّبْرَةِ / الْيَاءِ</span>
+                                    <div class="hamza-shape-examples">ذِئْبٌ ، بِئْرٌ ، شَاطِئٌ</div>
+                                </div>
+                                <div class="hamza-shape-card" onclick="playHamzaShape('line')">
+                                    <div class="hamza-shape-glyph" style="color: #059669;">ء</div>
+                                    <span class="hamza-shape-badge" style="background: #d1fae5; color: #065f46;">عَلَى السَّطْرِ</span>
+                                    <div class="hamza-shape-examples">مَاءٌ ، سَمَاءٌ ، هَوَاءٌ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي ص 91 - 92 -->
+                    <div class="letter-hamza-station" id="stationHamza_3">
+                        <!-- نشاط 5: تحليل الكلمات إلى مقاطعها ص 91 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">✂️ ٥. تَحْلِيلُ الْكَلِمَاتِ إِلَى مَقَاطِعِهَا (نَشَاط ٥ ص ٩١)</h3>
+                                <button class="btn-primary" onclick="playAudio('letter_hamza_analysis_intro')" style="background: #0284c7; border-color: #0369a1; font-size: 0.9rem;">
+                                    <span>👏</span> <span>اسْتَمِعْ لِلتَّحْلِيلِ بِالتَّصْفِيقِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                                <div class="hamza-analysis-box" onclick="playHamzaSplit('azra')">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #0369a1;">أَزْرَعُ 🌱</span>
+                                        <span style="font-size: 0.85rem; font-weight: 800; background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 10px;">٣ مقاطع</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: center; gap: 8px; font-size: 1.35rem; font-weight: 900;">
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">أَزْ</span>
+                                        <span style="color: #94a3b8;">+</span>
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">رَ</span>
+                                        <span style="color: #94a3b8;">+</span>
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">عُ</span>
+                                    </div>
+                                </div>
+
+                                <div class="hamza-analysis-box" onclick="playHamzaSplit('yaqra')">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #0369a1;">يَقْرَأُ 📖</span>
+                                        <span style="font-size: 0.85rem; font-weight: 800; background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 10px;">٣ مقاطع</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: center; gap: 8px; font-size: 1.35rem; font-weight: 900;">
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">يَقْ</span>
+                                        <span style="color: #94a3b8;">+</span>
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">رَ</span>
+                                        <span style="color: #94a3b8;">+</span>
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">أُ</span>
+                                    </div>
+                                </div>
+
+                                <div class="hamza-analysis-box" onclick="playHamzaSplit('ihsaan')">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #0369a1;">إِحْسَانُ ✨</span>
+                                        <span style="font-size: 0.85rem; font-weight: 800; background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 10px;">٣ مقاطع</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: center; gap: 8px; font-size: 1.35rem; font-weight: 900;">
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">إِحْ</span>
+                                        <span style="color: #94a3b8;">+</span>
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">سَا</span>
+                                        <span style="color: #94a3b8;">+</span>
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">نُ</span>
+                                    </div>
+                                </div>
+
+                                <div class="hamza-analysis-box" onclick="playHamzaSplit('faar')">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #0369a1;">فَأْرٌ 🐁</span>
+                                        <span style="font-size: 0.85rem; font-weight: 800; background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 10px;">مقطعان</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: center; gap: 8px; font-size: 1.35rem; font-weight: 900;">
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">فَأْ</span>
+                                        <span style="color: #94a3b8;">+</span>
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">رٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="hamza-analysis-box" onclick="playHamzaSplit('raas')">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #0369a1;">رَأْسٌ 🧑</span>
+                                        <span style="font-size: 0.85rem; font-weight: 800; background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 10px;">مقطعان</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: center; gap: 8px; font-size: 1.35rem; font-weight: 900;">
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">رَأْ</span>
+                                        <span style="color: #94a3b8;">+</span>
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">سٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="hamza-analysis-box" onclick="playHamzaSplit('maa')">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                        <span style="font-size: 1.5rem; font-weight: 900; color: #0369a1;">مَاءٌ 💧</span>
+                                        <span style="font-size: 0.85rem; font-weight: 800; background: #e0f2fe; color: #0284c7; padding: 4px 10px; border-radius: 10px;">مقطعان</span>
+                                    </div>
+                                    <div style="display: flex; justify-content: center; gap: 8px; font-size: 1.35rem; font-weight: 900;">
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">مَا</span>
+                                        <span style="color: #94a3b8;">+</span>
+                                        <span style="background: #f0f9ff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px;">ءٌ</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_hamza_analysis.png" alt="نشاط 5 ص 91" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- نشاط 6: تركيب المقاطع لتكوين كلمات ص 92 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🧱 ٦. تَرْكِيبُ الْمَقَاطِعِ لِتَكْوِينِ كَلِمَاتٍ (نَشَاط ٦ ص ٩٢)</h3>
+                                <button class="btn-primary" onclick="playAudio('letter_hamza_blend_intro')" style="background: #0284c7; border-color: #0369a1; font-size: 0.9rem;">
+                                    <span>🧩</span> <span>اسْتَمِعْ لِلتَّرْكِيبِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px;">
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playHamzaMerge('ashjaar')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">أَشْـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">جَا</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">رٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.45rem; font-weight: 900; color: #0369a1; margin-top: 6px;">أَشْجَارٌ 🌳</div>
+                                </div>
+
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playHamzaMerge('ureed')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">أُ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">رِيـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">دُ</span>
+                                    </div>
+                                    <div style="font-size: 1.45rem; font-weight: 900; color: #0369a1; margin-top: 6px;">أُرِيدُ ✨</div>
+                                </div>
+
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playHamzaMerge('faar')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">فَأْ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">رٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.45rem; font-weight: 900; color: #0369a1; margin-top: 6px;">فَأْرٌ 🐁</div>
+                                </div>
+
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playHamzaMerge('ameen')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">أَ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">مِيـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">نٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.45rem; font-weight: 900; color: #0369a1; margin-top: 6px;">أَمِينٌ 👷</div>
+                                </div>
+
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 18px; padding: 14px; text-align: center; cursor: pointer;" onclick="playHamzaMerge('bannaa')">
+                                    <div style="display: flex; justify-content: center; gap: 8px; align-items: center; margin-bottom: 8px;">
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">بَنْـ</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">نَا</span>
+                                        <span style="color: #0284c7; font-weight: 900;">+</span>
+                                        <span style="background: #ffffff; border: 2px solid #0284c7; color: #0369a1; padding: 6px 14px; border-radius: 12px; font-weight: 900;">ءٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.45rem; font-weight: 900; color: #0369a1; margin-top: 6px;">بَنَّاءٌ 🧱</div>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_hamza_blend.png" alt="نشاط 6 ص 92" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: قراءة النصوص والسبورة والتحدي -->
+                    <div class="letter-hamza-station" id="stationHamza_4">
+                        <!-- مبدل نصوص القراءة الثلاثة -->
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+                            <button id="btnHamzaReadBook" class="btn-primary active" onclick="switchHamzaReadingTab('book')" style="background: #0284c7; border-color: #0369a1; padding: 10px 22px; font-weight: 900;">
+                                <span>📖</span> <span>نَصُّ الْكِتَابِ الْمَدْرَسِيِّ (ص ٩٢)</span>
+                            </button>
+                            <button id="btnHamzaReadAmeen" class="btn-primary" onclick="switchHamzaReadingTab('ameen')" style="background: #fef3c7; color: #92400e; border-color: #fde68a; padding: 10px 22px; font-weight: 900;">
+                                <span>🧱</span> <span>أَمِين بَنَّاء (تُرَاثِيٌّ خَالِدٌ)</span>
+                            </button>
+                            <button id="btnHamzaReadAyman" class="btn-primary" onclick="switchHamzaReadingTab('ayman')" style="background: #e0e7ff; color: #3730a3; border-color: #c7d2fe; padding: 10px 22px; font-weight: 900;">
+                                <span>💧</span> <span>أَيْمَنُ وَإِقْبَالُ (تُرَاثِيٌّ خَالِدٌ)</span>
+                            </button>
+                        </div>
+
+                        <!-- 1. نص الكتاب المدرسي ص 92 -->
+                        <div id="hamzaReadingBookContent" class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">📖 يَلْعَبُ أَحْمَدُ فِي حَدِيقَتِنَا (ص ٩٢)</h3>
+                                <button class="btn-primary" onclick="playHamzaReadingLine('b_full')" style="background: #0284c7; border-color: #0369a1; font-size: 0.9rem;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلاً</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 16px 20px; font-size: 1.55rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playHamzaReadingLine('b1')">
+                                    <span>يَلْعَبُ أَحْمَدُ فِي حَدِيقَتِنَا. 👦🏡</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #f0f9ff; border: 2px solid #bae6fd; border-radius: 16px; padding: 16px 20px; font-size: 1.55rem; font-weight: 900; color: #0369a1; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playHamzaReadingLine('b2')">
+                                    <span>تَقُولُ إِيمَانُ: أَنَا أَزْرَعُ أَزْهَارًا. 👧🌸</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                            </div>
+
+                            <div style="margin-top: 18px; border-radius: 14px; overflow: hidden; border: 2px solid #e2e8f0; text-align: center;">
+                                <img src="activity_hamza_read.png" alt="نشاط القراءة ص 92" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- 2. نص أَمِين بَنَّاء التراثي الخالد -->
+                        <div id="hamzaReadingAmeenContent" class="lesson-card" style="display: none; margin-bottom: 24px;">
+                            <div class="ameen-banner">
+                                <div>
+                                    <div style="background: rgba(255,255,255,0.25); display: inline-block; padding: 4px 14px; border-radius: 12px; font-size: 0.85rem; font-weight: 800;">🧱 قِرَاءَةٌ تُرَاثِيَّةٌ عِرَاقِيَّةٌ أَصِيلَةٌ</div>
+                                    <h2 style="margin: 8px 0 0; font-size: 1.8rem; font-weight: 900;">أَمِين بَنَّاء</h2>
+                                </div>
+                                <button class="btn-primary" onclick="playHamzaReadingLine('a_full')" style="background: #ffffff; color: #b45309; border: none; font-weight: 900; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْقِرَاءَةِ كَامِلَةً</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #92400e; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playHamzaReadingLine('a1')">
+                                    <span>أَمِينٌ بَنَّاء. 👷</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #92400e; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playHamzaReadingLine('a2')">
+                                    <span>أَمِينٌ أَبُو مَأْمُون. 👨‍👦</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #92400e; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playHamzaReadingLine('a3')">
+                                    <span>بَنَّاء. 🧱</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #92400e; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playHamzaReadingLine('a4')">
+                                    <span>يَبْنِي دَارَنَا. 🏡</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #fffbeb; border: 2px solid #fde68a; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #92400e; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playHamzaReadingLine('a5')">
+                                    <span>وَيَبْنِي دَارَ أَدِيب. 🏘️</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. نص أَيْمَنُ وَإِقْبَالُ التراثي الخالد -->
+                        <div id="hamzaReadingAymanContent" class="lesson-card" style="display: none; margin-bottom: 24px;">
+                            <div class="ayman-banner">
+                                <div>
+                                    <div style="background: rgba(255,255,255,0.25); display: inline-block; padding: 4px 14px; border-radius: 12px; font-size: 0.85rem; font-weight: 800;">💧 قِرَاءَةٌ تُرَاثِيَّةٌ عِرَاقِيَّةٌ أَصِيلَةٌ</div>
+                                    <h2 style="margin: 8px 0 0; font-size: 1.8rem; font-weight: 900;">أَيْمَنُ وَإِقْبَالُ</h2>
+                                </div>
+                                <button class="btn-primary" onclick="playHamzaReadingLine('y_full')" style="background: #ffffff; color: #4338ca; border: none; font-weight: 900; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْقِرَاءَةِ كَامِلَةً</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div style="background: #eef2ff; border: 2px solid #c7d2fe; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #3730a3; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playHamzaReadingLine('y1')">
+                                    <span>أَيْمَنُ وَإِقْبَالُ. 👦👧</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #eef2ff; border: 2px solid #c7d2fe; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #3730a3; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playHamzaReadingLine('y2')">
+                                    <span>أَيْمَنُ يَقُولُ: أُمِّي أُمِّي. ❤️</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #eef2ff; border: 2px solid #c7d2fe; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #3730a3; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playHamzaReadingLine('y3')">
+                                    <span>أَنَا وَإِقْبَالُ قَرَأْنَا. 📖</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                                <div style="background: #eef2ff; border: 2px solid #c7d2fe; border-radius: 16px; padding: 14px 20px; font-size: 1.45rem; font-weight: 900; color: #3730a3; cursor: pointer; display: flex; justify-content: space-between; align-items: center;" onclick="playHamzaReadingLine('y4')">
+                                    <span>أَيْمَنُ قَرَأَ: فِي إِنَاءِ إِيمَانَ مَاءٌ. 💧🥣</span>
+                                    <span style="font-size: 1.2rem;">🔊</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة رسم وكتابة الهمزة التفاعلية -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">✍️ سَبُّورَةُ رَسْمِ وَكِتَابَةِ الْهَمْزَةِ وَأَشْكَالِهَا</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_hamza_draw_hint')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>💡</span> <span>تَوْجِيهُ الْكِتَابَةِ</span>
+                                </button>
+                            </div>
+
+                            <div style="margin-bottom: 16px; border-radius: 14px; overflow: hidden; border: 2px solid #bae6fd; text-align: center;">
+                                <img src="activity_hamza_trace.png" alt="اتجاه رسم الهمزة" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                            </div>
+
+                            <div class="hamza-canvas-box">
+                                <canvas id="letterHamzaDrawCanvas"></canvas>
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; align-items: center;">
+                                <span style="font-weight: 800; color: #475569; font-size: 0.9rem;">اختر لون القلم:</span>
+                                <button onclick="setHamzaCanvasColor('#0284c7')" style="width: 32px; height: 32px; border-radius: 50%; background: #0284c7; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setHamzaCanvasColor('#059669')" style="width: 32px; height: 32px; border-radius: 50%; background: #059669; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setHamzaCanvasColor('#d97706')" style="width: 32px; height: 32px; border-radius: 50%; background: #d97706; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setHamzaCanvasColor('#e11d48')" style="width: 32px; height: 32px; border-radius: 50%; background: #e11d48; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-secondary" onclick="clearHamzaCanvas()" style="padding: 6px 16px; font-size: 0.85rem; margin-right: 12px;">
+                                    <span>🧹</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي الفونيمي التفاعلي للهمزة -->
+                        <div class="lesson-card" style="border: 3px solid #bae6fd; background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+                                <div>
+                                    <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🏆 اخْتِبَارُ التَّحَدِّي الفَوْنِيمِيِّ لِدَرْسِ الْهَمْزَة</h3>
+                                    <div style="font-size: 0.9rem; color: #64748b; font-weight: 700;">أَجِبْ عَنِ الأَسْئِلَةِ الْخَمْسَةِ وَاحْصُلْ عَلَى وِسَامِ الْبُطُولَة!</div>
+                                </div>
+                                <div style="background: #0284c7; color: #ffffff; padding: 8px 18px; border-radius: 14px; font-size: 1.1rem; font-weight: 900;">
+                                    النقاط: <span id="hamzaQuizScore">0</span> / 5
+                                </div>
+                            </div>
+
+                            <!-- سؤال 1 -->
+                            <div style="background: #ffffff; border: 2px solid #e0f2fe; border-radius: 18px; padding: 18px; margin-bottom: 16px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #0369a1; margin-bottom: 12px;">
+                                    ١. مَا هُوَ مَخْرَجُ صَوْتِ الْهَمْزَةِ (ءْ) الصَّحِيحُ؟
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(1, 1, true, this)">
+                                        <span>يَخْرُجُ مِنْ أَقْصَى الْحَلْقِ (صَوْتٌ حَنْجَرِيٌّ)</span>
+                                        <span>🎯</span>
+                                    </div>
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(1, 2, false, this)">
+                                        <span>يَخْرُجُ مِنَ الشَّفَتَيْنِ</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(1, 3, false, this)">
+                                        <span>يَخْرُجُ مِنْ طَرَفِ اللِّسَانِ</span>
+                                        <span>❌</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- سؤال 2 -->
+                            <div style="background: #ffffff; border: 2px solid #e0f2fe; border-radius: 18px; padding: 18px; margin-bottom: 16px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #0369a1; margin-bottom: 12px;">
+                                    ٢. أَيُّ كَلِمَةٍ مِمَّا يَلِي تَبْدَأُ بِهَمْزَةٍ مَكْسُورَةٍ (إِ) تَحْتَ الأَلِف؟
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(2, 1, false, this)">
+                                        <span>أَرْنَبٌ 🐇</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(2, 2, true, this)">
+                                        <span>إِبْرِيقٌ 🫖</span>
+                                        <span>🎯</span>
+                                    </div>
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(2, 3, false, this)">
+                                        <span>أُذُنٌ 👂</span>
+                                        <span>❌</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- سؤال 3 -->
+                            <div style="background: #ffffff; border: 2px solid #e0f2fe; border-radius: 18px; padding: 18px; margin-bottom: 16px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #0369a1; margin-bottom: 12px;">
+                                    ٣. مَا هُوَ الْمَقْطَعُ السَّاكِنُ فِي كَلِمَةِ (فَأْرٌ)؟
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(3, 1, false, this)">
+                                        <span>رٌ</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(3, 2, false, this)">
+                                        <span>فَا</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(3, 3, true, this)">
+                                        <span>فَأْ</span>
+                                        <span>🎯</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- سؤال 4 -->
+                            <div style="background: #ffffff; border: 2px solid #e0f2fe; border-radius: 18px; padding: 18px; margin-bottom: 16px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #0369a1; margin-bottom: 12px;">
+                                    ٤. كَيْفَ نُحَلِّلُ كَلِمَةَ (أَزْرَعُ) إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ؟
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(4, 1, true, this)">
+                                        <span>أَزْ + رَ + عُ</span>
+                                        <span>🎯</span>
+                                    </div>
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(4, 2, false, this)">
+                                        <span>أَ + زْرَ + عُ</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(4, 3, false, this)">
+                                        <span>أَزْ + رَعُ</span>
+                                        <span>❌</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- سؤال 5 -->
+                            <div style="background: #ffffff; border: 2px solid #e0f2fe; border-radius: 18px; padding: 18px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #0369a1; margin-bottom: 12px;">
+                                    ٥. عِنْدَ تَرْكِيبِ الْمَقَاطِعِ (أَشْـ + جَا + رٌ) مَاذَا تَتَكَوَّنُ؟
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(5, 1, false, this)">
+                                        <span>أَزْهَارٌ 🌸</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(5, 2, true, this)">
+                                        <span>أَشْجَارٌ 🌳</span>
+                                        <span>🎯</span>
+                                    </div>
+                                    <div class="hamza-quiz-option" onclick="answerHamzaQuiz(5, 3, false, this)">
+                                        <span>أَسْمَاكٌ 🐟</span>
+                                        <span>❌</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </div> <!-- إغلاق stage-card -->
 <!-- شريط الانتقال المتسلسل بين الدروس -->
 
@@ -16102,6 +16833,7 @@
     <script src="js/lessons/unit2.js"></script>
     <script src="js/lessons/unit3.js"></script>
     <script src="js/lessons/unit4.js"></script>
+    <script src="js/lessons/unit5.js"></script>
     <script src="js/app.js"></script>
 </body>
 
