@@ -1,0 +1,750 @@
+                <div class="lesson-view" id="view-tab-letter_dhad">
+                    <!-- شريط المحطات الأربعة لدرس حرف الضاد وتطبيقاته -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationDhad_1" onclick="switchLetterDhadStation(1)">
+                            <span>👮</span> <span>١. أتعرف الحرف والمشهد (ص ٩٣)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationDhad_2" onclick="switchLetterDhadStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والمقاطع الساكنة (ص ٩٣ - ٩٤)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationDhad_3" onclick="switchLetterDhadStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ٩٤ - ٩٥)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationDhad_4" onclick="switchLetterDhadStation(4)">
+                            <span>🏊</span> <span>٤. القراءة ونصوص الكتاب والسبورة (ص ٩٥)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-dhad-station active" id="stationDhad_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-dhad-card" onclick="playDhadPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #047857; margin-bottom: 4px;">حَرْفُ الضَّادِ الْمُفَخَّمِ (لُغَةُ الضَّادِ)</div>
+                                    <div class="giant-letter-dhad-glyph">ضـ ـضـ ـض ض</div>
+                                </div>
+                                <div style="border-right: 2px dashed #a7f3d0; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #065f46;">صَوْتُ الضَّادِ: ضْ... اِضْـ</div>
+                                    <div style="font-size: 0.9rem; color: #64748b; font-weight: 700;">مُسْتَطِيلٌ مُفَخَّمٌ مِنْ حَافَةِ اللِّسَانِ وَالأَضْرَاسِ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playDhadLetterSound()" style="background: #059669; border-color: #047857;">
+                                <span>🔊</span> <span>صَوْتُ الضَّادِ الصَّافِي (ضْ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playDhadPhonemeFaseeh()" style="background: #047857; border-color: #065f46;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِمَخْرَجِ الضَّادِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_dhad_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_94.png', 'كتاب قراءتي الجديد: ص ٩٣')">
+                                <span>📖</span> <span>صَفْحَة ٩٣ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_95.png', 'كتاب قراءتي الجديد: ص ٩٤')">
+                                <span>📖</span> <span>صَفْحَة ٩٤ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_96.png', 'كتاب قراءتي الجديد: ص ٩٥')">
+                                <span>📖</span> <span>صَفْحَة ٩٥ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- صورة رأس الصفحة الرسمية من الكتاب ص 93 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #065f46; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ حَرْفِ الضَّادِ (الْكِتَابُ الْمَدْرَسِيُّ ص ٩٣)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #a7f3d0; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_dhad_scene_story')">
+                                <img src="activity_dhad_scene.png" alt="مشهد رأس صفحة حرف الضاد" style="width: 100%; max-height: 380px; object-fit: contain; background: #ecfdf5;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(5, 150, 105, 0.88); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المصورة نشاط 1 ص 93 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">👮 ١. كَلِمَاتُ حَرْفِ الضَّادِ الْمُصَوَّرَةِ (نَشَاط ١ ص ٩٣)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhad_words_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْكَلِمَاتِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(135px, 1fr)); gap: 12px;">
+                                <div class="dhad-word-card" onclick="playDhadWord('daabit')">
+                                    <span class="dhad-word-icon">👮</span>
+                                    <span class="dhad-word-text">ضَابِطٌ</span>
+                                    <span class="dhad-word-pos">أَوَّلُ (ضـ) مَعَ مَدّ</span>
+                                </div>
+                                <div class="dhad-word-card" onclick="playDhadWord('dafeerah')">
+                                    <span class="dhad-word-icon">👧</span>
+                                    <span class="dhad-word-text">ضَفِيرَةٌ</span>
+                                    <span class="dhad-word-pos">أَوَّلُ (ضَـ) مَفْتُوحَة</span>
+                                </div>
+                                <div class="dhad-word-card" onclick="playDhadWord('duyoof')">
+                                    <span class="dhad-word-icon">👥</span>
+                                    <span class="dhad-word-text">ضُيُوفٌ</span>
+                                    <span class="dhad-word-pos">أَوَّلُ (ضُـ) مَضْمُومَة</span>
+                                </div>
+                                <div class="dhad-word-card" onclick="playDhadWord('dirsun')">
+                                    <span class="dhad-word-icon">🦷</span>
+                                    <span class="dhad-word-text">ضِرْسٌ</span>
+                                    <span class="dhad-word-pos">أَوَّلُ (ضِـ) مَكْسُورَة</span>
+                                </div>
+                                <div class="dhad-word-card" onclick="playDhadWord('midrab')">
+                                    <span class="dhad-word-icon">🎾</span>
+                                    <span class="dhad-word-text">مِضْرَبٌ</span>
+                                    <span class="dhad-word-pos">وَسَطُ (ـضْـ) سَاكِنَة</span>
+                                </div>
+                                <div class="dhad-word-card" onclick="playDhadWord('yardau')">
+                                    <span class="dhad-word-icon">🍼</span>
+                                    <span class="dhad-word-text">يَرْضَعُ</span>
+                                    <span class="dhad-word-pos">وَسَطُ (ـضَـ) مَفْتُوحَة</span>
+                                </div>
+                                <div class="dhad-word-card" onclick="playDhadWord('wudoo')">
+                                    <span class="dhad-word-icon">💧</span>
+                                    <span class="dhad-word-text">وُضُوءٌ</span>
+                                    <span class="dhad-word-pos">وَسَطُ (ـضُـ) مَعَ مَدّ</span>
+                                </div>
+                                <div class="dhad-word-card" onclick="playDhadWord('radeea')">
+                                    <span class="dhad-word-icon">👶</span>
+                                    <span class="dhad-word-text">رَضِيعٌ</span>
+                                    <span class="dhad-word-pos">وَسَطُ (ـضِيـ) مَعَ مَدّ</span>
+                                </div>
+                                <div class="dhad-word-card" onclick="playDhadWord('mumarriz')">
+                                    <span class="dhad-word-icon">👨‍⚕️</span>
+                                    <span class="dhad-word-text">مُمَرِّضٌ</span>
+                                    <span class="dhad-word-pos">آخِرُ (ـض) مُتَّصِل</span>
+                                </div>
+                                <div class="dhad-word-card" onclick="playDhadWord('riyaad')">
+                                    <span class="dhad-word-icon">🏃</span>
+                                    <span class="dhad-word-text">رِيَاضٌ</span>
+                                    <span class="dhad-word-pos">آخِرُ (ض) مُنْفَصِل</span>
+                                </div>
+                                <div class="dhad-word-card" onclick="playDhadWord('duha')">
+                                    <span class="dhad-word-icon">🌅</span>
+                                    <span class="dhad-word-text">ضُحَى</span>
+                                    <span class="dhad-word-pos">أَوَّلُ (ضُـ) مَضْمُومَة</span>
+                                </div>
+                                <div class="dhad-word-card" onclick="playDhadWord('hawd')">
+                                    <span class="dhad-word-icon">🏊</span>
+                                    <span class="dhad-word-text">حَوْضٌ</span>
+                                    <span class="dhad-word-pos">آخِرُ (ض) مُنْفَصِل</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- صورة أصلية لنشاط 1 ص 93 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <h3 style="color: #065f46; margin-bottom: 12px; font-weight: 900;">📸 أَنْشِطَةُ الْكَلِمَاتِ فِي الْكِتَابِ (ص ٩٣)</h3>
+                            <div style="border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; text-align: center;">
+                                <img src="activity_dhad_words.png" alt="نشاط 1 كلمات حرف الضاد" style="width: 100%; max-height: 360px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات الحركات والمدود والمقاطع الساكنة وأشكال الضاد -->
+                    <div class="letter-dhad-station" id="stationDhad_2">
+                        <!-- الحركات القصيرة والمدود الطويلة نشاط 2 ص 93 ونشاط 3 ص 94 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">🎵 ١. أَصْوَاتُ حَرْفِ الضَّادِ (الْحَرَكَاتُ الْقَصِيرَةُ وَالْمُدُودُ الطَّوِيلَةُ)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhad_vowels_station')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْمُدُودِ</span>
+                                </button>
+                            </div>
+
+                            <!-- شبكة المقارنة الصوتية -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                                <!-- الحركات القصيرة -->
+                                <div style="background: #f0fdf4; border: 2px solid #86efac; border-radius: 18px; padding: 16px;">
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #166534; margin-bottom: 12px; text-align: center;">
+                                        ⚡ الْحَرَكَاتُ الْقَصِيرَةُ (ضَـ ، ضُـ ، ضِـ)
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                                        <div class="dhad-vowel-pill" onclick="playDhadVowel('short_a')">
+                                            <span style="font-size: 2rem; font-weight: 900; color: #15803d;">ضَـ</span>
+                                            <div>
+                                                <div style="font-weight: 900; color: #166534; font-size: 1.1rem;">ضَفِيرَةٌ - ضَحِكَ</div>
+                                                <div style="font-size: 0.8rem; color: #4b5563;">ضَادٌ مَفْتُوحَةٌ بِصَوْتٍ قَصِير</div>
+                                            </div>
+                                            <span style="font-size: 1.4rem;">🔊</span>
+                                        </div>
+                                        <div class="dhad-vowel-pill" onclick="playDhadVowel('short_u')">
+                                            <span style="font-size: 2rem; font-weight: 900; color: #15803d;">ضُـ</span>
+                                            <div>
+                                                <div style="font-weight: 900; color: #166534; font-size: 1.1rem;">ضُيُوفٌ - ضُحَى</div>
+                                                <div style="font-size: 0.8rem; color: #4b5563;">ضَادٌ مَضْمُومَةٌ بِصَوْتٍ قَصِير</div>
+                                            </div>
+                                            <span style="font-size: 1.4rem;">🔊</span>
+                                        </div>
+                                        <div class="dhad-vowel-pill" onclick="playDhadVowel('short_i')">
+                                            <span style="font-size: 2rem; font-weight: 900; color: #15803d;">ضِـ</span>
+                                            <div>
+                                                <div style="font-weight: 900; color: #166534; font-size: 1.1rem;">ضِرْسٌ - ضِفْدَعٌ</div>
+                                                <div style="font-size: 0.8rem; color: #4b5563;">ضَادٌ مَكْسُورَةٌ بِصَوْتٍ قَصِير</div>
+                                            </div>
+                                            <span style="font-size: 1.4rem;">🔊</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- المدود الطويلة -->
+                                <div style="background: #ecfdf5; border: 2px solid #6ee7b7; border-radius: 18px; padding: 16px;">
+                                    <div style="font-size: 1.1rem; font-weight: 900; color: #065f46; margin-bottom: 12px; text-align: center;">
+                                        🌊 الْمُدُودُ الطَّوِيلَةُ (ضَا ، ضُو ، ضِيـ)
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                                        <div class="dhad-vowel-pill" onclick="playDhadVowel('long_aa')">
+                                            <span style="font-size: 2rem; font-weight: 900; color: #047857;">ضَا</span>
+                                            <div>
+                                                <div style="font-weight: 900; color: #065f46; font-size: 1.1rem;">ضَابِطٌ - خُضَارٌ</div>
+                                                <div style="font-size: 0.8rem; color: #4b5563;">مَدُّ الأَلِفِ مَعَ تَفْخِيمِ الضَّاد</div>
+                                            </div>
+                                            <span style="font-size: 1.4rem;">🔊</span>
+                                        </div>
+                                        <div class="dhad-vowel-pill" onclick="playDhadVowel('long_oo')">
+                                            <span style="font-size: 2rem; font-weight: 900; color: #047857;">ضُو</span>
+                                            <div>
+                                                <div style="font-weight: 900; color: #065f46; font-size: 1.1rem;">وُضُوءٌ - وُضُوحٌ</div>
+                                                <div style="font-size: 0.8rem; color: #4b5563;">مَدُّ الْوَاوِ مَعَ تَفْخِيمِ الضَّاد</div>
+                                            </div>
+                                            <span style="font-size: 1.4rem;">🔊</span>
+                                        </div>
+                                        <div class="dhad-vowel-pill" onclick="playDhadVowel('long_ee')">
+                                            <span style="font-size: 2rem; font-weight: 900; color: #047857;">ضِيـ</span>
+                                            <div>
+                                                <div style="font-weight: 900; color: #065f46; font-size: 1.1rem;">رَضِيعٌ - مَرِيضٌ</div>
+                                                <div style="font-size: 0.8rem; color: #4b5563;">مَدُّ الْيَاءِ مَعَ تَفْخِيمِ الضَّاد</div>
+                                            </div>
+                                            <span style="font-size: 1.4rem;">🔊</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- أشكال حرف الضاد الأربعة -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">✍️ ٢. أَشْكَالُ حَرْفِ الضَّادِ الأَرْبَعَةِ وَمَوَاقِعُهُ فِي الْكَلِمَة</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhad_shapes_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>شَرْحُ الأَشْكَالِ</span>
+                                </button>
+                            </div>
+
+                            <div class="dhad-shape-grid">
+                                <div class="dhad-shape-card" onclick="playDhadShape('first')">
+                                    <div class="dhad-shape-glyph">ضـ</div>
+                                    <div class="dhad-shape-title">أَوَّلُ الْكَلِمَةِ</div>
+                                    <div class="dhad-shape-example">ضَابِطٌ - ضَفِيرَةٌ</div>
+                                    <div class="dhad-shape-desc">يَمُدُّ ذِرَاعَهُ لِمَا بَعْدَهُ</div>
+                                </div>
+                                <div class="dhad-shape-card" onclick="playDhadShape('mid')">
+                                    <div class="dhad-shape-glyph">ـضـ</div>
+                                    <div class="dhad-shape-title">وَسَطُ الْكَلِمَةِ</div>
+                                    <div class="dhad-shape-example">مِضْرَبٌ - يَضْحَكُ</div>
+                                    <div class="dhad-shape-desc">يَمُدُّ ذِرَاعَيْهِ لِلْحَرْفَيْنِ</div>
+                                </div>
+                                <div class="dhad-shape-card" onclick="playDhadShape('last_conn')">
+                                    <div class="dhad-shape-glyph">ـض</div>
+                                    <div class="dhad-shape-title">آخِرٌ مُتَّصِلٌ</div>
+                                    <div class="dhad-shape-example">مُمَرِّضٌ - بَيْضٌ</div>
+                                    <div class="dhad-shape-desc">يَتَّصِلُ بِمَا قَبْلَهُ مَعَ الْكَأْسِ</div>
+                                </div>
+                                <div class="dhad-shape-card" onclick="playDhadShape('last_sep')">
+                                    <div class="dhad-shape-glyph">ض</div>
+                                    <div class="dhad-shape-title">آخِرٌ مُنْفَصِلٌ</div>
+                                    <div class="dhad-shape-example">رِيَاضٌ - حَوْضٌ</div>
+                                    <div class="dhad-shape-desc">يَقِفُ مُسْتَقِلًّا بِشَكْلِهِ الْكَامِلِ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- المقاطع الساكنة نشاط 4 ص 94 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">🛑 ٣. الْمَقَاطِعُ السَّاكِنَةُ مَعَ الضَّادِ (نَشَاط ٤ ص ٩٤)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhad_syl_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْمَقَاطِعِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                                <div class="dhad-syl-card" onclick="playDhadSyllable('mid')">
+                                    <div class="dhad-syl-badge">مِضْـ</div>
+                                    <div class="dhad-syl-word">مِضْرَبٌ 🎾</div>
+                                    <div class="dhad-syl-sub">مِيمٌ مَكْسُورَةٌ + ضَادٌ سَاكِنَةٌ</div>
+                                </div>
+                                <div class="dhad-syl-card" onclick="playDhadSyllable('yad')">
+                                    <div class="dhad-syl-badge">يَضْـ</div>
+                                    <div class="dhad-syl-word">يَضْحَكُ - يَضْرِبُ 😄</div>
+                                    <div class="dhad-syl-sub">يَاءٌ مَفْتُوحَةٌ + ضَادٌ سَاكِنَةٌ</div>
+                                </div>
+                                <div class="dhad-syl-card" onclick="playDhadSyllable('rad')">
+                                    <div class="dhad-syl-badge">رَضْـ</div>
+                                    <div class="dhad-syl-word">يَرْضَعُ 🍼</div>
+                                    <div class="dhad-syl-sub">رَاءٌ مَفْتُوحَةٌ + ضَادٌ سَاكِنَةٌ</div>
+                                </div>
+                                <div class="dhad-syl-card" onclick="playDhadSyllable('ad')">
+                                    <div class="dhad-syl-badge">عَضْـ</div>
+                                    <div class="dhad-syl-word">عَضْلَةٌ 💪</div>
+                                    <div class="dhad-syl-sub">عَيْنٌ مَفْتُوحَةٌ + ضَادٌ سَاكِنَةٌ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- صور الأنشطة الرسمية من الكتاب -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <h3 style="color: #065f46; margin-bottom: 12px; font-weight: 900;">📸 أَنْشِطَةُ الْمُدُودِ وَالْمَقَاطِعِ فِي الْكِتَابِ (ص ٩٣ - ٩٤)</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                                <div style="border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; text-align: center;">
+                                    <img src="activity_dhad_vowels.png" alt="نشاط 2 مدود الضاد ص 93" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                                </div>
+                                <div style="border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; text-align: center;">
+                                    <img src="activity_dhad_vowel_words.png" alt="نشاط 3 تحويط المدود ص 94" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                                </div>
+                                <div style="border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; text-align: center;">
+                                    <img src="activity_dhad_syllables.png" alt="نشاط 4 المقاطع الساكنة ص 94" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي -->
+                    <div class="letter-dhad-station" id="stationDhad_3">
+                        <!-- التحليل الصوتي نشاط 5 ص 94 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">✂️ ١. تَحْلِيلُ الْكَلِمَاتِ إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ (نَشَاط ٥ ص ٩٤)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhad_analysis_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>👏</span> <span>اسْتَمِعْ لِلتَّصْفِيقِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+                                <div class="dhad-split-card" onclick="playDhadSplit('riyaad')">
+                                    <div class="dhad-split-word">رِيَاضٌ</div>
+                                    <div class="dhad-split-parts">
+                                        <span class="dhad-split-syllable">رِ</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">يَا</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">ضٌ</span>
+                                    </div>
+                                    <div class="dhad-split-badge">٣ مَقَاطِع 👏 👏 👏</div>
+                                </div>
+
+                                <div class="dhad-split-card" onclick="playDhadSplit('duha')">
+                                    <div class="dhad-split-word">ضُحَى</div>
+                                    <div class="dhad-split-parts">
+                                        <span class="dhad-split-syllable">ضُ</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">حَى</span>
+                                    </div>
+                                    <div class="dhad-split-badge">مَقْطَعَان 👏 👏</div>
+                                </div>
+
+                                <div class="dhad-split-card" onclick="playDhadSplit('khudaar')">
+                                    <div class="dhad-split-word">خُضَارٌ</div>
+                                    <div class="dhad-split-parts">
+                                        <span class="dhad-split-syllable">خُ</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">ضَا</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">رٌ</span>
+                                    </div>
+                                    <div class="dhad-split-badge">٣ مَقَاطِع 👏 👏 👏</div>
+                                </div>
+
+                                <div class="dhad-split-card" onclick="playDhadSplit('daabit')">
+                                    <div class="dhad-split-word">ضَابِطٌ</div>
+                                    <div class="dhad-split-parts">
+                                        <span class="dhad-split-syllable">ضَا</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">بِـ</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">طٌ</span>
+                                    </div>
+                                    <div class="dhad-split-badge">٣ مَقَاطِع 👏 👏 👏</div>
+                                </div>
+
+                                <div class="dhad-split-card" onclick="playDhadSplit('radeea')">
+                                    <div class="dhad-split-word">رَضِيعٌ</div>
+                                    <div class="dhad-split-parts">
+                                        <span class="dhad-split-syllable">رَ</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">ضِيـ</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">عٌ</span>
+                                    </div>
+                                    <div class="dhad-split-badge">٣ مَقَاطِع 👏 👏 👏</div>
+                                </div>
+
+                                <div class="dhad-split-card" onclick="playDhadSplit('adalaat')">
+                                    <div class="dhad-split-word">عَضَلَاتٌ</div>
+                                    <div class="dhad-split-parts">
+                                        <span class="dhad-split-syllable">عَـ</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">ضَـ</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">لَا</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">تٌ</span>
+                                    </div>
+                                    <div class="dhad-split-badge">٤ مَقَاطِع 👏 👏 👏 👏</div>
+                                </div>
+
+                                <div class="dhad-split-card" onclick="playDhadSplit('hawd')">
+                                    <div class="dhad-split-word">حَوْضٌ</div>
+                                    <div class="dhad-split-parts">
+                                        <span class="dhad-split-syllable">حَوْ</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">ضٌ</span>
+                                    </div>
+                                    <div class="dhad-split-badge">مَقْطَعَان 👏 👏</div>
+                                </div>
+
+                                <div class="dhad-split-card" onclick="playDhadSplit('naahid')">
+                                    <div class="dhad-split-word">نَاهِضٌ</div>
+                                    <div class="dhad-split-parts">
+                                        <span class="dhad-split-syllable">نَا</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">هِـ</span>
+                                        <span class="dhad-split-plus">+</span>
+                                        <span class="dhad-split-syllable">ضٌ</span>
+                                    </div>
+                                    <div class="dhad-split-badge">٣ مَقَاطِع 👏 👏 👏</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- التركيب الصوتي نشاط 6 ص 95 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">🧩 ٢. تَرْكِيبُ الْكَلِمَاتِ مِنَ الْمَقَاطِعِ الصَّوْتِيَّةِ (نَشَاط ٦ ص ٩٥)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhad_blend_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلتَّرْكِيبِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+                                <div class="dhad-merge-card" onclick="playDhadMerge('daabit')">
+                                    <div class="dhad-merge-equation">
+                                        <span class="dhad-merge-seg">ضَا</span>
+                                        <span>+</span>
+                                        <span class="dhad-merge-seg">بِـ</span>
+                                        <span>+</span>
+                                        <span class="dhad-merge-seg">طٌ</span>
+                                    </div>
+                                    <div class="dhad-merge-arrow">⬇️ نُرَكِّبُهَا</div>
+                                    <div class="dhad-merge-result">ضَابِطٌ 👮</div>
+                                </div>
+
+                                <div class="dhad-merge-card" onclick="playDhadMerge('radeea')">
+                                    <div class="dhad-merge-equation">
+                                        <span class="dhad-merge-seg">رَ</span>
+                                        <span>+</span>
+                                        <span class="dhad-merge-seg">ضِيـ</span>
+                                        <span>+</span>
+                                        <span class="dhad-merge-seg">عٌ</span>
+                                    </div>
+                                    <div class="dhad-merge-arrow">⬇️ نُرَكِّبُهَا</div>
+                                    <div class="dhad-merge-result">رَضِيعٌ 👶</div>
+                                </div>
+
+                                <div class="dhad-merge-card" onclick="playDhadMerge('adalaat')">
+                                    <div class="dhad-merge-equation">
+                                        <span class="dhad-merge-seg">عَـ</span>
+                                        <span>+</span>
+                                        <span class="dhad-merge-seg">ضَـ</span>
+                                        <span>+</span>
+                                        <span class="dhad-merge-seg">لَا</span>
+                                        <span>+</span>
+                                        <span class="dhad-merge-seg">تٌ</span>
+                                    </div>
+                                    <div class="dhad-merge-arrow">⬇️ نُرَكِّبُهَا</div>
+                                    <div class="dhad-merge-result">عَضَلَاتٌ 💪</div>
+                                </div>
+
+                                <div class="dhad-merge-card" onclick="playDhadMerge('riyaad')">
+                                    <div class="dhad-merge-equation">
+                                        <span class="dhad-merge-seg">رِ</span>
+                                        <span>+</span>
+                                        <span class="dhad-merge-seg">يَا</span>
+                                        <span>+</span>
+                                        <span class="dhad-merge-seg">ضٌ</span>
+                                    </div>
+                                    <div class="dhad-merge-arrow">⬇️ نُرَكِّبُهَا</div>
+                                    <div class="dhad-merge-result">رِيَاضٌ 🏃</div>
+                                </div>
+
+                                <div class="dhad-merge-card" onclick="playDhadMerge('hawd')">
+                                    <div class="dhad-merge-equation">
+                                        <span class="dhad-merge-seg">حَوْ</span>
+                                        <span>+</span>
+                                        <span class="dhad-merge-seg">ضٌ</span>
+                                    </div>
+                                    <div class="dhad-merge-arrow">⬇️ نُرَكِّبُهَا</div>
+                                    <div class="dhad-merge-result">حَوْضٌ 🏊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- صور الأنشطة الرسمية من الكتاب -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <h3 style="color: #065f46; margin-bottom: 12px; font-weight: 900;">📸 أَنْشِطَةُ التَّحْلِيلِ وَالتَّرْكِيبِ فِي الْكِتَابِ (ص ٩٤ - ٩٥)</h3>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                                <div style="border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; text-align: center;">
+                                    <img src="activity_dhad_analysis.png" alt="نشاط 5 تحليل المقاطع ص 94" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                                </div>
+                                <div style="border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; text-align: center;">
+                                    <img src="activity_dhad_blend.png" alt="نشاط 6 تركيب المقاطع ص 95" style="width: 100%; max-height: 280px; object-fit: contain; background: #ffffff;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة ونصوص الكتاب والسبورة واختبار التحدي -->
+                    <div class="letter-dhad-station" id="stationDhad_4">
+                        <!-- نصوص القراءة المعتمدة والتراثية -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">📖 ١. قِرَاءَةُ نُصُوصِ الدَّرْسِ (نَصُّ الْكِتَابِ ص ٩٥ + النَّصُّ التُّرَاثِيُّ)</h3>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn-primary" id="btnDhadReadBook" onclick="switchDhadReadingTab('book')" style="background: #059669; border-color: #047857; font-size: 0.85rem; padding: 6px 14px;">
+                                        <span>🏥</span> <span>نَصُّ الْكِتَابِ (ص ٩٥)</span>
+                                    </button>
+                                    <button class="btn-secondary" id="btnDhadReadHawd" onclick="switchDhadReadingTab('hawd')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                        <span>🏊</span> <span>حَوْضُ السِّبَاحَةِ (تُرَاثِيّ)</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- نص الكتاب ص 95 -->
+                            <div id="dhadReadingBookContent" style="display: block;">
+                                <div class="dhad-reading-box">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 2px dashed #a7f3d0; padding-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+                                        <div style="font-size: 1.4rem; font-weight: 900; color: #065f46;">
+                                            أَقْرَأُ (الْكِتَابُ الْمَدْرَسِيُّ ص ٩٥):
+                                        </div>
+                                        <button class="btn-primary" onclick="playDhadReadingLine('b_full')" style="background: #059669; border-color: #047857;">
+                                            <span>🔊</span> <span>قِرَاءَةُ النَّصِّ كَامِلًا</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="dhad-reading-lines">
+                                        <div class="dhad-reading-line" onclick="playDhadReadingLine('b1')">
+                                            <span class="dhad-line-icon">🏥</span>
+                                            <span class="dhad-line-text">ضُحَى تَعْمَلُ فِي مُسْتَشْفَى.</span>
+                                            <span class="dhad-line-audio">🔊</span>
+                                        </div>
+                                        <div class="dhad-reading-line" onclick="playDhadReadingLine('b2')">
+                                            <span class="dhad-line-icon">👶</span>
+                                            <span class="dhad-line-text">تَحْمِلُ طِفْلًا رَضِيعًا.</span>
+                                            <span class="dhad-line-audio">🔊</span>
+                                        </div>
+                                        <div class="dhad-reading-line" onclick="playDhadReadingLine('b3')">
+                                            <span class="dhad-line-icon">👵</span>
+                                            <span class="dhad-line-text">وَتَعْتَنِي بِعَجُوزٍ مَرِيضٍ.</span>
+                                            <span class="dhad-line-audio">🔊</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- النص التراثي العراقي الأصيل: حوض السباحة -->
+                            <div id="dhadReadingHawdContent" style="display: none;">
+                                <div class="dhad-reading-box" style="border-color: #0284c7; background: #f0f9ff;">
+                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; border-bottom: 2px dashed #bae6fd; padding-bottom: 12px; flex-wrap: wrap; gap: 10px;">
+                                        <div style="font-size: 1.4rem; font-weight: 900; color: #0369a1;">
+                                            🏊 حَوْضُ السِّبَاحَةِ (الْقِرَاءَةُ التُّرَاثِيَّةُ الْعِرَاقِيَّةُ الْخَالِدَة):
+                                        </div>
+                                        <button class="btn-primary" onclick="playDhadReadingLine('h_full')" style="background: #0284c7; border-color: #0369a1;">
+                                            <span>🔊</span> <span>قِرَاءَةُ الْقِصَّةِ كَامِلَةً</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="dhad-reading-lines">
+                                        <div class="dhad-reading-line" onclick="playDhadReadingLine('h1')" style="border-color: #bae6fd;">
+                                            <span class="dhad-line-icon">🏊</span>
+                                            <span class="dhad-line-text" style="color: #0369a1;">حَوْضُ السِّبَاحَةِ.</span>
+                                            <span class="dhad-line-audio">🔊</span>
+                                        </div>
+                                        <div class="dhad-reading-line" onclick="playDhadReadingLine('h2')" style="border-color: #bae6fd;">
+                                            <span class="dhad-line-icon">🌊</span>
+                                            <span class="dhad-line-text" style="color: #0369a1;">رِيَاضٌ يَسْبَحُ فِي الحَوْضِ.</span>
+                                            <span class="dhad-line-audio">🔊</span>
+                                        </div>
+                                        <div class="dhad-reading-line" onclick="playDhadReadingLine('h3')" style="border-color: #bae6fd;">
+                                            <span class="dhad-line-icon">🤝</span>
+                                            <span class="dhad-line-text" style="color: #0369a1;">مَعَ صَدِيقِهِ نَاهِضٍ.</span>
+                                            <span class="dhad-line-audio">🔊</span>
+                                        </div>
+                                        <div class="dhad-reading-line" onclick="playDhadReadingLine('h4')" style="border-color: #bae6fd;">
+                                            <span class="dhad-line-icon">🗣️</span>
+                                            <span class="dhad-line-text" style="color: #0369a1;">قَالَ نَاهِضٌ: نَحْنُ نَلْعَبُ وَنَسْبَحُ.</span>
+                                            <span class="dhad-line-audio">🔊</span>
+                                        </div>
+                                        <div class="dhad-reading-line" onclick="playDhadReadingLine('h5')" style="border-color: #bae6fd;">
+                                            <span class="dhad-line-icon">🏃</span>
+                                            <span class="dhad-line-text" style="color: #0369a1;">نَفْرَحُ وَنَرْكُضُ.</span>
+                                            <span class="dhad-line-audio">🔊</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- صورة نص القراءة في الكتاب -->
+                            <div style="margin-top: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; text-align: center;">
+                                <img src="activity_dhad_read.png" alt="نص القراءة في الكتاب ص 95" style="width: 100%; max-height: 380px; object-fit: contain; background: #ffffff;">
+                            </div>
+                        </div>
+
+                        <!-- سبورة رسم وكتابة حرف الضاد التفاعلية -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">✍️ سَبُّورَةُ رَسْمِ وَكِتَابَةِ حَرْفِ الضَّادِ (ضـ ، ض)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhad_draw_hint')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>💡</span> <span>تَوْجِيهُ الْكِتَابَةِ</span>
+                                </button>
+                            </div>
+
+                            <div style="margin-bottom: 16px; border-radius: 14px; overflow: hidden; border: 2px solid #a7f3d0; text-align: center;">
+                                <img src="activity_dhad_trace.png" alt="اتجاه رسم الضاد" style="width: 100%; max-height: 220px; object-fit: contain; background: #ffffff;">
+                            </div>
+
+                            <div class="dhad-canvas-box">
+                                <canvas id="letterDhadDrawCanvas"></canvas>
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-top: 14px; flex-wrap: wrap; align-items: center;">
+                                <span style="font-weight: 800; color: #475569; font-size: 0.9rem;">اختر لون القلم:</span>
+                                <button onclick="setDhadCanvasColor('#059669')" style="width: 32px; height: 32px; border-radius: 50%; background: #059669; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setDhadCanvasColor('#0284c7')" style="width: 32px; height: 32px; border-radius: 50%; background: #0284c7; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setDhadCanvasColor('#d97706')" style="width: 32px; height: 32px; border-radius: 50%; background: #d97706; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setDhadCanvasColor('#e11d48')" style="width: 32px; height: 32px; border-radius: 50%; background: #e11d48; border: 2px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-secondary" onclick="clearDhadCanvas()" style="padding: 6px 16px; font-size: 0.85rem; margin-right: 12px;">
+                                    <span>🧹</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي الفونيمي التفاعلي للضاد -->
+                        <div class="lesson-card" style="border: 3px solid #a7f3d0; background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 100%);">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
+                                <div>
+                                    <h3 style="color: #065f46; margin: 0; font-weight: 900;">🏆 اخْتِبَارُ التَّحَدِّي الفَوْنِيمِيِّ لِحَرْفِ الضَّاد</h3>
+                                    <div style="font-size: 0.9rem; color: #64748b; font-weight: 700;">أَجِبْ عَنِ الأَسْئِلَةِ الْخَمْسَةِ وَاحْصُلْ عَلَى وِسَامِ لُغَةِ الضَّاد!</div>
+                                </div>
+                                <div style="background: #059669; color: #ffffff; padding: 8px 18px; border-radius: 14px; font-size: 1.1rem; font-weight: 900;">
+                                    النقاط: <span id="dhadQuizScore">0</span> / 5
+                                </div>
+                            </div>
+
+                            <!-- سؤال 1 -->
+                            <div style="background: #ffffff; border: 2px solid #d1fae5; border-radius: 18px; padding: 18px; margin-bottom: 16px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #065f46; margin-bottom: 12px;">
+                                    ١. مِنْ أَيْنَ يَخْرُجُ صَوْتُ حَرْفِ الضَّادِ (ضْ) الصَّحِيحُ؟
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(1, 1, true, this)">
+                                        <span>مِنْ حَافَةِ اللِّسَانِ مَعَ الأَضْرَاسِ الْعُلْيَا (مُفَخَّمٌ)</span>
+                                        <span>🎯</span>
+                                    </div>
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(1, 2, false, this)">
+                                        <span>مِنْ طَرَفِ اللِّسَانِ مِثْلَ الدَّالِ</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(1, 3, false, this)">
+                                        <span>مِنَ الشَّفَتَيْنِ مِثْلَ الْبَاءِ</span>
+                                        <span>❌</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- سؤال 2 -->
+                            <div style="background: #ffffff; border: 2px solid #d1fae5; border-radius: 18px; padding: 18px; margin-bottom: 16px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #065f46; margin-bottom: 12px;">
+                                    ٢. أَيُّ كَلِمَةٍ مِمَّا يَلِي فِيهَا حَرْفُ الضَّادِ فِي أَوَّلِهَا مَفْتُوحًا (ضَـ)؟
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(2, 1, false, this)">
+                                        <span>ضُيُوفٌ 👥</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(2, 2, true, this)">
+                                        <span>ضَفِيرَةٌ 👧</span>
+                                        <span>🎯</span>
+                                    </div>
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(2, 3, false, this)">
+                                        <span>ضِرْسٌ 🦷</span>
+                                        <span>❌</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- سؤال 3 -->
+                            <div style="background: #ffffff; border: 2px solid #d1fae5; border-radius: 18px; padding: 18px; margin-bottom: 16px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #065f46; margin-bottom: 12px;">
+                                    ٣. مَا هُوَ الْمَقْطَعُ السَّاكِنُ فِي كَلِمَةِ (مِضْرَبٌ)؟
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(3, 1, false, this)">
+                                        <span>رَ</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(3, 2, false, this)">
+                                        <span>بٌ</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(3, 3, true, this)">
+                                        <span>مِضْـ</span>
+                                        <span>🎯</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- سؤال 4 -->
+                            <div style="background: #ffffff; border: 2px solid #d1fae5; border-radius: 18px; padding: 18px; margin-bottom: 16px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #065f46; margin-bottom: 12px;">
+                                    ٤. كَيْفَ نُحَلِّلُ كَلِمَةَ (رِيَاضٌ) إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ؟
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(4, 1, true, this)">
+                                        <span>رِ + يَا + ضٌ</span>
+                                        <span>🎯</span>
+                                    </div>
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(4, 2, false, this)">
+                                        <span>رِيـ + اضٌ</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(4, 3, false, this)">
+                                        <span>رِ + يَا ض</span>
+                                        <span>❌</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- سؤال 5 -->
+                            <div style="background: #ffffff; border: 2px solid #d1fae5; border-radius: 18px; padding: 18px;">
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #065f46; margin-bottom: 12px;">
+                                    ٥. عِنْدَ تَرْكِيبِ الْمَقَاطِعِ (ضَا + بِـ + طٌ) مَاذَا تَتَكَوَّنُ؟
+                                </div>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(5, 1, false, this)">
+                                        <span>طَالِبٌ 🎒</span>
+                                        <span>❌</span>
+                                    </div>
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(5, 2, true, this)">
+                                        <span>ضَابِطٌ 👮</span>
+                                        <span>🎯</span>
+                                    </div>
+                                    <div class="dhad-quiz-option" onclick="answerDhadQuiz(5, 3, false, this)">
+                                        <span>طَيَّارٌ ✈️</span>
+                                        <span>❌</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

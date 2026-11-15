@@ -267,3 +267,411 @@
     border-color: #ef4444 !important;
     color: #991b1b !important;
 }
+
+
+/* ==========================================================================
+   الدرس الثاني: حرف الضاد (ضـ ، ض) وتطبيقاته (ص ٩٣ - ٩٥)
+   ========================================================================== */
+
+/* محطات درس حرف الضاد */
+.letter-dhad-station {
+    display: none;
+}
+.letter-dhad-station.active {
+    display: block;
+    animation: fadeInDhad 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInDhad {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* بطاقة الضاد العملاقة التفاعلية */
+.giant-letter-dhad-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #fef3c7 100%);
+    border: 3px solid #059669;
+    border-radius: 26px;
+    padding: 18px 36px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.16);
+}
+.giant-letter-dhad-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #047857;
+    box-shadow: 0 12px 30px rgba(5, 150, 105, 0.25);
+}
+.giant-letter-dhad-glyph {
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: #047857;
+    line-height: 1;
+    letter-spacing: 6px;
+    text-shadow: 0 3px 8px rgba(5, 150, 105, 0.2);
+}
+
+/* بطاقات الكلمات المصورة للضاد */
+.dhad-word-card {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 20px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.dhad-word-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #059669;
+    background: #ecfdf5;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.18);
+}
+.dhad-word-icon {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.dhad-word-text {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #065f46;
+}
+.dhad-word-pos {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #047857;
+    background: #d1fae5;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+/* شريط المدود الصوتي */
+.dhad-vowel-pill {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    border-radius: 16px;
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.dhad-vowel-pill:hover {
+    transform: translateX(-4px);
+    border-color: #059669;
+    background: #ecfdf5;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.14);
+}
+
+/* لوحة وبطاقات أشكال الضاد الأربعة */
+.dhad-shape-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+.dhad-shape-card {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 20px;
+    padding: 18px 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.dhad-shape-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #059669;
+    background: #ecfdf5;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.16);
+}
+.dhad-shape-glyph {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: #047857;
+    line-height: 1;
+}
+.dhad-shape-title {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #065f46;
+}
+.dhad-shape-example {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #059669;
+    background: #d1fae5;
+    padding: 3px 12px;
+    border-radius: 12px;
+}
+.dhad-shape-desc {
+    font-size: 0.8rem;
+    color: #64748b;
+    font-weight: 700;
+}
+
+/* بطاقات المقاطع الساكنة */
+.dhad-syl-card {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 18px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.dhad-syl-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #059669;
+    background: #ecfdf5;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.16);
+}
+.dhad-syl-badge {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #047857;
+    background: #ecfdf5;
+    border: 2px solid #a7f3d0;
+    padding: 6px 18px;
+    border-radius: 14px;
+}
+.dhad-syl-word {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #065f46;
+}
+.dhad-syl-sub {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 700;
+}
+
+/* بطاقات التحليل الصوتي */
+.dhad-split-card {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 18px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.dhad-split-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #059669;
+    background: #ecfdf5;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.16);
+}
+.dhad-split-word {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #065f46;
+}
+.dhad-split-parts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 6px 0;
+}
+.dhad-split-syllable {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #047857;
+    background: #ecfdf5;
+    border: 2px solid #a7f3d0;
+    padding: 6px 12px;
+    border-radius: 12px;
+}
+.dhad-split-plus {
+    font-weight: 900;
+    color: #059669;
+    font-size: 1.2rem;
+}
+.dhad-split-badge {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #047857;
+    background: #d1fae5;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+/* بطاقات التركيب الصوتي */
+.dhad-merge-card {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 18px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.dhad-merge-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #059669;
+    background: #ecfdf5;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.16);
+}
+.dhad-merge-equation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #065f46;
+}
+.dhad-merge-seg {
+    background: #ecfdf5;
+    border: 2px solid #a7f3d0;
+    padding: 4px 10px;
+    border-radius: 10px;
+    color: #047857;
+}
+.dhad-merge-arrow {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #059669;
+    margin: 4px 0;
+}
+.dhad-merge-result {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #065f46;
+    background: #d1fae5;
+    padding: 6px 16px;
+    border-radius: 14px;
+}
+
+/* صندوق نصوص القراءة */
+.dhad-reading-box {
+    background: #ffffff;
+    border: 3px solid #a7f3d0;
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: 0 4px 16px rgba(5, 150, 105, 0.08);
+}
+.dhad-reading-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.dhad-reading-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f0fdf4;
+    border: 2px solid #bbf7d0;
+    border-radius: 16px;
+    padding: 14px 20px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.dhad-reading-line:hover {
+    transform: translateX(-4px);
+    border-color: #059669;
+    background: #ecfdf5;
+    box-shadow: 0 6px 16px rgba(5, 150, 105, 0.14);
+}
+.dhad-line-icon {
+    font-size: 1.8rem;
+}
+.dhad-line-text {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #065f46;
+    flex: 1;
+    margin: 0 16px;
+}
+.dhad-line-audio {
+    font-size: 1.3rem;
+    color: #059669;
+}
+
+/* سبورة رسم الضاد */
+.dhad-canvas-box {
+    border: 3px solid #a7f3d0;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+    position: relative;
+    touch-action: none;
+}
+.dhad-canvas-box canvas {
+    width: 100%;
+    height: 320px;
+    display: block;
+    cursor: crosshair;
+}
+
+/* أسئلة اختبار التحدي الفونيمي للضاد */
+.dhad-quiz-option {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 16px;
+    padding: 14px 20px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #065f46;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dhad-quiz-option:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: #059669;
+    background: #ecfdf5;
+    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.16);
+}
+.dhad-quiz-option.correct {
+    background: #ecfdf5 !important;
+    border-color: #10b981 !important;
+    color: #065f46 !important;
+}
+.dhad-quiz-option.wrong {
+    background: #fef2f2 !important;
+    border-color: #ef4444 !important;
+    color: #991b1b !important;
+}
