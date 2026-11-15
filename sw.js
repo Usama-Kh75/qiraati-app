@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v43';
+const CACHE_NAME = 'qiraati-smart-v44';
 
 const ASSETS_TO_CACHE = [
 
@@ -422,6 +422,24 @@ const ASSETS_TO_CACHE = [
 
   './activity_tanween_dham_words.png',
 
+  './activity_tha_analysis.png',
+
+  './activity_tha_blend.png',
+
+  './activity_tha_read.png',
+
+  './activity_tha_scene.png',
+
+  './activity_tha_syllables.png',
+
+  './activity_tha_trace.png',
+
+  './activity_tha_vowel_words.png',
+
+  './activity_tha_vowels.png',
+
+  './activity_tha_words.png',
+
   './activity_unit2_nasheed_school.png',
 
   './activity_w_fill.png',
@@ -457,6 +475,12 @@ const ASSETS_TO_CACHE = [
   './icons/icon-512.png',
 
   './mobile_qr.png',
+
+  './page_100.png',
+
+  './page_101.png',
+
+  './page_102.png',
 
   './page_17.png',
 
@@ -3719,6 +3743,192 @@ const ASSETS_TO_CACHE = [
   './audio/letter_ta_word_tuyoort.mp3',
 
   './audio/letter_ta_wrong.mp3',
+
+  './audio/letter_tha_analysis_intro.mp3',
+
+  './audio/letter_tha_blend_intro.mp3',
+
+  './audio/letter_tha_correct.mp3',
+
+  './audio/letter_tha_draw_hint.mp3',
+
+  './audio/letter_tha_encourage_super.mp3',
+
+  './audio/letter_tha_intro.mp3',
+
+  './audio/letter_tha_long_aa.mp3',
+
+  './audio/letter_tha_long_ee.mp3',
+
+  './audio/letter_tha_long_oo.mp3',
+
+  './audio/letter_tha_merge_athaath.mp3',
+
+  './audio/letter_tha_merge_sentence.mp3',
+
+  './audio/letter_tha_merge_theeraan.mp3',
+
+  './audio/letter_tha_merge_thubaan.mp3',
+
+  './audio/letter_tha_merge_timthaal.mp3',
+
+  './audio/letter_tha_merge_turaath.mp3',
+
+  './audio/letter_tha_phoneme_faseeh.mp3',
+
+  './audio/letter_tha_quiz_intro.mp3',
+
+  './audio/letter_tha_read_b1.mp3',
+
+  './audio/letter_tha_read_b2.mp3',
+
+  './audio/letter_tha_read_b3.mp3',
+
+  './audio/letter_tha_read_book_full.mp3',
+
+  './audio/letter_tha_read_h1.mp3',
+
+  './audio/letter_tha_read_h2.mp3',
+
+  './audio/letter_tha_read_h3.mp3',
+
+  './audio/letter_tha_read_h4.mp3',
+
+  './audio/letter_tha_read_h5.mp3',
+
+  './audio/letter_tha_read_haarith_full.mp3',
+
+  './audio/letter_tha_read_intro.mp3',
+
+  './audio/letter_tha_scene_story.mp3',
+
+  './audio/letter_tha_shape_first.mp3',
+
+  './audio/letter_tha_shape_last_conn.mp3',
+
+  './audio/letter_tha_shape_last_sep.mp3',
+
+  './audio/letter_tha_shape_mid.mp3',
+
+  './audio/letter_tha_shapes_intro.mp3',
+
+  './audio/letter_tha_short_a.mp3',
+
+  './audio/letter_tha_short_i.mp3',
+
+  './audio/letter_tha_short_u.mp3',
+
+  './audio/letter_tha_sound.mp3',
+
+  './audio/letter_tha_split_athaath.mp3',
+
+  './audio/letter_tha_split_haarith.mp3',
+
+  './audio/letter_tha_split_layth.mp3',
+
+  './audio/letter_tha_split_meeraath.mp3',
+
+  './audio/letter_tha_split_thaalab.mp3',
+
+  './audio/letter_tha_split_thimaar.mp3',
+
+  './audio/letter_tha_split_thubaan.mp3',
+
+  './audio/letter_tha_split_turaath.mp3',
+
+  './audio/letter_tha_syl_ath.mp3',
+
+  './audio/letter_tha_syl_intro.mp3',
+
+  './audio/letter_tha_syl_ith.mp3',
+
+  './audio/letter_tha_syl_muth.mp3',
+
+  './audio/letter_tha_syl_thul.mp3',
+
+  './audio/letter_tha_vowels_station.mp3',
+
+  './audio/letter_tha_word_addajaaj.mp3',
+
+  './audio/letter_tha_word_alard.mp3',
+
+  './audio/letter_tha_word_alghanam.mp3',
+
+  './audio/letter_tha_word_aljarraar.mp3',
+
+  './audio/letter_tha_word_athaath.mp3',
+
+  './audio/letter_tha_word_athqaal.mp3',
+
+  './audio/letter_tha_word_baaith.mp3',
+
+  './audio/letter_tha_word_bi-athqaal.mp3',
+
+  './audio/letter_tha_word_fallaah.mp3',
+
+  './audio/letter_tha_word_ghayth.mp3',
+
+  './audio/letter_tha_word_haarith.mp3',
+
+  './audio/letter_tha_word_ithnaan.mp3',
+
+  './audio/letter_tha_word_kummathraa.mp3',
+
+  './audio/letter_tha_word_kuraat.mp3',
+
+  './audio/letter_tha_word_laiba.mp3',
+
+  './audio/letter_tha_word_layth.mp3',
+
+  './audio/letter_tha_word_luaban.mp3',
+
+  './audio/letter_tha_word_meeraath.mp3',
+
+  './audio/letter_tha_word_min_waraq.mp3',
+
+  './audio/letter_tha_word_muthallath.mp3',
+
+  './audio/letter_tha_word_muthmirah.mp3',
+
+  './audio/letter_tha_word_taraa.mp3',
+
+  './audio/letter_tha_word_tasnaoo.mp3',
+
+  './audio/letter_tha_word_thaabit.mp3',
+
+  './audio/letter_tha_word_thaalab.mp3',
+
+  './audio/letter_tha_word_thalj.mp3',
+
+  './audio/letter_tha_word_thawm.mp3',
+
+  './audio/letter_tha_word_theeraan.mp3',
+
+  './audio/letter_tha_word_thimaar.mp3',
+
+  './audio/letter_tha_word_thiyaab.mp3',
+
+  './audio/letter_tha_word_thubaan.mp3',
+
+  './audio/letter_tha_word_thurayyaa.mp3',
+
+  './audio/letter_tha_word_timthaal.mp3',
+
+  './audio/letter_tha_word_turaath.mp3',
+
+  './audio/letter_tha_word_turabbee.mp3',
+
+  './audio/letter_tha_word_waladuhu.mp3',
+
+  './audio/letter_tha_word_yahruthu.mp3',
+
+  './audio/letter_tha_word_yasooqu.mp3',
+
+  './audio/letter_tha_word_yusaaiduhu.mp3',
+
+  './audio/letter_tha_words_intro.mp3',
+
+  './audio/letter_tha_wrong.mp3',
 
   './audio/letter_z_analysis_intro.mp3',
 

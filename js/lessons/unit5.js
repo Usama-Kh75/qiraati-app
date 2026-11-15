@@ -815,4 +815,185 @@
             }, 1200);
         }
     };
+
+    /* ==========================================================================
+       الدرس الرابع: حرف الثاء (ثـ ، ث) وتطبيقاته (ص ٩٩ - ١٠١)
+       ========================================================================== */
+
+    /* ========================================================
+       القسم 19: التنقل بين محطات درس حرف الثاء
+    ======================================================== */
+    window.switchLetterThaStation = function(stationNum) {
+        for (let i = 1; i <= 4; i++) {
+            const st = document.getElementById(`stationTha_${i}`);
+            const btn = document.getElementById(`btnStationTha_${i}`);
+            if (st) st.classList.remove('active');
+            if (btn) btn.classList.remove('active');
+        }
+
+        const activeSt = document.getElementById(`stationTha_${stationNum}`);
+        const activeBtn = document.getElementById(`btnStationTha_${stationNum}`);
+        if (activeSt) activeSt.classList.add('active');
+        if (activeBtn) activeBtn.classList.add('active');
+
+        if (stationNum === 1) {
+            mascotSpeak('الْمَحَطَّةُ الأُولَى: أَتَعَرَّفُ حَرْفَ الثَّاءِ (ثـ ، ث) وَصُوَرَ الْكِتَابِ فِي صَفْحَةِ ٩٩! اِسْتَمِعْ لِصَوْتِ الثَّاءِ اللِّثَوِيِّ الْهَامِسِ وَقِصَّةِ الْمَشْهَد!', 'letter_tha_intro');
+        } else if (stationNum === 2) {
+            mascotSpeak('الْمَحَطَّةُ الثَّانِيَةُ: أَصْوَاتُ الْحَرَكَاتِ وَالْمُدُودِ وَالْمَقَاطِعِ السَّاكِنَةِ وَأَشْكَالِ حَرْفِ الثَّاء (ص ٩٩ - ١٠٠)! مَيِّزْ بَيْنَ ثَـ ، ثُـ ، ثِـ وَ ثَا ، ثُو ، ثِيـ، وَمَقَاطِعِ: أَثْـ ، اثْـ ، مُثْـ!', 'letter_tha_vowels_station');
+        } else if (stationNum === 3) {
+            mascotSpeak('الْمَحَطَّةُ الثَّالِثَةُ: التَّحْلِيلُ وَالتَّرْكِيبُ الصَّوْتِيُّ (ص ١٠٠ - ١٠١)! حَلِّلْ وَرَكِّبْ كَلِمَاتِ (ثِمَارٌ ، مِيرَاثٌ ، ثَعْلَبٌ ، أَثَاثٌ ، ثُعْبَانٌ ، لَيْثٌ) وَجُمْلَةَ: لَعِبَ لَيْثٌ بِأَثْقَالٍ!', 'letter_tha_analysis_intro');
+        } else if (stationNum === 4) {
+            mascotSpeak('الْمَحَطَّةُ الرَّابِعَةُ: الْقِرَاءَةُ الْمُعَبِّرَةُ لِنَصِّ الْكِتَابِ (تُرَاثُ تَصْنَعُ لُعَبًا مِنْ وَرَقٍ) وَالنَّصِّ التُّرَاثِيِّ (مِحْرَاثُ حَارِثٍ)، وَالسَّبُّورَةُ وَاخْتِبَارُ التَّحَدِّي!', 'letter_tha_read_intro');
+            setTimeout(window.initThaCanvas, 150);
+        }
+    };
+
+    /* ========================================================
+       القسم 20: نطق صوت حرف الثاء وفصيح
+    ======================================================== */
+    window.playThaLetterSound = function() {
+        mascotSpeak('صَوْتُ حَرْفِ الثَّاءِ الصَّافِي: ثْ... اِثْـ! حَرْفٌ لِثَوِيٌّ رَخْوٌ مَهْمُوسٌ.', 'letter_tha_sound');
+    };
+
+    window.playThaPhonemeFaseeh = function() {
+        mascotSpeak('مَرْحَبًا بِكُمْ يَا عَبَاقِرَةَ الْقِرَاءَةِ! أَنَا صَدِيقُكُمْ فَصِيح! حَرْفُ الثَّاءِ حَرْفٌ لِثَوِيٌّ رَخْوٌ مَهْمُوسٌ لَطِيف، يَخْرُجُ مِنْ طَرَفِ اللِّسَانِ مَعَ أَطْرَافِ الثَّنَايَا الْعُلْيَا بِكُلِّ هُدُوءٍ وَعُذُوبَة، وَيَجْلِسُ كَالصَّحْنِ الْمُمَوَّجِ الْأَنِيقِ مَعَ ثَلَاثِ نِقَاطٍ زَاهِيَةٍ فَوْقَهُ مُرَتَّبَةٍ كَالتَّاجِ أَوْ كَالْمُثَلَّثِ الْبَدِيع!', 'letter_tha_phoneme_faseeh');
+    };
+
+    /* ========================================================
+       القسم 21: سبورة رسم حرف الثاء
+    ======================================================== */
+    let thaCanvas = null;
+    let thaCtx = null;
+    let isDrawingTha = false;
+    let currentThaColor = '#0284c7';
+
+    window.initThaCanvas = function() {
+        thaCanvas = document.getElementById('thaDrawingCanvas');
+        if (!thaCanvas) return;
+        thaCtx = thaCanvas.getContext('2d');
+
+        const rect = thaCanvas.getBoundingClientRect();
+        if (rect.width > 0) {
+            thaCanvas.width = rect.width * 2;
+            thaCanvas.height = 320 * 2;
+            thaCtx.scale(2, 2);
+
+            // Draw baseline
+            thaCtx.save();
+            thaCtx.strokeStyle = '#bae6fd';
+            thaCtx.lineWidth = 2;
+            thaCtx.setLineDash([8, 6]);
+            thaCtx.beginPath();
+            thaCtx.moveTo(20, 220);
+            thaCtx.lineTo(rect.width - 20, 220);
+            thaCtx.stroke();
+            thaCtx.restore();
+
+            const getPos = (e) => {
+                const r = thaCanvas.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                return {
+                    x: clientX - r.left,
+                    y: clientY - r.top
+                };
+            };
+
+            const startDraw = (e) => {
+                e.preventDefault();
+                isDrawingTha = true;
+                const pos = getPos(e);
+                thaCtx.beginPath();
+                thaCtx.moveTo(pos.x, pos.y);
+                thaCtx.strokeStyle = currentThaColor;
+                thaCtx.lineWidth = 6;
+                thaCtx.lineCap = 'round';
+                thaCtx.lineJoin = 'round';
+            };
+
+            const drawMove = (e) => {
+                if (!isDrawingTha) return;
+                e.preventDefault();
+                const pos = getPos(e);
+                thaCtx.lineTo(pos.x, pos.y);
+                thaCtx.stroke();
+            };
+
+            const endDraw = (e) => {
+                if (!isDrawingTha) return;
+                e.preventDefault();
+                isDrawingTha = false;
+                thaCtx.closePath();
+            };
+
+            thaCanvas.addEventListener('mousedown', startDraw);
+            thaCanvas.addEventListener('mousemove', drawMove);
+            window.addEventListener('mouseup', endDraw);
+
+            thaCanvas.addEventListener('touchstart', startDraw, { passive: false });
+            thaCanvas.addEventListener('touchmove', drawMove, { passive: false });
+            window.addEventListener('touchend', endDraw, { passive: false });
+        }
+    };
+
+    window.clearThaCanvas = function() {
+        if (!thaCtx || !thaCanvas) return;
+        thaCtx.clearRect(0, 0, thaCanvas.width, thaCanvas.height);
+        // Draw baseline
+        const w = thaCanvas.width / 2;
+        thaCtx.save();
+        thaCtx.strokeStyle = '#bae6fd';
+        thaCtx.lineWidth = 2;
+        thaCtx.setLineDash([8, 6]);
+        thaCtx.beginPath();
+        thaCtx.moveTo(20, 220);
+        thaCtx.lineTo(w - 20, 220);
+        thaCtx.stroke();
+        thaCtx.restore();
+    };
+
+    window.setThaCanvasColor = function(color) {
+        currentThaColor = color;
+        if (thaCtx) thaCtx.strokeStyle = color;
+    };
+
+    /* ========================================================
+       القسم 22: اختبار التحدي الفونيمي التفاعلي للثاء
+    ======================================================== */
+    let thaScore = 0;
+    const answeredThaQuestions = {};
+
+    window.answerThaQuiz = function(qNum, selectedOption, isCorrect, btn) {
+        if (answeredThaQuestions[qNum]) return;
+        answeredThaQuestions[qNum] = true;
+
+        const parent = btn.parentElement;
+        parent.querySelectorAll('.tha-quiz-option').forEach(b => {
+            b.style.pointerEvents = 'none';
+        });
+
+        if (isCorrect) {
+            btn.classList.add('correct');
+            thaScore++;
+            mascotCelebrates();
+            playAudio('letter_tha_correct');
+            mascotSpeak('أَحْسَنْتَ يَا عَبْقَرِيّ! إِجَابَةٌ صَحِيحَةٌ وَمُمَيَّزَةٌ جِدًّا! 🌟', 'letter_tha_correct');
+        } else {
+            btn.classList.add('wrong');
+            mascotThinks();
+            playAudio('letter_tha_wrong');
+            mascotSpeak('فَكِّرْ جَيِّدًا فِي مَخْرَجِ وَشَكْلِ حَرْفِ الثَّاءِ يَا بَطَل! حَاوِلْ مَرَّةً أُخْرَى! 💡', 'letter_tha_wrong');
+        }
+
+        const scoreEl = document.getElementById('thaQuizScore');
+        if (scoreEl) scoreEl.innerText = thaScore;
+
+        if (Object.keys(answeredThaQuestions).length === 5) {
+            setTimeout(() => {
+                mascotCelebrates();
+                playAudio('letter_tha_encourage_super');
+                mascotSpeak(`مَا شَاءَ اللَّه! أَتْمَمْتَ اخْتِبَارَ التَّحَدِّي لِدَرْسِ حَرْفِ الثَّاءِ بِنَجَاحٍ بَاهِر: ${thaScore} مِنْ ٥! أَنْتَ بَطَلُ الْقِرَاءَةِ! 🏆🎉`, 'letter_tha_encourage_super');
+            }, 1200);
+        }
+    };
 })();

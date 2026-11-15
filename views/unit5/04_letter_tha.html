@@ -1,0 +1,740 @@
+                <div class="lesson-view" id="view-tab-letter_tha">
+                    <!-- شريط المحطات الأربعة لدرس حرف الثاء وتطبيقاته -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationTha_1" onclick="switchLetterThaStation(1)">
+                            <span>🌾</span> <span>١. أتعرف الحرف والمشهد (ص ٩٩)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationTha_2" onclick="switchLetterThaStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والمقاطع الساكنة (ص ٩٩ - ١٠٠)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationTha_3" onclick="switchLetterThaStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ١٠٠ - ١٠١)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationTha_4" onclick="switchLetterThaStation(4)">
+                            <span>❄️</span> <span>٤. القراءة ونصوص الكتاب والسبورة (ص ١٠١)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-tha-station active" id="stationTha_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-tha-card" onclick="playThaPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #0284c7; margin-bottom: 4px;">حَرْفُ الثَّاءِ اللِّثَوِيُّ الرَّخْوُ</div>
+                                    <div class="giant-letter-tha-glyph">ثـ ـثـ ـث ث</div>
+                                </div>
+                                <div style="border-right: 2px dashed #bae6fd; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0c4a6e;">صَوْتُ الثَّاءِ: ثْ... اِثْـ</div>
+                                    <div style="font-size: 0.9rem; color: #64748b; font-weight: 700;">لِثَوِيٌّ رَخْوٌ مَهْمُوسٌ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playThaLetterSound()" style="background: #0284c7; border-color: #0369a1;">
+                                <span>🔊</span> <span>صَوْتُ الثَّاءِ الصَّافِي (ثْ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playThaPhonemeFaseeh()" style="background: #0369a1; border-color: #0c4a6e;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِمَخْرَجِ الثَّاءِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_tha_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_100.png', 'كتاب قراءتي الجديد: ص ٩٩')">
+                                <span>📖</span> <span>صَفْحَة ٩٩ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_101.png', 'كتاب قراءتي الجديد: ص ١٠٠')">
+                                <span>📖</span> <span>صَفْحَة ١٠٠ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_102.png', 'كتاب قراءتي الجديد: ص ١٠١')">
+                                <span>📖</span> <span>صَفْحَة ١٠١ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- صورة رأس الصفحة الرسمية من الكتاب ص 99 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #0c4a6e; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ حَرْفِ الثَّاءِ (الْكِتَابُ الْمَدْرَسِيُّ ص ٩٩)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #bae6fd; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_tha_scene_story')">
+                                <img src="activity_tha_scene.png" alt="مشهد رأس صفحة حرف الثاء" style="width: 100%; max-height: 380px; object-fit: contain; background: #f0f9ff;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(2, 132, 199, 0.88); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- النشاط الأول: أردد منتبهاً لصوت حرف الثاء ص 99 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">🎨 نَشَاطُ ١: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ حَرْفِ (ث) (ص ٩٩)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_tha_words_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playAudio('letter_tha_words_intro')">
+                                <img src="activity_tha_words.png" alt="نشاط 1 كلمات وصور حرف الثاء" style="width: 100%; max-height: 300px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <!-- شبكة الكلمات المصورة التفاعلية لدرس الثاء -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;">
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_thaalab')">
+                                    <div class="tha-word-icon">🦊</div>
+                                    <div class="tha-word-text">ثَعْلَبٌ</div>
+                                    <div class="tha-word-pos">ثَـ (أَوَّل)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_thubaan')">
+                                    <div class="tha-word-icon">🐍</div>
+                                    <div class="tha-word-text">ثُعْبَانٌ</div>
+                                    <div class="tha-word-pos">ثُـ (أَوَّل)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_thiyaab')">
+                                    <div class="tha-word-icon">👕</div>
+                                    <div class="tha-word-text">ثِيَابٌ</div>
+                                    <div class="tha-word-pos">ثِـ (أَوَّل)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_muthallath')">
+                                    <div class="tha-word-icon">🔺</div>
+                                    <div class="tha-word-text">مُثَلَّثٌ</div>
+                                    <div class="tha-word-pos">ـثَـ / ـث (وَسَط وَآخِر)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_athaath')">
+                                    <div class="tha-word-icon">🛋️</div>
+                                    <div class="tha-word-text">أَثَاثٌ</div>
+                                    <div class="tha-word-pos">ـثَا (مَدّ) / ث (آخِر)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_thawm')">
+                                    <div class="tha-word-icon">🧄</div>
+                                    <div class="tha-word-text">ثَوْمٌ</div>
+                                    <div class="tha-word-pos">ثَوْ (مَقْطَع لَيِّن)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_theeraan')">
+                                    <div class="tha-word-icon">🐂</div>
+                                    <div class="tha-word-text">ثِيرَانٌ</div>
+                                    <div class="tha-word-pos">ثِيـ (مَدّ بِالْيَاء)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_kummathraa')">
+                                    <div class="tha-word-icon">🍐</div>
+                                    <div class="tha-word-text">كَمَّثْرَى</div>
+                                    <div class="tha-word-pos">ـثْـ (سَاكِن)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_ghayth')">
+                                    <div class="tha-word-icon">🌧️</div>
+                                    <div class="tha-word-text">غَيْثٌ</div>
+                                    <div class="tha-word-pos">ـث (آخِر مُتَّصِل)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_layth')">
+                                    <div class="tha-word-icon">🦁</div>
+                                    <div class="tha-word-text">لَيْثٌ</div>
+                                    <div class="tha-word-pos">ـث (آخِر مُتَّصِل)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_thalj')">
+                                    <div class="tha-word-icon">❄️</div>
+                                    <div class="tha-word-text">ثَلْجٌ</div>
+                                    <div class="tha-word-pos">ثَـ (أَوَّل)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_timthaal')">
+                                    <div class="tha-word-icon">🗿</div>
+                                    <div class="tha-word-text">تِمْثَالٌ</div>
+                                    <div class="tha-word-pos">ـثَا (مَدّ بِالْوَسَط)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- أشكال حرف الثاء الأربعة -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">✍️ أَشْكَالُ حَرْفِ الثَّاءِ الأَرْبَعَة فِي الْكَلِمَاتِ</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_tha_shapes_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلأَشْكَالِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                                <div class="tha-shape-card" onclick="playAudio('letter_tha_shape_first')">
+                                    <div class="tha-shape-glyph">ثـ</div>
+                                    <div class="tha-shape-title">أَوَّلُ الْكَلِمَةِ</div>
+                                    <div class="tha-shape-example">مِثْلَ: <span style="color: #0284c7; font-weight: 900;">ثَـ</span>عْلَبٌ / <span style="color: #0284c7; font-weight: 900;">ثَـ</span>لْجٌ</div>
+                                </div>
+                                <div class="tha-shape-card" onclick="playAudio('letter_tha_shape_mid')">
+                                    <div class="tha-shape-glyph">ـثـ</div>
+                                    <div class="tha-shape-title">وَسَطُ الْكَلِمَةِ</div>
+                                    <div class="tha-shape-example">مِثْلَ: مُ<span style="color: #0284c7; font-weight: 900;">ـثَـ</span>لَّثٌ / تِمْ<span style="color: #0284c7; font-weight: 900;">ـثَـ</span>الٌ</div>
+                                </div>
+                                <div class="tha-shape-card" onclick="playAudio('letter_tha_shape_last_conn')">
+                                    <div class="tha-shape-glyph">ـث</div>
+                                    <div class="tha-shape-title">آخِرُ الْكَلِمَةِ مُتَّصِلًا</div>
+                                    <div class="tha-shape-example">مِثْلَ: لَيْ<span style="color: #0284c7; font-weight: 900;">ـثٌ</span> / غَيْ<span style="color: #0284c7; font-weight: 900;">ـثٌ</span></div>
+                                </div>
+                                <div class="tha-shape-card" onclick="playAudio('letter_tha_shape_last_sep')">
+                                    <div class="tha-shape-glyph">ث</div>
+                                    <div class="tha-shape-title">آخِرُ الْكَلِمَةِ مُنْفَصِلًا</div>
+                                    <div class="tha-shape-example">مِثْلَ: أَثَا<span style="color: #0284c7; font-weight: 900;">ثٌ</span> / مِيرَا<span style="color: #0284c7; font-weight: 900;">ثٌ</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات الحركات والمدود والمقاطع الساكنة -->
+                    <div class="letter-tha-station" id="stationTha_2">
+                        <!-- نشاط 2: أصوات الحركات والمدود ص 99 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">🎵 نَشَاطُ ٢: أَنْطِقُ صَوْتَ حَرْفِ (ث) مَعَ الْحَرَكَاتِ وَالْمُدُودِ (ص ٩٩)</h3>
+                                    <span style="font-size: 0.85rem; color: #0284c7; font-weight: 800;">الْمُدُودُ الْقَصِيرَةُ (ثَـ ، ثُـ ، ثِـ) وَالْمُدُودُ الطَّوِيلَةُ (ثَا ، ثُو ، ثِيـ)</span>
+                                </div>
+                                <button class="btn-secondary" onclick="playAudio('letter_tha_vowels_station')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ الْمُدُودِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd;">
+                                <img src="activity_tha_vowels.png" alt="نشاط 2 المدود القصيرة والطويلة لحرف الثاء" style="width: 100%; max-height: 250px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-bottom: 16px;">
+                                <div class="tha-vowel-card" onclick="playAudio('letter_tha_short_a')">
+                                    <div class="tha-vowel-glyph">ثَـ</div>
+                                    <div class="tha-vowel-label">فَتْحَةٌ قَصِيرَةٌ</div>
+                                    <div class="tha-vowel-sample">ثَـلْجٌ ❄️</div>
+                                </div>
+                                <div class="tha-vowel-card" onclick="playAudio('letter_tha_short_u')">
+                                    <div class="tha-vowel-glyph">ثُـ</div>
+                                    <div class="tha-vowel-label">ضَمَّةٌ قَصِيرَةٌ</div>
+                                    <div class="tha-vowel-sample">ثُـعْبَانٌ 🐍</div>
+                                </div>
+                                <div class="tha-vowel-card" onclick="playAudio('letter_tha_short_i')">
+                                    <div class="tha-vowel-glyph">ثِـ</div>
+                                    <div class="tha-vowel-label">كَسْرَةٌ قَصِيرَةٌ</div>
+                                    <div class="tha-vowel-sample">ثِـيَابٌ 👕</div>
+                                </div>
+                                <div class="tha-vowel-card" onclick="playAudio('letter_tha_long_aa')">
+                                    <div class="tha-vowel-glyph">ثَا</div>
+                                    <div class="tha-vowel-label">مَدٌّ بِالأَلِفِ</div>
+                                    <div class="tha-vowel-sample">أَثَاثٌ 🛋️</div>
+                                </div>
+                                <div class="tha-vowel-card" onclick="playAudio('letter_tha_long_oo')">
+                                    <div class="tha-vowel-glyph">ثُو</div>
+                                    <div class="tha-vowel-label">مَدٌّ بِالْوَاوِ</div>
+                                    <div class="tha-vowel-sample">ثُومٌ 🧄</div>
+                                </div>
+                                <div class="tha-vowel-card" onclick="playAudio('letter_tha_long_ee')">
+                                    <div class="tha-vowel-glyph">ثِيـ</div>
+                                    <div class="tha-vowel-label">مَدٌّ بِالْيَاءِ</div>
+                                    <div class="tha-vowel-sample">ثِيرَانٌ 🐂</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 3: أستمع للفظ الكلمات ثم أحوط حرف الثاء ص 100 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">🔍 نَشَاطُ ٣: أَسْتَمِعُ لِلَّفْظِ ثُمَّ أُحَوِّطُ حَرْفَ (ث) مَعَ الْمُدُودِ (ص ١٠٠)</h3>
+                                <button class="btn-secondary" onclick="openBookPageModal('page_101.png', 'كتاب قراءتي: ص ١٠٠')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>📖</span> <span>صَفْحَة ١٠٠</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd;">
+                                <img src="activity_tha_vowel_words.png" alt="نشاط 3 تحويط حرف الثاء" style="width: 100%; max-height: 280px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;">
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_thalj')">
+                                    <div class="tha-word-icon">❄️</div>
+                                    <div class="tha-word-text">ثَلْجٌ</div>
+                                    <div class="tha-word-pos" style="background: #e0f2fe; color: #0369a1;">ثَـ (فَتْحَة قَصِيرَة)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_thubaan')">
+                                    <div class="tha-word-icon">🐍</div>
+                                    <div class="tha-word-text">ثُعْبَانٌ</div>
+                                    <div class="tha-word-pos" style="background: #e0f2fe; color: #0369a1;">ثُـ (ضَمَّة قَصِيرَة)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_thimaar')">
+                                    <div class="tha-word-icon">🍎</div>
+                                    <div class="tha-word-text">ثِمَارٌ</div>
+                                    <div class="tha-word-pos" style="background: #e0f2fe; color: #0369a1;">ثِـ (كَسْرَة قَصِيرَة)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_athaath')">
+                                    <div class="tha-word-icon">🛋️</div>
+                                    <div class="tha-word-text">أَثَاثٌ</div>
+                                    <div class="tha-word-pos" style="background: #e0f2fe; color: #0369a1;">ـثَا (مَدّ بِالأَلِف)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_thawm')">
+                                    <div class="tha-word-icon">🧄</div>
+                                    <div class="tha-word-text">ثَوْمٌ</div>
+                                    <div class="tha-word-pos" style="background: #e0f2fe; color: #0369a1;">ثَوْ (مَقْطَع لَيِّن)</div>
+                                </div>
+                                <div class="tha-word-card" onclick="playAudio('letter_tha_word_theeraan')">
+                                    <div class="tha-word-icon">🐂</div>
+                                    <div class="tha-word-text">ثِيرَانٌ</div>
+                                    <div class="tha-word-pos" style="background: #e0f2fe; color: #0369a1;">ثِيـ (مَدّ بِالْيَاء)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 4: تمييز صوت حرف الثاء الساكن في المقاطع ص 100 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">⚡ نَشَاطُ ٤: أُمَيِّزُ صَوْتَ حَرْفِ (ث) السَّاكِنِ فِي الْمَقَاطِعِ (ص ١٠٠)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_tha_syl_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ الْمَقَاطِعِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd;">
+                                <img src="activity_tha_syllables.png" alt="نشاط 4 مقاطع حرف الثاء الساكنة" style="width: 100%; max-height: 250px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                                <div class="tha-syl-card" onclick="playAudio('letter_tha_syl_ath')">
+                                    <div class="tha-syl-glyph">أَثْـ</div>
+                                    <div class="tha-syl-word">أَثْـقَالٌ 🏋️</div>
+                                    <div class="tha-syl-sub">أَ + ثْ = أَثْـ (سَاكِن)</div>
+                                </div>
+                                <div class="tha-syl-card" onclick="playAudio('letter_tha_syl_ith')">
+                                    <div class="tha-syl-glyph">اثْـ</div>
+                                    <div class="tha-syl-word">اثْـنَانِ ✌️</div>
+                                    <div class="tha-syl-sub">اِ + ثْ = اثْـ (سَاكِن)</div>
+                                </div>
+                                <div class="tha-syl-card" onclick="playAudio('letter_tha_syl_muth')">
+                                    <div class="tha-syl-glyph">مُثْـ</div>
+                                    <div class="tha-syl-word">مُثْـمِرَةٌ 🌳</div>
+                                    <div class="tha-syl-sub">مُ + ثْ = مُثْـ (سَاكِن)</div>
+                                </div>
+                                <div class="tha-syl-card" onclick="playAudio('letter_tha_syl_thul')">
+                                    <div class="tha-syl-glyph">ثُلْـ</div>
+                                    <div class="tha-syl-word">ثُلْـثَانِ 🍰</div>
+                                    <div class="tha-syl-sub">ثُ + لْ = ثُلْـ (سَاكِن)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي -->
+                    <div class="letter-tha-station" id="stationTha_3">
+                        <!-- نشاط 5: التحليل الصوتي إلى مقاطع بالتصفيق ص 100 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">👏 نَشَاطُ ٥: أَقْرَأُ الْكَلِمَاتِ ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا (ص ١٠٠)</h3>
+                                    <span style="font-size: 0.85rem; color: #0284c7; font-weight: 800;">التحليل الصوتي بالتصفيق الإيقاعي لترسيخ بنية الكلمة</span>
+                                </div>
+                                <button class="btn-secondary" onclick="playAudio('letter_tha_analysis_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ التَّحْلِيلِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd;">
+                                <img src="activity_tha_analysis.png" alt="نشاط 5 تحليل الكلمات إلى مقاطع" style="width: 100%; max-height: 250px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+                                <div class="tha-analysis-card" onclick="playAudio('letter_tha_split_thimaar')">
+                                    <div class="tha-analysis-header">
+                                        <span class="tha-analysis-word">ثِمَارٌ</span>
+                                        <span class="tha-analysis-badge">٣ مَقَاطِع 👏</span>
+                                    </div>
+                                    <div class="tha-analysis-blocks">
+                                        <span class="tha-block">ثِـ</span>
+                                        <span class="tha-block-sep">+</span>
+                                        <span class="tha-block">مَا</span>
+                                        <span class="tha-block-sep">+</span>
+                                        <span class="tha-block">رٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="tha-analysis-card" onclick="playAudio('letter_tha_split_meeraath')">
+                                    <div class="tha-analysis-header">
+                                        <span class="tha-analysis-word">مِيرَاثٌ</span>
+                                        <span class="tha-analysis-badge">٣ مَقَاطِع 👏</span>
+                                    </div>
+                                    <div class="tha-analysis-blocks">
+                                        <span class="tha-block">مِيـ</span>
+                                        <span class="tha-block-sep">+</span>
+                                        <span class="tha-block">رَا</span>
+                                        <span class="tha-block-sep">+</span>
+                                        <span class="tha-block">ثٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="tha-analysis-card" onclick="playAudio('letter_tha_split_thaalab')">
+                                    <div class="tha-analysis-header">
+                                        <span class="tha-analysis-word">ثَعْلَبٌ</span>
+                                        <span class="tha-analysis-badge">٣ مَقَاطِع 👏</span>
+                                    </div>
+                                    <div class="tha-analysis-blocks">
+                                        <span class="tha-block">ثَعْـ</span>
+                                        <span class="tha-block-sep">+</span>
+                                        <span class="tha-block">لَـ</span>
+                                        <span class="tha-block-sep">+</span>
+                                        <span class="tha-block">بٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="tha-analysis-card" onclick="playAudio('letter_tha_split_athaath')">
+                                    <div class="tha-analysis-header">
+                                        <span class="tha-analysis-word">أَثَاثٌ</span>
+                                        <span class="tha-analysis-badge">٣ مَقَاطِع 👏</span>
+                                    </div>
+                                    <div class="tha-analysis-blocks">
+                                        <span class="tha-block">أَ</span>
+                                        <span class="tha-block-sep">+</span>
+                                        <span class="tha-block">ثَا</span>
+                                        <span class="tha-block-sep">+</span>
+                                        <span class="tha-block">ثٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="tha-analysis-card" onclick="playAudio('letter_tha_split_thubaan')">
+                                    <div class="tha-analysis-header">
+                                        <span class="tha-analysis-word">ثُعْبَانٌ</span>
+                                        <span class="tha-analysis-badge">٣ مَقَاطِع 👏</span>
+                                    </div>
+                                    <div class="tha-analysis-blocks">
+                                        <span class="tha-block">ثُعْـ</span>
+                                        <span class="tha-block-sep">+</span>
+                                        <span class="tha-block">بَا</span>
+                                        <span class="tha-block-sep">+</span>
+                                        <span class="tha-block">نٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="tha-analysis-card" onclick="playAudio('letter_tha_split_layth')">
+                                    <div class="tha-analysis-header">
+                                        <span class="tha-analysis-word">لَيْثٌ</span>
+                                        <span class="tha-analysis-badge">مَقْطَعَان 👏</span>
+                                    </div>
+                                    <div class="tha-analysis-blocks">
+                                        <span class="tha-block">لَيْـ</span>
+                                        <span class="tha-block-sep">+</span>
+                                        <span class="tha-block">ثٌ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 6: تركيب المقاطع لتكوين كلمات ص 101 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">🧩 نَشَاطُ ٦: أُرَكِّبُ مِنَ الْمَقَاطِعِ التَّالِيَةِ كَلِمَاتٍ ثُمَّ أَقْرَأُهَا (ص ١٠١)</h3>
+                                    <span style="font-size: 0.85rem; color: #0284c7; font-weight: 800;">اضغط على كل بطاقة لسماع تركيب المقاطع الصوتي الفوري</span>
+                                </div>
+                                <button class="btn-secondary" onclick="playAudio('letter_tha_blend_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ التَّرْكِيبِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd;">
+                                <img src="activity_tha_blend.png" alt="نشاط 6 و 7 تركيب المقاطع والجملة" style="width: 100%; max-height: 340px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                                <div class="tha-blend-card" onclick="playAudio('letter_tha_merge_thubaan')">
+                                    <div class="tha-blend-eq">
+                                        <span class="tha-pill">ثُعْـ</span>
+                                        <span>+</span>
+                                        <span class="tha-pill">بَا</span>
+                                        <span>+</span>
+                                        <span class="tha-pill">نٌ</span>
+                                        <span>➔</span>
+                                        <span class="tha-result">ثُعْبَانٌ 🐍</span>
+                                    </div>
+                                </div>
+
+                                <div class="tha-blend-card" onclick="playAudio('letter_tha_merge_theeraan')">
+                                    <div class="tha-blend-eq">
+                                        <span class="tha-pill">ثِيـ</span>
+                                        <span>+</span>
+                                        <span class="tha-pill">رَا</span>
+                                        <span>+</span>
+                                        <span class="tha-pill">نٌ</span>
+                                        <span>➔</span>
+                                        <span class="tha-result">ثِيرَانٌ 🐂</span>
+                                    </div>
+                                </div>
+
+                                <div class="tha-blend-card" onclick="playAudio('letter_tha_merge_athaath')">
+                                    <div class="tha-blend-eq">
+                                        <span class="tha-pill">أَ</span>
+                                        <span>+</span>
+                                        <span class="tha-pill">ثَا</span>
+                                        <span>+</span>
+                                        <span class="tha-pill">ثٌ</span>
+                                        <span>➔</span>
+                                        <span class="tha-result">أَثَاثٌ 🛋️</span>
+                                    </div>
+                                </div>
+
+                                <div class="tha-blend-card" onclick="playAudio('letter_tha_merge_turaath')">
+                                    <div class="tha-blend-eq">
+                                        <span class="tha-pill">تُـ</span>
+                                        <span>+</span>
+                                        <span class="tha-pill">رَا</span>
+                                        <span>+</span>
+                                        <span class="tha-pill">ثُ</span>
+                                        <span>➔</span>
+                                        <span class="tha-result">تُرَاثُ 👧</span>
+                                    </div>
+                                </div>
+
+                                <div class="tha-blend-card" onclick="playAudio('letter_tha_merge_timthaal')">
+                                    <div class="tha-blend-eq">
+                                        <span class="tha-pill">تِمْـ</span>
+                                        <span>+</span>
+                                        <span class="tha-pill">ثَا</span>
+                                        <span>+</span>
+                                        <span class="tha-pill">لٌ</span>
+                                        <span>➔</span>
+                                        <span class="tha-result">تِمْثَالٌ 🗿</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 7: تركيب جملة مفيدة ص 101 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">⭐ نَشَاطُ ٧: أُرَكِّبُ مِنَ الْكَلِمَاتِ جُمْلَةً مُفِيدَةً (ص ١٠١)</h3>
+                                    <span style="font-size: 0.85rem; color: #0284c7; font-weight: 800;">رتّب الكلمات المبعثرة لتحصل على الجملة الصحيحة المعبرة</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('letter_tha_merge_sentence')" style="background: #0284c7; border-color: #0369a1; font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْجُمْلَةِ</span>
+                                </button>
+                            </div>
+
+                            <div style="background: #f0f9ff; border: 2px dashed #bae6fd; border-radius: 18px; padding: 18px; text-align: center;">
+                                <div style="font-size: 1rem; color: #64748b; font-weight: 800; margin-bottom: 12px;">الْكَلِمَاتُ الْمُبَعْثَرَةُ فِي الْكِتَابِ ص ١٠١:</div>
+                                <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px;">
+                                    <span class="tha-pill" style="font-size: 1.3rem; padding: 8px 18px; background: #ffffff;">لَيْثٌ</span>
+                                    <span class="tha-pill" style="font-size: 1.3rem; padding: 8px 18px; background: #ffffff;">أَثْقَالٍ</span>
+                                    <span class="tha-pill" style="font-size: 1.3rem; padding: 8px 18px; background: #ffffff;">لَعِبَ</span>
+                                </div>
+
+                                <div style="font-size: 1.1rem; color: #0369a1; font-weight: 800; margin-bottom: 14px;">👇 الْجُمْلَةُ الْمُرَكَّبَةُ الْمُفِيدَةُ:</div>
+                                <div class="tha-sentence-box" onclick="playAudio('letter_tha_merge_sentence')">
+                                    « لَعِبَ لَيْثٌ بِأَثْقَالٍ. » 🏋️🌟
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة ونصوص الكتاب والسبورة واختبار التحدي -->
+                    <div class="letter-tha-station" id="stationTha_4">
+                        <!-- نص قراءة الكتاب ص 101 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">📖 نَصُّ الْكِتَابِ الْمَدْرَسِيِّ ص ١٠١: أَقْرَأُ (تُرَاثُ تَصْنَعُ لُعَبًا مِنْ وَرَقٍ)</h3>
+                                    <span style="font-size: 0.85rem; color: #0284c7; font-weight: 800;">كتاب قراءتي الجديد للصف الأول الابتدائي ص ١٠١</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('letter_tha_read_book_full')" style="background: #0284c7; border-color: #0369a1;">
+                                    <span>🔊</span> <span>قِرَاءَةُ النَّصِّ كَامِلًا</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd;">
+                                <img src="activity_tha_read.png" alt="نص القراءة تراث تصنع لعبا من ورق" style="width: 100%; max-height: 280px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div class="tha-reading-line" onclick="playAudio('letter_tha_read_b1')">
+                                    <div class="tha-line-icon">👧</div>
+                                    <div class="tha-line-text">تُرَاثُ تَصْنَعُ لُعَبًا مِنْ وَرَقٍ.</div>
+                                    <div class="tha-line-audio">🔊</div>
+                                </div>
+                                <div class="tha-reading-line" onclick="playAudio('letter_tha_read_b2')">
+                                    <div class="tha-line-icon">👦</div>
+                                    <div class="tha-line-text">لَيْثٌ يَصْنَعُ تِمْثَالاً،</div>
+                                    <div class="tha-line-audio">🔊</div>
+                                </div>
+                                <div class="tha-reading-line" onclick="playAudio('letter_tha_read_b3')">
+                                    <div class="tha-line-icon">❄️</div>
+                                    <div class="tha-line-text">وَكُرَاتِ ثَلْجٍ.</div>
+                                    <div class="tha-line-audio">🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي: محراث حارث -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">🌾 النَّصُّ التُّرَاثِيُّ الْعِرَاقِيُّ: مِحْرَاثُ حَارِثٍ</h3>
+                                    <span style="font-size: 0.85rem; color: #0284c7; font-weight: 800;">من تراث القراءة العراقية الأصيلة لترسيخ حرف الثاء</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('letter_tha_read_haarith_full')" style="background: #0369a1; border-color: #0c4a6e;">
+                                    <span>🔊</span> <span>قِرَاءَةُ النَّصِّ التُّرَاثِيِّ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div class="tha-reading-line" onclick="playAudio('letter_tha_read_h1')">
+                                    <div class="tha-line-icon">🌾</div>
+                                    <div class="tha-line-text">مِحْرَاثُ حَارِثٍ.</div>
+                                    <div class="tha-line-audio">🔊</div>
+                                </div>
+                                <div class="tha-reading-line" onclick="playAudio('letter_tha_read_h2')">
+                                    <div class="tha-line-icon">👨‍🌾</div>
+                                    <div class="tha-line-text">حَارِثٌ فَلَّاحٌ يَحْرُثُ الأَرْضَ.</div>
+                                    <div class="tha-line-audio">🔊</div>
+                                </div>
+                                <div class="tha-reading-line" onclick="playAudio('letter_tha_read_h3')">
+                                    <div class="tha-line-icon">👦</div>
+                                    <div class="tha-line-text">يُسَاعِدُهُ وَلَدُهُ لَيْثٌ.</div>
+                                    <div class="tha-line-audio">🔊</div>
+                                </div>
+                                <div class="tha-reading-line" onclick="playAudio('letter_tha_read_h4')">
+                                    <div class="tha-line-icon">🚜</div>
+                                    <div class="tha-line-text">لَيْثٌ يَسُوقُ الجَرَّارَ.</div>
+                                    <div class="tha-line-audio">🔊</div>
+                                </div>
+                                <div class="tha-reading-line" onclick="playAudio('letter_tha_read_h5')">
+                                    <div class="tha-line-icon">🐑</div>
+                                    <div class="tha-line-text">ثُرَيَّا تَرْعَى الغَنَمَ، وَتُرَبِّي الدَّجَاجَ.</div>
+                                    <div class="tha-line-audio">🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة رسم وتدريب كتابة حرف الثاء -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">🎨 سَبُّورَةُ الرَّسْمِ وَتَدْرِيبُ كِتَابَةِ حَرْفِ الثَّاءِ (ثـ ، ث)</h3>
+                                    <span style="font-size: 0.85rem; color: #0284c7; font-weight: 800;">تدرّب على رسم صحن الثاء المستقر على السطر والنقاط الثلاث في أعلاه</span>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn-secondary" onclick="playAudio('letter_tha_draw_hint')" style="font-size: 0.85rem; padding: 6px 12px;">
+                                        <span>💡</span> <span>تَوْجِيهُ فَصِيح</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="clearThaCanvas()" style="font-size: 0.85rem; padding: 6px 12px;">
+                                        <span>🗑️</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap;">
+                                <button class="btn-color-pick active" onclick="setThaCanvasColor('#0284c7')" style="background: #0284c7; width: 36px; height: 36px; border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-color-pick" onclick="setThaCanvasColor('#0369a1')" style="background: #0369a1; width: 36px; height: 36px; border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-color-pick" onclick="setThaCanvasColor('#0d9488')" style="background: #0d9488; width: 36px; height: 36px; border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-color-pick" onclick="setThaCanvasColor('#ea580c')" style="background: #ea580c; width: 36px; height: 36px; border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-color-pick" onclick="setThaCanvasColor('#7c3aed')" style="background: #7c3aed; width: 36px; height: 36px; border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                            </div>
+
+                            <div class="tha-canvas-box">
+                                <canvas id="thaDrawingCanvas"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي الفونيمي لحرف الثاء -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #0c4a6e; margin: 0; font-weight: 900;">🏆 اخْتِبَارُ التَّحَدِّي الْفُونِيمِيِّ لِحَرْفِ الثَّاءِ</h3>
+                                    <span style="font-size: 0.85rem; color: #0284c7; font-weight: 800;">٥ أسئلة فونيمية ذكية لقياس تمييز الحركات وأشكال الحرف والمقاطع</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <button class="btn-secondary" onclick="playAudio('letter_tha_quiz_intro')" style="font-size: 0.85rem; padding: 6px 12px;">
+                                        <span>🎧</span> <span>تَوْجِيهُ التَّحَدِّي</span>
+                                    </button>
+                                    <div style="background: #e0f2fe; color: #0369a1; padding: 6px 16px; border-radius: 20px; font-weight: 900; font-size: 0.95rem;">
+                                        النقاط: <span id="thaQuizScore">0</span> / 5
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 18px;" id="thaQuizContainer">
+                                <!-- السؤال الأول -->
+                                <div class="tha-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0c4a6e; margin-bottom: 10px;">
+                                        ١. مَا هُوَ مَوْقِعُ وَشَكْلُ حَرْفِ الثَّاءِ فِي كَلِمَةِ «ثَعْلَب»؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(1, 'A', true, this)">
+                                            <span>أَوَّلُ الْكَلِمَةِ (ثـ)</span> <span>🦊</span>
+                                        </button>
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(1, 'B', false, this)">
+                                            <span>وَسَطُ الْكَلِمَةِ (ـثـ)</span> <span>❌</span>
+                                        </button>
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(1, 'C', false, this)">
+                                            <span>آخِرُ الْكَلِمَةِ (ث)</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الثاني -->
+                                <div class="tha-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0c4a6e; margin-bottom: 10px;">
+                                        ٢. كَمْ عَدَدُ الْمَقَاطِعِ الصَّوْتِيَّةِ فِي كَلِمَةِ «ثِمَارٌ»؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(2, 'A', false, this)">
+                                            <span>مَقْطَعَانِ (ثِـ + مَارٌ)</span> <span>❌</span>
+                                        </button>
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(2, 'B', true, this)">
+                                            <span>ثَلَاثَةُ مَقَاطِعَ (ثِـ + مَا + رٌ)</span> <span>👏</span>
+                                        </button>
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(2, 'C', false, this)">
+                                            <span>أَرْبَعَةُ مَقَاطِعَ</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الثالث -->
+                                <div class="tha-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0c4a6e; margin-bottom: 10px;">
+                                        ٣. أَيُّ كَلِمَةٍ مِمَّا يَلِي تَحْتَوِي عَلَى صَوْتِ مَدِّ الأَلِفِ (ثَا)؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(3, 'A', false, this)">
+                                            <span>ثَلْجٌ</span> <span>❌</span>
+                                        </button>
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(3, 'B', false, this)">
+                                            <span>ثُعْبَانٌ</span> <span>❌</span>
+                                        </button>
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(3, 'C', true, this)">
+                                            <span>أَثَاثٌ</span> <span>🛋️</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الرابع -->
+                                <div class="tha-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0c4a6e; margin-bottom: 10px;">
+                                        ٤. مَا هُوَ الْمَقْطَعُ السَّاكِنُ فِي كَلِمَةِ «أَثْقَال»؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(4, 'A', true, this)">
+                                            <span>الْمَقْطَعُ: (أَثْـ)</span> <span>🏋️</span>
+                                        </button>
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(4, 'B', false, this)">
+                                            <span>الْمَقْطَعُ: (قَا)</span> <span>❌</span>
+                                        </button>
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(4, 'C', false, this)">
+                                            <span>الْمَقْطَعُ: (اثْـ)</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الخامس -->
+                                <div class="tha-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0c4a6e; margin-bottom: 10px;">
+                                        ٥. مَاذَا يَصْنَعُ «لَيْثٌ» فِي نَصِّ الْكِتَابِ ص ١٠١؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(5, 'A', false, this)">
+                                            <span>يَطْبَخُ خُضَارًا</span> <span>❌</span>
+                                        </button>
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(5, 'B', true, this)">
+                                            <span>يَصْنَعُ تِمْثَالاً، وَكُرَاتِ ثَلْجٍ</span> <span>🗿❄️</span>
+                                        </button>
+                                        <button class="tha-quiz-option" onclick="answerThaQuiz(5, 'C', false, this)">
+                                            <span>يَصْنَعُ طَيَّارَةً وَرَقِيَّةً</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
