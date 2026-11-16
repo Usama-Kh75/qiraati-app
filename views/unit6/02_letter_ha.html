@@ -1,0 +1,621 @@
+                <div class="lesson-view" id="view-tab-letter_ha">
+                    <!-- شريط المحطات الأربعة لدرس حرف الهاء وتطبيقاته -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationHa_1" onclick="switchLetterHaStation(1)">
+                            <span>📖</span> <span>١. أتعرف الحرف والمشهد (ص ١١٤)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationHa_2" onclick="switchLetterHaStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والمقاطع الساكنة (ص ١١٤ - ١١٥)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationHa_3" onclick="switchLetterHaStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب والترتيب (ص ١١٥ - ١١٦)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationHa_4" onclick="switchLetterHaStation(4)">
+                            <span>🌙</span> <span>٤. القراءة ونصوص الكتاب والتراث (ص ١١٧)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-ha-station active" id="stationHa_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-ha-card" onclick="playHaPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #0284c7; margin-bottom: 4px;">حَرْفُ الْهَاءِ الْحَلْقِيُّ الْمَهْمُوسُ الْمُرَقَّقُ</div>
+                                    <div class="giant-letter-ha-glyph">هـ  ـهـ  ـه  ه</div>
+                                </div>
+                                <div style="border-right: 2px dashed #bae6fd; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #0369a1;">صَوْتُ الْهَاءِ: هْ... اِهْـ</div>
+                                    <div style="font-size: 0.9rem; color: #0284c7; font-weight: 700;">مَهْمُوسٌ حَلْقِيٌّ خَفِيفٌ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playHaLetterSound()" style="background: #0284c7; border-color: #0369a1;">
+                                <span>🔊</span> <span>صَوْتُ الْهَاءِ الصَّافِي (هْ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playHaPhonemeFaseeh()" style="background: #0369a1; border-color: #0c4a6e;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِمَخْرَجِ الْهَاءِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_ha_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_115.png', 'كتاب قراءتي الجديد: ص ١١٤')">
+                                <span>📖</span> <span>صَفْحَة ١١٤ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_116.png', 'كتاب قراءتي الجديد: ص ١١٥')">
+                                <span>📖</span> <span>صَفْحَة ١١٥ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_117.png', 'كتاب قراءتي الجديد: ص ١١٦')">
+                                <span>📖</span> <span>صَفْحَة ١١٦ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_118.png', 'كتاب قراءتي الجديد: ص ١١٧')">
+                                <span>📖</span> <span>صَفْحَة ١١٧ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- صورة رأس صفحة حرف الهاء ص 114 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #0369a1; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ حَرْفِ الْهَاءِ (الْكِتَابُ الْمَدْرَسِيُّ ص ١١٤)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #bae6fd; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_ha_scene_story')">
+                                <img src="activity_ha_scene.png" alt="مشهد رأس صفحة حرف الهاء" style="width: 100%; max-height: 380px; object-fit: contain; background: #f0f9ff;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(2, 132, 199, 0.9); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- النشاط الأول: أردد منتبهاً لصوت حرف الهاء ص 114 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🎨 نَشَاطُ ١: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ حَرْفِ (هـ ، ـهـ ، ـه ، ه) (ص ١١٤)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ha_act1_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playAudio('letter_ha_act1_intro')">
+                                <img src="activity_ha_words.png" alt="نشاط 1 كلمات وصور حرف الهاء" style="width: 100%; max-height: 300px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <!-- شبكة الكلمات المصورة التفاعلية لدرس الهاء -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;">
+                                <div class="ha-word-card" onclick="playHaWord('haatif')">
+                                    <div class="ha-word-icon">☎️</div>
+                                    <div class="ha-word-text">هَاتِفٌ</div>
+                                    <div class="ha-word-pos">هـ (أَوَّل)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('hadiyyah')">
+                                    <div class="ha-word-icon">🎁</div>
+                                    <div class="ha-word-text">هَدِيَّةٌ</div>
+                                    <div class="ha-word-pos">هـ (أَوَّل)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('munabbih')">
+                                    <div class="ha-word-icon">⏰</div>
+                                    <div class="ha-word-text">مُنَبِّهٌ</div>
+                                    <div class="ha-word-pos">ـه (آخِر مُتَّصِل)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('sahm')">
+                                    <div class="ha-word-icon">🏹</div>
+                                    <div class="ha-word-text">سَهْمٌ</div>
+                                    <div class="ha-word-pos">ـهـ (وَسَط)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('zuhoor')">
+                                    <div class="ha-word-icon">🌸</div>
+                                    <div class="ha-word-text">زُهُورٌ</div>
+                                    <div class="ha-word-pos">ـهـ (وَسَط)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('taahi')">
+                                    <div class="ha-word-icon">👨‍🍳</div>
+                                    <div class="ha-word-text">طَاهِي</div>
+                                    <div class="ha-word-pos">ـهـ (وَسَط)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('allah')">
+                                    <div class="ha-word-icon">🕌</div>
+                                    <div class="ha-word-text">اللَّهِ</div>
+                                    <div class="ha-word-pos">ـه (آخِر مُتَّصِل)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('miah')">
+                                    <div class="ha-word-icon">💧</div>
+                                    <div class="ha-word-text">مِيَاهٌ</div>
+                                    <div class="ha-word-pos">ه (آخِر مُنْفَصِل)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('hudhud')">
+                                    <div class="ha-word-icon">🐦</div>
+                                    <div class="ha-word-text">هُدْهُدٌ</div>
+                                    <div class="ha-word-pos">هـ و ـهـ</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('wajh')">
+                                    <div class="ha-word-icon">😊</div>
+                                    <div class="ha-word-text">وَجْهٌ</div>
+                                    <div class="ha-word-pos">ـه (آخِر مُتَّصِل)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('zahrah')">
+                                    <div class="ha-word-icon">🌺</div>
+                                    <div class="ha-word-text">زَهْرَةٌ</div>
+                                    <div class="ha-word-pos">ـهـ (وَسَط)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('muhr')">
+                                    <div class="ha-word-icon">🐴</div>
+                                    <div class="ha-word-text">مُهْرٌ</div>
+                                    <div class="ha-word-pos">ـهـ (وَسَط)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود والمقاطع الساكنة -->
+                    <div class="letter-ha-station" id="stationHa_2">
+                        <!-- نشاط 2 ص 114: أصوات المد القصيرة والطويلة -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🎵 نَشَاطُ ٢: أَصْوَاتُ الْمَدِّ الْقَصِيرَةِ وَالطَّوِيلَةِ لِحَرْفِ (هـ) (ص ١١٤)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ha_act2_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playAudio('letter_ha_act2_intro')">
+                                <img src="activity_ha_vowels.png" alt="نشاط 2 أصوات المد القصيرة والطويلة" style="width: 100%; max-height: 280px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div class="ha-vowel-grid">
+                                <div class="ha-vowel-card" onclick="playHaVowel('short_a')">
+                                    <div class="ha-vowel-glyph">هَـ</div>
+                                    <div class="ha-vowel-label">فَتْحَة قَصِيرَة</div>
+                                    <div class="ha-vowel-example">هَدِيَّةٌ</div>
+                                </div>
+                                <div class="ha-vowel-card" onclick="playHaVowel('short_u')">
+                                    <div class="ha-vowel-glyph">هُـ</div>
+                                    <div class="ha-vowel-label">ضَمَّة قَصِيرَة</div>
+                                    <div class="ha-vowel-example">هُدْهُدٌ</div>
+                                </div>
+                                <div class="ha-vowel-card" onclick="playHaVowel('short_i')">
+                                    <div class="ha-vowel-glyph">هِـ</div>
+                                    <div class="ha-vowel-label">كَسْرَة قَصِيرَة</div>
+                                    <div class="ha-vowel-example">هِلَالٌ</div>
+                                </div>
+                                <div class="ha-vowel-card" onclick="playHaVowel('long_aa')">
+                                    <div class="ha-vowel-glyph">هَا</div>
+                                    <div class="ha-vowel-label">مَدّ بِالأَلِف</div>
+                                    <div class="ha-vowel-example">هَاتِفٌ</div>
+                                </div>
+                                <div class="ha-vowel-card" onclick="playHaVowel('long_oo')">
+                                    <div class="ha-vowel-glyph">هُو</div>
+                                    <div class="ha-vowel-label">مَدّ بِالْوَاو</div>
+                                    <div class="ha-vowel-example">زُهُورٌ</div>
+                                </div>
+                                <div class="ha-vowel-card" onclick="playHaVowel('long_ee')">
+                                    <div class="ha-vowel-glyph">هِيـ</div>
+                                    <div class="ha-vowel-label">مَدّ بِالْيَاء</div>
+                                    <div class="ha-vowel-example">صَهِيلٌ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 3 ص 115: الاستماع للفظ الكلمات وأصوات المد -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🔊 نَشَاطُ ٣: كَلِمَاتُ وَتَطْبِيقَاتُ الْمُدُودِ (ص ١١٥)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ha_act3_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playAudio('letter_ha_act3_intro')">
+                                <img src="activity_ha_vowel_words.png" alt="نشاط 3 كلمات المدود" style="width: 100%; max-height: 280px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px;">
+                                <div class="ha-word-card" onclick="playHaWord('dhahaba')">
+                                    <div class="ha-word-icon">🪙</div>
+                                    <div class="ha-word-text">ذَهَبَ</div>
+                                    <div class="ha-word-pos">صَوْتُ (هَـ)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('hudhud')">
+                                    <div class="ha-word-icon">🐦</div>
+                                    <div class="ha-word-text">هُدْهُدٌ</div>
+                                    <div class="ha-word-pos">صَوْتُ (هُـ)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('allah')">
+                                    <div class="ha-word-icon">🕌</div>
+                                    <div class="ha-word-text">اللَّهِ</div>
+                                    <div class="ha-word-pos">صَوْتُ (هِـ)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('haatif')">
+                                    <div class="ha-word-icon">☎️</div>
+                                    <div class="ha-word-text">هَاتِفٌ</div>
+                                    <div class="ha-word-pos">صَوْتُ (هَا)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('suhool')">
+                                    <div class="ha-word-icon">🏞️</div>
+                                    <div class="ha-word-text">سُهُولٌ</div>
+                                    <div class="ha-word-pos">صَوْتُ (هُو)</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaWord('taahi')">
+                                    <div class="ha-word-icon">👨‍🍳</div>
+                                    <div class="ha-word-text">طَاهِي</div>
+                                    <div class="ha-word-pos">صَوْتُ (هِيـ)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 4 ص 115: المقاطع الساكنة لحرف الهاء -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">⚡ نَشَاطُ ٤: صَوْتُ (هـ) السَّاكِنُ فِي الْمَقَاطِعِ (ص ١١٥)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ha_act4_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playAudio('letter_ha_act4_intro')">
+                                <img src="activity_ha_syllables.png" alt="نشاط 4 المقاطع الساكنة" style="width: 100%; max-height: 280px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div class="ha-syl-grid">
+                                <div class="ha-syl-card" onclick="playHaSyllable('sah')">
+                                    <div>
+                                        <div class="ha-syl-glyph">سَهْـ</div>
+                                        <div style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">مَقْطَعٌ سَاكِنٌ</div>
+                                    </div>
+                                    <div class="ha-syl-word">سَهْمٌ 🏹</div>
+                                </div>
+                                <div class="ha-syl-card" onclick="playHaSyllable('muh')">
+                                    <div>
+                                        <div class="ha-syl-glyph">مُهْـ</div>
+                                        <div style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">مَقْطَعٌ سَاكِنٌ</div>
+                                    </div>
+                                    <div class="ha-syl-word">مُهْرٌ 🐴</div>
+                                </div>
+                                <div class="ha-syl-card" onclick="playHaSyllable('zah')">
+                                    <div>
+                                        <div class="ha-syl-glyph">زَهْـ</div>
+                                        <div style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">مَقْطَعٌ سَاكِنٌ</div>
+                                    </div>
+                                    <div class="ha-syl-word">زَهْرَةٌ 🌸</div>
+                                </div>
+                                <div class="ha-syl-card" onclick="playHaSyllable('fah')">
+                                    <div>
+                                        <div class="ha-syl-glyph">فَهْـ</div>
+                                        <div style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">مَقْطَعٌ سَاكِنٌ</div>
+                                    </div>
+                                    <div class="ha-syl-word">فَهْدٌ 🐆</div>
+                                </div>
+                                <div class="ha-syl-card" onclick="playHaSyllable('waj')">
+                                    <div>
+                                        <div class="ha-syl-glyph">وَجْـ</div>
+                                        <div style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">مَقْطَعٌ سَاكِنٌ</div>
+                                    </div>
+                                    <div class="ha-syl-word">وَجْهٌ 😊</div>
+                                </div>
+                                <div class="ha-syl-card" onclick="playHaSyllable('nah')">
+                                    <div>
+                                        <div class="ha-syl-glyph">نَهْـ</div>
+                                        <div style="font-size: 0.8rem; color: #0284c7; font-weight: 700;">مَقْطَعٌ سَاكِنٌ</div>
+                                    </div>
+                                    <div class="ha-syl-word">نَهْرٌ 🌊</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب والترتيب الصوتي -->
+                    <div class="letter-ha-station" id="stationHa_3">
+                        <!-- نشاط 5 ص 115: تحليل الكلمات إلى مقاطعها -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🧩 نَشَاطُ ٥: أَقْرَأُ الْكَلِمَاتِ ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا (ص ١١٥)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ha_act5_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playAudio('letter_ha_act5_intro')">
+                                <img src="activity_ha_analysis.png" alt="نشاط 5 تحليل الكلمات" style="width: 100%; max-height: 280px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div class="ha-analysis-card" onclick="playHaSplit('hudhud')">
+                                <div style="font-size: 1.4rem; font-weight: 900; color: #0369a1;">هُدْهُدٌ 🐦</div>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <span class="ha-syllable-box">هُدْ</span>
+                                    <span style="font-weight: 900; color: #0284c7;">+</span>
+                                    <span class="ha-syllable-box">هُـ</span>
+                                    <span style="font-weight: 900; color: #0284c7;">+</span>
+                                    <span class="ha-syllable-box">دٌ</span>
+                                </div>
+                                <button class="btn-secondary" style="font-size: 0.85rem; padding: 6px 14px;">🔊 اسْتَمِعْ لِلتَّحْلِيلِ</button>
+                            </div>
+
+                            <div class="ha-analysis-card" onclick="playHaSplit('saheel')">
+                                <div style="font-size: 1.4rem; font-weight: 900; color: #0369a1;">صَهِيلٌ 🐎</div>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <span class="ha-syllable-box">صَـ</span>
+                                    <span style="font-weight: 900; color: #0284c7;">+</span>
+                                    <span class="ha-syllable-box">هِيـ</span>
+                                    <span style="font-weight: 900; color: #0284c7;">+</span>
+                                    <span class="ha-syllable-box">لٌ</span>
+                                </div>
+                                <button class="btn-secondary" style="font-size: 0.85rem; padding: 6px 14px;">🔊 اسْتَمِعْ لِلتَّحْلِيلِ</button>
+                            </div>
+
+                            <div class="ha-analysis-card" onclick="playHaSplit('muharrij')">
+                                <div style="font-size: 1.4rem; font-weight: 900; color: #0369a1;">مُهَرِّجٌ 🎪</div>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <span class="ha-syllable-box">مُـ</span>
+                                    <span style="font-weight: 900; color: #0284c7;">+</span>
+                                    <span class="ha-syllable-box">هَرْ</span>
+                                    <span style="font-weight: 900; color: #0284c7;">+</span>
+                                    <span class="ha-syllable-box">رِ</span>
+                                    <span style="font-weight: 900; color: #0284c7;">+</span>
+                                    <span class="ha-syllable-box">جٌ</span>
+                                </div>
+                                <button class="btn-secondary" style="font-size: 0.85rem; padding: 6px 14px;">🔊 اسْتَمِعْ لِلتَّحْلِيلِ</button>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 6 ص 116: استبدال الحرف لتكوين كلمة جديدة -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🔄 نَشَاطُ ٦: اِسْتَبْدِلِ الْحَرْفَ بِآخَرَ لِتَكْوِينِ كَلِمَةٍ جَدِيدَة (ص ١١٦)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ha_act6_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playAudio('letter_ha_act6_intro')">
+                                <img src="activity_ha_swap.png" alt="نشاط 6 استبدال الحرف" style="width: 100%; max-height: 220px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+                                <div class="ha-swap-card" onclick="playHaSwap('saheel_hilaal')">
+                                    <div style="font-size: 1.15rem; color: #0369a1; font-weight: 800; margin-bottom: 6px;">كَلِمَةُ: <span style="color: #dc2626; font-weight: 900;">صَـ</span>هِيلٌ</div>
+                                    <div style="font-size: 0.95rem; color: #0284c7; margin-bottom: 8px;">اِسْتَبْدِلْ (ص) بِحَرْفِ (هـ) ➔</div>
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: #0369a1; background: #e0f2fe; padding: 6px; border-radius: 12px;">هِلالٌ 🌙</div>
+                                </div>
+                                <div class="ha-swap-card" onclick="playHaSwap('sihaam_hiyaam')">
+                                    <div style="font-size: 1.15rem; color: #0369a1; font-weight: 800; margin-bottom: 6px;">كَلِمَةُ: <span style="color: #dc2626; font-weight: 900;">سِـ</span>هَامٌ</div>
+                                    <div style="font-size: 0.95rem; color: #0284c7; margin-bottom: 8px;">اِسْتَبْدِلْ (س) بِحَرْفِ (هـ) ➔</div>
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: #0369a1; background: #e0f2fe; padding: 6px; border-radius: 12px;">هِيَامُ 👧</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 7 ص 116: تركيب الكلمات من المقاطع -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🔨 نَشَاطُ ٧: أُرَكِّبُ مِنَ الْمَقَاطِعِ كَلِمَاتٍ ثُمَّ أَقْرَأُهَا (ص ١١٦)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ha_act7_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playAudio('letter_ha_act7_intro')">
+                                <img src="activity_ha_blend.png" alt="نشاط 7 تركيب الكلمات" style="width: 100%; max-height: 280px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                                <div class="ha-word-card" onclick="playHaMerge('hadiyyah')">
+                                    <div style="font-size: 1rem; color: #0284c7; font-weight: 700;">هَـ + دِيـ + ةٌ</div>
+                                    <div class="ha-word-text">هَدِيَّةٌ 🎁</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaMerge('hadeel')">
+                                    <div style="font-size: 1rem; color: #0284c7; font-weight: 700;">هَـ + دِيـ + لٌ</div>
+                                    <div class="ha-word-text">هَدِيلٌ 🕊️</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaMerge('haadi')">
+                                    <div style="font-size: 1rem; color: #0284c7; font-weight: 700;">هَا + دِي</div>
+                                    <div class="ha-word-text">هَادِي 👦</div>
+                                </div>
+                                <div class="ha-word-card" onclick="playHaMerge('naheed')">
+                                    <div style="font-size: 1rem; color: #0284c7; font-weight: 700;">نَـ + هِيـ + دٌ</div>
+                                    <div class="ha-word-text">نَهِيدٌ ⭐</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 8 ص 116: ترتيب الكلمات لتكوين جملة مفيدة -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">📚 نَشَاطُ ٨: أُرَتِّبُ الْكَلِمَاتِ وَأُكَوِّنُ جُمْلَةً مُفِيدَة (ص ١١٦)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ha_act8_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playAudio('letter_ha_act8_intro')">
+                                <img src="activity_ha_order.png" alt="نشاط 8 ترتيب الكلمات" style="width: 100%; max-height: 220px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div style="background: #ffffff; border: 2px solid #bae6fd; border-radius: 18px; padding: 18px; text-align: center; cursor: pointer;" onclick="playAudio('letter_ha_word_yusafir')">
+                                <div style="font-size: 1rem; color: #0284c7; font-weight: 700; margin-bottom: 8px;">الْكَلِمَاتُ الْمُبَعْثَرَة: (مُخْتَلِفَةٍ، ، أَنْ يُسَافِرَ، ، يُحِبُّ، ، هَادِي، ، إِلَى، ، بُلْدَانٍ)</div>
+                                <div style="font-size: 1.5rem; font-weight: 900; color: #0369a1; background: #e0f2fe; padding: 12px; border-radius: 14px;">
+                                    ✨ يُحِبُّ هَادِي أَنْ يُسَافِرَ إِلَى بُلْدَانٍ مُخْتَلِفَةٍ. ✨
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 9 ص 117: ترتيب الجملتين أكون فقرة -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">📜 نَشَاطُ ٩: أُرَتِّبُ الْجُمْلَتَيْنِ أُكَوِّنُ فِقْرَةً ثُمَّ أَقْرَأُهَا (ص ١١٧)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ha_act9_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playAudio('letter_ha_act9_intro')">
+                                <img src="activity_ha_order_para.png" alt="نشاط 9 ترتيب الفقرة" style="width: 100%; max-height: 220px; object-fit: contain; background: #f0f9ff;">
+                            </div>
+
+                            <div style="background: #ffffff; border: 2px solid #bae6fd; border-radius: 18px; padding: 18px; text-align: center; cursor: pointer;" onclick="playAudio('letter_ha_read_p117_para_full')">
+                                <div style="font-size: 1.25rem; font-weight: 900; color: #0369a1; background: #e0f2fe; padding: 12px; border-radius: 14px; line-height: 1.8;">
+                                    🌿 هُدْهُدٌ يُحِبُّ أَنْ يَطِيرَ فِي سُهُولٍ بَعِيدَةٍ.<br>
+                                    🌸 وَيُشَاهِدَ أَشْجَارًا تَنْمُو وَزُهُورًا تَتَفَتَّحُ.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة ونصوص الكتاب والنصوص التراثية والسبورة -->
+                    <div class="letter-ha-station" id="stationHa_4">
+                        <!-- قراءة نص الكتاب المدرسي ص 117 -->
+                        <div class="ha-reading-box">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">📖 أَقْرَأُ: نَصُّ الْكِتَابِ الْمَدْرَسِيِّ (ص ١١٧)</h3>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn-primary" onclick="playHaStoryFull('p117')" style="background: #0284c7; border-color: #0369a1; font-size: 0.9rem; padding: 8px 16px;">
+                                        <span>🎧</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلًا</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 20px; border-radius: 18px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playHaStoryFull('p117')">
+                                <img src="activity_ha_read.png" alt="صورة قراءة ص 117" style="width: 100%; max-height: 380px; object-fit: contain; background: #ffffff;">
+                            </div>
+
+                            <!-- الجمل المقروءة تفاعلياً لنص ص 117 -->
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_read_p117_s1')">
+                                <div class="ha-sentence-text">هَبَطَ هُدْهُدٌ عِنْدَ شُبَّاكِ غُرْفَةٍ،</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_read_p117_s2')">
+                                <div class="ha-sentence-text">فَرَأَى غَسَّانَ قُرْبَهُ حَاسُوبٌ وَمُنَبِّهٌ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_read_p117_s3')">
+                                <div class="ha-sentence-text">قَالَ: إِنَّهَا أَدَوَاتٌ مُفِيدَةٌ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي الأول: مِيَاهُ الْمَطَرِ -->
+                        <div class="ha-heritage-box" style="border-color: #0284c7;">
+                            <div class="ha-heritage-header" style="border-bottom-color: #bae6fd;">
+                                <div class="ha-heritage-title" style="color: #0369a1;">
+                                    <span>🌧️🌱</span>
+                                    <span>النَّصُّ التُّرَاثِيُّ العِرَاقِيُّ: مِيَاهُ الْمَطَرِ (ـه ، ه)</span>
+                                </div>
+                                <button class="btn-primary" onclick="playHaStoryFull('miah')" style="background: #0284c7; border-color: #0369a1; font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلًا</span>
+                                </button>
+                            </div>
+
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_miah_s1')">
+                                <div class="ha-sentence-text">مِيَاهُ الْمَطَرِ تَسْقِي الزَّرْعَ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_miah_s2')">
+                                <div class="ha-sentence-text">أَبُو نَبِيهٍ يَزْرَعُ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_miah_s3')">
+                                <div class="ha-sentence-text">نَبِيهٌ يُسَاعِدُهُ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_miah_s4')">
+                                <div class="ha-sentence-text">قَالَ لَهُ أَبُوهُ: شُكْرًا لَكَ يَا نَبِيهُ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_miah_s5')">
+                                <div class="ha-sentence-text">رَعَاكَ اللَّهُ يَا وَلَدِي.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي الثاني: هِلَالُ الْعِيدِ -->
+                        <div class="ha-heritage-box" style="border-color: #d97706;">
+                            <div class="ha-heritage-header" style="border-bottom-color: #fde68a;">
+                                <div class="ha-heritage-title" style="color: #b45309;">
+                                    <span>🌙🎉</span>
+                                    <span>النَّصُّ التُّرَاثِيُّ العِرَاقِيُّ: هِلَالُ الْعِيدِ (هـ ، ـهـ)</span>
+                                </div>
+                                <button class="btn-primary" onclick="playHaStoryFull('hilaal')" style="background: #d97706; border-color: #b45309; font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلًا</span>
+                                </button>
+                            </div>
+
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_hilaal_s1')">
+                                <div class="ha-sentence-text">هَلَّ هِلَالُ الْعِيدِ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_hilaal_s2')">
+                                <div class="ha-sentence-text">ذَهَبَ هُمَامٌ وَمَعَهُ سُهَادُ إِلَى عَمِّهِمَا مَهْدِيٍّ وَقَالَا:</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_hilaal_s3')">
+                                <div class="ha-sentence-text">عِيدُكَ مُبَارَكٌ يَا عَمُّ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_hilaal_s4')">
+                                <div class="ha-sentence-text">قَالَ الْعَمُّ: وَعِيدُكُمَا سَعِيدٌ يَا أَوْلَادُ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي الثالث: نَبِيهٌ يَعْمَلُ -->
+                        <div class="ha-heritage-box" style="border-color: #059669;">
+                            <div class="ha-heritage-header" style="border-bottom-color: #a7f3d0;">
+                                <div class="ha-heritage-title" style="color: #047857;">
+                                    <span>🌾👨‍🌾</span>
+                                    <span>النَّصُّ التُّرَاثِيُّ العِرَاقِيُّ: نَبِيهٌ يَعْمَلُ (ـه ، ه)</span>
+                                </div>
+                                <button class="btn-primary" onclick="playHaStoryFull('nabeeh')" style="background: #059669; border-color: #047857; font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلًا</span>
+                                </button>
+                            </div>
+
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_nabeeh_s1')">
+                                <div class="ha-sentence-text">نَبِيهٌ يَعْمَلُ فِي الْحَقْلِ مَعَ أَبِيهِ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_nabeeh_s2')">
+                                <div class="ha-sentence-text">يَحْرُثُ الأَرْضَ وَيَسْقِي الزَّرْعَ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_nabeeh_s3')">
+                                <div class="ha-sentence-text">يَقْطِفُ الثِّمَارَ وَالزُّهُورَ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ha-sentence-card" onclick="playHaReadingSentence('letter_ha_story_nabeeh_s4')">
+                                <div class="ha-sentence-text">قَالَ لَهُ أَبُوهُ: أَنْتَ وَلَدٌ نَشِيطٌ يَا نَبِيهُ، بَارَكَ اللَّهُ فِيكَ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة رسم وتتبع حرف الهاء -->
+                        <div class="ha-canvas-container" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">✍️ سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الْهَاءِ (هـ ، ـهـ ، ـه ، ه)</h3>
+                                <button class="btn-secondary" onclick="clearHaCanvas()" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🗑️</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                </button>
+                            </div>
+                            <canvas id="haCanvas" style="width: 100%; height: 240px; background: #ffffff; border: 2px dashed #bae6fd; border-radius: 16px; cursor: crosshair; touch-action: none;"></canvas>
+                            <div class="ha-canvas-tools">
+                                <span style="font-weight: 800; color: #0369a1;">اخْتَرِ اللَّوْنَ:</span>
+                                <button onclick="setHaCanvasColor('#0284c7')" style="width: 28px; height: 28px; border-radius: 50%; background: #0284c7; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setHaCanvasColor('#059669')" style="width: 28px; height: 28px; border-radius: 50%; background: #059669; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setHaCanvasColor('#dc2626')" style="width: 28px; height: 28px; border-radius: 50%; background: #dc2626; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setHaCanvasColor('#d97706')" style="width: 28px; height: 28px; border-radius: 50%; background: #d97706; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <span style="margin-right: 12px; font-weight: 800; color: #0369a1;">حَجْمُ الْقَلَمِ:</span>
+                                <button class="btn-secondary" onclick="setHaCanvasSize(4)" style="padding: 4px 10px; font-size: 0.8rem;">رَفِيع</button>
+                                <button class="btn-secondary" onclick="setHaCanvasSize(8)" style="padding: 4px 10px; font-size: 0.8rem;">مُتَوَسِّط</button>
+                                <button class="btn-secondary" onclick="setHaCanvasSize(14)" style="padding: 4px 10px; font-size: 0.8rem;">عَرِيض</button>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي التفاعلي لدرس حرف الهاء -->
+                        <div class="ha-quiz-box">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0369a1; margin: 0; font-weight: 900;">⭐ اِخْتِبَارُ التَّحَدِّي لِحَرْفِ الْهَاءِ</h3>
+                                <button class="btn-primary" onclick="initHaQuiz()" style="background: #0284c7; border-color: #0369a1; font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🚀</span> <span>بَدْءُ التَّحَدِّي</span>
+                                </button>
+                            </div>
+                            <div id="haQuizCard">
+                                <div style="text-align: center; padding: 20px; color: #0284c7; font-weight: 800;">
+                                    اضْغَطْ عَلَى «بَدْءُ التَّحَدِّي» لِاخْتِبَارِ مَهَارَاتِكَ فِي حَرْفِ الْهَاءِ وَجَمْعِ النُّجُومِ! 🌟
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

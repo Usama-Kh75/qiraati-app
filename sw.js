@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v47';
+const CACHE_NAME = 'qiraati-smart-v48';
 
 const ASSETS_TO_CACHE = [
 
@@ -181,6 +181,30 @@ const ASSETS_TO_CACHE = [
   './activity_h_vowels.png',
 
   './activity_h_words.png',
+
+  './activity_ha_analysis.png',
+
+  './activity_ha_blend.png',
+
+  './activity_ha_order.png',
+
+  './activity_ha_order_para.png',
+
+  './activity_ha_read.png',
+
+  './activity_ha_scene.png',
+
+  './activity_ha_swap.png',
+
+  './activity_ha_syllables.png',
+
+  './activity_ha_trace.png',
+
+  './activity_ha_vowel_words.png',
+
+  './activity_ha_vowels.png',
+
+  './activity_ha_words.png',
 
   './activity_hamza_analysis.png',
 
@@ -569,6 +593,14 @@ const ASSETS_TO_CACHE = [
   './page_113.png',
 
   './page_114.png',
+
+  './page_115.png',
+
+  './page_116.png',
+
+  './page_117.png',
+
+  './page_118.png',
 
   './page_17.png',
 
@@ -2013,6 +2045,218 @@ const ASSETS_TO_CACHE = [
   './audio/letter_h_words_intro.mp3',
 
   './audio/letter_h_wrong.mp3',
+
+  './audio/letter_ha_act1_intro.mp3',
+
+  './audio/letter_ha_act2_intro.mp3',
+
+  './audio/letter_ha_act3_intro.mp3',
+
+  './audio/letter_ha_act4_intro.mp3',
+
+  './audio/letter_ha_act5_intro.mp3',
+
+  './audio/letter_ha_act6_intro.mp3',
+
+  './audio/letter_ha_act7_intro.mp3',
+
+  './audio/letter_ha_act8_intro.mp3',
+
+  './audio/letter_ha_act9_intro.mp3',
+
+  './audio/letter_ha_correct.mp3',
+
+  './audio/letter_ha_encourage_super.mp3',
+
+  './audio/letter_ha_intro.mp3',
+
+  './audio/letter_ha_long_aa.mp3',
+
+  './audio/letter_ha_long_ee.mp3',
+
+  './audio/letter_ha_long_oo.mp3',
+
+  './audio/letter_ha_merge_haadi.mp3',
+
+  './audio/letter_ha_merge_hadeel.mp3',
+
+  './audio/letter_ha_merge_hadiyyah.mp3',
+
+  './audio/letter_ha_merge_naheed.mp3',
+
+  './audio/letter_ha_phoneme_faseeh.mp3',
+
+  './audio/letter_ha_quiz_intro.mp3',
+
+  './audio/letter_ha_read_intro.mp3',
+
+  './audio/letter_ha_read_p117_full.mp3',
+
+  './audio/letter_ha_read_p117_para_full.mp3',
+
+  './audio/letter_ha_read_p117_para_s1.mp3',
+
+  './audio/letter_ha_read_p117_para_s2.mp3',
+
+  './audio/letter_ha_read_p117_s1.mp3',
+
+  './audio/letter_ha_read_p117_s2.mp3',
+
+  './audio/letter_ha_read_p117_s3.mp3',
+
+  './audio/letter_ha_scene_story.mp3',
+
+  './audio/letter_ha_short_a.mp3',
+
+  './audio/letter_ha_short_i.mp3',
+
+  './audio/letter_ha_short_u.mp3',
+
+  './audio/letter_ha_sound.mp3',
+
+  './audio/letter_ha_split_hudhud.mp3',
+
+  './audio/letter_ha_split_muharrij.mp3',
+
+  './audio/letter_ha_split_saheel.mp3',
+
+  './audio/letter_ha_story_hilaal_full.mp3',
+
+  './audio/letter_ha_story_hilaal_s1.mp3',
+
+  './audio/letter_ha_story_hilaal_s2.mp3',
+
+  './audio/letter_ha_story_hilaal_s3.mp3',
+
+  './audio/letter_ha_story_hilaal_s4.mp3',
+
+  './audio/letter_ha_story_miah_full.mp3',
+
+  './audio/letter_ha_story_miah_s1.mp3',
+
+  './audio/letter_ha_story_miah_s2.mp3',
+
+  './audio/letter_ha_story_miah_s3.mp3',
+
+  './audio/letter_ha_story_miah_s4.mp3',
+
+  './audio/letter_ha_story_miah_s5.mp3',
+
+  './audio/letter_ha_story_nabeeh_full.mp3',
+
+  './audio/letter_ha_story_nabeeh_s1.mp3',
+
+  './audio/letter_ha_story_nabeeh_s2.mp3',
+
+  './audio/letter_ha_story_nabeeh_s3.mp3',
+
+  './audio/letter_ha_story_nabeeh_s4.mp3',
+
+  './audio/letter_ha_syl_fah.mp3',
+
+  './audio/letter_ha_syl_muh.mp3',
+
+  './audio/letter_ha_syl_nah.mp3',
+
+  './audio/letter_ha_syl_sah.mp3',
+
+  './audio/letter_ha_syl_waj.mp3',
+
+  './audio/letter_ha_syl_zah.mp3',
+
+  './audio/letter_ha_word_abooh.mp3',
+
+  './audio/letter_ha_word_allah.mp3',
+
+  './audio/letter_ha_word_almatar.mp3',
+
+  './audio/letter_ha_word_alzar.mp3',
+
+  './audio/letter_ha_word_buldaan.mp3',
+
+  './audio/letter_ha_word_dhahaba.mp3',
+
+  './audio/letter_ha_word_fahd.mp3',
+
+  './audio/letter_ha_word_haadi.mp3',
+
+  './audio/letter_ha_word_haasoob.mp3',
+
+  './audio/letter_ha_word_haatif.mp3',
+
+  './audio/letter_ha_word_habata.mp3',
+
+  './audio/letter_ha_word_hadeel.mp3',
+
+  './audio/letter_ha_word_hadeer.mp3',
+
+  './audio/letter_ha_word_hadiyyah.mp3',
+
+  './audio/letter_ha_word_hilaal.mp3',
+
+  './audio/letter_ha_word_hirrah.mp3',
+
+  './audio/letter_ha_word_hisham.mp3',
+
+  './audio/letter_ha_word_hiyaam.mp3',
+
+  './audio/letter_ha_word_huda.mp3',
+
+  './audio/letter_ha_word_hudhud.mp3',
+
+  './audio/letter_ha_word_humaam.mp3',
+
+  './audio/letter_ha_word_mahdi.mp3',
+
+  './audio/letter_ha_word_miah.mp3',
+
+  './audio/letter_ha_word_mufeedah.mp3',
+
+  './audio/letter_ha_word_muharrij.mp3',
+
+  './audio/letter_ha_word_muhr.mp3',
+
+  './audio/letter_ha_word_mukhtalifah.mp3',
+
+  './audio/letter_ha_word_munabbih.mp3',
+
+  './audio/letter_ha_word_nabeeh.mp3',
+
+  './audio/letter_ha_word_naheed.mp3',
+
+  './audio/letter_ha_word_nahr.mp3',
+
+  './audio/letter_ha_word_raaka.mp3',
+
+  './audio/letter_ha_word_saheel.mp3',
+
+  './audio/letter_ha_word_sahm.mp3',
+
+  './audio/letter_ha_word_shubbaak.mp3',
+
+  './audio/letter_ha_word_sihaam.mp3',
+
+  './audio/letter_ha_word_suhaad.mp3',
+
+  './audio/letter_ha_word_suhool.mp3',
+
+  './audio/letter_ha_word_taahi.mp3',
+
+  './audio/letter_ha_word_tasqi.mp3',
+
+  './audio/letter_ha_word_wajh.mp3',
+
+  './audio/letter_ha_word_yazra.mp3',
+
+  './audio/letter_ha_word_yusaaiduh.mp3',
+
+  './audio/letter_ha_word_yusafir.mp3',
+
+  './audio/letter_ha_word_zahrah.mp3',
+
+  './audio/letter_ha_word_zuhoor.mp3',
+
+  './audio/letter_ha_wrong.mp3',
 
   './audio/letter_hamza_analysis_intro.mp3',
 
