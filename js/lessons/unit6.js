@@ -1355,4 +1355,522 @@
         }
     };
 
+    /* ==========================================================================
+     * الدرس الرابع: حرف الظاء (ظ) وتطبيقاته وقراءة مُنْتَظَرٌ تَلْمِيذٌ نَشِيطٌ / مَحْفُوظٌ وَظَافِرٌ (ص ١٢٢ - ١٢٥)
+     * ========================================================================== */
+
+    /* ========================================================
+       القسم 18: التنقل بين محطات درس حرف الظاء الأربعة
+    ======================================================== */
+    window.switchLetterDhaStation = function(stationNum) {
+        document.querySelectorAll('#view-tab-letter_dha .station-tab').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('#view-tab-letter_dha .letter-dha-station').forEach(el => el.classList.remove('active'));
+
+        const targetStation = document.getElementById('stationDha_' + stationNum);
+        const targetBtn = document.getElementById('btnStationDha_' + stationNum);
+
+        if (targetStation) targetStation.classList.add('active');
+        if (targetBtn) targetBtn.classList.add('active');
+
+        if (stationNum === 1) {
+            mascotSpeak('الْوَحْدَةُ السَّادِسَةُ: الْعَالَمُ مِنْ حَوْلِي! مَعَ دَرْسِ حَرْفِ الظَّاءِ (ظ) وَتَطْبِيقَاتِهِ (ص ١٢٢ - ١٢٥)! اِسْتَمِعُوا لِصَوْتِ الظَّاءِ اللِّثَوِيِّ الْمُفَخَّمِ، وَتَعَرَّفُوا عَلَى كَلِمَاتِ الْكِتَابِ ص ١٢٢!', 'letter_dha_intro');
+        } else if (stationNum === 2) {
+            mascotSpeak('أَصْوَاتُ الْمُدُودِ وَالْمَقَاطِعِ السَّاكِنَةِ لِحَرْفِ الظَّاءِ! قَارِنْ بَيْنَ ظَ ، ظُ ، ظِ وَ ظَا ، ظُو ، ظِيـ، وَمَيِّزْ مَقَاطِعَ: عَظْ ، أَظْ فِي كَلِمَاتِ: عَظْمٌ ، أَظْفُرٌ ، أَظْفَارٌ!', 'letter_dha_act2_intro');
+        } else if (stationNum === 3) {
+            mascotSpeak('الْتَّحْلِيلُ وَالتَّرْكِيبُ وَتَرْتِيبُ الْكَلِمَاتِ! حَلِّلْ كَلِمَاتِ (حَظِيرَةٌ ، نَاظُورٌ ، نَظَّارَةٌ ، مَحْفَظَةٌ) بِالتَّصْفِيق، وَاسْتَبْدِلِ الْحُرُوفَ، وَرَكِّبْ كَلِمَاتِ (ظَافِرٌ ، حَافِظٌ ، مَحْفَظَةٌ)، وَرَتِّبْ جُمْلَةَ ظَافِرٍ وَفِقْرَةَ ظَفَارَ!', 'letter_dha_act5_intro');
+            setTimeout(() => {
+                initDhaOrderSentence();
+                initDhaPara();
+            }, 100);
+        } else if (stationNum === 4) {
+            mascotSpeak('مَحَطَّةُ الْقِرَاءَةِ وَالسَّبُّورَةِ وَالنُّصُوصِ التُّرَاثِيَّةِ! اقْرَأْ نَصَّ الْكِتَابِ ص ١٢٥: مُنْتَظَرٌ تَلْمِيذٌ نَشِيطٌ ، وَالنَّصَّ التُّرَاثِيَّ الْعِرَاقِيَّ الْخَالِدَ: مَحْفُوظٌ وَظَافِرٌ!', 'letter_dha_read_intro');
+            setTimeout(initDhaCanvas, 100);
+            setTimeout(initDhaQuiz, 100);
+        }
+    };
+
+    /* ========================================================
+       القسم 19: أصوات حرف الظاء الفونيمية والكلمات المصورة
+    ======================================================== */
+    window.playDhaLetterSound = function() {
+        mascotCelebrates();
+        playAudio('letter_dha_sound');
+    };
+
+    window.playDhaPhonemeFaseeh = function() {
+        mascotCelebrates();
+        playAudio('letter_dha_phoneme_faseeh');
+    };
+
+    window.playDhaWord = function(wordKey) {
+        mascotCelebrates();
+        const map = {
+            'zaby': 'letter_dha_word_zaby',
+            'zibaa': 'letter_dha_word_zibaa',
+            'zarf': 'letter_dha_word_zarf',
+            'haafiz': 'letter_dha_word_haafiz',
+            'azm': 'letter_dha_word_azm',
+            'zalama': 'letter_dha_word_zalama',
+            'hazeerah': 'letter_dha_word_hazeerah',
+            'naazoor': 'letter_dha_word_naazoor',
+            'ezaam': 'letter_dha_word_ezaam',
+            'zafar': 'letter_dha_word_zafar',
+            'zill': 'letter_dha_word_zill',
+            'nizaam': 'letter_dha_word_nizaam',
+            'azfur': 'letter_dha_word_azfur',
+            'azfaar': 'letter_dha_word_azfaar',
+            'nazzaarah': 'letter_dha_word_nazzaarah',
+            'haseerah': 'letter_dha_word_haseerah',
+            'naatoor': 'letter_dha_word_naatoor',
+            'zaafir': 'letter_dha_word_zaafir',
+            'mahfazah': 'letter_dha_word_mahfazah',
+            'yada': 'letter_dha_word_yada',
+            'tibbiyyah': 'letter_dha_word_tibbiyyah',
+            'likay': 'letter_dha_word_likay',
+            'yara': 'letter_dha_word_yara',
+            'biwudooh': 'letter_dha_word_biwudooh',
+            'zafaar': 'letter_dha_word_zafaar',
+            'turabbee': 'letter_dha_word_turabbee',
+            'fee': 'letter_dha_word_fee',
+            'hayawaanaat': 'letter_dha_word_hayawaanaat',
+            'mutanawwiah': 'letter_dha_word_mutanawwiah',
+            'indahaa': 'letter_dha_word_indahaa',
+            'qitt': 'letter_dha_word_qitt',
+            'sinjaab': 'letter_dha_word_sinjaab',
+            'jameel': 'letter_dha_word_jameel',
+            'muntazar': 'letter_dha_word_muntazar',
+            'tilmeedh': 'letter_dha_word_tilmeedh',
+            'nasheet': 'letter_dha_word_nasheet',
+            'yanaamu': 'letter_dha_word_yanaamu',
+            'yastayqizu': 'letter_dha_word_yastayqizu',
+            'baakiran': 'letter_dha_word_baakiran',
+            'yuhibbu': 'letter_dha_word_yuhibbu',
+            'haasoobahu': 'letter_dha_word_haasoobahu',
+            'yuhaafizu': 'letter_dha_word_yuhaafizu',
+            'ala': 'letter_dha_word_ala',
+            'sihhati': 'letter_dha_word_sihhati',
+            'aynayh': 'letter_dha_word_aynayh',
+            'falaa': 'letter_dha_word_falaa',
+            'yalabu': 'letter_dha_word_yalabu',
+            'bihi': 'letter_dha_word_bihi',
+            'katheeran': 'letter_dha_word_katheeran',
+            'mahfooz': 'letter_dha_word_mahfooz',
+            'yaqoolu': 'letter_dha_word_yaqoolu',
+            'lisadeeqihi': 'letter_dha_word_lisadeeqihi',
+            'ihfaz': 'letter_dha_word_ihfaz',
+            'duroosaka': 'letter_dha_word_duroosaka',
+            'kulla': 'letter_dha_word_kulla',
+            'yawm': 'letter_dha_word_yawm',
+            'wahaafiz': 'letter_dha_word_wahaafiz',
+            'nazaafati': 'letter_dha_word_nazaafati',
+            'madrasatika': 'letter_dha_word_madrasatika',
+            'annazaafatu': 'letter_dha_word_annazaafatu',
+            'mina': 'letter_dha_word_mina',
+            'aleemaan': 'letter_dha_word_aleemaan'
+        };
+        const audioKey = map[wordKey] || ('letter_dha_word_' + wordKey);
+        playAudio(audioKey);
+    };
+
+    window.playDhaVowel = function(vowelKey) {
+        mascotCelebrates();
+        playAudio('letter_dha_' + vowelKey);
+    };
+
+    window.playDhaSyllable = function(sylKey, wordKey) {
+        mascotCelebrates();
+        playAudio('letter_dha_syl_' + sylKey);
+        setTimeout(() => {
+            playAudio('letter_dha_word_' + wordKey);
+        }, 1100);
+    };
+
+    window.playDhaSplit = function(wordKey) {
+        mascotCelebrates();
+        playAudio('letter_dha_split_' + wordKey);
+    };
+
+    window.playDhaMerge = function(wordKey) {
+        mascotCelebrates();
+        playAudio('letter_dha_merge_' + wordKey);
+    };
+
+    /* ========================================================
+       القسم 20: لعبة ترتيب كلمات جملة ظافر (نشاط 8 ص 124)
+    ======================================================== */
+    const dhaOrderTargetWords = [
+        'يَضَعُ',
+        'ظَافِرٌ',
+        'نَظَّارَةً',
+        'طِبِّيَّةً',
+        'لِكَيْ',
+        'يَرَى',
+        'بِوُضُوحٍ'
+    ];
+    let dhaOrderScrambled = [];
+    let dhaOrderCurrent = [];
+
+    window.initDhaOrderSentence = function() {
+        const pool = [
+            { text: 'يَضَعُ', id: 0 },
+            { text: 'ظَافِرٌ', id: 1 },
+            { text: 'نَظَّارَةً', id: 2 },
+            { text: 'طِبِّيَّةً', id: 3 },
+            { text: 'لِكَيْ', id: 4 },
+            { text: 'يَرَى', id: 5 },
+            { text: 'بِوُضُوحٍ', id: 6 }
+        ];
+        dhaOrderScrambled = pool.sort(() => Math.random() - 0.5);
+        dhaOrderCurrent = [];
+
+        const listEl = document.getElementById('dhaOrderWordList');
+        if (!listEl) return;
+        listEl.innerHTML = '';
+
+        dhaOrderScrambled.forEach((item, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'dha-order-word-btn';
+            btn.id = 'dhaOrderBtn_' + item.id;
+            btn.innerText = item.text;
+            btn.onclick = () => selectDhaOrderWord(item);
+            listEl.appendChild(btn);
+        });
+
+        renderDhaOrderTarget();
+    };
+
+    function selectDhaOrderWord(item) {
+        if (dhaOrderCurrent.some(w => w.id === item.id)) return;
+        dhaOrderCurrent.push(item);
+        const btn = document.getElementById('dhaOrderBtn_' + item.id);
+        if (btn) btn.classList.add('used');
+        renderDhaOrderTarget();
+    }
+
+    function renderDhaOrderTarget() {
+        const target = document.getElementById('dhaOrderSentenceTarget');
+        if (!target) return;
+        if (dhaOrderCurrent.length === 0) {
+            target.innerHTML = '<span style="color: #94a3b8; font-weight: 600;">(انقر الكلمات أعلاه لتظهر هنا مرتبة...)</span>';
+            return;
+        }
+        target.innerHTML = dhaOrderCurrent.map(w => `<span class="dha-part-pill">${w.text}</span>`).join(' ');
+    }
+
+    window.resetDhaOrderSentence = function() {
+        initDhaOrderSentence();
+    };
+
+    window.checkDhaOrderSentence = function() {
+        if (dhaOrderCurrent.length !== dhaOrderTargetWords.length) {
+            alert('الرجاء ترتيب جميع الكلمات أولاً!');
+            return;
+        }
+        const userText = dhaOrderCurrent.map(w => w.text).join(' ');
+        const correctText = dhaOrderTargetWords.join(' ');
+
+        if (userText === correctText) {
+            mascotCelebrates();
+            playAudio('letter_dha_correct');
+            alert('✨ ممتاز جداً يا بطل! رتبت جملة ظافر بنجاح!');
+        } else {
+            playAudio('letter_dha_wrong');
+            alert('❌ الترتيب غير صحيح، حاول مرة أخرى!');
+            resetDhaOrderSentence();
+        }
+    };
+
+    /* ========================================================
+       القسم 21: لعبة ترتيب فقرة ظفار (نشاط 9 ص 125)
+    ======================================================== */
+    let dhaParaSelectedFirst = null;
+
+    window.initDhaPara = function() {
+        dhaParaSelectedFirst = null;
+        const c1 = document.getElementById('paraDhaChoice_1');
+        const c2 = document.getElementById('paraDhaChoice_2');
+        const fb = document.getElementById('dhaParaFeedback');
+        if (c1) c1.style.borderColor = '#ccfbf1';
+        if (c2) c2.style.borderColor = '#ccfbf1';
+        if (fb) fb.innerHTML = '';
+    };
+
+    window.selectDhaParaFirst = function(choice) {
+        const c1 = document.getElementById('paraDhaChoice_1');
+        const c2 = document.getElementById('paraDhaChoice_2');
+        const fb = document.getElementById('dhaParaFeedback');
+
+        if (choice === 1) {
+            // الجملة الأولى الصحيحة: ظَفَارُ تُرَبِّي فِي حَظِيرَتِهَا حَيَوَانَاتٍ مُتَنَوِّعَةً.
+            if (c1) {
+                c1.style.borderColor = '#10b981';
+                c1.style.background = '#ecfdf5';
+            }
+            if (c2) {
+                c2.style.borderColor = '#99f6e4';
+                c2.style.background = '#ffffff';
+            }
+            if (fb) {
+                fb.style.color = '#059669';
+                fb.innerHTML = '✨ رَائِعٌ جِدًّا! «ظَفَارُ تُرَبِّي فِي حَظِيرَتِهَا...» هِيَ الْجُمْلَةُ الأُولَى، وَ«عِنْدَهَا ظَبْيٌ...» هِيَ الْجُمْلَةُ الثَّانِيَةُ!';
+            }
+            mascotCelebrates();
+            playAudio('letter_dha_correct');
+        } else {
+            if (c2) {
+                c2.style.borderColor = '#ef4444';
+                c2.style.background = '#fef2f2';
+            }
+            if (fb) {
+                fb.style.color = '#dc2626';
+                fb.innerHTML = '❌ حَاوِلْ مَرَّةً أُخْرَى! ابْدَأْ بِالْجُمْلَةِ الَّتِي تُعَرِّفُنَا بِمَا تُرَبِّيهِ ظَفَارُ!';
+            }
+            playAudio('letter_dha_wrong');
+        }
+    };
+
+    window.resetDhaPara = function() {
+        initDhaPara();
+    };
+
+    /* ========================================================
+       القسم 22: سبورة رسم وتتبع حرف الظاء (HTML5 Canvas)
+    ======================================================== */
+    let dhaCanvas, dhaCtx;
+    let isDrawingDha = false;
+    let dhaStrokeColor = '#0d9488';
+    let dhaStrokeWidth = 8;
+
+    window.initDhaCanvas = function() {
+        dhaCanvas = document.getElementById('dhaCanvas');
+        if (!dhaCanvas) return;
+        dhaCtx = dhaCanvas.getContext('2d');
+
+        function resizeDhaCanvas() {
+            if (!dhaCanvas) return;
+            const container = dhaCanvas.parentElement;
+            if (container) {
+                dhaCanvas.width = container.clientWidth || 500;
+                dhaCanvas.height = 240;
+                drawDhaGuide();
+            }
+        }
+
+        resizeDhaCanvas();
+        window.addEventListener('resize', resizeDhaCanvas);
+
+        function getDhaPos(e) {
+            const r = dhaCanvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return {
+                x: clientX - r.left,
+                y: clientY - r.top
+            };
+        }
+
+        function startDraw(e) {
+            isDrawingDha = true;
+            const pos = getDhaPos(e);
+            dhaCtx.beginPath();
+            dhaCtx.moveTo(pos.x, pos.y);
+            e.preventDefault();
+        }
+
+        function drawMove(e) {
+            if (!isDrawingDha) return;
+            const pos = getDhaPos(e);
+            dhaCtx.lineTo(pos.x, pos.y);
+            dhaCtx.strokeStyle = dhaStrokeColor;
+            dhaCtx.lineWidth = dhaStrokeWidth;
+            dhaCtx.lineCap = 'round';
+            dhaCtx.lineJoin = 'round';
+            dhaCtx.stroke();
+            e.preventDefault();
+        }
+
+        function endDraw() {
+            isDrawingDha = false;
+        }
+
+        dhaCanvas.onmousedown = startDraw;
+        dhaCanvas.onmousemove = drawMove;
+        window.onmouseup = endDraw;
+
+        dhaCanvas.ontouchstart = startDraw;
+        dhaCanvas.ontouchmove = drawMove;
+        window.ontouchend = endDraw;
+    };
+
+    function drawDhaGuide() {
+        if (!dhaCtx || !dhaCanvas) return;
+        dhaCtx.clearRect(0, 0, dhaCanvas.width, dhaCanvas.height);
+
+        // خط السطر
+        dhaCtx.save();
+        dhaCtx.strokeStyle = '#99f6e4';
+        dhaCtx.lineWidth = 2;
+        dhaCtx.setLineDash([6, 6]);
+        dhaCtx.beginPath();
+        dhaCtx.moveTo(20, dhaCanvas.height * 0.72);
+        dhaCtx.lineTo(dhaCanvas.width - 20, dhaCanvas.height * 0.72);
+        dhaCtx.stroke();
+
+        // رسم باهت استرشادي لحرف الظاء (ظ)
+        dhaCtx.font = 'bold 120px "Traditional Arabic", "Amiri", sans-serif';
+        dhaCtx.textAlign = 'center';
+        dhaCtx.textBaseline = 'middle';
+        dhaCtx.fillStyle = 'rgba(13, 148, 136, 0.18)';
+        dhaCtx.fillText('ظ', dhaCanvas.width / 2, dhaCanvas.height * 0.52);
+
+        // سهم توجيهي لكتابة عصا الظاء ونقطتها
+        dhaCtx.font = 'bold 14px "Cairo", sans-serif';
+        dhaCtx.fillStyle = '#0f766e';
+        dhaCtx.fillText('ابدأ من الصدر بيضاوياً ثم اسحب على السطر، وضع العصا والنقطة ✏️', dhaCanvas.width / 2, 28);
+        dhaCtx.restore();
+    }
+
+    window.clearDhaCanvas = function() {
+        drawDhaGuide();
+    };
+
+    window.setDhaCanvasColor = function(c) {
+        dhaStrokeColor = c;
+    };
+
+    window.setDhaCanvasSize = function(s) {
+        dhaStrokeWidth = s;
+    };
+
+    /* ========================================================
+       القسم 23: اختبار التحدي التفاعلي لدرس حرف الظاء
+    ======================================================== */
+    const dhaQuizQuestions = [
+        {
+            question: "مَا هُوَ صَوْتُ وَمَخْرَجُ حَرْفِ الظَّاءِ (ظ) الصَّافِي؟",
+            audio: "letter_dha_sound",
+            options: ["لِثَوِيٌّ مُفَخَّمٌ مُطْبَقٌ", "حَلْقِيٌّ مُرَقَّقٌ", "شَفَوِيٌّ مَهْمُوسٌ"],
+            correct: 0,
+            hint: "يَخْرُجُ مِنْ طَرَفِ اللِّسَانِ مَعَ أَطْرَافِ الثَّنَايَا الْعُلْيَا مَفْخُومًا مُطْبَقًا!"
+        },
+        {
+            question: "أَيُّ كَلِمَةٍ تَبْدَأُ بِحَرْفِ الظَّاءِ الْمَفْتُوحَةِ (ظَ)؟",
+            audio: "letter_dha_short_a",
+            options: ["ظَبْيٌ", "ظِلٌّ", "ظُرُوفٌ"],
+            correct: 0,
+            hint: "ظَ... ظَبْيٌ!"
+        },
+        {
+            question: "مَا هُوَ الْمَقْطَعُ السَّاكِنُ فِي كَلِمَةِ «عَظْمٌ»؟",
+            audio: "letter_dha_syl_azm",
+            options: ["عَظْ", "أَظْ", "مَحْـ"],
+            correct: 0,
+            hint: "عَـ + ظْ = عَظْ!"
+        },
+        {
+            question: "عِنْدَ اسْتِبْدَالِ حَرْفِ الظَّاءِ بِالصَّادِ فِي كَلِمَةِ «حَظِيرَةٌ»، نَحْصُلُ عَلَى:",
+            audio: "letter_dha_word_haseerah",
+            options: ["حَصِيرَةٌ", "نَاطُورٌ", "نَاظُورٌ"],
+            correct: 0,
+            hint: "نَسْتَبْدِلُ الظَّاءَ بِالصَّادِ: حَصِيرَةٌ!"
+        },
+        {
+            question: "فِي قِرَاءَةِ نَصِّ «مُنْتَظَرٌ تَلْمِيذٌ نَشِيطٌ»، كَيْفَ يُحَافِظُ مُنْتَظَرٌ عَلَى صِحَّةِ عَيْنَيْهِ؟",
+            audio: "letter_dha_read_p125_s3",
+            options: ["فَلَا يَلْعَبُ بِحَاسُوبِهِ كَثِيرًا", "يَنَامُ مُتَأَخِّرًا", "يَجْلِسُ طَوِيلًا أَمَامَ الشَّاشَةِ"],
+            correct: 0,
+            hint: "يُحَافِظُ عَلَى صِحَّةِ عَيْنَيْهِ ، فَلَا يَلْعَبُ بِهِ كَثِيرًا!"
+        },
+        {
+            question: "فِي النَّصِّ التُّرَاثِيِّ «مَحْفُوظٌ وَظَافِرٌ»، مَاذَا قَالَ مَحْفُوظٌ لِصَدِيقِهِ ظَافِرٍ؟",
+            audio: "letter_dha_story_mahfooz_s3",
+            options: ["احْفَظْ دُرُوسَكَ كُلَّ يَوْمٍ ، وَحَافِظْ عَلَى نَظَافَةِ مَدْرَسَتِكَ", "اذْهَبْ إِلَى السُّوقِ", "الْعَبْ كَثِيرًا"],
+            correct: 0,
+            hint: "احْفَظْ دُرُوسَكَ كُلَّ يَوْمٍ ، وَحَافِظْ عَلَى نَظَافَةِ مَدْرَسَتِكَ!"
+        }
+    ];
+
+    let currentDhaQuizIndex = 0;
+    let dhaScore = 0;
+
+    window.initDhaQuiz = function() {
+        currentDhaQuizIndex = 0;
+        dhaScore = 0;
+        showDhaQuizQuestion();
+    };
+
+    function showDhaQuizQuestion() {
+        const qContainer = document.getElementById('dhaQuizContainer');
+        if (!qContainer) return;
+
+        if (currentDhaQuizIndex >= dhaQuizQuestions.length) {
+            qContainer.innerHTML = `
+                <div style="text-align: center; padding: 24px;">
+                    <div style="font-size: 3.5rem; margin-bottom: 12px;">🏆👓🌟</div>
+                    <h3 style="color: #134e4a; font-size: 1.6rem; font-weight: 900; margin-bottom: 8px;">مُبَارَكٌ يَا بَطَلَ الْقِرَاءَةِ!</h3>
+                    <p style="font-size: 1.15rem; color: #0f766e; font-weight: 800; margin-bottom: 16px;">
+                        أَجَبْتَ عَلَى كَامِلِ الأَسْئِلَةِ بِنَجَاح! نَتِيجَتُكَ: ${dhaScore} مِنْ ${dhaQuizQuestions.length} ⭐
+                    </p>
+                    <button class="btn-primary" onclick="initDhaQuiz()" style="background: #0d9488; border-color: #0f766e;">
+                        <span>🔄</span> <span>إِعَادَةُ التَّحَدِّي</span>
+                    </button>
+                </div>
+            `;
+            mascotCelebrates();
+            playAudio('letter_dha_encourage_super');
+            return;
+        }
+
+        const q = dhaQuizQuestions[currentDhaQuizIndex];
+        let optionsHtml = '';
+        q.options.forEach((opt, idx) => {
+            optionsHtml += `
+                <button class="dha-quiz-btn" onclick="checkDhaQuizAnswer(${idx})">
+                    <span>${opt}</span>
+                </button>
+            `;
+        });
+
+        qContainer.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 2px dashed #99f6e4; padding-bottom: 10px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #0f766e;">السُّؤَالُ ${currentDhaQuizIndex + 1} مِنْ ${dhaQuizQuestions.length}</span>
+                <span style="font-size: 1rem; font-weight: 900; color: #0d9488;">⭐ النِّقَاط: ${dhaScore}</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px;">
+                <h4 style="margin: 0; font-size: 1.3rem; font-weight: 900; color: #134e4a;">${q.question}</h4>
+                <button class="btn-secondary" onclick="playAudio('${q.audio}')" style="padding: 6px 14px; font-size: 0.85rem;">
+                    <span>🔊</span> <span>اسْتَمِعْ</span>
+                </button>
+            </div>
+            <div class="dha-quiz-options">
+                ${optionsHtml}
+            </div>
+            <div id="dhaQuizFeedback" style="margin-top: 14px; text-align: center; font-size: 1.1rem; font-weight: 800;"></div>
+        `;
+    }
+
+    window.checkDhaQuizAnswer = function(selectedIndex) {
+        const q = dhaQuizQuestions[currentDhaQuizIndex];
+        const fb = document.getElementById('dhaQuizFeedback');
+        if (selectedIndex === q.correct) {
+            dhaScore++;
+            mascotCelebrates();
+            playAudio('letter_dha_correct');
+            if (fb) {
+                fb.style.color = '#10b981';
+                fb.innerHTML = '✨ أَحْسَنْتَ يَا بَطَل! إِجَابَةٌ صَحِيحَةٌ!';
+            }
+            setTimeout(() => {
+                currentDhaQuizIndex++;
+                showDhaQuizQuestion();
+            }, 1200);
+        } else {
+            playAudio('letter_dha_wrong');
+            if (fb) {
+                fb.style.color = '#dc2626';
+                fb.innerHTML = '❌ حَاوِلْ مَرَّةً أُخْرَى، اسْتَمِعْ جَيِّدًا!';
+            }
+        }
+    };
+
 })();

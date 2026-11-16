@@ -21492,7 +21492,584 @@
                         </div>
                     </div>
                 </div>
-</div> <!-- إغلاق stage-card -->
+                <div class="lesson-view" id="view-tab-letter_dha">
+                    <!-- شريط المحطات الأربعة لدرس حرف الظاء وتطبيقاته -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationDha_1" onclick="switchLetterDhaStation(1)">
+                            <span>📖</span> <span>١. أتعرف الحرف والمشهد (ص ١٢٢)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationDha_2" onclick="switchLetterDhaStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والمقاطع الساكنة (ص ١٢٢ - ١٢٣)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationDha_3" onclick="switchLetterDhaStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب والترتيب (ص ١٢٣ - ١٢٥)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationDha_4" onclick="switchLetterDhaStation(4)">
+                            <span>👓</span> <span>٤. القراءة ونصوص الكتاب والتراث (ص ١٢٥)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-dha-station active" id="stationDha_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-dha-card" onclick="playDhaPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #0f766e; margin-bottom: 4px;">حَرْفُ الظَّاءِ اللِّثَوِيُّ الْمُفَخَّمُ الْمُطْبَقُ</div>
+                                    <div class="giant-letter-dha-glyph">ظ</div>
+                                </div>
+                                <div style="border-right: 2px dashed #99f6e4; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #134e4a;">صَوْتُ الظَّاءِ: ظْ... اِظْ</div>
+                                    <div style="font-size: 0.9rem; color: #0f766e; font-weight: 700;">لِثَوِيٌّ مُفَخَّمٌ مُطْبَقٌ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playDhaLetterSound()" style="background: #0d9488; border-color: #0f766e;">
+                                <span>🔊</span> <span>صَوْتُ الظَّاءِ الصَّافِي (ظْ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playDhaPhonemeFaseeh()" style="background: #0f766e; border-color: #134e4a;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِمَخْرَجِ الظَّاءِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_dha_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_123.png', 'كتاب قراءتي الجديد: ص ١٢٢')">
+                                <span>📖</span> <span>صَفْحَة ١٢٢ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_124.png', 'كتاب قراءتي الجديد: ص ١٢٣')">
+                                <span>📖</span> <span>صَفْحَة ١٢٣ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_125.png', 'كتاب قراءتي الجديد: ص ١٢٤')">
+                                <span>📖</span> <span>صَفْحَة ١٢٤ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_126.png', 'كتاب قراءتي الجديد: ص ١٢٥')">
+                                <span>📖</span> <span>صَفْحَة ١٢٥ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- صورة رأس صفحة حرف الظاء ص 122 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #134e4a; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ حَرْفِ الظَّاءِ (الْكِتَابُ الْمَدْرَسِيُّ ص ١٢٢)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #99f6e4; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_dha_scene_story')">
+                                <img src="activity_dha_scene.png" alt="مشهد رأس صفحة حرف الظاء" style="width: 100%; max-height: 380px; object-fit: contain; background: #f0fdfa;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(13, 148, 136, 0.9); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- النشاط الأول: أردد منتبهاً لصوت حرف الظاء ص 122 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900;">🎨 نَشَاطُ ١: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ حَرْفِ (ظ) (ص ١٢٢)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dha_act1_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #99f6e4; cursor: pointer;" onclick="playAudio('letter_dha_act1_intro')">
+                                <img src="activity_dha_words.png" alt="نشاط 1 كلمات وصور حرف الظاء" style="width: 100%; max-height: 300px; object-fit: contain; background: #f0fdfa;">
+                            </div>
+
+                            <!-- شبكة الكلمات المصورة التفاعلية لدرس الظاء -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;">
+                                <div class="dha-word-card" onclick="playDhaWord('zaby')">
+                                    <div class="dha-word-icon">🦌</div>
+                                    <div class="dha-word-text">ظَبْيٌ</div>
+                                    <div class="dha-word-pos">ظَ (أَوَّل)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('zarf')">
+                                    <div class="dha-word-icon">✉️</div>
+                                    <div class="dha-word-text">ظَرْفٌ</div>
+                                    <div class="dha-word-pos">ظَ (أَوَّل)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('haafiz')">
+                                    <div class="dha-word-icon">🛡️</div>
+                                    <div class="dha-word-text">حَافِظٌ</div>
+                                    <div class="dha-word-pos">ـظ (آخِر مُتَّصِل)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('azm')">
+                                    <div class="dha-word-icon">🦴</div>
+                                    <div class="dha-word-text">عَظْمٌ</div>
+                                    <div class="dha-word-pos">ـظْ (وَسَط سَاكِن)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('zalama')">
+                                    <div class="dha-word-icon">⚖️</div>
+                                    <div class="dha-word-text">ظَلَمَ</div>
+                                    <div class="dha-word-pos">ظَ (أَوَّل)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('hazeerah')">
+                                    <div class="dha-word-icon">🏡</div>
+                                    <div class="dha-word-text">حَظِيرَةٌ</div>
+                                    <div class="dha-word-pos">ـظِـ (وَسَط)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('naazoor')">
+                                    <div class="dha-word-icon">🔭</div>
+                                    <div class="dha-word-text">نَاظُورٌ</div>
+                                    <div class="dha-word-pos">ـظُو (مَدّ وَاو)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('ezaam')">
+                                    <div class="dha-word-icon">🦴</div>
+                                    <div class="dha-word-text">عِظَامٌ</div>
+                                    <div class="dha-word-pos">ـظَا (مَدّ أَلِف)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('zibaa')">
+                                    <div class="dha-word-icon">🦌</div>
+                                    <div class="dha-word-text">ظِبَاءٌ</div>
+                                    <div class="dha-word-pos">ظِ (أَوَّل كَسْرَة)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود والمقاطع الساكنة -->
+                    <div class="letter-dha-station" id="stationDha_2">
+                        <!-- نشاط 2: أنطق صوت حرف الظاء مع أصوات المد القصيرة وأصوات المد الطويلة ص 122 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900;">🎵 نَشَاطُ ٢: أَصْوَاتُ الْمَدِّ الصَّغِيرَةِ وَالطَّوِيلَةِ (ص ١٢٢)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dha_act2_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #99f6e4; cursor: pointer;" onclick="playAudio('letter_dha_act2_intro')">
+                                <img src="activity_dha_vowels.png" alt="نشاط 2 مدود حرف الظاء" style="width: 100%; max-height: 250px; object-fit: contain; background: #f0fdfa;">
+                            </div>
+
+                            <!-- شبكة بطاقات المدود التفاعلية -->
+                            <div class="dha-vowel-grid">
+                                <div class="dha-vowel-card" onclick="playDhaVowel('short_a')">
+                                    <div class="dha-vowel-glyph">ظَ</div>
+                                    <div class="dha-vowel-label">ظَاء مَفْتُوحَة (فَتْحَة)</div>
+                                </div>
+                                <div class="dha-vowel-card" onclick="playDhaVowel('short_u')">
+                                    <div class="dha-vowel-glyph">ظُ</div>
+                                    <div class="dha-vowel-label">ظَاء مَضْمُومَة (ضَمَّة)</div>
+                                </div>
+                                <div class="dha-vowel-card" onclick="playDhaVowel('short_i')">
+                                    <div class="dha-vowel-glyph">ظِ</div>
+                                    <div class="dha-vowel-label">ظَاء مَكْسُورَة (كَسْرَة)</div>
+                                </div>
+                                <div class="dha-vowel-card" onclick="playDhaVowel('long_aa')">
+                                    <div class="dha-vowel-glyph">ظَا</div>
+                                    <div class="dha-vowel-label">مَدّ طَوِيل بِالأَلِف</div>
+                                </div>
+                                <div class="dha-vowel-card" onclick="playDhaVowel('long_oo')">
+                                    <div class="dha-vowel-glyph">ظُو</div>
+                                    <div class="dha-vowel-label">مَدّ طَوِيل بِالْوَاو</div>
+                                </div>
+                                <div class="dha-vowel-card" onclick="playDhaVowel('long_ee')">
+                                    <div class="dha-vowel-glyph">ظِيـ</div>
+                                    <div class="dha-vowel-label">مَدّ طَوِيل بِالْيَاء</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 3: أستمع للفظ الكلمات ثم أنطق صوت حرف الظاء ص 123 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900;">🔊 نَشَاطُ ٣: كَلِمَاتُ وَتَطْبِيقَاتُ الْمُدُودِ (ص ١٢٣)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dha_act3_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #99f6e4; cursor: pointer;" onclick="playAudio('letter_dha_act3_intro')">
+                                <img src="activity_dha_vowel_words.png" alt="نشاط 3 كلمات مدود الظاء" style="width: 100%; max-height: 320px; object-fit: contain; background: #f0fdfa;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;">
+                                <div class="dha-word-card" onclick="playDhaWord('zafar')">
+                                    <div class="dha-word-icon">💅</div>
+                                    <div class="dha-word-text">ظَفَرٌ</div>
+                                    <div class="dha-word-pos">ظَ (فَتْحَة)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('zill')">
+                                    <div class="dha-word-icon">👥</div>
+                                    <div class="dha-word-text">ظِلٌّ</div>
+                                    <div class="dha-word-pos">ظِ (كَسْرَة)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('zarf')">
+                                    <div class="dha-word-icon">✉️</div>
+                                    <div class="dha-word-text">ظَرْفٌ</div>
+                                    <div class="dha-word-pos">ظَ (فَتْحَة)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('nizaam')">
+                                    <div class="dha-word-icon">📋</div>
+                                    <div class="dha-word-text">نِظَامٌ</div>
+                                    <div class="dha-word-pos">ظَا (مَدّ أَلِف)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('naazoor')">
+                                    <div class="dha-word-icon">🔭</div>
+                                    <div class="dha-word-text">نَاظُورٌ</div>
+                                    <div class="dha-word-pos">ظُو (مَدّ وَاو)</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('hazeerah')">
+                                    <div class="dha-word-icon">🏡</div>
+                                    <div class="dha-word-text">حَظِيرَةٌ</div>
+                                    <div class="dha-word-pos">ظِيـ (مَدّ يَاء)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 4: المقاطع الساكنة لحرف الظاء ص 123 -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #0f766e; margin: 0; font-weight: 900;">⚡ نَشَاطُ ٤: الْمَقَاطِعُ السَّاكِنَةُ لِحَرْفِ الظَّاءِ (عَظْ ، أَظْ) (ص ١٢٣)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dha_act4_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #99f6e4; cursor: pointer;" onclick="playAudio('letter_dha_act4_intro')">
+                                <img src="activity_dha_syllables.png" alt="نشاط 4 مقاطع الظاء الساكنة" style="width: 100%; max-height: 280px; object-fit: contain; background: #f0fdfa;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px;">
+                                <div class="dha-syl-card" onclick="playDhaSyllable('azm', 'azm')">
+                                    <div class="dha-syl-glyph">عَظْ</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #134e4a;">عَظْمٌ 🦴</div>
+                                    <div style="font-size: 0.85rem; color: #0f766e; font-weight: 700; margin-top: 4px;">مَقْطَعٌ سَاكِنٌ (عَـ + ظْ)</div>
+                                </div>
+                                <div class="dha-syl-card" onclick="playDhaSyllable('adh', 'azfur')">
+                                    <div class="dha-syl-glyph">أَظْ</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #134e4a;">أَظْفُرٌ 💅</div>
+                                    <div style="font-size: 0.85rem; color: #0f766e; font-weight: 700; margin-top: 4px;">مَقْطَعٌ سَاكِنٌ (أَ + ظْ)</div>
+                                </div>
+                                <div class="dha-syl-card" onclick="playDhaSyllable('adh', 'azfaar')">
+                                    <div class="dha-syl-glyph">أَظْ</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #134e4a;">أَظْفَارٌ ✨</div>
+                                    <div style="font-size: 0.85rem; color: #0f766e; font-weight: 700; margin-top: 4px;">مَقْطَعٌ سَاكِنٌ (أَ + ظْ)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب والترتيب -->
+                    <div class="letter-dha-station" id="stationDha_3">
+                        <!-- نشاط 5: أقرأ الكلمات ثم أحللها إلى مقاطعها بالتصفيق ص 123 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900;">👏 نَشَاطُ ٥: التَّحْلِيلُ الصَّوْتِيُّ بِالتَّصْفِيق (ص ١٢٣)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dha_act5_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #99f6e4; cursor: pointer;" onclick="playAudio('letter_dha_act5_intro')">
+                                <img src="activity_dha_analysis.png" alt="نشاط 5 تحليل الكلمات لمقاطع" style="width: 100%; max-height: 250px; object-fit: contain; background: #f0fdfa;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;">
+                                <div class="dha-analysis-card" onclick="playDhaSplit('hazeerah')">
+                                    <div class="dha-analysis-word">حَظِيرَةٌ 🏡</div>
+                                    <div class="dha-analysis-parts">
+                                        <span class="dha-part-pill">حَـ</span>
+                                        <span class="dha-part-pill">ظِيـ</span>
+                                        <span class="dha-part-pill">رَ</span>
+                                        <span class="dha-part-pill">ةٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: #0f766e; font-weight: 800;">٤ تَصْفِيقَاتٍ 👏 اضغط للاستماع</div>
+                                </div>
+                                <div class="dha-analysis-card" onclick="playDhaSplit('naazoor')">
+                                    <div class="dha-analysis-word">نَاظُورٌ 🔭</div>
+                                    <div class="dha-analysis-parts">
+                                        <span class="dha-part-pill">نَا</span>
+                                        <span class="dha-part-pill">ظُو</span>
+                                        <span class="dha-part-pill">رٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: #0f766e; font-weight: 800;">٣ تَصْفِيقَاتٍ 👏 اضغط للاستماع</div>
+                                </div>
+                                <div class="dha-analysis-card" onclick="playDhaSplit('nazzaarah')">
+                                    <div class="dha-analysis-word">نَظَّارَةٌ 👓</div>
+                                    <div class="dha-analysis-parts">
+                                        <span class="dha-part-pill">نَظْـ</span>
+                                        <span class="dha-part-pill">ظَا</span>
+                                        <span class="dha-part-pill">رَ</span>
+                                        <span class="dha-part-pill">ةٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: #0f766e; font-weight: 800;">٤ تَصْفِيقَاتٍ (مُشَدَّد) 👏 اضغط للاستماع</div>
+                                </div>
+                                <div class="dha-analysis-card" onclick="playDhaSplit('mahfazah')">
+                                    <div class="dha-analysis-word">مَحْفَظَةٌ 💼</div>
+                                    <div class="dha-analysis-parts">
+                                        <span class="dha-part-pill">مَحْـ</span>
+                                        <span class="dha-part-pill">فَـ</span>
+                                        <span class="dha-part-pill">ظَـ</span>
+                                        <span class="dha-part-pill">ةٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: #0f766e; font-weight: 800;">٤ تَصْفِيقَاتٍ 👏 اضغط للاستماع</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 6: استبدال الحرف لتكوين كلمة جديدة ص 124 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900;">🔄 نَشَاطُ ٦: اسْتِبْدَالُ الأَصْوَاتِ لِتَكْوِينِ كَلِمَاتٍ جَدِيدَةٍ (ص ١٢٤)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dha_act6_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #99f6e4; cursor: pointer;" onclick="playAudio('letter_dha_act6_intro')">
+                                <img src="activity_dha_swap.png" alt="نشاط 6 استبدال الحروف" style="width: 100%; max-height: 200px; object-fit: contain; background: #f0fdfa;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+                                <div class="dha-word-card" onclick="playDhaWord('haseerah')">
+                                    <div class="dha-word-icon">🧺</div>
+                                    <div style="font-size: 1rem; color: #64748b; font-weight: 700; text-decoration: line-through;">حَظِيرَةٌ (ص)</div>
+                                    <div class="dha-word-text">حَصِيرَةٌ</div>
+                                    <div class="dha-word-pos">اسْتِبْدَالُ الظَّاءِ بِالصَّادِ 🔄</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaWord('naatoor')">
+                                    <div class="dha-word-icon">👮</div>
+                                    <div style="font-size: 1rem; color: #64748b; font-weight: 700; text-decoration: line-through;">نَاظُورٌ (ط)</div>
+                                    <div class="dha-word-text">نَاطُورٌ</div>
+                                    <div class="dha-word-pos">اسْتِبْدَالُ الظَّاءِ بِالطَّاءِ 🔄</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 7: أركب من المقاطع الآتية كلمات ص 124 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900;">🧩 نَشَاطُ ٧: تَرْكِيبُ الْمَقَاطِعِ لِتَكْوِينِ كَلِمَاتٍ (ص ١٢٤)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dha_act7_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #99f6e4; cursor: pointer;" onclick="playAudio('letter_dha_act7_intro')">
+                                <img src="activity_dha_blend.png" alt="نشاط 7 تركيب المقاطع" style="width: 100%; max-height: 380px; object-fit: contain; background: #f0fdfa;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px;">
+                                <div class="dha-word-card" onclick="playDhaMerge('zaafir')">
+                                    <div class="dha-word-icon">👓</div>
+                                    <div style="font-size: 1.1rem; color: #0f766e; font-weight: 800;">ظَا + فِـ + رٌ</div>
+                                    <div class="dha-word-text">ظَافِرٌ</div>
+                                    <div class="dha-word-pos">اضغط للاستماع 🎧</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaMerge('haafiz')">
+                                    <div class="dha-word-icon">🛡️</div>
+                                    <div style="font-size: 1.1rem; color: #0f766e; font-weight: 800;">حَا + فِـ + ظٌ</div>
+                                    <div class="dha-word-text">حَافِظٌ</div>
+                                    <div class="dha-word-pos">اضغط للاستماع 🎧</div>
+                                </div>
+                                <div class="dha-word-card" onclick="playDhaMerge('mahfazah')">
+                                    <div class="dha-word-icon">💼</div>
+                                    <div style="font-size: 1.1rem; color: #0f766e; font-weight: 800;">مَحْـ + فَـ + ظَـ + ةٌ</div>
+                                    <div class="dha-word-text">مَحْفَظَةٌ</div>
+                                    <div class="dha-word-pos">اضغط للاستماع 🎧</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 8: ترتيب الكلمات لتكوين جملة مفيدة ص 124 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900;">⭐ نَشَاطُ ٨: تَرْتِيبُ الْكَلِمَاتِ لِتَكْوِينِ جُمْلَةٍ مُفِيدَةٍ (ص ١٢٤)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dha_act8_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #99f6e4; cursor: pointer;" onclick="playAudio('letter_dha_act8_intro')">
+                                <img src="activity_dha_order.png" alt="نشاط 8 ترتيب الكلمات" style="width: 100%; max-height: 220px; object-fit: contain; background: #f0fdfa;">
+                            </div>
+
+                            <div class="dha-order-container">
+                                <div style="font-size: 1.1rem; font-weight: 800; color: #134e4a; margin-bottom: 12px;">
+                                    اضغط على الكلمات بالترتيب الصحيح لتكوين جملة تامة المعنى:
+                                </div>
+                                <div class="dha-order-words" id="dhaOrderWordList">
+                                    <!-- يتم توليدها ديناميكياً عبر JS -->
+                                </div>
+                                <div class="dha-order-target" id="dhaOrderSentenceTarget">
+                                    <span style="color: #94a3b8; font-weight: 600;">(انقر الكلمات أعلاه لتظهر هنا مرتبة...)</span>
+                                </div>
+                                <div style="margin-top: 14px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                    <button class="btn-primary" onclick="checkDhaOrderSentence()" style="background: #0d9488; border-color: #0f766e;">
+                                        <span>✔</span> <span>تَحَقَّقْ مِنَ الإِجَابَةِ</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="resetDhaOrderSentence()">
+                                        <span>🔄</span> <span>إِعَادَةُ الْمُحَاوَلَةِ</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="playAudio('letter_dha_order_sentence_full')">
+                                        <span>🎧</span> <span>اسْتَمِعْ لِلْجُمْلَةِ كَامِلَةً</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 9: ترتيب الجملتين لتكوين فقرة ص 125 -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900;">📜 نَشَاطُ ٩: تَرْتِيبُ الْجُمْلَتَيْنِ لِتَكْوِينِ فِقْرَةٍ قِرَائِيَّةٍ (ص ١٢٥)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dha_act9_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #99f6e4; cursor: pointer;" onclick="playAudio('letter_dha_act9_intro')">
+                                <img src="activity_dha_order_para.png" alt="نشاط 9 ترتيب الفقرة" style="width: 100%; max-height: 220px; object-fit: contain; background: #f0fdfa;">
+                            </div>
+
+                            <div class="dha-order-container" id="dhaParaContainer">
+                                <div style="font-size: 1.1rem; font-weight: 800; color: #134e4a; margin-bottom: 14px;">
+                                    اختر الجملة الأولى للفقرة بالضغط عليها:
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 10px; max-width: 600px; margin: 0 auto;">
+                                    <div class="dha-sentence-card" id="paraDhaChoice_2" onclick="selectDhaParaFirst(2)">
+                                        <div class="dha-sentence-text">🔴 عِنْدَهَا ظَبْيٌ وَقِطٌّ وَسِنْجَابٌ جَمِيلٌ.</div>
+                                        <button class="btn-secondary" onclick="event.stopPropagation(); playAudio('letter_dha_order_para_s2')" style="padding: 4px 10px; font-size: 0.8rem;">🎧</button>
+                                    </div>
+                                    <div class="dha-sentence-card" id="paraDhaChoice_1" onclick="selectDhaParaFirst(1)">
+                                        <div class="dha-sentence-text">🔴 ظَفَارُ تُرَبِّي فِي حَظِيرَتِهَا حَيَوَانَاتٍ مُتَنَوِّعَةً.</div>
+                                        <button class="btn-secondary" onclick="event.stopPropagation(); playAudio('letter_dha_order_para_s1')" style="padding: 4px 10px; font-size: 0.8rem;">🎧</button>
+                                    </div>
+                                </div>
+                                <div id="dhaParaFeedback" style="margin-top: 14px; font-size: 1.2rem; font-weight: 900;"></div>
+                                <div style="margin-top: 14px; display: flex; justify-content: center; gap: 12px;">
+                                    <button class="btn-secondary" onclick="resetDhaPara()">
+                                        <span>🔄</span> <span>إِعَادَةُ التَّرْتِيبِ</span>
+                                    </button>
+                                    <button class="btn-primary" onclick="playAudio('letter_dha_order_para_full')" style="background: #0d9488; border-color: #0f766e;">
+                                        <span>🎧</span> <span>اسْتَمِعْ لِلْفِقْرَةِ كَامِلَةً</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة ونصوص الكتاب والتراث -->
+                    <div class="letter-dha-station" id="stationDha_4">
+                        <!-- نص القراءة في الكتاب المدرسي ص 125: منتظر تلميذ نشيط -->
+                        <div class="dha-read-box">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900; font-size: 1.4rem;">
+                                    📖 قِرَاءَةُ نَصِّ الْكِتَابِ: مُنْتَظَرٌ تَلْمِيذٌ نَشِيطٌ (ص ١٢٥)
+                                </h3>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn-primary" onclick="playAudio('letter_dha_read_p125_full')" style="background: #0d9488; border-color: #0f766e;">
+                                        <span>🎧</span> <span>قِرَاءَةُ النَّصِّ كَامِلًا</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="openBookPageModal('page_126.png', 'كتاب قراءتي: ص ١٢٥')">
+                                        <span>📖</span> <span>صَفْحَة ١٢٥</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #99f6e4;">
+                                <img src="activity_dha_read.png" alt="نص قراءة ص 125" style="width: 100%; max-height: 280px; object-fit: contain; background: #f0fdfa;">
+                            </div>
+
+                            <div class="dha-sentence-card" onclick="playAudio('letter_dha_read_p125_s1')">
+                                <div class="dha-sentence-text">
+                                    مُنْتَظَرٌ تَلْمِيذٌ نَشِيطٌ ،
+                                </div>
+                                <span>🎧</span>
+                            </div>
+                            <div class="dha-sentence-card" onclick="playAudio('letter_dha_read_p125_s2')">
+                                <div class="dha-sentence-text">
+                                    يَنَامُ وَيَسْتَيْقِظُ بَاكِرًا ، يُحِبُّ حَاسُوبَهُ.
+                                </div>
+                                <span>🎧</span>
+                            </div>
+                            <div class="dha-sentence-card" onclick="playAudio('letter_dha_read_p125_s3')">
+                                <div class="dha-sentence-text">
+                                    يُحَافِظُ عَلَى صِحَّةِ عَيْنَيْهِ ، فَلَا يَلْعَبُ بِهِ كَثِيرًا.
+                                </div>
+                                <span>🎧</span>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي الخالد لحرف الظاء: مَحْفُوظٌ وَظَافِرٌ -->
+                        <div class="dha-heritage-box">
+                            <div class="dha-heritage-header">
+                                <div class="dha-heritage-title">
+                                    <span>👓</span>
+                                    <span>النَّصُّ التُّرَاثِيُّ الْعِرَاقِيُّ الْخَالِدُ: مَحْفُوظٌ وَظَافِرٌ (ص ١٢٢ - ١٢٥)</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('letter_dha_story_mahfooz_full')" style="background: #0d9488; border-color: #0f766e;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلاً</span>
+                                </button>
+                            </div>
+
+                            <div style="font-size: 1.05rem; color: #0f766e; font-weight: 700; margin-bottom: 14px;">
+                                اضغط على أي جملة للاستماع إلى القراءة الجهرية المعبرة بصوت المعلمة رنا:
+                            </div>
+
+                            <div class="dha-sentence-card" onclick="playAudio('letter_dha_story_mahfooz_s1')">
+                                <div class="dha-sentence-text">مَحْفُوظٌ تِلْمِيذٌ نَشِيطٌ.</div>
+                                <span>🎧</span>
+                            </div>
+                            <div class="dha-sentence-card" onclick="playAudio('letter_dha_story_mahfooz_s2')">
+                                <div class="dha-sentence-text">يَقُولُ لِصَدِيقِهِ ظَافِرٍ:</div>
+                                <span>🎧</span>
+                            </div>
+                            <div class="dha-sentence-card" onclick="playAudio('letter_dha_story_mahfooz_s3')">
+                                <div class="dha-sentence-text">احْفَظْ دُرُوسَكَ كُلَّ يَوْمٍ.</div>
+                                <span>🎧</span>
+                            </div>
+                            <div class="dha-sentence-card" onclick="playAudio('letter_dha_story_mahfooz_s4')">
+                                <div class="dha-sentence-text">وَحَافِظْ عَلَى نَظَافَةِ مَدْرَسَتِكَ.</div>
+                                <span>🎧</span>
+                            </div>
+                            <div class="dha-sentence-card" onclick="playAudio('letter_dha_story_mahfooz_s5')">
+                                <div class="dha-sentence-text">النَّظَافَةُ مِنَ الإِيمَانِ.</div>
+                                <span>🎧</span>
+                            </div>
+                        </div>
+
+                        <!-- سبورة رسم وتتبع حرف الظاء التفاعلية -->
+                        <div class="dha-canvas-container" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900;">
+                                    ✍️ سَبُّورَةُ رَسْمِ وَتَتَبُّعِ حَرْفِ الظَّاءِ (ظ)
+                                </h3>
+                                <button class="btn-secondary" onclick="clearDhaCanvas()" style="font-size: 0.85rem;">
+                                    <span>🗑️</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                </button>
+                            </div>
+
+                            <div style="position: relative; max-width: 500px; margin: 0 auto; background: #f0fdfa; border: 2px dashed #0d9488; border-radius: 18px; overflow: hidden; touch-action: none;">
+                                <canvas id="dhaCanvas" width="500" height="240" style="width: 100%; height: 240px; cursor: crosshair; display: block;"></canvas>
+                            </div>
+
+                            <div class="dha-canvas-tools">
+                                <span style="font-weight: 800; color: #134e4a;">الأَلْوَان:</span>
+                                <button onclick="setDhaCanvasColor('#0d9488')" style="background: #0d9488; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setDhaCanvasColor('#0f766e')" style="background: #0f766e; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setDhaCanvasColor('#0284c7')" style="background: #0284c7; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setDhaCanvasColor('#b45309')" style="background: #b45309; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setDhaCanvasColor('#dc2626')" style="background: #dc2626; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <span style="font-weight: 800; color: #134e4a; margin-right: 12px;">سَمَاكَةُ الْقَلَم:</span>
+                                <button class="btn-secondary" onclick="setDhaCanvasSize(4)" style="padding: 4px 10px; font-size: 0.8rem;">رَفِيع</button>
+                                <button class="btn-secondary" onclick="setDhaCanvasSize(8)" style="padding: 4px 10px; font-size: 0.8rem;">مُتَوَسِّط</button>
+                                <button class="btn-secondary" onclick="setDhaCanvasSize(14)" style="padding: 4px 10px; font-size: 0.8rem;">عَرِيض</button>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي التفاعلي للظاء -->
+                        <div class="dha-quiz-box">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900;">
+                                    🏆 اخْتِبَارُ التَّحَدِّي لِحَرْفِ الظَّاءِ
+                                </h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dha_quiz_intro')" style="font-size: 0.85rem;">
+                                    <span>🎧</span> <span>تَوْجِيهُ التَّحَدِّي</span>
+                                </button>
+                            </div>
+
+                            <div id="dhaQuizContainer">
+                                <!-- يتم بناؤه تفاعلياً بواسطة JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div></div> <!-- إغلاق stage-card -->
 <!-- شريط الانتقال المتسلسل بين الدروس -->
 
             <div class="lesson-stepper-bar">
@@ -22271,6 +22848,7 @@
 
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
+    <script src="audio_data_unit6.js"></script>
     <script src="curriculum_data.js"></script>
 
     <!-- منظومة المنطق البرمجي المجزأة - إعداد المهندس أسامة خليل هاشم -->

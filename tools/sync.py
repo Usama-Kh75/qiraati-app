@@ -54,6 +54,7 @@ def sync_assets(bump_cache=False):
         "'./index.html'",
         "'./manifest.json'",
         "'./audio_data.js'",
+        "'./audio_data_unit6.js'",
         "'./curriculum_data.js'",
         "'./css/variables.css'",
         "'./css/layout.css'",

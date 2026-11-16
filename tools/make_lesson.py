@@ -148,14 +148,25 @@ def run_generate_audio(audio_items):
 # =========================================================================
 def update_audio_data_js(audio_keys):
     """
-    يقوم بترميز ملفات audio/*.mp3 إلى Base64 وتحديث/إلحاق القيم في audio_data.js
-    بطريقة التدفق السريع دون التسبب في مسح أو تلف المفاتيح السابقة.
+    يقوم بترميز ملفات audio/*.mp3 إلى Base64 وتحديث/إلحاق القيم في audio_data_unit6.js
+    (أو audio_data.js) بطريقة التدفق السريع لتفادي تجاوز حد 100 م.ب لمستودع GitHub.
     """
-    audio_data_path = os.path.join(BASE_DIR, 'audio_data.js')
-    print("⚡ [4/5] تحديث قاعدة البيانات الصوتية المضمنة (audio_data.js)...")
+    u6_prefixes = ('letter_ghayn', 'letter_ha', 'letter_dhal', 'letter_dha', 'unit6', 'al_shamsiyyah')
+    is_u6 = any(any(k.startswith(p) for p in u6_prefixes) for k in audio_keys)
+    target_filename = 'audio_data_unit6.js' if is_u6 else 'audio_data.js'
+    audio_data_path = os.path.join(BASE_DIR, target_filename)
+    print(f"⚡ [4/5] تحديث قاعدة البيانات الصوتية المضمنة ({target_filename})...")
 
     if not os.path.exists(audio_data_path):
-        lines = ["// قاعدة البيانات الصوتية الفونيمية المضمنة بصيغة Base64 - إعداد المهندس أسامة خليل هاشم\n", "window.AUDIO_DATA = {\n", "};\n"]
+        if is_u6:
+            lines = [
+                "// قاعدة البيانات الصوتية للوحدة السادسة (العالم من حولي) - إعداد المهندس أسامة خليل هاشم\n",
+                "window.AUDIO_DATA = window.AUDIO_DATA || {};\n",
+                "Object.assign(window.AUDIO_DATA, {\n",
+                "});\n"
+            ]
+        else:
+            lines = ["// قاعدة البيانات الصوتية الفونيمية المضمنة بصيغة Base64 - إعداد المهندس أسامة خليل هاشم\n", "window.AUDIO_DATA = window.AUDIO_DATA || {\n", "};\n"]
     else:
         with open(audio_data_path, 'r', encoding='utf-8') as f:
             lines = f.readlines()
@@ -179,19 +190,19 @@ def update_audio_data_js(audio_keys):
             new_entries.append(f'  "{key}": "data:audio/mp3;base64,{b64}"')
 
     if not new_entries:
-        print("   ✔ جميع المفاتيح الصوتية موجودة بالفعل في audio_data.js.")
+        print(f"   ✔ جميع المفاتيح الصوتية موجودة بالفعل في {target_filename}.")
         return
 
-    # العثور على السطر الأخير الذي يحتوي على "};"
+    # العثور على السطر الأخير الذي يحتوي على "};" أو "});"
     closing_idx = -1
     for idx in range(len(lines) - 1, -1, -1):
-        if '};' in lines[idx] or '}' in lines[idx]:
+        if '};' in lines[idx] or '});' in lines[idx] or '}' in lines[idx]:
             closing_idx = idx
             break
 
     if closing_idx == -1:
         closing_idx = len(lines)
-        lines.append("};\n")
+        lines.append("});\n" if is_u6 else "};\n")
 
     # إضافة فاصلة للسطر السابق إذا لم تكن موجودة
     prev_idx = closing_idx - 1
@@ -209,7 +220,7 @@ def update_audio_data_js(audio_keys):
     with open(audio_data_path, 'w', encoding='utf-8') as f:
         f.writelines(lines)
 
-    print(f"   ✔ تم إلحاق {len(new_entries)} تسجيلاً صوتياً جديداً بنجاح في audio_data.js.")
+    print(f"   ✔ تم إلحاق {len(new_entries)} تسجيلاً صوتياً جديداً بنجاح في {target_filename}.")
 
 
 # =========================================================================
@@ -568,6 +579,160 @@ PRESET_DHAL = {
     ]
 }
 
+PRESET_DHA = {
+    "name": "حرف الظاء (ظ) وتطبيقاته وقراءة مُنْتَظَرٌ تَلْمِيذٌ نَشِيطٌ / مَحْفُوظٌ وَظَافِرٌ (ص ١٢٢ - ١٢٥)",
+    "pages": {
+        122: 'page_123.png',
+        123: 'page_124.png',
+        124: 'page_125.png',
+        125: 'page_126.png'
+    },
+    "crops": [
+        {'src': 'page_123.png', 'out': 'activity_dha_trace.png', 'top_pt': 15, 'bot_pt': 105, 'margin_x': 50},
+        {'src': 'page_123.png', 'out': 'activity_dha_scene.png', 'top_pt': 95, 'bot_pt': 342, 'margin_x': 50},
+        {'src': 'page_123.png', 'out': 'activity_dha_words.png', 'top_pt': 340, 'bot_pt': 598, 'margin_x': 50},
+        {'src': 'page_123.png', 'out': 'activity_dha_vowels.png', 'top_pt': 598, 'bot_pt': 780, 'margin_x': 50},
+        {'src': 'page_124.png', 'out': 'activity_dha_vowel_words.png', 'top_pt': 30, 'bot_pt': 365, 'margin_x': 50},
+        {'src': 'page_124.png', 'out': 'activity_dha_syllables.png', 'top_pt': 365, 'bot_pt': 575, 'margin_x': 50},
+        {'src': 'page_124.png', 'out': 'activity_dha_analysis.png', 'top_pt': 575, 'bot_pt': 780, 'margin_x': 50},
+        {'src': 'page_125.png', 'out': 'activity_dha_swap.png', 'top_pt': 40, 'bot_pt': 165, 'margin_x': 50},
+        {'src': 'page_125.png', 'out': 'activity_dha_blend.png', 'top_pt': 165, 'bot_pt': 540, 'margin_x': 50},
+        {'src': 'page_125.png', 'out': 'activity_dha_order.png', 'top_pt': 540, 'bot_pt': 775, 'margin_x': 50},
+        {'src': 'page_126.png', 'out': 'activity_dha_order_para.png', 'top_pt': 40, 'bot_pt': 225, 'margin_x': 50},
+        {'src': 'page_126.png', 'out': 'activity_dha_read.png', 'top_pt': 225, 'bot_pt': 680, 'margin_x': 50}
+    ],
+    "audio": [
+        # التوجيهات والمقدمات التعليمية
+        ("letter_dha_intro", "الْوَحْدَةُ السَّادِسَةُ: الْعَالَمُ مِنْ حَوْلِي! مَعَ دَرْسِ حَرْفِ الظَّاءِ (ظ) وَتَطْبِيقَاتِهِ (ص ١٢٢ - ١٢٥)! اِسْتَمِعُوا لِصَوْتِ الظَّاءِ اللِّثَوِيِّ الْمُفَخَّمِ، وَتَعَرَّفُوا عَلَى الْمُدُودِ وَالْمَقَاطِعِ وَالتَّرْكِيبِ وَقِرَاءَةِ نَصِّ الْكِتَابِ: مُنْتَظَرٌ تَلْمِيذٌ نَشِيطٌ ، وَالنَّصِّ التُّرَاثِيِّ الْخَالِدِ: مَحْفُوظٌ وَظَافِرٌ!", VOICE_RANA),
+        ("letter_dha_sound", "ظْ... ظْ... صَوْتُ حَرْفِ الظَّاءِ السَّاكِنُ، يَخْرُجُ مِنْ طَرَفِ اللِّسَانِ مَعَ أَطْرَافِ الثَّنَايَا الْعُلْيَا مَفْخُومًا مُطْبَقًا: ظْ... ظْ...", VOICE_BASSEL),
+        ("letter_dha_phoneme_faseeh", "أَهْلًا بِكُمْ يَا أَصْدِقَائِي! حَرْفُ الظَّاءِ حَرْفٌ لِثَوِيٌّ مُفَخَّمٌ مُطْبَقٌ، نُخْرِجُ فِيهِ طَرَفَ اللِّسَانِ مَعَ الثَّنَايَا الْعُلْيَا مَعَ تَفْخِيمِ الصَّوْتِ: ظْ... ظَ... ظُ... ظِ! انْتَبِهُوا، لَا نَخْلِطْ بَيْنَهُ وَبَيْنَ حَرْفِ الذَّالِ الْمُرَقَّقِ أَوِ الضَّادِ!", VOICE_BASSEL),
+        ("letter_dha_scene_story", "فِي حَدِيقَةِ الْحَيَوَانِ الْوَاسِعَةِ، وَقَفَ ظَافِرٌ يَنْظُرُ بِالنَّاظُورِ إِلَى حَظِيرَةِ الظِّبَاءِ، وَشَاهَدَ الطَّبِيعَةَ الْجَمِيلَةَ مَعَ أَصْدِقَائِهِ، فِي يَوْمٍ مُشْرِقٍ حَافِلٍ بِالنَّشَاطِ وَالْمَعْرِفَةِ!", VOICE_RANA),
+        ("letter_dha_act1_intro", "نَشَاطُ وَاحِد: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ حَرْفِ الظَّاءِ: ظَبْيٌ ، ظَرْفٌ ، حَافِظٌ ، عَظْمٌ ، ظَلَمَ ، حَظِيرَةٌ ، نَاظُورٌ ، عِظَامٌ.", VOICE_RANA),
+        ("letter_dha_act2_intro", "نَشَاطُ اثْنَان: أَنْطِقُ صَوْتَ حَرْفِ الظَّاءِ مَعَ أَصْوَاتِ الْمَدِّ الْقَصِيرَةِ: ظَ ، ظُ ، ظِ ، وَأَصْوَاتِ الْمَدِّ الطَّوِيلَةِ: ظَا ، ظُو ، ظِيـ.", VOICE_RANA),
+        ("letter_dha_act3_intro", "نَشَاطُ ثَلَاثَة: أَسْتَمِعُ لِلَفْظِ الْكَلِمَاتِ، ثُمَّ أَنْطِقُ صَوْتَ حَرْفِ الظَّاءِ مَعَ أَصْوَاتِ الْمَدِّ الْقَصِيرَةِ وَأَصْوَاتِ الْمَدِّ الطَّوِيلَةِ.", VOICE_RANA),
+        ("letter_dha_act4_intro", "نَشَاطُ أَرْبَعَة: أَسْتَمِعُ إِلَى لَفْظِ الْكَلِمَاتِ وَأُمَيِّزُ صَوْتَ حَرْفِ الظَّاءِ السَّاكِنِ فِي الْمَقَاطِعِ: عَظْ ، أَظْ.", VOICE_RANA),
+        ("letter_dha_act5_intro", "نَشَاطُ خَمْسَة: أَقْرَأُ الْكَلِمَاتِ، ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ بِالتَّصْفِيق.", VOICE_RANA),
+        ("letter_dha_act6_intro", "نَشَاطُ سِتَّة: أَسْتَبْدِلُ الْحَرْفَ بِاللَّوْنِ الأَحْمَرِ بِآخَرَ لِتَكْوِينِ كَلِمَةٍ جَدِيدَةٍ، ثُمَّ أَنْطِقُهَا.", VOICE_RANA),
+        ("letter_dha_act7_intro", "نَشَاطُ سَبْعَة: أُرَكِّبُ مِنَ الْمَقَاطِعِ التَّالِيَةِ كَلِمَاتٍ ثُمَّ أَقْرَأُهَا.", VOICE_RANA),
+        ("letter_dha_act8_intro", "نَشَاطُ ثَمَانِيَة: أُرَتِّبُ الْكَلِمَاتِ التَّالِيَةَ، وَأُكَوِّنُ جُمْلَةً مُفِيدَةً، ثُمَّ أَقْرَأُهَا.", VOICE_RANA),
+        ("letter_dha_act9_intro", "نَشَاطُ تِسْعَة: أُرَتِّبُ الْجُمْلَتَيْنِ، أُكَوِّنُ فِقْرَةً، ثُمَّ أَقْرَأُهَا.", VOICE_RANA),
+        ("letter_dha_read_intro", "مَحَطَّةُ الْقِرَاءَةِ وَالسَّبُّورَةِ وَالنُّصُوصِ التُّرَاثِيَّةِ! اقْرَأْ نَصَّ الْكِتَابِ ص ١٢٥: مُنْتَظَرٌ تَلْمِيذٌ نَشِيطٌ ، وَالنَّصَّ التُّرَاثِيَّ الْعِرَاقِيَّ الْخَالِدَ: مَحْفُوظٌ وَظَافِرٌ!", VOICE_RANA),
+        ("letter_dha_quiz_intro", "اخْتِبَارُ التَّحَدِّي لِدَرْسِ حَرْفِ الظَّاءِ! أَجِبْ عَنِ الأَسْئِلَةِ لِتَحْصُلَ عَلَى كَأْسِ التَّفَوُّقِ وَأَوْسِمَةِ الأَبْطَالِ!", VOICE_RANA),
+
+        # الحركات والمدود والمقاطع الساكنة
+        ("letter_dha_short_a", "ظَ", VOICE_RANA),
+        ("letter_dha_short_u", "ظُ", VOICE_RANA),
+        ("letter_dha_short_i", "ظِ", VOICE_RANA),
+        ("letter_dha_long_aa", "ظَا", VOICE_RANA),
+        ("letter_dha_long_oo", "ظُو", VOICE_RANA),
+        ("letter_dha_long_ee", "ظِيـ", VOICE_RANA),
+        ("letter_dha_syl_adh", "أَظْ", VOICE_RANA),
+        ("letter_dha_syl_adh_u", "أُظْ", VOICE_RANA),
+        ("letter_dha_syl_adh_i", "إِظْ", VOICE_RANA),
+        ("letter_dha_syl_azm", "عَظْ", VOICE_RANA),
+        ("letter_dha_syl_yadh", "يَظْ", VOICE_RANA),
+        ("letter_dha_syl_mah", "مَحْـ", VOICE_RANA),
+
+        # المفردات المصورة وتطبيقات الدرس
+        ("letter_dha_word_zaby", "ظَبْيٌ", VOICE_RANA),
+        ("letter_dha_word_zibaa", "ظِبَاءٌ", VOICE_RANA),
+        ("letter_dha_word_zarf", "ظَرْفٌ", VOICE_RANA),
+        ("letter_dha_word_haafiz", "حَافِظٌ", VOICE_RANA),
+        ("letter_dha_word_azm", "عَظْمٌ", VOICE_RANA),
+        ("letter_dha_word_zalama", "ظَلَمَ", VOICE_RANA),
+        ("letter_dha_word_hazeerah", "حَظِيرَةٌ", VOICE_RANA),
+        ("letter_dha_word_naazoor", "نَاظُورٌ", VOICE_RANA),
+        ("letter_dha_word_ezaam", "عِظَامٌ", VOICE_RANA),
+        ("letter_dha_word_zafar", "ظَفَرٌ", VOICE_RANA),
+        ("letter_dha_word_zill", "ظِلٌّ", VOICE_RANA),
+        ("letter_dha_word_nizaam", "نِظَامٌ", VOICE_RANA),
+        ("letter_dha_word_azfur", "أَظْفُرٌ", VOICE_RANA),
+        ("letter_dha_word_azfaar", "أَظْفَارٌ", VOICE_RANA),
+        ("letter_dha_word_nazzaarah", "نَظَّارَةٌ", VOICE_RANA),
+        ("letter_dha_word_haseerah", "حَصِيرَةٌ", VOICE_RANA),
+        ("letter_dha_word_naatoor", "نَاطُورٌ", VOICE_RANA),
+        ("letter_dha_word_zaafir", "ظَافِرٌ", VOICE_RANA),
+        ("letter_dha_word_mahfazah", "مَحْفَظَةٌ", VOICE_RANA),
+        ("letter_dha_word_yada", "يَضَعُ", VOICE_RANA),
+        ("letter_dha_word_tibbiyyah", "طِبِّيَّةً", VOICE_RANA),
+        ("letter_dha_word_likay", "لِكَيْ", VOICE_RANA),
+        ("letter_dha_word_yara", "يَرَى", VOICE_RANA),
+        ("letter_dha_word_biwudooh", "بِوُضُوحٍ", VOICE_RANA),
+        ("letter_dha_word_zafaar", "ظَفَارُ", VOICE_RANA),
+        ("letter_dha_word_turabbee", "تُرَبِّي", VOICE_RANA),
+        ("letter_dha_word_fee", "فِي", VOICE_RANA),
+        ("letter_dha_word_hayawaanaat", "حَيَوَانَاتٍ", VOICE_RANA),
+        ("letter_dha_word_mutanawwiah", "مُتَنَوِّعَةً", VOICE_RANA),
+        ("letter_dha_word_indahaa", "عِنْدَهَا", VOICE_RANA),
+        ("letter_dha_word_qitt", "وَقِطٌّ", VOICE_RANA),
+        ("letter_dha_word_sinjaab", "وَسِنْجَابٌ", VOICE_RANA),
+        ("letter_dha_word_jameel", "جَمِيلٌ", VOICE_RANA),
+        ("letter_dha_word_muntazar", "مُنْتَظَرٌ", VOICE_RANA),
+        ("letter_dha_word_tilmeedh", "تِلْمِيذٌ", VOICE_RANA),
+        ("letter_dha_word_nasheet", "نَشِيطٌ", VOICE_RANA),
+        ("letter_dha_word_yanaamu", "يَنَامُ", VOICE_RANA),
+        ("letter_dha_word_yastayqizu", "وَيَسْتَيْقِظُ", VOICE_RANA),
+        ("letter_dha_word_baakiran", "بَاكِرًا", VOICE_RANA),
+        ("letter_dha_word_yuhibbu", "يُحِبُّ", VOICE_RANA),
+        ("letter_dha_word_haasoobahu", "حَاسُوبَهُ", VOICE_RANA),
+        ("letter_dha_word_yuhaafizu", "يُحَافِظُ", VOICE_RANA),
+        ("letter_dha_word_ala", "عَلَى", VOICE_RANA),
+        ("letter_dha_word_sihhati", "صِحَّةِ", VOICE_RANA),
+        ("letter_dha_word_aynayh", "عَيْنَيْهِ", VOICE_RANA),
+        ("letter_dha_word_falaa", "فَلَا", VOICE_RANA),
+        ("letter_dha_word_yalabu", "يَلْعَبُ", VOICE_RANA),
+        ("letter_dha_word_bihi", "بِهِ", VOICE_RANA),
+        ("letter_dha_word_katheeran", "كَثِيرًا", VOICE_RANA),
+        ("letter_dha_word_mahfooz", "مَحْفُوظٌ", VOICE_RANA),
+        ("letter_dha_word_yaqoolu", "يَقُولُ", VOICE_RANA),
+        ("letter_dha_word_lisadeeqihi", "لِصَدِيقِهِ", VOICE_RANA),
+        ("letter_dha_word_ihfaz", "احْفَظْ", VOICE_RANA),
+        ("letter_dha_word_duroosaka", "دُرُوسَكَ", VOICE_RANA),
+        ("letter_dha_word_kulla", "كُلَّ", VOICE_RANA),
+        ("letter_dha_word_yawm", "يَوْمٍ", VOICE_RANA),
+        ("letter_dha_word_wahaafiz", "وَحَافِظْ", VOICE_RANA),
+        ("letter_dha_word_nazaafati", "نَظَافَةِ", VOICE_RANA),
+        ("letter_dha_word_madrasatika", "مَدْرَسَتِكَ", VOICE_RANA),
+        ("letter_dha_word_annazaafatu", "النَّظَافَةُ", VOICE_RANA),
+        ("letter_dha_word_mina", "مِنَ", VOICE_RANA),
+        ("letter_dha_word_aleemaan", "الإِيمَانِ", VOICE_RANA),
+
+        # التحليل والتركيب الصوتي بالتصفيق
+        ("letter_dha_split_hazeerah", "حَظِيرَةٌ: حَـ... ظِيـ... رَ... تُنْ. أَرْبَعَةُ مَقَاطِعَ.", VOICE_BASSEL),
+        ("letter_dha_split_naazoor", "نَاظُورٌ: نَا... ظُو... رٌ. ثَلَاثَةُ مَقَاطِعَ.", VOICE_BASSEL),
+        ("letter_dha_split_nazzaarah", "نَظَّارَةٌ: نَظْـ... ظَا... رَ... تُنْ. أَرْبَعَةُ مَقَاطِعَ.", VOICE_BASSEL),
+        ("letter_dha_split_mahfazah", "مَحْفَظَةٌ: مَحْـ... فَـ... ظَـ... تُنْ. أَرْبَعَةُ مَقَاطِعَ.", VOICE_BASSEL),
+        ("letter_dha_merge_zaafir", "ظَا... فِـ... رٌ: ظَافِرٌ.", VOICE_BASSEL),
+        ("letter_dha_merge_haafiz", "حَا... فِـ... ظٌ: حَافِظٌ.", VOICE_BASSEL),
+        ("letter_dha_merge_mahfazah", "مَحْـ... فَـ... ظَـ... ةٌ: مَحْفَظَةٌ.", VOICE_BASSEL),
+
+        # ترتيب الكلمات والجمل والفقرة
+        ("letter_dha_order_sentence_full", "يَضَعُ ظَافِرٌ نَظَّارَةً طِبِّيَّةً لِكَيْ يَرَى بِوُضُوحٍ.", VOICE_RANA),
+        ("letter_dha_order_para_full", "ظَفَارُ تُرَبِّي فِي حَظِيرَتِهَا حَيَوَانَاتٍ مُتَنَوِّعَةً. عِنْدَهَا ظَبْيٌ وَقِطٌّ وَسِنْجَابٌ جَمِيلٌ.", VOICE_RANA),
+        ("letter_dha_order_para_s1", "ظَفَارُ تُرَبِّي فِي حَظِيرَتِهَا حَيَوَانَاتٍ مُتَنَوِّعَةً.", VOICE_RANA),
+        ("letter_dha_order_para_s2", "عِنْدَهَا ظَبْيٌ وَقِطٌّ وَسِنْجَابٌ جَمِيلٌ.", VOICE_RANA),
+
+        # قراءة نصوص الكتاب المدرسي ص ١٢٥
+        ("letter_dha_read_p125_full", "مُنْتَظَرٌ تَلْمِيذٌ نَشِيطٌ ، يَنَامُ وَيَسْتَيْقِظُ بَاكِرًا ، يُحِبُّ حَاسُوبَهُ. يُحَافِظُ عَلَى صِحَّةِ عَيْنَيْهِ ، فَلَا يَلْعَبُ بِهِ كَثِيرًا.", VOICE_RANA),
+        ("letter_dha_read_p125_s1", "مُنْتَظَرٌ تَلْمِيذٌ نَشِيطٌ ،", VOICE_RANA),
+        ("letter_dha_read_p125_s2", "يَنَامُ وَيَسْتَيْقِظُ بَاكِرًا ، يُحِبُّ حَاسُوبَهُ.", VOICE_RANA),
+        ("letter_dha_read_p125_s3", "يُحَافِظُ عَلَى صِحَّةِ عَيْنَيْهِ ، فَلَا يَلْعَبُ بِهِ كَثِيرًا.", VOICE_RANA),
+
+        # النص التراثي العراقي الخالد لحرف الظاء: مَحْفُوظٌ وَظَافِرٌ
+        ("letter_dha_story_mahfooz_full", "مَحْفُوظٌ وَظَافِرٌ. مَحْفُوظٌ تِلْمِيذٌ نَشِيطٌ. يَقُولُ لِصَدِيقِهِ ظَافِرٍ: احْفَظْ دُرُوسَكَ كُلَّ يَوْمٍ. وَحَافِظْ عَلَى نَظَافَةِ مَدْرَسَتِكَ. النَّظَافَةُ مِنَ الإِيمَانِ.", VOICE_RANA),
+        ("letter_dha_story_mahfooz_s1", "مَحْفُوظٌ تِلْمِيذٌ نَشِيطٌ.", VOICE_RANA),
+        ("letter_dha_story_mahfooz_s2", "يَقُولُ لِصَدِيقِهِ ظَافِرٍ:", VOICE_RANA),
+        ("letter_dha_story_mahfooz_s3", "احْفَظْ دُرُوسَكَ كُلَّ يَوْمٍ.", VOICE_RANA),
+        ("letter_dha_story_mahfooz_s4", "وَحَافِظْ عَلَى نَظَافَةِ مَدْرَسَتِكَ.", VOICE_RANA),
+        ("letter_dha_story_mahfooz_s5", "النَّظَافَةُ مِنَ الإِيمَانِ.", VOICE_RANA),
+
+        # التعزيز الصوتي والتقييم
+        ("letter_dha_correct", "أَحْسَنْتَ يَا بَطَلَ قِرَاءَتِي! إِجَابَةٌ صَحِيحَةٌ وَرَائِعَة!", VOICE_BASSEL),
+        ("letter_dha_wrong", "حَاوِلْ مَرَّةً أُخْرَى، أَنْتَ ذَكِيٌّ وَقَادِرٌ عَلَى النَّجَاح!", VOICE_BASSEL),
+        ("letter_dha_encourage_super", "مُمْتَازٌ جِدًّا! أَنْتَ عَبْقَرِيُّ الْقِرَاءَةِ وَنَجْمُ حَرْفِ الظَّاءِ!", VOICE_BASSEL)
+    ]
+}
+
 
 def run_lesson_pipeline(preset_data, bump=False):
     t0 = time.time()
@@ -605,7 +770,7 @@ def run_lesson_pipeline(preset_data, bump=False):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="خط الإنتاج المؤتمت السريع لمنصة قراءتي الذكية - إعداد المهندس أسامة خليل هاشم")
-    parser.add_argument('--preset', choices=['ghayn', 'ha', 'dhal'], help="تشغيل خط الإنتاج لدرس محدد مسبقاً")
+    parser.add_argument('--preset', choices=['ghayn', 'ha', 'dhal', 'dha'], help="تشغيل خط الإنتاج لدرس محدد مسبقاً")
     parser.add_argument('--build-sync', action='store_true', help="تشغيل البناء والمزامنة فقط")
     parser.add_argument('--bump', action='store_true', help="ترقية رقم نسخة كاش الخدمة")
     parser.add_argument('--sync-audio', action='store_true', help="تحديث Base64 في audio_data.js لجميع ملفات audio/*.mp3")
@@ -618,6 +783,8 @@ if __name__ == '__main__':
         run_lesson_pipeline(PRESET_HA, bump=args.bump)
     elif args.preset == 'dhal':
         run_lesson_pipeline(PRESET_DHAL, bump=args.bump)
+    elif args.preset == 'dha':
+        run_lesson_pipeline(PRESET_DHA, bump=args.bump)
     elif args.build_sync:
         run_pipeline_build_and_sync(bump_cache=args.bump)
     elif args.sync_audio:

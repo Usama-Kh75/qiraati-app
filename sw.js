@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v49';
+const CACHE_NAME = 'qiraati-smart-v50';
 
 const ASSETS_TO_CACHE = [
 
@@ -11,6 +11,8 @@ const ASSETS_TO_CACHE = [
   './manifest.json',
 
   './audio_data.js',
+
+  './audio_data_unit6.js',
 
   './curriculum_data.js',
 
@@ -121,6 +123,30 @@ const ASSETS_TO_CACHE = [
   './activity_d_vowels.png',
 
   './activity_d_words.png',
+
+  './activity_dha_analysis.png',
+
+  './activity_dha_blend.png',
+
+  './activity_dha_order.png',
+
+  './activity_dha_order_para.png',
+
+  './activity_dha_read.png',
+
+  './activity_dha_scene.png',
+
+  './activity_dha_swap.png',
+
+  './activity_dha_syllables.png',
+
+  './activity_dha_trace.png',
+
+  './activity_dha_vowel_words.png',
+
+  './activity_dha_vowels.png',
+
+  './activity_dha_words.png',
 
   './activity_dhad_analysis.png',
 
@@ -633,6 +659,14 @@ const ASSETS_TO_CACHE = [
   './page_121.png',
 
   './page_122.png',
+
+  './page_123.png',
+
+  './page_124.png',
+
+  './page_125.png',
+
+  './page_126.png',
 
   './page_17.png',
 
@@ -1329,6 +1363,232 @@ const ASSETS_TO_CACHE = [
   './audio/letter_d_vowels_intro.mp3',
 
   './audio/letter_da.mp3',
+
+  './audio/letter_dha_act1_intro.mp3',
+
+  './audio/letter_dha_act2_intro.mp3',
+
+  './audio/letter_dha_act3_intro.mp3',
+
+  './audio/letter_dha_act4_intro.mp3',
+
+  './audio/letter_dha_act5_intro.mp3',
+
+  './audio/letter_dha_act6_intro.mp3',
+
+  './audio/letter_dha_act7_intro.mp3',
+
+  './audio/letter_dha_act8_intro.mp3',
+
+  './audio/letter_dha_act9_intro.mp3',
+
+  './audio/letter_dha_correct.mp3',
+
+  './audio/letter_dha_encourage_super.mp3',
+
+  './audio/letter_dha_intro.mp3',
+
+  './audio/letter_dha_long_aa.mp3',
+
+  './audio/letter_dha_long_ee.mp3',
+
+  './audio/letter_dha_long_oo.mp3',
+
+  './audio/letter_dha_merge_haafiz.mp3',
+
+  './audio/letter_dha_merge_mahfazah.mp3',
+
+  './audio/letter_dha_merge_zaafir.mp3',
+
+  './audio/letter_dha_order_para_full.mp3',
+
+  './audio/letter_dha_order_para_s1.mp3',
+
+  './audio/letter_dha_order_para_s2.mp3',
+
+  './audio/letter_dha_order_sentence_full.mp3',
+
+  './audio/letter_dha_phoneme_faseeh.mp3',
+
+  './audio/letter_dha_quiz_intro.mp3',
+
+  './audio/letter_dha_read_intro.mp3',
+
+  './audio/letter_dha_read_p125_full.mp3',
+
+  './audio/letter_dha_read_p125_s1.mp3',
+
+  './audio/letter_dha_read_p125_s2.mp3',
+
+  './audio/letter_dha_read_p125_s3.mp3',
+
+  './audio/letter_dha_scene_story.mp3',
+
+  './audio/letter_dha_short_a.mp3',
+
+  './audio/letter_dha_short_i.mp3',
+
+  './audio/letter_dha_short_u.mp3',
+
+  './audio/letter_dha_sound.mp3',
+
+  './audio/letter_dha_split_hazeerah.mp3',
+
+  './audio/letter_dha_split_mahfazah.mp3',
+
+  './audio/letter_dha_split_naazoor.mp3',
+
+  './audio/letter_dha_split_nazzaarah.mp3',
+
+  './audio/letter_dha_story_mahfooz_full.mp3',
+
+  './audio/letter_dha_story_mahfooz_s1.mp3',
+
+  './audio/letter_dha_story_mahfooz_s2.mp3',
+
+  './audio/letter_dha_story_mahfooz_s3.mp3',
+
+  './audio/letter_dha_story_mahfooz_s4.mp3',
+
+  './audio/letter_dha_story_mahfooz_s5.mp3',
+
+  './audio/letter_dha_syl_adh.mp3',
+
+  './audio/letter_dha_syl_adh_i.mp3',
+
+  './audio/letter_dha_syl_adh_u.mp3',
+
+  './audio/letter_dha_syl_azm.mp3',
+
+  './audio/letter_dha_syl_mah.mp3',
+
+  './audio/letter_dha_syl_yadh.mp3',
+
+  './audio/letter_dha_word_ala.mp3',
+
+  './audio/letter_dha_word_aleemaan.mp3',
+
+  './audio/letter_dha_word_annazaafatu.mp3',
+
+  './audio/letter_dha_word_aynayh.mp3',
+
+  './audio/letter_dha_word_azfaar.mp3',
+
+  './audio/letter_dha_word_azfur.mp3',
+
+  './audio/letter_dha_word_azm.mp3',
+
+  './audio/letter_dha_word_baakiran.mp3',
+
+  './audio/letter_dha_word_bihi.mp3',
+
+  './audio/letter_dha_word_biwudooh.mp3',
+
+  './audio/letter_dha_word_duroosaka.mp3',
+
+  './audio/letter_dha_word_ezaam.mp3',
+
+  './audio/letter_dha_word_falaa.mp3',
+
+  './audio/letter_dha_word_fee.mp3',
+
+  './audio/letter_dha_word_haafiz.mp3',
+
+  './audio/letter_dha_word_haasoobahu.mp3',
+
+  './audio/letter_dha_word_haseerah.mp3',
+
+  './audio/letter_dha_word_hayawaanaat.mp3',
+
+  './audio/letter_dha_word_hazeerah.mp3',
+
+  './audio/letter_dha_word_ihfaz.mp3',
+
+  './audio/letter_dha_word_indahaa.mp3',
+
+  './audio/letter_dha_word_jameel.mp3',
+
+  './audio/letter_dha_word_katheeran.mp3',
+
+  './audio/letter_dha_word_kulla.mp3',
+
+  './audio/letter_dha_word_likay.mp3',
+
+  './audio/letter_dha_word_lisadeeqihi.mp3',
+
+  './audio/letter_dha_word_madrasatika.mp3',
+
+  './audio/letter_dha_word_mahfazah.mp3',
+
+  './audio/letter_dha_word_mahfooz.mp3',
+
+  './audio/letter_dha_word_mina.mp3',
+
+  './audio/letter_dha_word_muntazar.mp3',
+
+  './audio/letter_dha_word_mutanawwiah.mp3',
+
+  './audio/letter_dha_word_naatoor.mp3',
+
+  './audio/letter_dha_word_naazoor.mp3',
+
+  './audio/letter_dha_word_nasheet.mp3',
+
+  './audio/letter_dha_word_nazaafati.mp3',
+
+  './audio/letter_dha_word_nazzaarah.mp3',
+
+  './audio/letter_dha_word_nizaam.mp3',
+
+  './audio/letter_dha_word_qitt.mp3',
+
+  './audio/letter_dha_word_sihhati.mp3',
+
+  './audio/letter_dha_word_sinjaab.mp3',
+
+  './audio/letter_dha_word_tibbiyyah.mp3',
+
+  './audio/letter_dha_word_tilmeedh.mp3',
+
+  './audio/letter_dha_word_turabbee.mp3',
+
+  './audio/letter_dha_word_wahaafiz.mp3',
+
+  './audio/letter_dha_word_yada.mp3',
+
+  './audio/letter_dha_word_yalabu.mp3',
+
+  './audio/letter_dha_word_yanaamu.mp3',
+
+  './audio/letter_dha_word_yaqoolu.mp3',
+
+  './audio/letter_dha_word_yara.mp3',
+
+  './audio/letter_dha_word_yastayqizu.mp3',
+
+  './audio/letter_dha_word_yawm.mp3',
+
+  './audio/letter_dha_word_yuhaafizu.mp3',
+
+  './audio/letter_dha_word_yuhibbu.mp3',
+
+  './audio/letter_dha_word_zaafir.mp3',
+
+  './audio/letter_dha_word_zaby.mp3',
+
+  './audio/letter_dha_word_zafaar.mp3',
+
+  './audio/letter_dha_word_zafar.mp3',
+
+  './audio/letter_dha_word_zalama.mp3',
+
+  './audio/letter_dha_word_zarf.mp3',
+
+  './audio/letter_dha_word_zibaa.mp3',
+
+  './audio/letter_dha_word_zill.mp3',
+
+  './audio/letter_dha_wrong.mp3',
 
   './audio/letter_dhad_analysis_intro.mp3',
 

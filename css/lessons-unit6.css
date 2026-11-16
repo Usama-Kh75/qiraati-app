@@ -1001,3 +1001,355 @@
     background: #fef3c7;
     transform: translateY(-2px);
 }
+
+/* ==========================================================================
+ * الدرس الرابع: حرف الظاء (ظ) وتطبيقاته وقراءة مُنْتَظَرٌ تَلْمِيذٌ نَشِيطٌ / مَحْفُوظٌ وَظَافِرٌ (ص ١٢٢ - ١٢٥)
+ * ========================================================================== */
+
+/* محطات درس حرف الظاء */
+.letter-dha-station {
+    display: none;
+}
+.letter-dha-station.active {
+    display: block;
+    animation: fadeInDha 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInDha {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* بطاقة الظاء العملاقة التفاعلية */
+.giant-letter-dha-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 50%, #99f6e4 100%);
+    border: 3px solid #0d9488;
+    border-radius: 26px;
+    padding: 18px 36px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.16);
+}
+.giant-letter-dha-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #0f766e;
+    box-shadow: 0 12px 30px rgba(13, 148, 136, 0.25);
+}
+.giant-letter-dha-glyph {
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: #134e4a;
+    line-height: 1;
+    text-shadow: 0 2px 8px rgba(13, 148, 136, 0.2);
+}
+
+/* بطاقات الكلمات المصورة لدرس الظاء */
+.dha-word-card {
+    background: #ffffff;
+    border: 2px solid #ccfbf1;
+    border-radius: 20px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.05);
+}
+.dha-word-card:hover {
+    transform: translateY(-4px);
+    border-color: #0d9488;
+    background: #f0fdfa;
+    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.15);
+}
+.dha-word-icon {
+    font-size: 2.2rem;
+    margin-bottom: 6px;
+}
+.dha-word-text {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #134e4a;
+    margin-bottom: 4px;
+}
+.dha-word-pos {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #0f766e;
+    background: #ccfbf1;
+    padding: 2px 10px;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* بطاقات المدود والمقاطع لدرس الظاء */
+.dha-vowel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px;
+}
+.dha-vowel-card {
+    background: #ffffff;
+    border: 2px solid #ccfbf1;
+    border-radius: 18px;
+    padding: 18px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+.dha-vowel-card:hover {
+    border-color: #0d9488;
+    background: #f0fdfa;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(13, 148, 136, 0.14);
+}
+.dha-vowel-glyph {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #0d9488;
+    margin-bottom: 6px;
+}
+.dha-vowel-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #134e4a;
+}
+
+/* بطاقات المقاطع الساكنة لدرس الظاء */
+.dha-syl-card {
+    background: #ffffff;
+    border: 2px solid #99f6e4;
+    border-radius: 18px;
+    padding: 18px 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    box-shadow: 0 4px 14px rgba(13, 148, 136, 0.06);
+}
+.dha-syl-card:hover {
+    border-color: #0d9488;
+    background: #f0fdfa;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(13, 148, 136, 0.16);
+}
+.dha-syl-glyph {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #0d9488;
+    margin-bottom: 6px;
+}
+
+/* بطاقات التحليل والتركيب لدرس الظاء */
+.dha-analysis-card {
+    background: #ffffff;
+    border: 2px solid #ccfbf1;
+    border-radius: 18px;
+    padding: 18px 14px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+.dha-analysis-card:hover {
+    border-color: #0d9488;
+    background: #f0fdfa;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(13, 148, 136, 0.12);
+}
+.dha-analysis-word {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #134e4a;
+    margin-bottom: 10px;
+}
+.dha-analysis-parts {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+.dha-part-pill {
+    background: #ccfbf1;
+    color: #0f766e;
+    font-size: 1.15rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 12px;
+    border: 1px solid #99f6e4;
+}
+
+/* حاوية لعبة ترتيب الكلمات لدرس الظاء */
+.dha-order-container {
+    background: #ffffff;
+    border: 2px solid #ccfbf1;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+.dha-order-words {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+.dha-order-word-btn {
+    background: #f0fdfa;
+    border: 2px solid #0d9488;
+    border-radius: 14px;
+    padding: 8px 16px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #134e4a;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.dha-order-word-btn:hover {
+    background: #0d9488;
+    color: #ffffff;
+    transform: scale(1.05);
+}
+.dha-order-word-btn.used {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #e2e8f0;
+    border-color: #cbd5e1;
+    color: #94a3b8;
+}
+.dha-order-target {
+    min-height: 54px;
+    border: 2px dashed #0d9488;
+    border-radius: 16px;
+    background: #f0fdfa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px 16px;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #134e4a;
+}
+
+/* صناديق القراءة لدرس الظاء */
+.dha-read-box {
+    background: #ffffff;
+    border: 2px solid #99f6e4;
+    border-radius: 22px;
+    padding: 22px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(13, 148, 136, 0.08);
+}
+.dha-sentence-card {
+    background: #ffffff;
+    border: 2px solid #ccfbf1;
+    border-radius: 16px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.dha-sentence-card:hover {
+    border-color: #0d9488;
+    background: #f0fdfa;
+    transform: translateX(-4px);
+    box-shadow: 0 4px 14px rgba(13, 148, 136, 0.12);
+}
+.dha-sentence-text {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #134e4a;
+    line-height: 1.6;
+}
+
+/* صناديق النصوص التراثية العراقية للظاء */
+.dha-heritage-box {
+    background: #ffffff;
+    border: 3px solid #0d9488;
+    border-radius: 24px;
+    padding: 22px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 22px rgba(13, 148, 136, 0.12);
+}
+.dha-heritage-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 2px dashed #99f6e4;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+.dha-heritage-title {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #134e4a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* سبورة رسم وتتبع حرف الظاء */
+.dha-canvas-container {
+    background: #ffffff;
+    border: 3px solid #0d9488;
+    border-radius: 24px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.12);
+}
+.dha-canvas-tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+/* اختبار التحدي التفاعلي للظاء */
+.dha-quiz-box {
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdfa 100%);
+    border: 2px solid #0d9488;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.12);
+}
+.dha-quiz-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+.dha-quiz-btn {
+    background: #ffffff;
+    border: 2px solid #99f6e4;
+    border-radius: 16px;
+    padding: 14px 12px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #134e4a;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+.dha-quiz-btn:hover {
+    border-color: #0d9488;
+    background: #ccfbf1;
+    transform: translateY(-2px);
+}

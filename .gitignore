@@ -9,6 +9,7 @@
 !/manifest.json
 !/sw.js
 !/audio_data.js
+!/audio_data_unit6.js
 !/curriculum_data.js
 !/README.md
 
@@ -27,6 +28,9 @@
 !/views/**
 !/tools/
 !/tools/*.py
+tools/__pycache__/
+__pycache__/
+*.pyc
 
 # المجلدات المسموح بها
 !/icons/
@@ -485,3 +489,21 @@
 !/activity_dhal_order.png
 !/activity_dhal_order_para.png
 !/activity_dhal_read.png
+
+# إضافات خط الإنتاج التلقائي make_lesson.py
+!/page_123.png
+!/page_124.png
+!/page_125.png
+!/page_126.png
+!/activity_dha_trace.png
+!/activity_dha_scene.png
+!/activity_dha_words.png
+!/activity_dha_vowels.png
+!/activity_dha_vowel_words.png
+!/activity_dha_syllables.png
+!/activity_dha_analysis.png
+!/activity_dha_swap.png
+!/activity_dha_blend.png
+!/activity_dha_order.png
+!/activity_dha_order_para.png
+!/activity_dha_read.png
