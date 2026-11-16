@@ -996,4 +996,176 @@
             }, 1200);
         }
     };
+
+    /* ==========================================================================
+       الدرس الخامس: حرف الكاف (كـ ، ك) وتطبيقاته (ص ١٠٢ - ١٠٤)
+       ========================================================================== */
+
+    /* ========================================================
+       القسم 23: التنقل بين محطات درس حرف الكاف
+    ======================================================== */
+    window.switchLetterKafStation = function(stationNum) {
+        for (let i = 1; i <= 4; i++) {
+            const st = document.getElementById(`stationKaf_${i}`);
+            const btn = document.getElementById(`btnStationKaf_${i}`);
+            if (st) st.classList.remove('active');
+            if (btn) btn.classList.remove('active');
+        }
+
+        const activeSt = document.getElementById(`stationKaf_${stationNum}`);
+        const activeBtn = document.getElementById(`btnStationKaf_${stationNum}`);
+        if (activeSt) activeSt.classList.add('active');
+        if (activeBtn) activeBtn.classList.add('active');
+
+        if (stationNum === 1) {
+            mascotSpeak('الْمَحَطَّةُ الأُولَى: أَتَعَرَّفُ حَرْفَ الْكَافِ (كـ ، ك) وَصُوَرَ الْكِتَابِ فِي صَفْحَةِ ١٠٢! اِسْتَمِعْ لِصَوْتِ الْكَافِ الشَّدِيدِ الْمَهْمُوسِ الْمُرَقَّقِ وَقِصَّةِ الْمَشْهَد!', 'letter_kaf_intro');
+        } else if (stationNum === 2) {
+            mascotSpeak('الْمَحَطَّةُ الثَّانِيَةُ: أَصْوَاتُ الْحَرَكَاتِ وَالْمُدُودِ وَالْمَقَاطِعِ السَّاكِنَةِ وَأَشْكَالِ حَرْفِ الْكَاف (ص ١٠٢ - ١٠٣)! مَيِّزْ بَيْنَ كَـ ، كُـ ، كِـ وَ كَا ، كُو ، كِيـ، وَمَقَاطِعِ: مَكْـ ، رُكْـ ، مِكْـ!', 'letter_kaf_vowels_station');
+        } else if (stationNum === 3) {
+            mascotSpeak('الْمَحَطَّةُ الثَّالِثَةُ: التَّحْلِيلُ وَالتَّرْكِيبُ الصَّوْتِيُّ (ص ١٠٣ - ١٠٤)! حَلِّلْ وَرَكِّبْ كَلِمَاتِ (مَكْتَبَةٌ ، كَوْثَرٌ ، كِتَابٌ ، كَبِيرَةٌ ، حِكَايَاتٌ ، بُرْكَانٌ) وَجُمْلَةَ: كِنَانُ يَقْرَأُ كِتَابًا عَنْ حَيْوَانَاتٍ عَجِيبَةٍ!', 'letter_kaf_analysis_intro');
+        } else if (stationNum === 4) {
+            mascotSpeak('الْمَحَطَّةُ الرَّابِعَةُ: الْقِرَاءَةُ الْمُعَبِّرَةُ لِنَصِّ الْكِتَابِ (بَابَا يَقْرَأُ كِتَابًا) وَالنُّصُوصِ التُّرَاثِيَّةِ (مَالِكٌ سَمَّاكٌ / كِتَابٌ مَكْتُوبٌ)، وَالسَّبُّورَةُ وَاخْتِبَارُ التَّحَدِّي!', 'letter_kaf_read_intro');
+            setTimeout(window.initKafCanvas, 150);
+        }
+    };
+
+    /* ========================================================
+       القسم 24: نطق صوت حرف الكاف وفصيح
+    ======================================================== */
+    window.playKafLetterSound = function() {
+        mascotSpeak('صَوْتُ حَرْفِ الْكَافِ الصَّافِي: كْ... كْ... كْ! حَرْفٌ شَدِيدٌ مَهْمُوسٌ مُرَقَّق.', 'letter_kaf_sound');
+    };
+
+    window.playKafPhonemeFaseeh = function() {
+        mascotSpeak('مَرْحَبًا يَا أَصْدِقَائِي! أَنَا صَدِيقُكُمْ فَصِيح. صَوْتُ حَرْفِ الْكَافِ هُوَ: كْ... اِكْـ! يَخْرُجُ مِنْ أَقْصَى اللِّسَانِ مَعَ الْحَنَكِ الْأَعْلَى، وَهُوَ حَرْفٌ شَدِيدٌ مَهْمُوسٌ مُرَقَّق، يَتَمَيَّزُ عَنِ الْقَافِ الْمُفَخَّمَة. رَدِّدُوا مَعِي: كْ... كْ... كْ!', 'letter_kaf_phoneme_faseeh');
+    };
+
+    /* ========================================================
+       القسم 25: سبورة رسم حرف الكاف
+    ======================================================== */
+    let kafCanvas = null;
+    let kafCtx = null;
+    let isDrawingKaf = false;
+    let currentKafColor = '#4338ca';
+
+    window.initKafCanvas = function() {
+        kafCanvas = document.getElementById('kafDrawingCanvas');
+        if (!kafCanvas) return;
+        kafCtx = kafCanvas.getContext('2d');
+
+        const rect = kafCanvas.getBoundingClientRect();
+        if (rect.width > 0) {
+            kafCanvas.width = rect.width * 2;
+            kafCanvas.height = 320 * 2;
+            kafCtx.scale(2, 2);
+
+            window.clearKafCanvas();
+
+            const getPos = (e) => {
+                const r = kafCanvas.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                return {
+                    x: clientX - r.left,
+                    y: clientY - r.top
+                };
+            };
+
+            const startDraw = (e) => {
+                e.preventDefault();
+                isDrawingKaf = true;
+                const pos = getPos(e);
+                kafCtx.beginPath();
+                kafCtx.moveTo(pos.x, pos.y);
+                kafCtx.strokeStyle = currentKafColor;
+                kafCtx.lineWidth = 6;
+                kafCtx.lineCap = 'round';
+                kafCtx.lineJoin = 'round';
+            };
+
+            const drawMove = (e) => {
+                if (!isDrawingKaf) return;
+                e.preventDefault();
+                const pos = getPos(e);
+                kafCtx.lineTo(pos.x, pos.y);
+                kafCtx.stroke();
+            };
+
+            const endDraw = (e) => {
+                if (!isDrawingKaf) return;
+                e.preventDefault();
+                isDrawingKaf = false;
+                kafCtx.closePath();
+            };
+
+            kafCanvas.addEventListener('mousedown', startDraw);
+            kafCanvas.addEventListener('mousemove', drawMove);
+            window.addEventListener('mouseup', endDraw);
+
+            kafCanvas.addEventListener('touchstart', startDraw, { passive: false });
+            kafCanvas.addEventListener('touchmove', drawMove, { passive: false });
+            window.addEventListener('touchend', endDraw, { passive: false });
+        }
+    };
+
+    window.clearKafCanvas = function() {
+        if (!kafCtx || !kafCanvas) return;
+        kafCtx.clearRect(0, 0, kafCanvas.width, kafCanvas.height);
+        // Draw baseline
+        const w = kafCanvas.width / 2;
+        kafCtx.save();
+        kafCtx.strokeStyle = '#c7d2fe';
+        kafCtx.lineWidth = 2;
+        kafCtx.setLineDash([8, 6]);
+        kafCtx.beginPath();
+        kafCtx.moveTo(20, 220);
+        kafCtx.lineTo(w - 20, 220);
+        kafCtx.stroke();
+        kafCtx.restore();
+    };
+
+    window.setKafCanvasColor = function(color) {
+        currentKafColor = color;
+        if (kafCtx) kafCtx.strokeStyle = color;
+    };
+
+    /* ========================================================
+       القسم 26: اختبار التحدي الفونيمي التفاعلي للكاف
+    ======================================================== */
+    let kafScore = 0;
+    const answeredKafQuestions = {};
+
+    window.answerKafQuiz = function(qNum, selectedOption, isCorrect, btn) {
+        if (answeredKafQuestions[qNum]) return;
+        answeredKafQuestions[qNum] = true;
+
+        const parent = btn.parentElement;
+        parent.querySelectorAll('.kaf-quiz-option').forEach(b => {
+            b.style.pointerEvents = 'none';
+        });
+
+        if (isCorrect) {
+            btn.classList.add('correct');
+            kafScore++;
+            mascotCelebrates();
+            playAudio('letter_kaf_correct');
+            mascotSpeak('أَحْسَنْتَ يَا عَبْقَرِيّ! إِجَابَةٌ صَحِيحَةٌ وَمُمَيَّزَةٌ جِدًّا! 🌟', 'letter_kaf_correct');
+        } else {
+            btn.classList.add('wrong');
+            mascotThinks();
+            playAudio('letter_kaf_wrong');
+            mascotSpeak('فَكِّرْ جَيِّدًا فِي مَخْرَجِ وَشَكْلِ حَرْفِ الْكَافِ يَا بَطَل! حَاوِلْ مَرَّةً أُخْرَى! 💡', 'letter_kaf_wrong');
+        }
+
+        const scoreEl = document.getElementById('kafQuizScore');
+        if (scoreEl) scoreEl.innerText = kafScore;
+
+        if (Object.keys(answeredKafQuestions).length === 5) {
+            setTimeout(() => {
+                mascotCelebrates();
+                playAudio('letter_kaf_encourage_super');
+                mascotSpeak(`مَا شَاءَ اللَّه! أَتْمَمْتَ اخْتِبَارَ التَّحَدِّي لِدَرْسِ حَرْفِ الْكَافِ بِنَجَاحٍ بَاهِر: ${kafScore} مِنْ ٥! أَنْتَ بَطَلُ الْقِرَاءَةِ! 🏆🎉`, 'letter_kaf_encourage_super');
+            }, 1200);
+        }
+    };
 })();

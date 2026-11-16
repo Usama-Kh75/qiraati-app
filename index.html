@@ -18259,6 +18259,789 @@
                         </div>
                     </div>
                 </div>
+                <div class="lesson-view" id="view-tab-letter_kaf">
+                    <!-- شريط المحطات الأربعة لدرس حرف الكاف وتطبيقاته -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationKaf_1" onclick="switchLetterKafStation(1)">
+                            <span>📖</span> <span>١. أتعرف الحرف والمشهد (ص ١٠٢)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationKaf_2" onclick="switchLetterKafStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والمقاطع الساكنة (ص ١٠٢ - ١٠٣)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationKaf_3" onclick="switchLetterKafStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ١٠٣ - ١٠٤)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationKaf_4" onclick="switchLetterKafStation(4)">
+                            <span>⛵</span> <span>٤. القراءة ونصوص الكتاب والسبورة (ص ١٠٤)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-kaf-station active" id="stationKaf_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-kaf-card" onclick="playKafPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #4338ca; margin-bottom: 4px;">حَرْفُ الْكَافِ الشَّدِيدُ الْمَهْمُوسُ الْمُرَقَّقُ</div>
+                                    <div class="giant-letter-kaf-glyph">كـ ـكـ ـك ك</div>
+                                </div>
+                                <div style="border-right: 2px dashed #c7d2fe; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #1e1b4b;">صَوْتُ الْكَافِ: كْ... اِكْـ</div>
+                                    <div style="font-size: 0.9rem; color: #6366f1; font-weight: 700;">مُرَقَّقٌ مَهْمُوسٌ شَدِيدٌ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playKafLetterSound()" style="background: #4338ca; border-color: #3730a3;">
+                                <span>🔊</span> <span>صَوْتُ الْكَافِ الصَّافِي (كْ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playKafPhonemeFaseeh()" style="background: #3730a3; border-color: #1e1b4b;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِمَخْرَجِ الْكَافِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_kaf_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_103.png', 'كتاب قراءتي الجديد: ص ١٠٢')">
+                                <span>📖</span> <span>صَفْحَة ١٠٢ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_104.png', 'كتاب قراءتي الجديد: ص ١٠٣')">
+                                <span>📖</span> <span>صَفْحَة ١٠٣ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_105.png', 'كتاب قراءتي الجديد: ص ١٠٤')">
+                                <span>📖</span> <span>صَفْحَة ١٠٤ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- صورة رأس الصفحة الرسمية من الكتاب ص 102 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #1e1b4b; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ حَرْفِ الْكَافِ (الْكِتَابُ الْمَدْرَسِيُّ ص ١٠٢)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #c7d2fe; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_kaf_scene_story')">
+                                <img src="activity_kaf_scene.png" alt="مشهد رأس صفحة حرف الكاف" style="width: 100%; max-height: 380px; object-fit: contain; background: #eef2ff;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(67, 56, 202, 0.88); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- النشاط الأول: أردد منتبهاً لصوت حرف الكاف ص 102 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">🎨 نَشَاطُ ١: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ حَرْفِ (ك) (ص ١٠٢)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_kaf_words_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #c7d2fe; cursor: pointer;" onclick="playAudio('letter_kaf_words_intro')">
+                                <img src="activity_kaf_words.png" alt="نشاط 1 كلمات وصور حرف الكاف" style="width: 100%; max-height: 300px; object-fit: contain; background: #eef2ff;">
+                            </div>
+
+                            <!-- شبكة الكلمات المصورة التفاعلية لدرس الكاف -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;">
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_kamanjah')">
+                                    <div class="kaf-word-icon">🎻</div>
+                                    <div class="kaf-word-text">كَمَنْجَةٌ</div>
+                                    <div class="kaf-word-pos">كَـ (أَوَّل)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_deek')">
+                                    <div class="kaf-word-icon">🐓</div>
+                                    <div class="kaf-word-text">دِيكٌ</div>
+                                    <div class="kaf-word-pos">ـك (آخِر مُتَّصِل)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_kitaab')">
+                                    <div class="kaf-word-icon">📖</div>
+                                    <div class="kaf-word-text">كِتَابٌ</div>
+                                    <div class="kaf-word-pos">كِـ (أَوَّل)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_kurah')">
+                                    <div class="kaf-word-icon">⚽</div>
+                                    <div class="kaf-word-text">كُرَةٌ</div>
+                                    <div class="kaf-word-pos">كُـ (أَوَّل)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_kalb')">
+                                    <div class="kaf-word-icon">🐕</div>
+                                    <div class="kaf-word-text">كَلْبٌ</div>
+                                    <div class="kaf-word-pos">كَـ (أَوَّل)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_kees')">
+                                    <div class="kaf-word-icon">🛍️</div>
+                                    <div class="kaf-word-text">كِيسٌ</div>
+                                    <div class="kaf-word-pos">كِيـ (مَدّ بِالْيَاء)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_koob')">
+                                    <div class="kaf-word-icon">🥛</div>
+                                    <div class="kaf-word-text">كُوبٌ</div>
+                                    <div class="kaf-word-pos">كُو (مَدّ بِالْوَاو)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_burkaan')">
+                                    <div class="kaf-word-icon">🌋</div>
+                                    <div class="kaf-word-text">بُرْكَانٌ</div>
+                                    <div class="kaf-word-pos">ـكَا (مَدّ بِالْأَلِف)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- أشكال حرف الكاف الأربعة -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">✍️ أَشْكَالُ حَرْفِ الْكَافِ الأَرْبَعَة فِي الْكَلِمَاتِ</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_kaf_shapes_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلأَشْكَالِ</span>
+                                </button>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                                <div class="kaf-shape-card" onclick="playAudio('letter_kaf_shape_first')">
+                                    <div class="kaf-shape-glyph">كـ</div>
+                                    <div class="kaf-shape-title">أَوَّلُ الْكَلِمَةِ</div>
+                                    <div class="kaf-shape-example">مِثْلَ: <span style="color: #4338ca; font-weight: 900;">كِـ</span>تَابٌ / <span style="color: #4338ca; font-weight: 900;">كُـ</span>رَةٌ</div>
+                                </div>
+                                <div class="kaf-shape-card" onclick="playAudio('letter_kaf_shape_mid')">
+                                    <div class="kaf-shape-glyph">ـكـ</div>
+                                    <div class="kaf-shape-title">وَسَطُ الْكَلِمَةِ</div>
+                                    <div class="kaf-shape-example">مِثْلَ: مَ<span style="color: #4338ca; font-weight: 900;">ـكْـ</span>تَبَةٌ / مِ<span style="color: #4338ca; font-weight: 900;">ـكْـ</span>وَاةٌ</div>
+                                </div>
+                                <div class="kaf-shape-card" onclick="playAudio('letter_kaf_shape_last_conn')">
+                                    <div class="kaf-shape-glyph">ـك</div>
+                                    <div class="kaf-shape-title">آخِرُ الْكَلِمَةِ مُتَّصِلًا</div>
+                                    <div class="kaf-shape-example">مِثْلَ: دِي<span style="color: #4338ca; font-weight: 900;">ـكٌ</span> / سَمَ<span style="color: #4338ca; font-weight: 900;">ـكٌ</span></div>
+                                </div>
+                                <div class="kaf-shape-card" onclick="playAudio('letter_kaf_shape_last_sep')">
+                                    <div class="kaf-shape-glyph">ك</div>
+                                    <div class="kaf-shape-title">آخِرُ الْكَلِمَةِ مُنْفَصِلًا</div>
+                                    <div class="kaf-shape-example">مِثْلَ: أَسْمَا<span style="color: #4338ca; font-weight: 900;">كٌ</span> / شِبَا<span style="color: #4338ca; font-weight: 900;">كٌ</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات الحركات والمدود والمقاطع الساكنة -->
+                    <div class="letter-kaf-station" id="stationKaf_2">
+                        <!-- نشاط 2: أصوات الحركات والمدود ص 102 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">🎵 نَشَاطُ ٢: أَنْطِقُ صَوْتَ حَرْفِ (ك) مَعَ الْحَرَكَاتِ وَالْمُدُودِ (ص ١٠٢)</h3>
+                                    <span style="font-size: 0.85rem; color: #4338ca; font-weight: 800;">الْمُدُودُ الْقَصِيرَةُ (كَـ ، كُـ ، كِـ) وَالْمُدُودُ الطَّوِيلَةُ (كَا ، كُو ، كِيـ)</span>
+                                </div>
+                                <button class="btn-secondary" onclick="playAudio('letter_kaf_vowels_station')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ الْمُدُودِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #c7d2fe;">
+                                <img src="activity_kaf_vowels.png" alt="نشاط 2 المدود القصيرة والطويلة لحرف الكاف" style="width: 100%; max-height: 250px; object-fit: contain; background: #eef2ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px; margin-bottom: 16px;">
+                                <div class="kaf-vowel-card" onclick="playAudio('letter_kaf_short_a')">
+                                    <div class="kaf-vowel-glyph">كَـ</div>
+                                    <div class="kaf-vowel-label">فَتْحَةٌ قَصِيرَةٌ</div>
+                                    <div class="kaf-vowel-sample">كَلْبٌ 🐕</div>
+                                </div>
+                                <div class="kaf-vowel-card" onclick="playAudio('letter_kaf_short_u')">
+                                    <div class="kaf-vowel-glyph">كُـ</div>
+                                    <div class="kaf-vowel-label">ضَمَّةٌ قَصِيرَةٌ</div>
+                                    <div class="kaf-vowel-sample">كُرَةٌ ⚽</div>
+                                </div>
+                                <div class="kaf-vowel-card" onclick="playAudio('letter_kaf_short_i')">
+                                    <div class="kaf-vowel-glyph">كِـ</div>
+                                    <div class="kaf-vowel-label">كَسْرَةٌ قَصِيرَةٌ</div>
+                                    <div class="kaf-vowel-sample">كِتَابٌ 📖</div>
+                                </div>
+                                <div class="kaf-vowel-card" onclick="playAudio('letter_kaf_long_aa')">
+                                    <div class="kaf-vowel-glyph">كَا</div>
+                                    <div class="kaf-vowel-label">مَدٌّ بِالأَلِفِ</div>
+                                    <div class="kaf-vowel-sample">بُرْكَانٌ 🌋</div>
+                                </div>
+                                <div class="kaf-vowel-card" onclick="playAudio('letter_kaf_long_oo')">
+                                    <div class="kaf-vowel-glyph">كُو</div>
+                                    <div class="kaf-vowel-label">مَدٌّ بِالْوَاوِ</div>
+                                    <div class="kaf-vowel-sample">كُوبٌ 🥛</div>
+                                </div>
+                                <div class="kaf-vowel-card" onclick="playAudio('letter_kaf_long_ee')">
+                                    <div class="kaf-vowel-glyph">كِيـ</div>
+                                    <div class="kaf-vowel-label">مَدٌّ بِالْيَاءِ</div>
+                                    <div class="kaf-vowel-sample">كِيسٌ 🛍️</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 3: أستمع للفظ الكلمات ثم أحوط حرف الكاف ص 103 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">🔍 نَشَاطُ ٣: أَسْتَمِعُ لِلَّفْظِ ثُمَّ أُحَوِّطُ حَرْفَ (ك) مَعَ الْمُدُودِ (ص ١٠٣)</h3>
+                                <button class="btn-secondary" onclick="openBookPageModal('page_104.png', 'كتاب قراءتي: ص ١٠٣')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>📖</span> <span>صَفْحَة ١٠٣</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #c7d2fe;">
+                                <img src="activity_kaf_vowel_words.png" alt="نشاط 3 تحويط حرف الكاف" style="width: 100%; max-height: 280px; object-fit: contain; background: #eef2ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px;">
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_kitaab')">
+                                    <div class="kaf-word-icon">📖</div>
+                                    <div class="kaf-word-text">كِتَابٌ</div>
+                                    <div class="kaf-word-pos" style="background: #eef2ff; color: #4338ca;">كِـ (كَسْرَة قَصِيرَة)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_kurah')">
+                                    <div class="kaf-word-icon">⚽</div>
+                                    <div class="kaf-word-text">كُرَةٌ</div>
+                                    <div class="kaf-word-pos" style="background: #eef2ff; color: #4338ca;">كُـ (ضَمَّة قَصِيرَة)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_kalb')">
+                                    <div class="kaf-word-icon">🐕</div>
+                                    <div class="kaf-word-text">كَلْبٌ</div>
+                                    <div class="kaf-word-pos" style="background: #eef2ff; color: #4338ca;">كَـ (فَتْحَة قَصِيرَة)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_kees')">
+                                    <div class="kaf-word-icon">🛍️</div>
+                                    <div class="kaf-word-text">كِيسٌ</div>
+                                    <div class="kaf-word-pos" style="background: #eef2ff; color: #4338ca;">كِيـ (مَدّ بِالْيَاء)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_koob')">
+                                    <div class="kaf-word-icon">🥛</div>
+                                    <div class="kaf-word-text">كُوبٌ</div>
+                                    <div class="kaf-word-pos" style="background: #eef2ff; color: #4338ca;">كُو (مَدّ بِالْوَاو)</div>
+                                </div>
+                                <div class="kaf-word-card" onclick="playAudio('letter_kaf_word_burkaan')">
+                                    <div class="kaf-word-icon">🌋</div>
+                                    <div class="kaf-word-text">بُرْكَانٌ</div>
+                                    <div class="kaf-word-pos" style="background: #eef2ff; color: #4338ca;">ـكَا (مَدّ بِالأَلِف)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 4: تمييز صوت حرف الكاف الساكن في المقاطع ص 103 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">⚡ نَشَاطُ ٤: أُمَيِّزُ صَوْتَ حَرْفِ (ك) السَّاكِنِ فِي الْمَقَاطِعِ (ص ١٠٣)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_kaf_syl_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ الْمَقَاطِعِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #c7d2fe;">
+                                <img src="activity_kaf_syllables.png" alt="نشاط 4 مقاطع حرف الكاف الساكنة" style="width: 100%; max-height: 250px; object-fit: contain; background: #eef2ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                                <div class="kaf-syl-card" onclick="playAudio('letter_kaf_syl_mak')">
+                                    <div class="kaf-syl-glyph">مَكْـ</div>
+                                    <div class="kaf-syl-word">مَكْـتَبَةٌ 📚</div>
+                                    <div class="kaf-syl-sub">مَـ + كْ = مَكْـ (سَاكِن)</div>
+                                </div>
+                                <div class="kaf-syl-card" onclick="playAudio('letter_kaf_syl_ruk')">
+                                    <div class="kaf-syl-glyph">رُكْـ</div>
+                                    <div class="kaf-syl-word">رُكْـبَةٌ 🦵</div>
+                                    <div class="kaf-syl-sub">رُ + كْ = رُكْـ (سَاكِن)</div>
+                                </div>
+                                <div class="kaf-syl-card" onclick="playAudio('letter_kaf_syl_mik')">
+                                    <div class="kaf-syl-glyph">مِكْـ</div>
+                                    <div class="kaf-syl-word">مِكْـوَاةٌ 🔌</div>
+                                    <div class="kaf-syl-sub">مِـ + كْ = مِكْـ (سَاكِن)</div>
+                                </div>
+                                <div class="kaf-syl-card" onclick="playAudio('letter_kaf_syl_duk')">
+                                    <div class="kaf-syl-glyph">دُكْـ</div>
+                                    <div class="kaf-syl-word">دُكْـكَانٌ 🏪</div>
+                                    <div class="kaf-syl-sub">دُ + كْ = دُكْـ (سَاكِن)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي -->
+                    <div class="letter-kaf-station" id="stationKaf_3">
+                        <!-- نشاط 5: التحليل الصوتي إلى مقاطع بالتصفيق ص 103 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">👏 نَشَاطُ ٥: أَقْرَأُ الْكَلِمَاتِ ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا (ص ١٠٣)</h3>
+                                    <span style="font-size: 0.85rem; color: #4338ca; font-weight: 800;">التحليل الصوتي بالتصفيق الإيقاعي لترسيخ بنية الكلمة</span>
+                                </div>
+                                <button class="btn-secondary" onclick="playAudio('letter_kaf_analysis_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ التَّحْلِيلِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #c7d2fe;">
+                                <img src="activity_kaf_analysis.png" alt="نشاط 5 تحليل الكلمات إلى مقاطع" style="width: 100%; max-height: 250px; object-fit: contain; background: #eef2ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+                                <div class="kaf-analysis-card" onclick="playAudio('letter_kaf_split_maktabah')">
+                                    <div class="kaf-analysis-header">
+                                        <span class="kaf-analysis-word">مَكْتَبَةٌ</span>
+                                        <span class="kaf-analysis-badge">٤ مَقَاطِع 👏</span>
+                                    </div>
+                                    <div class="kaf-analysis-blocks">
+                                        <span class="kaf-block">مَكْـ</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">تَـ</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">بَـ</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">تٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="kaf-analysis-card" onclick="playAudio('letter_kaf_split_kawthar')">
+                                    <div class="kaf-analysis-header">
+                                        <span class="kaf-analysis-word">كَوْثَرٌ</span>
+                                        <span class="kaf-analysis-badge">٣ مَقَاطِع 👏</span>
+                                    </div>
+                                    <div class="kaf-analysis-blocks">
+                                        <span class="kaf-block">كَوْ</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">ثَـ</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">رٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="kaf-analysis-card" onclick="playAudio('letter_kaf_split_kitaab')">
+                                    <div class="kaf-analysis-header">
+                                        <span class="kaf-analysis-word">كِتَابٌ</span>
+                                        <span class="kaf-analysis-badge">٣ مَقَاطِع 👏</span>
+                                    </div>
+                                    <div class="kaf-analysis-blocks">
+                                        <span class="kaf-block">كِـ</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">تَا</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">بٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="kaf-analysis-card" onclick="playAudio('letter_kaf_split_kabeerah')">
+                                    <div class="kaf-analysis-header">
+                                        <span class="kaf-analysis-word">كَبِيرَةٌ</span>
+                                        <span class="kaf-analysis-badge">٤ مَقَاطِع 👏</span>
+                                    </div>
+                                    <div class="kaf-analysis-blocks">
+                                        <span class="kaf-block">كَـ</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">بِيـ</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">رَ</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">تٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="kaf-analysis-card" onclick="playAudio('letter_kaf_split_hikayaat')">
+                                    <div class="kaf-analysis-header">
+                                        <span class="kaf-analysis-word">حِكَايَاتٌ</span>
+                                        <span class="kaf-analysis-badge">٤ مَقَاطِع 👏</span>
+                                    </div>
+                                    <div class="kaf-analysis-blocks">
+                                        <span class="kaf-block">حِـ</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">كَا</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">يَا</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">تٌ</span>
+                                    </div>
+                                </div>
+
+                                <div class="kaf-analysis-card" onclick="playAudio('letter_kaf_split_burkaan')">
+                                    <div class="kaf-analysis-header">
+                                        <span class="kaf-analysis-word">بُرْكَانٌ</span>
+                                        <span class="kaf-analysis-badge">٣ مَقَاطِع 👏</span>
+                                    </div>
+                                    <div class="kaf-analysis-blocks">
+                                        <span class="kaf-block">بُرْ</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">كَا</span>
+                                        <span class="kaf-block-sep">+</span>
+                                        <span class="kaf-block">نٌ</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 6: تركيب المقاطع لتكوين كلمات ص 104 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">🧩 نَشَاطُ ٦: أُرَكِّبُ مِنَ الْمَقَاطِعِ التَّالِيَةِ كَلِمَاتٍ ثُمَّ أَقْرَأُهَا (ص ١٠٤)</h3>
+                                    <span style="font-size: 0.85rem; color: #4338ca; font-weight: 800;">اضغط على كل بطاقة لسماع تركيب المقاطع الصوتي الفوري</span>
+                                </div>
+                                <button class="btn-secondary" onclick="playAudio('letter_kaf_blend_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ التَّرْكِيبِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #c7d2fe;">
+                                <img src="activity_kaf_blend.png" alt="نشاط 6 و 7 تركيب المقاطع والجملة" style="width: 100%; max-height: 340px; object-fit: contain; background: #eef2ff;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                                <div class="kaf-blend-card" onclick="playAudio('letter_kaf_merge_kitaab')">
+                                    <div class="kaf-blend-eq">
+                                        <span class="kaf-pill">كِـ</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">تَا</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">بٌ</span>
+                                        <span>➔</span>
+                                        <span class="kaf-result">كِتَابٌ 📖</span>
+                                    </div>
+                                </div>
+
+                                <div class="kaf-blend-card" onclick="playAudio('letter_kaf_merge_kabeerah')">
+                                    <div class="kaf-blend-eq">
+                                        <span class="kaf-pill">كَـ</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">بِيـ</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">رَ</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">ةٌ</span>
+                                        <span>➔</span>
+                                        <span class="kaf-result">كَبِيرَةٌ 🏫</span>
+                                    </div>
+                                </div>
+
+                                <div class="kaf-blend-card" onclick="playAudio('letter_kaf_merge_hikayaat')">
+                                    <div class="kaf-blend-eq">
+                                        <span class="kaf-pill">حِـ</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">كَا</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">يَا</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">تٌ</span>
+                                        <span>➔</span>
+                                        <span class="kaf-result">حِكَايَاتٌ 📚</span>
+                                    </div>
+                                </div>
+
+                                <div class="kaf-blend-card" onclick="playAudio('letter_kaf_merge_burkaan')">
+                                    <div class="kaf-blend-eq">
+                                        <span class="kaf-pill">بُرْ</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">كَا</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">نٌ</span>
+                                        <span>➔</span>
+                                        <span class="kaf-result">بُرْكَانٌ 🌋</span>
+                                    </div>
+                                </div>
+
+                                <div class="kaf-blend-card" onclick="playAudio('letter_kaf_merge_maktabah')">
+                                    <div class="kaf-blend-eq">
+                                        <span class="kaf-pill">مَكْـ</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">تَـ</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">بَـ</span>
+                                        <span>+</span>
+                                        <span class="kaf-pill">ةٌ</span>
+                                        <span>➔</span>
+                                        <span class="kaf-result">مَكْتَبَةٌ 🏛️</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 7: تركيب جملة مفيدة ص 104 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">⭐ نَشَاطُ ٧: أُرَكِّبُ مِنَ الْكَلِمَاتِ جُمْلَةً مُفِيدَةً (ص ١٠٤)</h3>
+                                    <span style="font-size: 0.85rem; color: #4338ca; font-weight: 800;">رتّب الكلمات المبعثرة لتحصل على الجملة المفيدة الصحيحة</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('letter_kaf_merge_sentence')" style="background: #4338ca; border-color: #3730a3; font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🔊</span> <span>اسْتَمِعْ لِلْجُمْلَةِ</span>
+                                </button>
+                            </div>
+
+                            <div style="background: #eef2ff; border: 2px dashed #c7d2fe; border-radius: 18px; padding: 18px; text-align: center;">
+                                <div style="font-size: 1rem; color: #475569; font-weight: 800; margin-bottom: 12px;">الْكَلِمَاتُ الْمُبَعْثَرَةُ فِي الْكِتَابِ ص ١٠٤:</div>
+                                <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 18px;">
+                                    <span class="kaf-pill" style="font-size: 1.2rem; padding: 8px 16px; background: #ffffff;">كِتَابًا</span>
+                                    <span class="kaf-pill" style="font-size: 1.2rem; padding: 8px 16px; background: #ffffff;">عَنْ</span>
+                                    <span class="kaf-pill" style="font-size: 1.2rem; padding: 8px 16px; background: #ffffff;">كِنَانُ</span>
+                                    <span class="kaf-pill" style="font-size: 1.2rem; padding: 8px 16px; background: #ffffff;">يَقْرَأُ</span>
+                                    <span class="kaf-pill" style="font-size: 1.2rem; padding: 8px 16px; background: #ffffff;">حَيْوَانَاتٍ</span>
+                                    <span class="kaf-pill" style="font-size: 1.2rem; padding: 8px 16px; background: #ffffff;">عَجِيبَةٍ</span>
+                                </div>
+
+                                <div style="font-size: 1.1rem; color: #4338ca; font-weight: 800; margin-bottom: 14px;">👇 الْجُمْلَةُ الْمُرَكَّبَةُ الْمُفِيدَةُ:</div>
+                                <div class="kaf-sentence-box" onclick="playAudio('letter_kaf_merge_sentence')">
+                                    « كِنَانُ يَقْرَأُ كِتَابًا عَنْ حَيْوَانَاتٍ عَجِيبَةٍ. » 📖🐾🌟
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة ونصوص الكتاب والسبورة واختبار التحدي -->
+                    <div class="letter-kaf-station" id="stationKaf_4">
+                        <!-- نص قراءة الكتاب ص 104 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">📖 نَصُّ الْكِتَابِ الْمَدْرَسِيِّ ص ١٠٤: أَقْرَأُ (بَابَا يَقْرَأُ كِتَابًا)</h3>
+                                    <span style="font-size: 0.85rem; color: #4338ca; font-weight: 800;">كتاب قراءتي الجديد للصف الأول الابتدائي ص ١٠٤</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('letter_kaf_read_book_full')" style="background: #4338ca; border-color: #3730a3;">
+                                    <span>🔊</span> <span>قِرَاءَةُ النَّصِّ كَامِلًا</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 16px; border-radius: 16px; overflow: hidden; border: 2px solid #c7d2fe;">
+                                <img src="activity_kaf_read.png" alt="نص القراءة بابا يقرأ كتابا يحوي حكايات قديمة" style="width: 100%; max-height: 280px; object-fit: contain; background: #eef2ff;">
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_b1')">
+                                    <div class="kaf-line-icon">📖</div>
+                                    <div class="kaf-line-text">بَابَا يَقْرَأُ كِتَابًا يَحْوِي حِكَايَاتٍ قَدِيمَةً.</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_b2')">
+                                    <div class="kaf-line-icon">🧞‍♂️</div>
+                                    <div class="kaf-line-text">قَرَأْتُ مَعَ بَابَا حِكَايَةَ سِنْدِبَادَ وَبِسَاطٍ يَطِيرُ.</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي الأول: مالك سماك -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">🎣 النَّصُّ التُّرَاثِيُّ الْعِرَاقِيُّ ١: مَالِكٌ سَمَّاكٌ</h3>
+                                    <span style="font-size: 0.85rem; color: #4338ca; font-weight: 800;">من تراث القراءة العراقية الأصيلة لترسيخ الكاف الآخرية (ـك ، ك)</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('letter_kaf_read_maalik_full')" style="background: #3730a3; border-color: #1e1b4b;">
+                                    <span>🔊</span> <span>قِرَاءَةُ النَّصِّ كَامِلًا</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_m1')">
+                                    <div class="kaf-line-icon">🎣</div>
+                                    <div class="kaf-line-text">مَالِكٌ سَمَّاكٌ.</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_m2')">
+                                    <div class="kaf-line-icon">🐟</div>
+                                    <div class="kaf-line-text">مَالِكٌ يَبِيعُ السَّمَكَ.</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_m3')">
+                                    <div class="kaf-line-icon">⛵</div>
+                                    <div class="kaf-line-text">عِنْدَ مَالِكٍ زَوْرَقٌ وَشِبَاكٌ.</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_m4')">
+                                    <div class="kaf-line-icon">🐠</div>
+                                    <div class="kaf-line-text">عِنْدَ مَالِكٍ سَمَكٌ.</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_m5')">
+                                    <div class="kaf-line-icon">😋</div>
+                                    <div class="kaf-line-text">السَّمَكُ لَذِيذٌ.</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي الثاني: كتاب مكتوب -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">✉️ النَّصُّ التُّرَاثِيُّ الْعِرَاقِيُّ ٢: كِتَابٌ مَكْتُوبٌ (كَامِلٌ كَاتِبٌ)</h3>
+                                    <span style="font-size: 0.85rem; color: #4338ca; font-weight: 800;">من تراث القراءة العراقية لترسيخ الكاف الأولية والوسطية (كـ ، ـكـ)</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('letter_kaf_read_kaamil_full')" style="background: #4338ca; border-color: #3730a3;">
+                                    <span>🔊</span> <span>قِرَاءَةُ النَّصِّ كَامِلًا</span>
+                                </button>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_k1')">
+                                    <div class="kaf-line-icon">✍️</div>
+                                    <div class="kaf-line-text">كَامِلٌ يَقْرَأُ وَيَكْتُبُ.</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_k2')">
+                                    <div class="kaf-line-icon">✉️</div>
+                                    <div class="kaf-line-text">كَتَبَ مَكْتُوبًا فَقَالَ:</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_k3')">
+                                    <div class="kaf-line-icon">👴</div>
+                                    <div class="kaf-line-text">إِلَى الْعَمِّ كَرِيمٍ:</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_k4')">
+                                    <div class="kaf-line-icon">🤝</div>
+                                    <div class="kaf-line-text">السَّلَامُ عَلَيْكُمْ،</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_k5')">
+                                    <div class="kaf-line-icon">💬</div>
+                                    <div class="kaf-line-text">نَسْأَلُ عَنْكَ،</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_k6')">
+                                    <div class="kaf-line-icon">📬</div>
+                                    <div class="kaf-line-text">أَرْسِلْ لَنَا مَكْتُوبًا،</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                                <div class="kaf-reading-line" onclick="playAudio('letter_kaf_read_k7')">
+                                    <div class="kaf-line-icon">🌹</div>
+                                    <div class="kaf-line-text">شُكْرًا لَكَ.</div>
+                                    <div class="kaf-line-audio">🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة رسم وتدريب كتابة حرف الكاف -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">🎨 سَبُّورَةُ الرَّسْمِ وَتَدْرِيبُ كِتَابَةِ حَرْفِ الْكَافِ (كـ ، ك)</h3>
+                                    <span style="font-size: 0.85rem; color: #4338ca; font-weight: 800;">تدرّب على رسم الكاف المائلة فوق السطر والصحن بكشكيدته في وسطه</span>
+                                </div>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn-secondary" onclick="playAudio('letter_kaf_draw_hint')" style="font-size: 0.85rem; padding: 6px 12px;">
+                                        <span>💡</span> <span>تَوْجِيهُ فَصِيح</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="clearKafCanvas()" style="font-size: 0.85rem; padding: 6px 12px;">
+                                        <span>🗑️</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 14px; flex-wrap: wrap;">
+                                <button class="btn-color-pick active" onclick="setKafCanvasColor('#4338ca')" style="background: #4338ca; width: 36px; height: 36px; border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-color-pick" onclick="setKafCanvasColor('#4f46e5')" style="background: #4f46e5; width: 36px; height: 36px; border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-color-pick" onclick="setKafCanvasColor('#059669')" style="background: #059669; width: 36px; height: 36px; border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-color-pick" onclick="setKafCanvasColor('#d97706')" style="background: #d97706; width: 36px; height: 36px; border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button class="btn-color-pick" onclick="setKafCanvasColor('#dc2626')" style="background: #dc2626; width: 36px; height: 36px; border-radius: 50%; border: 3px solid #ffffff; box-shadow: 0 2px 6px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                            </div>
+
+                            <div class="kaf-canvas-box">
+                                <canvas id="kafDrawingCanvas"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي الفونيمي لحرف الكاف -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <h3 style="color: #1e1b4b; margin: 0; font-weight: 900;">🏆 اخْتِبَارُ التَّحَدِّي الْفُونِيمِيِّ لِحَرْفِ الْكَافِ</h3>
+                                    <span style="font-size: 0.85rem; color: #4338ca; font-weight: 800;">٥ أسئلة فونيمية ذكية لقياس تمييز الحركات وأشكال الحرف والمقاطع</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 12px;">
+                                    <button class="btn-secondary" onclick="playAudio('letter_kaf_quiz_intro')" style="font-size: 0.85rem; padding: 6px 12px;">
+                                        <span>🎧</span> <span>تَوْجِيهُ التَّحَدِّي</span>
+                                    </button>
+                                    <div style="background: #eef2ff; color: #4338ca; padding: 6px 16px; border-radius: 20px; font-weight: 900; font-size: 0.95rem;">
+                                        النقاط: <span id="kafQuizScore">0</span> / 5
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 18px;" id="kafQuizContainer">
+                                <!-- السؤال الأول -->
+                                <div class="kaf-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #1e1b4b; margin-bottom: 10px;">
+                                        ١. مَا هُوَ مَوْقِعُ وَشَكْلُ حَرْفِ الْكَافِ فِي كَلِمَةِ «كِتَاب»؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(1, 'A', true, this)">
+                                            <span>أَوَّلُ الْكَلِمَةِ (كـ)</span> <span>📖</span>
+                                        </button>
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(1, 'B', false, this)">
+                                            <span>وَسَطُ الْكَلِمَةِ (ـكـ)</span> <span>❌</span>
+                                        </button>
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(1, 'C', false, this)">
+                                            <span>آخِرُ الْكَلِمَةِ (ك)</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الثاني -->
+                                <div class="kaf-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #1e1b4b; margin-bottom: 10px;">
+                                        ٢. كَمْ عَدَدُ الْمَقَاطِعِ الصَّوْتِيَّةِ فِي كَلِمَةِ «كَوْثَرٌ»؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(2, 'A', false, this)">
+                                            <span>مَقْطَعَانِ (كَوْ + ثَرٌ)</span> <span>❌</span>
+                                        </button>
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(2, 'B', true, this)">
+                                            <span>ثَلَاثَةُ مَقَاطِعَ (كَوْ + ثَـ + رٌ)</span> <span>👏</span>
+                                        </button>
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(2, 'C', false, this)">
+                                            <span>أَرْبَعَةُ مَقَاطِعَ</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الثالث -->
+                                <div class="kaf-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #1e1b4b; margin-bottom: 10px;">
+                                        ٣. أَيُّ كَلِمَةٍ مِمَّا يَلِي تَحْتَوِي عَلَى صَوْتِ مَدِّ الْوَاوِ (كُو)؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(3, 'A', false, this)">
+                                            <span>كَلْبٌ</span> <span>❌</span>
+                                        </button>
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(3, 'B', true, this)">
+                                            <span>كُوبٌ</span> <span>🥛</span>
+                                        </button>
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(3, 'C', false, this)">
+                                            <span>كِيسٌ</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الرابع -->
+                                <div class="kaf-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #1e1b4b; margin-bottom: 10px;">
+                                        ٤. مَا هُوَ الْمَقْطَعُ السَّاكِنُ فِي كَلِمَةِ «مَكْتَبَة»؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(4, 'A', true, this)">
+                                            <span>الْمَقْطَعُ: (مَكْـ)</span> <span>📚</span>
+                                        </button>
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(4, 'B', false, this)">
+                                            <span>الْمَقْطَعُ: (تَبْـ)</span> <span>❌</span>
+                                        </button>
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(4, 'C', false, this)">
+                                            <span>الْمَقْطَعُ: (رُكْـ)</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الخامس -->
+                                <div class="kaf-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #1e1b4b; margin-bottom: 10px;">
+                                        ٥. مَنِ الَّذِي يَبِيعُ السَّمَكَ فِي النَّصِّ التُّرَاثِيِّ؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(5, 'A', false, this)">
+                                            <span>كَامِلٌ الْكَاتِبُ</span> <span>❌</span>
+                                        </button>
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(5, 'B', true, this)">
+                                            <span>مَالِكٌ السَّمَّاكُ</span> <span>🎣🐟</span>
+                                        </button>
+                                        <button class="kaf-quiz-option" onclick="answerKafQuiz(5, 'C', false, this)">
+                                            <span>حَارِثٌ الْفَلَّاحُ</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </div> <!-- إغلاق stage-card -->
 <!-- شريط الانتقال المتسلسل بين الدروس -->
 

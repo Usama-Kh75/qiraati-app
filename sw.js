@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v44';
+const CACHE_NAME = 'qiraati-smart-v45';
 
 const ASSETS_TO_CACHE = [
 
@@ -189,6 +189,24 @@ const ASSETS_TO_CACHE = [
   './activity_j_vowels.png',
 
   './activity_j_words.png',
+
+  './activity_kaf_analysis.png',
+
+  './activity_kaf_blend.png',
+
+  './activity_kaf_read.png',
+
+  './activity_kaf_scene.png',
+
+  './activity_kaf_syllables.png',
+
+  './activity_kaf_trace.png',
+
+  './activity_kaf_vowel_words.png',
+
+  './activity_kaf_vowels.png',
+
+  './activity_kaf_words.png',
 
   './activity_kha_analysis.png',
 
@@ -481,6 +499,12 @@ const ASSETS_TO_CACHE = [
   './page_101.png',
 
   './page_102.png',
+
+  './page_103.png',
+
+  './page_104.png',
+
+  './page_105.png',
 
   './page_17.png',
 
@@ -2145,6 +2169,232 @@ const ASSETS_TO_CACHE = [
   './audio/letter_j_words_intro.mp3',
 
   './audio/letter_j_wrong.mp3',
+
+  './audio/letter_kaf_analysis_intro.mp3',
+
+  './audio/letter_kaf_blend_intro.mp3',
+
+  './audio/letter_kaf_correct.mp3',
+
+  './audio/letter_kaf_draw_hint.mp3',
+
+  './audio/letter_kaf_encourage_super.mp3',
+
+  './audio/letter_kaf_intro.mp3',
+
+  './audio/letter_kaf_long_aa.mp3',
+
+  './audio/letter_kaf_long_ee.mp3',
+
+  './audio/letter_kaf_long_oo.mp3',
+
+  './audio/letter_kaf_merge_burkaan.mp3',
+
+  './audio/letter_kaf_merge_hikayaat.mp3',
+
+  './audio/letter_kaf_merge_kabeerah.mp3',
+
+  './audio/letter_kaf_merge_kitaab.mp3',
+
+  './audio/letter_kaf_merge_maktabah.mp3',
+
+  './audio/letter_kaf_merge_sentence.mp3',
+
+  './audio/letter_kaf_phoneme_faseeh.mp3',
+
+  './audio/letter_kaf_quiz_intro.mp3',
+
+  './audio/letter_kaf_read_b1.mp3',
+
+  './audio/letter_kaf_read_b2.mp3',
+
+  './audio/letter_kaf_read_book_full.mp3',
+
+  './audio/letter_kaf_read_intro.mp3',
+
+  './audio/letter_kaf_read_k1.mp3',
+
+  './audio/letter_kaf_read_k2.mp3',
+
+  './audio/letter_kaf_read_k3.mp3',
+
+  './audio/letter_kaf_read_k4.mp3',
+
+  './audio/letter_kaf_read_k5.mp3',
+
+  './audio/letter_kaf_read_k6.mp3',
+
+  './audio/letter_kaf_read_k7.mp3',
+
+  './audio/letter_kaf_read_kaamil_full.mp3',
+
+  './audio/letter_kaf_read_m1.mp3',
+
+  './audio/letter_kaf_read_m2.mp3',
+
+  './audio/letter_kaf_read_m3.mp3',
+
+  './audio/letter_kaf_read_m4.mp3',
+
+  './audio/letter_kaf_read_m5.mp3',
+
+  './audio/letter_kaf_read_maalik_full.mp3',
+
+  './audio/letter_kaf_scene_story.mp3',
+
+  './audio/letter_kaf_shape_first.mp3',
+
+  './audio/letter_kaf_shape_last_conn.mp3',
+
+  './audio/letter_kaf_shape_last_sep.mp3',
+
+  './audio/letter_kaf_shape_mid.mp3',
+
+  './audio/letter_kaf_shapes_intro.mp3',
+
+  './audio/letter_kaf_short_a.mp3',
+
+  './audio/letter_kaf_short_i.mp3',
+
+  './audio/letter_kaf_short_u.mp3',
+
+  './audio/letter_kaf_sound.mp3',
+
+  './audio/letter_kaf_split_burkaan.mp3',
+
+  './audio/letter_kaf_split_deek.mp3',
+
+  './audio/letter_kaf_split_hikayaat.mp3',
+
+  './audio/letter_kaf_split_kabeerah.mp3',
+
+  './audio/letter_kaf_split_kawthar.mp3',
+
+  './audio/letter_kaf_split_kitaab.mp3',
+
+  './audio/letter_kaf_split_maktabah.mp3',
+
+  './audio/letter_kaf_syl_duk.mp3',
+
+  './audio/letter_kaf_syl_intro.mp3',
+
+  './audio/letter_kaf_syl_mak.mp3',
+
+  './audio/letter_kaf_syl_mik.mp3',
+
+  './audio/letter_kaf_syl_ruk.mp3',
+
+  './audio/letter_kaf_vowels_station.mp3',
+
+  './audio/letter_kaf_word_ajeebah.mp3',
+
+  './audio/letter_kaf_word_alaykum.mp3',
+
+  './audio/letter_kaf_word_an.mp3',
+
+  './audio/letter_kaf_word_anka.mp3',
+
+  './audio/letter_kaf_word_arsil.mp3',
+
+  './audio/letter_kaf_word_assalaamu.mp3',
+
+  './audio/letter_kaf_word_assamaka.mp3',
+
+  './audio/letter_kaf_word_baba.mp3',
+
+  './audio/letter_kaf_word_burkaan.mp3',
+
+  './audio/letter_kaf_word_deek.mp3',
+
+  './audio/letter_kaf_word_faqaala.mp3',
+
+  './audio/letter_kaf_word_hayawaanaat.mp3',
+
+  './audio/letter_kaf_word_hikayaat.mp3',
+
+  './audio/letter_kaf_word_hikayah.mp3',
+
+  './audio/letter_kaf_word_ilal_amm.mp3',
+
+  './audio/letter_kaf_word_inda.mp3',
+
+  './audio/letter_kaf_word_kaamil.mp3',
+
+  './audio/letter_kaf_word_kabeerah.mp3',
+
+  './audio/letter_kaf_word_kalb.mp3',
+
+  './audio/letter_kaf_word_kamanjah.mp3',
+
+  './audio/letter_kaf_word_kareem.mp3',
+
+  './audio/letter_kaf_word_kataba.mp3',
+
+  './audio/letter_kaf_word_kawthar.mp3',
+
+  './audio/letter_kaf_word_kees.mp3',
+
+  './audio/letter_kaf_word_kinaan.mp3',
+
+  './audio/letter_kaf_word_kitaab.mp3',
+
+  './audio/letter_kaf_word_kitaaban.mp3',
+
+  './audio/letter_kaf_word_koob.mp3',
+
+  './audio/letter_kaf_word_kurah.mp3',
+
+  './audio/letter_kaf_word_laka.mp3',
+
+  './audio/letter_kaf_word_lana.mp3',
+
+  './audio/letter_kaf_word_lazeez.mp3',
+
+  './audio/letter_kaf_word_maa.mp3',
+
+  './audio/letter_kaf_word_maalik.mp3',
+
+  './audio/letter_kaf_word_maktabah.mp3',
+
+  './audio/letter_kaf_word_maktooban.mp3',
+
+  './audio/letter_kaf_word_mikwaah.mp3',
+
+  './audio/letter_kaf_word_nas-alu.mp3',
+
+  './audio/letter_kaf_word_qadeemah.mp3',
+
+  './audio/letter_kaf_word_qara-tu.mp3',
+
+  './audio/letter_kaf_word_rukbah.mp3',
+
+  './audio/letter_kaf_word_samak.mp3',
+
+  './audio/letter_kaf_word_sammaak.mp3',
+
+  './audio/letter_kaf_word_shibaak.mp3',
+
+  './audio/letter_kaf_word_shukran.mp3',
+
+  './audio/letter_kaf_word_sindibaad.mp3',
+
+  './audio/letter_kaf_word_wa-bisaat.mp3',
+
+  './audio/letter_kaf_word_yabeeo.mp3',
+
+  './audio/letter_kaf_word_yahwee.mp3',
+
+  './audio/letter_kaf_word_yaktubu.mp3',
+
+  './audio/letter_kaf_word_yaqrao.mp3',
+
+  './audio/letter_kaf_word_yateer.mp3',
+
+  './audio/letter_kaf_word_zawraq.mp3',
+
+  './audio/letter_kaf_words_intro.mp3',
+
+  './audio/letter_kaf_wrong.mp3',
 
   './audio/letter_kha_analysis_intro.mp3',
 
