@@ -1,0 +1,328 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - الوحدة السادسة: العالم من حولي (Unit 6: The World Around Me)
+ * الدرس الأول: حرف الغين (غـ ، ـغـ ، ـغ ، غ) وتطبيقاته وقراءة غُرَابٌ أَعْيَرُ / غَزَالٌ وَغُرَابٌ / أَصْبَاغُ هِشَامٍ (ص ١١٠ - ١١٣)
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* محطات درس حرف الغين */
+.letter-ghayn-station {
+    display: none;
+}
+.letter-ghayn-station.active {
+    display: block;
+    animation: fadeInGhayn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInGhayn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* بطاقة الغين العملاقة التفاعلية */
+.giant-letter-ghayn-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 24px;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #fef3c7 100%);
+    border: 3px solid #059669;
+    border-radius: 26px;
+    padding: 18px 36px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.16);
+}
+.giant-letter-ghayn-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #047857;
+    box-shadow: 0 12px 30px rgba(5, 150, 105, 0.25);
+}
+.giant-letter-ghayn-glyph {
+    font-size: 3.6rem;
+    font-weight: 900;
+    color: #065f46;
+    line-height: 1;
+    letter-spacing: 6px;
+    text-shadow: 0 3px 8px rgba(5, 150, 105, 0.2);
+}
+
+/* بطاقات الكلمات المصورة للغين */
+.ghayn-word-card {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 20px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.ghayn-word-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #059669;
+    background: #ecfdf5;
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.18);
+}
+.ghayn-word-icon {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.ghayn-word-text {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #065f46;
+}
+.ghayn-word-pos {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #059669;
+    background: #d1fae5;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+/* بطاقات أصوات المدود القصيرة والطويلة للغين */
+.ghayn-vowel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+}
+.ghayn-vowel-card {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 18px;
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+.ghayn-vowel-card:hover {
+    transform: translateY(-3px);
+    border-color: #059669;
+    background: #f0fdf4;
+    box-shadow: 0 8px 18px rgba(5, 150, 105, 0.15);
+}
+.ghayn-vowel-glyph {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #047857;
+    margin-bottom: 4px;
+}
+.ghayn-vowel-label {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #065f46;
+}
+.ghayn-vowel-example {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #059669;
+    margin-top: 4px;
+}
+
+/* بطاقات المقاطع الساكنة */
+.ghayn-syl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-top: 14px;
+}
+.ghayn-syl-card {
+    background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 100%);
+    border: 2px solid #6ee7b7;
+    border-radius: 18px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+.ghayn-syl-card:hover {
+    transform: translateY(-3px);
+    border-color: #059669;
+    box-shadow: 0 6px 16px rgba(5, 150, 105, 0.14);
+}
+.ghayn-syl-glyph {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #047857;
+}
+.ghayn-syl-word {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #065f46;
+}
+
+/* بطاقات التحليل الصوتي للغين */
+.ghayn-analysis-card {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 20px;
+    padding: 16px 20px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+.ghayn-analysis-card:hover {
+    border-color: #059669;
+    background: #f0fdf4;
+    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.12);
+}
+.ghayn-syllable-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #d1fae5;
+    border: 2px dashed #059669;
+    border-radius: 14px;
+    padding: 6px 16px;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #047857;
+    margin: 0 4px;
+}
+
+/* بطاقات استبدال الحرف لتكوين كلمة جديدة (نشاط 6) */
+.ghayn-swap-card {
+    background: #ffffff;
+    border: 2px solid #6ee7b7;
+    border-radius: 18px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+.ghayn-swap-card:hover {
+    border-color: #059669;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(5, 150, 105, 0.14);
+}
+
+/* لوحات القراءة ونصوص الكتاب والتراث */
+.ghayn-reading-box {
+    background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 100%);
+    border: 2px solid #a7f3d0;
+    border-radius: 24px;
+    padding: 24px 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.08);
+}
+.ghayn-sentence-card {
+    background: #ffffff;
+    border: 2px solid #d1fae5;
+    border-radius: 16px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.ghayn-sentence-card:hover {
+    border-color: #059669;
+    background: #f0fdf4;
+    transform: translateX(-4px);
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.12);
+}
+.ghayn-sentence-text {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #065f46;
+    line-height: 1.6;
+}
+
+/* صناديق النصوص التراثية العراقية */
+.ghayn-heritage-box {
+    background: #ffffff;
+    border: 3px solid #f59e0b;
+    border-radius: 24px;
+    padding: 22px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 22px rgba(245, 158, 11, 0.12);
+}
+.ghayn-heritage-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 2px dashed #fde68a;
+    padding-bottom: 12px;
+    margin-bottom: 16px;
+}
+.ghayn-heritage-title {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #92400e;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* سبورة رسم وتتبع حرف الغين */
+.ghayn-canvas-container {
+    background: #ffffff;
+    border: 3px solid #059669;
+    border-radius: 24px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.12);
+}
+.ghayn-canvas-tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+}
+
+/* اختبار التحدي التفاعلي */
+.ghayn-quiz-box {
+    background: linear-gradient(135deg, #ffffff 0%, #ecfdf5 100%);
+    border: 2px solid #059669;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(5, 150, 105, 0.12);
+}
+.ghayn-quiz-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+.ghayn-quiz-btn {
+    background: #ffffff;
+    border: 2px solid #a7f3d0;
+    border-radius: 16px;
+    padding: 14px 12px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #065f46;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+.ghayn-quiz-btn:hover {
+    border-color: #059669;
+    background: #d1fae5;
+    transform: translateY(-2px);
+}

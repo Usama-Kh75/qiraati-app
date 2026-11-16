@@ -1,0 +1,580 @@
+                <div class="lesson-view" id="view-tab-letter_ghayn">
+                    <!-- شريط المحطات الأربعة لدرس حرف الغين وتطبيقاته -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationGhayn_1" onclick="switchLetterGhaynStation(1)">
+                            <span>📖</span> <span>١. أتعرف الحرف والمشهد (ص ١١٠)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationGhayn_2" onclick="switchLetterGhaynStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والمقاطع الساكنة (ص ١١٠ - ١١١)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationGhayn_3" onclick="switchLetterGhaynStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ١١١ - ١١٢)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationGhayn_4" onclick="switchLetterGhaynStation(4)">
+                            <span>⛵</span> <span>٤. القراءة ونصوص الكتاب والسبورة (ص ١١٣)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-ghayn-station active" id="stationGhayn_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-ghayn-card" onclick="playGhaynPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #047857; margin-bottom: 4px;">حَرْفُ الْغَيْنِ الْحَلْقِيُّ الْمُفَخَّمُ الرَّخْوُ</div>
+                                    <div class="giant-letter-ghayn-glyph">غـ ـغـ ـغ غ</div>
+                                </div>
+                                <div style="border-right: 2px dashed #a7f3d0; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #065f46;">صَوْتُ الْغَيْنِ: غْ... اِغْـ</div>
+                                    <div style="font-size: 0.9rem; color: #059669; font-weight: 700;">مُفَخَّمٌ حَلْقِيٌّ رَخْوٌ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playGhaynLetterSound()" style="background: #059669; border-color: #047857;">
+                                <span>🔊</span> <span>صَوْتُ الْغَيْنِ الصَّافِي (غْ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playGhaynPhonemeFaseeh()" style="background: #047857; border-color: #065f46;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِمَخْرَجِ الْغَيْنِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_ghayn_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_ghayn_unit6_story')">
+                                <span>🌍</span> <span>قِصَّةُ مَدْخَلِ الْوَحْدَةِ (ص ١٠٩)</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_110.png', 'كتاب قراءتي الجديد: ص ١٠٩')">
+                                <span>📖</span> <span>صَفْحَة ١٠٩ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_111.png', 'كتاب قراءتي الجديد: ص ١١٠')">
+                                <span>📖</span> <span>صَفْحَة ١١٠ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_112.png', 'كتاب قراءتي الجديد: ص ١١١')">
+                                <span>📖</span> <span>صَفْحَة ١١١ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_113.png', 'كتاب قراءتي الجديد: ص ١١٢')">
+                                <span>📖</span> <span>صَفْحَة ١١٢ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_114.png', 'كتاب قراءتي الجديد: ص ١١٣')">
+                                <span>📖</span> <span>صَفْحَة ١١٣ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- مدخل الوحدة السادسة: العالم من حولي ص 109 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #065f46; margin-bottom: 12px; font-weight: 900;">🌍 مَدْخَلُ الْوَحْدَةِ السَّادِسَةِ: الْعَالَمُ مِنْ حَوْلِي (الْكِتَابُ الْمَدْرَسِيُّ ص ١٠٩)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #a7f3d0; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_ghayn_unit6_story')">
+                                <img src="unit6_world_listen.png" alt="مدخل الوحدة السادسة: العالم من حولي" style="width: 100%; max-height: 380px; object-fit: contain; background: #ecfdf5;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(5, 150, 105, 0.9); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للمحادثة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- صورة رأس صفحة حرف الغين ص 110 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #065f46; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ حَرْفِ الْغَيْنِ (الْكِتَابُ الْمَدْرَسِيُّ ص ١١٠)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #a7f3d0; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_ghayn_scene_story')">
+                                <img src="activity_ghayn_scene.png" alt="مشهد رأس صفحة حرف الغين" style="width: 100%; max-height: 380px; object-fit: contain; background: #ecfdf5;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(5, 150, 105, 0.9); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- النشاط الأول: أردد منتبهاً لصوت حرف الغين ص 110 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">🎨 نَشَاطُ ١: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ حَرْفِ (غ) (ص ١١٠)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ghayn_act1_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; cursor: pointer;" onclick="playAudio('letter_ghayn_act1_intro')">
+                                <img src="activity_ghayn_words.png" alt="نشاط 1 كلمات وصور حرف الغين" style="width: 100%; max-height: 300px; object-fit: contain; background: #ecfdf5;">
+                            </div>
+
+                            <!-- شبكة الكلمات المصورة التفاعلية لدرس الغين -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;">
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghuraab')">
+                                    <div class="ghayn-word-icon">🦅</div>
+                                    <div class="ghayn-word-text">غُرَابٌ</div>
+                                    <div class="ghayn-word-pos">غُـ (أَوَّل)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghazaal')">
+                                    <div class="ghayn-word-icon">🦌</div>
+                                    <div class="ghayn-word-text">غَزَالٌ</div>
+                                    <div class="ghayn-word-pos">غَـ (أَوَّل)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('babbaghaa')">
+                                    <div class="ghayn-word-icon">🦜</div>
+                                    <div class="ghayn-word-text">بَبَّغَاءُ</div>
+                                    <div class="ghayn-word-pos">ـغَـ (وَسَط)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghoorilla')">
+                                    <div class="ghayn-word-icon">🦍</div>
+                                    <div class="ghayn-word-text">غُورِيلَّا</div>
+                                    <div class="ghayn-word-pos">غُو (مَدّ)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghassaalah')">
+                                    <div class="ghayn-word-icon">🧺</div>
+                                    <div class="ghayn-word-text">غَسَّالَةٌ</div>
+                                    <div class="ghayn-word-pos">غَـ (أَوَّل)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('samgh')">
+                                    <div class="ghayn-word-icon">🧴</div>
+                                    <div class="ghayn-word-text">صَمْغٌ</div>
+                                    <div class="ghayn-word-pos">ـغ (آخِر مُتَّصِل)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghitaa')">
+                                    <div class="ghayn-word-icon">🍲</div>
+                                    <div class="ghayn-word-text">غِطَاءٌ</div>
+                                    <div class="ghayn-word-pos">غِـ (أَوَّل)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghusn')">
+                                    <div class="ghayn-word-icon">🌿</div>
+                                    <div class="ghayn-word-text">غُصْنٌ</div>
+                                    <div class="ghayn-word-pos">غُـ (أَوَّل)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghaabah')">
+                                    <div class="ghayn-word-icon">🌲</div>
+                                    <div class="ghayn-word-text">غَابَةٌ</div>
+                                    <div class="ghayn-word-pos">غَا (مَدّ)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ragheef')">
+                                    <div class="ghayn-word-icon">🍞</div>
+                                    <div class="ghayn-word-text">رَغِيفٌ</div>
+                                    <div class="ghayn-word-pos">ـغِيـ (وَسَط)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود والمقاطع الساكنة -->
+                    <div class="letter-ghayn-station" id="stationGhayn_2">
+                        <!-- نشاط 2 ص 110: أصوات المد القصيرة والطويلة -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">🎵 نَشَاطُ ٢: أَصْوَاتُ الْمَدِّ الْقَصِيرَةِ وَالطَّوِيلَةِ لِحَرْفِ (غ) (ص ١١٠)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ghayn_act2_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; cursor: pointer;" onclick="playAudio('letter_ghayn_act2_intro')">
+                                <img src="activity_ghayn_vowels.png" alt="نشاط 2 أصوات المد القصيرة والطويلة" style="width: 100%; max-height: 280px; object-fit: contain; background: #ecfdf5;">
+                            </div>
+
+                            <div class="ghayn-vowel-grid">
+                                <div class="ghayn-vowel-card" onclick="playGhaynVowel('short_a')">
+                                    <div class="ghayn-vowel-glyph">غَـ</div>
+                                    <div class="ghayn-vowel-label">فَتْحَة قَصِيرَة</div>
+                                    <div class="ghayn-vowel-example">غَزَالٌ</div>
+                                </div>
+                                <div class="ghayn-vowel-card" onclick="playGhaynVowel('short_u')">
+                                    <div class="ghayn-vowel-glyph">غُـ</div>
+                                    <div class="ghayn-vowel-label">ضَمَّة قَصِيرَة</div>
+                                    <div class="ghayn-vowel-example">غُرَابٌ</div>
+                                </div>
+                                <div class="ghayn-vowel-card" onclick="playGhaynVowel('short_i')">
+                                    <div class="ghayn-vowel-glyph">غِـ</div>
+                                    <div class="ghayn-vowel-label">كَسْرَة قَصِيرَة</div>
+                                    <div class="ghayn-vowel-example">غِذَاءٌ</div>
+                                </div>
+                                <div class="ghayn-vowel-card" onclick="playGhaynVowel('long_aa')">
+                                    <div class="ghayn-vowel-glyph">غَا</div>
+                                    <div class="ghayn-vowel-label">مَدّ بِالأَلِف</div>
+                                    <div class="ghayn-vowel-example">غَابَةٌ</div>
+                                </div>
+                                <div class="ghayn-vowel-card" onclick="playGhaynVowel('long_oo')">
+                                    <div class="ghayn-vowel-glyph">غُو</div>
+                                    <div class="ghayn-vowel-label">مَدّ بِالْوَاو</div>
+                                    <div class="ghayn-vowel-example">غُورِيلَّا</div>
+                                </div>
+                                <div class="ghayn-vowel-card" onclick="playGhaynVowel('long_ee')">
+                                    <div class="ghayn-vowel-glyph">غِيـ</div>
+                                    <div class="ghayn-vowel-label">مَدّ بِالْيَاء</div>
+                                    <div class="ghayn-vowel-example">رَغِيفٌ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 3 ص 111: الاستماع للفظ الكلمات وأصوات المد -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">🔊 نَشَاطُ ٣: كَلِمَاتُ وَتَطْبِيقَاتُ الْمُدُودِ (ص ١١١)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ghayn_act3_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; cursor: pointer;" onclick="playAudio('letter_ghayn_act3_intro')">
+                                <img src="activity_ghayn_vowel_words.png" alt="نشاط 3 كلمات المدود" style="width: 100%; max-height: 280px; object-fit: contain; background: #ecfdf5;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px;">
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghazaal')">
+                                    <div class="ghayn-word-icon">🦌</div>
+                                    <div class="ghayn-word-text">غَزَالٌ</div>
+                                    <div class="ghayn-word-pos">صَوْتُ (غَـ)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghusn')">
+                                    <div class="ghayn-word-icon">🌿</div>
+                                    <div class="ghayn-word-text">غُصْنٌ</div>
+                                    <div class="ghayn-word-pos">صَوْتُ (غُـ)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghidhaa')">
+                                    <div class="ghayn-word-icon">🥗</div>
+                                    <div class="ghayn-word-text">غِذَاءٌ</div>
+                                    <div class="ghayn-word-pos">صَوْتُ (غِـ)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghaabah')">
+                                    <div class="ghayn-word-icon">🌲</div>
+                                    <div class="ghayn-word-text">غَابَةٌ</div>
+                                    <div class="ghayn-word-pos">صَوْتُ (غَا)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ghoorilla')">
+                                    <div class="ghayn-word-icon">🦍</div>
+                                    <div class="ghayn-word-text">غُورِيلَّا</div>
+                                    <div class="ghayn-word-pos">صَوْتُ (غُو)</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynWord('ragheef')">
+                                    <div class="ghayn-word-icon">🍞</div>
+                                    <div class="ghayn-word-text">رَغِيفٌ</div>
+                                    <div class="ghayn-word-pos">صَوْتُ (غِيـ)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 4 ص 111: المقاطع الساكنة لحرف الغين -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">⚡ نَشَاطُ ٤: صَوْتُ (غ) السَّاكِنُ فِي الْمَقَاطِعِ (ص ١١١)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ghayn_act4_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; cursor: pointer;" onclick="playAudio('letter_ghayn_act4_intro')">
+                                <img src="activity_ghayn_syllables.png" alt="نشاط 4 المقاطع الساكنة" style="width: 100%; max-height: 280px; object-fit: contain; background: #ecfdf5;">
+                            </div>
+
+                            <div class="ghayn-syl-grid">
+                                <div class="ghayn-syl-card" onclick="playGhaynWord('mighzal')">
+                                    <div>
+                                        <div class="ghayn-syl-glyph">مِغْـ</div>
+                                        <div style="font-size: 0.8rem; color: #059669; font-weight: 700;">مَقْطَعٌ سَاكِنٌ</div>
+                                    </div>
+                                    <div class="ghayn-syl-word">مِغْزَلٌ 🧵</div>
+                                </div>
+                                <div class="ghayn-syl-card" onclick="playGhaynWord('mighsalah')">
+                                    <div>
+                                        <div class="ghayn-syl-glyph">مِغْـ</div>
+                                        <div style="font-size: 0.8rem; color: #059669; font-weight: 700;">مَقْطَعٌ سَاكِنٌ</div>
+                                    </div>
+                                    <div class="ghayn-syl-word">مِغْسَلَةٌ 🚰</div>
+                                </div>
+                                <div class="ghayn-syl-card" onclick="playGhaynWord('aghnaam')">
+                                    <div>
+                                        <div class="ghayn-syl-glyph">أَغْـ</div>
+                                        <div style="font-size: 0.8rem; color: #059669; font-weight: 700;">مَقْطَعٌ سَاكِنٌ</div>
+                                    </div>
+                                    <div class="ghayn-syl-word">أَغْنَامٌ 🐑</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب والاستبدال الصوتي -->
+                    <div class="letter-ghayn-station" id="stationGhayn_3">
+                        <!-- نشاط 5 ص 111: تحليل الكلمات إلى مقاطعها -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">🧩 نَشَاطُ ٥: أَقْرَأُ الْكَلِمَاتِ ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا (ص ١١١)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ghayn_act5_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; cursor: pointer;" onclick="playAudio('letter_ghayn_act5_intro')">
+                                <img src="activity_ghayn_analysis.png" alt="نشاط 5 تحليل الكلمات" style="width: 100%; max-height: 280px; object-fit: contain; background: #ecfdf5;">
+                            </div>
+
+                            <div class="ghayn-analysis-card" onclick="playGhaynSplit('taghreed')">
+                                <div style="font-size: 1.4rem; font-weight: 900; color: #065f46;">تَغْرِيدٌ 🐦</div>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <span class="ghayn-syllable-box">تَغْـ</span>
+                                    <span style="font-weight: 900; color: #059669;">+</span>
+                                    <span class="ghayn-syllable-box">رِيـ</span>
+                                    <span style="font-weight: 900; color: #059669;">+</span>
+                                    <span class="ghayn-syllable-box">دٌ</span>
+                                </div>
+                                <button class="btn-secondary" style="font-size: 0.85rem; padding: 6px 14px;">🔊 اسْتَمِعْ لِلتَّحْلِيلِ</button>
+                            </div>
+
+                            <div class="ghayn-analysis-card" onclick="playGhaynSplit('sabbaagh')">
+                                <div style="font-size: 1.4rem; font-weight: 900; color: #065f46;">صَبَّاغٌ 🎨</div>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <span class="ghayn-syllable-box">صَبْـ</span>
+                                    <span style="font-weight: 900; color: #059669;">+</span>
+                                    <span class="ghayn-syllable-box">بَا</span>
+                                    <span style="font-weight: 900; color: #059669;">+</span>
+                                    <span class="ghayn-syllable-box">غٌ</span>
+                                </div>
+                                <button class="btn-secondary" style="font-size: 0.85rem; padding: 6px 14px;">🔊 اسْتَمِعْ لِلتَّحْلِيلِ</button>
+                            </div>
+
+                            <div class="ghayn-analysis-card" onclick="playGhaynSplit('ghawwaasah')">
+                                <div style="font-size: 1.4rem; font-weight: 900; color: #065f46;">غَوَّاصَةٌ 🌊</div>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <span class="ghayn-syllable-box">غَوْ</span>
+                                    <span style="font-weight: 900; color: #059669;">+</span>
+                                    <span class="ghayn-syllable-box">وَا</span>
+                                    <span style="font-weight: 900; color: #059669;">+</span>
+                                    <span class="ghayn-syllable-box">صَـ</span>
+                                    <span style="font-weight: 900; color: #059669;">+</span>
+                                    <span class="ghayn-syllable-box">تٌ</span>
+                                </div>
+                                <button class="btn-secondary" style="font-size: 0.85rem; padding: 6px 14px;">🔊 اسْتَمِعْ لِلتَّحْلِيلِ</button>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 6 ص 112: استبدال الحرف لتكوين كلمة جديدة -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">🔄 نَشَاطُ ٦: اِسْتَبْدِلِ الْحَرْفَ بِآخَرَ لِتَكْوِينِ كَلِمَةٍ جَدِيدَة (ص ١١٢)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ghayn_act6_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; cursor: pointer;" onclick="playAudio('letter_ghayn_act6_intro')">
+                                <img src="activity_ghayn_swap.png" alt="نشاط 6 استبدال الحرف" style="width: 100%; max-height: 220px; object-fit: contain; background: #ecfdf5;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px;">
+                                <div class="ghayn-swap-card" onclick="playGhaynSwap('sagheer_faqeer')">
+                                    <div style="font-size: 1.15rem; color: #065f46; font-weight: 800; margin-bottom: 6px;">كَلِمَةُ: <span style="color: #dc2626; font-weight: 900;">صَـ</span>غِيرٌ</div>
+                                    <div style="font-size: 0.95rem; color: #059669; margin-bottom: 8px;">اِسْتَبْدِلْ (ص) بِحَرْفِ (ف) ➔</div>
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: #047857; background: #d1fae5; padding: 6px; border-radius: 12px;">فَقِيرٌ 🪙</div>
+                                </div>
+                                <div class="ghayn-swap-card" onclick="playGhaynSwap('ghareeb_qareeb')">
+                                    <div style="font-size: 1.15rem; color: #065f46; font-weight: 800; margin-bottom: 6px;">كَلِمَةُ: <span style="color: #dc2626; font-weight: 900;">غَـ</span>رِيبٌ</div>
+                                    <div style="font-size: 0.95rem; color: #059669; margin-bottom: 8px;">اِسْتَبْدِلْ (غ) بِحَرْفِ (ق) ➔</div>
+                                    <div style="font-size: 1.6rem; font-weight: 900; color: #047857; background: #d1fae5; padding: 6px; border-radius: 12px;">قَرِيبٌ 🤝</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 7 ص 112: تركيب الكلمات من المقاطع -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">🔨 نَشَاطُ ٧: أُرَكِّبُ مِنَ الْمَقَاطِعِ كَلِمَاتٍ ثُمَّ أَقْرَأُهَا (ص ١١٢)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ghayn_act7_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; cursor: pointer;" onclick="playAudio('letter_ghayn_act7_intro')">
+                                <img src="activity_ghayn_blend.png" alt="نشاط 7 تركيب الكلمات" style="width: 100%; max-height: 280px; object-fit: contain; background: #ecfdf5;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
+                                <div class="ghayn-word-card" onclick="playGhaynMerge('taghleef')">
+                                    <div style="font-size: 1rem; color: #059669; font-weight: 700;">تَـغْـ + لِيـ + فٌ</div>
+                                    <div class="ghayn-word-text">تَغْلِيفٌ 📦</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynMerge('ghaalib')">
+                                    <div style="font-size: 1rem; color: #059669; font-weight: 700;">غَا + لِـ + بٌ</div>
+                                    <div class="ghayn-word-text">غَالِبٌ 🏆</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynMerge('ghaamidh')">
+                                    <div style="font-size: 1rem; color: #059669; font-weight: 700;">غَا + مِـ + ضٌ</div>
+                                    <div class="ghayn-word-text">غَامِضٌ 🕵️</div>
+                                </div>
+                                <div class="ghayn-word-card" onclick="playGhaynMerge('ghaabah')">
+                                    <div style="font-size: 1rem; color: #059669; font-weight: 700;">غَا + بَـ + ةٌ</div>
+                                    <div class="ghayn-word-text">غَابَةٌ 🌳</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 8 ص 112: ترتيب الكلمات لتكوين جملة مفيدة -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">📚 نَشَاطُ ٨: أُرَتِّبُ الْكَلِمَاتِ وَأُكَوِّنُ جُمْلَةً مُفِيدَة (ص ١١٢)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_ghayn_act8_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; cursor: pointer;" onclick="playAudio('letter_ghayn_act8_intro')">
+                                <img src="activity_ghayn_order.png" alt="نشاط 8 ترتيب الكلمات" style="width: 100%; max-height: 220px; object-fit: contain; background: #ecfdf5;">
+                            </div>
+
+                            <div style="background: #ffffff; border: 2px solid #a7f3d0; border-radius: 18px; padding: 18px; text-align: center; cursor: pointer;" onclick="playAudio('letter_ghayn_act8_intro')">
+                                <div style="font-size: 1rem; color: #059669; font-weight: 700; margin-bottom: 8px;">الْكَلِمَاتُ الْمُبَعْثَرَة: (أَنْ تَقْرَأَ ، مُعَلِّمَةٌ ، تَغْرِيدٌ ، كَثِيرًا ، تُحِبُّ)</div>
+                                <div style="font-size: 1.5rem; font-weight: 900; color: #065f46; background: #d1fae5; padding: 10px; border-radius: 14px;">
+                                    ✨ تَغْرِيدٌ تُحِبُّ أَنْ تَقْرَأَ كَثِيرًا ✨
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة ونصوص الكتاب والنصوص التراثية والسبورة -->
+                    <div class="letter-ghayn-station" id="stationGhayn_4">
+                        <!-- نشاط 9 ص 113: قراءة نص الكتاب المدرسي -->
+                        <div class="ghayn-reading-box">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">📖 نَشَاطُ ٩: أَقْرَأُ فِقْرَةَ الْكِتَابِ الْمَدْرَسِيِّ (ص ١١٣)</h3>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn-primary" onclick="playGhaynStoryFull('p113')" style="background: #059669; border-color: #047857; font-size: 0.9rem; padding: 8px 16px;">
+                                        <span>🎧</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلًا</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 20px; border-radius: 18px; overflow: hidden; border: 2px solid #a7f3d0; cursor: pointer;" onclick="playGhaynStoryFull('p113')">
+                                <img src="activity_ghayn_read.png" alt="صورة قراءة ص 113" style="width: 100%; max-height: 380px; object-fit: contain; background: #ffffff;">
+                            </div>
+
+                            <!-- الجمل الأربعة المقروءة تفاعلياً -->
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_read_p113_s1')">
+                                <div class="ghayn-sentence-text">مُحَمَّدٌ غَوَّاصٌ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_read_p113_s2')">
+                                <div class="ghayn-sentence-text">يُحِبُّ أَنْ يَغُوصَ فِي أَعْمَاقِ دِجْلَةَ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_read_p113_s3')">
+                                <div class="ghayn-sentence-text">غَسَّانُ عَالِمٌ صَغِيرٌ، يَتَعَلَّمُ أُمُورًا جَدِيدَةً مَعَ بَابَا وَمَامَا.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_read_p113_s4')">
+                                <div class="ghayn-sentence-text">صَوَّرَ غُرَابًا، وَغَزَالاً صَغِيرًا.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي الأول: غَزَالٌ وَغُرَابٌ -->
+                        <div class="ghayn-heritage-box">
+                            <div class="ghayn-heritage-header">
+                                <div class="ghayn-heritage-title">
+                                    <span>🦌🦅</span>
+                                    <span>النَّصُّ التُّرَاثِيُّ العِرَاقِيُّ: غَزَالٌ وَغُرَابٌ (غـ ، ـغـ)</span>
+                                </div>
+                                <button class="btn-primary" onclick="playGhaynStoryFull('gazelle')" style="background: #d97706; border-color: #b45309; font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلْقِصَّةِ كَامِلَةً</span>
+                                </button>
+                            </div>
+
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_story_gazelle_s1')">
+                                <div class="ghayn-sentence-text">الْغُرَابُ صَدِيقُ الْغَزَالِ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_story_gazelle_s2')">
+                                <div class="ghayn-sentence-text">صَاحَ الْغَزَالُ: سَاقِي مَكْسُورَةٌ. أَنَا عَطْشَانُ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_story_gazelle_s3')">
+                                <div class="ghayn-sentence-text">قَدَّمَ الْغُرَابُ إِلَيْهِ مَاءً.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_story_gazelle_s4')">
+                                <div class="ghayn-sentence-text">شَرِبَ الْغَزَالُ وَقَالَ: الْحَمْدُ لِلَّهِ، شُكْرًا يَا صَدِيقِي.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي الثاني: أَصْبَاغُ هِشَامٍ -->
+                        <div class="ghayn-heritage-box" style="border-color: #0284c7;">
+                            <div class="ghayn-heritage-header" style="border-bottom-color: #bae6fd;">
+                                <div class="ghayn-heritage-title" style="color: #0369a1;">
+                                    <span>🎨🖌️</span>
+                                    <span>النَّصُّ التُّرَاثِيُّ العِرَاقِيُّ: أَصْبَاغُ هِشَامٍ (ـغ ، غ)</span>
+                                </div>
+                                <button class="btn-primary" onclick="playGhaynStoryFull('asbaagh')" style="background: #0284c7; border-color: #0369a1; font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلًا</span>
+                                </button>
+                            </div>
+
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_story_asbaagh_s1')">
+                                <div class="ghayn-sentence-text">هِشَامٌ رَسَّامٌ. عِنْدَهُ عُلْبَةُ أَصْبَاغٍ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_story_asbaagh_s2')">
+                                <div class="ghayn-sentence-text">سَأَلَتْ مَيْسُونُ: مَاذَا تَصْبُغُ يَا هِشَامُ؟</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_story_asbaagh_s3')">
+                                <div class="ghayn-sentence-text">قَالَ هِشَامٌ: أَصْبُغُ الصُّورَةَ بِالأَصْبَاغِ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي الثالث: غُرَابٌ أَعْيَرُ (الْغُرَابُ الْعَطْشَانُ) -->
+                        <div class="ghayn-heritage-box" style="border-color: #8b5cf6;">
+                            <div class="ghayn-heritage-header" style="border-bottom-color: #ddd6fe;">
+                                <div class="ghayn-heritage-title" style="color: #6d28d9;">
+                                    <span>🦅🏺</span>
+                                    <span>النَّصُّ التُّرَاثِيُّ العِرَاقِيُّ: غُرَابٌ أَعْيَرُ (الْغُرَابُ الْعَطْشَانُ)</span>
+                                </div>
+                                <button class="btn-primary" onclick="playGhaynStoryFull('ghuraab')" style="background: #8b5cf6; border-color: #6d28d9; font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلْقِصَّةِ كَامِلَةً</span>
+                                </button>
+                            </div>
+
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_story_ghuraab_s1')">
+                                <div class="ghayn-sentence-text">رَأَى غُرَابٌ جَرَّةً فِيهَا مَاءٌ قَلِيلٌ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_story_ghuraab_s2')">
+                                <div class="ghayn-sentence-text">أَرَادَ الْغُرَابُ أَنْ يَشْرَبَ الْمَاءَ فَلَمْ يَقْدِرْ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_story_ghuraab_s3')">
+                                <div class="ghayn-sentence-text">فَكَّرَ الْغُرَابُ وَرَمَى حَصَاةً فِي الْجَرَّةِ، فَارْتَفَعَ الْمَاءُ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                            <div class="ghayn-sentence-card" onclick="playGhaynReadingSentence('letter_ghayn_story_ghuraab_s4')">
+                                <div class="ghayn-sentence-text">شَرِبَ الْغُرَابُ وَفَرِحَ.</div>
+                                <div class="btn-secondary" style="font-size: 0.85rem; padding: 4px 12px;">🔊 اسْتَمِعْ</div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة رسم وتتبع حرف الغين -->
+                        <div class="ghayn-canvas-container" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">✍️ سَبُّورَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ الْغَيْنِ (غـ ، ـغـ ، ـغ ، غ)</h3>
+                                <button class="btn-secondary" onclick="clearGhaynCanvas()" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🗑️</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                </button>
+                            </div>
+                            <canvas id="ghaynCanvas" style="width: 100%; height: 240px; background: #ffffff; border: 2px dashed #a7f3d0; border-radius: 16px; cursor: crosshair; touch-action: none;"></canvas>
+                            <div class="ghayn-canvas-tools">
+                                <span style="font-weight: 800; color: #065f46;">اخْتَرِ اللَّوْنَ:</span>
+                                <button onclick="setGhaynCanvasColor('#059669')" style="width: 28px; height: 28px; border-radius: 50%; background: #059669; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setGhaynCanvasColor('#0284c7')" style="width: 28px; height: 28px; border-radius: 50%; background: #0284c7; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setGhaynCanvasColor('#dc2626')" style="width: 28px; height: 28px; border-radius: 50%; background: #dc2626; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <button onclick="setGhaynCanvasColor('#d97706')" style="width: 28px; height: 28px; border-radius: 50%; background: #d97706; border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer;"></button>
+                                <span style="margin-right: 12px; font-weight: 800; color: #065f46;">حَجْمُ الْقَلَمِ:</span>
+                                <button class="btn-secondary" onclick="setGhaynCanvasSize(4)" style="padding: 4px 10px; font-size: 0.8rem;">رَفِيع</button>
+                                <button class="btn-secondary" onclick="setGhaynCanvasSize(8)" style="padding: 4px 10px; font-size: 0.8rem;">مُتَوَسِّط</button>
+                                <button class="btn-secondary" onclick="setGhaynCanvasSize(14)" style="padding: 4px 10px; font-size: 0.8rem;">عَرِيض</button>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي التفاعلي لدرس حرف الغين -->
+                        <div class="ghayn-quiz-box">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">⭐ اِخْتِبَارُ التَّحَدِّي لِحَرْفِ الْغَيْنِ</h3>
+                                <button class="btn-primary" onclick="initGhaynQuiz()" style="background: #059669; border-color: #047857; font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🚀</span> <span>بَدْءُ التَّحَدِّي</span>
+                                </button>
+                            </div>
+                            <div id="ghaynQuizCard">
+                                <div style="text-align: center; padding: 20px; color: #059669; font-weight: 800;">
+                                    اضْغَطْ عَلَى «بَدْءُ التَّحَدِّي» لِاخْتِبَارِ مَهَارَاتِكَ فِي حَرْفِ الْغَيْنِ وَجَمْعِ النُّجُومِ! 🌟
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>

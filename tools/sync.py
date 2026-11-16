@@ -65,6 +65,7 @@ def sync_assets(bump_cache=False):
         "'./css/lessons-unit3.css'",
         "'./css/lessons-unit4.css'",
         "'./css/lessons-unit5.css'",
+        "'./css/lessons-unit6.css'",
         "'./js/core/modals.js'",
         "'./js/core/audio.js'",
         "'./js/core/navigation.js'",
@@ -74,6 +75,7 @@ def sync_assets(bump_cache=False):
         "'./js/lessons/unit3.js'",
         "'./js/lessons/unit4.js'",
         "'./js/lessons/unit5.js'",
+        "'./js/lessons/unit6.js'",
         "'./js/app.js'"
     ]
 

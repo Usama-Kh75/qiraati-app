@@ -26,7 +26,7 @@
 !/views/
 !/views/**
 !/tools/
-!/tools/**
+!/tools/*.py
 
 # المجلدات المسموح بها
 !/icons/
@@ -430,3 +430,22 @@
 !/activity_shaddah_read.png
 !/activity_shaddah_nasheed.png
 !/activity_shaddah_trace.png
+
+# الوحدة السادسة: العالم من حولي - الدرس الأول: حرف الغين (غـ ، ـغـ ، ـغ ، غ) وتطبيقاته (ص 110 - 113)
+!/page_110.png
+!/page_111.png
+!/page_112.png
+!/page_113.png
+!/page_114.png
+!/unit6_world_listen.png
+!/activity_ghayn_scene.png
+!/activity_ghayn_words.png
+!/activity_ghayn_vowels.png
+!/activity_ghayn_vowel_words.png
+!/activity_ghayn_syllables.png
+!/activity_ghayn_analysis.png
+!/activity_ghayn_swap.png
+!/activity_ghayn_blend.png
+!/activity_ghayn_order.png
+!/activity_ghayn_read.png
+!/activity_ghayn_trace.png

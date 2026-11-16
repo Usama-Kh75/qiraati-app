@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v46';
+const CACHE_NAME = 'qiraati-smart-v47';
 
 const ASSETS_TO_CACHE = [
 
@@ -34,6 +34,8 @@ const ASSETS_TO_CACHE = [
 
   './css/lessons-unit5.css',
 
+  './css/lessons-unit6.css',
+
   './js/core/modals.js',
 
   './js/core/audio.js',
@@ -51,6 +53,8 @@ const ASSETS_TO_CACHE = [
   './js/lessons/unit4.js',
 
   './js/lessons/unit5.js',
+
+  './js/lessons/unit6.js',
 
   './js/app.js',
 
@@ -139,6 +143,28 @@ const ASSETS_TO_CACHE = [
   './activity_f_scene.png',
 
   './activity_fatiha_frame.png',
+
+  './activity_ghayn_analysis.png',
+
+  './activity_ghayn_blend.png',
+
+  './activity_ghayn_order.png',
+
+  './activity_ghayn_read.png',
+
+  './activity_ghayn_scene.png',
+
+  './activity_ghayn_swap.png',
+
+  './activity_ghayn_syllables.png',
+
+  './activity_ghayn_trace.png',
+
+  './activity_ghayn_vowel_words.png',
+
+  './activity_ghayn_vowels.png',
+
+  './activity_ghayn_words.png',
 
   './activity_h_analysis.png',
 
@@ -534,6 +560,16 @@ const ASSETS_TO_CACHE = [
 
   './page_109.png',
 
+  './page_110.png',
+
+  './page_111.png',
+
+  './page_112.png',
+
+  './page_113.png',
+
+  './page_114.png',
+
   './page_17.png',
 
   './page_18.png',
@@ -727,6 +763,8 @@ const ASSETS_TO_CACHE = [
   './unit5_hobbies_listen.png',
 
   './unit5_story_hobbies.png',
+
+  './unit6_world_listen.png',
 
   './audio/act4_full_story.mp3',
 
@@ -1589,6 +1627,204 @@ const ASSETS_TO_CACHE = [
   './audio/letter_f_tifl_syllable.mp3',
 
   './audio/letter_f_vowels_intro.mp3',
+
+  './audio/letter_ghayn_act1_intro.mp3',
+
+  './audio/letter_ghayn_act2_intro.mp3',
+
+  './audio/letter_ghayn_act3_intro.mp3',
+
+  './audio/letter_ghayn_act4_intro.mp3',
+
+  './audio/letter_ghayn_act5_intro.mp3',
+
+  './audio/letter_ghayn_act6_intro.mp3',
+
+  './audio/letter_ghayn_act7_intro.mp3',
+
+  './audio/letter_ghayn_act8_intro.mp3',
+
+  './audio/letter_ghayn_act9_intro.mp3',
+
+  './audio/letter_ghayn_correct.mp3',
+
+  './audio/letter_ghayn_encourage_super.mp3',
+
+  './audio/letter_ghayn_intro.mp3',
+
+  './audio/letter_ghayn_long_aa.mp3',
+
+  './audio/letter_ghayn_long_ee.mp3',
+
+  './audio/letter_ghayn_long_oo.mp3',
+
+  './audio/letter_ghayn_merge_ghaabah.mp3',
+
+  './audio/letter_ghayn_merge_ghaalib.mp3',
+
+  './audio/letter_ghayn_merge_ghaamidh.mp3',
+
+  './audio/letter_ghayn_merge_taghleef.mp3',
+
+  './audio/letter_ghayn_phoneme_faseeh.mp3',
+
+  './audio/letter_ghayn_quiz_intro.mp3',
+
+  './audio/letter_ghayn_read_intro.mp3',
+
+  './audio/letter_ghayn_read_p113_full.mp3',
+
+  './audio/letter_ghayn_read_p113_s1.mp3',
+
+  './audio/letter_ghayn_read_p113_s2.mp3',
+
+  './audio/letter_ghayn_read_p113_s3.mp3',
+
+  './audio/letter_ghayn_read_p113_s4.mp3',
+
+  './audio/letter_ghayn_scene_story.mp3',
+
+  './audio/letter_ghayn_short_a.mp3',
+
+  './audio/letter_ghayn_short_i.mp3',
+
+  './audio/letter_ghayn_short_u.mp3',
+
+  './audio/letter_ghayn_sound.mp3',
+
+  './audio/letter_ghayn_split_ghawwaasah.mp3',
+
+  './audio/letter_ghayn_split_sabbaagh.mp3',
+
+  './audio/letter_ghayn_split_taghreed.mp3',
+
+  './audio/letter_ghayn_story_asbaagh_full.mp3',
+
+  './audio/letter_ghayn_story_asbaagh_s1.mp3',
+
+  './audio/letter_ghayn_story_asbaagh_s2.mp3',
+
+  './audio/letter_ghayn_story_asbaagh_s3.mp3',
+
+  './audio/letter_ghayn_story_gazelle_full.mp3',
+
+  './audio/letter_ghayn_story_gazelle_s1.mp3',
+
+  './audio/letter_ghayn_story_gazelle_s2.mp3',
+
+  './audio/letter_ghayn_story_gazelle_s3.mp3',
+
+  './audio/letter_ghayn_story_gazelle_s4.mp3',
+
+  './audio/letter_ghayn_story_ghuraab_full.mp3',
+
+  './audio/letter_ghayn_story_ghuraab_s1.mp3',
+
+  './audio/letter_ghayn_story_ghuraab_s2.mp3',
+
+  './audio/letter_ghayn_story_ghuraab_s3.mp3',
+
+  './audio/letter_ghayn_story_ghuraab_s4.mp3',
+
+  './audio/letter_ghayn_syl_agh.mp3',
+
+  './audio/letter_ghayn_syl_migh.mp3',
+
+  './audio/letter_ghayn_unit6_story.mp3',
+
+  './audio/letter_ghayn_word_aghnaam.mp3',
+
+  './audio/letter_ghayn_word_alhamdu.mp3',
+
+  './audio/letter_ghayn_word_asbaagh.mp3',
+
+  './audio/letter_ghayn_word_atshaan.mp3',
+
+  './audio/letter_ghayn_word_babbaghaa.mp3',
+
+  './audio/letter_ghayn_word_dimaagh.mp3',
+
+  './audio/letter_ghayn_word_faqeer.mp3',
+
+  './audio/letter_ghayn_word_fariha.mp3',
+
+  './audio/letter_ghayn_word_ghaabah.mp3',
+
+  './audio/letter_ghayn_word_ghaalib.mp3',
+
+  './audio/letter_ghayn_word_ghaamidh.mp3',
+
+  './audio/letter_ghayn_word_ghareeb.mp3',
+
+  './audio/letter_ghayn_word_ghassaal.mp3',
+
+  './audio/letter_ghayn_word_ghassaalah.mp3',
+
+  './audio/letter_ghayn_word_ghassaan.mp3',
+
+  './audio/letter_ghayn_word_ghawwaasah.mp3',
+
+  './audio/letter_ghayn_word_ghazaal.mp3',
+
+  './audio/letter_ghayn_word_ghidhaa.mp3',
+
+  './audio/letter_ghayn_word_ghitaa.mp3',
+
+  './audio/letter_ghayn_word_ghoorilla.mp3',
+
+  './audio/letter_ghayn_word_ghuraab.mp3',
+
+  './audio/letter_ghayn_word_ghusn.mp3',
+
+  './audio/letter_ghayn_word_hasaat.mp3',
+
+  './audio/letter_ghayn_word_hishaam.mp3',
+
+  './audio/letter_ghayn_word_irtafa_a.mp3',
+
+  './audio/letter_ghayn_word_jarrah.mp3',
+
+  './audio/letter_ghayn_word_maksoorah.mp3',
+
+  './audio/letter_ghayn_word_maysmoon.mp3',
+
+  './audio/letter_ghayn_word_mighsalah.mp3',
+
+  './audio/letter_ghayn_word_mighzal.mp3',
+
+  './audio/letter_ghayn_word_qaddama.mp3',
+
+  './audio/letter_ghayn_word_qareeb.mp3',
+
+  './audio/letter_ghayn_word_ragheef.mp3',
+
+  './audio/letter_ghayn_word_rassam.mp3',
+
+  './audio/letter_ghayn_word_saaqee.mp3',
+
+  './audio/letter_ghayn_word_sabbaagh.mp3',
+
+  './audio/letter_ghayn_word_sadeeqee.mp3',
+
+  './audio/letter_ghayn_word_sagheer.mp3',
+
+  './audio/letter_ghayn_word_samgh.mp3',
+
+  './audio/letter_ghayn_word_shariba.mp3',
+
+  './audio/letter_ghayn_word_shukran.mp3',
+
+  './audio/letter_ghayn_word_soorah.mp3',
+
+  './audio/letter_ghayn_word_taghleef.mp3',
+
+  './audio/letter_ghayn_word_taghreed.mp3',
+
+  './audio/letter_ghayn_word_tasbugh.mp3',
+
+  './audio/letter_ghayn_word_ulbah.mp3',
+
+  './audio/letter_ghayn_wrong.mp3',
 
   './audio/letter_h_analysis_intro.mp3',
 

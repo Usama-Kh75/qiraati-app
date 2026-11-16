@@ -30,7 +30,7 @@ def build_index():
         output_lines.extend(f.readlines())
 
     # 2. Units in order
-    units = ['prep', 'unit1', 'unit2', 'unit3', 'unit4', 'unit5']
+    units = ['prep', 'unit1', 'unit2', 'unit3', 'unit4', 'unit5', 'unit6']
     total_views = 0
     for u in units:
         u_dir = os.path.join(views_dir, u)
