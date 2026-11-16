@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v45';
+const CACHE_NAME = 'qiraati-smart-v46';
 
 const ASSETS_TO_CACHE = [
 
@@ -394,6 +394,26 @@ const ASSETS_TO_CACHE = [
 
   './activity_sh_words.png',
 
+  './activity_shaddah_analysis.png',
+
+  './activity_shaddah_blend.png',
+
+  './activity_shaddah_draw.png',
+
+  './activity_shaddah_formation.png',
+
+  './activity_shaddah_nasheed.png',
+
+  './activity_shaddah_pick.png',
+
+  './activity_shaddah_read.png',
+
+  './activity_shaddah_scene.png',
+
+  './activity_shaddah_trace.png',
+
+  './activity_shaddah_words.png',
+
   './activity_t_analysis.png',
 
   './activity_t_blend.png',
@@ -505,6 +525,14 @@ const ASSETS_TO_CACHE = [
   './page_104.png',
 
   './page_105.png',
+
+  './page_106.png',
+
+  './page_107.png',
+
+  './page_108.png',
+
+  './page_109.png',
 
   './page_17.png',
 
@@ -4393,6 +4421,158 @@ const ASSETS_TO_CACHE = [
   './audio/quiz_prompt.mp3',
 
   './audio/reset.mp3',
+
+  './audio/shaddah_act1_intro.mp3',
+
+  './audio/shaddah_act2_intro.mp3',
+
+  './audio/shaddah_act3_intro.mp3',
+
+  './audio/shaddah_act4_intro.mp3',
+
+  './audio/shaddah_act5_intro.mp3',
+
+  './audio/shaddah_act8_intro.mp3',
+
+  './audio/shaddah_correct.mp3',
+
+  './audio/shaddah_dhamma.mp3',
+
+  './audio/shaddah_draw_hint.mp3',
+
+  './audio/shaddah_draw_najjaar.mp3',
+
+  './audio/shaddah_draw_sabboorah.mp3',
+
+  './audio/shaddah_draw_tayyaarah.mp3',
+
+  './audio/shaddah_draw_tumashshitu.mp3',
+
+  './audio/shaddah_encourage_super.mp3',
+
+  './audio/shaddah_fatha.mp3',
+
+  './audio/shaddah_form_bitteekh.mp3',
+
+  './audio/shaddah_form_dabboos.mp3',
+
+  './audio/shaddah_form_qittah.mp3',
+
+  './audio/shaddah_intro.mp3',
+
+  './audio/shaddah_kasra.mp3',
+
+  './audio/shaddah_merge_najjaar.mp3',
+
+  './audio/shaddah_merge_tuffaah.mp3',
+
+  './audio/shaddah_merge_yuhibbu.mp3',
+
+  './audio/shaddah_nasheed_b1.mp3',
+
+  './audio/shaddah_nasheed_b2.mp3',
+
+  './audio/shaddah_nasheed_b3.mp3',
+
+  './audio/shaddah_nasheed_b4.mp3',
+
+  './audio/shaddah_nasheed_full.mp3',
+
+  './audio/shaddah_nasheed_intro.mp3',
+
+  './audio/shaddah_phoneme_faseeh.mp3',
+
+  './audio/shaddah_quiz_intro.mp3',
+
+  './audio/shaddah_read_intro.mp3',
+
+  './audio/shaddah_read_jaddi_full.mp3',
+
+  './audio/shaddah_read_qaddoori.mp3',
+
+  './audio/shaddah_read_s1.mp3',
+
+  './audio/shaddah_read_s2.mp3',
+
+  './audio/shaddah_read_s3.mp3',
+
+  './audio/shaddah_read_s4.mp3',
+
+  './audio/shaddah_read_waqqas.mp3',
+
+  './audio/shaddah_scene_story.mp3',
+
+  './audio/shaddah_sound.mp3',
+
+  './audio/shaddah_split_barraad.mp3',
+
+  './audio/shaddah_split_muallim.mp3',
+
+  './audio/shaddah_split_yaqussu.mp3',
+
+  './audio/shaddah_word_ahdarat.mp3',
+
+  './audio/shaddah_word_aliyy.mp3',
+
+  './audio/shaddah_word_barraad.mp3',
+
+  './audio/shaddah_word_bayta.mp3',
+
+  './audio/shaddah_word_bitteekh.mp3',
+
+  './audio/shaddah_word_dabboos.mp3',
+
+  './audio/shaddah_word_dubb.mp3',
+
+  './audio/shaddah_word_jadd.mp3',
+
+  './audio/shaddah_word_jaddati.mp3',
+
+  './audio/shaddah_word_jaddi.mp3',
+
+  './audio/shaddah_word_maa.mp3',
+
+  './audio/shaddah_word_miqass.mp3',
+
+  './audio/shaddah_word_muallim.mp3',
+
+  './audio/shaddah_word_muharrij.mp3',
+
+  './audio/shaddah_word_muka-abaat.mp3',
+
+  './audio/shaddah_word_mulawwanah.mp3',
+
+  './audio/shaddah_word_muthallath.mp3',
+
+  './audio/shaddah_word_najjaar.mp3',
+
+  './audio/shaddah_word_qittah.mp3',
+
+  './audio/shaddah_word_rakkaptu.mp3',
+
+  './audio/shaddah_word_sabboorah.mp3',
+
+  './audio/shaddah_word_sayyaarah.mp3',
+
+  './audio/shaddah_word_sayyaaratan.mp3',
+
+  './audio/shaddah_word_tayyaarah.mp3',
+
+  './audio/shaddah_word_tuffaah.mp3',
+
+  './audio/shaddah_word_tumashshitu.mp3',
+
+  './audio/shaddah_word_wa-jaddati.mp3',
+
+  './audio/shaddah_word_wa-rakkappa.mp3',
+
+  './audio/shaddah_word_yaqussu.mp3',
+
+  './audio/shaddah_word_yuhibbu.mp3',
+
+  './audio/shaddah_word_zurna.mp3',
+
+  './audio/shaddah_wrong.mp3',
 
   './audio/short_giraffe_wrong.mp3',
 

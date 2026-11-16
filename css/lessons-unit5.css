@@ -1869,3 +1869,398 @@
     border-color: #ef4444 !important;
     color: #991b1b !important;
 }
+
+/* ==========================================================================
+ * الوحدة الخامسة: هواياتي وألعابي - الدرس السادس: الشدة (ـّ) وتطبيقاتها وقراءة زُرْنَا بَيْتَ جَدِّي ونشيد هَيَّا نَلْعَبْ (ص ١٠٥ - ١٠٨)
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* محطات درس الشدة */
+.shaddah-station {
+    display: none;
+    animation: fadeInStation 0.35s ease;
+}
+.shaddah-station.active {
+    display: block;
+}
+
+/* بطاقة الشدة العملاقة التفاعلية */
+.giant-shaddah-card {
+    background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 50%, #fecdd3 100%);
+    border: 3px solid #f43f5e;
+    border-radius: 28px;
+    padding: 24px 36px;
+    display: inline-flex;
+    align-items: center;
+    gap: 28px;
+    box-shadow: 0 10px 30px rgba(225, 29, 72, 0.15);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.giant-shaddah-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 16px 40px rgba(225, 29, 72, 0.25);
+    border-color: #e11d48;
+}
+.giant-shaddah-glyph {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #e11d48;
+    line-height: 1;
+    letter-spacing: 4px;
+    text-shadow: 0 2px 8px rgba(225, 29, 72, 0.2);
+}
+
+/* بطاقات حركات الشدة الثلاث */
+.shaddah-haraka-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+.shaddah-haraka-card {
+    background: #ffffff;
+    border: 2px solid #fecdd3;
+    border-radius: 20px;
+    padding: 20px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.shaddah-haraka-card:hover {
+    transform: translateY(-4px) scale(1.02);
+    border-color: #e11d48;
+    background: #fff1f2;
+    box-shadow: 0 8px 24px rgba(225, 29, 72, 0.18);
+}
+.shaddah-haraka-glyph {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #e11d48;
+    line-height: 1;
+}
+.shaddah-haraka-name {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #881337;
+}
+.shaddah-haraka-example {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #be123c;
+    background: #ffe4e6;
+    padding: 4px 14px;
+    border-radius: 14px;
+}
+
+/* شبكة بطاقات الكلمات المشددة */
+.shaddah-word-card {
+    background: #ffffff;
+    border: 2px solid #fecdd3;
+    border-radius: 20px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.shaddah-word-card:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #e11d48;
+    background: #fff1f2;
+    box-shadow: 0 8px 20px rgba(225, 29, 72, 0.16);
+}
+.shaddah-word-icon {
+    font-size: 2.4rem;
+}
+.shaddah-word-text {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #881337;
+}
+.shaddah-word-type {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #be123c;
+    background: #ffe4e6;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+/* معمل تكوين الشدة (ساكن + متحرك = مشدد) */
+.shaddah-form-box {
+    background: #ffffff;
+    border: 2px solid #fecdd3;
+    border-radius: 20px;
+    padding: 18px 20px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+.shaddah-form-box:hover {
+    transform: translateY(-3px) scale(1.01);
+    border-color: #e11d48;
+    background: #fff1f2;
+    box-shadow: 0 6px 18px rgba(225, 29, 72, 0.14);
+}
+.shaddah-form-part {
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: 8px 16px;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    color: #1e293b;
+}
+.shaddah-form-plus {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #e11d48;
+}
+.shaddah-form-arrow {
+    font-size: 1.6rem;
+    color: #fb7185;
+}
+.shaddah-form-res {
+    background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 900;
+    padding: 8px 22px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.25);
+}
+
+/* بطاقات استماع وتحديد الحرف المشدد */
+.shaddah-pick-card {
+    background: #ffffff;
+    border: 2px solid #fecdd3;
+    border-radius: 22px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+.shaddah-letter-btn {
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: 8px 16px;
+    border-radius: 14px;
+    border: 2px solid #cbd5e1;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.shaddah-letter-btn:hover {
+    border-color: #e11d48;
+    background: #fff1f2;
+    transform: scale(1.08);
+}
+.shaddah-letter-btn.picked {
+    border-color: #10b981 !important;
+    background: #ecfdf5 !important;
+    color: #047857 !important;
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.4) !important;
+    transform: scale(1.15) !important;
+}
+
+/* بطاقات رسم الكلمات بالشدة */
+.shaddah-draw-card {
+    background: #ffffff;
+    border: 2px solid #fecdd3;
+    border-radius: 18px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+.shaddah-draw-card:hover {
+    transform: translateX(-4px);
+    border-color: #e11d48;
+    background: #fff1f2;
+}
+
+/* بطاقات التحليل والتركيب الصوتي للشدة */
+.shaddah-split-card {
+    background: #ffffff;
+    border: 2px solid #fecdd3;
+    border-radius: 20px;
+    padding: 18px 22px;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+.shaddah-split-card:hover {
+    transform: translateY(-3px);
+    border-color: #e11d48;
+    background: #fff1f2;
+}
+.shaddah-pill {
+    background: #fff1f2;
+    border: 2px solid #fda4af;
+    color: #be123c;
+    font-size: 1.3rem;
+    font-weight: 900;
+    padding: 6px 16px;
+    border-radius: 14px;
+}
+.shaddah-res-pill {
+    background: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 900;
+    padding: 6px 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(225, 29, 72, 0.25);
+}
+
+/* بطاقات وسطور قراءة زُرْنَا بَيْتَ جَدِّي */
+.shaddah-read-line {
+    background: #ffffff;
+    border: 2px solid #fecdd3;
+    border-radius: 18px;
+    padding: 16px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+.shaddah-read-line:hover {
+    transform: translateX(-4px) scale(1.01);
+    border-color: #e11d48;
+    background: #fff1f2;
+    box-shadow: 0 6px 18px rgba(225, 29, 72, 0.15);
+}
+.shaddah-read-text {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #881337;
+    flex: 1;
+    margin: 0 16px;
+}
+
+/* بطاقات نشيد هَيَّا نَلْعَبْ */
+.shaddah-nasheed-box {
+    background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+    border: 3px solid #fda4af;
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 24px rgba(225, 29, 72, 0.08);
+}
+.shaddah-verse-card {
+    background: #ffffff;
+    border: 2px solid #fecdd3;
+    border-radius: 18px;
+    padding: 16px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+.shaddah-verse-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    border-color: #e11d48;
+    background: #fff1f2;
+    box-shadow: 0 6px 18px rgba(225, 29, 72, 0.15);
+}
+.shaddah-hemistich {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #881337;
+    padding: 4px 12px;
+}
+.shaddah-verse-star {
+    font-size: 1.2rem;
+    color: #f43f5e;
+}
+
+/* سبورة رسم الشدة */
+.shaddah-canvas-box {
+    border: 3px solid #fecdd3;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+    position: relative;
+    touch-action: none;
+}
+.shaddah-canvas-box canvas {
+    width: 100%;
+    height: 320px;
+    display: block;
+    cursor: crosshair;
+}
+
+/* اختبار التحدي للشدة */
+.shaddah-quiz-card {
+    background: #ffffff;
+    border: 2px solid #fecdd3;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+}
+.shaddah-quiz-option {
+    background: #ffffff;
+    border: 2px solid #fecdd3;
+    border-radius: 16px;
+    padding: 14px 20px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #881337;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.shaddah-quiz-option:hover {
+    transform: translateY(-3px) scale(1.02);
+    border-color: #e11d48;
+    background: #fff1f2;
+    box-shadow: 0 6px 18px rgba(225, 29, 72, 0.16);
+}
+.shaddah-quiz-option.correct {
+    background: #ecfdf5 !important;
+    border-color: #10b981 !important;
+    color: #065f46 !important;
+}
+.shaddah-quiz-option.wrong {
+    background: #fef2f2 !important;
+    border-color: #ef4444 !important;
+    color: #991b1b !important;
+}

@@ -1168,4 +1168,330 @@
             }, 1200);
         }
     };
+
+    /* ==========================================================================
+       الدرس السادس: الشدة (ـّ) وتطبيقاتها وقراءة زُرْنَا بَيْتَ جَدِّي ونشيد هَيَّا نَلْعَبْ (ص ١٠٥ - ١٠٨)
+    ========================================================================== */
+
+    /* ========================================================
+       القسم 27: محطات درس الشدة وتطبيقاتها
+    ======================================================== */
+    window.switchShaddahStation = function(stationNum) {
+        for (let i = 1; i <= 4; i++) {
+            const btn = document.getElementById(`btnStationShaddah_${i}`);
+            const sec = document.getElementById(`stationShaddah_${i}`);
+            if (btn) btn.classList.remove('active');
+            if (sec) sec.classList.remove('active');
+        }
+
+        const activeBtn = document.getElementById(`btnStationShaddah_${stationNum}`);
+        const activeSec = document.getElementById(`stationShaddah_${stationNum}`);
+        if (activeBtn) activeBtn.classList.add('active');
+        if (activeSec) activeSec.classList.add('active');
+
+        mascotCelebrates();
+
+        if (stationNum === 1) {
+            mascotSpeak('الْمَحَطَّةُ الأُولَى: أَتَعَرَّفُ الشَّدَّةَ (ـّ) وَأَصْوَاتَ الْحَرَكَاتِ وَالْمَشْهَدَ التَّفَاعُلِيَّ ص ١٠٥!', 'shaddah_intro');
+        } else if (stationNum === 2) {
+            mascotSpeak('الْمَحَطَّةُ الثَّانِيَةُ: مَعْمَلُ تَكْوِينِ الشَّدَّةِ وَتَمْيِيزِ الْحَرْفِ الْمُشَدَّدِ وَرَسْمِ الْكَلِمَاتِ ص ١٠٥ - ١٠٦!', 'shaddah_act2_intro');
+        } else if (stationNum === 3) {
+            mascotSpeak('الْمَحَطَّةُ الثَّالِثَةُ: التَّحْلِيلُ الصَّوْتِيُّ وَتَرْكِيبُ الْمَقَاطِعِ الْمُشَدَّدَةِ ص ١٠٦ - ١٠٧!', 'shaddah_act5_intro');
+        } else if (stationNum === 4) {
+            mascotSpeak('الْمَحَطَّةُ الرَّابِعَةُ: قِرَاءَةُ زُرْنَا بَيْتَ جَدِّي وَإِنْشَادُ هَيَّا نَلْعَبْ وَالسَّبُّورَةُ وَالتَّحَدِّي ص ١٠٧ - ١٠٨!', 'shaddah_read_intro');
+            setTimeout(initShaddahCanvas, 300);
+        }
+    };
+
+    /* ========================================================
+       القسم 28: أصوات الشدة وحركاتها الثلاث
+    ======================================================== */
+    window.playShaddahSound = function() {
+        mascotCelebrates();
+        playAudio('shaddah_sound');
+        mascotSpeak('الشَّدَّةُ (ـّ): إِدْغَامُ حَرْفَيْنِ مُتَمَاثِلَيْنِ الأَوَّلُ سَاكِنٌ وَالثَّانِي مُتَحَرِّكٌ! 🔊', 'shaddah_sound');
+    };
+
+    window.playShaddahPhonemeFaseeh = function() {
+        mascotCelebrates();
+        playAudio('shaddah_phoneme_faseeh');
+        mascotSpeak('فَصِيح يَقُولُ: عِنْدَ رُؤْيَةِ الشَّدَّةِ نَضْغَطُ عَلَى الْحَرْفِ بِقُوَّةٍ خَفِيفَةٍ كَأَنَّهُ مَرَّتَيْنِ: قِطْـ طَة... قِطَّة! 🗣️', 'shaddah_phoneme_faseeh');
+    };
+
+    window.playShaddahHaraka = function(harakaType) {
+        mascotCelebrates();
+        const map = {
+            'fatha': 'shaddah_fatha',
+            'dhamma': 'shaddah_dhamma',
+            'kasra': 'shaddah_kasra'
+        };
+        playAudio(map[harakaType] || 'shaddah_sound');
+    };
+
+    /* ========================================================
+       القسم 29: نشاط 2 معمل تكوين الشدة
+    ======================================================== */
+    window.playShaddahFormation = function(formKey) {
+        mascotCelebrates();
+        const map = {
+            'qittah': 'shaddah_form_qittah',
+            'dabboos': 'shaddah_form_dabboos',
+            'bitteekh': 'shaddah_form_bitteekh'
+        };
+        playAudio(map[formKey] || 'shaddah_act2_intro');
+    };
+
+    /* ========================================================
+       القسم 30: نشاط 3 استماع وتحديد الحرف المشدد
+    ======================================================== */
+    window.pickShaddahLetter = function(btn, isShaddah) {
+        if (btn.classList.contains('picked')) return;
+        if (isShaddah) {
+            btn.classList.add('picked');
+            mascotCelebrates();
+            playAudio('shaddah_correct');
+            mascotSpeak('أَحْسَنْتَ يَا عَبْقَرِيّ! هَذَا هُوَ الْحَرْفُ الْمُشَدَّدُ بِالضَّبْطِ! 🌟👏', 'shaddah_correct');
+        } else {
+            mascotThinks();
+            playAudio('shaddah_wrong');
+            mascotSpeak('انْتَبِهْ يَا بَطَل! هَذَا حَرْفٌ غَيْرُ مُشَدَّدٍ، ابْحَثْ عَنِ الْحَرْفِ الَّذِي تَعْلُوهُ الشَّدَّةُ (ـّ)! 💡', 'shaddah_wrong');
+        }
+    };
+
+    /* ========================================================
+       القسم 31: نشاط 4 رسم الكلمات بالشدة والحركات
+    ======================================================== */
+    window.playShaddahDraw = function(wordKey) {
+        mascotCelebrates();
+        const map = {
+            'tayyaarah': 'shaddah_draw_tayyaarah',
+            'najjaar': 'shaddah_draw_najjaar',
+            'sabboorah': 'shaddah_draw_sabboorah',
+            'tumashshitu': 'shaddah_draw_tumashshitu'
+        };
+        playAudio(map[wordKey] || 'shaddah_act4_intro');
+    };
+
+    /* ========================================================
+       القسم 32: التحليل والتركيب الصوتي نشاط 5 و 8
+    ======================================================== */
+    window.playShaddahSplit = function(wordKey) {
+        mascotCelebrates();
+        const map = {
+            'barraad': 'shaddah_split_barraad',
+            'yaqussu': 'shaddah_split_yaqussu',
+            'muallim': 'shaddah_split_muallim'
+        };
+        playAudio(map[wordKey] || 'shaddah_act5_intro');
+    };
+
+    window.playShaddahMerge = function(wordKey) {
+        mascotCelebrates();
+        const map = {
+            'tuffaah': 'shaddah_merge_tuffaah',
+            'najjaar': 'shaddah_merge_najjaar',
+            'yuhibbu': 'shaddah_merge_yuhibbu'
+        };
+        playAudio(map[wordKey] || 'shaddah_act8_intro');
+    };
+
+    /* ========================================================
+       القسم 33: قراءة زُرْنَا بَيْتَ جَدِّي ونشيد هَيَّا نَلْعَبْ
+    ======================================================== */
+    window.switchShaddahReadingTab = function(tab) {
+        const btnJaddi = document.getElementById('btnShaddahReadJaddi');
+        const btnNasheed = document.getElementById('btnShaddahReadNasheed');
+        const btnHeritage = document.getElementById('btnShaddahReadHeritage');
+
+        const contentJaddi = document.getElementById('shaddahReadingJaddiContent');
+        const contentNasheed = document.getElementById('shaddahReadingNasheedContent');
+        const contentHeritage = document.getElementById('shaddahReadingHeritageContent');
+
+        if (btnJaddi) {
+            btnJaddi.style.background = tab === 'jaddi' ? '#e11d48' : '#ffe4e6';
+            btnJaddi.style.color = tab === 'jaddi' ? '#ffffff' : '#be123c';
+        }
+        if (btnNasheed) {
+            btnNasheed.style.background = tab === 'nasheed' ? '#0284c7' : '#e0f2fe';
+            btnNasheed.style.color = tab === 'nasheed' ? '#ffffff' : '#0369a1';
+        }
+        if (btnHeritage) {
+            btnHeritage.style.background = tab === 'heritage' ? '#d97706' : '#fef3c7';
+            btnHeritage.style.color = tab === 'heritage' ? '#ffffff' : '#92400e';
+        }
+
+        if (contentJaddi) contentJaddi.style.display = tab === 'jaddi' ? 'block' : 'none';
+        if (contentNasheed) contentNasheed.style.display = tab === 'nasheed' ? 'block' : 'none';
+        if (contentHeritage) contentHeritage.style.display = tab === 'heritage' ? 'block' : 'none';
+
+        if (tab === 'jaddi') {
+            mascotSpeak('نَصُّ الْكِتَابِ ص ١٠٧: زُرْنَا بَيْتَ جَدِّي! اسْتَمِعْ وَاقْرَأْ بِلِسَانٍ عَرَبِيٍّ فَصِيح!', 'shaddah_read_jaddi_full');
+        } else if (tab === 'nasheed') {
+            mascotSpeak('نَشِيدُ: هَيَّا نَلْعَبْ ص ١٠٨! أَنْشِدْ مَعَنَا بِأَلْحَانٍ عَذْبَةٍ وَإِيقَاعٍ مَرِح!', 'shaddah_nasheed_full');
+        } else if (tab === 'heritage') {
+            mascotSpeak('النُّصُوصُ التُّرَاثِيَّةُ الْعِرَاقِيَّةُ لِلشَّدَّةِ: مِيزَانُ قَدُّورِي وَطَيَّارَةُ وَقَّاص!', 'shaddah_read_qaddoori');
+        }
+    };
+
+    window.playShaddahReadLine = function(lineKey) {
+        mascotCelebrates();
+        const map = {
+            'j_full': 'shaddah_read_jaddi_full',
+            's1': 'shaddah_read_s1',
+            's2': 'shaddah_read_s2',
+            's3': 'shaddah_read_s3',
+            's4': 'shaddah_read_s4'
+        };
+        playAudio(map[lineKey] || 'shaddah_read_intro');
+    };
+
+    window.playShaddahNasheedVerse = function(verseKey) {
+        mascotCelebrates();
+        const map = {
+            'n_full': 'shaddah_nasheed_full',
+            'b1': 'shaddah_nasheed_b1',
+            'b2': 'shaddah_nasheed_b2',
+            'b3': 'shaddah_nasheed_b3',
+            'b4': 'shaddah_nasheed_b4'
+        };
+        playAudio(map[verseKey] || 'shaddah_nasheed_intro');
+    };
+
+    window.playShaddahHeritage = function(key) {
+        mascotCelebrates();
+        const map = {
+            'qaddoori': 'shaddah_read_qaddoori',
+            'waqqas': 'shaddah_read_waqqas'
+        };
+        playAudio(map[key] || 'shaddah_read_qaddoori');
+    };
+
+    /* ========================================================
+       القسم 34: سبورة رسم الشدة التفاعلية
+    ======================================================== */
+    let shaddahCanvasInitialized = false;
+    let shaddahCanvas, shaddahCtx;
+    let isDrawingShaddah = false;
+    let currentShaddahColor = '#e11d48';
+
+    window.initShaddahCanvas = function() {
+        shaddahCanvas = document.getElementById('shaddahDrawingCanvas');
+        if (!shaddahCanvas) return;
+        shaddahCtx = shaddahCanvas.getContext('2d');
+
+        const rect = shaddahCanvas.getBoundingClientRect();
+        if (rect.width > 0) {
+            shaddahCanvas.width = rect.width * 2;
+            shaddahCanvas.height = 320 * 2;
+            shaddahCtx.scale(2, 2);
+
+            window.clearShaddahCanvas();
+
+            const getPos = (e) => {
+                const r = shaddahCanvas.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                return {
+                    x: clientX - r.left,
+                    y: clientY - r.top
+                };
+            };
+
+            const startDraw = (e) => {
+                e.preventDefault();
+                isDrawingShaddah = true;
+                const pos = getPos(e);
+                shaddahCtx.beginPath();
+                shaddahCtx.moveTo(pos.x, pos.y);
+                shaddahCtx.strokeStyle = currentShaddahColor;
+                shaddahCtx.lineWidth = 6;
+                shaddahCtx.lineCap = 'round';
+                shaddahCtx.lineJoin = 'round';
+            };
+
+            const drawMove = (e) => {
+                if (!isDrawingShaddah) return;
+                e.preventDefault();
+                const pos = getPos(e);
+                shaddahCtx.lineTo(pos.x, pos.y);
+                shaddahCtx.stroke();
+            };
+
+            const endDraw = (e) => {
+                if (!isDrawingShaddah) return;
+                e.preventDefault();
+                isDrawingShaddah = false;
+                shaddahCtx.closePath();
+            };
+
+            shaddahCanvas.addEventListener('mousedown', startDraw);
+            shaddahCanvas.addEventListener('mousemove', drawMove);
+            window.addEventListener('mouseup', endDraw);
+
+            shaddahCanvas.addEventListener('touchstart', startDraw, { passive: false });
+            shaddahCanvas.addEventListener('touchmove', drawMove, { passive: false });
+            window.addEventListener('touchend', endDraw, { passive: false });
+        }
+    };
+
+    window.clearShaddahCanvas = function() {
+        if (!shaddahCtx || !shaddahCanvas) return;
+        shaddahCtx.clearRect(0, 0, shaddahCanvas.width, shaddahCanvas.height);
+        // Draw baseline
+        const w = shaddahCanvas.width / 2;
+        shaddahCtx.save();
+        shaddahCtx.strokeStyle = '#fecdd3';
+        shaddahCtx.lineWidth = 2;
+        shaddahCtx.setLineDash([8, 6]);
+        shaddahCtx.beginPath();
+        shaddahCtx.moveTo(20, 220);
+        shaddahCtx.lineTo(w - 20, 220);
+        shaddahCtx.stroke();
+        shaddahCtx.restore();
+    };
+
+    window.setShaddahCanvasColor = function(color) {
+        currentShaddahColor = color;
+        if (shaddahCtx) shaddahCtx.strokeStyle = color;
+    };
+
+    /* ========================================================
+       القسم 35: اختبار التحدي الفونيمي التفاعلي للشدة
+    ======================================================== */
+    let shaddahScore = 0;
+    const answeredShaddahQuestions = {};
+
+    window.answerShaddahQuiz = function(qNum, selectedOption, isCorrect, btn) {
+        if (answeredShaddahQuestions[qNum]) return;
+        answeredShaddahQuestions[qNum] = true;
+
+        const parent = btn.parentElement;
+        parent.querySelectorAll('.shaddah-quiz-option').forEach(b => {
+            b.style.pointerEvents = 'none';
+        });
+
+        if (isCorrect) {
+            btn.classList.add('correct');
+            shaddahScore++;
+            mascotCelebrates();
+            playAudio('shaddah_correct');
+            mascotSpeak('أَحْسَنْتَ يَا عَبْقَرِيّ! إِجَابَةٌ صَحِيحَةٌ وَمُمَيَّزَةٌ جِدًّا! 🌟', 'shaddah_correct');
+        } else {
+            btn.classList.add('wrong');
+            mascotThinks();
+            playAudio('shaddah_wrong');
+            mascotSpeak('فَكِّرْ جَيِّدًا فِي تَعْرِيفِ الشَّدَّةِ وَحَرَكَتِهَا يَا بَطَل! حَاوِلْ مَرَّةً أُخْرَى! 💡', 'shaddah_wrong');
+        }
+
+        const scoreEl = document.getElementById('shaddahQuizScore');
+        if (scoreEl) scoreEl.innerText = shaddahScore;
+
+        if (Object.keys(answeredShaddahQuestions).length === 5) {
+            setTimeout(() => {
+                mascotCelebrates();
+                playAudio('shaddah_encourage_super');
+                mascotSpeak(`مَا شَاءَ اللَّه! أَتْمَمْتَ اخْتِبَارَ التَّحَدِّي لِدَرْسِ الشَّدَّةِ بِنَجَاحٍ بَاهِر: ${shaddahScore} مِنْ ٥! أَنْتَ بَطَلُ الْقِرَاءَةِ! 🏆🎉`, 'shaddah_encourage_super');
+            }, 1200);
+        }
+    };
 })();

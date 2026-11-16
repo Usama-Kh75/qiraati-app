@@ -19042,6 +19042,687 @@
                         </div>
                     </div>
                 </div>
+                <div class="lesson-view" id="view-tab-shaddah">
+                    <!-- شريط المحطات الأربعة لدرس الشدة وتطبيقاتها -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationShaddah_1" onclick="switchShaddahStation(1)">
+                            <span>📖</span> <span>١. أتعرف الشدة والمشهد (ص ١٠٥)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationShaddah_2" onclick="switchShaddahStation(2)">
+                            <span>⚙️</span> <span>٢. معمل التكوين وتمييز الحرف والرسم (ص ١٠٥ - ١٠٦)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationShaddah_3" onclick="switchShaddahStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب الصوتي (ص ١٠٦ - ١٠٧)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationShaddah_4" onclick="switchShaddahStation(4)">
+                            <span>🪁</span> <span>٤. القراءة والنشيد والسبورة والتحدي (ص ١٠٧ - ١٠٨)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف الشدة وأصوات الحركات والمشهد التفاعلي -->
+                    <div class="shaddah-station active" id="stationShaddah_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-shaddah-card" onclick="playShaddahPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #be123c; margin-bottom: 4px;">عَلَامَةُ التَّضْعِيفِ وَالإِدْغَامِ الصَّوْتِيِّ</div>
+                                    <div class="giant-shaddah-glyph">ـّ (ـَّ ، ـُّ ، ـِّ)</div>
+                                </div>
+                                <div style="border-right: 2px dashed #fecdd3; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #881337;">صَوْتُ الشَّدَّةِ: سَاكِنٌ + مُتَحَرِّكٌ</div>
+                                    <div style="font-size: 0.9rem; color: #e11d48; font-weight: 700;">حَرْفٌ وَاحِدٌ مُضَاعَفٌ مَشْدُودٌ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playShaddahSound()" style="background: #e11d48; border-color: #be123c;">
+                                <span>🔊</span> <span>صَوْتُ الشَّدَّةِ الْمُدْغَمُ (ـّ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playShaddahPhonemeFaseeh()" style="background: #be123c; border-color: #881337;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِسِرِّ الشَّدَّةِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('shaddah_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الشَّدَّةِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_106.png', 'كتاب قراءتي الجديد: ص ١٠٥')">
+                                <span>📖</span> <span>صَفْحَة ١٠٥ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_107.png', 'كتاب قراءتي الجديد: ص ١٠٦')">
+                                <span>📖</span> <span>صَفْحَة ١٠٦ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_108.png', 'كتاب قراءتي الجديد: ص ١٠٧')">
+                                <span>📖</span> <span>صَفْحَة ١٠٧ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_109.png', 'كتاب قراءتي الجديد: ص ١٠٨')">
+                                <span>📖</span> <span>صَفْحَة ١٠٨ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- صورة رأس الصفحة الرسمية من الكتاب ص 105 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #881337; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ الشَّدَّةِ (الْكِتَابُ الْمَدْرَسِيُّ ص ١٠٥)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #fecdd3; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('shaddah_scene_story')">
+                                <img src="activity_shaddah_scene.png" alt="مشهد رأس صفحة الشدة" style="width: 100%; max-height: 380px; object-fit: contain; background: #fff1f2;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(225, 29, 72, 0.88); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- لوحة حركات الشدة الثلاث التفاعلية -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <h3 style="color: #881337; margin-bottom: 14px; font-weight: 900; text-align: center;">🐣 حَرَكَاتُ الشَّدَّةِ الثَّلَاثُ التَّفَاعُلِيَّةُ (ص ١٠٥)</h3>
+                            <div class="shaddah-haraka-grid">
+                                <div class="shaddah-haraka-card" onclick="playShaddahHaraka('fatha')">
+                                    <div class="shaddah-haraka-glyph">ـَّ</div>
+                                    <div class="shaddah-haraka-name">شَدَّةٌ مَعَ الْفَتْحَةِ</div>
+                                    <div class="shaddah-haraka-example">قِطَّةٌ 🐱 / طَيَّارَةٌ ✈️</div>
+                                </div>
+                                <div class="shaddah-haraka-card" onclick="playShaddahHaraka('dhamma')">
+                                    <div class="shaddah-haraka-glyph">ـُّ</div>
+                                    <div class="shaddah-haraka-name">شَدَّةٌ مَعَ الضَّمَّةِ</div>
+                                    <div class="shaddah-haraka-example">دُبٌّ 🐻 / سَبُّورَةٌ 📋</div>
+                                </div>
+                                <div class="shaddah-haraka-card" onclick="playShaddahHaraka('kasra')">
+                                    <div class="shaddah-haraka-glyph">ـِّ</div>
+                                    <div class="shaddah-haraka-name">شَدَّةٌ مَعَ الْكَسْرَةِ</div>
+                                    <div class="shaddah-haraka-example">بِطِّيخٌ 🍉 / مُعَلِّمٌ 👨‍🏫</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- النشاط الأول: أردد منتبهاً لصوت الشدة ص 105 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #881337; margin: 0; font-weight: 900;">🎨 نَشَاطُ ١: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ الشَّدَّةِ (ص ١٠٥)</h3>
+                                <button class="btn-secondary" onclick="playAudio('shaddah_act1_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fecdd3; cursor: pointer;" onclick="playAudio('shaddah_act1_intro')">
+                                <img src="activity_shaddah_words.png" alt="نشاط 1 كلمات وصور الشدة" style="width: 100%; max-height: 300px; object-fit: contain; background: #fff1f2;">
+                            </div>
+
+                            <!-- شبكة الكلمات المصورة التفاعلية لدرس الشدة -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px;">
+                                <div class="shaddah-word-card" onclick="playAudio('shaddah_word_muthallath')">
+                                    <div class="shaddah-word-icon">🔺</div>
+                                    <div class="shaddah-word-text">مُثَلَّثٌ</div>
+                                    <div class="shaddah-word-type">لَّ (شَدَّة مَفْتُوحَة)</div>
+                                </div>
+                                <div class="shaddah-word-card" onclick="playAudio('shaddah_word_qittah')">
+                                    <div class="shaddah-word-icon">🐱</div>
+                                    <div class="shaddah-word-text">قِطَّةٌ</div>
+                                    <div class="shaddah-word-type">طَّ (شَدَّة مَفْتُوحَة)</div>
+                                </div>
+                                <div class="shaddah-word-card" onclick="playAudio('shaddah_word_jadd')">
+                                    <div class="shaddah-word-icon">👴</div>
+                                    <div class="shaddah-word-text">جَدٌّ</div>
+                                    <div class="shaddah-word-type">دٌّ (شَدَّة مَضْمُومَة)</div>
+                                </div>
+                                <div class="shaddah-word-card" onclick="playAudio('shaddah_word_sabboorah')">
+                                    <div class="shaddah-word-icon">📋</div>
+                                    <div class="shaddah-word-text">سَبُّورَةٌ</div>
+                                    <div class="shaddah-word-type">بُّ (شَدَّة مَضْمُومَة)</div>
+                                </div>
+                                <div class="shaddah-word-card" onclick="playAudio('shaddah_word_bitteekh')">
+                                    <div class="shaddah-word-icon">🍉</div>
+                                    <div class="shaddah-word-text">بِطِّيخٌ</div>
+                                    <div class="shaddah-word-type">طِّ (شَدَّة مَكْسُورَة)</div>
+                                </div>
+                                <div class="shaddah-word-card" onclick="playAudio('shaddah_word_muharrij')">
+                                    <div class="shaddah-word-icon">🤡</div>
+                                    <div class="shaddah-word-text">مُهَرِّجٌ</div>
+                                    <div class="shaddah-word-type">رِّ (شَدَّة مَكْسُورَة)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: معمل تكوين الشدة وتمييز الحرف ورسم الكلمات -->
+                    <div class="shaddah-station" id="stationShaddah_2">
+                        <!-- نشاط 2: أوضح كيف تكونت الشدة ص 105 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #881337; margin: 0; font-weight: 900;">⚙️ نَشَاطُ ٢: أُوَضِّحُ كَيْفَ تَكَوَّنَتِ الشَّدَّةُ (ص ١٠٥)</h3>
+                                <button class="btn-secondary" onclick="playAudio('shaddah_act2_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fecdd3; cursor: pointer;" onclick="playAudio('shaddah_act2_intro')">
+                                <img src="activity_shaddah_formation.png" alt="نشاط 2 كيف تكونت الشدة" style="width: 100%; max-height: 250px; object-fit: contain; background: #fff1f2;">
+                            </div>
+
+                            <!-- معمل دمج الحرفين التفاعلي -->
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <div class="shaddah-form-box" onclick="playShaddahFormation('qittah')">
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #881337;">قِطَّةٌ 🐱 :</div>
+                                    <div class="shaddah-form-part">طْ (سَاكِنَة)</div>
+                                    <div class="shaddah-form-plus">+</div>
+                                    <div class="shaddah-form-part">طَ (مَفْتُوحَة)</div>
+                                    <div class="shaddah-form-arrow">➔</div>
+                                    <div class="shaddah-form-res">طَّ (مُشَدَّدَة) 🔊</div>
+                                </div>
+                                <div class="shaddah-form-box" onclick="playShaddahFormation('dabboos')">
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #881337;">دَبُّوسٌ 📌 :</div>
+                                    <div class="shaddah-form-part">بْ (سَاكِنَة)</div>
+                                    <div class="shaddah-form-plus">+</div>
+                                    <div class="shaddah-form-part">بُ (مَضْمُومَة)</div>
+                                    <div class="shaddah-form-arrow">➔</div>
+                                    <div class="shaddah-form-res">بُّ (مُشَدَّدَة) 🔊</div>
+                                </div>
+                                <div class="shaddah-form-box" onclick="playShaddahFormation('bitteekh')">
+                                    <div style="font-size: 1.25rem; font-weight: 900; color: #881337;">بِطِّيخٌ 🍉 :</div>
+                                    <div class="shaddah-form-part">طْ (سَاكِنَة)</div>
+                                    <div class="shaddah-form-plus">+</div>
+                                    <div class="shaddah-form-part">طِ (مَكْسُورَة)</div>
+                                    <div class="shaddah-form-arrow">➔</div>
+                                    <div class="shaddah-form-res">طِّ (مُشَدَّدَة) 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 3: أستمع للفظ الكلمات ثم أضع دائرة حول الحرف المشدد ص 105 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #881337; margin: 0; font-weight: 900;">🎯 نَشَاطُ ٣: أَسْتَمِعُ وَأَضَعُ دَائِرَةً حَوْلَ الْحَرْفِ الْمُشَدَّدِ (ص ١٠٥)</h3>
+                                <button class="btn-secondary" onclick="playAudio('shaddah_act3_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fecdd3; cursor: pointer;" onclick="playAudio('shaddah_act3_intro')">
+                                <img src="activity_shaddah_pick.png" alt="نشاط 3 تحديد الحرف المشدد" style="width: 100%; max-height: 250px; object-fit: contain; background: #fff1f2;">
+                            </div>
+
+                            <!-- شبكة الكلمات التفاعلية لاختيار الحرف المشدد -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+                                <div class="shaddah-pick-card">
+                                    <div style="font-size: 2.5rem;" onclick="playAudio('shaddah_word_sayyaarah')">🚗</div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #881337;">سَيَّارَةٌ</div>
+                                    <div style="font-size: 0.85rem; color: #64748b; font-weight: 700;">اضغط على الحرف المشدد:</div>
+                                    <div style="display: flex; gap: 8px; justify-content: center;">
+                                        <button class="shaddah-letter-btn" onclick="pickShaddahLetter(this, false)">سَـ</button>
+                                        <button class="shaddah-letter-btn" onclick="pickShaddahLetter(this, true)">يَّ</button>
+                                        <button class="shaddah-letter-btn" onclick="pickShaddahLetter(this, false)">رَ</button>
+                                        <button class="shaddah-letter-btn" onclick="pickShaddahLetter(this, false)">ةٌ</button>
+                                    </div>
+                                </div>
+                                <div class="shaddah-pick-card">
+                                    <div style="font-size: 2.5rem;" onclick="playAudio('shaddah_word_miqass')">✂️</div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #881337;">مِقَصٌّ</div>
+                                    <div style="font-size: 0.85rem; color: #64748b; font-weight: 700;">اضغط على الحرف المشدد:</div>
+                                    <div style="display: flex; gap: 8px; justify-content: center;">
+                                        <button class="shaddah-letter-btn" onclick="pickShaddahLetter(this, false)">مِـ</button>
+                                        <button class="shaddah-letter-btn" onclick="pickShaddahLetter(this, false)">قَـ</button>
+                                        <button class="shaddah-letter-btn" onclick="pickShaddahLetter(this, true)">صٌّ</button>
+                                    </div>
+                                </div>
+                                <div class="shaddah-pick-card">
+                                    <div style="font-size: 2.5rem;" onclick="playAudio('shaddah_word_dubb')">🐻</div>
+                                    <div style="font-size: 1.4rem; font-weight: 900; color: #881337;">دُبٌّ</div>
+                                    <div style="font-size: 0.85rem; color: #64748b; font-weight: 700;">اضغط على الحرف المشدد:</div>
+                                    <div style="display: flex; gap: 8px; justify-content: center;">
+                                        <button class="shaddah-letter-btn" onclick="pickShaddahLetter(this, false)">دُ</button>
+                                        <button class="shaddah-letter-btn" onclick="pickShaddahLetter(this, true)">بٌّ</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 4: أرسم الكلمات بالشدة مع الحركات ص 106 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #881337; margin: 0; font-weight: 900;">✏️ نَشَاطُ ٤: أَرْسُمُ الْكَلِمَاتِ بِالشَّدَّةِ مَعَ الْحَرَكَاتِ (ص ١٠٦)</h3>
+                                <button class="btn-secondary" onclick="playAudio('shaddah_act4_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fecdd3; cursor: pointer;" onclick="playAudio('shaddah_act4_intro')">
+                                <img src="activity_shaddah_draw.png" alt="نشاط 4 رسم الكلمات بالشدة" style="width: 100%; max-height: 340px; object-fit: contain; background: #fff1f2;">
+                            </div>
+
+                            <!-- بطاقات مقارنة الكلمات قبل وبعد الشدة -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px;">
+                                <div class="shaddah-draw-card" onclick="playShaddahDraw('tayyaarah')">
+                                    <div>
+                                        <span style="font-size: 1.1rem; color: #64748b; text-decoration: line-through;">طَيْـ يَا رَ ةٌ</span>
+                                        <div style="font-size: 1.45rem; font-weight: 900; color: #881337;">طَيَّارَةٌ ✈️</div>
+                                    </div>
+                                    <span style="font-size: 1.4rem; color: #e11d48;">🔊</span>
+                                </div>
+                                <div class="shaddah-draw-card" onclick="playShaddahDraw('najjaar')">
+                                    <div>
+                                        <span style="font-size: 1.1rem; color: #64748b; text-decoration: line-through;">نَجْـ جَا رٌ</span>
+                                        <div style="font-size: 1.45rem; font-weight: 900; color: #881337;">نَجَّارٌ 🪚</div>
+                                    </div>
+                                    <span style="font-size: 1.4rem; color: #e11d48;">🔊</span>
+                                </div>
+                                <div class="shaddah-draw-card" onclick="playShaddahDraw('sabboorah')">
+                                    <div>
+                                        <span style="font-size: 1.1rem; color: #64748b; text-decoration: line-through;">سَبْـ بُو رَ ةٌ</span>
+                                        <div style="font-size: 1.45rem; font-weight: 900; color: #881337;">سَبُّورَةٌ 📋</div>
+                                    </div>
+                                    <span style="font-size: 1.4rem; color: #e11d48;">🔊</span>
+                                </div>
+                                <div class="shaddah-draw-card" onclick="playShaddahDraw('tumashshitu')">
+                                    <div>
+                                        <span style="font-size: 1.1rem; color: #64748b; text-decoration: line-through;">تُـ مَـ شْـ شِـ طُ</span>
+                                        <div style="font-size: 1.45rem; font-weight: 900; color: #881337;">تُمَشِّطُ 👧</div>
+                                    </div>
+                                    <span style="font-size: 1.4rem; color: #e11d48;">🔊</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب الصوتي نشاط 5 و 8 -->
+                    <div class="shaddah-station" id="stationShaddah_3">
+                        <!-- نشاط 5: أقرأ الكلمات ثم أحللها إلى مقاطعها ص 106 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #881337; margin: 0; font-weight: 900;">✂️ نَشَاطُ ٥: أَقْرَأُ الْكَلِمَاتِ، ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا (ص ١٠٦)</h3>
+                                <button class="btn-secondary" onclick="playAudio('shaddah_act5_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fecdd3; cursor: pointer;" onclick="playAudio('shaddah_act5_intro')">
+                                <img src="activity_shaddah_analysis.png" alt="نشاط 5 تحليل الكلمات المشددة" style="width: 100%; max-height: 320px; object-fit: contain; background: #fff1f2;">
+                            </div>
+
+                            <!-- بطاقات التحليل الصوتي مع فك التضعيف -->
+                            <div style="display: flex; flex-direction: column; gap: 14px;">
+                                <div class="shaddah-split-card" onclick="playShaddahSplit('barraad')">
+                                    <div class="shaddah-res-pill">بَرَّادٌ 🧊</div>
+                                    <div style="font-size: 1.4rem; color: #e11d48; font-weight: 900;">➔ يُحَلَّلُ إِلَى:</div>
+                                    <div style="display: flex; gap: 8px;">
+                                        <span class="shaddah-pill">بَرْ</span>
+                                        <span class="shaddah-pill">رَا</span>
+                                        <span class="shaddah-pill">دٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #be123c; background: #ffe4e6; padding: 4px 12px; border-radius: 12px;">٣ مَقَاطِعَ</div>
+                                </div>
+                                <div class="shaddah-split-card" onclick="playShaddahSplit('yaqussu')">
+                                    <div class="shaddah-res-pill">يَقُصُّ ✂️</div>
+                                    <div style="font-size: 1.4rem; color: #e11d48; font-weight: 900;">➔ يُحَلَّلُ إِلَى:</div>
+                                    <div style="display: flex; gap: 8px;">
+                                        <span class="shaddah-pill">يَـ</span>
+                                        <span class="shaddah-pill">قُصْـ</span>
+                                        <span class="shaddah-pill">صُ</span>
+                                    </div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #be123c; background: #ffe4e6; padding: 4px 12px; border-radius: 12px;">٣ مَقَاطِعَ</div>
+                                </div>
+                                <div class="shaddah-split-card" onclick="playShaddahSplit('muallim')">
+                                    <div class="shaddah-res-pill">مُعَلِّمٌ 👨‍🏫</div>
+                                    <div style="font-size: 1.4rem; color: #e11d48; font-weight: 900;">➔ يُحَلَّلُ إِلَى:</div>
+                                    <div style="display: flex; gap: 8px;">
+                                        <span class="shaddah-pill">مُـ</span>
+                                        <span class="shaddah-pill">عَلْـ</span>
+                                        <span class="shaddah-pill">لِـ</span>
+                                        <span class="shaddah-pill">مٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.9rem; font-weight: 800; color: #be123c; background: #ffe4e6; padding: 4px 12px; border-radius: 12px;">٤ مَقَاطِعَ</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 8: أركب من المقاطع التالية كلمات ص 107 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #881337; margin: 0; font-weight: 900;">🧩 نَشَاطُ ٨: أُرَكِّبُ مِنَ الْمَقَاطِعِ كَلِمَاتٍ، ثُمَّ أَقْرَأُهَا (ص ١٠٧)</h3>
+                                <button class="btn-secondary" onclick="playAudio('shaddah_act8_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fecdd3; cursor: pointer;" onclick="playAudio('shaddah_act8_intro')">
+                                <img src="activity_shaddah_blend.png" alt="نشاط 8 تركيب المقاطع" style="width: 100%; max-height: 300px; object-fit: contain; background: #fff1f2;">
+                            </div>
+
+                            <!-- بطاقات تركيب المقاطع التفاعلية -->
+                            <div style="display: flex; flex-direction: column; gap: 14px;">
+                                <div class="shaddah-split-card" onclick="playShaddahMerge('tuffaah')">
+                                    <div style="display: flex; gap: 8px;">
+                                        <span class="shaddah-pill">تُفْـ</span>
+                                        <span class="shaddah-pill">+ فَا</span>
+                                        <span class="shaddah-pill">+ حٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.4rem; color: #e11d48; font-weight: 900;">=</div>
+                                    <div class="shaddah-res-pill">تُفَّاحٌ 🍎 🔊</div>
+                                </div>
+                                <div class="shaddah-split-card" onclick="playShaddahMerge('najjaar')">
+                                    <div style="display: flex; gap: 8px;">
+                                        <span class="shaddah-pill">نَجْـ</span>
+                                        <span class="shaddah-pill">+ جَا</span>
+                                        <span class="shaddah-pill">+ رٌ</span>
+                                    </div>
+                                    <div style="font-size: 1.4rem; color: #e11d48; font-weight: 900;">=</div>
+                                    <div class="shaddah-res-pill">نَجَّارٌ 🪚 🔊</div>
+                                </div>
+                                <div class="shaddah-split-card" onclick="playShaddahMerge('yuhibbu')">
+                                    <div style="display: flex; gap: 8px;">
+                                        <span class="shaddah-pill">يُـ</span>
+                                        <span class="shaddah-pill">+ حِبْـ</span>
+                                        <span class="shaddah-pill">+ بُ</span>
+                                    </div>
+                                    <div style="font-size: 1.4rem; color: #e11d48; font-weight: 900;">=</div>
+                                    <div class="shaddah-res-pill">يُحِبُّ ❤️ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة والنشيد والسبورة واختبار التحدي -->
+                    <div class="shaddah-station" id="stationShaddah_4">
+                        <!-- تبويبات القراءة المتعددة -->
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;">
+                            <button id="btnShaddahReadJaddi" class="btn-primary" onclick="switchShaddahReadingTab('jaddi')" style="background: #e11d48; border-color: #be123c;">
+                                <span>📖</span> <span>نَصُّ الْكِتَابِ: زُرْنَا بَيْتَ جَدِّي (ص ١٠٧)</span>
+                            </button>
+                            <button id="btnShaddahReadNasheed" class="btn-secondary" onclick="switchShaddahReadingTab('nasheed')">
+                                <span>🎵</span> <span>نَشِيدُ: هَيَّا نَلْعَبْ (ص ١٠٨)</span>
+                            </button>
+                            <button id="btnShaddahReadHeritage" class="btn-secondary" onclick="switchShaddahReadingTab('heritage')">
+                                <span>📜</span> <span>نُصُوصُ الشَّدَّةِ التُّرَاثِيَّةُ (قَدُّورِي / وَقَّاص)</span>
+                            </button>
+                        </div>
+
+                        <!-- 1. نص الكتاب المدرسي: زُرْنَا بَيْتَ جَدِّي -->
+                        <div id="shaddahReadingJaddiContent">
+                            <div class="lesson-card" style="margin-bottom: 24px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                    <h3 style="color: #881337; margin: 0; font-weight: 900;">📖 قِرَاءَةُ: زُرْنَا بَيْتَ جَدِّي (الْكِتَابُ الْمَدْرَسِيُّ ص ١٠٧)</h3>
+                                    <div style="display: flex; gap: 8px;">
+                                        <button class="btn-primary" onclick="playShaddahReadLine('j_full')" style="background: #e11d48; border-color: #be123c; font-size: 0.9rem; padding: 6px 16px;">
+                                            <span>▶️</span> <span>قِرَاءَةُ النَّصِّ كَامِلاً</span>
+                                        </button>
+                                        <button class="btn-secondary" onclick="openBookPageModal('page_108.png', 'كتاب قراءتي: ص ١٠٧')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                            <span>🔍</span> <span>مُعَايَنَةُ صَفْحَةِ الْكِتَابِ</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div style="text-align: center; margin-bottom: 20px; border-radius: 18px; overflow: hidden; border: 2px solid #fecdd3; cursor: pointer;" onclick="playShaddahReadLine('j_full')">
+                                    <img src="activity_shaddah_read.png" alt="نص زرنا بيت جدي" style="width: 100%; max-height: 380px; object-fit: contain; background: #fff1f2;">
+                                </div>
+
+                                <!-- أسطر قراءة زرنا بيت جدي التفاعلية -->
+                                <div style="display: flex; flex-direction: column; gap: 12px;">
+                                    <div class="shaddah-read-line" onclick="playShaddahReadLine('s1')">
+                                        <span class="kaf-line-icon">🏠</span>
+                                        <span class="shaddah-read-text">زُرْنَا بَيْتَ جَدِّي،</span>
+                                        <span style="color: #e11d48; font-size: 1.4rem;">🔊</span>
+                                    </div>
+                                    <div class="shaddah-read-line" onclick="playShaddahReadLine('s2')">
+                                        <span class="kaf-line-icon">👵</span>
+                                        <span class="shaddah-read-text">أَحْضَرَتْ جَدَّتِي مُكَعَّبَاتٍ مُلَوَّنَةً.</span>
+                                        <span style="color: #e11d48; font-size: 1.4rem;">🔊</span>
+                                    </div>
+                                    <div class="shaddah-read-line" onclick="playShaddahReadLine('s3')">
+                                        <span class="kaf-line-icon">✈️</span>
+                                        <span class="shaddah-read-text">رَكَّبْتُ مَعَ جَدِّي طَيَّارَةً،</span>
+                                        <span style="color: #e11d48; font-size: 1.4rem;">🔊</span>
+                                    </div>
+                                    <div class="shaddah-read-line" onclick="playShaddahReadLine('s4')">
+                                        <span class="kaf-line-icon">🚗</span>
+                                        <span class="shaddah-read-text">وَرَكَّبَ عَلِيٌّ وَجَدَّتِي سَيَّارَةً.</span>
+                                        <span style="color: #e11d48; font-size: 1.4rem;">🔊</span>
+                                    </div>
+                                </div>
+
+                                <!-- كلمات النص التفاعلية للنطق الفردي -->
+                                <div style="margin-top: 20px; padding: 16px; background: #fff1f2; border-radius: 16px; border: 2px dashed #fecdd3;">
+                                    <div style="font-weight: 800; color: #881337; margin-bottom: 10px; font-size: 1rem;">👇 اضغط على أي كلمة للاستماع لنطقها الفردي المشدد:</div>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_zurna')">زُرْنَا</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_bayta')">بَيْتَ</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_jaddi')" style="background: #ffe4e6; color: #e11d48; border-color: #f43f5e;">جَدِّي</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_ahdarat')">أَحْضَرَتْ</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_jaddati')" style="background: #ffe4e6; color: #e11d48; border-color: #f43f5e;">جَدَّتِي</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_muka-abaat')" style="background: #ffe4e6; color: #e11d48; border-color: #f43f5e;">مُكَعَّبَاتٍ</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_mulawwanah')" style="background: #ffe4e6; color: #e11d48; border-color: #f43f5e;">مُلَوَّنَةً</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_rakkaptu')" style="background: #ffe4e6; color: #e11d48; border-color: #f43f5e;">رَكَّبْتُ</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_maa')">مَعَ</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_tayyaarah')" style="background: #ffe4e6; color: #e11d48; border-color: #f43f5e;">طَيَّارَةً</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_wa-rakkappa')" style="background: #ffe4e6; color: #e11d48; border-color: #f43f5e;">وَرَكَّبَ</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_aliyy')" style="background: #ffe4e6; color: #e11d48; border-color: #f43f5e;">عَلِيٌّ</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_wa-jaddati')" style="background: #ffe4e6; color: #e11d48; border-color: #f43f5e;">وَجَدَّتِي</span>
+                                        <span class="kaf-clickable-word" onclick="playAudio('shaddah_word_sayyaaratan')" style="background: #ffe4e6; color: #e11d48; border-color: #f43f5e;">سَيَّارَةً</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. نشيد الكتاب: نُغَنِّي هَيَّا نَلْعَبْ -->
+                        <div id="shaddahReadingNasheedContent" style="display: none;">
+                            <div class="lesson-card" style="margin-bottom: 24px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                    <h3 style="color: #0369a1; margin: 0; font-weight: 900;">🎵 نُغَنِّي مَعًا: نَشِيدُ هَيَّا نَلْعَبْ (ص ١٠٨)</h3>
+                                    <div style="display: flex; gap: 8px;">
+                                        <button class="btn-primary" onclick="playShaddahNasheedVerse('n_full')" style="background: #0284c7; border-color: #0369a1; font-size: 0.9rem; padding: 6px 16px;">
+                                            <span>▶️</span> <span>إِنْشَادُ النَّشِيدِ كَامِلاً</span>
+                                        </button>
+                                        <button class="btn-secondary" onclick="openBookPageModal('page_109.png', 'كتاب قراءتي: ص ١٠٨')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                            <span>🔍</span> <span>مُعَايَنَةُ صَفْحَةِ الْكِتَابِ</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div style="text-align: center; margin-bottom: 20px; border-radius: 18px; overflow: hidden; border: 2px solid #bae6fd; cursor: pointer;" onclick="playShaddahNasheedVerse('n_full')">
+                                    <img src="activity_shaddah_nasheed.png" alt="نشيد هيا نلعب ص 108" style="width: 100%; max-height: 440px; object-fit: contain; background: #f0f9ff;">
+                                </div>
+
+                                <!-- أبيات النشيد الأربعة التفاعلية -->
+                                <div class="shaddah-nasheed-box">
+                                    <div class="shaddah-verse-card" onclick="playShaddahNasheedVerse('b1')">
+                                        <span class="shaddah-hemistich">هَيَّا نَلْعَبْ هَيَّا نَفْرَحْ</span>
+                                        <span class="shaddah-verse-star">⭐</span>
+                                        <span class="shaddah-hemistich">هَيَّا نُنْشِدْ نَرْسُمْ نَمْرَحْ</span>
+                                        <span style="color: #0284c7; font-size: 1.3rem;">🔊</span>
+                                    </div>
+                                    <div class="shaddah-verse-card" onclick="playShaddahNasheedVerse('b2')">
+                                        <span class="shaddah-hemistich">وَقْتَ اللَّعِبِ بِجِدٍّ نَلْعَبْ</span>
+                                        <span class="shaddah-verse-star">⭐</span>
+                                        <span class="shaddah-hemistich">نَبْذُلْ كُلَّ الْجُهْدِ لِنَكْسَبْ</span>
+                                        <span style="color: #0284c7; font-size: 1.3rem;">🔊</span>
+                                    </div>
+                                    <div class="shaddah-verse-card" onclick="playShaddahNasheedVerse('b3')">
+                                        <span class="shaddah-hemistich">بَعْدَ اللَّعِبِ جَمِيعاً نَذْهَبْ</span>
+                                        <span class="shaddah-verse-star">⭐</span>
+                                        <span class="shaddah-hemistich">نَقْرَأْ نَكْتُبْ نَجْمَعْ نَطْرَحْ</span>
+                                        <span style="color: #0284c7; font-size: 1.3rem;">🔊</span>
+                                    </div>
+                                    <div class="shaddah-verse-card" onclick="playShaddahNasheedVerse('b4')">
+                                        <span class="shaddah-hemistich">هَيَّا نَسْمَعْ دَرْساً يُشْرَحْ</span>
+                                        <span class="shaddah-verse-star">⭐</span>
+                                        <span class="shaddah-hemistich">كَيْ نَتَعَلَّمْ نَفْهَمْ نَنْجَحْ</span>
+                                        <span style="color: #0284c7; font-size: 1.3rem;">🔊</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. النصوص التراثية العراقية للشدة -->
+                        <div id="shaddahReadingHeritageContent" style="display: none;">
+                            <div class="lesson-card" style="margin-bottom: 24px;">
+                                <h3 style="color: #92400e; margin-bottom: 16px; font-weight: 900;">📜 نُصُوصُ الشَّدَّةِ فِي الْقِرَاءَةِ الْعِرَاقِيَّةِ التُّرَاثِيَّةِ الْخَالِدَةِ</h3>
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                                    <div class="shaddah-read-line" onclick="playShaddahHeritage('qaddoori')" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+                                            <span style="font-size: 1.25rem; font-weight: 900; color: #92400e;">⚖️ مِيزَانُ قَدُّورِي</span>
+                                            <span style="color: #d97706; font-size: 1.3rem;">🔊</span>
+                                        </div>
+                                        <div style="font-size: 1.15rem; font-weight: 800; color: #1e293b; line-height: 1.8;">
+                                            قَدُّورِي وَزَّانٌ. وَزَنَ زَبِيبَ مَازِنٍ. نَادِرٌ بَزَّازٌ. نَادِرٌ مَرَّ مِنْ دَرْبِنَا. مَازِنٌ دَقَّ بَابَنَا.
+                                        </div>
+                                        <div style="font-size: 0.85rem; color: #b45309; font-weight: 700;">كلمات مشددة: قَدُّورِي ، وَزَّان ، بَزَّاز ، مَرَّ ، دَقَّ</div>
+                                    </div>
+
+                                    <div class="shaddah-read-line" onclick="playShaddahHeritage('waqqas')" style="flex-direction: column; align-items: flex-start; gap: 8px;">
+                                        <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+                                            <span style="font-size: 1.25rem; font-weight: 900; color: #92400e;">✈️ طَيَّارَةُ وَقَّاصٍ</span>
+                                            <span style="color: #d97706; font-size: 1.3rem;">🔊</span>
+                                        </div>
+                                        <div style="font-size: 1.15rem; font-weight: 800; color: #1e293b; line-height: 1.8;">
+                                            عَادَ وَقَّاصٌ مِنَ الْمَدْرَسَةِ. طَلَبَ مِقَصًّا مِنْ أُمِّهِ. قَصَّ بِهِ الْوَرَقَ. صَنَعَ مِنْهُ طَيَّارَةً لَعِبَ بِهَا مَعَ صَدِيقِهِ مَنْصُورٍ.
+                                        </div>
+                                        <div style="font-size: 0.85rem; color: #b45309; font-weight: 700;">كلمات مشددة: وَقَّاص ، مِقَصًّا ، أُمِّهِ ، قَصَّ ، طَيَّارَةً</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- سبورة رسم الشدة التفاعلية -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 10px;">
+                                <div>
+                                    <h3 style="color: #881337; margin: 0; font-weight: 900;">🎨 سَبُّورَةُ رَسْمِ الشَّدَّةِ (ـّ) وَالْكَلِمَاتِ الْمُشَدَّدَةِ</h3>
+                                    <div style="font-size: 0.85rem; color: #64748b; font-weight: 700;">ارْسُمْ الشَّدَّةَ بِسِنَّتَيْهَا الصَّغِيرَتَيْنِ كَحَرْفِ السِّينِ الصَّغِيرِ فَوْقَ الْحَرْفِ!</div>
+                                </div>
+                                <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+                                    <button class="btn-secondary" onclick="playAudio('shaddah_draw_hint')" style="font-size: 0.85rem; padding: 6px 12px;">
+                                        <span>💡</span> <span>تَوْجِيهُ الرَّسْمِ</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="clearShaddahCanvas()" style="font-size: 0.85rem; padding: 6px 12px;">
+                                        <span>🧹</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                    </button>
+                                    <div style="display: flex; gap: 6px;">
+                                        <span onclick="setShaddahCanvasColor('#e11d48')" style="width: 26px; height: 26px; border-radius: 50%; background: #e11d48; cursor: pointer; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"></span>
+                                        <span onclick="setShaddahCanvasColor('#0284c7')" style="width: 26px; height: 26px; border-radius: 50%; background: #0284c7; cursor: pointer; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"></span>
+                                        <span onclick="setShaddahCanvasColor('#10b981')" style="width: 26px; height: 26px; border-radius: 50%; background: #10b981; cursor: pointer; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"></span>
+                                        <span onclick="setShaddahCanvasColor('#1e293b')" style="width: 26px; height: 26px; border-radius: 50%; background: #1e293b; cursor: pointer; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 16px; align-items: center; justify-content: center; margin-bottom: 12px;">
+                                <div style="text-align: center; border: 2px dashed #fecdd3; border-radius: 16px; padding: 10px; background: #fff1f2;">
+                                    <img src="activity_shaddah_trace.png" alt="نموذج الشدة" style="max-height: 80px; object-fit: contain;">
+                                    <div style="font-size: 0.8rem; font-weight: 800; color: #be123c; margin-top: 4px;">نَمُوذَجُ الشَّدَّةِ</div>
+                                </div>
+                                <div style="font-size: 1.15rem; font-weight: 800; color: #881337;">
+                                    ارْسُمْ: <span style="color: #e11d48; font-weight: 900; font-size: 1.6rem;">(ـَّ)</span> وَ <span style="color: #e11d48; font-weight: 900; font-size: 1.6rem;">(ـُّ)</span> وَ <span style="color: #e11d48; font-weight: 900; font-size: 1.6rem;">(ـِّ)</span> وَكَلِمَاتِ: <span style="font-weight: 900;">قِطَّة ، دُبّ ، بِطِّيخ</span>
+                                </div>
+                            </div>
+
+                            <div class="shaddah-canvas-box">
+                                <canvas id="shaddahDrawingCanvas"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي الفونيمي التفاعلي للشدة -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 10px;">
+                                <div>
+                                    <h3 style="color: #881337; margin: 0; font-weight: 900;">🏆 اخْتِبَارُ التَّحَدِّي الْفُونِيمِيِّ لِلشَّدَّةِ (٥ أَسْئِلَة)</h3>
+                                    <div style="font-size: 0.85rem; color: #64748b; font-weight: 700;">أَجِبْ عَنِ الأَسْئِلَةِ وَاخْتَبِرْ مَهَارَتَكَ فِي تَمْيِيزِ الشَّدَّةِ!</div>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="background: #ffe4e6; border: 2px solid #fda4af; padding: 6px 16px; border-radius: 14px; font-weight: 900; color: #881337; font-size: 1.1rem;">
+                                        النقاط: <span id="shaddahQuizScore" style="color: #e11d48; font-size: 1.3rem;">0</span> / 5
+                                    </div>
+                                    <button class="btn-primary" onclick="playAudio('shaddah_quiz_intro')" style="background: #e11d48; border-color: #be123c; font-size: 0.85rem; padding: 6px 14px;">
+                                        <span>🎧</span> <span>بَدْءُ التَّحَدِّي</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 16px;">
+                                <!-- السؤال الأول -->
+                                <div class="shaddah-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #881337; margin-bottom: 10px;">
+                                        ١. مَا هُوَ تَعْرِيفُ الشَّدَّةِ (ـّ) فِي الْقِرَاءَةِ وَالْكِتَابَةِ؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(1, 'A', true, this)">
+                                            <span>دَمْجُ حَرْفَيْنِ: سَاكِنٌ فَمُتَحَرِّكٌ</span> <span>🌟</span>
+                                        </button>
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(1, 'B', false, this)">
+                                            <span>حَرْفُ مَدٍّ طَوِيلٌ</span> <span>❌</span>
+                                        </button>
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(1, 'C', false, this)">
+                                            <span>تَنْوِينُ الضَّمِّ</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الثاني -->
+                                <div class="shaddah-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #881337; margin-bottom: 10px;">
+                                        ٢. مَا هِيَ حَرَكَةُ الشَّدَّةِ فِي كَلِمَةِ «قِطَّةٌ»؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(2, 'A', false, this)">
+                                            <span>شَدَّةٌ مَكْسُورَة (طِّ)</span> <span>❌</span>
+                                        </button>
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(2, 'B', true, this)">
+                                            <span>شَدَّةٌ مَفْتُوحَة (طَّ)</span> <span>🐱</span>
+                                        </button>
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(2, 'C', false, this)">
+                                            <span>شَدَّةٌ مَضْمُومَة (طُّ)</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الثالث -->
+                                <div class="shaddah-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #881337; margin-bottom: 10px;">
+                                        ٣. مَا هُوَ الْحَرْفُ الْمُشَدَّدُ فِي كَلِمَةِ «سَبُّورَةٌ»؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(3, 'A', false, this)">
+                                            <span>حَرْفُ السِّين (سَـ)</span> <span>❌</span>
+                                        </button>
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(3, 'B', true, this)">
+                                            <span>حَرْفُ الْبَاءِ الْمُشَدَّدُ (بُّ)</span> <span>📋</span>
+                                        </button>
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(3, 'C', false, this)">
+                                            <span>حَرْفُ الرَّاءِ (رَ)</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الرابع -->
+                                <div class="shaddah-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #881337; margin-bottom: 10px;">
+                                        ٤. كَمْ مَقْطَعًا صَوْتِيًّا فِي كَلِمَةِ «مُعَلِّمٌ» عِنْدَ تَحْلِيلِهَا؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(4, 'A', false, this)">
+                                            <span>ثَلَاثَةُ مَقَاطِعَ</span> <span>❌</span>
+                                        </button>
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(4, 'B', true, this)">
+                                            <span>أَرْبَعَةُ مَقَاطِعَ (مُـ + عَلْـ + لِـ + مٌ)</span> <span>👨‍🏫</span>
+                                        </button>
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(4, 'C', false, this)">
+                                            <span>مَقْطَعَانِ فَقَطْ</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- السؤال الخامس -->
+                                <div class="shaddah-quiz-card">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #881337; margin-bottom: 10px;">
+                                        ٥. مَاذَا رَكَّبَ عَلِيٌّ وَجَدَّتِي فِي قِصَّةِ «زُرْنَا بَيْتَ جَدِّي»؟
+                                    </div>
+                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px;">
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(5, 'A', false, this)">
+                                            <span>طَيَّارَةً</span> <span>❌</span>
+                                        </button>
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(5, 'B', true, this)">
+                                            <span>سَيَّارَةً</span> <span>🚗✨</span>
+                                        </button>
+                                        <button class="shaddah-quiz-option" onclick="answerShaddahQuiz(5, 'C', false, this)">
+                                            <span>قِطَارًا</span> <span>❌</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </div> <!-- إغلاق stage-card -->
 <!-- شريط الانتقال المتسلسل بين الدروس -->
 
