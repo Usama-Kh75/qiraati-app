@@ -429,6 +429,145 @@ PRESET_HA = {
     ]
 }
 
+PRESET_DHAL = {
+    "name": "حرف الذال (ذ) وتطبيقاته وقراءة أُسْتَاذٌ وَتَلَامِيذٌ (ص ١١٨ - ١٢١)",
+    "pages": {
+        118: 'page_119.png',
+        119: 'page_120.png',
+        120: 'page_121.png',
+        121: 'page_122.png'
+    },
+    "crops": [
+        {'src': 'page_119.png', 'out': 'activity_dhal_trace.png', 'top_pt': 20, 'bot_pt': 105, 'margin_x': 50},
+        {'src': 'page_119.png', 'out': 'activity_dhal_scene.png', 'top_pt': 108, 'bot_pt': 345, 'margin_x': 50},
+        {'src': 'page_119.png', 'out': 'activity_dhal_words.png', 'top_pt': 342, 'bot_pt': 595, 'margin_x': 50},
+        {'src': 'page_119.png', 'out': 'activity_dhal_vowels.png', 'top_pt': 594, 'bot_pt': 775, 'margin_x': 50},
+        {'src': 'page_120.png', 'out': 'activity_dhal_vowel_words.png', 'top_pt': 40, 'bot_pt': 375, 'margin_x': 50},
+        {'src': 'page_120.png', 'out': 'activity_dhal_syllables.png', 'top_pt': 375, 'bot_pt': 592, 'margin_x': 50},
+        {'src': 'page_120.png', 'out': 'activity_dhal_analysis.png', 'top_pt': 592, 'bot_pt': 775, 'margin_x': 50},
+        {'src': 'page_121.png', 'out': 'activity_dhal_swap.png', 'top_pt': 48, 'bot_pt': 162, 'margin_x': 50},
+        {'src': 'page_121.png', 'out': 'activity_dhal_blend.png', 'top_pt': 162, 'bot_pt': 604, 'margin_x': 50},
+        {'src': 'page_121.png', 'out': 'activity_dhal_order.png', 'top_pt': 604, 'bot_pt': 770, 'margin_x': 50},
+        {'src': 'page_122.png', 'out': 'activity_dhal_order_para.png', 'top_pt': 45, 'bot_pt': 215, 'margin_x': 50},
+        {'src': 'page_122.png', 'out': 'activity_dhal_read.png', 'top_pt': 245, 'bot_pt': 642, 'margin_x': 50}
+    ],
+    "audio": [
+        # التوجيهات والمقدمات التعليمية
+        ("letter_dhal_intro", "الْوَحْدَةُ السَّادِسَةُ: الْعَالَمُ مِنْ حَوْلِي! مَعَ دَرْسِ حَرْفِ الذَّالِ (ذ) وَتَطْبِيقَاتِهِ (ص ١١٨ - ١٢١)! اِسْتَمِعُوا لِصَوْتِ الذَّالِ اللِّثَوِيِّ الْمَجْهُورِ، وَتَعَرَّفُوا عَلَى الْمُدُودِ وَالْمَقَاطِعِ وَالتَّرْكِيبِ وَقِرَاءَةِ نَصِّ الْكِتَابِ وَالنَّصِّ التُّرَاثِيِّ الْخَالِدِ: أُسْتَاذٌ وَتَلَامِيذٌ!", VOICE_RANA),
+        ("letter_dhal_sound", "ذْ... ذْ... صَوْتُ حَرْفِ الذَّالِ السَّاكِنُ، يَخْرُجُ مِنْ طَرَفِ اللِّسَانِ مَعَ أَطْرَافِ الثَّنَايَا الْعُلْيَا مَجْهُورًا لَطِيفًا: ذْ... ذْ...", VOICE_BASSEL),
+        ("letter_dhal_phoneme_faseeh", "أَهْلًا بِكُمْ يَا أَصْدِقَائِي! حَرْفُ الذَّالِ حَرْفٌ لِثَوِيٌّ جَمِيلٌ نُخْرِجُ فِيهِ طَرَفَ اللِّسَانِ قَلِيلًا عِنْدَ النُّطْقِ: ذْ... ذَ... ذُ... ذِ! انْتَبِهُوا، لَا نَخْلِطْ بَيْنَهُ وَبَيْنَ حَرْفِ الزَّايِ أَوْ الدَّالِ!", VOICE_BASSEL),
+        ("letter_dhal_scene_story", "فِي الْغَابَةِ الْخَضْرَاءِ الْجَمِيلَةِ، جَلَسَ الذِّئْبُ تَحْتَ جُذُوعِ الأَشْجَارِ يَنْظُرُ إِلَى قُنْفُذٍ صَغِيرٍ لَطِيفٍ، وَتَسَاقَطَتِ الْبُذُورُ عَلَى الأَرْضِ، فِي مَشْهَدٍ هَادِئٍ مِنْ مَشَاهِدِ الطَّبِيعَةِ!", VOICE_RANA),
+        ("letter_dhal_act1_intro", "نَشَاطُ وَاحِد: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ حَرْفِ الذَّالِ: ذَيْلٌ ، ذُبَابَةٌ ، ذِرَاعٌ ، قُنْفُذٌ ، أُذُنٌ ، حِذَاءٌ ، بُذُورٌ ، مُذِيعٌ.", VOICE_RANA),
+        ("letter_dhal_act2_intro", "نَشَاطُ اثْنَان: أَنْطِقُ صَوْتَ حَرْفِ الذَّالِ مَعَ أَصْوَاتِ الْمَدِّ الْقَصِيرَةِ: ذَ ، ذُ ، ذِ ، وَأَصْوَاتِ الْمَدِّ الطَّوِيلَةِ: ذَا ، ذُو ، ذِيـ.", VOICE_RANA),
+        ("letter_dhal_act3_intro", "نَشَاطُ ثَلَاثَة: أَسْتَمِعُ لِلَفْظِ الْكَلِمَاتِ، ثُمَّ أَنْطِقُ صَوْتَ حَرْفِ الذَّالِ مَعَ أَصْوَاتِ الْمَدِّ الْقَصِيرَةِ وَأَصْوَاتِ الْمَدِّ الطَّوِيلَةِ.", VOICE_RANA),
+        ("letter_dhal_act4_intro", "نَشَاطُ أَرْبَعَة: أَسْتَمِعُ إِلَى لَفْظِ الْكَلِمَاتِ وَأُمَيِّزُ صَوْتَ حَرْفِ الذَّالِ السَّاكِنِ فِي الْمَقَاطِعِ: مِذْ ، أُذْ ، جَذْ.", VOICE_RANA),
+        ("letter_dhal_act5_intro", "نَشَاطُ خَمْسَة: أَقْرَأُ الْكَلِمَاتِ، ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ بِالتَّصْفِيق.", VOICE_RANA),
+        ("letter_dhal_act6_intro", "نَشَاطُ سِتَّة: أَسْتَبْدِلُ الْحَرْفَ بِاللَّوْنِ الأَحْمَرِ بِآخَرَ لِتَكْوِينِ كَلِمَةٍ جَدِيدَةٍ، ثُمَّ أَنْطِقُهَا.", VOICE_RANA),
+        ("letter_dhal_act7_intro", "نَشَاطُ سَبْعَة: أُرَكِّبُ مِنَ الْمَقَاطِعِ التَّالِيَةِ كَلِمَاتٍ ثُمَّ أَقْرَأُهَا.", VOICE_RANA),
+        ("letter_dhal_act8_intro", "نَشَاطُ ثَمَانِيَة: أُرَتِّبُ الْكَلِمَاتِ التَّالِيَةَ، وَأُكَوِّنُ جُمْلَةً مُفِيدَةً، ثُمَّ أَقْرَأُهَا.", VOICE_RANA),
+        ("letter_dhal_act9_intro", "نَشَاطُ تِسْعَة: أُرَتِّبُ الْجُمْلَتَيْنِ، أُكَوِّنُ فِقْرَةً، ثُمَّ أَقْرَأُهَا.", VOICE_RANA),
+        ("letter_dhal_read_intro", "مَحَطَّةُ الْقِرَاءَةِ وَالسَّبُّورَةِ وَالنُّصُوصِ التُّرَاثِيَّةِ! اقْرَأْ نَصَّ الْكِتَابِ ص ١٢١: مَعَاذٌ مُعَلِّمٌ ، وَالنَّصَّ التُّرَاثِيَّ الْعِرَاقِيَّ الْخَالِدَ: أُسْتَاذٌ وَتَلَامِيذٌ!", VOICE_RANA),
+        ("letter_dhal_quiz_intro", "اخْتِبَارُ التَّحَدِّي لِدَرْسِ حَرْفِ الذَّالِ! أَجِبْ عَنِ الأَسْئِلَةِ لِتَحْصُلَ عَلَى كَأْسِ التَّفَوُّقِ وَأَوْسِمَةِ الأَبْطَالِ!", VOICE_RANA),
+
+        # الحركات والمدود والمقاطع الساكنة
+        ("letter_dhal_short_a", "ذَ", VOICE_RANA),
+        ("letter_dhal_short_u", "ذُ", VOICE_RANA),
+        ("letter_dhal_short_i", "ذِ", VOICE_RANA),
+        ("letter_dhal_long_aa", "ذَا", VOICE_RANA),
+        ("letter_dhal_long_oo", "ذُو", VOICE_RANA),
+        ("letter_dhal_long_ee", "ذِيـ", VOICE_RANA),
+        ("letter_dhal_syl_midh", "مِذْ", VOICE_RANA),
+        ("letter_dhal_syl_udh", "أُذْ", VOICE_RANA),
+        ("letter_dhal_syl_jadh", "جَذْ", VOICE_RANA),
+
+        # المفردات المصورة وتطبيقات الدرس
+        ("letter_dhal_word_dhayl", "ذَيْلٌ", VOICE_RANA),
+        ("letter_dhal_word_dhubaabah", "ذُبَابَةٌ", VOICE_RANA),
+        ("letter_dhal_word_dhiraa", "ذِرَاعٌ", VOICE_RANA),
+        ("letter_dhal_word_qunfudh", "قُنْفُذٌ", VOICE_RANA),
+        ("letter_dhal_word_udhun", "أُذُنٌ", VOICE_RANA),
+        ("letter_dhal_word_hidhaa", "حِذَاءٌ", VOICE_RANA),
+        ("letter_dhal_word_budhoor", "بُذُورٌ", VOICE_RANA),
+        ("letter_dhal_word_mudhee", "مُذِيعٌ", VOICE_RANA),
+        ("letter_dhal_word_dhaqan", "ذَقَنٌ", VOICE_RANA),
+        ("letter_dhal_word_dhib", "ذِئْبٌ", VOICE_RANA),
+        ("letter_dhal_word_midhyaa", "مِذْيَاعٌ", VOICE_RANA),
+        ("letter_dhal_word_jadhr", "جَذْرٌ", VOICE_RANA),
+        ("letter_dhal_word_tilmeedh", "تِلْمِيذٌ", VOICE_RANA),
+        ("letter_dhal_word_yudhee", "يُذِيعُ", VOICE_RANA),
+        ("letter_dhal_word_yabee", "يَبِيعُ", VOICE_RANA),
+        ("letter_dhal_word_budoor", "بُدُورٌ", VOICE_RANA),
+        ("letter_dhal_word_haadhiq", "حَاذِقٌ", VOICE_RANA),
+        ("letter_dhal_word_haariq", "حَارِقٌ", VOICE_RANA),
+        ("letter_dhal_word_badhala", "بَذَلَ", VOICE_RANA),
+        ("letter_dhal_word_badhara", "بَذَرَ", VOICE_RANA),
+        ("letter_dhal_word_ustaadh", "أُسْتَاذٌ", VOICE_RANA),
+        ("letter_dhal_word_muaadh", "مُعَاذٌ", VOICE_RANA),
+        ("letter_dhal_word_mundhir", "مُنْذِرٌ", VOICE_RANA),
+        ("letter_dhal_word_tabbaakh", "طَبَّاخٌ", VOICE_RANA),
+        ("letter_dhal_word_maahir", "مَاهِرٌ", VOICE_RANA),
+        ("letter_dhal_word_yatho", "يَطْهُو", VOICE_RANA),
+        ("letter_dhal_word_taaman", "طَعَامًا", VOICE_RANA),
+        ("letter_dhal_word_ladheedhan", "لَذِيذًا", VOICE_RANA),
+        ("letter_dhal_word_sihhiyyan", "صِحِّيًّا", VOICE_RANA),
+        ("letter_dhal_word_dhura", "ذُرَى", VOICE_RANA),
+        ("letter_dhal_word_tilmeedhah", "تِلْمِيذَةٌ", VOICE_RANA),
+        ("letter_dhal_word_dhakiyyah", "ذَكِيَّةٌ", VOICE_RANA),
+        ("letter_dhal_word_tuhibbu", "تُحِبُّ", VOICE_RANA),
+        ("letter_dhal_word_duroosaha", "دُرُوسَهَا", VOICE_RANA),
+        ("letter_dhal_word_madrasataha", "وَمَدْرَسَتَهَا", VOICE_RANA),
+        ("letter_dhal_word_muallim", "مُعَلِّمٌ", VOICE_RANA),
+        ("letter_dhal_word_yarsumu", "يَرْسُمُ", VOICE_RANA),
+        ("letter_dhal_word_maa", "مَعَ", VOICE_RANA),
+        ("letter_dhal_word_talaameedhih", "تَلَامِيذِهِ", VOICE_RANA),
+        ("letter_dhal_word_nabaataat", "نَبَاتَاتٍ", VOICE_RANA),
+        ("letter_dhal_word_mukhtalifah", "مُخْتَلِفَةً", VOICE_RANA),
+        ("letter_dhal_word_fayarsumoon", "فَيَرْسُمُونَ", VOICE_RANA),
+        ("letter_dhal_word_budhooran", "بُذُورًا", VOICE_RANA),
+        ("letter_dhal_word_judhooran", "وَجُذُورًا", VOICE_RANA),
+        ("letter_dhal_word_judhooan", "وَجُذُوعًا", VOICE_RANA),
+        ("letter_dhal_word_qadeer", "قَدِيرٌ", VOICE_RANA),
+        ("letter_dhal_word_nasheet", "نَشِيطٌ", VOICE_RANA),
+        ("letter_dhal_word_iqra", "اقْرَأْ", VOICE_RANA),
+        ("letter_dhal_word_adhooq", "أَذُوقُ", VOICE_RANA),
+        ("letter_dhal_word_alasal", "الْعَسَلَ", VOICE_RANA),
+        ("letter_dhal_word_ladheedh", "لَذِيذٌ", VOICE_RANA),
+
+        # التحليل والتركيب الصوتي بالتصفيق
+        ("letter_dhal_split_budhoor", "بُذُورٌ: بُـ... ذُو... رٌ. ثَلَاثَةُ مَقَاطِعَ.", VOICE_BASSEL),
+        ("letter_dhal_split_yudhee", "يُذِيعُ: يُـ... ذِيـ... عُ. ثَلَاثَةُ مَقَاطِعَ.", VOICE_BASSEL),
+        ("letter_dhal_split_tilmeedh", "تِلْمِيذٌ: تِلْـ... مِيـ... ذٌ. ثَلَاثَةُ مَقَاطِعَ.", VOICE_BASSEL),
+        ("letter_dhal_merge_badhala", "بَـ... ذَ... لَ: بَذَلَ.", VOICE_BASSEL),
+        ("letter_dhal_merge_badhara", "بَـ... ذَ... رَ: بَذَرَ.", VOICE_BASSEL),
+        ("letter_dhal_merge_ustaadh", "أُسْـ... تَا... ذٌ: أُسْتَاذٌ.", VOICE_BASSEL),
+        ("letter_dhal_merge_muaadh", "مُـ... عَا... ذٌ: مُعَاذٌ.", VOICE_BASSEL),
+
+        # ترتيب الكلمات والجمل والفقرة
+        ("letter_dhal_order_sentence_full", "مُنْذِرٌ طَبَّاخٌ مَاهِرٌ ، يَطْهُو طَعَامًا لَذِيذًا وَصِحِّيًّا.", VOICE_RANA),
+        ("letter_dhal_order_para_full", "ذُرَى تِلْمِيذَةٌ ذَكِيَّةٌ. تُحِبُّ دُرُوسَهَا وَمَدْرَسَتَهَا.", VOICE_RANA),
+        ("letter_dhal_order_para_s1", "ذُرَى تِلْمِيذَةٌ ذَكِيَّةٌ.", VOICE_RANA),
+        ("letter_dhal_order_para_s2", "تُحِبُّ دُرُوسَهَا وَمَدْرَسَتَهَا.", VOICE_RANA),
+
+        # قراءة نصوص الكتاب المدرسي ص ١٢١
+        ("letter_dhal_read_p121_full", "مَعَاذٌ مُعَلِّمٌ ، يَرْسُمُ مَعَ تَلَامِيذِهِ نَبَاتَاتٍ مُخْتَلِفَةً ؛ فَيَرْسُمُونَ بُذُورًا وَجُذُورًا ، وَجُذُوعًا.", VOICE_RANA),
+        ("letter_dhal_read_p121_s1", "مَعَاذٌ مُعَلِّمٌ ، يَرْسُمُ مَعَ تَلَامِيذِهِ نَبَاتَاتٍ مُخْتَلِفَةً ؛", VOICE_RANA),
+        ("letter_dhal_read_p121_s2", "فَيَرْسُمُونَ بُذُورًا وَجُذُورًا ، وَجُذُوعًا.", VOICE_RANA),
+
+        # النص التراثي العراقي الخالد لحرف الذال: أُسْتَاذٌ وَتَلَامِيذٌ
+        ("letter_dhal_story_ustaadh_full", "أُسْتَاذٌ وَتَلَامِيذٌ. مُعَاذٌ أُسْتَاذٌ قَدِيرٌ. مُنْذِرٌ تِلْمِيذٌ نَشِيطٌ. قَالَ الأُسْتَاذُ: اقْرَأْ يَا مُنْذِرُ. قَرَأَ مُنْذِرٌ: أَنَا أَذُوقُ الْعَسَلَ. الْعَسَلُ لَذِيذٌ.", VOICE_RANA),
+        ("letter_dhal_story_ustaadh_s1", "مُعَاذٌ أُسْتَاذٌ قَدِيرٌ.", VOICE_RANA),
+        ("letter_dhal_story_ustaadh_s2", "مُنْذِرٌ تِلْمِيذٌ نَشِيطٌ.", VOICE_RANA),
+        ("letter_dhal_story_ustaadh_s3", "قَالَ الأُسْتَاذُ: اقْرَأْ يَا مُنْذِرُ.", VOICE_RANA),
+        ("letter_dhal_story_ustaadh_s4", "قَرَأَ مُنْذِرٌ: أَنَا أَذُوقُ الْعَسَلَ.", VOICE_RANA),
+        ("letter_dhal_story_ustaadh_s5", "الْعَسَلُ لَذِيذٌ.", VOICE_RANA),
+
+        # التعزيز الصوتي والتقييم
+        ("letter_dhal_correct", "أَحْسَنْتَ يَا بَطَلَ قِرَاءَتِي! إِجَابَةٌ صَحِيحَةٌ وَرَائِعَة!", VOICE_BASSEL),
+        ("letter_dhal_wrong", "حَاوِلْ مَرَّةً أُخْرَى، أَنْتَ ذَكِيٌّ وَقَادِرٌ عَلَى النَّجَاح!", VOICE_BASSEL),
+        ("letter_dhal_encourage_super", "مُمْتَازٌ جِدًّا! أَنْتَ عَبْقَرِيُّ الْقِرَاءَةِ وَنَجْمُ حَرْفِ الذَّالِ!", VOICE_BASSEL)
+    ]
+}
+
 
 def run_lesson_pipeline(preset_data, bump=False):
     t0 = time.time()
@@ -466,7 +605,7 @@ def run_lesson_pipeline(preset_data, bump=False):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="خط الإنتاج المؤتمت السريع لمنصة قراءتي الذكية - إعداد المهندس أسامة خليل هاشم")
-    parser.add_argument('--preset', choices=['ghayn', 'ha'], help="تشغيل خط الإنتاج لدرس محدد مسبقاً")
+    parser.add_argument('--preset', choices=['ghayn', 'ha', 'dhal'], help="تشغيل خط الإنتاج لدرس محدد مسبقاً")
     parser.add_argument('--build-sync', action='store_true', help="تشغيل البناء والمزامنة فقط")
     parser.add_argument('--bump', action='store_true', help="ترقية رقم نسخة كاش الخدمة")
     parser.add_argument('--sync-audio', action='store_true', help="تحديث Base64 في audio_data.js لجميع ملفات audio/*.mp3")
@@ -477,6 +616,8 @@ if __name__ == '__main__':
         run_lesson_pipeline(PRESET_GHAYN, bump=args.bump)
     elif args.preset == 'ha':
         run_lesson_pipeline(PRESET_HA, bump=args.bump)
+    elif args.preset == 'dhal':
+        run_lesson_pipeline(PRESET_DHAL, bump=args.bump)
     elif args.build_sync:
         run_pipeline_build_and_sync(bump_cache=args.bump)
     elif args.sync_audio:

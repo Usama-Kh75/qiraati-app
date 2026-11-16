@@ -845,4 +845,514 @@
             }
         }
     };
+
+    /* ========================================================
+       القسم 13: التنقل بين محطات درس حرف الذال (ذ) ص 118 - 121
+    ======================================================== */
+    window.switchLetterDhalStation = function(stationNum) {
+        document.querySelectorAll('#view-tab-letter_dhal .station-tab').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('#view-tab-letter_dhal .letter-dhal-station').forEach(el => el.classList.remove('active'));
+
+        const targetStation = document.getElementById('stationDhal_' + stationNum);
+        const targetBtn = document.getElementById('btnStationDhal_' + stationNum);
+
+        if (targetStation) targetStation.classList.add('active');
+        if (targetBtn) targetBtn.classList.add('active');
+
+        if (stationNum === 1) {
+            mascotSpeak('الْوَحْدَةُ السَّادِسَةُ: الْعَالَمُ مِنْ حَوْلِي! مَعَ دَرْسِ حَرْفِ الذَّالِ (ذ) وَتَطْبِيقَاتِهِ (ص ١١٨ - ١٢١)! اِسْتَمِعُوا لِصَوْتِ الذَّالِ اللِّثَوِيِّ الْمَجْهُورِ، وَتَعَرَّفُوا عَلَى كَلِمَاتِ الْكِتَابِ ص ١١٨!', 'letter_dhal_intro');
+        } else if (stationNum === 2) {
+            mascotSpeak('أَصْوَاتُ الْمُدُودِ وَالْمَقَاطِعِ السَّاكِنَةِ لِحَرْفِ الذَّالِ! قَارِنْ بَيْنَ ذَ ، ذُ ، ذِ وَ ذَا ، ذُو ، ذِيـ، وَمَيِّزْ مَقَاطِعَ: مِذْ ، أُذْ ، جَذْ فِي كَلِمَاتِ: مِذْيَاعٌ ، أُذْنٌ ، جَذْرٌ!', 'letter_dhal_act2_intro');
+        } else if (stationNum === 3) {
+            mascotSpeak('الْتَّحْلِيلُ وَالتَّرْكِيبُ وَتَرْتِيبُ الْكَلِمَاتِ! حَلِّلْ كَلِمَاتِ (بُذُورٌ ، يُذِيعُ ، تِلْمِيذٌ) بِالتَّصْفِيق، وَاسْتَبْدِلِ الْحُرُوفَ، وَرَكِّبْ كَلِمَاتِ (بَذَلَ ، بَذَرَ ، أُسْتَاذٌ ، مُعَاذٌ)، وَرَتِّبْ جُمْلَةَ مُنْذِرٍ الطَّبَّاخِ وَفِقْرَةَ ذُرَى!', 'letter_dhal_act5_intro');
+            setTimeout(() => {
+                initDhalOrderSentence();
+                initDhalPara();
+            }, 100);
+        } else if (stationNum === 4) {
+            mascotSpeak('مَحَطَّةُ الْقِرَاءَةِ وَالسَّبُّورَةِ وَالنُّصُوصِ التُّرَاثِيَّةِ! اقْرَأْ نَصَّ الْكِتَابِ ص ١٢١: مَعَاذٌ مُعَلِّمٌ ، وَالنَّصَّ التُّرَاثِيَّ الْعِرَاقِيَّ الْخَالِدَ: أُسْتَاذٌ وَتَلَامِيذٌ!', 'letter_dhal_read_intro');
+            setTimeout(initDhalCanvas, 100);
+            setTimeout(initDhalQuiz, 100);
+        }
+    };
+
+    /* ========================================================
+       القسم 14: أصوات حرف الذال الفونيمية والكلمات المصورة
+    ======================================================== */
+    window.playDhalLetterSound = function() {
+        mascotCelebrates();
+        playAudio('letter_dhal_sound');
+    };
+
+    window.playDhalPhonemeFaseeh = function() {
+        mascotCelebrates();
+        playAudio('letter_dhal_phoneme_faseeh');
+    };
+
+    window.playDhalWord = function(wordKey) {
+        mascotCelebrates();
+        const map = {
+            'dhayl': 'letter_dhal_word_dhayl',
+            'dhubaabah': 'letter_dhal_word_dhubaabah',
+            'dhiraa': 'letter_dhal_word_dhiraa',
+            'qunfudh': 'letter_dhal_word_qunfudh',
+            'udhun': 'letter_dhal_word_udhun',
+            'hidhaa': 'letter_dhal_word_hidhaa',
+            'budhoor': 'letter_dhal_word_budhoor',
+            'mudhee': 'letter_dhal_word_mudhee',
+            'dhaqan': 'letter_dhal_word_dhaqan',
+            'dhib': 'letter_dhal_word_dhib',
+            'midhyaa': 'letter_dhal_word_midhyaa',
+            'jadhr': 'letter_dhal_word_jadhr',
+            'tilmeedh': 'letter_dhal_word_tilmeedh',
+            'yudhee': 'letter_dhal_word_yudhee',
+            'yabee': 'letter_dhal_word_yabee',
+            'budoor': 'letter_dhal_word_budoor',
+            'haadhiq': 'letter_dhal_word_haadhiq',
+            'haariq': 'letter_dhal_word_haariq',
+            'badhala': 'letter_dhal_word_badhala',
+            'badhara': 'letter_dhal_word_badhara',
+            'ustaadh': 'letter_dhal_word_ustaadh',
+            'muaadh': 'letter_dhal_word_muaadh',
+            'mundhir': 'letter_dhal_word_mundhir',
+            'tabbaakh': 'letter_dhal_word_tabbaakh',
+            'maahir': 'letter_dhal_word_maahir',
+            'yatho': 'letter_dhal_word_yatho',
+            'taaman': 'letter_dhal_word_taaman',
+            'ladheedhan': 'letter_dhal_word_ladheedhan',
+            'sihhiyyan': 'letter_dhal_word_sihhiyyan',
+            'dhura': 'letter_dhal_word_dhura',
+            'tilmeedhah': 'letter_dhal_word_tilmeedhah',
+            'dhakiyyah': 'letter_dhal_word_dhakiyyah',
+            'tuhibbu': 'letter_dhal_word_tuhibbu',
+            'duroosaha': 'letter_dhal_word_duroosaha',
+            'madrasataha': 'letter_dhal_word_madrasataha',
+            'muallim': 'letter_dhal_word_muallim',
+            'yarsumu': 'letter_dhal_word_yarsumu',
+            'maa': 'letter_dhal_word_maa',
+            'talaameedhih': 'letter_dhal_word_talaameedhih',
+            'nabaataat': 'letter_dhal_word_nabaataat',
+            'mukhtalifah': 'letter_dhal_word_mukhtalifah',
+            'fayarsumoon': 'letter_dhal_word_fayarsumoon',
+            'budhooran': 'letter_dhal_word_budhooran',
+            'judhooran': 'letter_dhal_word_judhooran',
+            'judhooan': 'letter_dhal_word_judhooan',
+            'qadeer': 'letter_dhal_word_qadeer',
+            'nasheet': 'letter_dhal_word_nasheet',
+            'iqra': 'letter_dhal_word_iqra',
+            'adhooq': 'letter_dhal_word_adhooq',
+            'alasal': 'letter_dhal_word_alasal',
+            'ladheedh': 'letter_dhal_word_ladheedh'
+        };
+        const audioKey = map[wordKey] || ('letter_dhal_word_' + wordKey);
+        playAudio(audioKey);
+    };
+
+    /* ========================================================
+       القسم 15: أصوات المدود والمقاطع الساكنة والتحليل والتركيب
+    ======================================================== */
+    window.playDhalVowel = function(vowelKey) {
+        mascotCelebrates();
+        playAudio('letter_dhal_' + vowelKey);
+    };
+
+    window.playDhalSyllable = function(sylKey, wordKey) {
+        mascotCelebrates();
+        playAudio('letter_dhal_syl_' + sylKey);
+        if (wordKey) {
+            setTimeout(() => {
+                playDhalWord(wordKey);
+            }, 800);
+        }
+    };
+
+    window.playDhalSplit = function(wordKey) {
+        mascotCelebrates();
+        playAudio('letter_dhal_split_' + wordKey);
+    };
+
+    window.playDhalMerge = function(wordKey) {
+        mascotCelebrates();
+        playAudio('letter_dhal_merge_' + wordKey);
+    };
+
+    /* ========================================================
+       القسم 16: نشاط ترتيب الجملة والفقرة (نشاط 8 و 9)
+    ======================================================== */
+    const dhalSentenceWords = [
+        { id: 1, text: "مُنْذِرٌ", audio: "letter_dhal_word_mundhir" },
+        { id: 2, text: "طَبَّاخٌ", audio: "letter_dhal_word_tabbaakh" },
+        { id: 3, text: "مَاهِرٌ", audio: "letter_dhal_word_maahir" },
+        { id: 4, text: "يَطْهُو", audio: "letter_dhal_word_yatho" },
+        { id: 5, text: "طَعَامًا", audio: "letter_dhal_word_taaman" },
+        { id: 6, text: "لَذِيذًا", audio: "letter_dhal_word_ladheedhan" },
+        { id: 7, text: "وَصِحِّيًّا", audio: "letter_dhal_word_sihhiyyan" }
+    ];
+
+    let dhalSelectedOrder = [];
+
+    window.initDhalOrderSentence = function() {
+        dhalSelectedOrder = [];
+        const container = document.getElementById('dhalOrderWordList');
+        const target = document.getElementById('dhalOrderSentenceTarget');
+        if (!container || !target) return;
+
+        target.innerHTML = '<span style="color: #94a3b8; font-weight: 600;">(انقر الكلمات أعلاه لتظهر هنا مرتبة...)</span>';
+
+        // ترتيب عشوائي للكلمات المعروضة
+        const shuffled = [...dhalSentenceWords].sort(() => Math.random() - 0.5);
+        container.innerHTML = '';
+        shuffled.forEach(item => {
+            const chip = document.createElement('div');
+            chip.className = 'dhal-word-chip';
+            chip.id = 'dhalChip_' + item.id;
+            chip.innerText = item.text;
+            chip.onclick = () => selectDhalOrderWord(item);
+            container.appendChild(chip);
+        });
+    };
+
+    function selectDhalOrderWord(item) {
+        if (dhalSelectedOrder.some(w => w.id === item.id)) return;
+
+        playAudio(item.audio);
+        dhalSelectedOrder.push(item);
+
+        const chip = document.getElementById('dhalChip_' + item.id);
+        if (chip) chip.classList.add('selected');
+
+        renderDhalOrderTarget();
+    }
+
+    function renderDhalOrderTarget() {
+        const target = document.getElementById('dhalOrderSentenceTarget');
+        if (!target) return;
+
+        if (dhalSelectedOrder.length === 0) {
+            target.innerHTML = '<span style="color: #94a3b8; font-weight: 600;">(انقر الكلمات أعلاه لتظهر هنا مرتبة...)</span>';
+            return;
+        }
+
+        target.innerHTML = dhalSelectedOrder.map(w => `<span class="dhal-part-pill" style="font-size: 1.15rem; padding: 4px 12px;">${w.text}</span>`).join(' ');
+    }
+
+    window.resetDhalOrderSentence = function() {
+        initDhalOrderSentence();
+    };
+
+    window.checkDhalOrderSentence = function() {
+        const target = document.getElementById('dhalOrderSentenceTarget');
+        if (!target) return;
+
+        if (dhalSelectedOrder.length < dhalSentenceWords.length) {
+            playAudio('letter_dhal_wrong');
+            alert('الرجاء اختيار جميع الكلمات لإكمال الجملة!');
+            return;
+        }
+
+        const isCorrect = dhalSelectedOrder.every((w, idx) => w.id === dhalSentenceWords[idx].id);
+
+        if (isCorrect) {
+            mascotCelebrates();
+            playAudio('letter_dhal_correct');
+            setTimeout(() => {
+                playAudio('letter_dhal_order_sentence_full');
+            }, 1000);
+            target.style.borderColor = '#16a34a';
+            target.style.background = '#f0fdf4';
+        } else {
+            playAudio('letter_dhal_wrong');
+            target.style.borderColor = '#dc2626';
+            target.style.background = '#fef2f2';
+        }
+    };
+
+    // ترتيب فقرة نشاط 9
+    let dhalParaFirstSelected = null;
+    window.selectDhalParaFirst = function(choice) {
+        dhalParaFirstSelected = choice;
+        const fb = document.getElementById('dhalParaFeedback');
+        const c1 = document.getElementById('paraDhalChoice_1');
+        const c2 = document.getElementById('paraDhalChoice_2');
+
+        if (choice === 1) { // 1 = ذُرَى تِلْمِيذَةٌ ذَكِيَّةٌ (صحيح)
+            mascotCelebrates();
+            playAudio('letter_dhal_correct');
+            setTimeout(() => {
+                playAudio('letter_dhal_order_para_full');
+            }, 1200);
+
+            if (c1) {
+                c1.style.borderColor = '#16a34a';
+                c1.style.background = '#f0fdf4';
+            }
+            if (c2) {
+                c2.style.borderColor = '#d97706';
+                c2.style.background = '#fffbeb';
+            }
+            if (fb) {
+                fb.style.color = '#16a34a';
+                fb.innerHTML = '✨ رَائِعٌ جِدًّا! التَّرْتِيبُ الصَّحِيحُ: «ذُرَى تِلْمِيذَةٌ ذَكِيَّةٌ. تُحِبُّ دُرُوسَهَا وَمَدْرَسَتَهَا.»';
+            }
+        } else {
+            playAudio('letter_dhal_wrong');
+            if (c2) {
+                c2.style.borderColor = '#dc2626';
+                c2.style.background = '#fef2f2';
+            }
+            if (fb) {
+                fb.style.color = '#dc2626';
+                fb.innerHTML = '❌ حَاوِلْ مَرَّةً أُخْرَى! ابْدَأْ بِالْجُمْلَةِ الَّتِي تُعَرِّفُنَا بِـ ذُرَى!';
+            }
+        }
+    };
+
+    window.resetDhalPara = function() {
+        dhalParaFirstSelected = null;
+        const fb = document.getElementById('dhalParaFeedback');
+        const c1 = document.getElementById('paraDhalChoice_1');
+        const c2 = document.getElementById('paraDhalChoice_2');
+        if (c1) {
+            c1.style.borderColor = '#fef3c7';
+            c1.style.background = '#ffffff';
+        }
+        if (c2) {
+            c2.style.borderColor = '#fef3c7';
+            c2.style.background = '#ffffff';
+        }
+        if (fb) fb.innerHTML = '';
+    };
+
+    /* ========================================================
+       القسم 17: سبورة رسم وتتبع حرف الذال (ذ)
+    ======================================================== */
+    let dhalCanvas, dhalCtx;
+    let isDrawingDhal = false;
+    let dhalColor = '#d97706';
+    let dhalLineWidth = 8;
+
+    window.initDhalCanvas = function() {
+        dhalCanvas = document.getElementById('dhalCanvas');
+        if (!dhalCanvas) return;
+        dhalCtx = dhalCanvas.getContext('2d');
+
+        function resizeDhalCanvas() {
+            const rect = dhalCanvas.getBoundingClientRect();
+            if (rect.width > 0) {
+                dhalCanvas.width = rect.width;
+                dhalCanvas.height = 240;
+                drawDhalGuide();
+            }
+        }
+
+        resizeDhalCanvas();
+        window.addEventListener('resize', resizeDhalCanvas);
+
+        function getDhalPos(e) {
+            const r = dhalCanvas.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            return {
+                x: clientX - r.left,
+                y: clientY - r.top
+            };
+        }
+
+        function startDraw(e) {
+            isDrawingDhal = true;
+            const pos = getDhalPos(e);
+            dhalCtx.beginPath();
+            dhalCtx.moveTo(pos.x, pos.y);
+            e.preventDefault();
+        }
+
+        function drawMove(e) {
+            if (!isDrawingDhal) return;
+            const pos = getDhalPos(e);
+            dhalCtx.lineTo(pos.x, pos.y);
+            dhalCtx.strokeStyle = dhalColor;
+            dhalCtx.lineWidth = dhalLineWidth;
+            dhalCtx.lineCap = 'round';
+            dhalCtx.lineJoin = 'round';
+            dhalCtx.stroke();
+            e.preventDefault();
+        }
+
+        function endDraw() {
+            if (isDrawingDhal) {
+                isDrawingDhal = false;
+                mascotCelebrates();
+            }
+        }
+
+        dhalCanvas.onmousedown = startDraw;
+        dhalCanvas.onmousemove = drawMove;
+        dhalCanvas.onmouseup = endDraw;
+        dhalCanvas.onmouseleave = endDraw;
+
+        dhalCanvas.ontouchstart = startDraw;
+        dhalCanvas.ontouchmove = drawMove;
+        dhalCanvas.ontouchend = endDraw;
+    };
+
+    function drawDhalGuide() {
+        if (!dhalCtx || !dhalCanvas) return;
+        dhalCtx.clearRect(0, 0, dhalCanvas.width, dhalCanvas.height);
+
+        // خط السطر
+        dhalCtx.save();
+        dhalCtx.strokeStyle = '#fed7aa';
+        dhalCtx.lineWidth = 2;
+        dhalCtx.setLineDash([6, 6]);
+        dhalCtx.beginPath();
+        dhalCtx.moveTo(20, dhalCanvas.height * 0.72);
+        dhalCtx.lineTo(dhalCanvas.width - 20, dhalCanvas.height * 0.72);
+        dhalCtx.stroke();
+
+        // رسم باهت استرشادي لحرف الذال (ذ)
+        dhalCtx.font = 'bold 120px "Traditional Arabic", "Amiri", sans-serif';
+        dhalCtx.fillStyle = 'rgba(217, 119, 6, 0.16)';
+        dhalCtx.textAlign = 'center';
+        dhalCtx.textBaseline = 'middle';
+        dhalCtx.fillText('ذ', dhalCanvas.width / 2, dhalCanvas.height * 0.52);
+        dhalCtx.restore();
+    }
+
+    window.clearDhalCanvas = function() {
+        drawDhalGuide();
+        playAudio('letter_dhal_sound');
+    };
+
+    window.setDhalCanvasColor = function(c) {
+        dhalColor = c;
+    };
+
+    window.setDhalCanvasSize = function(s) {
+        dhalLineWidth = s;
+    };
+
+    /* ========================================================
+       القسم 18: اختبار التحدي التفاعلي لدرس حرف الذال (ذ)
+    ======================================================== */
+    const dhalQuizQuestions = [
+        {
+            question: "مَا هُوَ صَوْتُ وَمَخْرَجُ حَرْفِ الذَّالِ (ذ) الصَّافِي؟",
+            audio: "letter_dhal_sound",
+            options: ["حَلْقِيٌّ مُفَخَّمٌ", "لِثَوِيٌّ مَجْهُورٌ لَطِيفٌ", "شَفَوِيٌّ مَهْمُوسٌ"],
+            correct: 1,
+            hint: "يَخْرُجُ مِنْ طَرَفِ اللِّسَانِ مَعَ أَطْرَافِ الثَّنَايَا الْعُلْيَا!"
+        },
+        {
+            question: "أَيُّ كَلِمَةٍ تَبْدَأُ بِحَرْفِ الذَّالِ الْمَفْتُوحَةِ (ذَ)؟",
+            audio: "letter_dhal_short_a",
+            options: ["ذَقَنٌ", "ذُبَابَةٌ", "ذِئْبٌ"],
+            correct: 0,
+            hint: "ذَ... ذَقَنٌ!"
+        },
+        {
+            question: "مَا هُوَ الْمَقْطَعُ السَّاكِنُ فِي كَلِمَةِ «مِذْيَاعٌ»؟",
+            audio: "letter_dhal_syl_midh",
+            options: ["مِذْ", "أُذْ", "جَذْ"],
+            correct: 0,
+            hint: "مِـ + ذْ = مِذْ!"
+        },
+        {
+            question: "عِنْدَ اسْتِبْدَالِ حَرْفِ الذَّالِ بِالْبَاءِ فِي كَلِمَةِ «يَذِيعُ»، نَحْصُلُ عَلَى:",
+            audio: "letter_dhal_word_yabee",
+            options: ["يَبِيعُ", "بُدُورٌ", "حَارِقٌ"],
+            correct: 0,
+            hint: "نَسْتَبْدِلُ الذَّالَ بِالْبَاءِ: يَبِيعُ!"
+        },
+        {
+            question: "فِي قِصَّةِ «أُسْتَاذٌ وَتَلَامِيذٌ»، مَاذَا ذَاقَ مُنْذِرٌ؟",
+            audio: "letter_dhal_story_ustaadh_s4",
+            options: ["الْمَاءَ", "الْعَسَلَ اللَّذِيذَ", "التُّفَّاحَ"],
+            correct: 1,
+            hint: "قَالَ مُنْذِرٌ: أَنَا أَذُوقُ الْعَسَلَ. الْعَسَلُ لَذِيذٌ!"
+        }
+    ];
+
+    let currentDhalQuizIndex = 0;
+    let dhalScore = 0;
+
+    window.initDhalQuiz = function() {
+        currentDhalQuizIndex = 0;
+        dhalScore = 0;
+        showDhalQuizQuestion();
+    };
+
+    function showDhalQuizQuestion() {
+        const qContainer = document.getElementById('dhalQuizContainer');
+        if (!qContainer) return;
+
+        if (currentDhalQuizIndex >= dhalQuizQuestions.length) {
+            qContainer.innerHTML = `
+                <div style="text-align: center; padding: 24px;">
+                    <div style="font-size: 3.5rem; margin-bottom: 12px;">🏆🍯🌟</div>
+                    <h3 style="color: #92400e; font-size: 1.6rem; font-weight: 900; margin-bottom: 8px;">مُبَارَكٌ يَا بَطَلَ الْقِرَاءَةِ!</h3>
+                    <p style="font-size: 1.15rem; color: #b45309; font-weight: 800; margin-bottom: 16px;">
+                        أَجَبْتَ عَلَى كَامِلِ الأَسْئِلَةِ بِنَجَاح! نَتِيجَتُكَ: ${dhalScore} مِنْ ${dhalQuizQuestions.length} ⭐
+                    </p>
+                    <button class="btn-primary" onclick="initDhalQuiz()" style="background: #d97706; border-color: #b45309;">
+                        <span>🔄</span> <span>إِعَادَةُ التَّحَدِّي</span>
+                    </button>
+                </div>
+            `;
+            mascotCelebrates();
+            playAudio('letter_dhal_encourage_super');
+            return;
+        }
+
+        const q = dhalQuizQuestions[currentDhalQuizIndex];
+        let optionsHtml = '';
+        q.options.forEach((opt, idx) => {
+            optionsHtml += `
+                <button class="dhal-quiz-btn" onclick="checkDhalQuizAnswer(${idx})">
+                    <span>${opt}</span>
+                </button>
+            `;
+        });
+
+        qContainer.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 2px dashed #fde68a; padding-bottom: 10px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #b45309;">السُّؤَالُ ${currentDhalQuizIndex + 1} مِنْ ${dhalQuizQuestions.length}</span>
+                <span style="font-size: 1rem; font-weight: 900; color: #f59e0b;">⭐ النِّقَاط: ${dhalScore}</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px;">
+                <h4 style="margin: 0; font-size: 1.3rem; font-weight: 900; color: #92400e;">${q.question}</h4>
+                <button class="btn-secondary" onclick="playAudio('${q.audio}')" style="padding: 6px 14px; font-size: 0.85rem;">
+                    <span>🔊</span> <span>اسْتَمِعْ</span>
+                </button>
+            </div>
+            <div class="dhal-quiz-options">
+                ${optionsHtml}
+            </div>
+            <div id="dhalQuizFeedback" style="margin-top: 14px; text-align: center; font-size: 1.1rem; font-weight: 800;"></div>
+        `;
+    }
+
+    window.checkDhalQuizAnswer = function(selectedIndex) {
+        const q = dhalQuizQuestions[currentDhalQuizIndex];
+        const fb = document.getElementById('dhalQuizFeedback');
+        if (selectedIndex === q.correct) {
+            dhalScore++;
+            mascotCelebrates();
+            playAudio('letter_dhal_correct');
+            if (fb) {
+                fb.style.color = '#16a34a';
+                fb.innerHTML = '✨ أَحْسَنْتَ يَا بَطَل! إِجَابَةٌ صَحِيحَةٌ!';
+            }
+            setTimeout(() => {
+                currentDhalQuizIndex++;
+                showDhalQuizQuestion();
+            }, 1200);
+        } else {
+            playAudio('letter_dhal_wrong');
+            if (fb) {
+                fb.style.color = '#dc2626';
+                fb.innerHTML = '❌ حَاوِلْ مَرَّةً أُخْرَى، اسْتَمِعْ جَيِّدًا!';
+            }
+        }
+    };
+
 })();

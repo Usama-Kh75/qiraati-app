@@ -20925,6 +20925,573 @@
                         </div>
                     </div>
                 </div>
+                <div class="lesson-view" id="view-tab-letter_dhal">
+                    <!-- شريط المحطات الأربعة لدرس حرف الذال وتطبيقاته -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationDhal_1" onclick="switchLetterDhalStation(1)">
+                            <span>📖</span> <span>١. أتعرف الحرف والمشهد (ص ١١٨)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationDhal_2" onclick="switchLetterDhalStation(2)">
+                            <span>🎵</span> <span>٢. أصوات المدود والمقاطع الساكنة (ص ١١٨ - ١١٩)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationDhal_3" onclick="switchLetterDhalStation(3)">
+                            <span>🧩</span> <span>٣. التحليل والتركيب والترتيب (ص ١١٩ - ١٢١)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationDhal_4" onclick="switchLetterDhalStation(4)">
+                            <span>🍯</span> <span>٤. القراءة ونصوص الكتاب والتراث (ص ١٢١)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف وأردد صوت الحرف والمشهد التفاعلي -->
+                    <div class="letter-dhal-station active" id="stationDhal_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-letter-dhal-card" onclick="playDhalPhonemeFaseeh()">
+                                <div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #b45309; margin-bottom: 4px;">حَرْفُ الذَّالِ اللِّثَوِيُّ الْمَجْهُورُ اللَّطِيفُ</div>
+                                    <div class="giant-letter-dhal-glyph">ذ</div>
+                                </div>
+                                <div style="border-right: 2px dashed #fde68a; padding-right: 18px; text-align: right;">
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #92400e;">صَوْتُ الذَّالِ: ذْ... اِذْ</div>
+                                    <div style="font-size: 0.9rem; color: #b45309; font-weight: 700;">مَجْهُورٌ لِثَوِيٌّ مُرَقَّقٌ 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playDhalLetterSound()" style="background: #d97706; border-color: #b45309;">
+                                <span>🔊</span> <span>صَوْتُ الذَّالِ الصَّافِي (ذْ)</span>
+                            </button>
+                            <button class="btn-primary" onclick="playDhalPhonemeFaseeh()" style="background: #b45309; border-color: #78350f;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِمَخْرَجِ الذَّالِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('letter_dhal_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_119.png', 'كتاب قراءتي الجديد: ص ١١٨')">
+                                <span>📖</span> <span>صَفْحَة ١١٨ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_120.png', 'كتاب قراءتي الجديد: ص ١١٩')">
+                                <span>📖</span> <span>صَفْحَة ١١٩ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_121.png', 'كتاب قراءتي الجديد: ص ١٢٠')">
+                                <span>📖</span> <span>صَفْحَة ١٢٠ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_122.png', 'كتاب قراءتي الجديد: ص ١٢١')">
+                                <span>📖</span> <span>صَفْحَة ١٢١ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- صورة رأس صفحة حرف الذال ص 118 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #92400e; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ حَرْفِ الذَّالِ (الْكِتَابُ الْمَدْرَسِيُّ ص ١١٨)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #fde68a; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('letter_dhal_scene_story')">
+                                <img src="activity_dhal_scene.png" alt="مشهد رأس صفحة حرف الذال" style="width: 100%; max-height: 380px; object-fit: contain; background: #fffbeb;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(217, 119, 6, 0.9); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- النشاط الأول: أردد منتبهاً لصوت حرف الذال ص 118 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">🎨 نَشَاطُ ١: أُرَدِّدُ مُنْتَبِهًا لِصَوْتِ حَرْفِ (ذ) (ص ١١٨)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhal_act1_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('letter_dhal_act1_intro')">
+                                <img src="activity_dhal_words.png" alt="نشاط 1 كلمات وصور حرف الذال" style="width: 100%; max-height: 300px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <!-- شبكة الكلمات المصورة التفاعلية لدرس الذال -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;">
+                                <div class="dhal-word-card" onclick="playDhalWord('dhayl')">
+                                    <div class="dhal-word-icon">🦊</div>
+                                    <div class="dhal-word-text">ذَيْلٌ</div>
+                                    <div class="dhal-word-pos">ذ (أَوَّل)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('dhubaabah')">
+                                    <div class="dhal-word-icon">🪰</div>
+                                    <div class="dhal-word-text">ذُبَابَةٌ</div>
+                                    <div class="dhal-word-pos">ذ (أَوَّل)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('dhiraa')">
+                                    <div class="dhal-word-icon">💪</div>
+                                    <div class="dhal-word-text">ذِرَاعٌ</div>
+                                    <div class="dhal-word-pos">ذ (أَوَّل)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('qunfudh')">
+                                    <div class="dhal-word-icon">🦔</div>
+                                    <div class="dhal-word-text">قُنْفُذٌ</div>
+                                    <div class="dhal-word-pos">ـذ (آخِر مُتَّصِل)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('udhun')">
+                                    <div class="dhal-word-icon">👂</div>
+                                    <div class="dhal-word-text">أُذُنٌ</div>
+                                    <div class="dhal-word-pos">ـذ (وَسَط)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('hidhaa')">
+                                    <div class="dhal-word-icon">👟</div>
+                                    <div class="dhal-word-text">حِذَاءٌ</div>
+                                    <div class="dhal-word-pos">ـذ (وَسَط)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('budhoor')">
+                                    <div class="dhal-word-icon">🌱</div>
+                                    <div class="dhal-word-text">بُذُورٌ</div>
+                                    <div class="dhal-word-pos">ـذ (وَسَط)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('mudhee')">
+                                    <div class="dhal-word-icon">🎙️</div>
+                                    <div class="dhal-word-text">مُذِيعٌ</div>
+                                    <div class="dhal-word-pos">ـذ (وَسَط)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: أصوات المدود والمقاطع الساكنة -->
+                    <div class="letter-dhal-station" id="stationDhal_2">
+                        <!-- نشاط 2: أنطق صوت حرف الذال مع أصوات المد الصغيرة وأصوات المد الطويلة ص 118 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">🎵 نَشَاطُ ٢: أَصْوَاتُ الْمَدِّ الصَّغِيرَةِ وَالطَّوِيلَةِ (ص ١١٨)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhal_act2_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('letter_dhal_act2_intro')">
+                                <img src="activity_dhal_vowels.png" alt="نشاط 2 مدود حرف الذال" style="width: 100%; max-height: 250px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <!-- شبكة بطاقات المدود التفاعلية -->
+                            <div class="dhal-vowel-grid">
+                                <div class="dhal-vowel-card" onclick="playDhalVowel('short_a')">
+                                    <div class="dhal-vowel-glyph">ذَ</div>
+                                    <div class="dhal-vowel-label">ذَال مَفْتُوحَة (فَتْحَة)</div>
+                                </div>
+                                <div class="dhal-vowel-card" onclick="playDhalVowel('short_u')">
+                                    <div class="dhal-vowel-glyph">ذُ</div>
+                                    <div class="dhal-vowel-label">ذَال مَضْمُومَة (ضَمَّة)</div>
+                                </div>
+                                <div class="dhal-vowel-card" onclick="playDhalVowel('short_i')">
+                                    <div class="dhal-vowel-glyph">ذِ</div>
+                                    <div class="dhal-vowel-label">ذَال مَكْسُورَة (كَسْرَة)</div>
+                                </div>
+                                <div class="dhal-vowel-card" onclick="playDhalVowel('long_aa')">
+                                    <div class="dhal-vowel-glyph">ذَا</div>
+                                    <div class="dhal-vowel-label">مَدّ طَوِيل بِالأَلِف</div>
+                                </div>
+                                <div class="dhal-vowel-card" onclick="playDhalVowel('long_oo')">
+                                    <div class="dhal-vowel-glyph">ذُو</div>
+                                    <div class="dhal-vowel-label">مَدّ طَوِيل بِالْوَاو</div>
+                                </div>
+                                <div class="dhal-vowel-card" onclick="playDhalVowel('long_ee')">
+                                    <div class="dhal-vowel-glyph">ذِيـ</div>
+                                    <div class="dhal-vowel-label">مَدّ طَوِيل بِالْيَاء</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 3: أستمع للفظ الكلمات ثم أنطق صوت حرف الذال ص 119 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">🔊 نَشَاطُ ٣: كَلِمَاتُ وَتَطْبِيقَاتُ الْمُدُودِ (ص ١١٩)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhal_act3_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('letter_dhal_act3_intro')">
+                                <img src="activity_dhal_vowel_words.png" alt="نشاط 3 كلمات مدود الذال" style="width: 100%; max-height: 320px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;">
+                                <div class="dhal-word-card" onclick="playDhalWord('dhaqan')">
+                                    <div class="dhal-word-icon">🧔</div>
+                                    <div class="dhal-word-text">ذَقَنٌ</div>
+                                    <div class="dhal-word-pos">ذَ (فَتْحَة)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('dhubaabah')">
+                                    <div class="dhal-word-icon">🪰</div>
+                                    <div class="dhal-word-text">ذُبَابَةٌ</div>
+                                    <div class="dhal-word-pos">ذُ (ضَمَّة)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('dhib')">
+                                    <div class="dhal-word-icon">🐺</div>
+                                    <div class="dhal-word-text">ذِئْبٌ</div>
+                                    <div class="dhal-word-pos">ذِ (كَسْرَة)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('hidhaa')">
+                                    <div class="dhal-word-icon">👟</div>
+                                    <div class="dhal-word-text">حِذَاءٌ</div>
+                                    <div class="dhal-word-pos">ذَا (مَدّ أَلِف)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('budhoor')">
+                                    <div class="dhal-word-icon">🌱</div>
+                                    <div class="dhal-word-text">بُذُورٌ</div>
+                                    <div class="dhal-word-pos">ذُو (مَدّ وَاو)</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('mudhee')">
+                                    <div class="dhal-word-icon">🎙️</div>
+                                    <div class="dhal-word-text">مُذِيعٌ</div>
+                                    <div class="dhal-word-pos">ذِيـ (مَدّ يَاء)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 4: المقاطع الساكنة لحرف الذال ص 119 -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #c2410c; margin: 0; font-weight: 900;">⚡ نَشَاطُ ٤: الْمَقَاطِعُ السَّاكِنَةُ لِحَرْفِ الذَّالِ (مِذْ ، أُذْ ، جَذْ) (ص ١١٩)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhal_act4_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fed7aa; cursor: pointer;" onclick="playAudio('letter_dhal_act4_intro')">
+                                <img src="activity_dhal_syllables.png" alt="نشاط 4 مقاطع الذال الساكنة" style="width: 100%; max-height: 280px; object-fit: contain; background: #fff7ed;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px;">
+                                <div class="dhal-syl-card" onclick="playDhalSyllable('midh', 'midhyaa')">
+                                    <div class="dhal-syl-glyph">مِذْ</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #92400e;">مِذْيَاعٌ 📻</div>
+                                    <div style="font-size: 0.85rem; color: #b45309; font-weight: 700; margin-top: 4px;">مَقْطَعٌ سَاكِنٌ (مِـ + ذْ)</div>
+                                </div>
+                                <div class="dhal-syl-card" onclick="playDhalSyllable('udh', 'udhun')">
+                                    <div class="dhal-syl-glyph">أُذْ</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #92400e;">أُذْنٌ 👂</div>
+                                    <div style="font-size: 0.85rem; color: #b45309; font-weight: 700; margin-top: 4px;">مَقْطَعٌ سَاكِنٌ (أُ + ذْ)</div>
+                                </div>
+                                <div class="dhal-syl-card" onclick="playDhalSyllable('jadh', 'jadhr')">
+                                    <div class="dhal-syl-glyph">جَذْ</div>
+                                    <div style="font-size: 1.15rem; font-weight: 900; color: #92400e;">جَذْرٌ 🌳</div>
+                                    <div style="font-size: 0.85rem; color: #b45309; font-weight: 700; margin-top: 4px;">مَقْطَعٌ سَاكِنٌ (جَـ + ذْ)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: التحليل والتركيب والترتيب -->
+                    <div class="letter-dhal-station" id="stationDhal_3">
+                        <!-- نشاط 5: أقرأ الكلمات ثم أحللها إلى مقاطعها بالتصفيق ص 119 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">👏 نَشَاطُ ٥: التَّحْلِيلُ الصَّوْتِيُّ بِالتَّصْفِيق (ص ١١٩)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhal_act5_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('letter_dhal_act5_intro')">
+                                <img src="activity_dhal_analysis.png" alt="نشاط 5 تحليل الكلمات لمقاطع" style="width: 100%; max-height: 250px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;">
+                                <div class="dhal-analysis-card" onclick="playDhalSplit('budhoor')">
+                                    <div class="dhal-analysis-word">بُذُورٌ 🌱</div>
+                                    <div class="dhal-analysis-parts">
+                                        <span class="dhal-part-pill">بُـ</span>
+                                        <span class="dhal-part-pill">ذُو</span>
+                                        <span class="dhal-part-pill">رٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: #b45309; font-weight: 800;">٣ تَصْفِيقَاتٍ 👏 اضغط للاستماع</div>
+                                </div>
+                                <div class="dhal-analysis-card" onclick="playDhalSplit('yudhee')">
+                                    <div class="dhal-analysis-word">يُذِيعُ 🎙️</div>
+                                    <div class="dhal-analysis-parts">
+                                        <span class="dhal-part-pill">يُـ</span>
+                                        <span class="dhal-part-pill">ذِيـ</span>
+                                        <span class="dhal-part-pill">عُ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: #b45309; font-weight: 800;">٣ تَصْفِيقَاتٍ 👏 اضغط للاستماع</div>
+                                </div>
+                                <div class="dhal-analysis-card" onclick="playDhalSplit('tilmeedh')">
+                                    <div class="dhal-analysis-word">تِلْمِيذٌ 🎒</div>
+                                    <div class="dhal-analysis-parts">
+                                        <span class="dhal-part-pill">تِلْـ</span>
+                                        <span class="dhal-part-pill">مِيـ</span>
+                                        <span class="dhal-part-pill">ذٌ</span>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: #b45309; font-weight: 800;">٣ تَصْفِيقَاتٍ 👏 اضغط للاستماع</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 6: استبدال الحرف لتكوين كلمة جديدة ص 120 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">🔄 نَشَاطُ ٦: اسْتِبْدَالُ الأَصْوَاتِ لِتَكْوِينِ كَلِمَاتٍ جَدِيدَةٍ (ص ١٢٠)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhal_act6_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('letter_dhal_act6_intro')">
+                                <img src="activity_dhal_swap.png" alt="نشاط 6 استبدال الحروف" style="width: 100%; max-height: 200px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px;">
+                                <div class="dhal-word-card" onclick="playDhalWord('yabee')">
+                                    <div class="dhal-word-icon">🛒</div>
+                                    <div style="font-size: 1rem; color: #64748b; font-weight: 700; text-decoration: line-through;">يَذِيعُ (ب)</div>
+                                    <div class="dhal-word-text">يَبِيعُ</div>
+                                    <div class="dhal-word-pos">اسْتِبْدَالُ الذَّالِ بِالْبَاءِ 🔄</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('budoor')">
+                                    <div class="dhal-word-icon">🌕</div>
+                                    <div style="font-size: 1rem; color: #64748b; font-weight: 700; text-decoration: line-through;">بُذُورٌ (د)</div>
+                                    <div class="dhal-word-text">بُدُورٌ</div>
+                                    <div class="dhal-word-pos">اسْتِبْدَالُ الذَّالِ بِالدَّالِ 🔄</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalWord('haariq')">
+                                    <div class="dhal-word-icon">🔥</div>
+                                    <div style="font-size: 1rem; color: #64748b; font-weight: 700; text-decoration: line-through;">حَاذِقٌ (ر)</div>
+                                    <div class="dhal-word-text">حَارِقٌ</div>
+                                    <div class="dhal-word-pos">اسْتِبْدَالُ الذَّالِ بِالرَّاءِ 🔄</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 7: أركب من المقاطع الآتية كلمات ص 120 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">🧩 نَشَاطُ ٧: تَرْكِيبُ الْمَقَاطِعِ لِتَكْوِينِ كَلِمَاتٍ (ص ١٢٠)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhal_act7_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('letter_dhal_act7_intro')">
+                                <img src="activity_dhal_blend.png" alt="نشاط 7 تركيب المقاطع" style="width: 100%; max-height: 380px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px;">
+                                <div class="dhal-word-card" onclick="playDhalMerge('badhala')">
+                                    <div class="dhal-word-icon">🤝</div>
+                                    <div style="font-size: 1.1rem; color: #b45309; font-weight: 800;">بَـ + ذَ + لَ</div>
+                                    <div class="dhal-word-text">بَذَلَ</div>
+                                    <div class="dhal-word-pos">اضغط للاستماع 🎧</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalMerge('badhara')">
+                                    <div class="dhal-word-icon">🌱</div>
+                                    <div style="font-size: 1.1rem; color: #b45309; font-weight: 800;">بَـ + ذَ + رَ</div>
+                                    <div class="dhal-word-text">بَذَرَ</div>
+                                    <div class="dhal-word-pos">اضغط للاستماع 🎧</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalMerge('ustaadh')">
+                                    <div class="dhal-word-icon">👨‍🏫</div>
+                                    <div style="font-size: 1.1rem; color: #b45309; font-weight: 800;">أُسْـ + تَا + ذٌ</div>
+                                    <div class="dhal-word-text">أُسْتَاذٌ</div>
+                                    <div class="dhal-word-pos">اضغط للاستماع 🎧</div>
+                                </div>
+                                <div class="dhal-word-card" onclick="playDhalMerge('muaadh')">
+                                    <div class="dhal-word-icon">👦</div>
+                                    <div style="font-size: 1.1rem; color: #b45309; font-weight: 800;">مُـ + عَا + ذٌ</div>
+                                    <div class="dhal-word-text">مُعَاذٌ</div>
+                                    <div class="dhal-word-pos">اضغط للاستماع 🎧</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 8: ترتيب الكلمات لتكوين جملة مفيدة ص 120 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">⭐ نَشَاطُ ٨: تَرْتِيبُ الْكَلِمَاتِ لِتَكْوِينِ جُمْلَةٍ مُفِيدَةٍ (ص ١٢٠)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhal_act8_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('letter_dhal_act8_intro')">
+                                <img src="activity_dhal_order.png" alt="نشاط 8 ترتيب الكلمات" style="width: 100%; max-height: 220px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div class="dhal-order-container">
+                                <div style="font-size: 1.1rem; font-weight: 800; color: #92400e; margin-bottom: 12px;">
+                                    اضغط على الكلمات بالترتيب الصحيح لتكوين جملة تامة المعنى:
+                                </div>
+                                <div class="dhal-order-words" id="dhalOrderWordList">
+                                    <!-- يتم توليدها ديناميكياً عبر JS -->
+                                </div>
+                                <div class="dhal-order-target" id="dhalOrderSentenceTarget">
+                                    <span style="color: #94a3b8; font-weight: 600;">(انقر الكلمات أعلاه لتظهر هنا مرتبة...)</span>
+                                </div>
+                                <div style="margin-top: 14px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+                                    <button class="btn-primary" onclick="checkDhalOrderSentence()" style="background: #d97706; border-color: #b45309;">
+                                        <span>✔</span> <span>تَحَقَّقْ مِنَ الإِجَابَةِ</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="resetDhalOrderSentence()">
+                                        <span>🔄</span> <span>إِعَادَةُ الْمُحَاوَلَةِ</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="playAudio('letter_dhal_order_sentence_full')">
+                                        <span>🎧</span> <span>اسْتَمِعْ لِلْجُمْلَةِ كَامِلَةً</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 9: ترتيب الجملتين لتكوين فقرة ص 121 -->
+                        <div class="lesson-card">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">📜 نَشَاطُ ٩: تَرْتِيبُ الْجُمْلَتَيْنِ لِتَكْوِينِ فِقْرَةٍ قِرَائِيَّةٍ (ص ١٢١)</h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhal_act9_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('letter_dhal_act9_intro')">
+                                <img src="activity_dhal_order_para.png" alt="نشاط 9 ترتيب الفقرة" style="width: 100%; max-height: 220px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div class="dhal-order-container" id="dhalParaContainer">
+                                <div style="font-size: 1.1rem; font-weight: 800; color: #92400e; margin-bottom: 14px;">
+                                    اختر الجملة الأولى للفقرة بالضغط عليها:
+                                </div>
+                                <div style="display: flex; flex-direction: column; gap: 10px; max-width: 600px; margin: 0 auto;">
+                                    <div class="dhal-sentence-card" id="paraDhalChoice_2" onclick="selectDhalParaFirst(2)">
+                                        <div class="dhal-sentence-text">🔴 تُحِبُّ دُرُوسَهَا وَمَدْرَسَتَهَا.</div>
+                                        <button class="btn-secondary" onclick="event.stopPropagation(); playAudio('letter_dhal_order_para_s2')" style="padding: 4px 10px; font-size: 0.8rem;">🎧</button>
+                                    </div>
+                                    <div class="dhal-sentence-card" id="paraDhalChoice_1" onclick="selectDhalParaFirst(1)">
+                                        <div class="dhal-sentence-text">🔴 ذُرَى تِلْمِيذَةٌ ذَكِيَّةٌ.</div>
+                                        <button class="btn-secondary" onclick="event.stopPropagation(); playAudio('letter_dhal_order_para_s1')" style="padding: 4px 10px; font-size: 0.8rem;">🎧</button>
+                                    </div>
+                                </div>
+                                <div id="dhalParaFeedback" style="margin-top: 14px; font-size: 1.2rem; font-weight: 900;"></div>
+                                <div style="margin-top: 14px; display: flex; justify-content: center; gap: 12px;">
+                                    <button class="btn-secondary" onclick="resetDhalPara()">
+                                        <span>🔄</span> <span>إِعَادَةُ التَّرْتِيبِ</span>
+                                    </button>
+                                    <button class="btn-primary" onclick="playAudio('letter_dhal_order_para_full')" style="background: #d97706; border-color: #b45309;">
+                                        <span>🎧</span> <span>اسْتَمِعْ لِلْفِقْرَةِ كَامِلَةً</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة ونصوص الكتاب والتراث -->
+                    <div class="letter-dhal-station" id="stationDhal_4">
+                        <!-- نص القراءة في الكتاب المدرسي ص 121 -->
+                        <div class="dhal-read-box">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900; font-size: 1.4rem;">
+                                    📖 قِرَاءَةُ نَصِّ الْكِتَابِ: مَعَاذٌ مُعَلِّمٌ (ص ١٢١)
+                                </h3>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn-primary" onclick="playAudio('letter_dhal_read_p121_full')" style="background: #d97706; border-color: #b45309;">
+                                        <span>🎧</span> <span>قِرَاءَةُ النَّصِّ كَامِلًا</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="openBookPageModal('page_122.png', 'كتاب قراءتي: ص ١٢١')">
+                                        <span>📖</span> <span>صَفْحَة ١٢١</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a;">
+                                <img src="activity_dhal_read.png" alt="نص قراءة ص 121" style="width: 100%; max-height: 280px; object-fit: contain; background: #fffbeb;">
+                            </div>
+
+                            <div class="dhal-sentence-card" onclick="playAudio('letter_dhal_read_p121_s1')">
+                                <div class="dhal-sentence-text">
+                                    مَعَاذٌ مُعَلِّمٌ ، يَرْسُمُ مَعَ تَلَامِيذِهِ نَبَاتَاتٍ مُخْتَلِفَةً ؛
+                                </div>
+                                <span>🎧</span>
+                            </div>
+                            <div class="dhal-sentence-card" onclick="playAudio('letter_dhal_read_p121_s2')">
+                                <div class="dhal-sentence-text">
+                                    فَيَرْسُمُونَ بُذُورًا وَجُذُورًا ، وَجُذُوعًا.
+                                </div>
+                                <span>🎧</span>
+                            </div>
+                        </div>
+
+                        <!-- النص التراثي العراقي الخالد لحرف الذال: أُسْتَاذٌ وَتَلَامِيذٌ -->
+                        <div class="dhal-heritage-box">
+                            <div class="dhal-heritage-header">
+                                <div class="dhal-heritage-title">
+                                    <span>🍯</span>
+                                    <span>النَّصُّ التُّرَاثِيُّ الْعِرَاقِيُّ الْخَالِدُ: أُسْتَاذٌ وَتَلَامِيذٌ (ص ١١٨ - ١٢١)</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('letter_dhal_story_ustaadh_full')" style="background: #d97706; border-color: #b45309;">
+                                    <span>🎧</span> <span>اسْتَمِعْ لِلنَّصِّ كَامِلاً</span>
+                                </button>
+                            </div>
+
+                            <div style="font-size: 1.05rem; color: #b45309; font-weight: 700; margin-bottom: 14px;">
+                                اضغط على أي جملة للاستماع إلى القراءة الجهرية المعبرة بصوت المعلمة رنا:
+                            </div>
+
+                            <div class="dhal-sentence-card" onclick="playAudio('letter_dhal_story_ustaadh_s1')">
+                                <div class="dhal-sentence-text">مُعَاذٌ أُسْتَاذٌ قَدِيرٌ.</div>
+                                <span>🎧</span>
+                            </div>
+                            <div class="dhal-sentence-card" onclick="playAudio('letter_dhal_story_ustaadh_s2')">
+                                <div class="dhal-sentence-text">مُنْذِرٌ تِلْمِيذٌ نَشِيطٌ.</div>
+                                <span>🎧</span>
+                            </div>
+                            <div class="dhal-sentence-card" onclick="playAudio('letter_dhal_story_ustaadh_s3')">
+                                <div class="dhal-sentence-text">قَالَ الأُسْتَاذُ: اقْرَأْ يَا مُنْذِرُ.</div>
+                                <span>🎧</span>
+                            </div>
+                            <div class="dhal-sentence-card" onclick="playAudio('letter_dhal_story_ustaadh_s4')">
+                                <div class="dhal-sentence-text">قَرَأَ مُنْذِرٌ: أَنَا أَذُوقُ الْعَسَلَ.</div>
+                                <span>🎧</span>
+                            </div>
+                            <div class="dhal-sentence-card" onclick="playAudio('letter_dhal_story_ustaadh_s5')">
+                                <div class="dhal-sentence-text">الْعَسَلُ لَذِيذٌ.</div>
+                                <span>🎧</span>
+                            </div>
+                        </div>
+
+                        <!-- سبورة رسم وتتبع حرف الذال التفاعلية -->
+                        <div class="dhal-canvas-container" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">
+                                    ✍️ سَبُّورَةُ رَسْمِ وَتَتَبُّعِ حَرْفِ الذَّالِ (ذ)
+                                </h3>
+                                <button class="btn-secondary" onclick="clearDhalCanvas()" style="font-size: 0.85rem;">
+                                    <span>🗑️</span> <span>مَسْحُ السَّبُّورَةِ</span>
+                                </button>
+                            </div>
+
+                            <div style="position: relative; max-width: 500px; margin: 0 auto; background: #fffbeb; border: 2px dashed #f59e0b; border-radius: 18px; overflow: hidden; touch-action: none;">
+                                <canvas id="dhalCanvas" width="500" height="240" style="width: 100%; height: 240px; cursor: crosshair; display: block;"></canvas>
+                            </div>
+
+                            <div class="dhal-canvas-tools">
+                                <span style="font-weight: 800; color: #92400e;">الأَلْوَان:</span>
+                                <button onclick="setDhalCanvasColor('#d97706')" style="background: #d97706; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setDhalCanvasColor('#b45309')" style="background: #b45309; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setDhalCanvasColor('#059669')" style="background: #059669; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setDhalCanvasColor('#0284c7')" style="background: #0284c7; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <button onclick="setDhalCanvasColor('#dc2626')" style="background: #dc2626; width: 28px; height: 28px; border-radius: 50%; border: 2px solid #ffffff; cursor: pointer;"></button>
+                                <span style="font-weight: 800; color: #92400e; margin-right: 12px;">سَمَاكَةُ الْقَلَم:</span>
+                                <button class="btn-secondary" onclick="setDhalCanvasSize(4)" style="padding: 4px 10px; font-size: 0.8rem;">رَفِيع</button>
+                                <button class="btn-secondary" onclick="setDhalCanvasSize(8)" style="padding: 4px 10px; font-size: 0.8rem;">مُتَوَسِّط</button>
+                                <button class="btn-secondary" onclick="setDhalCanvasSize(14)" style="padding: 4px 10px; font-size: 0.8rem;">عَرِيض</button>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي التفاعلي للذال -->
+                        <div class="dhal-quiz-box">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">
+                                    🏆 اخْتِبَارُ التَّحَدِّي لِحَرْفِ الذَّالِ
+                                </h3>
+                                <button class="btn-secondary" onclick="playAudio('letter_dhal_quiz_intro')" style="font-size: 0.85rem;">
+                                    <span>🎧</span> <span>تَوْجِيهُ التَّحَدِّي</span>
+                                </button>
+                            </div>
+
+                            <div id="dhalQuizContainer">
+                                <!-- يتم بناؤه تفاعلياً بواسطة JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </div> <!-- إغلاق stage-card -->
 <!-- شريط الانتقال المتسلسل بين الدروس -->
 

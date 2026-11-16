@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v48';
+const CACHE_NAME = 'qiraati-smart-v49';
 
 const ASSETS_TO_CACHE = [
 
@@ -139,6 +139,30 @@ const ASSETS_TO_CACHE = [
   './activity_dhad_vowels.png',
 
   './activity_dhad_words.png',
+
+  './activity_dhal_analysis.png',
+
+  './activity_dhal_blend.png',
+
+  './activity_dhal_order.png',
+
+  './activity_dhal_order_para.png',
+
+  './activity_dhal_read.png',
+
+  './activity_dhal_scene.png',
+
+  './activity_dhal_swap.png',
+
+  './activity_dhal_syllables.png',
+
+  './activity_dhal_trace.png',
+
+  './activity_dhal_vowel_words.png',
+
+  './activity_dhal_vowels.png',
+
+  './activity_dhal_words.png',
 
   './activity_f_scene.png',
 
@@ -601,6 +625,14 @@ const ASSETS_TO_CACHE = [
   './page_117.png',
 
   './page_118.png',
+
+  './page_119.png',
+
+  './page_120.png',
+
+  './page_121.png',
+
+  './page_122.png',
 
   './page_17.png',
 
@@ -1473,6 +1505,202 @@ const ASSETS_TO_CACHE = [
   './audio/letter_dhad_words_intro.mp3',
 
   './audio/letter_dhad_wrong.mp3',
+
+  './audio/letter_dhal_act1_intro.mp3',
+
+  './audio/letter_dhal_act2_intro.mp3',
+
+  './audio/letter_dhal_act3_intro.mp3',
+
+  './audio/letter_dhal_act4_intro.mp3',
+
+  './audio/letter_dhal_act5_intro.mp3',
+
+  './audio/letter_dhal_act6_intro.mp3',
+
+  './audio/letter_dhal_act7_intro.mp3',
+
+  './audio/letter_dhal_act8_intro.mp3',
+
+  './audio/letter_dhal_act9_intro.mp3',
+
+  './audio/letter_dhal_correct.mp3',
+
+  './audio/letter_dhal_encourage_super.mp3',
+
+  './audio/letter_dhal_intro.mp3',
+
+  './audio/letter_dhal_long_aa.mp3',
+
+  './audio/letter_dhal_long_ee.mp3',
+
+  './audio/letter_dhal_long_oo.mp3',
+
+  './audio/letter_dhal_merge_badhala.mp3',
+
+  './audio/letter_dhal_merge_badhara.mp3',
+
+  './audio/letter_dhal_merge_muaadh.mp3',
+
+  './audio/letter_dhal_merge_ustaadh.mp3',
+
+  './audio/letter_dhal_order_para_full.mp3',
+
+  './audio/letter_dhal_order_para_s1.mp3',
+
+  './audio/letter_dhal_order_para_s2.mp3',
+
+  './audio/letter_dhal_order_sentence_full.mp3',
+
+  './audio/letter_dhal_phoneme_faseeh.mp3',
+
+  './audio/letter_dhal_quiz_intro.mp3',
+
+  './audio/letter_dhal_read_intro.mp3',
+
+  './audio/letter_dhal_read_p121_full.mp3',
+
+  './audio/letter_dhal_read_p121_s1.mp3',
+
+  './audio/letter_dhal_read_p121_s2.mp3',
+
+  './audio/letter_dhal_scene_story.mp3',
+
+  './audio/letter_dhal_short_a.mp3',
+
+  './audio/letter_dhal_short_i.mp3',
+
+  './audio/letter_dhal_short_u.mp3',
+
+  './audio/letter_dhal_sound.mp3',
+
+  './audio/letter_dhal_split_budhoor.mp3',
+
+  './audio/letter_dhal_split_tilmeedh.mp3',
+
+  './audio/letter_dhal_split_yudhee.mp3',
+
+  './audio/letter_dhal_story_ustaadh_full.mp3',
+
+  './audio/letter_dhal_story_ustaadh_s1.mp3',
+
+  './audio/letter_dhal_story_ustaadh_s2.mp3',
+
+  './audio/letter_dhal_story_ustaadh_s3.mp3',
+
+  './audio/letter_dhal_story_ustaadh_s4.mp3',
+
+  './audio/letter_dhal_story_ustaadh_s5.mp3',
+
+  './audio/letter_dhal_syl_jadh.mp3',
+
+  './audio/letter_dhal_syl_midh.mp3',
+
+  './audio/letter_dhal_syl_udh.mp3',
+
+  './audio/letter_dhal_word_adhooq.mp3',
+
+  './audio/letter_dhal_word_alasal.mp3',
+
+  './audio/letter_dhal_word_badhala.mp3',
+
+  './audio/letter_dhal_word_badhara.mp3',
+
+  './audio/letter_dhal_word_budhoor.mp3',
+
+  './audio/letter_dhal_word_budhooran.mp3',
+
+  './audio/letter_dhal_word_budoor.mp3',
+
+  './audio/letter_dhal_word_dhakiyyah.mp3',
+
+  './audio/letter_dhal_word_dhaqan.mp3',
+
+  './audio/letter_dhal_word_dhayl.mp3',
+
+  './audio/letter_dhal_word_dhib.mp3',
+
+  './audio/letter_dhal_word_dhiraa.mp3',
+
+  './audio/letter_dhal_word_dhubaabah.mp3',
+
+  './audio/letter_dhal_word_dhura.mp3',
+
+  './audio/letter_dhal_word_duroosaha.mp3',
+
+  './audio/letter_dhal_word_fayarsumoon.mp3',
+
+  './audio/letter_dhal_word_haadhiq.mp3',
+
+  './audio/letter_dhal_word_haariq.mp3',
+
+  './audio/letter_dhal_word_hidhaa.mp3',
+
+  './audio/letter_dhal_word_iqra.mp3',
+
+  './audio/letter_dhal_word_jadhr.mp3',
+
+  './audio/letter_dhal_word_judhooan.mp3',
+
+  './audio/letter_dhal_word_judhooran.mp3',
+
+  './audio/letter_dhal_word_ladheedh.mp3',
+
+  './audio/letter_dhal_word_ladheedhan.mp3',
+
+  './audio/letter_dhal_word_maa.mp3',
+
+  './audio/letter_dhal_word_maahir.mp3',
+
+  './audio/letter_dhal_word_madrasataha.mp3',
+
+  './audio/letter_dhal_word_midhyaa.mp3',
+
+  './audio/letter_dhal_word_muaadh.mp3',
+
+  './audio/letter_dhal_word_muallim.mp3',
+
+  './audio/letter_dhal_word_mudhee.mp3',
+
+  './audio/letter_dhal_word_mukhtalifah.mp3',
+
+  './audio/letter_dhal_word_mundhir.mp3',
+
+  './audio/letter_dhal_word_nabaataat.mp3',
+
+  './audio/letter_dhal_word_nasheet.mp3',
+
+  './audio/letter_dhal_word_qadeer.mp3',
+
+  './audio/letter_dhal_word_qunfudh.mp3',
+
+  './audio/letter_dhal_word_sihhiyyan.mp3',
+
+  './audio/letter_dhal_word_taaman.mp3',
+
+  './audio/letter_dhal_word_tabbaakh.mp3',
+
+  './audio/letter_dhal_word_talaameedhih.mp3',
+
+  './audio/letter_dhal_word_tilmeedh.mp3',
+
+  './audio/letter_dhal_word_tilmeedhah.mp3',
+
+  './audio/letter_dhal_word_tuhibbu.mp3',
+
+  './audio/letter_dhal_word_udhun.mp3',
+
+  './audio/letter_dhal_word_ustaadh.mp3',
+
+  './audio/letter_dhal_word_yabee.mp3',
+
+  './audio/letter_dhal_word_yarsumu.mp3',
+
+  './audio/letter_dhal_word_yatho.mp3',
+
+  './audio/letter_dhal_word_yudhee.mp3',
+
+  './audio/letter_dhal_wrong.mp3',
 
   './audio/letter_f_analysis_intro.mp3',
 
