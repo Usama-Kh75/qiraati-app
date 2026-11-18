@@ -1,0 +1,464 @@
+                <div class="lesson-view" id="view-tab-al_shamsiyyah_qamariyyah">
+                    <!-- شريط المحطات الأربعة لدرس اللام الشمسية واللام القمرية -->
+                    <div class="station-nav-bar">
+                        <button class="station-tab active" id="btnStationLam_1" onclick="switchLamStation(1)">
+                            <span>☀️</span> <span>١. أتعرف اللام الشمسية واللام القمرية (ص ١٢٦)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationLam_2" onclick="switchLamStation(2)">
+                            <span>🎵</span> <span>٢. كلمات وتطبيقات اللامين (ص ١٢٦ - ١٢٧)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationLam_3" onclick="switchLamStation(3)">
+                            <span>🧩</span> <span>٣. لعبة التصنيف والتحليل الصوتي (ص ١٢٧)</span>
+                        </button>
+                        <button class="station-tab" id="btnStationLam_4" onclick="switchLamStation(4)">
+                            <span>🎓</span> <span>٤. القراءة ونشيد الوداع واكتمال الكتاب ١٠٠٪ (ص ١٢٨)</span>
+                        </button>
+                    </div>
+
+                    <!-- المحطة الأولى: أتعرف اللام الشمسية واللام القمرية والمقارنة البصرية ص 126 -->
+                    <div class="lam-station active" id="stationLam_1">
+                        <div style="text-align: center; margin-bottom: 20px;">
+                            <div class="giant-lam-dual-card" onclick="playLamPhonemeFaseeh()">
+                                <div class="giant-lam-side sun-side">
+                                    <div class="lam-sun-badge">☀️ اللَّامُ الشَّمْسِيَّةُ</div>
+                                    <div class="giant-lam-glyph sun">الشَّمْسُ</div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #92400e;">تُكْتَبُ وَلَا تُنْطَقُ + حَرْفٌ مُشَدَّدٌ (ـّ) 🔊</div>
+                                </div>
+                                <div class="giant-lam-side moon-side">
+                                    <div class="lam-moon-badge">🌙 اللَّامُ الْقَمَرِيَّةُ</div>
+                                    <div class="giant-lam-glyph moon">الْقَمَرُ</div>
+                                    <div style="font-size: 0.95rem; font-weight: 800; color: #1e3a8a;">تُكْتَبُ وَتُنْطَقُ سَاكِنَةً وَاضِحَةً (ـْ) 🔊</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+                            <button class="btn-primary" onclick="playAudio('lam_sound_shamsiyyah')" style="background: #d97706; border-color: #b45309;">
+                                <span>☀️</span> <span>قَاعِدَةُ اللَّامِ الشَّمْسِيَّةِ</span>
+                            </button>
+                            <button class="btn-primary" onclick="playAudio('lam_sound_qamariyyah')" style="background: #2563eb; border-color: #1d4ed8;">
+                                <span>🌙</span> <span>قَاعِدَةُ اللَّامِ الْقَمَرِيَّةِ</span>
+                            </button>
+                            <button class="btn-primary" onclick="playLamPhonemeFaseeh()" style="background: #059669; border-color: #047857;">
+                                <span>🗣️</span> <span>نُطْقُ فَصِيحٍ لِلْفَرْقِ بَيْنَ اللَّامَيْنِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="playAudio('lam_scene_story')">
+                                <span>🎧</span> <span>قِصَّةُ مَشْهَدِ الدَّرْسِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_127.png', 'كتاب قراءتي الجديد: ص ١٢٦')">
+                                <span>📖</span> <span>صَفْحَة ١٢٦ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_128.png', 'كتاب قراءتي الجديد: ص ١٢٧')">
+                                <span>📖</span> <span>صَفْحَة ١٢٧ فِي الْكِتَابِ</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_129.png', 'كتاب قراءتي الجديد: ص ١٢٨')">
+                                <span>📖</span> <span>صَفْحَة ١٢٨ فِي الْكِتَابِ</span>
+                            </button>
+                        </div>
+
+                        <!-- صورة رأس صفحة اللام الشمسية واللام القمرية ص 126 -->
+                        <div class="lesson-card" style="margin-bottom: 24px; text-align: center;">
+                            <h3 style="color: #92400e; margin-bottom: 12px; font-weight: 900;">🖼️ رَأْسُ صَفْحَةِ اللَّامِ الشَّمْسِيَّةِ وَالْقَمَرِيَّةِ (الْكِتَابُ الْمَدْرَسِيُّ ص ١٢٦)</h3>
+                            <div style="position: relative; border-radius: 18px; overflow: hidden; border: 2px solid #fde68a; box-shadow: 0 4px 14px rgba(0,0,0,0.06); cursor: pointer;" onclick="playAudio('lam_scene_story')">
+                                <img src="activity_lam_scene.png" alt="مشهد رأس صفحة اللام الشمسية واللام القمرية" style="width: 100%; max-height: 380px; object-fit: contain; background: #fffdf5;">
+                                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(217, 119, 6, 0.9); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 800;">اضغط للاستماع للقصة 🎧</div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 1: أقرأ وألاحظ الفرق (جدول المقارنة ص 126) -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">⚖️ نَشَاطُ ١: أَقْرَأُ وَأُلاَحِظُ الْفَرْقَ (ص ١٢٦)</h3>
+                                <button class="btn-secondary" onclick="playAudio('lam_act1_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('lam_act1_intro')">
+                                <img src="activity_lam_compare.png" alt="نشاط 1 جدول المقارنة بين ال الشمسية وال القمرية" style="width: 100%; max-height: 320px; object-fit: contain; background: #fffdf5;">
+                            </div>
+
+                            <!-- جدول المقارنة التفاعلي الثنائي -->
+                            <div class="lam-compare-grid">
+                                <!-- عمود الـ الشمسية -->
+                                <div class="lam-col-box sun">
+                                    <div class="lam-col-header sun">
+                                        <span>☀️</span> <span>كَلِمَاتٌ مَعَ أَلْ الشَّمْسِيَّةِ</span>
+                                    </div>
+                                    <div class="lam-compare-item sun" onclick="playLamWord('shams'); setTimeout(() => playLamWord('ashams'), 1100);">
+                                        <div style="font-size: 1.35rem; font-weight: 900; color: #92400e;">شَمْسٌ ➔ الشَّمْسُ</div>
+                                        <div class="lam-sun-badge">تُكْتَبُ وَلَا تُلْفَظُ 🔊</div>
+                                    </div>
+                                    <div class="lam-compare-item sun" onclick="playLamWord('najm'); setTimeout(() => playLamWord('annajm'), 1100);">
+                                        <div style="font-size: 1.35rem; font-weight: 900; color: #92400e;">نَجْمٌ ➔ النَّجْمُ</div>
+                                        <div class="lam-sun-badge">تُكْتَبُ وَلَا تُلْفَظُ 🔊</div>
+                                    </div>
+                                    <div class="lam-compare-item sun" onclick="playLamWord('thalj'); setTimeout(() => playLamWord('athalj'), 1100);">
+                                        <div style="font-size: 1.35rem; font-weight: 900; color: #92400e;">ثَلْجٌ ➔ الثَّلْجُ</div>
+                                        <div class="lam-sun-badge">تُكْتَبُ وَلَا تُلْفَظُ 🔊</div>
+                                    </div>
+                                </div>
+
+                                <!-- عمود الـ القمرية -->
+                                <div class="lam-col-box moon">
+                                    <div class="lam-col-header moon">
+                                        <span>🌙</span> <span>كَلِمَاتٌ مَعَ أَلْ الْقَمَرِيَّةِ</span>
+                                    </div>
+                                    <div class="lam-compare-item moon" onclick="playLamWord('qamar'); setTimeout(() => playLamWord('alqamar'), 1100);">
+                                        <div style="font-size: 1.35rem; font-weight: 900; color: #1e3a8a;">قَمَرٌ ➔ الْقَمَرُ</div>
+                                        <div class="lam-moon-badge">تُكْتَبُ وَتُلْفَظُ 🔊</div>
+                                    </div>
+                                    <div class="lam-compare-item moon" onclick="playLamWord('kawkab'); setTimeout(() => playLamWord('alkawkab'), 1100);">
+                                        <div style="font-size: 1.35rem; font-weight: 900; color: #1e3a8a;">كَوْكَبٌ ➔ الْكَوْكَبُ</div>
+                                        <div class="lam-moon-badge">تُكْتَبُ وَتُلْفَظُ 🔊</div>
+                                    </div>
+                                    <div class="lam-compare-item moon" onclick="playLamWord('matar'); setTimeout(() => playLamWord('almatar'), 1100);">
+                                        <div style="font-size: 1.35rem; font-weight: 900; color: #1e3a8a;">مَطَرٌ ➔ الْمَطَرُ</div>
+                                        <div class="lam-moon-badge">تُكْتَبُ وَتُلْفَظُ 🔊</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثانية: كلمات وتطبيقات اللام الشمسية واللام القمرية ص 126 - 127 -->
+                    <div class="lam-station" id="stationLam_2">
+                        <!-- نشاط 2: أردد منتبها للفظ اللام الشمسية ص 126 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #b45309; margin: 0; font-weight: 900;">☀️ نَشَاطُ ٢: أُرَدِّدُ مُنْتَبِهًا لِلَفْظِ اللَّامِ الشَّمْسِيَّةِ (ص ١٢٦)</h3>
+                                <button class="btn-secondary" onclick="playAudio('lam_act2_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('lam_act2_intro')">
+                                <img src="activity_lam_shamsiyyah.png" alt="نشاط 2 كلمات اللام الشمسية" style="width: 100%; max-height: 280px; object-fit: contain; background: #fffdf5;">
+                            </div>
+
+                            <!-- شبكة الكلمات الشمسية المصورة ص 126 -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;">
+                                <div class="lam-word-card sun-word" onclick="playLamWord('azzahrah')">
+                                    <div class="lam-word-icon">🌸</div>
+                                    <div class="lam-word-text sun">الزَّهَرَةُ</div>
+                                    <div class="lam-sun-badge">الـ + زَّ (شمسية)</div>
+                                </div>
+                                <div class="lam-word-card sun-word" onclick="playLamWord('assamaa')">
+                                    <div class="lam-word-icon">🌤️</div>
+                                    <div class="lam-word-text sun">السَّمَاءُ</div>
+                                    <div class="lam-sun-badge">الـ + سَّ (شمسية)</div>
+                                </div>
+                                <div class="lam-word-card sun-word" onclick="playLamWord('arrabee')">
+                                    <div class="lam-word-icon">🌷</div>
+                                    <div class="lam-word-text sun">الرَّبِيعُ</div>
+                                    <div class="lam-sun-badge">الـ + رَّ (شمسية)</div>
+                                </div>
+                                <div class="lam-word-card sun-word" onclick="playLamWord('ashshitaa')">
+                                    <div class="lam-word-icon">❄️</div>
+                                    <div class="lam-word-text sun">الشِّتَاءُ</div>
+                                    <div class="lam-sun-badge">الـ + شِّ (شمسية)</div>
+                                </div>
+                                <div class="lam-word-card sun-word" onclick="playLamWord('assayf')">
+                                    <div class="lam-word-icon">☀️</div>
+                                    <div class="lam-word-text sun">الصَّيْفُ</div>
+                                    <div class="lam-sun-badge">الـ + صَّ (شمسية)</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 3: أردد منتبها للفظ اللام القمرية ص 127 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #1e3a8a; margin: 0; font-weight: 900;">🌙 نَشَاطُ ٣: أُرَدِّدُ مُنْتَبِهًا لِلَفْظِ اللَّامِ الْقَمَرِيَّةِ (ص ١٢٧)</h3>
+                                <button class="btn-secondary" onclick="playAudio('lam_act3_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #bfdbfe; cursor: pointer;" onclick="playAudio('lam_act3_intro')">
+                                <img src="activity_lam_qamariyyah.png" alt="نشاط 3 كلمات اللام القمرية" style="width: 100%; max-height: 240px; object-fit: contain; background: #eff6ff;">
+                            </div>
+
+                            <!-- شبكة الكلمات القمرية المصورة ص 127 -->
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 14px;">
+                                <div class="lam-word-card moon-word" onclick="playLamWord('alard')">
+                                    <div class="lam-word-icon">🌍</div>
+                                    <div class="lam-word-text moon">الأَرْضُ</div>
+                                    <div class="lam-moon-badge">اَلْـ + أ (قمرية)</div>
+                                </div>
+                                <div class="lam-word-card moon-word" onclick="playLamWord('alguyoom')">
+                                    <div class="lam-word-icon">☁️</div>
+                                    <div class="lam-word-text moon">الْغُيُومُ</div>
+                                    <div class="lam-moon-badge">اَلْـ + غُ (قمرية)</div>
+                                </div>
+                                <div class="lam-word-card moon-word" onclick="playLamWord('almirreekh')">
+                                    <div class="lam-word-icon">🪐</div>
+                                    <div class="lam-word-text moon">الْمِرِّيخُ</div>
+                                    <div class="lam-moon-badge">اَلْـ + مِ (قمرية)</div>
+                                </div>
+                                <div class="lam-word-card moon-word" onclick="playLamWord('alfadaa')">
+                                    <div class="lam-word-icon">🚀</div>
+                                    <div class="lam-word-text moon">الْفَضَاءُ</div>
+                                    <div class="lam-moon-badge">اَلْـ + فَ (قمرية)</div>
+                                </div>
+                                <div class="lam-word-card moon-word" onclick="playLamWord('alkhareef')">
+                                    <div class="lam-word-icon">🍂</div>
+                                    <div class="lam-word-text moon">الْخَرِيفُ</div>
+                                    <div class="lam-moon-badge">اَلْـ + خَ (قمرية)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الثالثة: لعبة التصنيف والتوصيل والتحليل الصوتي ص 127 -->
+                    <div class="lam-station" id="stationLam_3">
+                        <!-- نشاط 4: لعبة التصنيف التفاعلية (أصل بصورة القمر أو الشمس) ص 127 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">🎮 نَشَاطُ ٤: لُعْبَةُ تَصْنِيفِ الشَّمْسِ وَالْقَمَرِ (ص ١٢٧)</h3>
+                                <button class="btn-secondary" onclick="playAudio('lam_act4_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #fde68a; cursor: pointer;" onclick="playAudio('lam_act4_intro')">
+                                <img src="activity_lam_match.png" alt="نشاط 4 أصل الكلمات بصورة الشمس أو القمر" style="width: 100%; max-height: 380px; object-fit: contain; background: #fffdf5;">
+                            </div>
+
+                            <div class="lam-classify-game">
+                                <p style="font-size: 1.1rem; font-weight: 800; color: #475569; text-align: center; margin-bottom: 16px;">
+                                    اضغط على الكلمة ثم اختر هل هي <strong style="color: #b45309;">☀️ شَمْسِيَّةٌ</strong> أم <strong style="color: #1d4ed8;">🌙 قَمَرِيَّةٌ</strong>!
+                                </p>
+
+                                <div class="lam-drop-zones">
+                                    <div class="lam-zone sun-zone" id="zoneSun">
+                                        <div class="lam-zone-title sun">
+                                            <span>☀️</span> <span>سَلَّةُ اللَّامِ الشَّمْسِيَّةِ</span>
+                                        </div>
+                                        <div class="lam-zone-items" id="itemsSun"></div>
+                                    </div>
+                                    <div class="lam-zone moon-zone" id="zoneMoon">
+                                        <div class="lam-zone-title moon">
+                                            <span>🌙</span> <span>سَلَّةُ اللَّامِ الْقَمَرِيَّةِ</span>
+                                        </div>
+                                        <div class="lam-zone-items" id="itemsMoon"></div>
+                                    </div>
+                                </div>
+
+                                <div class="lam-chips-pool" id="lamChipsPool">
+                                    <!-- يتم توليد البطاقات برمجياً عبر initLamClassifyGame() -->
+                                </div>
+
+                                <div id="lamClassifyFeedback" style="margin-top: 14px; text-align: center; font-size: 1.15rem; font-weight: 800;"></div>
+                            </div>
+                        </div>
+
+                        <!-- نشاط 5: أقرأ الكلمات ثم أحللها إلى مقاطعها بالتصفيق ص 127 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #92400e; margin: 0; font-weight: 900;">👏 نَشَاطُ ٥: التَّحْلِيلُ الصَّوْتِيُّ بِالتَّصْفِيقِ (ص ١٢٧)</h3>
+                                <button class="btn-secondary" onclick="playAudio('lam_act5_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ النَّشَاطِ</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #e2e8f0; cursor: pointer;" onclick="playAudio('lam_act5_intro')">
+                                <img src="activity_lam_analysis.png" alt="نشاط 5 تحليل الكلمات إلى مقاطع صوتية" style="width: 100%; max-height: 320px; object-fit: contain; background: #ffffff;">
+                            </div>
+
+                            <!-- بطاقتي التحليل الصوتي -->
+                            <div class="lam-clap-card">
+                                <div>
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #1e3a8a; margin-bottom: 6px;">الْوَرْدُ 🌹</div>
+                                    <div class="lam-moon-badge">لَامٌ قَمَرِيَّةٌ سَاكِنَةٌ</div>
+                                </div>
+                                <div class="lam-clap-syllables">
+                                    <span class="lam-syl-pill moon">اَلْـ</span>
+                                    <span style="font-size: 1.4rem;">+</span>
+                                    <span class="lam-syl-pill moon">وَرْ</span>
+                                    <span style="font-size: 1.4rem;">+</span>
+                                    <span class="lam-syl-pill moon">دُ</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('lam_split_alward')" style="background: #2563eb; border-color: #1d4ed8;">
+                                    <span>👏</span> <span>تَصْفِيقُ الْوَرْدُ (٣)</span>
+                                </button>
+                            </div>
+
+                            <div class="lam-clap-card">
+                                <div>
+                                    <div style="font-size: 1.5rem; font-weight: 900; color: #92400e; margin-bottom: 6px;">السَّحَابُ ☁️</div>
+                                    <div class="lam-sun-badge">لَامٌ شَمْسِيَّةٌ (سَّ = سْ + سَ)</div>
+                                </div>
+                                <div class="lam-clap-syllables">
+                                    <span class="lam-syl-pill sun">اَسْـ</span>
+                                    <span style="font-size: 1.4rem;">+</span>
+                                    <span class="lam-syl-pill sun">سَـ</span>
+                                    <span style="font-size: 1.4rem;">+</span>
+                                    <span class="lam-syl-pill sun">حَا</span>
+                                    <span style="font-size: 1.4rem;">+</span>
+                                    <span class="lam-syl-pill sun">بُ</span>
+                                </div>
+                                <button class="btn-primary" onclick="playAudio('lam_split_assahaab')" style="background: #d97706; border-color: #b45309;">
+                                    <span>👏</span> <span>تَصْفِيقُ السَّحَابُ (٤)</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- المحطة الرابعة: القراءة ونشيد الوداع واكتمال الكتاب 100% ص 128 -->
+                    <div class="lam-station" id="stationLam_4">
+                        <!-- نص القراءة المدرسي: سأل المعلم ص 128 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #134e4a; margin: 0; font-weight: 900;">📖 نَصُّ الْقِرَاءَةِ: سَأَلَ الْمُعَلِّمُ (ص ١٢٨)</h3>
+                                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                    <button class="btn-primary" onclick="playAudio('lam_read_full')" style="background: #0d9488; border-color: #0f766e; font-size: 0.85rem; padding: 6px 14px;">
+                                        <span>▶️</span> <span>قِرَاءَةُ النَّصِّ كَامِلًا</span>
+                                    </button>
+                                    <button class="btn-secondary" onclick="playAudio('lam_read_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                        <span>🎧</span> <span>تَوْجِيهُ الْقِرَاءَةِ</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #99f6e4; cursor: pointer;" onclick="playAudio('lam_read_full')">
+                                <img src="activity_lam_read.png" alt="نص سأل المعلم من كتاب قراءتي الجديد" style="width: 100%; max-height: 380px; object-fit: contain; background: #f0fdfa;">
+                            </div>
+
+                            <!-- الحوار القرائي التفاعلي بطريقة الفقرات الناطقة -->
+                            <div class="lam-dialogue-item" onclick="playAudio('lam_read_s1')">
+                                <div class="lam-dialogue-avatar">👨‍🏫</div>
+                                <div class="lam-dialogue-content">
+                                    <div class="lam-dialogue-speaker">الْمُعَلِّمُ:</div>
+                                    <div class="lam-dialogue-text">«سَأَلَ الْمُعَلِّمُ: مَاذَا خَلَقَ اللَّهُ لَنَا؟» 🔊</div>
+                                </div>
+                            </div>
+
+                            <div class="lam-dialogue-item" onclick="playAudio('lam_read_s2')">
+                                <div class="lam-dialogue-avatar">👦</div>
+                                <div class="lam-dialogue-content">
+                                    <div class="lam-dialogue-speaker">عَلِيٌّ:</div>
+                                    <div class="lam-dialogue-text">«قَالَ عَلِيٌّ: السَّمَاءَ وَالشَّمْسَ وَالْقَمَرَ وَالنُّجُومَ.» 🔊</div>
+                                </div>
+                            </div>
+
+                            <div class="lam-dialogue-item" onclick="playAudio('lam_read_s3')">
+                                <div class="lam-dialogue-avatar">👧</div>
+                                <div class="lam-dialogue-content">
+                                    <div class="lam-dialogue-speaker">زَيْنَبُ:</div>
+                                    <div class="lam-dialogue-text">«وَقَالَتْ زَيْنَبُ: خَلَقَ الأَرْضَ وَمَا فِيهَا.» 🔊</div>
+                                </div>
+                            </div>
+
+                            <div class="lam-dialogue-item" onclick="playAudio('lam_read_s4')">
+                                <div class="lam-dialogue-avatar">🎒</div>
+                                <div class="lam-dialogue-content">
+                                    <div class="lam-dialogue-speaker">التَّلَامِيذُ:</div>
+                                    <div class="lam-dialogue-text">«فَقَالَ التَّلَامِيذُ: الْحَمْدُ لِلَّهِ.» 🔊</div>
+                                </div>
+                            </div>
+
+                            <!-- بنك كلمات نص القراءة للممارسة الفردية -->
+                            <div style="margin-top: 18px; padding-top: 14px; border-top: 2px dashed #99f6e4;">
+                                <div style="font-size: 0.95rem; font-weight: 800; color: #0f766e; margin-bottom: 10px;">انقر على أي كلمة للاستماع لنطقها الفردي:</div>
+                                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                    <span class="read-word-chip" onclick="playLamWord('saala')">سَأَلَ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('almuallim')">الْمُعَلِّمُ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('maadha')">مَاذَا</span>
+                                    <span class="read-word-chip" onclick="playLamWord('khalaqa')">خَلَقَ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('allahu')">اللَّهُ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('lana')">لَنَا</span>
+                                    <span class="read-word-chip" onclick="playLamWord('qaala')">قَالَ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('aliyyun')">عَلِيٌّ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('assamaa')">السَّمَاءَ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('ashams')">وَالشَّمْسَ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('alqamar')">وَالْقَمَرَ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('wannujoom')">وَالنُّجُومَ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('qaalat')">وَقَالَتْ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('zaynab')">زَيْنَبُ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('alard')">الأَرْضَ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('feeha')">وَمَا فِيهَا</span>
+                                    <span class="read-word-chip" onclick="playLamWord('talaameedh')">التَّلَامِيذُ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('alhamdu')">الْحَمْدُ</span>
+                                    <span class="read-word-chip" onclick="playLamWord('lillah')">لِلَّهِ</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- نشيد ختام كتاب قراءتي: إلى اللقاء مدرستي ص 128 -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #065f46; margin: 0; font-weight: 900;">🎶 نَشِيدُ الْخِتَامِ: إِلَى اللِّقَاءِ مَدْرَسَتِي (ص ١٢٨)</h3>
+                                <button class="btn-primary" onclick="playAudio('lam_nasheed_full')" style="background: #059669; border-color: #047857;">
+                                    <span>🎵</span> <span>الإنشاد الكامل 🎧</span>
+                                </button>
+                            </div>
+
+                            <div style="text-align: center; margin-bottom: 18px; border-radius: 16px; overflow: hidden; border: 2px solid #a7f3d0; cursor: pointer;" onclick="playAudio('lam_nasheed_full')">
+                                <img src="activity_lam_nasheed.png" alt="نشيد إلى اللقاء مدرستي ص 128" style="width: 100%; max-height: 380px; object-fit: contain; background: #f0fdf4;">
+                            </div>
+
+                            <!-- أبيات النشيد التفاعلية بيتاً بيتاً -->
+                            <div class="lam-nasheed-card">
+                                <div class="lam-nasheed-verse" onclick="playAudio('lam_nasheed_verse1')">
+                                    <div class="lam-verse-hemistich">مَدْرَسَتِي سَتَفْتَحُ الأَبْوَابْ 🏫</div>
+                                    <div style="font-size: 1.2rem; color: #10b981;">•</div>
+                                    <div class="lam-verse-hemistich">وَتَحْضُنُ الطُّلاَّبْ 🎒</div>
+                                </div>
+                                <div class="lam-nasheed-verse" onclick="playAudio('lam_nasheed_verse2')">
+                                    <div class="lam-verse-hemistich">بَعْدَ انْتِهَاءِ العُطْلَةِ ☀️</div>
+                                    <div style="font-size: 1.2rem; color: #10b981;">•</div>
+                                    <div class="lam-verse-hemistich">أَعُودُ لِلْمَدْرَسَةِ 📚</div>
+                                </div>
+                                <div class="lam-nasheed-verse" onclick="playAudio('lam_nasheed_verse3')">
+                                    <div class="lam-verse-hemistich">تَسْبِقُنِي أَشْوَاقِي ❤️</div>
+                                    <div style="font-size: 1.2rem; color: #10b981;">•</div>
+                                    <div class="lam-verse-hemistich">لِلصَّفِّ وَالرِّفَاقِ 🤝</div>
+                                </div>
+                                <div class="lam-nasheed-verse" onclick="playAudio('lam_nasheed_verse4')">
+                                    <div class="lam-verse-hemistich">وَالدَّرْسِ وَالْكِتَابْ 📖</div>
+                                    <div style="font-size: 1.2rem; color: #10b981;">•</div>
+                                    <div class="lam-verse-hemistich">وَسَاحَةِ الأَلْعَابْ ⚽</div>
+                                </div>
+                                <div class="lam-nasheed-verse" onclick="playAudio('lam_nasheed_verse5')">
+                                    <div class="lam-verse-hemistich">مَدْرَسَتِي سَتَفْتَحُ الأَبْوَابْ 🏫</div>
+                                    <div style="font-size: 1.2rem; color: #10b981;">•</div>
+                                    <div class="lam-verse-hemistich">وَتَحْضُنُ الطُّلاَّبْ 🎓</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- اختبار التحدي التفاعلي النهائي للدرس وللكتاب -->
+                        <div class="lesson-card" style="margin-bottom: 24px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                                <h3 style="color: #b45309; margin: 0; font-weight: 900;">🏆 اخْتِبَارُ التَّحَدِّي الْخِتَامِيُّ لِكِتَابِ قِرَاءَتِي</h3>
+                                <button class="btn-secondary" onclick="playAudio('lam_quiz_intro')" style="font-size: 0.85rem; padding: 6px 14px;">
+                                    <span>🎧</span> <span>تَوْجِيهُ التَّحَدِّي</span>
+                                </button>
+                            </div>
+                            <div class="lam-quiz-box" id="lamQuizContainer">
+                                <!-- يتم تحميل الأسئلة تفاعلياً عبر initLamQuiz() -->
+                            </div>
+                        </div>
+
+                        <!-- لوحة الاحتفال الكبرى بافتخار واكتمال كتاب قراءتي 100% -->
+                        <div class="lam-completion-grand-card" id="grandCompletionCard">
+                            <div class="lam-completion-seal">🏅</div>
+                            <h2 class="lam-completion-title">🎓 مَبْرُوكٌ إِتْمَامُ كِتَابِ قِرَاءَتِي ١٠٠٪! 🌟</h2>
+                            <p class="lam-completion-subtitle">
+                                لَقَدْ تَمَّ إِتْمَامُ كَافَّةِ دُرُوسِ وَأَنْشِطَةِ كِتَابِ قِرَاءَتِي لِلصَّفِّ الأَوَّلِ الابْتِدَائِيِّ (الوحدات من الأولى إلى السادسة: ص ١ - ١٢٨) كَامِلًا مِئَةً بِالْمِئَة!
+                            </p>
+                            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 18px;">
+                                <button class="btn-primary" onclick="playAudio('lam_completion_congrats'); mascotCelebrates(); triggerCelebrationConfetti();" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-color: #b45309; font-size: 1.15rem; padding: 12px 28px; box-shadow: 0 6px 18px rgba(217, 119, 6, 0.35);">
+                                    <span>🎉</span> <span>اسْتَمِعْ لِتَهْنِئَةِ التَّخَرُّجِ الْكُبْرَى 🔊</span>
+                                </button>
+                                <button class="btn-secondary" onclick="triggerCelebrationConfetti()" style="font-size: 1.05rem; padding: 12px 24px;">
+                                    <span>🎆</span> <span>إِطْلَاقُ الأَلْعَابِ النَّارِيَّةِ</span>
+                                </button>
+                            </div>
+                            <div class="lam-completion-sig">
+                                🌟 منصة قراءتي التفاعلية الذكية - إعداد وتطوير: المهندس أسامة خليل هاشم 🌟
+                            </div>
+                        </div>
+                    </div>
+                </div>

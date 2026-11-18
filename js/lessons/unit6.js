@@ -1873,4 +1873,378 @@
         }
     };
 
+    /* ==========================================================================
+     * الدرس الخامس: اللام الشمسية واللام القمرية وتطبيقاتهما (ص ١٢٦ - ١٢٨)
+     * واكتمال كتاب قراءتي ١٠٠٪
+     * إعداد وتطوير: المهندس أسامة خليل هاشم
+     * ========================================================================== */
+
+    /* ========================================================
+       القسم 1: التنقل بين محطات درس اللام الشمسية واللام القمرية
+    ======================================================== */
+    window.switchLamStation = function(stationNum) {
+        document.querySelectorAll('#view-tab-al_shamsiyyah_qamariyyah .station-tab').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('#view-tab-al_shamsiyyah_qamariyyah .lam-station').forEach(el => el.classList.remove('active'));
+
+        const targetStation = document.getElementById('stationLam_' + stationNum);
+        const targetBtn = document.getElementById('btnStationLam_' + stationNum);
+
+        if (targetStation) targetStation.classList.add('active');
+        if (targetBtn) targetBtn.classList.add('active');
+
+        if (stationNum === 1) {
+            mascotSpeak('الْوَحْدَةُ السَّادِسَةُ: اللَّامُ الشَّمْسِيَّةُ وَاللَّامُ الْقَمَرِيَّةُ (ص ١٢٦)! قَارِنْ بَيْنَ اللَّامِ الشَّمْسِيَّةِ الَّتِي تُكْتَبُ وَلَا تُنْطَقُ، وَاللَّامِ الْقَمَرِيَّةِ الَّتِي تُكْتَبُ وَتُنْطَقُ سَاكِنَةً!', 'lam_intro');
+        } else if (stationNum === 2) {
+            mascotSpeak('كَلِمَاتُ اللَّامِ الشَّمْسِيَّةِ وَالْقَمَرِيَّةِ! انْتَبِهْ لِلشَّدَّةِ بَعْدَ اللَّامِ الشَّمْسِيَّةِ فِي: الزَّهَرَةُ ، السَّمَاءُ... وَالسُّكُونِ فِي اللَّامِ الْقَمَرِيَّةِ: الأَرْضُ ، الْغُيُومُ!', 'lam_act2_intro');
+        } else if (stationNum === 3) {
+            mascotSpeak('لُعْبَةُ تَصْنِيفِ الشَّمْسِ وَالْقَمَرِ وَالتَّحْلِيلِ الصَّوْتِيِّ ص ١٢٧! صَنِّفِ الْكَلِمَاتِ وَصَفِّقْ لِمَقَاطِعِ: الْوَرْدُ وَ السَّحَابُ!', 'lam_act4_intro');
+            setTimeout(initLamClassifyGame, 100);
+        } else if (stationNum === 4) {
+            mascotSpeak('مَحَطَّةُ الْقِرَاءَةِ وَنَشِيدِ الْوَدَاعِ وَاحْتِفَالِيَّةِ اكْتِمَالِ كِتَابِ قِرَاءَتِي ١٠٠٪! اقْرَأْ نَصَّ: سَأَلَ الْمُعَلِّمُ، وَأَنْشِدْ: إِلَى اللِّقَاءِ مَدْرَسَتِي، وَاحْتَفِلْ بِالتَّخَرُّجِ!', 'lam_read_intro');
+            setTimeout(initLamQuiz, 100);
+        }
+    };
+
+    /* ========================================================
+       القسم 2: أصوات فصيح والكلمات الفردية لدرس اللامين
+    ======================================================== */
+    window.playLamPhonemeFaseeh = function() {
+        mascotCelebrates();
+        playAudio('lam_phoneme_faseeh');
+    };
+
+    window.playLamWord = function(wordKey) {
+        mascotCelebrates();
+        const map = {
+            'shams': 'lam_word_shams',
+            'ashams': 'lam_word_ashams',
+            'qamar': 'lam_word_qamar',
+            'alqamar': 'lam_word_alqamar',
+            'najm': 'lam_word_najm',
+            'annajm': 'lam_word_annajm',
+            'kawkab': 'lam_word_kawkab',
+            'alkawkab': 'lam_word_alkawkab',
+            'thalj': 'lam_word_thalj',
+            'athalj': 'lam_word_athalj',
+            'matar': 'lam_word_matar',
+            'almatar': 'lam_word_almatar',
+            'azzahrah': 'lam_word_azzahrah',
+            'assamaa': 'lam_word_assamaa',
+            'arrabee': 'lam_word_arrabee',
+            'ashshitaa': 'lam_word_ashshitaa',
+            'assayf': 'lam_word_assayf',
+            'alard': 'lam_word_alard',
+            'alguyoom': 'lam_word_alguyoom',
+            'almirreekh': 'lam_word_almirreekh',
+            'alfadaa': 'lam_word_alfadaa',
+            'alkhareef': 'lam_word_alkhareef',
+            'alqalam': 'lam_word_alqalam',
+            'addaftar': 'lam_word_addaftar',
+            'assayyaarah': 'lam_word_assayyaarah',
+            'alkitaab': 'lam_word_alkitaab',
+            'albattah': 'lam_word_albattah',
+            'alguraab': 'lam_word_alguraab',
+            'alward': 'lam_word_alward',
+            'assahaab': 'lam_word_assahaab',
+            'saala': 'lam_word_saala',
+            'almuallim': 'lam_word_almuallim',
+            'maadha': 'lam_word_maadha',
+            'khalaqa': 'lam_word_khalaqa',
+            'allahu': 'lam_word_allahu',
+            'lana': 'lam_word_lana',
+            'qaala': 'lam_word_qaala',
+            'aliyyun': 'lam_word_aliyyun',
+            'wannujoom': 'lam_word_wannujoom',
+            'qaalat': 'lam_word_qaalat',
+            'zaynab': 'lam_word_zaynab',
+            'feeha': 'lam_word_feeha',
+            'talaameedh': 'lam_word_talaameedh',
+            'alhamdu': 'lam_word_alhamdu',
+            'lillah': 'lam_word_lillah'
+        };
+        const audioKey = map[wordKey] || ('lam_word_' + wordKey);
+        playAudio(audioKey);
+    };
+
+    /* ========================================================
+       القسم 3: لعبة تصنيف الشمس والقمر التفاعلية ص 127
+    ======================================================== */
+    const lamClassifyItems = [
+        { id: 1, word: 'الْقَلَمُ', type: 'moon', audio: 'lam_word_alqalam', icon: '✏️' },
+        { id: 2, word: 'الدَّفْتَرُ', type: 'sun', audio: 'lam_word_addaftar', icon: '📓' },
+        { id: 3, word: 'السَّيَّارَةُ', type: 'sun', audio: 'lam_word_assayyaarah', icon: '🚗' },
+        { id: 4, word: 'الْكِتَابُ', type: 'moon', audio: 'lam_word_alkitaab', icon: '📚' },
+        { id: 5, word: 'الْبَطَّةُ', type: 'moon', audio: 'lam_word_albattah', icon: '🦆' },
+        { id: 6, word: 'الْغُرَابُ', type: 'moon', audio: 'lam_word_alguraab', icon: '🐦' }
+    ];
+
+    let lamClassifiedState = {};
+
+    window.initLamClassifyGame = function() {
+        lamClassifiedState = {};
+        const pool = document.getElementById('lamChipsPool');
+        const sunBox = document.getElementById('itemsSun');
+        const moonBox = document.getElementById('itemsMoon');
+        const fb = document.getElementById('lamClassifyFeedback');
+
+        if (!pool || !sunBox || !moonBox) return;
+
+        sunBox.innerHTML = '';
+        moonBox.innerHTML = '';
+        if (fb) fb.innerHTML = '';
+
+        pool.innerHTML = '';
+        lamClassifyItems.forEach(item => {
+            const chip = document.createElement('div');
+            chip.className = 'lam-chip';
+            chip.id = 'chip-' + item.id;
+            chip.innerHTML = `
+                <span>${item.icon}</span>
+                <span>${item.word}</span>
+                <span style="font-size: 0.8rem; margin-right: 4px;">▶️</span>
+            `;
+            chip.onclick = () => openClassifyChooser(item);
+            pool.appendChild(chip);
+        });
+    };
+
+    function openClassifyChooser(item) {
+        playAudio(item.audio);
+        const fb = document.getElementById('lamClassifyFeedback');
+        if (!fb) return;
+
+        fb.innerHTML = `
+            <div style="background: #ffffff; border: 2px solid #cbd5e1; border-radius: 18px; padding: 14px; max-width: 360px; margin: 0 auto; box-shadow: 0 4px 14px rgba(0,0,0,0.08);">
+                <div style="font-size: 1.35rem; font-weight: 900; color: #1e293b; margin-bottom: 10px;">
+                    ${item.icon} ${item.word}
+                </div>
+                <div style="font-size: 0.95rem; font-weight: 800; color: #475569; margin-bottom: 12px;">أَيْنَ نَضَعُ هَذِهِ الْكَلِمَةَ؟</div>
+                <div style="display: flex; gap: 10px; justify-content: center;">
+                    <button class="btn-primary" onclick="resolveLamClassify(${item.id}, 'sun')" style="background: #f59e0b; border-color: #d97706; font-size: 0.95rem; padding: 8px 16px;">
+                        <span>☀️</span> <span>شَمْسِيَّةٌ</span>
+                    </button>
+                    <button class="btn-primary" onclick="resolveLamClassify(${item.id}, 'moon')" style="background: #3b82f6; border-color: #2563eb; font-size: 0.95rem; padding: 8px 16px;">
+                        <span>🌙</span> <span>قَمَرِيَّةٌ</span>
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    window.resolveLamClassify = function(itemId, chosenType) {
+        const item = lamClassifyItems.find(i => i.id === itemId);
+        const fb = document.getElementById('lamClassifyFeedback');
+        if (!item) return;
+
+        if (chosenType === item.type) {
+            lamClassifiedState[itemId] = true;
+            mascotCelebrates();
+            playAudio('lam_correct');
+
+            const chip = document.getElementById('chip-' + itemId);
+            if (chip) chip.remove();
+
+            const targetBox = chosenType === 'sun' ? document.getElementById('itemsSun') : document.getElementById('itemsMoon');
+            if (targetBox) {
+                const placed = document.createElement('div');
+                placed.className = 'lam-chip ' + (chosenType === 'sun' ? 'classified-sun' : 'classified-moon');
+                placed.innerHTML = `<span>${item.icon}</span> <span>${item.word}</span> <span>⭐</span>`;
+                placed.onclick = () => playAudio(item.audio);
+                targetBox.appendChild(placed);
+            }
+
+            if (fb) {
+                fb.innerHTML = '<span style="color: #10b981;">✨ رَائِعٌ! إِجَابَةٌ صَحِيحَةٌ!</span>';
+            }
+
+            // فحص اكتمال تصنيف الكلمات الست
+            if (Object.keys(lamClassifiedState).length === lamClassifyItems.length) {
+                setTimeout(() => {
+                    playAudio('lam_encourage_super');
+                    mascotCelebrates();
+                    if (fb) {
+                        fb.innerHTML = `
+                            <div style="padding: 12px; background: #ecfdf5; border: 2px solid #10b981; border-radius: 18px; color: #065f46; font-size: 1.25rem;">
+                                🌟 أَحْسَنْتَ صَنِيعًا يَا بَطَلَ قِرَاءَتِي! صَنَّفْتَ كَافَّةَ كَلِمَاتِ الشَّمْسِ وَالْقَمَرِ بِنَجَاحٍ بَاهِرٍ! 🏆
+                            </div>
+                        `;
+                    }
+                }, 800);
+            }
+        } else {
+            playAudio('lam_wrong');
+            if (fb) {
+                fb.innerHTML = `
+                    <span style="color: #dc2626;">
+                        ❌ انْتَبِهْ: هَلِ اللَّامُ مَنْطُوقَةٌ سَاكِنَةٌ أَمْ غَيْرُ مَنْطُوقَةٍ مَعَ شَدَّة؟ حَاوِلْ مَرَّةً أُخْرَى!
+                    </span>
+                `;
+            }
+        }
+    };
+
+    /* ========================================================
+       القسم 4: اختبار التحدي الختامي لكتاب قراءتي ص 128
+    ======================================================== */
+    const lamQuizQuestions = [
+        {
+            question: "فِي اللَّامِ الشَّمْسِيَّةِ (مِثْلُ: الشَّمْسُ)، هَلْ نَلْفِظُ حَرْفَ اللَّامِ؟",
+            audio: "lam_sound_shamsiyyah",
+            options: ["لَا نَلْفِظُهَا وَالْحَرْفُ بَعْدَهَا مُشَدَّدٌ", "نَلْفِظُهَا سَاكِنَةً", "نَلْفِظُهَا مَفْتُوحَةً"],
+            correct: 0,
+            hint: "تُكْتَبُ وَلَا تُنْطَقُ، وَيَأْتِي بَعْدَهَا حَرْفٌ مُشَدَّدٌ!"
+        },
+        {
+            question: "فِي اللَّامِ الْقَمَرِيَّةِ (مِثْلُ: الْقَمَرُ)، كَيْفَ نَلْفِظُ اللَّامَ؟",
+            audio: "lam_sound_qamariyyah",
+            options: ["نَلْفِظُهَا سَاكِنَةً وَاضِحَةً", "لَا نَلْفِظُهَا أَبَدًا", "نَقْلِبُهَا نُونًا"],
+            correct: 0,
+            hint: "تُكْتَبُ وَتُنْطَقُ سَاكِنَةً وَاضِحَةً: اَلْـ... الْقَمَرُ!"
+        },
+        {
+            question: "أَيُّ كَلِمَةٍ مِمَّا يَلِي تَبْدَأُ بِلَامٍ شَمْسِيَّةٍ؟",
+            audio: "lam_word_assamaa",
+            options: ["السَّمَاءُ", "الأَرْضُ", "الْكِتَابُ"],
+            correct: 0,
+            hint: "السَّمَاءُ: اللَّامُ لَا تُنْطَقُ وَالسِّينُ مُشَدَّدَةٌ!"
+        },
+        {
+            question: "أَيُّ كَلِمَةٍ مِمَّا يَلِي تَبْدَأُ بِلَامٍ قَمَرِيَّةٍ؟",
+            audio: "lam_word_alguyoom",
+            options: ["الْغُيُومُ", "الصَّيْفُ", "الشِّتَاءُ"],
+            correct: 0,
+            hint: "الْغُيُومُ: نَسْمَعُ صَوْتَ اللَّامِ السَّاكِنَةِ الصَّافِي!"
+        },
+        {
+            question: "عِنْدَ تَحْلِيلِ كَلِمَةِ «الْوَرْدُ» إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ، كَمْ مَقْطَعًا تَحْتَوِي؟",
+            audio: "lam_split_alward",
+            options: ["٣ مَقَاطِعَ (اَلْـ + وَرْ + دُ)", "مَقْطَعَانِ فَقَطْ", "٤ مَقَاطِعَ"],
+            correct: 0,
+            hint: "اَلْـ... وَرْ... دُ: ثَلَاثَةُ مَقَاطِعَ صَوْتِيَّةٍ!"
+        },
+        {
+            question: "فِي قِرَاءَةِ «سَأَلَ الْمُعَلِّمُ»، مَاذَا قَالَ التَّلَامِيذُ فِي خِتَامِ الدَّرْسِ؟",
+            audio: "lam_read_s4",
+            options: ["الْحَمْدُ لِلَّهِ", "إِلَى اللِّقَاءِ", "شُكْرًا لَكَ يَا أُسْتَاذُ"],
+            correct: 0,
+            hint: "فَقَالَ التَّلَامِيذُ: الْحَمْدُ لِلَّهِ!"
+        }
+    ];
+
+    let currentLamQuizIndex = 0;
+    let lamScore = 0;
+
+    window.initLamQuiz = function() {
+        currentLamQuizIndex = 0;
+        lamScore = 0;
+        showLamQuizQuestion();
+    };
+
+    function showLamQuizQuestion() {
+        const qContainer = document.getElementById('lamQuizContainer');
+        if (!qContainer) return;
+
+        if (currentLamQuizIndex >= lamQuizQuestions.length) {
+            qContainer.innerHTML = `
+                <div style="text-align: center; padding: 24px;">
+                    <div style="font-size: 3.5rem; margin-bottom: 12px;">🏆☀️🌙🎓</div>
+                    <h3 style="color: #92400e; font-size: 1.6rem; font-weight: 900; margin-bottom: 8px;">مُبَارَكٌ يَا بَطَلَ الْقِرَاءَةِ وَالتَّخَرُّجِ!</h3>
+                    <p style="font-size: 1.15rem; color: #b45309; font-weight: 800; margin-bottom: 16px;">
+                        أَجَبْتَ عَلَى كَافَّةِ أَسْئِلَةِ التَّحَدِّي الْخِتَامِيِّ بِنَجَاح! نَتِيجَتُكَ: ${lamScore} مِنْ ${lamQuizQuestions.length} ⭐
+                    </p>
+                    <button class="btn-primary" onclick="initLamQuiz()" style="background: #f59e0b; border-color: #d97706;">
+                        <span>🔄</span> <span>إِعَادَةُ التَّحَدِّي</span>
+                    </button>
+                </div>
+            `;
+            mascotCelebrates();
+            playAudio('lam_encourage_super');
+            return;
+        }
+
+        const q = lamQuizQuestions[currentLamQuizIndex];
+        let optionsHtml = '';
+        q.options.forEach((opt, idx) => {
+            optionsHtml += `
+                <button class="lam-quiz-btn" onclick="checkLamQuizAnswer(${idx})">
+                    <span>${opt}</span>
+                </button>
+            `;
+        });
+
+        qContainer.innerHTML = `
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; border-bottom: 2px dashed #fde68a; padding-bottom: 10px;">
+                <span style="font-size: 0.95rem; font-weight: 800; color: #b45309;">السُّؤَالُ ${currentLamQuizIndex + 1} مِنْ ${lamQuizQuestions.length}</span>
+                <span style="font-size: 1rem; font-weight: 900; color: #d97706;">⭐ النِّقَاط: ${lamScore}</span>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px;">
+                <h4 style="margin: 0; font-size: 1.3rem; font-weight: 900; color: #92400e;">${q.question}</h4>
+                <button class="btn-secondary" onclick="playAudio('${q.audio}')" style="padding: 6px 14px; font-size: 0.85rem;">
+                    <span>🔊</span> <span>اسْتَمِعْ</span>
+                </button>
+            </div>
+            <div class="lam-quiz-options">
+                ${optionsHtml}
+            </div>
+            <div id="lamQuizFeedback" style="margin-top: 14px; text-align: center; font-size: 1.1rem; font-weight: 800;"></div>
+        `;
+    }
+
+    window.checkLamQuizAnswer = function(selectedIndex) {
+        const q = lamQuizQuestions[currentLamQuizIndex];
+        const fb = document.getElementById('lamQuizFeedback');
+        if (selectedIndex === q.correct) {
+            lamScore++;
+            mascotCelebrates();
+            playAudio('lam_correct');
+            if (fb) {
+                fb.style.color = '#10b981';
+                fb.innerHTML = '✨ أَحْسَنْتَ يَا بَطَل! إِجَابَةٌ صَحِيحَةٌ!';
+            }
+            setTimeout(() => {
+                currentLamQuizIndex++;
+                showLamQuizQuestion();
+            }, 1200);
+        } else {
+            playAudio('lam_wrong');
+            if (fb) {
+                fb.style.color = '#dc2626';
+                fb.innerHTML = '❌ حَاوِلْ مَرَّةً أُخْرَى، اسْتَمِعْ جَيِّدًا!';
+            }
+        }
+    };
+
+    /* ========================================================
+       القسم 5: احتفالية الألعاب النارية والقصاصات الملونة
+    ======================================================== */
+    window.triggerCelebrationConfetti = function() {
+        const card = document.getElementById('grandCompletionCard');
+        if (!card) return;
+
+        for (let i = 0; i < 40; i++) {
+            const confetti = document.createElement('div');
+            const colors = ['#f59e0b', '#3b82f6', '#10b981', '#ec4899', '#8b5cf6', '#ef4444'];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            const randomLeft = Math.random() * 100;
+            const randomDelay = Math.random() * 2;
+            const randomDuration = 2 + Math.random() * 2;
+            const randomSize = 8 + Math.random() * 10;
+
+            confetti.style.position = 'absolute';
+            confetti.style.left = randomLeft + '%';
+            confetti.style.top = '-20px';
+            confetti.style.width = randomSize + 'px';
+            confetti.style.height = (randomSize * 1.4) + 'px';
+            confetti.style.backgroundColor = randomColor;
+            confetti.style.borderRadius = '4px';
+            confetti.style.opacity = '0.9';
+            confetti.style.zIndex = '99';
+            confetti.style.pointerEvents = 'none';
+            confetti.style.animation = `confettiFall ${randomDuration}s ease-in ${randomDelay}s forwards`;
+
+            card.appendChild(confetti);
+            setTimeout(() => confetti.remove(), (randomDuration + randomDelay + 1) * 1000);
+        }
+    };
+
 })();

@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v50';
+const CACHE_NAME = 'qiraati-smart-v51';
 
 const ASSETS_TO_CACHE = [
 
@@ -325,6 +325,22 @@ const ASSETS_TO_CACHE = [
   './activity_kha_vowels.png',
 
   './activity_kha_words.png',
+
+  './activity_lam_analysis.png',
+
+  './activity_lam_compare.png',
+
+  './activity_lam_match.png',
+
+  './activity_lam_nasheed.png',
+
+  './activity_lam_qamariyyah.png',
+
+  './activity_lam_read.png',
+
+  './activity_lam_scene.png',
+
+  './activity_lam_shamsiyyah.png',
 
   './activity_m_analysis.png',
 
@@ -667,6 +683,12 @@ const ASSETS_TO_CACHE = [
   './page_125.png',
 
   './page_126.png',
+
+  './page_127.png',
+
+  './page_128.png',
+
+  './page_129.png',
 
   './page_17.png',
 
@@ -1017,6 +1039,154 @@ const ASSETS_TO_CACHE = [
   './audio/item_shabaka.mp3',
 
   './audio/item_shatt.mp3',
+
+  './audio/lam_act1_intro.mp3',
+
+  './audio/lam_act2_intro.mp3',
+
+  './audio/lam_act3_intro.mp3',
+
+  './audio/lam_act4_intro.mp3',
+
+  './audio/lam_act5_intro.mp3',
+
+  './audio/lam_completion_congrats.mp3',
+
+  './audio/lam_correct.mp3',
+
+  './audio/lam_encourage_super.mp3',
+
+  './audio/lam_intro.mp3',
+
+  './audio/lam_nasheed_full.mp3',
+
+  './audio/lam_nasheed_verse1.mp3',
+
+  './audio/lam_nasheed_verse2.mp3',
+
+  './audio/lam_nasheed_verse3.mp3',
+
+  './audio/lam_nasheed_verse4.mp3',
+
+  './audio/lam_nasheed_verse5.mp3',
+
+  './audio/lam_phoneme_faseeh.mp3',
+
+  './audio/lam_quiz_intro.mp3',
+
+  './audio/lam_read_full.mp3',
+
+  './audio/lam_read_intro.mp3',
+
+  './audio/lam_read_s1.mp3',
+
+  './audio/lam_read_s2.mp3',
+
+  './audio/lam_read_s3.mp3',
+
+  './audio/lam_read_s4.mp3',
+
+  './audio/lam_scene_story.mp3',
+
+  './audio/lam_sound_qamariyyah.mp3',
+
+  './audio/lam_sound_shamsiyyah.mp3',
+
+  './audio/lam_split_alward.mp3',
+
+  './audio/lam_split_assahaab.mp3',
+
+  './audio/lam_word_addaftar.mp3',
+
+  './audio/lam_word_alard.mp3',
+
+  './audio/lam_word_albattah.mp3',
+
+  './audio/lam_word_alfadaa.mp3',
+
+  './audio/lam_word_alguraab.mp3',
+
+  './audio/lam_word_alguyoom.mp3',
+
+  './audio/lam_word_alhamdu.mp3',
+
+  './audio/lam_word_aliyyun.mp3',
+
+  './audio/lam_word_alkawkab.mp3',
+
+  './audio/lam_word_alkhareef.mp3',
+
+  './audio/lam_word_alkitaab.mp3',
+
+  './audio/lam_word_allahu.mp3',
+
+  './audio/lam_word_almatar.mp3',
+
+  './audio/lam_word_almirreekh.mp3',
+
+  './audio/lam_word_almuallim.mp3',
+
+  './audio/lam_word_alqalam.mp3',
+
+  './audio/lam_word_alqamar.mp3',
+
+  './audio/lam_word_alward.mp3',
+
+  './audio/lam_word_annajm.mp3',
+
+  './audio/lam_word_arrabee.mp3',
+
+  './audio/lam_word_ashams.mp3',
+
+  './audio/lam_word_ashshitaa.mp3',
+
+  './audio/lam_word_assahaab.mp3',
+
+  './audio/lam_word_assamaa.mp3',
+
+  './audio/lam_word_assayf.mp3',
+
+  './audio/lam_word_assayyaarah.mp3',
+
+  './audio/lam_word_athalj.mp3',
+
+  './audio/lam_word_azzahrah.mp3',
+
+  './audio/lam_word_feeha.mp3',
+
+  './audio/lam_word_kawkab.mp3',
+
+  './audio/lam_word_khalaqa.mp3',
+
+  './audio/lam_word_lana.mp3',
+
+  './audio/lam_word_lillah.mp3',
+
+  './audio/lam_word_maadha.mp3',
+
+  './audio/lam_word_matar.mp3',
+
+  './audio/lam_word_najm.mp3',
+
+  './audio/lam_word_qaala.mp3',
+
+  './audio/lam_word_qaalat.mp3',
+
+  './audio/lam_word_qamar.mp3',
+
+  './audio/lam_word_saala.mp3',
+
+  './audio/lam_word_shams.mp3',
+
+  './audio/lam_word_talaameedh.mp3',
+
+  './audio/lam_word_thalj.mp3',
+
+  './audio/lam_word_wannujoom.mp3',
+
+  './audio/lam_word_zaynab.mp3',
+
+  './audio/lam_wrong.mp3',
 
   './audio/lesson1_intro.mp3',
 

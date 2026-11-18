@@ -1353,3 +1353,528 @@
     background: #ccfbf1;
     transform: translateY(-2px);
 }
+
+/* ==========================================================================
+ * الدرس الخامس: اللام الشمسية واللام القمرية وتطبيقاتهما (ص ١٢٦ - ١٢٨)
+ * واكتمال كتاب قراءتي ١٠٠٪
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* محطات درس اللام الشمسية واللام القمرية */
+.lam-station {
+    display: none;
+}
+.lam-station.active {
+    display: block;
+    animation: fadeInLam 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInLam {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* بطاقة اللام الشمسية والقمرية الكبرى المزدوجة */
+.giant-lam-dual-card {
+    display: inline-flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 16px;
+    background: linear-gradient(135deg, #fffbeb 0%, #ffffff 50%, #eff6ff 100%);
+    border: 3px solid #f59e0b;
+    border-radius: 28px;
+    padding: 16px 24px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 26px rgba(245, 158, 11, 0.16);
+    flex-wrap: wrap;
+    max-width: 95%;
+}
+.giant-lam-dual-card:hover {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 12px 32px rgba(245, 158, 11, 0.24);
+}
+.giant-lam-side {
+    flex: 1;
+    min-width: 240px;
+    padding: 12px 18px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+.giant-lam-side.sun-side {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid #f59e0b;
+}
+.giant-lam-side.moon-side {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    border: 2px solid #3b82f6;
+}
+.giant-lam-glyph {
+    font-size: 2.8rem;
+    font-weight: 900;
+    line-height: 1.1;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.giant-lam-glyph.sun {
+    color: #b45309;
+}
+.giant-lam-glyph.moon {
+    color: #1d4ed8;
+}
+
+/* شارات الشمس والقمر */
+.lam-sun-badge {
+    background: #fef3c7;
+    color: #b45309;
+    border: 1px solid #f59e0b;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.lam-moon-badge {
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #3b82f6;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* جدول المقارنة البصرية بين ال الشمسية وال القمرية ص 126 */
+.lam-compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+}
+@media (max-width: 640px) {
+    .lam-compare-grid {
+        grid-template-columns: 1fr;
+    }
+}
+.lam-col-box {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+}
+.lam-col-box.sun {
+    border: 2px solid #fbbf24;
+}
+.lam-col-box.moon {
+    border: 2px solid #60a5fa;
+}
+.lam-col-header {
+    padding: 12px 16px;
+    font-weight: 900;
+    font-size: 1.15rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.lam-col-header.sun {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #92400e;
+    border-bottom: 2px solid #f59e0b;
+}
+.lam-col-header.moon {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+    color: #1e3a8a;
+    border-bottom: 2px solid #3b82f6;
+}
+.lam-compare-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px dashed #e2e8f0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.lam-compare-item:last-child {
+    border-bottom: none;
+}
+.lam-compare-item:hover {
+    background: #f8fafc;
+    transform: translateX(-4px);
+}
+.lam-compare-item.sun:hover {
+    background: #fffbeb;
+}
+.lam-compare-item.moon:hover {
+    background: #eff6ff;
+}
+
+/* بطاقات الكلمات المصورة الشمسية والقمرية */
+.lam-word-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 16px 12px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.lam-word-card.sun-word {
+    border: 2px solid #fde68a;
+}
+.lam-word-card.sun-word:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #f59e0b;
+    background: #fffbeb;
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.2);
+}
+.lam-word-card.moon-word {
+    border: 2px solid #bfdbfe;
+}
+.lam-word-card.moon-word:hover {
+    transform: translateY(-4px) scale(1.03);
+    border-color: #3b82f6;
+    background: #eff6ff;
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+}
+.lam-word-icon {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+.lam-word-text {
+    font-size: 1.45rem;
+    font-weight: 900;
+}
+.lam-word-text.sun {
+    color: #92400e;
+}
+.lam-word-text.moon {
+    color: #1e3a8a;
+}
+
+/* لعبة تصنيف الشمس والقمر التفاعلية ص 127 */
+.lam-classify-game {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 2px solid #e2e8f0;
+    border-radius: 24px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+}
+.lam-drop-zones {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+@media (max-width: 600px) {
+    .lam-drop-zones {
+        grid-template-columns: 1fr;
+    }
+}
+.lam-zone {
+    border-radius: 20px;
+    padding: 16px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.25s ease;
+}
+.lam-zone.sun-zone {
+    background: #fffbeb;
+    border: 3px dashed #f59e0b;
+}
+.lam-zone.moon-zone {
+    background: #eff6ff;
+    border: 3px dashed #3b82f6;
+}
+.lam-zone-title {
+    font-size: 1.15rem;
+    font-weight: 900;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.lam-zone-title.sun {
+    color: #b45309;
+}
+.lam-zone-title.moon {
+    color: #1d4ed8;
+}
+.lam-zone-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    width: 100%;
+}
+.lam-chips-pool {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 14px;
+    background: #f1f5f9;
+    border-radius: 18px;
+    min-height: 70px;
+    align-items: center;
+}
+.lam-chip {
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 8px 16px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #1e293b;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.06);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    user-select: none;
+}
+.lam-chip:hover {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    border-color: #64748b;
+}
+.lam-chip.classified-sun {
+    background: #fef3c7;
+    border-color: #f59e0b;
+    color: #92400e;
+}
+.lam-chip.classified-moon {
+    background: #dbeafe;
+    border-color: #3b82f6;
+    color: #1e3a8a;
+}
+
+/* بطاقات التحليل الصوتي بالتصفيق ص 127 */
+.lam-clap-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.lam-clap-syllables {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.lam-syl-pill {
+    padding: 6px 14px;
+    border-radius: 14px;
+    font-size: 1.3rem;
+    font-weight: 900;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+.lam-syl-pill.sun {
+    background: #fef3c7;
+    border: 2px solid #f59e0b;
+    color: #92400e;
+}
+.lam-syl-pill.moon {
+    background: #dbeafe;
+    border: 2px solid #3b82f6;
+    color: #1e3a8a;
+}
+
+/* فقرات قراءة سأل المعلم ص 128 */
+.lam-dialogue-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.lam-dialogue-item:hover {
+    border-color: #0d9488;
+    background: #f0fdfa;
+    transform: translateX(-4px);
+}
+.lam-dialogue-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    background: #f1f5f9;
+    flex-shrink: 0;
+    border: 2px solid #cbd5e1;
+}
+.lam-dialogue-content {
+    flex: 1;
+}
+.lam-dialogue-speaker {
+    font-size: 0.95rem;
+    font-weight: 900;
+    color: #0f766e;
+    margin-bottom: 4px;
+}
+.lam-dialogue-text {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+/* نشيد إلى اللقاء مدرستي ص 128 */
+.lam-nasheed-card {
+    background: linear-gradient(135deg, #fefce8 0%, #fffbeb 50%, #f0fdf4 100%);
+    border: 3px solid #10b981;
+    border-radius: 26px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.12);
+}
+.lam-nasheed-verse {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    border-bottom: 1px dashed #a7f3d0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 14px;
+}
+.lam-nasheed-verse:last-child {
+    border-bottom: none;
+}
+.lam-nasheed-verse:hover {
+    background: #ecfdf5;
+    transform: scale(1.01);
+}
+.lam-verse-hemistich {
+    flex: 1;
+    text-align: center;
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #065f46;
+}
+
+/* لوحة الاحتفال الكبرى بافتخار واكتمال كتاب قراءتي 100% */
+.lam-completion-grand-card {
+    background: linear-gradient(135deg, #fef3c7 0%, #ffffff 40%, #e0e7ff 100%);
+    border: 4px double #d97706;
+    border-radius: 32px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 16px 40px rgba(217, 119, 6, 0.22);
+    position: relative;
+    overflow: hidden;
+    margin-top: 24px;
+}
+.lam-completion-seal {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 16px auto;
+    background: radial-gradient(circle, #fde047 0%, #ca8a04 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    box-shadow: 0 6px 18px rgba(202, 138, 4, 0.4);
+    border: 3px solid #ffffff;
+    animation: pulseSeal 2s infinite ease-in-out;
+}
+@keyframes pulseSeal {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.08);
+    }
+}
+.lam-completion-title {
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: #92400e;
+    margin-bottom: 8px;
+}
+.lam-completion-subtitle {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1e40af;
+    margin-bottom: 16px;
+    line-height: 1.6;
+}
+.lam-completion-sig {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #475569;
+    border-top: 2px dashed #cbd5e1;
+    padding-top: 14px;
+    margin-top: 18px;
+    display: inline-block;
+}
+
+/* اختبار التحدي التفاعلي النهائي */
+.lam-quiz-box {
+    background: linear-gradient(135deg, #ffffff 0%, #fffbeb 100%);
+    border: 2px solid #f59e0b;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.12);
+}
+.lam-quiz-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+    margin-top: 18px;
+}
+.lam-quiz-btn {
+    background: #ffffff;
+    border: 2px solid #fde68a;
+    border-radius: 16px;
+    padding: 14px 12px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #92400e;
+    cursor: pointer;
+    transition: all 0.22s ease;
+}
+.lam-quiz-btn:hover {
+    border-color: #f59e0b;
+    background: #fef3c7;
+    transform: translateY(-2px);
+}
+

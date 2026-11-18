@@ -151,7 +151,7 @@ def update_audio_data_js(audio_keys):
     يقوم بترميز ملفات audio/*.mp3 إلى Base64 وتحديث/إلحاق القيم في audio_data_unit6.js
     (أو audio_data.js) بطريقة التدفق السريع لتفادي تجاوز حد 100 م.ب لمستودع GitHub.
     """
-    u6_prefixes = ('letter_ghayn', 'letter_ha', 'letter_dhal', 'letter_dha', 'unit6', 'al_shamsiyyah')
+    u6_prefixes = ('letter_ghayn', 'letter_ha', 'letter_dhal', 'letter_dha', 'unit6', 'al_shamsiyyah', 'lam_')
     is_u6 = any(any(k.startswith(p) for p in u6_prefixes) for k in audio_keys)
     target_filename = 'audio_data_unit6.js' if is_u6 else 'audio_data.js'
     audio_data_path = os.path.join(BASE_DIR, target_filename)
@@ -733,6 +733,119 @@ PRESET_DHA = {
     ]
 }
 
+PRESET_LAM = {
+    "name": "اللام الشمسية واللام القمرية وتطبيقاتهما وقراءة سَأَلَ الْمُعَلِّمُ ونشيد إِلَى اللِّقَاءِ مَدْرَسَتِي (ص ١٢٦ - ١٢٨)",
+    "pages": {
+        126: 'page_127.png',
+        127: 'page_128.png',
+        128: 'page_129.png'
+    },
+    "crops": [
+        {'src': 'page_127.png', 'out': 'activity_lam_scene.png', 'top_pt': 25, 'bot_pt': 375, 'margin_x': 50},
+        {'src': 'page_127.png', 'out': 'activity_lam_compare.png', 'top_pt': 370, 'bot_pt': 595, 'margin_x': 50},
+        {'src': 'page_127.png', 'out': 'activity_lam_shamsiyyah.png', 'top_pt': 595, 'bot_pt': 775, 'margin_x': 50},
+        {'src': 'page_128.png', 'out': 'activity_lam_qamariyyah.png', 'top_pt': 25, 'bot_pt': 160, 'margin_x': 50},
+        {'src': 'page_128.png', 'out': 'activity_lam_match.png', 'top_pt': 160, 'bot_pt': 485, 'margin_x': 50},
+        {'src': 'page_128.png', 'out': 'activity_lam_analysis.png', 'top_pt': 485, 'bot_pt': 770, 'margin_x': 50},
+        {'src': 'page_129.png', 'out': 'activity_lam_read.png', 'top_pt': 25, 'bot_pt': 450, 'margin_x': 50},
+        {'src': 'page_129.png', 'out': 'activity_lam_nasheed.png', 'top_pt': 445, 'bot_pt': 780, 'margin_x': 50}
+    ],
+    "audio": [
+        # التوجيهات والمقدمات التعليمية
+        ("lam_intro", "الْوَحْدَةُ السَّادِسَةُ: الْعَالَمُ مِنْ حَوْلِي! مَعَ الدَّرْسِ الْخَامِسِ وَالْخِتَامِيِّ لِكِتَابِ قِرَاءَتِي: اللَّامُ الشَّمْسِيَّةُ وَاللَّامُ الْقَمَرِيَّةُ وَتَطْبِيقَاتُهُمَا (ص ١٢٦ - ١٢٨)! نَتَعَرَّفُ عَلَى الْفَرْقِ بَيْنَ اللَّامِ الشَّمْسِيَّةِ الَّتِي تُكْتَبُ وَلَا تُنْطَقُ وَيَأْتِي بَعْدَهَا حَرْفٌ مُشَدَّدٌ، وَاللَّامِ الْقَمَرِيَّةِ الَّتِي تُكْتَبُ وَتُنْطَقُ وَتَكُونُ سَاكِنَةً، مَعَ قِرَاءَةِ نَصِّ (سَأَلَ الْمُعَلِّمُ) وَنَشِيدِ (إِلَى اللِّقَاءِ مَدْرَسَتِي) وَاحْتِفَالِ اكْتِمَالِ الْكِتَابِ مِئَةً بِالْمِئَة!", VOICE_RANA),
+        ("lam_sound_shamsiyyah", "الـ... الشَّمْسُ! اللَّامُ الشَّمْسِيَّةُ: تُكْتَبُ وَلَا تُنْطَقُ، وَالْحَرْفُ الَّذِي بَعْدَهَا يَكُونُ مُشَدَّدًا مِثْلَ: الشَّمْسُ ، الثَّلْجُ ، النَّجْمُ!", VOICE_BASSEL),
+        ("lam_sound_qamariyyah", "اَلْـ... الْقَمَرُ! اللَّامُ الْقَمَرِيَّةُ: تُكْتَبُ وَتُنْطَقُ سَاكِنَةً صَافِيَةً، مِثْلَ: الْقَمَرُ ، الْكَوْكَبُ ، الْمَطَرُ!", VOICE_BASSEL),
+        ("lam_phoneme_faseeh", "أَهْلًا بِكُمْ يَا أَبْطَالَ قِرَاءَتِي! تَعَلَّمُوا الْفَرْقَ الْجَمِيلَ: اللَّامُ الشَّمْسِيَّةُ مِثْلُ الشَّمْسِ: تُكْتَبُ وَلَا نَلْفِظُهَا، وَالْحَرْفُ بَعْدَهَا يَكُونُ مُشَدَّدًا مِثْلَ: الشَّمْسُ، الثَّلْجُ، النَّجْمُ! أَمَّا اللَّامُ الْقَمَرِيَّةُ فَمِثْلُ الْقَمَرِ: تُكْتَبُ وَتُلْفَظُ سَاكِنَةً وَاضِحَةً مِثْلَ: الْقَمَرُ، الْكَوْكَبُ، الْمَطَرُ!", VOICE_BASSEL),
+        ("lam_scene_story", "فِي السَّمَاءِ الْوَاسِعَةِ، نَرَى الشَّمْسَ الْمُشْرِقَةَ تُضِيءُ النَّهَارَ، وَفِي اللَّيْلِ يَظْهَرُ الْقَمَرُ الْمُنِيرُ وَالنُّجُومُ الْمُتَلأْلِئَةُ، فِي لَوْحَةٍ بَدِيعَةٍ خَلَقَهَا اللَّهُ تَعَالَى لَنَا!", VOICE_RANA),
+        ("lam_act1_intro", "نَشَاطُ وَاحِد: أَقْرَأُ وَأُلاَحِظُ الْفَرْقَ بَيْنَ كَلِمَاتٍ مَعَ أَلْ الشَّمْسِيَّةِ، وَكَلِمَاتٍ مَعَ أَلْ الْقَمَرِيَّةِ.", VOICE_RANA),
+        ("lam_act2_intro", "نَشَاطُ اثْنَان: أُرَدِّدُ مُنْتَبِهًا لِلَفْظِ اللَّامِ الشَّمْسِيَّةِ فِي الْكَلِمَاتِ: الزَّهَرَةُ ، السَّمَاءُ ، الرَّبِيعُ ، الشِّتَاءُ ، الصَّيْفُ.", VOICE_RANA),
+        ("lam_act3_intro", "نَشَاطُ ثَلَاثَة: أُرَدِّدُ مُنْتَبِهًا لِلَفْظِ اللَّامِ الْقَمَرِيَّةِ فِي الْكَلِمَاتِ: الأَرْضُ ، الْغُيُومُ ، الْمِرِّيخُ ، الْفَضَاءُ ، الْخَرِيفُ.", VOICE_RANA),
+        ("lam_act4_intro", "نَشَاطُ أَرْبَعَة: أَصِلُ الْكَلِمَاتِ الَّتِي تَحْتَوِي لَامًا قَمَرِيَّةً بِصُورَةِ الْقَمَرِ، وَالْكَلِمَاتِ الَّتِي تَحْتَوِي لَامًا شَمْسِيَّةً بِصُورَةِ الشَّمْسِ.", VOICE_RANA),
+        ("lam_act5_intro", "نَشَاطُ خَمْسَة: أَقْرَأُ الْكَلِمَاتِ، ثُمَّ أُحَلِّلُهَا إِلَى مَقَاطِعِهَا الصَّوْتِيَّةِ بِالتَّصْفِيق.", VOICE_RANA),
+        ("lam_read_intro", "مَحَطَّةُ الْقِرَاءَةِ: اقْرَأْ نَصَّ: سَأَلَ الْمُعَلِّمُ، وَنَشِيدَ: إِلَى اللِّقَاءِ مَدْرَسَتِي، وَشَارِكْنَا فَرْحَةَ التَّخَرُّجِ وَاخْتِتَامِ كِتَابِ قِرَاءَتِي!", VOICE_RANA),
+        ("lam_quiz_intro", "اخْتِبَارُ التَّحَدِّي الْخِتَامِيُّ لِكِتَابِ قِرَاءَتِي! مَيِّزْ بَيْنَ اللَّامِ الشَّمْسِيَّةِ وَالْقَمَرِيَّةِ وَأَجِبْ عَنِ الأَسْئِلَةِ لِتَحْصُلَ عَلَى وِسَامِ التَّخَرُّجِ الْذَّهَبِيِّ الْكَبِيرِ!", VOICE_RANA),
+
+        # كلمات نشاط 1 المقارنة (ص ١٢٦)
+        ("lam_word_shams", "شَمْسٌ", VOICE_RANA),
+        ("lam_word_ashams", "الشَّمْسُ", VOICE_RANA),
+        ("lam_word_qamar", "قَمَرٌ", VOICE_RANA),
+        ("lam_word_alqamar", "الْقَمَرُ", VOICE_RANA),
+        ("lam_word_najm", "نَجْمٌ", VOICE_RANA),
+        ("lam_word_annajm", "النَّجْمُ", VOICE_RANA),
+        ("lam_word_kawkab", "كَوْكَبٌ", VOICE_RANA),
+        ("lam_word_alkawkab", "الْكَوْكَبُ", VOICE_RANA),
+        ("lam_word_thalj", "ثَلْجٌ", VOICE_RANA),
+        ("lam_word_athalj", "الثَّلْجُ", VOICE_RANA),
+        ("lam_word_matar", "مَطَرٌ", VOICE_RANA),
+        ("lam_word_almatar", "الْمَطَرُ", VOICE_RANA),
+
+        # كلمات نشاط 2 اللام الشمسية (ص ١٢٦)
+        ("lam_word_azzahrah", "الزَّهَرَةُ", VOICE_RANA),
+        ("lam_word_assamaa", "السَّمَاءُ", VOICE_RANA),
+        ("lam_word_arrabee", "الرَّبِيعُ", VOICE_RANA),
+        ("lam_word_ashshitaa", "الشِّتَاءُ", VOICE_RANA),
+        ("lam_word_assayf", "الصَّيْفُ", VOICE_RANA),
+
+        # كلمات نشاط 3 اللام القمرية (ص ١٢٧)
+        ("lam_word_alard", "الأَرْضُ", VOICE_RANA),
+        ("lam_word_alguyoom", "الْغُيُومُ", VOICE_RANA),
+        ("lam_word_almirreekh", "الْمِرِّيخُ", VOICE_RANA),
+        ("lam_word_alfadaa", "الْفَضَاءُ", VOICE_RANA),
+        ("lam_word_alkhareef", "الْخَرِيفُ", VOICE_RANA),
+
+        # كلمات نشاط 4 التصنيف والتوصيل (ص ١٢٧)
+        ("lam_word_alqalam", "الْقَلَمُ", VOICE_RANA),
+        ("lam_word_addaftar", "الدَّفْتَرُ", VOICE_RANA),
+        ("lam_word_assayyaarah", "السَّيَّارَةُ", VOICE_RANA),
+        ("lam_word_alkitaab", "الْكِتَابُ", VOICE_RANA),
+        ("lam_word_albattah", "الْبَطَّةُ", VOICE_RANA),
+        ("lam_word_alguraab", "الْغُرَابُ", VOICE_RANA),
+
+        # نشاط 5 التحليل الصوتي بالتصفيق (ص ١٢٧)
+        ("lam_word_alward", "الْوَرْدُ", VOICE_RANA),
+        ("lam_word_assahaab", "السَّحَابُ", VOICE_RANA),
+        ("lam_split_alward", "الْوَرْدُ: اَلْـ... وَرْ... دُ. ثَلَاثَةُ مَقَاطِعَ.", VOICE_BASSEL),
+        ("lam_split_assahaab", "السَّحَابُ: اَسْـ... سَـ... حَا... بُ. أَرْبَعَةُ مَقَاطِعَ.", VOICE_BASSEL),
+
+        # كلمات وجمل قراءة ص ١٢٨: سَأَلَ الْمُعَلِّمُ
+        ("lam_word_saala", "سَأَلَ", VOICE_RANA),
+        ("lam_word_almuallim", "الْمُعَلِّمُ", VOICE_RANA),
+        ("lam_word_maadha", "مَاذَا", VOICE_RANA),
+        ("lam_word_khalaqa", "خَلَقَ", VOICE_RANA),
+        ("lam_word_allahu", "اللَّهُ", VOICE_RANA),
+        ("lam_word_lana", "لَنَا", VOICE_RANA),
+        ("lam_word_qaala", "قَالَ", VOICE_RANA),
+        ("lam_word_aliyyun", "عَلِيٌّ", VOICE_RANA),
+        ("lam_word_wannujoom", "وَالنُّجُومَ", VOICE_RANA),
+        ("lam_word_qaalat", "وَقَالَتْ", VOICE_RANA),
+        ("lam_word_zaynab", "زَيْنَبُ", VOICE_RANA),
+        ("lam_word_feeha", "فِيهَا", VOICE_RANA),
+        ("lam_word_talaameedh", "التَّلَامِيذُ", VOICE_RANA),
+        ("lam_word_alhamdu", "الْحَمْدُ", VOICE_RANA),
+        ("lam_word_lillah", "لِلَّهِ", VOICE_RANA),
+
+        ("lam_read_full", "سَأَلَ الْمُعَلِّمُ: مَاذَا خَلَقَ اللَّهُ لَنَا؟ قَالَ عَلِيٌّ: السَّمَاءَ وَالشَّمْسَ وَالْقَمَرَ وَالنُّجُومَ. وَقَالَتْ زَيْنَبُ: خَلَقَ الأَرْضَ وَمَا فِيهَا. فَقَالَ التَّلَامِيذُ: الْحَمْدُ لِلَّهِ.", VOICE_RANA),
+        ("lam_read_s1", "سَأَلَ الْمُعَلِّمُ: مَاذَا خَلَقَ اللَّهُ لَنَا؟", VOICE_RANA),
+        ("lam_read_s2", "قَالَ عَلِيٌّ: السَّمَاءَ وَالشَّمْسَ وَالْقَمَرَ وَالنُّجُومَ.", VOICE_RANA),
+        ("lam_read_s3", "وَقَالَتْ زَيْنَبُ: خَلَقَ الأَرْضَ وَمَا فِيهَا.", VOICE_RANA),
+        ("lam_read_s4", "فَقَالَ التَّلَامِيذُ: الْحَمْدُ لِلَّهِ.", VOICE_RANA),
+
+        # نشيد ص ١٢٨: إِلَى اللِّقَاءِ مَدْرَسَتِي
+        ("lam_nasheed_full", "إِلَى اللِّقَاءِ مَدْرَسَتِي. مَدْرَسَتِي سَتَفْتَحُ الأَبْوَابْ ... وَتَحْضُنُ الطُّلاَّبْ. بَعْدَ انْتِهَاءِ العُطْلَةِ ... أَعُودُ لِلْمَدْرَسَةِ. تَسْبِقُنِي أَشْوَاقِي ... لِلصَّفِّ وَالرِّفَاقِ. وَالدَّرْسِ وَالْكِتَابْ ... وَسَاحَةِ الأَلْعَابْ. مَدْرَسَتِي سَتَفْتَحُ الأَبْوَابْ ... وَتَحْضُنُ الطُّلاَّبْ.", VOICE_RANA),
+        ("lam_nasheed_verse1", "مَدْرَسَتِي سَتَفْتَحُ الأَبْوَابْ ، وَتَحْضُنُ الطُّلاَّبْ.", VOICE_RANA),
+        ("lam_nasheed_verse2", "بَعْدَ انْتِهَاءِ العُطْلَةِ ، أَعُودُ لِلْمَدْرَسَةِ.", VOICE_RANA),
+        ("lam_nasheed_verse3", "تَسْبِقُنِي أَشْوَاقِي ، لِلصَّفِّ وَالرِّفَاقِ.", VOICE_RANA),
+        ("lam_nasheed_verse4", "وَالدَّرْسِ وَالْكِتَابْ ، وَسَاحَةِ الأَلْعَابْ.", VOICE_RANA),
+        ("lam_nasheed_verse5", "مَدْرَسَتِي سَتَفْتَحُ الأَبْوَابْ ، وَتَحْضُنُ الطُّلاَّبْ.", VOICE_RANA),
+
+        # احتفالية ختام كتاب قراءتي 100% والتعزيز
+        ("lam_completion_congrats", "مَبْرُوكٌ يَا أَبْطَالَ قِرَاءَتِي! أَلْفُ مَبْرُوك! لَقَدْ أَكْمَلْتُمْ كِتَابَ قِرَاءَتِي لِلصَّفِّ الأَوَّلِ الابْتِدَائِيِّ كَامِلًا مِئَةً بِالْمِئَة! تَعَلَّمْتُمْ كُلَّ الْحُرُوفِ وَالْحَرَكَاتِ وَالْمَقَاطِعِ وَالْقِرَاءَةِ الْعِرَاقِيَّةِ الأَصِيلَةِ، وَأَصْبَحْتُمْ فُرْسَانَ الْقِرَاءَةِ وَالْكِتَابَة! أَنْتُمْ فَخْرُ الْعِرَاقِ وَمُسْتَقْبَلُهُ الْمُشْرِق!", VOICE_BASSEL),
+        ("lam_correct", "أَحْسَنْتَ يَا بَطَلَ قِرَاءَتِي! إِجَابَةٌ صَحِيحَةٌ وَرَائِعَة!", VOICE_BASSEL),
+        ("lam_wrong", "حَاوِلْ مَرَّةً أُخْرَى، أَنْتَ ذَكِيٌّ وَقَادِرٌ عَلَى النَّجَاح!", VOICE_BASSEL),
+        ("lam_encourage_super", "مُمْتَازٌ جِدًّا! أَنْتَ عَبْقَرِيُّ الْقِرَاءَةِ وَنَجْمُ اللَّامِ الشَّمْسِيَّةِ وَالْقَمَرِيَّة!", VOICE_BASSEL)
+    ]
+}
+
 
 def run_lesson_pipeline(preset_data, bump=False):
     t0 = time.time()
@@ -770,7 +883,7 @@ def run_lesson_pipeline(preset_data, bump=False):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="خط الإنتاج المؤتمت السريع لمنصة قراءتي الذكية - إعداد المهندس أسامة خليل هاشم")
-    parser.add_argument('--preset', choices=['ghayn', 'ha', 'dhal', 'dha'], help="تشغيل خط الإنتاج لدرس محدد مسبقاً")
+    parser.add_argument('--preset', choices=['ghayn', 'ha', 'dhal', 'dha', 'lam'], help="تشغيل خط الإنتاج لدرس محدد مسبقاً")
     parser.add_argument('--build-sync', action='store_true', help="تشغيل البناء والمزامنة فقط")
     parser.add_argument('--bump', action='store_true', help="ترقية رقم نسخة كاش الخدمة")
     parser.add_argument('--sync-audio', action='store_true', help="تحديث Base64 في audio_data.js لجميع ملفات audio/*.mp3")
@@ -785,6 +898,8 @@ if __name__ == '__main__':
         run_lesson_pipeline(PRESET_DHAL, bump=args.bump)
     elif args.preset == 'dha':
         run_lesson_pipeline(PRESET_DHA, bump=args.bump)
+    elif args.preset == 'lam':
+        run_lesson_pipeline(PRESET_LAM, bump=args.bump)
     elif args.build_sync:
         run_pipeline_build_and_sync(bump_cache=args.bump)
     elif args.sync_audio:
