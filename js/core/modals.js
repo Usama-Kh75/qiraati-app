@@ -123,6 +123,8 @@
                 closeEvaluationModal();
             } else if (targetId === 'settingsModal' && typeof closeSettingsModal === 'function') {
                 closeSettingsModal();
+            } else if (targetId === 'bookPageModal' && typeof closeBookPageModal === 'function') {
+                closeBookPageModal();
             } else {
                 e.target.style.display = 'none';
             }
@@ -153,6 +155,8 @@
                 }
                 const im = document.getElementById('installModal');
                 if (im && im.style.display !== 'none') { closeInstallModal(); return; }
+                const bpm = document.getElementById('bookPageModal');
+                if (bpm && bpm.style.display !== 'none') { bpm.style.display = 'none'; return; }
             }
         });
 
@@ -297,18 +301,34 @@
                 if (bd) {
 
                     if (sb.classList.contains('open')) {
-
                         bd.classList.add('show');
-
                     } else {
-
                         bd.classList.remove('show');
-
                     }
-
                 }
-
             }
-
         }
+
+        /* ========================================================
+           نافذة استعراض صفحات الكتاب المدرسي بدقة فائقة
+        ======================================================== */
+        function openBookPageModal(imgSrc, title) {
+            const modal = document.getElementById('bookPageModal');
+            const titleEl = document.getElementById('bookPageModalTitle');
+            const imgEl = document.getElementById('bookPageModalImg');
+            if (titleEl) titleEl.innerText = title || 'استعراض صفحة الكتاب المدرسي';
+            if (imgEl) {
+                const resolvedSrc = (window.IMAGE_DATA && window.IMAGE_DATA[imgSrc]) ? window.IMAGE_DATA[imgSrc] : imgSrc;
+                imgEl.src = resolvedSrc;
+            }
+            if (modal) modal.style.display = 'flex';
+        }
+
+        function closeBookPageModal() {
+            const modal = document.getElementById('bookPageModal');
+            if (modal) modal.style.display = 'none';
+        }
+
+        window.openBookPageModal = openBookPageModal;
+        window.closeBookPageModal = closeBookPageModal;
 
