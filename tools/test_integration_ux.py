@@ -93,6 +93,7 @@ def run_integration_audit():
         'diagnostic-exams.js': os.path.join(BASE_DIR, 'js', 'core', 'diagnostic-exams.js'),
         'voice-coach.js': os.path.join(BASE_DIR, 'js', 'core', 'voice-coach.js'),
         'dictation-lab.js': os.path.join(BASE_DIR, 'js', 'core', 'dictation-lab.js'),
+        'readers-theater.js': os.path.join(BASE_DIR, 'js', 'core', 'readers-theater.js'),
         'audio.js': os.path.join(BASE_DIR, 'js', 'core', 'audio.js'),
         'navigation.js': os.path.join(BASE_DIR, 'js', 'core', 'navigation.js'),
         'modals.js': os.path.join(BASE_DIR, 'js', 'core', 'modals.js'),
@@ -410,6 +411,52 @@ def run_integration_audit():
     if not any("عنصر مختبر الإملاء الذكي" in e for e in errors):
         successes.append(f"كافة عناصر مختبر الإملاء المنظور والاختباري الذكي ({len(dictation_lab_elements)} عنصراً) متكاملة بنسبة 100%.")
 
+    # فحص عناصر مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية
+    print("\n--- فحص مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية ---")
+    readers_theater_elements = [
+        ('زر مسرح القراءة بالشريط العلوي', 'btnTopReadersTheater'),
+        ('بطاقة مسرح القراءة بالقائمة الجانبية', 'sidebarReadersTheaterCard'),
+        ('نافذة المسرح الرئيسية', 'readersTheaterModal'),
+        ('زر تبويب مسرح القراءة', 'rtTabBtn_theater'),
+        ('زر تبويب مختبر الدمى', 'rtTabBtn_puppets'),
+        ('زر تبويب محاكاة المحادثة', 'rtTabBtn_conversation'),
+        ('زر تبويب المؤثرات والتذاكر', 'rtTabBtn_soundboard'),
+        ('حاوية تبويب مسرح القراءة', 'rtTabPanel_theater'),
+        ('حاوية تبويب مختبر الدمى', 'rtTabPanel_puppets'),
+        ('حاوية تبويب محاكاة المحادثة', 'rtTabPanel_conversation'),
+        ('حاوية تبويب المؤثرات والتذاكر', 'rtTabPanel_soundboard'),
+        ('قائمة اختيار المسرحية', 'rtPlaySelect'),
+        ('قائمة اختيار خلفية المسرح', 'rtBackdropSelect'),
+        ('حاوية شرائح فريق التمثيل', 'rtCastChipsContainer'),
+        ('ستائر المسرح الكلاسيكية', 'rtStageCurtains'),
+        ('مشهد خشبة المسرح', 'rtStageScene'),
+        ('بقعة الضوء المسرحية', 'rtStageSpotlight'),
+        ('صف الدمى على المسرح', 'rtStagePuppetsRow'),
+        ('أيقونة المتحدث في التلقين', 'rtSpeakerAvatar'),
+        ('اسم المتحدث في التلقين', 'rtSpeakerName'),
+        ('شارة النبرة التعبيرية', 'rtSpeakerIntonation'),
+        ('مؤشر عداد الأسطر', 'rtLineCounter'),
+        ('صندوق السطر النشط الكبير', 'rtActiveLineBox'),
+        ('زر السطر السابق', 'rtBtnPrevLine'),
+        ('زر السطر التالي', 'rtBtnNextLine'),
+        ('زر التشغيل التلقائي', 'rtBtnAutoPlay'),
+        ('شبكة الدمى بمختبر التحريك', 'rtPuppetsGrid'),
+        ('قائمة المحادثات الصفية', 'rtConvoSelect'),
+        ('نص موجه المحادثة', 'rtConvoPromptText'),
+        ('سجل المحادثة المتتابع', 'rtConvoHistory'),
+        ('حاوية خيارات الرد التعبيري', 'rtConvoOptionsContainer'),
+        ('زر الميكروفون التعبيري', 'rtBtnConvoMic'),
+        ('عنوان المسرحية بالتذكرة', 'rtTicketPlayTitle'),
+        ('اسم التلميذ بالتذكرة', 'rtTicketPupilName'),
+        ('دور التلميذ بالتذكرة', 'rtTicketRoleName'),
+        ('زر طباعة التذكرة A4', 'rtBtnPrintTicket')
+    ]
+    for rt_title, rt_id in readers_theater_elements:
+        if rt_id not in dom_ids:
+            errors.append(f"عنصر مسرح القراءة والدمى {rt_title} ({rt_id}) مفقود!")
+    if not any("عنصر مسرح القراءة والدمى" in e for e in errors):
+        successes.append(f"كافة عناصر مسرح القراءة التعبيرية والدمى المتحركة الرقمية ({len(readers_theater_elements)} عنصراً) متكاملة بنسبة 100%.")
+
     # 9. فحص عزل مفاتيح التخزين المحلي (LocalStorage Key Hygiene)
     print("\n--- فحص عزل مفاتيح التخزين المحلي (قواعد أسامة) ---")
     storage_keys = []
@@ -433,7 +480,7 @@ def run_integration_audit():
         'css/lessons-unit3.css', 'css/lessons-unit4.css', 'css/lessons-unit5.css',
         'css/lessons-unit6.css', 'css/evaluation.css', 'css/enrichment.css',
         'css/blackboard.css', 'css/games.css', 'css/gamification.css', 'css/teacher-dashboard.css',
-        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css', 'css/voice-coach.css', 'css/dictation-lab.css'
+        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css', 'css/voice-coach.css', 'css/dictation-lab.css', 'css/readers-theater.css'
     ]
     for cf in css_files:
         if cf not in index_html:
@@ -447,7 +494,7 @@ def run_integration_audit():
         'js/core/evaluation.js', 'js/core/enrichment.js', 'js/core/blackboard.js',
         'js/core/games.js', 'js/core/gamification.js', 'js/core/teacher-dashboard.js',
         'js/core/classroom-sync.js', 'js/core/classroom-quiz.js', 'js/core/interactive-guide.js',
-        'js/core/diagnostic-exams.js', 'js/core/voice-coach.js', 'js/core/dictation-lab.js', 'js/app.js'
+        'js/core/diagnostic-exams.js', 'js/core/voice-coach.js', 'js/core/dictation-lab.js', 'js/core/readers-theater.js', 'js/app.js'
     ]
     for cs in core_scripts:
         if cs not in index_html:
@@ -483,6 +530,8 @@ def run_integration_audit():
         ('js/core/voice-coach.js', open(os.path.join(BASE_DIR, 'js', 'core', 'voice-coach.js'), encoding='utf-8').read()),
         ('css/dictation-lab.css', open(os.path.join(BASE_DIR, 'css', 'dictation-lab.css'), encoding='utf-8').read()),
         ('js/core/dictation-lab.js', open(os.path.join(BASE_DIR, 'js', 'core', 'dictation-lab.js'), encoding='utf-8').read()),
+        ('css/readers-theater.css', open(os.path.join(BASE_DIR, 'css', 'readers-theater.css'), encoding='utf-8').read()),
+        ('js/core/readers-theater.js', open(os.path.join(BASE_DIR, 'js', 'core', 'readers-theater.js'), encoding='utf-8').read()),
     ]
     for s_name, s_content in sig_targets:
         if official_signature not in s_content:

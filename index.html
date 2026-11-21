@@ -54,6 +54,7 @@
     <link rel="stylesheet" href="css/diagnostic-exams.css">
     <link rel="stylesheet" href="css/voice-coach.css">
     <link rel="stylesheet" href="css/dictation-lab.css">
+    <link rel="stylesheet" href="css/readers-theater.css">
 
 </head>
 
@@ -164,6 +165,12 @@
             <button class="btn-top btn-top-dictation-lab" id="btnTopDictationLab" onclick="DictationLab.openModal('seen')" title="مختبر الإملاء المنظور والاختباري الذكي بالتحليل الصوتي الفوري (Smart Phonics Spelling & Dictation Lab) للأجهزة اللوحية والسبورات">
                 <span>✍️</span>
                 <span id="topDictationLabLabel">مختبر الإملاء والسبورة</span>
+            </button>
+
+            <!-- زر مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية للأجهزة اللوحية والسبورات -->
+            <button class="btn-top btn-top-readers-theater" id="btnTopReadersTheater" onclick="ReadersTheater.openModal('theater')" title="مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية (Interactive Readers Theater & Puppets Lab) للأجهزة اللوحية والسبورات">
+                <span>🎭</span>
+                <span id="topReadersTheaterLabel">مسرح القراءة والدمى</span>
             </button>
 
             <!-- زر نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) -->
@@ -315,6 +322,24 @@
                     <span>•</span>
                     <span>كراسة الخط A4</span>
                     <span style="color: #3730a3; font-weight: 900;">فتح المختبر ⬅</span>
+                </div>
+            </div>
+
+            <!-- بطاقة مسرح القراءة التعبيرية والدمى المتحركة الرقمية في القائمة الجانبية -->
+            <div class="sidebar-teacher-card" id="sidebarReadersTheaterCard" onclick="ReadersTheater.openModal('theater')" style="background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); border-color: #fca5a5; cursor: pointer;" title="مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية للأجهزة اللوحية والسبورات">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #9f1239; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>🎭</span> <span>مسرح القراءة والدمى الرقمية</span>
+                    </span>
+                    <span style="font-size: 0.74rem; font-weight: 900; background: #e11d48; color: white; padding: 2px 8px; border-radius: 8px;">
+                        تفاعلي ودرامي
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #be123c; font-weight: 700;">
+                    <span>مسرح العرائس</span>
+                    <span>•</span>
+                    <span>محادثة صفية ومؤثرات</span>
+                    <span style="color: #881337; font-weight: 900;">فتح المسرح ⬅</span>
                 </div>
             </div>
 
@@ -27918,6 +27943,321 @@
         </div>
     </div>
 
+    <!-- ==========================================================================
+         نافذة مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية
+         (Interactive Readers Theater & Puppets Lab)
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+         ========================================================================== -->
+    <div class="modal-backdrop" id="readersTheaterModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="readers-theater-modal-box" onclick="event.stopPropagation()">
+            <!-- ترويسة المسرح -->
+            <div class="rt-modal-header">
+                <div class="rt-header-titles">
+                    <div class="rt-header-icon">🎭</div>
+                    <div class="rt-title-text">
+                        <h2>
+                            <span>مسرح القراءة التعبيرية والدمى المتحركة الرقمية</span>
+                            <span class="rt-title-badge">محاكاة صفية ومؤثرات درامية</span>
+                        </h2>
+                        <div class="rt-subtitle">
+                            مسرح العرائس • تلقين سطري وتوزيع أدوار • مؤثرات صوتية حية للأجهزة اللوحية والسبورات • <span class="rt-author-tag">إعداد وتطوير: المهندس أسامة خليل هاشم</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="rt-header-actions">
+                    <button class="rt-btn-stage-toggle" id="rtBtnCurtains" onclick="ReadersTheater.toggleCurtains()" title="فتح أو إغلاق ستائر المسرح الكلاسيكية">
+                        <span>🎪</span> <span>إغلاق الستار</span>
+                    </button>
+                    <button class="rt-btn-stage-toggle" id="rtBtnFullscreen" onclick="ReadersTheater.toggleFullscreenStage()" title="تكبير المسرح التفاعلي لملء الشاشة">
+                        <span>📺</span> <span>مسرح ملء الشاشة</span>
+                    </button>
+                    <button class="rt-btn-close" id="rtBtnClose" onclick="ReadersTheater.closeModal()" title="إغلاق المسرح">
+                        <span>✕</span> <span>إغلاق</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- شريط التبويبات -->
+            <div class="rt-tabs-nav">
+                <button class="rt-tab-btn active" id="rtTabBtn_theater" onclick="ReadersTheater.switchTab('theater')">
+                    <span>🎭</span> <span>مسرح القراءة وتوزيع الأدوار</span> <span class="rt-tab-badge">تلقين سطري</span>
+                </button>
+                <button class="rt-tab-btn" id="rtTabBtn_puppets" onclick="ReadersTheater.switchTab('puppets')">
+                    <span>🧸</span> <span>مختبر الدمى الرقمية</span> <span class="rt-tab-badge">تحريك تفاعلي</span>
+                </button>
+                <button class="rt-tab-btn" id="rtTabBtn_conversation" onclick="ReadersTheater.switchTab('conversation')">
+                    <span>💬</span> <span>محاكاة المحادثة الصفية</span> <span class="rt-tab-badge">تبادل الأدوار</span>
+                </button>
+                <button class="rt-tab-btn" id="rtTabBtn_soundboard" onclick="ReadersTheater.switchTab('soundboard')">
+                    <span>🎛️</span> <span>استوديو المؤثرات الدرامية والتذاكر</span> <span class="rt-tab-badge">لوحة صوتية وA4</span>
+                </button>
+            </div>
+
+            <!-- جسم المسرح ومحتوى التبويبات -->
+            <div class="rt-modal-body">
+                <!-- التبويب 1: مسرح القراءة التعبيرية -->
+                <div class="rt-tab-panel active" id="rtTabPanel_theater">
+                    <!-- شريط التحكم بالمسرحية والخلفية والنمط -->
+                    <div class="rt-play-selector-bar">
+                        <div class="rt-selector-group">
+                            <label style="font-weight: 800; font-size: 0.9rem; color: #881337;">📜 اخْتَرِ المَسْرَحِيَّة:</label>
+                            <select class="rt-select" id="rtPlaySelect" onchange="ReadersTheater.onPlaySelectChange()">
+                                <option value="play_dar_dada">مسرحية 1: فِي دَارِ دَادَا وَبَسْمَةِ الأُسْرَة (ص 22 - 27)</option>
+                                <option value="play_mizan_qaddouri">مسرحية 2: مِيزَانُ قَدُّورِي وَسُوقُ النَّشَاطِ (ص 36 - 38)</option>
+                                <option value="play_baqar_basim">مسرحية 3: بَقَرُ بَاسِم وَطُيُورُ الرِّيفِ البَاسِم (ص 44 - 48)</option>
+                                <option value="play_matar_bulbul">مسرحية 4: مَطَرٌ مَطَرٌ.. وَتَغْرِيدُ البُلْبُل (ص 52 - 58)</option>
+                                <option value="play_crow_smart">مسرحية 5: الغُرَابُ الذَّكِيُّ وَجَرَّةُ المَاءِ (ص 88 - 92)</option>
+                                <option value="play_classroom_love">مسرحية 6: فِي مَدْرَسَتِنَا نَتَعَلَّمُ وَنَبْنِي الوَطَن (ص 102 - 108)</option>
+                            </select>
+
+                            <label style="font-weight: 800; font-size: 0.9rem; color: #881337; margin-right: 12px;">🖼️ خَلْفِيَّةُ المَسْرَح:</label>
+                            <select class="rt-select" id="rtBackdropSelect" onchange="ReadersTheater.onBackdropSelectChange()">
+                                <option value="curtain">🎪 مسرح العرائس المخملي</option>
+                                <option value="classroom">🏫 الصف الدراسي التفاعلي</option>
+                                <option value="countryside">🌳 حديقة الحيوانات والريف</option>
+                                <option value="room">🏠 البيت العراقي وغرفة المعيشة</option>
+                                <option value="river">🌊 شاطئ النهر وبساتين النخيل</option>
+                            </select>
+                        </div>
+
+                        <!-- أنماط الأداء -->
+                        <div class="rt-mode-pills">
+                            <button class="rt-mode-pill active" id="rtMode_interactive" onclick="ReadersTheater.setPerformanceMode('interactive')">🎭 تَبَادُلُ أَدْوَار</button>
+                            <button class="rt-mode-pill" id="rtMode_auto" onclick="ReadersTheater.setPerformanceMode('auto')">▶️ تَشْغِيلٌ تِلْقَائِيّ</button>
+                            <button class="rt-mode-pill" id="rtMode_choral" onclick="ReadersTheater.setPerformanceMode('choral')">👥 قِرَاءَةٌ جَمَاعِيَّة</button>
+                        </div>
+                    </div>
+
+                    <!-- شريط فريق التمثيل وتوزيع الأدوار على التلاميذ -->
+                    <div class="rt-cast-bar">
+                        <div class="rt-cast-header">
+                            <span>👥 فَرِيقُ التَّمْثِيلِ الصَّفِيّ وَتَوْزِيعُ الأَدْوَارِ عَلَى التَّلَامِيذ:</span>
+                            <span style="font-size: 0.78rem; color: #7c2d12;">(اكْتُبِ اسْمَ التِّلْمِيذِ فِي كُلِّ دَوْرٍ لِتَظْهَرَ فِي التَّذْكِرَةِ المَدْرَسِيَّةِ)</span>
+                        </div>
+                        <div class="rt-cast-chips" id="rtCastChipsContainer"></div>
+                    </div>
+
+                    <!-- خشبة المسرح الرقمي التفاعلي -->
+                    <div class="rt-stage-wrapper">
+                        <!-- ستائر المسرح الكلاسيكية -->
+                        <div class="rt-stage-curtains rt-curtains-open" id="rtStageCurtains">
+                            <div class="rt-curtain-left"></div>
+                            <div class="rt-curtain-valance">🎪 مَسْرَحُ قِرَاءَتِي الذَّكِيَّةِ لِلتَّعْبِيرِ القِرَائِيّ 🎪</div>
+                            <div class="rt-curtain-right"></div>
+                        </div>
+
+                        <!-- المشهد والدمى -->
+                        <div class="rt-stage-scene rt-scene-room" id="rtStageScene">
+                            <div class="rt-spotlight" id="rtStageSpotlight" style="left: 100px;"></div>
+                            <div class="rt-stage-puppets-row" id="rtStagePuppetsRow"></div>
+                        </div>
+
+                        <!-- أرضية المسرح الخشبية مع أضواء السبوتلايت -->
+                        <div class="rt-stage-floor">
+                            <div class="rt-footlight"></div>
+                            <div class="rt-footlight"></div>
+                            <div class="rt-footlight"></div>
+                            <div class="rt-footlight"></div>
+                            <div class="rt-footlight"></div>
+                            <div class="rt-footlight"></div>
+                        </div>
+                    </div>
+
+                    <!-- شاشة التلقين المسرحي والتتبع السطري -->
+                    <div class="rt-script-container">
+                        <div class="rt-script-header">
+                            <div class="rt-speaker-banner">
+                                <div class="rt-speaker-avatar" id="rtSpeakerAvatar">🦜</div>
+                                <div class="rt-speaker-info">
+                                    <h3 id="rtSpeakerName">فَصِيح (الراوي)</h3>
+                                    <div class="rt-intonation-pill" id="rtSpeakerIntonation">تَسَاؤُلٌ وَتَرْحِيب 🌸</div>
+                                </div>
+                            </div>
+                            <div style="font-weight: 800; font-size: 1.1rem; color: #881337;" id="rtLineCounter">1 / 5</div>
+                        </div>
+
+                        <!-- السطر النشط الكبير للمتابعة -->
+                        <div class="rt-active-line-box" id="rtActiveLineBox">
+                            أَهْلاً بِكُمْ يَا أَصْدِقَائِي فِي دَارِنَا الجَمِيلَةِ، مَاذَا نَرَى هُنَا؟
+                        </div>
+
+                        <!-- أزرار التحكم بالتنقل السطري والتلقين -->
+                        <div class="rt-script-controls">
+                            <button class="rt-btn-ctrl" id="rtBtnPrevLine" onclick="ReadersTheater.prevLine()">
+                                <span>➡️</span> <span>السَّطْرُ السَّابِق</span>
+                            </button>
+                            <button class="rt-btn-ctrl primary" id="rtBtnNextLine" onclick="ReadersTheater.nextLine()">
+                                <span>تَمَّ الإِلْقَاءُ • السَّطْرُ التَّالِي</span> <span>⬅️</span>
+                            </button>
+                            <button class="rt-btn-ctrl success" id="rtBtnAutoPlay" onclick="ReadersTheater.toggleAutoPlay()">
+                                <span>▶️</span> <span>تَشْغِيلُ المَسْرَحِيَّةِ تِلْقَائِيّاً</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التبويب 2: مختبر الدمى المتحركة الرقمية -->
+                <div class="rt-tab-panel" id="rtTabPanel_puppets">
+                    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 16px; padding: 14px 20px; font-weight: 800; color: #881337; display: flex; align-items: center; justify-content: space-between;">
+                        <span>🧸 تَشْكِيلَةُ الدُّمَى المُتَحَرِّكَةِ الرَّقْمِيَّةِ (اضْغَطْ عَلَى أَيِّ حَرَكَةٍ لِتَجْرِبَةِ التَّفَاعُلِ الحَيّ):</span>
+                        <span style="font-size: 0.82rem; background: #fee2e2; color: #9f1239; padding: 4px 12px; border-radius: 10px;">رسوم متجهة SVG فائقة الدقة</span>
+                    </div>
+                    <div class="rt-puppets-grid" id="rtPuppetsGrid"></div>
+                </div>
+
+                <!-- التبويب 3: محاكاة المحادثة الصفية -->
+                <div class="rt-tab-panel" id="rtTabPanel_conversation">
+                    <div class="rt-convo-container">
+                        <!-- ترويسة واختيار السيناريو -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <label style="font-weight: 800; font-size: 0.95rem; color: #881337;">💬 اخْتَرِ المَحَادَثَةَ الصَّفِيَّة:</label>
+                                <select class="rt-select" id="rtConvoSelect" onchange="ReadersTheater.onConvoSelectChange()">
+                                    <option value="convo_greeting">1. التَّحِيَّةُ وَالتَّعَارُفُ فِي اليَوْمِ الأَوَّل</option>
+                                    <option value="convo_asking_help">2. آدَابُ الاسْتِئْذَانِ وَطَلَبِ المُسَاعَدَة</option>
+                                    <option value="convo_picture_desc">3. وَصْفُ الصُّورَةِ وَحَيَوَانَاتِ الرِّيف</option>
+                                </select>
+                            </div>
+                            <div style="font-size: 0.85rem; font-weight: 800; color: #047857;" id="rtConvoPromptText">
+                                فَصِيح يُرَحِّبُ بِكَ فِي الصَّفِّ.. كَيْفَ تُجِيبُهُ بِأَدَبٍ وَثِقَة؟
+                            </div>
+                        </div>
+
+                        <!-- سجل الحوار المتتابع -->
+                        <div class="rt-convo-history" id="rtConvoHistory"></div>
+
+                        <!-- خيارات الرد وزر الميكروفون التعبيري -->
+                        <div class="rt-convo-prompt-box">
+                            <div class="rt-convo-prompt-header">
+                                <span>🎯 اخْتَرِ الرَّدَّ التَّعْبِيرِيَّ المُنَاسِبَ أَوْ تَحَدَّثْ بِصَوْتِك:</span>
+                                <button class="rt-action-btn-sm" id="rtBtnConvoMic" onclick="ReadersTheater.simulateMicInput()" style="background: #be123c; color: white; border: none; padding: 6px 14px; font-weight: 800;">
+                                    <span>🎙️</span> <span>تَحَدَّثْ بِالمَيْكْرُوفُون</span>
+                                </button>
+                            </div>
+                            <div class="rt-convo-options" id="rtConvoOptionsContainer"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التبويب 4: استوديو المؤثرات الدرامية والتذاكر -->
+                <div class="rt-tab-panel" id="rtTabPanel_soundboard">
+                    <div style="background: #ffffff; border: 2px solid #e2e8f0; border-radius: 16px; padding: 14px 20px; font-weight: 800; color: #881337; display: flex; align-items: center; justify-content: space-between;">
+                        <span>🎛️ لَوْحَةُ المَفَاتِيحِ الصَّوْتِيَّةِ الحَيَّةِ لِلْمُعَلِّمِ وَالتَّلَامِيذِ عَلَى السَّبُورَةِ الذَّكِيَّةِ (Web Audio API أوفلاين 100%):</span>
+                        <span style="font-size: 0.82rem; background: #dcfce7; color: #166534; padding: 4px 12px; border-radius: 10px;">استجابة فورية 0ms</span>
+                    </div>
+
+                    <!-- أزرار المؤثرات الصوتية الدرامية الـ 12 -->
+                    <div class="rt-soundboard-grid">
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('applause')" title="تصفيق حار وتشجيع الجمهور">
+                            <span class="rt-sfx-icon">👏</span>
+                            <span class="rt-sfx-label">تصفيق الجمهور</span>
+                            <span class="rt-sfx-tag">Applause</span>
+                        </button>
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('theater_bell')" title="جرس المسرح وبدء العرض">
+                            <span class="rt-sfx-icon">🔔</span>
+                            <span class="rt-sfx-label">جرس المسرح</span>
+                            <span class="rt-sfx-tag">Chime Bell</span>
+                        </button>
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('drumroll')" title="قرع الطبول والترقب المشوق">
+                            <span class="rt-sfx-icon">🥁</span>
+                            <span class="rt-sfx-label">قرع الطبول</span>
+                            <span class="rt-sfx-tag">Drumroll</span>
+                        </button>
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('fanfare')" title="بوق النصر والختام التتويجي">
+                            <span class="rt-sfx-icon">🎺</span>
+                            <span class="rt-sfx-label">بوق النصر</span>
+                            <span class="rt-sfx-tag">Fanfare</span>
+                        </button>
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('magic')" title="بريق السحر والمفاجأة المضيئة">
+                            <span class="rt-sfx-icon">✨</span>
+                            <span class="rt-sfx-label">بريق سحري</span>
+                            <span class="rt-sfx-tag">Magic Sparkle</span>
+                        </button>
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('laughter')" title="ضحك ومرح الأطفال الصغار">
+                            <span class="rt-sfx-icon">🤣</span>
+                            <span class="rt-sfx-label">ضحكات الأطفال</span>
+                            <span class="rt-sfx-tag">Giggle & Laugh</span>
+                        </button>
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('birds')" title="تغريد البلابل وزقزقة العصافير">
+                            <span class="rt-sfx-icon">🐦</span>
+                            <span class="rt-sfx-label">تغريد البلبل</span>
+                            <span class="rt-sfx-tag">Songbird</span>
+                        </button>
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('water')" title="خرير الماء والسباحة في النهر">
+                            <span class="rt-sfx-icon">🌊</span>
+                            <span class="rt-sfx-label">خرير الماء</span>
+                            <span class="rt-sfx-tag">Water Stream</span>
+                        </button>
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('mystery')" title="تشويق ولغز درامي خفيف">
+                            <span class="rt-sfx-icon">⚡</span>
+                            <span class="rt-sfx-label">المفاجأة الدرامية</span>
+                            <span class="rt-sfx-tag">Dramatic Sting</span>
+                        </button>
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('knock')" title="طرق الباب الخشبي">
+                            <span class="rt-sfx-icon">🚪</span>
+                            <span class="rt-sfx-label">طرق الباب (طق!)</span>
+                            <span class="rt-sfx-tag">Door Knock</span>
+                        </button>
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('curtain')" title="حركة ستائر المسرح الكلاسيكية">
+                            <span class="rt-sfx-icon">🎪</span>
+                            <span class="rt-sfx-label">حفيف الستارة</span>
+                            <span class="rt-sfx-tag">Curtains</span>
+                        </button>
+                        <button class="rt-sfx-btn" onclick="ReadersTheater.playSoundEffect('cheer')" title="هتاف برافو وتشجيع جماعي">
+                            <span class="rt-sfx-icon">🎉</span>
+                            <span class="rt-sfx-label">هتاف برافو!</span>
+                            <span class="rt-sfx-tag">Cheer & Bravo</span>
+                        </button>
+                    </div>
+
+                    <!-- قسم التذكرة المطبوعة A4 ووسام المسرح -->
+                    <div class="rt-recorder-ticket-section">
+                        <!-- تذكرة المسرح المدرسية للطباعة الفورية A4 -->
+                        <div class="rt-ticket-card">
+                            <div class="rt-card-header-styled">
+                                <span>🎟️</span> <span>تَذْكِرَةُ المَسْرَحِ المَدْرَسِيَّةِ لِلطِّبَاعَةِ A4</span>
+                            </div>
+                            <div class="rt-ticket-preview">
+                                <div class="rt-ticket-title" id="rtTicketPlayTitle">مسرحية: فِي دَارِ دَادَا وَبَسْمَةِ الأُسْرَة</div>
+                                <div class="rt-ticket-pupil" id="rtTicketPupilName">تِلْمِيذُ الصَّفِّ الأَوَّلِ المُبْدِع</div>
+                                <div class="rt-ticket-role" id="rtTicketRoleName">الدَّوْر: دَادَا البَطَل الصَّغِير</div>
+                                <div style="font-size: 0.88rem; color: #475569; font-weight: 700;">
+                                    مَسْرَحُ القِرَاءَةِ التَّعْبِيرِيَّةِ • وِسَامُ نَجْمِ المَسْرَحِ
+                                </div>
+                                <div class="rt-ticket-signature">
+                                    إعداد وتطوير: المهندس أسامة خليل هاشم • منصة قراءتي التفاعلية الذكية
+                                </div>
+                            </div>
+                            <button class="rt-btn-print" id="rtBtnPrintTicket" onclick="ReadersTheater.printTicket()">
+                                <span>🖨️</span> <span>طِبَاعَةُ التَّذْكِرَةِ المَدْرَسِيَّةِ الفَاخِرَةِ A4</span>
+                            </button>
+                        </div>
+
+                        <!-- وسام نجم المسرح والتعبير القرائي -->
+                        <div class="rt-recorder-card">
+                            <div class="rt-card-header-styled">
+                                <span>🎖️</span> <span>وِسَامُ نَجْمِ المَسْرَحِ وَالتَّعْبِيرِ القِرَائِيّ</span>
+                            </div>
+                            <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px solid #f59e0b; border-radius: 16px; padding: 20px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                                <div style="font-size: 3rem; animation: rtIconPulse 2s infinite ease-in-out;">🏆</div>
+                                <div style="font-size: 1.2rem; font-weight: 900; color: #78350f;">فَارِسُ الإِلْقَاءِ المَسْرَحِيِّ الصَّفِيّ</div>
+                                <p style="font-size: 0.95rem; color: #92400e; margin: 0; line-height: 1.5;">
+                                    يُكَرَّمُ التِّلْمِيذُ عِنْدَ إِتْقَانِ نَبَرَاتِ الصَّوْتِ (الاسْتِفْهَام، التَّعَجُّب، الفَرَح) وَالمُشَارَكَةِ الشَّجَاعَةِ فِي مَسْرَحِ الدُّمَى!
+                                </p>
+                                <div style="font-size: 0.85rem; font-weight: 800; color: #b45309; margin-top: 6px;">
+                                    معايير الطلاقة: النطق السليم • النبرة التعبيرية • الجرأة والثقة بالنفس
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- حاوية الطباعة المنعزلة A4 للتذاكر المدرسية -->
+    <div id="rtPrintableTicketContainer" style="display: none;"></div>
+
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
     <script src="audio_data_unit6.js"></script>
@@ -27939,6 +28279,7 @@
     <script src="js/core/diagnostic-exams.js"></script>
     <script src="js/core/voice-coach.js"></script>
     <script src="js/core/dictation-lab.js"></script>
+    <script src="js/core/readers-theater.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

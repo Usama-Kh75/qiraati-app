@@ -54,6 +54,7 @@
     <link rel="stylesheet" href="css/diagnostic-exams.css">
     <link rel="stylesheet" href="css/voice-coach.css">
     <link rel="stylesheet" href="css/dictation-lab.css">
+    <link rel="stylesheet" href="css/readers-theater.css">
 
 </head>
 
@@ -164,6 +165,12 @@
             <button class="btn-top btn-top-dictation-lab" id="btnTopDictationLab" onclick="DictationLab.openModal('seen')" title="مختبر الإملاء المنظور والاختباري الذكي بالتحليل الصوتي الفوري (Smart Phonics Spelling & Dictation Lab) للأجهزة اللوحية والسبورات">
                 <span>✍️</span>
                 <span id="topDictationLabLabel">مختبر الإملاء والسبورة</span>
+            </button>
+
+            <!-- زر مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية للأجهزة اللوحية والسبورات -->
+            <button class="btn-top btn-top-readers-theater" id="btnTopReadersTheater" onclick="ReadersTheater.openModal('theater')" title="مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية (Interactive Readers Theater & Puppets Lab) للأجهزة اللوحية والسبورات">
+                <span>🎭</span>
+                <span id="topReadersTheaterLabel">مسرح القراءة والدمى</span>
             </button>
 
             <!-- زر نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) -->
@@ -315,6 +322,24 @@
                     <span>•</span>
                     <span>كراسة الخط A4</span>
                     <span style="color: #3730a3; font-weight: 900;">فتح المختبر ⬅</span>
+                </div>
+            </div>
+
+            <!-- بطاقة مسرح القراءة التعبيرية والدمى المتحركة الرقمية في القائمة الجانبية -->
+            <div class="sidebar-teacher-card" id="sidebarReadersTheaterCard" onclick="ReadersTheater.openModal('theater')" style="background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); border-color: #fca5a5; cursor: pointer;" title="مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية للأجهزة اللوحية والسبورات">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #9f1239; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>🎭</span> <span>مسرح القراءة والدمى الرقمية</span>
+                    </span>
+                    <span style="font-size: 0.74rem; font-weight: 900; background: #e11d48; color: white; padding: 2px 8px; border-radius: 8px;">
+                        تفاعلي ودرامي
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #be123c; font-weight: 700;">
+                    <span>مسرح العرائس</span>
+                    <span>•</span>
+                    <span>محادثة صفية ومؤثرات</span>
+                    <span style="color: #881337; font-weight: 900;">فتح المسرح ⬅</span>
                 </div>
             </div>
 
