@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="css/blackboard.css">
     <link rel="stylesheet" href="css/games.css">
     <link rel="stylesheet" href="css/gamification.css">
+    <link rel="stylesheet" href="css/teacher-dashboard.css">
 
 </head>
 
@@ -115,6 +116,12 @@
                 <span class="top-stars-count" id="topGlobalStarsCount">0</span>
                 <span class="top-stars-label">نجمة</span>
             </div>
+
+            <!-- زر لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين -->
+            <button class="btn-top btn-top-teacher-dashboard" id="btnTopTeacherDashboard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين">
+                <span>🧑‍🏫</span>
+                <span>لوحة المعلم وسجل الصف</span>
+            </button>
 
             <!-- زر نظام الاختبار والتقييم الذكي وتحدي النجوم للأبطال -->
             <button class="btn-top btn-top-gamification" id="btnTopGamificationHub" onclick="openGamificationModal('challenge')" title="نظام الاختبار والتقييم الذكي (Gamification & Stars System) ومحرك أسئلة التحدي">
@@ -224,6 +231,23 @@
 
                 <p style="margin: 0; font-size: 0.85rem; color: #64748b;">تدرج دروس الكتاب من البداية للنهاية:</p>
 
+            </div>
+
+            <!-- بطاقة لوحة تحكم المعلم وسجل الصف في القائمة الجانبية -->
+            <div class="sidebar-teacher-card" id="sidebarTeacherCard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #1e3a8a; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>🧑‍🏫</span> <span>لوحة المعلم وسجل الصف</span>
+                    </span>
+                    <span id="sidebarTeacherClassBadge" style="font-size: 0.76rem; font-weight: 900; background: #2563eb; color: white; padding: 2px 8px; border-radius: 8px;">
+                        شعبة (أ)
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #475569; font-weight: 700;">
+                    <span>التلاميذ: <b id="sidebarTeacherStudentsCount" style="color: #1e3a8a;">0</b></span>
+                    <span>الإنجاز: <b id="sidebarTeacherAvgProgress" style="color: #059669;">0%</b></span>
+                    <span style="color: #2563eb; font-weight: 800;">إدارة الصف ⬅</span>
+                </div>
             </div>
 
             <!-- بطاقة سجل الإنجاز والتقييم السريعة في القائمة الجانبية -->

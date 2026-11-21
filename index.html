@@ -47,6 +47,7 @@
     <link rel="stylesheet" href="css/blackboard.css">
     <link rel="stylesheet" href="css/games.css">
     <link rel="stylesheet" href="css/gamification.css">
+    <link rel="stylesheet" href="css/teacher-dashboard.css">
 
 </head>
 
@@ -115,6 +116,12 @@
                 <span class="top-stars-count" id="topGlobalStarsCount">0</span>
                 <span class="top-stars-label">نجمة</span>
             </div>
+
+            <!-- زر لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين -->
+            <button class="btn-top btn-top-teacher-dashboard" id="btnTopTeacherDashboard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين">
+                <span>🧑‍🏫</span>
+                <span>لوحة المعلم وسجل الصف</span>
+            </button>
 
             <!-- زر نظام الاختبار والتقييم الذكي وتحدي النجوم للأبطال -->
             <button class="btn-top btn-top-gamification" id="btnTopGamificationHub" onclick="openGamificationModal('challenge')" title="نظام الاختبار والتقييم الذكي (Gamification & Stars System) ومحرك أسئلة التحدي">
@@ -224,6 +231,23 @@
 
                 <p style="margin: 0; font-size: 0.85rem; color: #64748b;">تدرج دروس الكتاب من البداية للنهاية:</p>
 
+            </div>
+
+            <!-- بطاقة لوحة تحكم المعلم وسجل الصف في القائمة الجانبية -->
+            <div class="sidebar-teacher-card" id="sidebarTeacherCard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #1e3a8a; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>🧑‍🏫</span> <span>لوحة المعلم وسجل الصف</span>
+                    </span>
+                    <span id="sidebarTeacherClassBadge" style="font-size: 0.76rem; font-weight: 900; background: #2563eb; color: white; padding: 2px 8px; border-radius: 8px;">
+                        شعبة (أ)
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #475569; font-weight: 700;">
+                    <span>التلاميذ: <b id="sidebarTeacherStudentsCount" style="color: #1e3a8a;">0</b></span>
+                    <span>الإنجاز: <b id="sidebarTeacherAvgProgress" style="color: #059669;">0%</b></span>
+                    <span style="color: #2563eb; font-weight: 800;">إدارة الصف ⬅</span>
+                </div>
             </div>
 
             <!-- بطاقة سجل الإنجاز والتقييم السريعة في القائمة الجانبية -->
@@ -25144,6 +25168,513 @@
         </div>
     </div>
 
+    <!-- ==============================================
+         نافذة لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    =============================================== -->
+    <div class="modal-backdrop" id="teacherDashboardModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="teacher-modal-box" onclick="event.stopPropagation()">
+            <!-- رأس النافذة -->
+            <div class="teacher-modal-header">
+                <div class="teacher-header-title-box">
+                    <span class="teacher-header-icon">🧑‍🏫</span>
+                    <div>
+                        <h3 class="teacher-header-title">لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين</h3>
+                        <div class="teacher-header-subtitle">
+                            منصة قراءتي التفاعلية الذكية • وزارة التربية • الصف الأول الابتدائي • إعداد وتطوير: المهندس أسامة خليل هاشم
+                        </div>
+                    </div>
+                </div>
+                <div class="teacher-header-actions">
+                    <!-- محدد الشعبة الدراسية السريع -->
+                    <div class="class-selector-box">
+                        <span class="class-selector-label">الشعبة:</span>
+                        <select class="class-dropdown" id="teacherClassSelect" onchange="TeacherDashboard.onClassSelectChange(this.value)" title="تبديل الشعبة الدراسية"></select>
+                        <button type="button" class="btn-class-add" onclick="TeacherDashboard.promptAddClass()" title="إضافة شعبة صفية جديدة">+ شعبة جديدة</button>
+                    </div>
+                    <button class="modal-close-btn" onclick="TeacherDashboard.closeModal()" title="إغلاق النافذة">&times;</button>
+                </div>
+            </div>
+
+            <!-- أزرار التبويبات الستة -->
+            <div class="teacher-modal-tabs">
+                <button class="teacher-modal-tab active" id="tabTeacher_overview" onclick="TeacherDashboard.switchTab('overview')">
+                    <span>📊</span> <span>المؤشرات والتحليلات الصفية</span>
+                </button>
+                <button class="teacher-modal-tab" id="tabTeacher_roster" onclick="TeacherDashboard.switchTab('roster')">
+                    <span>👥</span> <span>سجل إدارة وتتبع التلاميذ</span>
+                </button>
+                <button class="teacher-modal-tab" id="tabTeacher_attendance" onclick="TeacherDashboard.switchTab('attendance')">
+                    <span>📅</span> <span>سجل الحضور والغياب اليومي</span>
+                </button>
+                <button class="teacher-modal-tab" id="tabTeacher_remedial" onclick="TeacherDashboard.switchTab('remedial')">
+                    <span>🩹</span> <span>خطة الدعم والمعالجة الفونيمية</span>
+                </button>
+                <button class="teacher-modal-tab" id="tabTeacher_reports" onclick="TeacherDashboard.switchTab('reports')">
+                    <span>🖨️</span> <span>التقارير المطبوعة والشهادات أوفلاين</span>
+                </button>
+                <button class="teacher-modal-tab" id="tabTeacher_settings" onclick="TeacherDashboard.switchTab('settings')">
+                    <span>⚙️</span> <span>إعدادات الصف وإدارة البيانات</span>
+                </button>
+            </div>
+
+            <!-- جسم النافذة ومحتوى التبويبات -->
+            <div class="teacher-modal-body">
+                <!-- ==============================================
+                     1. تبويب المؤشرات والتحليلات الصفية (Overview)
+                =============================================== -->
+                <div id="paneTeacher_overview" class="teacher-tab-pane active">
+                    <!-- بانر الترحيب والمعلومات الرسمية -->
+                    <div class="teacher-welcome-banner">
+                        <div>
+                            <h4 class="welcome-info-title">
+                                <span>🏫</span> <span id="teacherWelcomeSchool">مدرسة النخبة الابتدائية للبنين والبنات</span>
+                            </h4>
+                            <p class="welcome-info-sub">
+                                معلم المادة: <b id="teacherWelcomeName" style="color: #60a5fa;">الأستاذ / الأستاذة</b> • الشعبة: <b id="teacherWelcomeClass" style="color: #34d399;">شعبة (أ)</b> • العام الدراسي: <b id="teacherWelcomeYear" style="color: #fbbf24;">2026 / 2027</b>
+                            </p>
+                        </div>
+                        <div class="welcome-badges">
+                            <span class="welcome-badge-pill">📖 كتاب قراءتي الجديد</span>
+                            <span class="welcome-badge-pill">⚡ نظام فونيمي متكامل</span>
+                            <span class="welcome-badge-pill">📶 أوفلاين 100%</span>
+                        </div>
+                    </div>
+
+                    <!-- شبكة بطاقات المؤشرات الإحصائية الرئيسية (KPIs) -->
+                    <div class="teacher-kpi-grid">
+                        <div class="teacher-kpi-card">
+                            <div class="kpi-icon-wrap kpi-blue">👥</div>
+                            <div class="kpi-content">
+                                <span class="kpi-value" id="kpiTotalStudents">0</span>
+                                <span class="kpi-label">إجمالي تلاميذ الشعبة</span>
+                            </div>
+                        </div>
+                        <div class="teacher-kpi-card">
+                            <div class="kpi-icon-wrap kpi-green">📈</div>
+                            <div class="kpi-content">
+                                <span class="kpi-value" id="kpiAvgProgress">0%</span>
+                                <span class="kpi-label">متوسط إنجاز المنهج</span>
+                            </div>
+                        </div>
+                        <div class="teacher-kpi-card">
+                            <div class="kpi-icon-wrap kpi-amber">⭐</div>
+                            <div class="kpi-content">
+                                <span class="kpi-value" id="kpiAvgStars">0 ⭐</span>
+                                <span class="kpi-label">متوسط نجوم التحديات</span>
+                            </div>
+                        </div>
+                        <div class="teacher-kpi-card">
+                            <div class="kpi-icon-wrap kpi-purple">🏆</div>
+                            <div class="kpi-content">
+                                <span class="kpi-value" id="kpiExcellentCount">0</span>
+                                <span class="kpi-label">المتفوقون (أبطال القراءة)</span>
+                            </div>
+                        </div>
+                        <div class="teacher-kpi-card">
+                            <div class="kpi-icon-wrap kpi-rose">⚠️</div>
+                            <div class="kpi-content">
+                                <span class="kpi-value" id="kpiRemedialCount">0</span>
+                                <span class="kpi-label">يحتاجون دعماً فونيمياً</span>
+                            </div>
+                        </div>
+                        <div class="teacher-kpi-card">
+                            <div class="kpi-icon-wrap kpi-emerald">👦👧</div>
+                            <div class="kpi-content">
+                                <span class="kpi-value" style="font-size: 1.05rem;" id="kpiGenderRatio">0 ذكور / 0 إناث</span>
+                                <span class="kpi-label">توزيع الجنسين في الصف</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
+                        <!-- مؤشرات إتقان المهارات الفونيمية الثمانية -->
+                        <div class="skills-mastery-section">
+                            <div class="section-head-title">
+                                <span>🎯 مؤشرات إتقان المهارات اللغوية والفونيمية الصفية</span>
+                                <span style="font-size: 0.78rem; font-weight: 700; color: #64748b;">تحديث تلقائي وفوري</span>
+                            </div>
+                            <div class="skills-progress-grid" id="teacherSkillsProgressGrid">
+                                <!-- تُبنى ديناميكياً بواسطة teacher-dashboard.js -->
+                            </div>
+                        </div>
+
+                        <!-- لوحة شرف نجوم الصف -->
+                        <div class="skills-mastery-section">
+                            <div class="section-head-title">
+                                <span>👑 لوحة شرف أبطال التحدي</span>
+                                <span style="font-size: 0.78rem; color: #d97706; font-weight: 800;">أعلى 5 نجوم ⭐</span>
+                            </div>
+                            <div id="teacherHonorRollList">
+                                <!-- يُبنى ديناميكياً بواسطة teacher-dashboard.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==============================================
+                     2. تبويب سجل إدارة وتتبع التلاميذ (Roster)
+                =============================================== -->
+                <div id="paneTeacher_roster" class="teacher-tab-pane">
+                    <!-- شريط أدوات وفلاتر السجل -->
+                    <div class="roster-toolbar">
+                        <div class="roster-filters-group">
+                            <input type="text" id="rosterSearchInput" class="roster-search-input" placeholder="🔍 ابحث باسم التلميذ أو ولي الأمر..." oninput="TeacherDashboard.filterRosterTable()">
+                            <select id="rosterStatusFilter" class="roster-select-filter" onchange="TeacherDashboard.filterRosterTable()">
+                                <option value="all">كافة المستويات</option>
+                                <option value="متفوق">المتفوقون فقط</option>
+                                <option value="متقن">المتقنون</option>
+                                <option value="متوسط">المتوسطون</option>
+                                <option value="remedial">يحتاجون دعماً ⚠️</option>
+                            </select>
+                            <select id="rosterGenderFilter" class="roster-select-filter" onchange="TeacherDashboard.filterRosterTable()">
+                                <option value="all">كافة التلاميذ (بنين وبنات)</option>
+                                <option value="boy">بنين فقط 👦</option>
+                                <option value="girl">بنات فقط 👧</option>
+                            </select>
+                            <span id="rosterFilteredCount" style="font-size: 0.8rem; font-weight: 800; color: #64748b; margin-right: 6px;">0 تلميذ</span>
+                        </div>
+                        <div class="roster-actions-group">
+                            <button type="button" class="btn-roster-action btn-roster-primary" onclick="TeacherDashboard.openAddStudentModal()" title="إضافة تلميذ جديد للشعبة">
+                                <span>➕</span> <span>إضافة تلميذ</span>
+                            </button>
+                            <button type="button" class="btn-roster-action btn-roster-sample" onclick="TeacherDashboard.generateSampleStudentsPrompt()" title="توليد عينة تجريبية صفية واقعية">
+                                <span>🪄</span> <span>توليد عينة (15 تلميذاً)</span>
+                            </button>
+                            <button type="button" class="btn-roster-action btn-roster-stars" onclick="TeacherDashboard.awardClassStarsPrompt()" title="مكافأة نجوم صفية جماعية">
+                                <span>⭐</span> <span>مكافأة صفية</span>
+                            </button>
+                            <button type="button" class="btn-roster-action btn-roster-export" onclick="TeacherDashboard.exportRosterToCSV()" title="تصدير كشف الصف إلى إكسل">
+                                <span>📊</span> <span>تصدير إكسل (CSV)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- جدول سجل التلاميذ الصفي -->
+                    <div class="roster-table-container">
+                        <table class="roster-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40px; text-align: center;">ت</th>
+                                    <th>التلميذ والبيانات الشخصية</th>
+                                    <th>النجوم والسلسلة</th>
+                                    <th>إنجاز المنهج (46 درساً)</th>
+                                    <th>المهارات الأساسية</th>
+                                    <th>التقدير العام</th>
+                                    <th style="min-width: 220px;">الإجراءات السريعة والتقارير</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rosterTableBody">
+                                <!-- يُبنى ديناميكياً بواسطة teacher-dashboard.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ==============================================
+                     3. تبويب سجل الحضور والغياب اليومي (Attendance)
+                =============================================== -->
+                <div id="paneTeacher_attendance" class="teacher-tab-pane">
+                    <div class="attendance-header-card">
+                        <div class="attendance-date-box">
+                            <label style="font-weight: 800; font-size: 0.9rem; color: #1e3a8a;">📅 تاريخ اليوم الدراسي:</label>
+                            <button type="button" class="table-btn-action" onclick="TeacherDashboard.stepAttendanceDate(-1)" title="اليوم السابق">➡️ السابق</button>
+                            <input type="date" id="attendanceDatePicker" class="form-input" style="padding: 5px 10px;" onchange="TeacherDashboard.onAttendanceDateChange(this.value)">
+                            <button type="button" class="table-btn-action" onclick="TeacherDashboard.stepAttendanceDate(1)" title="اليوم التالي">التالي ⬅️</button>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 14px; font-size: 0.85rem; font-weight: 800;">
+                            <span>حاضرون: <b id="attStatsPresent" style="color: #166534;">0</b></span>
+                            <span>غائبون: <b id="attStatsAbsent" style="color: #991b1b;">0</b></span>
+                            <span>متأخرون: <b id="attStatsLate" style="color: #92400e;">0</b></span>
+                            <span>إجازات: <b id="attStatsExcused" style="color: #3730a3;">0</b></span>
+                            <span style="background: #dbeafe; color: #1e40af; padding: 3px 8px; border-radius: 6px;">نسبة الحضور: <b id="attStatsRate">0%</b></span>
+                        </div>
+                        <div style="display: flex; gap: 6px;">
+                            <button type="button" class="btn-roster-action btn-roster-sample" style="font-size: 0.8rem; padding: 6px 12px;" onclick="TeacherDashboard.setAllAttendanceStatus('present')">
+                                ✔️ تسجيل الجميع حاضرون
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="roster-table-container">
+                        <table class="roster-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 40px; text-align: center;">ت</th>
+                                    <th>اسم التلميذ</th>
+                                    <th>حالة الحضور والغياب اليومي</th>
+                                    <th>هاتف ولي الأمر والتواصل</th>
+                                </tr>
+                            </thead>
+                            <tbody id="attendanceTableBody">
+                                <!-- يُبنى ديناميكياً بواسطة teacher-dashboard.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- ==============================================
+                     4. تبويب خطة الدعم والمعالجة الفونيمية (Remedial)
+                =============================================== -->
+                <div id="paneTeacher_remedial" class="teacher-tab-pane">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                        <div>
+                            <h4 style="margin: 0; font-size: 1.1rem; color: #991b1b; display: flex; align-items: center; gap: 8px;">
+                                <span>🩹</span> <span>سجل رعاية ومتابعة التلاميذ المحتاجين لدعم فونيمي إضافي</span>
+                            </h4>
+                            <p style="margin: 2px 0 0 0; font-size: 0.82rem; color: #64748b;">
+                                يتم رصد هذه الحالات تلقائياً بناءً على تقييمات الدروس والمهارات مع مقترحات وتدريبات علاجية مدمجة.
+                            </p>
+                        </div>
+                        <span id="remedialCasesCount" style="font-size: 0.85rem; font-weight: 800; background: #fee2e2; color: #991b1b; padding: 4px 12px; border-radius: 12px;">
+                            0 حالات للمتابعة
+                        </span>
+                    </div>
+
+                    <div id="remedialCardsContainer">
+                        <!-- تُبنى ديناميكياً بواسطة teacher-dashboard.js -->
+                    </div>
+                </div>
+
+                <!-- ==============================================
+                     5. تبويب التقارير المطبوعة والشهادات أوفلاين (Reports)
+                =============================================== -->
+                <div id="paneTeacher_reports" class="teacher-tab-pane">
+                    <!-- خيارات التقارير الأربعة -->
+                    <div class="reports-selection-grid">
+                        <div class="report-option-card selected" data-type="roster" onclick="TeacherDashboard.selectReportType('roster')">
+                            <div>
+                                <div class="report-option-icon">📋</div>
+                                <h4 class="report-option-title">كشف درجات وسجل متابعة الصف الشامل</h4>
+                                <p class="report-option-desc">كشف صفي رسمي منظم بحجم A4 يحتوي جدول تلاميذ الشعبة بكافة المهارات الفونيمية ونسب الإنجاز والتواقيع الرسمية.</p>
+                            </div>
+                            <span style="font-size: 0.8rem; font-weight: 800; color: #2563eb;">طباعة أفقية Landscape ⬅</span>
+                        </div>
+                        <div class="report-option-card" data-type="individual" onclick="TeacherDashboard.selectReportType('individual')">
+                            <div>
+                                <div class="report-option-icon">📑</div>
+                                <h4 class="report-option-title">بطاقة تقرير التلميذ الفردي وإشعار ولي الأمر</h4>
+                                <p class="report-option-desc">تقرير فردي فاخر للتلميذ مع تحليلات الأداء والمهارات ونقاط القوة وتوصيات المعلم وقسيمة توقيع ولي الأمر المقتطعة.</p>
+                            </div>
+                            <span style="font-size: 0.8rem; font-weight: 800; color: #2563eb;">طباعة رأسية Portrait ⬅</span>
+                        </div>
+                        <div class="report-option-card" data-type="remedial" onclick="TeacherDashboard.selectReportType('remedial')">
+                            <div>
+                                <div class="report-option-icon">🩹</div>
+                                <h4 class="report-option-title">كشف خطة الدعم الفونيمي والمعالجة القرائية</h4>
+                                <p class="report-option-desc">تقرير متابعة الحالات التي تحتاج دعماً إضافياً، والصعوبة الفونيمية المشخصة، والتدخل العلاجي في المنصة، والمنزل.</p>
+                            </div>
+                            <span style="font-size: 0.8rem; font-weight: 800; color: #2563eb;">طباعة رأسية Portrait ⬅</span>
+                        </div>
+                        <div class="report-option-card" data-type="cert" onclick="TeacherDashboard.selectReportType('cert')">
+                            <div>
+                                <div class="report-option-icon">👑</div>
+                                <h4 class="report-option-title">شهادة شكر وتفوق وتميز صفية فاخرة</h4>
+                                <p class="report-option-desc">شهادة تقدير A4 مزخرفة تصدر بضغطة زر باسم أي تلميذ في الصف، مع رتبة النجوم والإشادة بالتميز القرائي وتواقيع الإدارة.</p>
+                            </div>
+                            <span style="font-size: 0.8rem; font-weight: 800; color: #2563eb;">طباعة أفقية Landscape ⬅</span>
+                        </div>
+                    </div>
+
+                    <!-- شريط أدوات المعاينة والطباعة الحية -->
+                    <div class="report-preview-actions">
+                        <div id="reportStudentSelectBox" style="display: none; align-items: center; gap: 8px;">
+                            <label style="font-weight: 800; font-size: 0.88rem; color: #1e3a8a;">اختر التلميذ للتقرير/الشهادة:</label>
+                            <select id="reportStudentSelect" class="form-select" onchange="TeacherDashboard.onReportStudentChange(this.value)"></select>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; margin-right: auto;">
+                            <button type="button" class="table-btn-action" onclick="TeacherDashboard.toggleReportOrientation()" title="تبديل اتجاه الورقة المطبوعة">
+                                <span>🔄</span> <span id="btnReportOrientText">أفقي (Landscape)</span>
+                            </button>
+                            <button type="button" class="btn-roster-action btn-roster-primary" style="padding: 8px 18px; font-size: 0.95rem;" onclick="TeacherDashboard.printCurrentReport()" title="طباعة المستند الحالي مباشرة بتنسيق A4">
+                                <span>🖨️</span> <span>طباعة التقرير الآن (Print / PDF)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- حاوية المعاينة الحية للتقرير -->
+                    <div class="report-preview-wrapper">
+                        <div id="reportLivePreviewContainer">
+                            <!-- يُبنى ديناميكياً بواسطة teacher-dashboard.js -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==============================================
+                     6. تبويب إعدادات الصف وإدارة البيانات (Settings)
+                =============================================== -->
+                <div id="paneTeacher_settings" class="teacher-tab-pane">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <!-- بطاقة إعدادات المدرسة والمعلم -->
+                        <div style="background: white; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 18px 20px;">
+                            <h4 style="margin: 0 0 14px 0; font-size: 1.05rem; color: #1e3a8a; display: flex; align-items: center; gap: 8px;">
+                                <span>🏫</span> <span>بيانات المدرسة والمعلم الرسمي</span>
+                            </h4>
+                            <form onsubmit="TeacherDashboard.saveTeacherSettings(event)">
+                                <div class="form-group-item">
+                                    <label class="form-label">اسم معلم / معلمة الصف:</label>
+                                    <input type="text" id="settingTeacherName" class="form-input" placeholder="اسم المعلم الرباعي...">
+                                </div>
+                                <div class="form-group-item">
+                                    <label class="form-label">اسم المدرسة الابتدائية:</label>
+                                    <input type="text" id="settingSchoolName" class="form-input" placeholder="مدرسة ... الابتدائية">
+                                </div>
+                                <div class="form-group-item">
+                                    <label class="form-label">المديرية العامة للتربية:</label>
+                                    <input type="text" id="settingDirectorate" class="form-input" placeholder="المديرية العامة لتربية ...">
+                                </div>
+                                <div class="form-grid-2col">
+                                    <div class="form-group-item">
+                                        <label class="form-label">العام الدراسي:</label>
+                                        <input type="text" id="settingAcademicYear" class="form-input" placeholder="2026 / 2027">
+                                    </div>
+                                    <div class="form-group-item">
+                                        <label class="form-label">اسم مدير / مديرة المدرسة:</label>
+                                        <input type="text" id="settingHeadmaster" class="form-input" placeholder="اسم المدير...">
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-roster-action btn-roster-primary" style="margin-top: 10px; width: 100%; justify-content: center;">
+                                    💾 حفظ بيانات المدرسة والمعلم
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- إدارة الشعب والنسخ الاحتياطي -->
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            <!-- إدارة الشعب -->
+                            <div style="background: white; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 18px 20px;">
+                                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                                    <h4 style="margin: 0; font-size: 1.05rem; color: #1e3a8a; display: flex; align-items: center; gap: 8px;">
+                                        <span>📑</span> <span>الشعب الدراسية المسجلة</span>
+                                    </h4>
+                                    <button type="button" class="btn-class-add" onclick="TeacherDashboard.promptAddClass()">+ إضافة شعبة</button>
+                                </div>
+                                <div id="classesManageList">
+                                    <!-- تُبنى ديناميكياً بواسطة teacher-dashboard.js -->
+                                </div>
+                            </div>
+
+                            <!-- إدارة البيانات والنسخ الاحتياطي الأوفلاين -->
+                            <div style="background: white; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 18px 20px;">
+                                <h4 style="margin: 0 0 12px 0; font-size: 1.05rem; color: #1e3a8a; display: flex; align-items: center; gap: 8px;">
+                                    <span>💾</span> <span>النسخ الاحتياطي واستعادة البيانات أوفلاين 100%</span>
+                                </h4>
+                                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                    <button type="button" class="btn-roster-action btn-roster-primary" onclick="TeacherDashboard.exportBackupJSON()" title="تصدير نسخة احتياطية من سجلات الشعب والتلاميذ">
+                                        <span>📤</span> <span>تصدير نسخة احتياطية (JSON)</span>
+                                    </button>
+                                    <label class="btn-roster-action btn-roster-sample" style="cursor: pointer;" title="استعادة سجلات من ملف نسخة احتياطية محلي">
+                                        <span>📥</span> <span>استعادة نسخة احتياطية</span>
+                                        <input type="file" accept=".json" style="display: none;" onchange="TeacherDashboard.importBackupJSON(event)">
+                                    </label>
+                                    <button type="button" class="btn-roster-action btn-roster-export" onclick="TeacherDashboard.exportRosterToCSV()" title="تصدير كشف الصف إلى إكسل">
+                                        <span>📊</span> <span>تصدير إكسل (CSV)</span>
+                                    </button>
+                                    <button type="button" class="table-btn-action table-btn-delete" style="padding: 6px 12px;" onclick="TeacherDashboard.resetClassDataPrompt()" title="مسح بيانات الشعبة الحالية">
+                                        <span>⚠️</span> <span>مسح بيانات الشعبة</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- أسفل النافذة -->
+            <div style="padding: 12px 22px; background: #f8fafc; border-top: 1.5px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #1e40af;">
+                    🧑‍🏫 منصة قراءتي التفاعلية الذكية • <b>إعداد: المهندس أسامة خليل هاشم</b> • لوحة المعلم وسجل الصف أوفلاين 100% ✅
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button type="button" class="btn btn-teach" style="padding: 6px 18px; font-size: 0.88rem; background: #2563eb; border-color: #1d4ed8;" onclick="TeacherDashboard.closeModal()">
+                        إغلاق النافذة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة إضافة وتعديل التلميذ المنبثقة -->
+    <div class="modal-backdrop" id="studentFormModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="student-form-modal" onclick="event.stopPropagation()">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1.5px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 14px;">
+                <h4 id="studentFormTitle" style="margin: 0; font-size: 1.15rem; color: #1e3a8a; font-weight: 900;">إضافة تلميذ جديد للشعبة</h4>
+                <button class="modal-close-btn" onclick="TeacherDashboard.closeStudentFormModal()">&times;</button>
+            </div>
+            <form id="studentDataForm" onsubmit="TeacherDashboard.saveStudentForm(event)">
+                <div class="form-group-item">
+                    <label class="form-label">اسم التلميذ / التلميذة (الرباعي أو الثلاثي):</label>
+                    <input type="text" id="formStudentName" class="form-input" required placeholder="مثال: أحمد علي حسين">
+                </div>
+                <div class="form-grid-2col">
+                    <div class="form-group-item">
+                        <label class="form-label">الجنس:</label>
+                        <select id="formStudentGender" class="form-select">
+                            <option value="boy">ذكر (تلميذ) 👦</option>
+                            <option value="girl">أنثى (تلميذة) 👧</option>
+                        </select>
+                    </div>
+                    <div class="form-group-item">
+                        <label class="form-label">تاريخ التولد:</label>
+                        <input type="date" id="formStudentBirth" class="form-input" value="2018-04-15">
+                    </div>
+                </div>
+                <div class="form-grid-2col">
+                    <div class="form-group-item">
+                        <label class="form-label">اسم ولي الأمر والصلة:</label>
+                        <input type="text" id="formStudentGuardian" class="form-input" placeholder="مثال: علي حسين (الأب)">
+                    </div>
+                    <div class="form-group-item">
+                        <label class="form-label">رقم هاتف ولي الأمر:</label>
+                        <input type="text" id="formStudentPhone" class="form-input" placeholder="0770xxxxxxx">
+                    </div>
+                </div>
+                <div class="form-grid-2col">
+                    <div class="form-group-item">
+                        <label class="form-label">الدروس المكتملة في المنهج (من 46):</label>
+                        <input type="number" id="formStudentLessons" class="form-input" min="0" max="46" value="35">
+                    </div>
+                    <div class="form-group-item">
+                        <label class="form-label">رصيد النجوم المكتسبة ⭐:</label>
+                        <input type="number" id="formStudentStars" class="form-input" min="0" value="100">
+                    </div>
+                </div>
+                <div class="form-grid-2col">
+                    <div class="form-group-item">
+                        <label class="form-label">التقدير العام والمستوى:</label>
+                        <select id="formStudentStatus" class="form-select">
+                            <option value="متفوق">متفوق (أبطال القراءة)</option>
+                            <option value="متقن">متقن ومتقدم</option>
+                            <option value="متوسط">متوسط ومستقر</option>
+                            <option value="يحتاج دعم">يحتاج دعماً إضافياً ⚠️</option>
+                        </select>
+                    </div>
+                    <div class="form-group-item" style="justify-content: center;">
+                        <label style="display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 0.85rem; color: #dc2626; cursor: pointer; margin-top: 15px;">
+                            <input type="checkbox" id="formStudentNeedsSupport" style="width: 18px; height: 18px; accent-color: #dc2626;">
+                            <span>إدراج في خطة الدعم الفونيمي العاجل</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group-item">
+                    <label class="form-label">ملاحظات التحدي الفونيمي (إن وجدت):</label>
+                    <input type="text" id="formStudentRemedial" class="form-input" placeholder="مثال: صعوبة تمييز صوت د و ر، بطء في التهجئة المقطعية">
+                </div>
+                <div class="form-group-item">
+                    <label class="form-label">ملاحظات تربوية عامة:</label>
+                    <textarea id="formStudentNotes" class="form-textarea" rows="2" placeholder="ملاحظات المعلم وسلوكه الصفي..."></textarea>
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 14px;">
+                    <button type="button" class="table-btn-action" onclick="TeacherDashboard.closeStudentFormModal()">إلغاء</button>
+                    <button type="submit" class="btn-roster-action btn-roster-primary">💾 حفظ بيانات التلميذ</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- حاوية الطباعة المخصصة لقواعد @media print -->
+    <div id="teacherPrintArea" style="display: none;"></div>
+
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
     <script src="audio_data_unit6.js"></script>
@@ -25158,6 +25689,7 @@
     <script src="js/core/blackboard.js"></script>
     <script src="js/core/games.js"></script>
     <script src="js/core/gamification.js"></script>
+    <script src="js/core/teacher-dashboard.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

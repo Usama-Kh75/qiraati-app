@@ -77,8 +77,8 @@ def build_standalone():
 
     print(f"✔ تم ترميز {len(raw_image_data)} أصلاً صورياً بنجاح بنسبة 100%.")
 
-    # 3. دمج وضغط ملفات التنسيق CSS الـ 15 داخل وسم style واحد
-    print("\n[2/7] جارٍ دمج ملفات التصميم CSS الـ 15 داخل وسم <style>...")
+    # 3. دمج وضغط ملفات التنسيق CSS الـ 17 داخل وسم style واحد
+    print("\n[2/7] جارٍ دمج ملفات التصميم CSS الـ 17 داخل وسم <style>...")
     css_files = [
         'css/variables.css',
         'css/layout.css',
@@ -95,7 +95,8 @@ def build_standalone():
         'css/enrichment.css',
         'css/blackboard.css',
         'css/games.css',
-        'css/gamification.css'
+        'css/gamification.css',
+        'css/teacher-dashboard.css'
     ]
 
     css_combined = []
@@ -219,7 +220,7 @@ def build_standalone():
     html = re.sub(r'<script\s+src=["\'](?:\./)?curriculum_data\.js["\']\s*></script>', '', html)
 
     # 7. دمج كافة وحدات الجافاسكربت المعيارية (Modular JS)
-    print("\n[6/7] جارٍ دمج ملفات JavaScript المعيارية الـ 16 بالترتيب التكاملي الدقيق...")
+    print("\n[6/7] جارٍ دمج ملفات JavaScript المعيارية الـ 17 بالترتيب التكاملي الدقيق...")
     js_modules = [
         'js/core/modals.js',
         'js/core/audio.js',
@@ -229,6 +230,7 @@ def build_standalone():
         'js/core/blackboard.js',
         'js/core/games.js',
         'js/core/gamification.js',
+        'js/core/teacher-dashboard.js',
         'js/lessons/prep.js',
         'js/lessons/unit1.js',
         'js/lessons/unit2.js',
