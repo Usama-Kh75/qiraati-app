@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">قراءتي الذكية</string>
+    <string name="app_full_name">منصة قراءتي التفاعلية الذكية - الصف الأول الابتدائي</string>
+    <string name="author_credit">إعداد المهندس أسامة خليل هاشم</string>
+    <string name="exit_confirm">اضغط مرة أخرى للخروج من تطبيق قراءتي الذكية</string>
+</resources>

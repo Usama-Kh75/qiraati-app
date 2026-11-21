@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_dark">#0f172a</color>
+    <color name="primary_blue">#0284c7</color>
+    <color name="brand_bg">#0f172a</color>
+    <color name="accent_gold">#fbbf24</color>
+</resources>
