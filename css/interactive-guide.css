@@ -1,0 +1,933 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - جولة الاستكشاف ودليل المعلم وولي الأمر الرقمي
+ * (Interactive Guided Tour & Digital Teacher / Parent Platform & Quiz Manual)
+ * متوافق مع الشاشات التفاعلية الذكية وأجهزة التابلت والهواتف المحمولة
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. أزرار الشريط العلوي (Top Navbar Buttons)
+   -------------------------------------------------------------------------- */
+.btn-top-tour {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #9333ea 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #c084fc !important;
+    box-shadow: 0 3px 10px rgba(124, 58, 237, 0.28) !important;
+    font-weight: 800 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-top-tour::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: rotate(25deg);
+    animation: tourShine 4s infinite linear;
+}
+
+@keyframes tourShine {
+    0% { transform: translateX(100%) rotate(25deg); }
+    30%, 100% { transform: translateX(-100%) rotate(25deg); }
+}
+
+.btn-top-tour:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.4) !important;
+    background: linear-gradient(135deg, #4338ca 0%, #6d28d9 100%) !important;
+}
+
+.btn-top-digital-guide {
+    background: linear-gradient(135deg, #065f46 0%, #059669 50%, #10b981 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #a7f3d0 !important;
+    box-shadow: 0 3px 10px rgba(5, 150, 105, 0.28) !important;
+    font-weight: 800 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+.btn-top-digital-guide:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(5, 150, 105, 0.4) !important;
+    background: linear-gradient(135deg, #047857 0%, #065f46 100%) !important;
+}
+
+/* --------------------------------------------------------------------------
+   2. جولة الاستكشاف التفاعلية (Guided Onboarding Tour)
+   -------------------------------------------------------------------------- */
+.platform-tour-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99990;
+    pointer-events: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+    background: transparent;
+}
+
+.platform-tour-overlay.tour-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* صندوق التمييز البصري والنبض (Spotlight Cutout Highlight) */
+.platform-tour-highlight {
+    position: fixed;
+    z-index: 99992;
+    pointer-events: none;
+    border-radius: 16px;
+    border: 3.5px solid #38bdf8;
+    box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.78), 0 0 35px rgba(56, 189, 248, 0.85);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    animation: tourPulseGlow 2s infinite alternate ease-in-out;
+}
+
+.platform-tour-highlight.active {
+    opacity: 1;
+}
+
+@keyframes tourPulseGlow {
+    0% {
+        border-color: #38bdf8;
+        box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.78), 0 0 25px rgba(56, 189, 248, 0.65);
+    }
+    100% {
+        border-color: #f59e0b;
+        box-shadow: 0 0 0 9999px rgba(15, 23, 42, 0.82), 0 0 45px rgba(245, 158, 11, 0.95);
+    }
+}
+
+/* بطاقة التوجيه المنبثقة التفاعلية (Tour Popover Card) */
+.platform-tour-popover {
+    position: fixed;
+    z-index: 99996;
+    width: 420px;
+    max-width: calc(100vw - 32px);
+    background: #ffffff;
+    border-radius: 22px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 0 2px #0284c7;
+    padding: 22px 24px;
+    direction: rtl;
+    text-align: right;
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: inherit;
+    pointer-events: auto;
+}
+
+.platform-tour-popover.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.tour-popover-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.tour-step-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 800;
+    font-size: 0.82rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.tour-close-btn {
+    background: #f1f5f9;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tour-close-btn:hover {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+.tour-title-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.tour-icon-box {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.tour-title-text {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #1e3a8a;
+    margin: 0;
+}
+
+.tour-desc-text {
+    font-size: 0.94rem;
+    line-height: 1.65;
+    color: #334155;
+    margin: 0 0 14px 0;
+}
+
+.tour-tip-card {
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    color: #166534;
+    line-height: 1.5;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.tour-progress-bar-wrapper {
+    background: #e2e8f0;
+    height: 6px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.tour-progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #0284c7, #38bdf8);
+    transition: width 0.35s ease;
+}
+
+.tour-popover-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.tour-footer-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.tour-nav-btn {
+    padding: 8px 18px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tour-btn-prev {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.tour-btn-prev:hover:not(:disabled) {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.tour-btn-prev:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.tour-btn-next {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3);
+}
+
+.tour-btn-next:hover {
+    background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+    transform: translateY(-1px);
+}
+
+.tour-btn-finish {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(5, 150, 105, 0.3);
+}
+
+.tour-btn-finish:hover {
+    background: linear-gradient(135deg, #047857 0%, #065f46 100%);
+    transform: translateY(-1px);
+}
+
+.tour-skip-link {
+    font-size: 0.82rem;
+    color: #94a3b8;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    text-decoration: underline;
+    transition: color 0.2s;
+}
+
+.tour-skip-link:hover {
+    color: #ef4444;
+}
+
+/* سهم الإشارة للبوبوفر */
+.tour-popover-arrow {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #ffffff;
+    transform: rotate(45deg);
+    border: 2px solid #0284c7;
+    z-index: -1;
+}
+
+.tour-arrow-top {
+    top: -8px;
+    right: 32px;
+    border-bottom: none;
+    border-left: none;
+}
+
+.tour-arrow-bottom {
+    bottom: -8px;
+    right: 32px;
+    border-top: none;
+    border-right: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. دليل المعلم وولي الأمر الرقمي (Digital Guide Modal Box)
+   -------------------------------------------------------------------------- */
+.guide-modal-box {
+    width: 96vw;
+    max-width: 1250px;
+    height: 92vh;
+    max-height: 900px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 25px 70px rgba(15, 23, 42, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 3px solid #059669;
+    position: relative;
+    font-family: inherit;
+    animation: guideModalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes guideModalIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.guide-modal-header {
+    background: linear-gradient(135deg, #065f46 0%, #059669 60%, #047857 100%);
+    color: #ffffff;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.guide-header-title-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.guide-header-icon {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.guide-header-title-box h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+}
+
+.guide-header-title-box p {
+    margin: 2px 0 0 0;
+    font-size: 0.84rem;
+    opacity: 0.92;
+    color: #d1fae5;
+}
+
+/* شريط البحث والفلترة السريعة */
+.guide-toolbar {
+    background: #f8fafc;
+    border-bottom: 1.5px solid #e2e8f0;
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.guide-search-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 260px;
+    max-width: 420px;
+}
+
+.guide-search-input {
+    width: 100%;
+    padding: 8px 36px 8px 36px;
+    border-radius: 12px;
+    border: 1.5px solid #cbd5e1;
+    font-family: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.2s ease;
+    background: #ffffff;
+}
+
+.guide-search-input:focus {
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+}
+
+.guide-search-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #64748b;
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.guide-search-clear {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: none;
+    padding: 2px;
+}
+
+.guide-filter-pills {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.guide-filter-pill {
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.guide-filter-pill:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.guide-filter-pill.active {
+    background: #059669;
+    color: #ffffff;
+    border-color: #059669;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
+}
+
+/* تخطيط محتوى الدليل (Sidebar + Active Pane) */
+.guide-body-layout {
+    display: grid;
+    grid-template-columns: 290px 1fr;
+    flex: 1;
+    overflow: hidden;
+    background: #f8fafc;
+}
+
+/* قائمة الفصول الجانبية */
+.guide-chapters-sidebar {
+    background: #ffffff;
+    border-left: 1.5px solid #e2e8f0;
+    overflow-y: auto;
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.guide-chapter-btn {
+    text-align: right;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1.5px solid #f1f5f9;
+    background: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    position: relative;
+}
+
+.guide-chapter-btn:hover {
+    background: #f0fdf4;
+    border-color: #a7f3d0;
+}
+
+.guide-chapter-btn.active {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border-color: #10b981;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+}
+
+.guide-ch-icon-box {
+    font-size: 1.6rem;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+.guide-ch-info {
+    flex: 1;
+}
+
+.guide-ch-num {
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #059669;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.guide-ch-title {
+    font-size: 0.92rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin: 0 0 3px 0;
+    line-height: 1.4;
+}
+
+.guide-ch-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 6px;
+    background: #e2e8f0;
+    color: #475569;
+}
+
+.guide-chapter-btn.active .guide-ch-badge {
+    background: #059669;
+    color: #ffffff;
+}
+
+/* مساحة عرض محتوى الفصل النشط */
+.guide-content-pane {
+    flex: 1;
+    overflow-y: auto;
+    padding: 24px 30px;
+    background: #ffffff;
+    scroll-behavior: smooth;
+}
+
+.guide-chapter-header-card {
+    background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+    border: 2px solid #a7f3d0;
+    border-radius: 18px;
+    padding: 18px 22px;
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.guide-chapter-header-card h2 {
+    margin: 0;
+    color: #065f46;
+    font-size: 1.4rem;
+    font-weight: 900;
+}
+
+.guide-chapter-header-card p {
+    margin: 4px 0 0 0;
+    color: #047857;
+    font-size: 0.92rem;
+}
+
+.guide-meta-pills {
+    display: flex;
+    gap: 8px;
+}
+
+.guide-meta-pill {
+    background: #ffffff;
+    border: 1px solid #86efac;
+    color: #15803d;
+    font-size: 0.78rem;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* بطاقات أقسام الشرح في الدليل */
+.guide-section-block {
+    margin-bottom: 26px;
+    border-bottom: 1.5px dashed #e2e8f0;
+    padding-bottom: 22px;
+}
+
+.guide-section-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.guide-section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #1e3a8a;
+    margin: 0 0 12px 0;
+}
+
+.guide-section-title span.badge-num {
+    background: #dbeafe;
+    color: #1d4ed8;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 900;
+}
+
+.guide-p {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #334155;
+    margin: 0 0 12px 0;
+}
+
+/* جداول المقارنة في الدليل */
+.guide-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+}
+
+.guide-table th {
+    background: #f1f5f9;
+    color: #1e293b;
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    border: 1px solid #e2e8f0;
+    text-align: right;
+}
+
+.guide-table td {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    vertical-align: middle;
+}
+
+.guide-table tr:nth-child(even) td {
+    background: #f8fafc;
+}
+
+/* بطاقات النصائح والتنبيهات المميزة */
+.guide-callout {
+    border-radius: 14px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.guide-callout-info {
+    background: #f0fdf4;
+    border: 1.5px solid #86efac;
+    color: #166534;
+}
+
+.guide-callout-warning {
+    background: #fffbeb;
+    border: 1.5px solid #fde68a;
+    color: #92400e;
+}
+
+.guide-callout-pro {
+    background: #f5f3ff;
+    border: 1.5px solid #ddd6fe;
+    color: #5b21b6;
+}
+
+.guide-callout-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+/* أزرار الإجراء والتشغيل السريع (Action Shortcuts) */
+.guide-action-box {
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.guide-action-desc {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.guide-action-desc span.icon {
+    font-size: 1.8rem;
+}
+
+.guide-action-btn {
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border: none;
+    font-family: inherit;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.guide-btn-quiz {
+    background: linear-gradient(135deg, #ea580c 0%, #f59e0b 100%);
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(234, 88, 12, 0.25);
+}
+
+.guide-btn-teacher {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(2, 132, 199, 0.25);
+}
+
+.guide-btn-sync {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(124, 58, 237, 0.25);
+}
+
+.guide-btn-trace {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: #ffffff;
+    box-shadow: 0 3px 10px rgba(5, 150, 105, 0.25);
+}
+
+.guide-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* تمييز نتائج البحث (Search Highlights) */
+mark.guide-highlight {
+    background-color: #fef08a;
+    color: #854d0e;
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-weight: 800;
+}
+
+/* أسفل نافذة الدليل (Footer) */
+.guide-modal-footer {
+    padding: 12px 24px;
+    background: #f8fafc;
+    border-top: 1.5px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.guide-footer-sig {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #065f46;
+}
+
+.guide-footer-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   4. التوافق مع شاشات الجوال والتطبيقات المستقلة (Responsive)
+   -------------------------------------------------------------------------- */
+@media (max-width: 900px) {
+    .guide-body-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .guide-chapters-sidebar {
+        border-left: none;
+        border-bottom: 1.5px solid #e2e8f0;
+        max-height: 180px;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .guide-chapter-btn {
+        min-width: 220px;
+        flex-shrink: 0;
+    }
+
+    .platform-tour-popover {
+        width: calc(100vw - 32px);
+        left: 16px !important;
+        right: 16px !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   5. تنسيقات الطباعة الرسمية A4 (Print Styles)
+   -------------------------------------------------------------------------- */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #guidePrintArea,
+    #guidePrintArea * {
+        visibility: visible;
+    }
+
+    #guidePrintArea {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: block !important;
+        background: #ffffff;
+        color: #000000;
+        padding: 20px;
+        font-family: 'Tajawal', sans-serif;
+    }
+
+    .guide-print-header {
+        text-align: center;
+        border-bottom: 2px solid #059669;
+        padding-bottom: 12px;
+        margin-bottom: 20px;
+    }
+
+    .guide-print-header h1 {
+        margin: 0;
+        font-size: 18pt;
+        color: #065f46;
+    }
+
+    .guide-print-header p {
+        margin: 4px 0 0 0;
+        font-size: 11pt;
+        color: #334155;
+    }
+
+    .guide-print-footer {
+        text-align: center;
+        border-top: 1px solid #cbd5e1;
+        margin-top: 30px;
+        padding-top: 10px;
+        font-size: 10pt;
+        color: #64748b;
+    }
+}

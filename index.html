@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="css/teacher-dashboard.css">
     <link rel="stylesheet" href="css/classroom-sync.css">
     <link rel="stylesheet" href="css/classroom-quiz.css">
+    <link rel="stylesheet" href="css/interactive-guide.css">
 
 </head>
 
@@ -79,7 +80,7 @@
 
                         <span>قراءتي التفاعلية الذكية</span>
 
-                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار النهائي المستقل (v3.29 Final Release): اكتمال كتاب قراءتي 100% بكافة وحداته الست ودروسه التفاعلية - إعداد المهندس أسامة خليل هاشم">v3.29 Final</span>
+                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.45: جولة الاستكشاف التفاعلية ودليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات - إعداد المهندس أسامة خليل هاشم">v3.45</span>
 
                     </div>
 
@@ -118,6 +119,18 @@
                 <span class="top-stars-count" id="topGlobalStarsCount">0</span>
                 <span class="top-stars-label">نجمة</span>
             </div>
+
+            <!-- زر جولة الاستكشاف التفاعلية للمنصة -->
+            <button class="btn-top btn-top-tour" id="btnTopTour" onclick="startPlatformTour(0)" title="خوض جولة الاستكشاف التفاعلية للتعرف على أركان المنصة والمسابقات ومسرح الدرس">
+                <span>🚀</span>
+                <span>جولة استكشافية</span>
+            </button>
+
+            <!-- زر دليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات -->
+            <button class="btn-top btn-top-digital-guide" id="btnTopDigitalGuide" onclick="openDigitalGuideModal('phonics')" title="دليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات والمتابعة المنزلية">
+                <span>📖</span>
+                <span>دليل المنصة والمسابقات</span>
+            </button>
 
             <!-- زر محرك المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show) بين أجهزة التابلت وشاشة العرض -->
             <button class="btn-top btn-top-quiz-show" id="btnTopQuizShow" onclick="openClassroomQuizModal('host')" title="استوديو المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show) - شاشة العرض الذكية وأجهزة التابلت">
@@ -25319,6 +25332,25 @@
                         </button>
                     </div>
 
+                    <!-- بطاقة دليل المعلم وولي الأمر الرقمي وجولة الاستكشاف -->
+                    <div style="background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%); border: 2px solid #86efac; border-radius: 16px; padding: 14px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.08); flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 14px;">
+                            <div style="font-size: 2.5rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">📖</div>
+                            <div>
+                                <h4 style="margin: 0 0 4px; font-size: 1.15rem; color: #065f46; font-weight: 900;">دليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات</h4>
+                                <p style="margin: 0; color: #475569; font-size: 0.88rem;">الفلسفة الفونيمية، إدارة الحصة، تشغيل المسابقات والتابلت، والمتابعة المنزلية أوفلاين</p>
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 10px;">
+                            <button type="button" class="btn btn-teach" style="padding: 9px 18px; font-size: 0.92rem; background: #059669; border-color: #047857; display: inline-flex; align-items: center; gap: 7px;" onclick="openDigitalGuideModal('teacher')">
+                                <span>📖</span> <span>فتح دليل المعلم والمسابقات</span>
+                            </button>
+                            <button type="button" class="btn" style="padding: 9px 16px; font-size: 0.92rem; background: #f3e8ff; color: #6b21a8; border: 1.5px solid #d8b4fe; display: inline-flex; align-items: center; gap: 6px;" onclick="closeModal('teacherDashboardModal'); startPlatformTour(0)">
+                                <span>🚀</span> <span>جولة استكشافية</span>
+                            </button>
+                        </div>
+                    </div>
+
                     <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
                         <!-- مؤشرات إتقان المهارات الفونيمية الثمانية -->
                         <div class="skills-mastery-section">
@@ -26408,6 +26440,587 @@
         </div>
     </div>
 
+    <!-- ==============================================
+         جولة الاستكشاف التفاعلية للمنصة (Platform Guided Tour)
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    =============================================== -->
+    <div class="platform-tour-overlay" id="platformTourOverlay" onclick="PlatformTour.skipTour()">
+        <div class="platform-tour-highlight" id="platformTourTargetHighlight"></div>
+        <div class="platform-tour-popover" id="platformTourPopover" onclick="event.stopPropagation()">
+            <div class="tour-popover-header">
+                <span class="tour-step-badge" id="tourStepBadge">الخطوة 1 من 10</span>
+                <button type="button" class="tour-close-btn" onclick="PlatformTour.skipTour()" title="تخطي الجولة">&times;</button>
+            </div>
+            <div class="tour-title-row">
+                <span class="tour-icon-box" id="tourIconBox">📖</span>
+                <h3 class="tour-title-text" id="tourTitleText">عنوان الخطوة</h3>
+            </div>
+            <p class="tour-desc-text" id="tourDescText">نص الشرح التفاعلي للخطوة</p>
+            <div class="tour-tip-card">
+                <span>💡</span>
+                <span id="tourTipText">النصيحة التربوية الذكية</span>
+            </div>
+            <div class="tour-progress-bar-wrapper">
+                <div class="tour-progress-bar-fill" id="tourProgressFill" style="width: 10%;"></div>
+            </div>
+            <div class="tour-popover-footer">
+                <button type="button" class="tour-skip-link" onclick="PlatformTour.skipTour()">تخطي الجولة</button>
+                <div class="tour-footer-buttons">
+                    <button type="button" class="tour-nav-btn tour-btn-prev" id="tourBtnPrev" onclick="PlatformTour.prevStep()" disabled>
+                        <span>السابق</span> <span>➡️</span>
+                    </button>
+                    <button type="button" class="tour-nav-btn tour-btn-next" id="tourBtnNext" onclick="PlatformTour.nextStep()">
+                        <span>التالي</span> <span>⬅️</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         دليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    =============================================== -->
+    <div class="modal-backdrop" id="digitalGuideModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="guide-modal-box" onclick="event.stopPropagation()">
+            <!-- الترويسة العلوية للدليل -->
+            <div class="guide-modal-header">
+                <div class="guide-header-title-box">
+                    <span class="guide-header-icon">📖</span>
+                    <div>
+                        <h3>دليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات</h3>
+                        <p>المنهج الفونيمي الصوتي • إدارة الحصة الصفية • المسابقات المباشرة • شبكة التابلت والمتابعة المنزلية</p>
+                    </div>
+                </div>
+                <button class="modal-close-btn" onclick="closeDigitalGuideModal()" title="إغلاق الدليل">&times;</button>
+            </div>
+
+            <!-- شريط البحث والفلترة السريعة -->
+            <div class="guide-toolbar">
+                <div class="guide-search-wrapper">
+                    <span class="guide-search-icon">🔍</span>
+                    <input type="text" class="guide-search-input" id="guideSearchInput" placeholder="ابحث في فصول الدليل (مثال: المسابقات، الفونيمي، التابلت...)" oninput="InteractiveGuide.searchInGuide(this.value)">
+                    <button type="button" class="guide-search-clear" id="guideSearchClear" onclick="InteractiveGuide.clearSearch()" title="مسح البحث">&times;</button>
+                </div>
+
+                <div class="guide-filter-pills">
+                    <button type="button" class="guide-filter-pill active" data-filter="all" onclick="InteractiveGuide.filterChapters('all')">
+                        <span>🌐</span> <span>الكل</span>
+                    </button>
+                    <button type="button" class="guide-filter-pill" data-filter="teacher" onclick="InteractiveGuide.filterChapters('teacher')">
+                        <span>🧑‍🏫</span> <span>دليل المعلم</span>
+                    </button>
+                    <button type="button" class="guide-filter-pill" data-filter="quiz" onclick="InteractiveGuide.filterChapters('quiz')">
+                        <span>🏆</span> <span>المسابقات والتابلت</span>
+                    </button>
+                    <button type="button" class="guide-filter-pill" data-filter="sync" onclick="InteractiveGuide.filterChapters('sync')">
+                        <span>📡</span> <span>المزامنة والشبكة</span>
+                    </button>
+                    <button type="button" class="guide-filter-pill" data-filter="parent" onclick="InteractiveGuide.filterChapters('parent')">
+                        <span>👨‍👩‍👧‍👦</span> <span>ولي الأمر</span>
+                    </button>
+                    <button type="button" class="guide-filter-pill" data-filter="tech" onclick="InteractiveGuide.filterChapters('tech')">
+                        <span>⚙️</span> <span>الدعم والتثبيت</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- هيكل محتوى الدليل (قائمة الفصول + مساحة العرض) -->
+            <div class="guide-body-layout">
+                <!-- القائمة الجانبية للفصول -->
+                <nav class="guide-chapters-sidebar" id="guideChaptersSidebar">
+                    <!-- فصل 1 -->
+                    <button type="button" class="guide-chapter-btn active" id="tabGuide_phonics" data-chapter="phonics" data-category="teacher" onclick="InteractiveGuide.switchChapter('phonics')">
+                        <span class="guide-ch-icon-box">🧠</span>
+                        <div class="guide-ch-info">
+                            <span class="guide-ch-num">الفصل الأول</span>
+                            <div class="guide-ch-title">الفلسفة والمنهج الفونيمي الصوتي</div>
+                            <span class="guide-ch-badge">Synthetic Phonics</span>
+                        </div>
+                    </button>
+
+                    <!-- فصل 2 -->
+                    <button type="button" class="guide-chapter-btn" id="tabGuide_teacher" data-chapter="teacher" data-category="teacher" onclick="InteractiveGuide.switchChapter('teacher')">
+                        <span class="guide-ch-icon-box">🧑‍🏫</span>
+                        <div class="guide-ch-info">
+                            <span class="guide-ch-num">الفصل الثاني</span>
+                            <div class="guide-ch-title">دليل المعلم وإدارة الحصة الصفية</div>
+                            <span class="guide-ch-badge">الشاشات والتقارير</span>
+                        </div>
+                    </button>
+
+                    <!-- فصل 3 -->
+                    <button type="button" class="guide-chapter-btn" id="tabGuide_quiz" data-chapter="quiz" data-category="quiz" onclick="InteractiveGuide.switchChapter('quiz')">
+                        <span class="guide-ch-icon-box">🏆</span>
+                        <div class="guide-ch-info">
+                            <span class="guide-ch-num">الفصل الثالث</span>
+                            <div class="guide-ch-title">استوديو المسابقات التنافسية المباشرة</div>
+                            <span class="guide-ch-badge">Live Game Show</span>
+                        </div>
+                    </button>
+
+                    <!-- فصل 4 -->
+                    <button type="button" class="guide-chapter-btn" id="tabGuide_sync" data-chapter="sync" data-category="sync" onclick="InteractiveGuide.switchChapter('sync')">
+                        <span class="guide-ch-icon-box">📡</span>
+                        <div class="guide-ch-info">
+                            <span class="guide-ch-num">الفصل الرابع</span>
+                            <div class="guide-ch-title">المزامنة الصفية المحلية وشبكة التابلت</div>
+                            <span class="guide-ch-badge">Local Wi-Fi Sync</span>
+                        </div>
+                    </button>
+
+                    <!-- فصل 5 -->
+                    <button type="button" class="guide-chapter-btn" id="tabGuide_parent" data-chapter="parent" data-category="parent" onclick="InteractiveGuide.switchChapter('parent')">
+                        <span class="guide-ch-icon-box">👨‍👩‍👧‍👦</span>
+                        <div class="guide-ch-info">
+                            <span class="guide-ch-num">الفصل الخامس</span>
+                            <div class="guide-ch-title">دليل ولي الأمر للمتابعة المنزلية</div>
+                            <span class="guide-ch-badge">15 دقيقة يومياً</span>
+                        </div>
+                    </button>
+
+                    <!-- فصل 6 -->
+                    <button type="button" class="guide-chapter-btn" id="tabGuide_tech" data-chapter="tech" data-category="tech" onclick="InteractiveGuide.switchChapter('tech')">
+                        <span class="guide-ch-icon-box">⚙️</span>
+                        <div class="guide-ch-info">
+                            <span class="guide-ch-num">الفصل السادس</span>
+                            <div class="guide-ch-title">الدعم التقني والتثبيت وتشغيل PWA</div>
+                            <span class="guide-ch-badge">أوفلاين 100%</span>
+                        </div>
+                    </button>
+                </nav>
+
+                <!-- مساحة عرض الفصل النشط -->
+                <div class="guide-content-area" style="flex: 1; display: flex; flex-direction: column; overflow: hidden;">
+                    
+                    <!-- 1. الفصل الأول: الفلسفة والمنهج الفونيمي -->
+                    <div class="guide-content-pane" id="paneGuide_phonics" style="display: block;">
+                        <div class="guide-chapter-header-card">
+                            <div>
+                                <h2>الفصل الأول: الفلسفة والمنهج الفونيمي الصوتي (Synthetic Phonics)</h2>
+                                <p>كيف تعلّم المنصة الطفل قراءة الكلمة من أول يوم دون تشتيت بحفظ أسماء الحروف المجردة</p>
+                            </div>
+                            <div class="guide-meta-pills">
+                                <span class="guide-meta-pill">⏱️ وقت القراءة: 4 دقائق</span>
+                                <span class="guide-meta-pill">🎯 الصف الأول الابتدائي</span>
+                            </div>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">1</span> جوهر الطريقة الفونيمية الحديثة</h3>
+                            <p class="guide-p">تعتمد منصة «قراءتي الذكية» على <b>الطريقة الصوتية الفونيمية التركيبية (Synthetic Phonics)</b>، وهي الطريقة العالمية الأنجح لتعليم القراءة في المرحلة المبكرة. الفارق الجوهري يكمن في تعليم الطفل <b>صوت الحرف الصرف</b> الذي ينطقه في الكلمة، بدلاً من اسمه الأبجدي المجرد.</p>
+                            
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>وجه المقارنة</th>
+                                        <th>الاسم المجرد (الطريقة التقليدية)</th>
+                                        <th>الصوت الفونيمي النقي (منصة قراءتي)</th>
+                                        <th>أثرها المباشر على الطفل</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><b>حرف الدال</b></td>
+                                        <td>يقول الطفل: «دَالْ»</td>
+                                        <td>ينطق الطفل: <b>/دْ/</b></td>
+                                        <td>يقرأ كلمة «دَار» بسهولة دون تهجئة «دال - ألف - راء»!</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>حرف الراء</b></td>
+                                        <td>يقول الطفل: «رَاءْ»</td>
+                                        <td>ينطق الطفل: <b>/رْ/</b></td>
+                                        <td>يدمج فوراً مع الحرف السابق لتكوين المقطع «دَارْ».</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>حرف الباء</b></td>
+                                        <td>يقول الطفل: «بَاءْ»</td>
+                                        <td>ينطق الطفل: <b>/بْ/</b></td>
+                                        <td>يربط الرمز الصوتي بحركة الشفتين مباشرة.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>حرف الميم</b></td>
+                                        <td>يقول الطفل: «مِيمْ»</td>
+                                        <td>ينطق الطفل: <b>/مْ/</b></td>
+                                        <td>ينطق صوت الغنة الصافي دون إضافة أحرف زائدة.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">2</span> سلم المهارات الفونيمية الثمانية المعتمدة</h3>
+                            <p class="guide-p">تمت هندسة المنصة لتقيس وترسخ 8 مهارات فونيمية تصاعدية تبني القارئ الماهر:</p>
+                            <ul style="line-height: 1.8; color: #334155; font-size: 0.94rem; padding-right: 20px;">
+                                <li><b>1. الوعي الفونيمي السمعي (Phonemic Awareness):</b> التمييز السمعي للصوت الأول والأوسط والأخير في الكلمات المصورة.</li>
+                                <li><b>2. مطابقة الرمز بالصوت (Phonics Mapping):</b> الربط المباشر بين الشكل الهندسي للحرف وصوته النقي الصادر من المعلمة أو فصيح.</li>
+                                <li><b>3. الدمج الصوتي والتركيب المقطعي (Blending):</b> ضم الأصوات المنفصلة بسلاسة لبناء كلمة كاملة (دَ + ار = دَار).</li>
+                                <li><b>4. التحليل الصوتي والتفكيك (Segmenting):</b> تفكيك الكلمة المسموعة إلى مقاطعها الصوتية الأساسية.</li>
+                                <li><b>5. الحركات القصيرة (Short Vowels):</b> التمييز النطقي الدقيق بين الفتحة (ـَ)، الضمة (ـُ)، والكسرة (ـِ).</li>
+                                <li><b>6. المدود الطويلة (Long Vowels):</b> إشباع الصوت مع أحرف المد الثلاثة (الألف، الواو، الياء).</li>
+                                <li><b>7. التنوين الفونيمي (Nunation):</b> إدراك النون الساكنة المنطوقة غير المكتوبة (ـً ، ـٌ ، ـٍ).</li>
+                                <li><b>8. التضعيف والشدة (ـّ):</b> فك الحرف المشدد إلى حرفين: الأول ساكن والثاني متحرك.</li>
+                            </ul>
+
+                            <div class="guide-callout guide-callout-info">
+                                <span class="guide-callout-icon">💡</span>
+                                <div><b>نصيحة تربوية ذهبية:</b> لا تسأل الطفل أبداً «ما اسم هذا الحرف؟»، بل اسأله دائماً: «ما صوت هذا الحرف يا بطل؟» لترسيخ الذاكرة الفونيمية المباشرة.</div>
+                            </div>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">3</span> علاج الخلط البصري والصوتي بين الحروف المتشابهة</h3>
+                            <p class="guide-p">تضع المنصة استراتيجية الألوان التمايزية والأقنعة الكرتونية لحل مشكلة الحروف المتشابهة في الرسم (ب/ت/ث، د/ذ، ر/ز، س/ش، ص/ض، ط/ظ، ع/غ، ف/ق) عن طريق حركات كرتونية مميزة لكل نقطة ورمز.</p>
+                            
+                            <div class="guide-action-box">
+                                <div class="guide-action-desc">
+                                    <span class="icon">✍️</span>
+                                    <div>
+                                        <strong>مختبر تشريح الحرف وتتبع الخط</strong>
+                                        <p style="margin: 0; font-size: 0.85rem; color: #64748b;">جرّب تدريب الطفل على رسم الحروف والتمييز بين مواقع النقاط بالقلم أو اللمس.</p>
+                                    </div>
+                                </div>
+                                <button type="button" class="guide-action-btn guide-btn-trace" onclick="InteractiveGuide.launchTraceFromGuide()">
+                                    <span>✍️</span> <span>فتح سبورة تتبع الحروف</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. الفصل الثاني: دليل المعلم وإدارة الحصة -->
+                    <div class="guide-content-pane" id="paneGuide_teacher" style="display: none;">
+                        <div class="guide-chapter-header-card">
+                            <div>
+                                <h2>الفصل الثاني: دليل المعلم لإدارة الحصة المدرسية واللوحة الصفية</h2>
+                                <p>خطة الحصة النموذجية، التفاعل على الشاشات الذكية، ورصد المهارات وطباعة التقارير A4</p>
+                            </div>
+                            <div class="guide-meta-pills">
+                                <span class="guide-meta-pill">⏱️ وقت القراءة: 5 دقائق</span>
+                                <span class="guide-meta-pill">🧑‍🏫 للمعلمين والمعلمات</span>
+                            </div>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">1</span> سيناريو الحصة النموذجية (45 دقيقة)</h3>
+                            <p class="guide-p">توزيع مقترح ومجرّب لزمن الحصة الدراسية يضمن أعلى درجات الانتباه والتفاعل:</p>
+                            
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 14px 0;">
+                                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px;">
+                                    <div style="color: #0284c7; font-weight: 900; font-size: 0.95rem;">⏱️ التهيئة (5 دقائق)</div>
+                                    <p style="font-size: 0.86rem; color: #475569; margin: 4px 0 0 0;">نشيد الدرس أو حوار فصيح الكرتوني لتهيئة الأذن وتشويق التلاميذ.</p>
+                                </div>
+                                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px;">
+                                    <div style="color: #059669; font-weight: 900; font-size: 0.95rem;">⏱️ تقديم الصوت (15 دقيقة)</div>
+                                    <p style="font-size: 0.86rem; color: #475569; margin: 4px 0 0 0;">عرض البطاقة المصورة ونطق الصوت الصرف وتضخيم الصوت حتى 150%.</p>
+                                </div>
+                                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px;">
+                                    <div style="color: #d97706; font-weight: 900; font-size: 0.95rem;">⏱️ الأنشطة والتفكيك (10 دقائق)</div>
+                                    <p style="font-size: 0.86rem; color: #475569; margin: 4px 0 0 0;">مشاركة التلاميذ في لمس السبورة لدمج المقاطع وقراءة الكلمات الملونة.</p>
+                                </div>
+                                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px;">
+                                    <div style="color: #7c3aed; font-weight: 900; font-size: 0.95rem;">⏱️ الخط واللعب (10 دقائق)</div>
+                                    <p style="font-size: 0.86rem; color: #475569; margin: 4px 0 0 0;">تتبع الحرف على السبورة الذكية أو جولة سريعة من ألعاب المنصة الـ 7.</p>
+                                </div>
+                                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px;">
+                                    <div style="color: #dc2626; font-weight: 900; font-size: 0.95rem;">⏱️ التقييم والغلق (5 دقائق)</div>
+                                    <p style="font-size: 0.86rem; color: #475569; margin: 4px 0 0 0;">طرح سؤال تحدي النجوم ورصد تقدم التلاميذ في لوحة المعلم.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">2</span> إدارة الشاشات التفاعلية وأجهزة العرض (Smartboards)</h3>
+                            <p class="guide-p">المنصة متوافقة تماماً مع شاشات Promethean و ViewSonic و SMART والشاشات العادية المتصلة بجهاز العرض (Data Show):</p>
+                            <ul style="line-height: 1.7; color: #334155; font-size: 0.92rem; padding-right: 20px;">
+                                <li>اضغط على زر <b>«📚 فهرس الدروس»</b> لطي القائمة الجانبية وإفساح كامل عرض الشاشة للتفاعل الصفي.</li>
+                                <li>استخدم شريط مضاعف الصوت <code>🔊 100% - 150%</code> لضمان وصول الصوت النقي لكافة أركان القاعة الدراسية.</li>
+                                <li>فعّل وضع ملء الشاشة (F11) لتجنب أشرطة المتصفح وتوفير تجربة برمجية تطبيقية خالصة.</li>
+                            </ul>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">3</span> لوحة تحكم المعلم الشاملة والطباعة المدرسية A4</h3>
+                            <p class="guide-p">تتيح لك لوحة المعلم المدمجة إدارة الصف الدراسي باحترافية كاملة أوفلاين:</p>
+                            <ul style="line-height: 1.7; color: #334155; font-size: 0.92rem; padding-right: 20px;">
+                                <li><b>إدارة الشعب والتلاميذ:</b> إضافة الطلاب يدوياً أو استيراد قوائم الشعب من ملفات Excel CSV بنقرة واحدة.</li>
+                                <li><b>رصد الحضور اليومي:</b> تسجيل الحضور والغياب والتأخير بلمسة سريعة مع إحصائيات يومية فورية.</li>
+                                <li><b>سجل المهارات الفونيمية:</b> رصد مستوى إتقان التلميذ لكل مهارة من 1 إلى 5 نجوم مع توليد خطة الدعم الفردية.</li>
+                                <li><b>منظومة التقارير والشهادات الفاخرة A4:</b> طباعة كشف الرصد الفصلي الرسمي، بطاقات التقرير الفردي مع قسيمة ولي الأمر، وشهادات التفوق المدرسية الفاخرة A4 Landscape.</li>
+                            </ul>
+
+                            <div class="guide-action-box">
+                                <div class="guide-action-desc">
+                                    <span class="icon">🧑‍🏫</span>
+                                    <div>
+                                        <strong>لوحة تحكم المعلم وسجل الصف أوفلاين</strong>
+                                        <p style="margin: 0; font-size: 0.85rem; color: #64748b;">افتح لوحة المعلم لمتابعة الشعب، رصد الحضور، وطباعة التقارير المعتمدة.</p>
+                                    </div>
+                                </div>
+                                <button type="button" class="guide-action-btn guide-btn-teacher" onclick="InteractiveGuide.launchTeacherFromGuide()">
+                                    <span>🧑‍🏫</span> <span>فتح لوحة تحكم المعلم</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. الفصل الثالث: المسابقات التنافسية الصفية -->
+                    <div class="guide-content-pane" id="paneGuide_quiz" style="display: none;">
+                        <div class="guide-chapter-header-card">
+                            <div>
+                                <h2>الفصل الثالث: استوديو المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz)</h2>
+                                <p>تحويل قاعة الدرس إلى استوديو ألعاب تنافسي مباشر بين شاشات التابلت وشاشة العرض الذكية</p>
+                            </div>
+                            <div class="guide-meta-pills">
+                                <span class="guide-meta-pill">⏱️ وقت القراءة: 5 دقائق</span>
+                                <span class="guide-meta-pill">🎮 أنشطة تنافسية حية</span>
+                            </div>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">1</span> فكرة استوديو المسابقات التلفزيوني الصفي</h3>
+                            <p class="guide-p">محرك المسابقات التنافسية المباشرة (Classroom Live Quiz & Game Show) هو نظام ألعاب تفاعلي متكامل يحاكي برامج المسابقات العالمية، ويعمل <b>100% أوفلاين دون إنترنت</b>. تُعرض الأسئلة والصور والرسوم البيانية على شاشة العرض الذكية أو الشاشة الكبرى، بينما يتحول تابلت كل تلميذ إلى لوحة إجابة بزر (Buzzer Pad) ملونة بالرموز الهندسية.</p>
+
+                            <div class="guide-callout guide-callout-pro">
+                                <span class="guide-callout-icon">⚡</span>
+                                <div><b>ميزة حصرية:</b> لا يحتاج المحرك أي اتصال خارجي، ويعتمد على معمارية التخزين والأحداث المحلية اللحظية للعمل بكفاءة فائقة وسرعة استجابة فورية.</div>
+                            </div>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">2</span> خطوات إطلاق مسابقة صفية من شاشة المعلم</h3>
+                            <ol style="line-height: 1.8; color: #334155; font-size: 0.94rem; padding-right: 20px;">
+                                <li><b>اختيار المنهج والوحدة:</b> اختر الوحدة الدراسية المطلوبة (مثل: الوحدة الأولى - أسرتي، أو مراجعة شاملة لكافة الوحدات).</li>
+                                <li><b>تحديد نمط التنافس:</b>
+                                    <ul style="margin: 4px 0 10px 0;">
+                                        <li><b>التحدي الفردي:</b> كل تلميذ يتنافس باسمه الخاص لجمع النقاط واعتلاء منصة الصدارة.</li>
+                                        <li><b>صراع الفرق الأربعة:</b> تقسيم الصف إلى 4 فرق متبارية (الصقور 🦅، النجوم ⭐، الفرسان ⚔️، الأبطال 🦁).</li>
+                                    </ul>
+                                </li>
+                                <li><b>إعداد الوقت والأسئلة:</b> حدد زمن السؤال (10، 15، 20 ثانية) وعدد الأسئلة، ثم اضغط <b>«إطلاق المسابقة الآن»</b>.</li>
+                                <li><b>انضمام التلاميذ (اللوبي):</b> تظهر شاشة الانتظار وبها رمز PIN وكود QR، يمسح التلاميذ الكود أو يكتبون الرمز للانضمام فوراً.</li>
+                                <li><b>إدارة الجولات والعد التنازلي:</b> يطلق المعلم كل سؤال، مع مؤثرات صوتية حماسية ومؤقت تنازلي ينبه التلاميذ لسرعة الإجابة.</li>
+                                <li><b>كشف النتائج والرسم البياني:</b> بمجرد انتهاء الوقت، تظهر نسب اختيار التلاميذ بالأعمدة البيانية الملونة، وتُعلن الإجابة الصحيحة.</li>
+                                <li><b>لوحة الصدارة ومنصة التتويج 3D:</b> تتحدث لوحة المتصدرين تلقائياً، وفي الختام يصعد الفائزون على منصة التتويج مع مطر القصاصات والكونفيتي!</li>
+                                <li><b>ترحيل النتائج لسجل المعلم:</b> اضغط زر «إيداع نتائج المسابقة» لتسجيل درجات ونقاط الفائزين مباشرة في لوحة تحكم المعلم.</li>
+                            </ol>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">3</span> نمط السبورة المباشر باللمس (Smartboard Hot Seat)</h3>
+                            <p class="guide-p">إذا لم تتوفر أجهزة تابلت لدى كافة التلاميذ، يمكنك التبديل بنقرة واحدة إلى <b>«⚡ السبورة المباشرة»</b>؛ حيث يتقدم ممثل كل فريق إلى الشاشة الذكية للمس الإجابة الصحيحة مباشرة واحتساب النقاط لفريقه مع المؤثرات الاحتفالية!</p>
+
+                            <div class="guide-action-box">
+                                <div class="guide-action-desc">
+                                    <span class="icon">🏆</span>
+                                    <div>
+                                        <strong>استوديو المسابقات التنافسية المباشرة</strong>
+                                        <p style="margin: 0; font-size: 0.85rem; color: #64748b;">ابدأ مسابقة صفية حماسية الآن واستعرض شاشة العرض أو لوحة التابلت.</p>
+                                    </div>
+                                </div>
+                                <button type="button" class="guide-action-btn guide-btn-quiz" onclick="InteractiveGuide.launchQuizFromGuide()">
+                                    <span>🏆</span> <span>إطلاق استوديو المسابقات</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. الفصل الرابع: المزامنة الصفية المحلية -->
+                    <div class="guide-content-pane" id="paneGuide_sync" style="display: none;">
+                        <div class="guide-chapter-header-card">
+                            <div>
+                                <h2>الفصل الرابع: دليل المزامنة الصفية وشبكة التابلت (Local Wi-Fi Sync)</h2>
+                                <p>كيفية ربط أجهزة التلاميذ، التوجيه الجماعي للدروس، ووضع التركيز دون إنترنت إطلاقاً</p>
+                            </div>
+                            <div class="guide-meta-pills">
+                                <span class="guide-meta-pill">⏱️ وقت القراءة: 4 دقائق</span>
+                                <span class="guide-meta-pill">📡 شبكة صفية مستقلة</span>
+                            </div>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">1</span> كيف تعمل المزامنة الصفية دون إنترنت؟</h3>
+                            <p class="guide-p">تم تصميم محرك المزامنة الصفية المحلية ليعمل داخل قاعة الدرس <b>دون الحاجة لأي اتصال بالإنترنت</b>، وذلك عبر شبكة الواي فاي المحلية لراوتر المدرسة، أو عبر نقطة اتصال الهوتسبوت (Hotspot) المنطلقة من هاتف أو حاسوب المعلم مباشرة.</p>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">2</span> أدوات تحكم المعلم في الصف الذكي</h3>
+                            <ul style="line-height: 1.8; color: #334155; font-size: 0.94rem; padding-right: 20px;">
+                                <li><b>التوجيه الصفي الجماعي للدروس (Broadcast Lesson):</b> يختار المعلم الدرس من قائمته، فتنتقل كافة شاشات أجهزة التلاميذ الموصولة إلى نفس الدرس في ثانية واحدة لمنع تشتت الطلاب وتوحيد مسار الشرح.</li>
+                                <li><b>وضع التركيز وانتباه الصف (Classroom Focus Mode):</b> زر مخصص يقفل شاشات التابلت الخاصة بالتلاميذ مع إطلاق صوت تنبيهي لطيف وعرض عبارة «انتبه لشرح المعلم على السبورة يا بطل!».</li>
+                                <li><b>رادار الصف الحي (Live Radar Grid):</b> شبكة بصرية تعرض الأجهزة المتصلة، اسم كل تلميذ، الدرس المفتوح لديه، ونسبة استجابته.</li>
+                                <li><b>استقبال إشعارات "رفع اليد" (Hand Raise Alerts):</b> عند حاجة تلميذ للمساعدة، يضغط زر "رفع اليد" على شاشته فيصل تنبيه بصري وصوتي فوري في رادار المعلم مع تحديد مكان واسم التلميذ.</li>
+                                <li><b>مزامنة QR بدون أي شبكة واي فاي:</b> في البيئات الصفية التي تنعدم فيها الشبكات، يمكن للمعلم فتح كاميرا جهازه ومسح كود التلميذ لنقل بيانات التقدم والدرجات أوفلاين بالكامل!</li>
+                            </ul>
+
+                            <div class="guide-action-box">
+                                <div class="guide-action-desc">
+                                    <span class="icon">📡</span>
+                                    <div>
+                                        <strong>محرك المزامنة الصفية والرادار الحي</strong>
+                                        <p style="margin: 0; font-size: 0.85rem; color: #64748b;">افتح نافذة المزامنة لمراقبة أجهزة التابلت وتوجيه الدرس وقفل الشاشات.</p>
+                                    </div>
+                                </div>
+                                <button type="button" class="guide-action-btn guide-btn-sync" onclick="InteractiveGuide.launchSyncFromGuide()">
+                                    <span>📡</span> <span>فتح المزامنة الصفية</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. الفصل الخامس: دليل ولي الأمر -->
+                    <div class="guide-content-pane" id="paneGuide_parent" style="display: none;">
+                        <div class="guide-chapter-header-card">
+                            <div>
+                                <h2>الفصل الخامس: دليل ولي الأمر للمتابعة المنزلية وتطوير القراءة المبكرة</h2>
+                                <p>استراتيجية الـ 15 دقيقة الذهبية اليومية، كسر الملل بالألعاب، وفهم بطاقات المتابعة المدرسية</p>
+                            </div>
+                            <div class="guide-meta-pills">
+                                <span class="guide-meta-pill">⏱️ وقت القراءة: 4 دقائق</span>
+                                <span class="guide-meta-pill">👨‍👩‍👧‍👦 للآباء والأمهات</span>
+                            </div>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">1</span> استراتيجية الـ 15 دقيقة اليومية الذهبية</h3>
+                            <p class="guide-p">تعلّم القراءة في الصف الأول لا يحتاج لساعات طويلة ترهق الطفل وتولد نفوراً من الكتاب، بل يحتاج إلى <b>15 دقيقة يومية منتظمة ومرحة</b>:</p>
+                            <ul style="line-height: 1.8; color: #334155; font-size: 0.94rem; padding-right: 20px;">
+                                <li><b>(5 دقائق):</b> الاستماع لنطق الحرف وقصته مع فصيح وتكرار الصوت النقي /دْ/، /رْ/، /بْ/.</li>
+                                <li><b>(5 دقائق):</b> قراءة الكلمات الثلاث المصورة وتهجئتها مقطعياً باللمس.</li>
+                                <li><b>(5 دقائق):</b> نشاط ترفيهي: سبورة الخط بالقلم أو الإصبع، أو لعبة من الألعاب اللغوية الـ 7.</li>
+                            </ul>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">2</span> جدول المتابعة الأسبوعي المنزلي المقترح</h3>
+                            <table class="guide-table">
+                                <thead>
+                                    <tr>
+                                        <th>اليوم</th>
+                                        <th>النشاط المنزلي المقترح</th>
+                                        <th>الأداة التفاعلية في المنصة</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><b>السبت</b></td>
+                                        <td>استكشاف صوت الحرف الجديد وقصته</td>
+                                        <td>مسرح الدرس التفاعلي + فصيح</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>الأحد</b></td>
+                                        <td>المزج المقطعي ودمج الحروف</td>
+                                        <td>نشاط التهجئة المقطعية باللمس</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>الإثنين</b></td>
+                                        <td>تدريب عضلات اليد على كتابة الحرف</td>
+                                        <td>سبورة تتبع ورسم الحروف والخط</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>الثلاثاء</b></td>
+                                        <td>قراءة نص الدرس كاملاً مع الحركات</td>
+                                        <td>نص القراءة وسماع صوت المعلمة</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>الأربعاء</b></td>
+                                        <td>تثبيت المفردات بالألعاب الذكية</td>
+                                        <td>عجلة الحظ وقطار المقاطع وصائد الفقاعات</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>الخميس</b></td>
+                                        <td>خوض التحدي الأسبوعي وحصد النجوم</td>
+                                        <td>تحدي النجوم وطباعة شهادة التفوق</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">3</span> فهم بطاقات التقارير وقسيمة ولي الأمر</h3>
+                            <p class="guide-p">عند استلامك لبطاقة التقرير الفردي المطبوعة من المدرسة، ستجد في أسفلها <b>«قسيمة متابعة ولي الأمر»</b>؛ يمكنك كتابة ملاحظاتك حول أداء طفلك في المنزل وإعادتها للمعلم لتعزيز الشراكة بين البيت والمدرسة وتحقيق أفضل نتائج تعليمية.</p>
+
+                            <div class="guide-action-box">
+                                <div class="guide-action-desc">
+                                    <span class="icon">🎮</span>
+                                    <div>
+                                        <strong>بنك الألعاب والمسابقات اللغوية</strong>
+                                        <p style="margin: 0; font-size: 0.85rem; color: #64748b;">اختر لعبة تعليمية مسلية لمكافأة طفلك بعد إتمام قراءة الدرس اليومي.</p>
+                                    </div>
+                                </div>
+                                <button type="button" class="guide-action-btn guide-btn-quiz" onclick="InteractiveGuide.launchGamesFromGuide()">
+                                    <span>🎮</span> <span>فتح الألعاب والمسابقات</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. الفصل السادس: الدعم التقني والتثبيت -->
+                    <div class="guide-content-pane" id="paneGuide_tech" style="display: none;">
+                        <div class="guide-chapter-header-card">
+                            <div>
+                                <h2>الفصل السادس: دليل الدعم التقني والتثبيت وتشغيل PWA</h2>
+                                <p>تثبيت المنصة على ويندوز وماك ولينكس وأندرويد والآيباد للعمل 100% بدون إنترنت</p>
+                            </div>
+                            <div class="guide-meta-pills">
+                                <span class="guide-meta-pill">⏱️ وقت القراءة: 4 دقائق</span>
+                                <span class="guide-meta-pill">💻 لكافة الأنظمة والأجهزة</span>
+                            </div>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">1</span> تثبيت المنصة كتطبيق ويب تقدمي (PWA)</h3>
+                            <p class="guide-p">تعتمد المنصة تقنية <b>Progressive Web App (PWA)</b> التي تمنحك تطبيقاً حقيقياً مستقلاً على جهازك يفتح بلمسة واحدة ويعمل بدون أي إنترنت:</p>
+                            
+                            <ul style="line-height: 1.8; color: #334155; font-size: 0.94rem; padding-right: 20px;">
+                                <li><b>على الحواسيب (Windows / Mac / Linux):</b> في متصفح Chrome أو Edge، اضغط على أيقونة التثبيت <code>[⊞]</code> في شريط العنوان أو زر <b>«📲 تثبيت التطبيق»</b> بالشريط العلوي للمنصة.</li>
+                                <li><b>على أجهزة الأندرويد (تابلت وهواتف):</b> افتح الرابط في Chrome، واضغط قائمة <code>⋮</code> ثم اختر <b>«تثبيت التطبيق»</b> أو <b>«إضافة إلى الشاشة الرئيسية»</b>.</li>
+                                <li><b>على الآيباد والآيفون (Apple iOS):</b> افتح الرابط في متصفح Safari، ثم اضغط زر المشاركة المربع بسهم لأعلى <code>[⎋]</code> واختر <b>«إضافة إلى الشاشة الرئيسية (Add to Home Screen)»</b>.</li>
+                            </ul>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">2</span> النسخ المستقلة الشاملة (.exe, .dmg, .AppImage)</h3>
+                            <p class="guide-p">إذا كنت تعمل في مختبر مدرسي لا تتوفر فيه أي شبكة، يتوفر للمنصة حزم مستقلة بالكامل:</p>
+                            <ul style="line-height: 1.8; color: #334155; font-size: 0.94rem; padding-right: 20px;">
+                                <li><b>ملف الويندوز المستقل:</b> <code>Qiraati_Smart_Setup_v3.41.exe</code> لتثبيت البرنامج مباشرة مع اختصار على سطح المكتب وقائمة Start.</li>
+                                <li><b>حزمة أجهزة آبل ماك:</b> <code>Qiraati_Smart_macOS_v3.41.dmg</code> تدعم معالجات Apple Silicon و Intel.</li>
+                                <li><b>حزمة أنظمة لينكس:</b> <code>Qiraati_Smart_Linux_v3.41.AppImage</code> للمختبرات المدرسية المعتمدة على توزيعات Linux.</li>
+                                <li><b>الحزمة الأحادية الذهبية:</b> <code>قراءتي_التفاعلية_الذكية.html</code> ملف واحد يحوي كافة الأصوات والصور والألعاب والدروس وتفتح بالنقر المزدوج على أي متصفح!</li>
+                            </ul>
+                        </div>
+
+                        <div class="guide-section-block">
+                            <h3 class="guide-section-title"><span class="badge-num">3</span> معالجة مشاكل الصوت ومضاعف الصوت 150%</h3>
+                            <p class="guide-p">تمنع بعض المتصفحات تشغيل الصوت تلقائياً لحين تفاعل المستخدم؛ لذا يكفي لمس الشاشة أو النقر على أي زر لبدء المحرك الصوتي. كما يمكنك رفع الصوت إلى <b>150%</b> باستخدام شريط التحكم العلوي لسماع نطق المعلمة بوضوح في القاعات المدرسية الكبيرة.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- أسفل نافذة الدليل -->
+            <div class="guide-modal-footer">
+                <span class="guide-footer-sig">
+                    📖 دليل المعلم وولي الأمر الرقمي • <b>إعداد وتطوير: المهندس أسامة خليل هاشم</b> • أوفلاين 100%
+                </span>
+                <div class="guide-footer-actions">
+                    <button type="button" class="btn" style="padding: 7px 18px; font-size: 0.88rem; background: #ecfdf5; color: #065f46; border: 1.5px solid #a7f3d0;" onclick="InteractiveGuide.printCurrentChapter()">
+                        <span>🖨️</span> <span>طباعة هذا الفصل A4</span>
+                    </button>
+                    <button type="button" class="btn" style="padding: 7px 18px; font-size: 0.88rem; background: #ede9fe; color: #5b21b6; border: 1.5px solid #c4b5fd;" onclick="InteractiveGuide.launchTourFromGuide()">
+                        <span>🚀</span> <span>خوض جولة الاستكشاف</span>
+                    </button>
+                    <button type="button" class="btn" style="padding: 7px 20px; font-size: 0.88rem; background: #e2e8f0; color: #334155;" onclick="closeDigitalGuideModal()">
+                        إغلاق
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- حاوية طباعة الدليل المخصصة لقواعد @media print -->
+    <div id="guidePrintArea" style="display: none;"></div>
+
     <!-- حاوية الطباعة المخصصة لقواعد @media print -->
     <div id="teacherPrintArea" style="display: none;"></div>
 
@@ -26428,6 +27041,7 @@
     <script src="js/core/teacher-dashboard.js"></script>
     <script src="js/core/classroom-sync.js"></script>
     <script src="js/core/classroom-quiz.js"></script>
+    <script src="js/core/interactive-guide.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

@@ -50,6 +50,7 @@
     <link rel="stylesheet" href="css/teacher-dashboard.css">
     <link rel="stylesheet" href="css/classroom-sync.css">
     <link rel="stylesheet" href="css/classroom-quiz.css">
+    <link rel="stylesheet" href="css/interactive-guide.css">
 
 </head>
 
@@ -79,7 +80,7 @@
 
                         <span>قراءتي التفاعلية الذكية</span>
 
-                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار النهائي المستقل (v3.29 Final Release): اكتمال كتاب قراءتي 100% بكافة وحداته الست ودروسه التفاعلية - إعداد المهندس أسامة خليل هاشم">v3.29 Final</span>
+                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.45: جولة الاستكشاف التفاعلية ودليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات - إعداد المهندس أسامة خليل هاشم">v3.45</span>
 
                     </div>
 
@@ -118,6 +119,18 @@
                 <span class="top-stars-count" id="topGlobalStarsCount">0</span>
                 <span class="top-stars-label">نجمة</span>
             </div>
+
+            <!-- زر جولة الاستكشاف التفاعلية للمنصة -->
+            <button class="btn-top btn-top-tour" id="btnTopTour" onclick="startPlatformTour(0)" title="خوض جولة الاستكشاف التفاعلية للتعرف على أركان المنصة والمسابقات ومسرح الدرس">
+                <span>🚀</span>
+                <span>جولة استكشافية</span>
+            </button>
+
+            <!-- زر دليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات -->
+            <button class="btn-top btn-top-digital-guide" id="btnTopDigitalGuide" onclick="openDigitalGuideModal('phonics')" title="دليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات والمتابعة المنزلية">
+                <span>📖</span>
+                <span>دليل المنصة والمسابقات</span>
+            </button>
 
             <!-- زر محرك المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show) بين أجهزة التابلت وشاشة العرض -->
             <button class="btn-top btn-top-quiz-show" id="btnTopQuizShow" onclick="openClassroomQuizModal('host')" title="استوديو المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show) - شاشة العرض الذكية وأجهزة التابلت">

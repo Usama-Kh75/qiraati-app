@@ -98,7 +98,8 @@ def build_standalone():
         'css/gamification.css',
         'css/teacher-dashboard.css',
         'css/classroom-sync.css',
-        'css/classroom-quiz.css'
+        'css/classroom-quiz.css',
+        'css/interactive-guide.css'
     ]
 
     css_combined = []
@@ -235,6 +236,7 @@ def build_standalone():
         'js/core/teacher-dashboard.js',
         'js/core/classroom-sync.js',
         'js/core/classroom-quiz.js',
+        'js/core/interactive-guide.js',
         'js/lessons/prep.js',
         'js/lessons/unit1.js',
         'js/lessons/unit2.js',
