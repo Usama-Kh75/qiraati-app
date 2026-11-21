@@ -774,6 +774,556 @@
 
     </div>
 
+    <!-- ==========================================================================
+         نافذة منظومة تقييم التلاميذ وشهادة التخرج وسجل الإنجاز الشامل
+         متوافقة بنسبة 100% مع سجل التقييم الأسبوعي الرسمي لوزارة التربية 2026/2027
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    ========================================================================== -->
+    <div class="modal-backdrop" id="evaluationModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="eval-modal-box" onclick="event.stopPropagation()">
+            <!-- رأس النافذة -->
+            <div class="eval-modal-header">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span class="eval-modal-icon">🎓</span>
+                    <div>
+                        <h3 class="eval-modal-title">منظومة تقييم التلاميذ وشهادة التخرج وسجل الإنجاز</h3>
+                        <div class="eval-modal-subtitle">
+                            وزارة التربية • كتاب قراءتي الجديد للصف الأول الابتدائي • إعداد: المهندس أسامة خليل هاشم
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <button class="btn-eval-action btn-eval-print" onclick="printActiveEvalTab()" title="طباعة القسم الحالي بتنسيق A4 رسمي">
+                        <span>🖨️</span> <span>طباعة</span>
+                    </button>
+                    <button class="modal-close-btn" onclick="closeEvaluationModal()" title="إغلاق">&times;</button>
+                </div>
+            </div>
+
+            <!-- أزرار التبويبات الأربعة الرئيسية -->
+            <div class="eval-modal-tabs">
+                <button class="eval-modal-tab active" id="tabEval_eval" onclick="switchEvalTab('eval')">
+                    <span>📋</span> <span>سجل التقييم الأسبوعي (2026/2027)</span>
+                </button>
+                <button class="eval-modal-tab" id="tabEval_cert" onclick="switchEvalTab('cert')">
+                    <span>🎓</span> <span>شهادة التخرج الكبرى (100%)</span>
+                </button>
+                <button class="eval-modal-tab" id="tabEval_progress" onclick="switchEvalTab('progress')">
+                    <span>🏅</span> <span>سجل الإنجاز والأوسمة (Portfolio)</span>
+                </button>
+                <button class="eval-modal-tab" id="tabEval_guide" onclick="switchEvalTab('guide')">
+                    <span>📜</span> <span>الضوابط والتعليمات الوزارية</span>
+                </button>
+            </div>
+
+            <!-- جسم النافذة ومحتوى التبويبات -->
+            <div class="eval-modal-body">
+                <!-- ==============================================
+                     التبويب 1: سجل التقييم الأسبوعي للتلميذ
+                =============================================== -->
+                <div id="paneEval_eval" class="eval-tab-pane active">
+                    <!-- بار الملف الشخصي للتلميذ -->
+                    <div class="student-profile-bar">
+                        <div class="student-avatar-box" id="evalStudentAvatarEl" onclick="chooseStudentAvatar()" title="انقر لتغيير الصورة الرمزية للتلميذ">
+                            👦
+                        </div>
+                        <div class="student-info-grid">
+                            <div>
+                                <label class="student-field-label"><span>👤</span> <span>اسم التلميذ / التلميذة:</span></label>
+                                <input type="text" id="evalStudentNameInput" class="student-input" placeholder="اكتب اسم التلميذ هنا..." oninput="updateStudentField('name', this.value)">
+                            </div>
+                            <div>
+                                <label class="student-field-label"><span>📅</span> <span>التولد (اليوم / الشهر / 20..):</span></label>
+                                <input type="text" id="evalStudentBirthInput" class="student-input" placeholder="15 / 04 / 2018" oninput="updateStudentField('birthDate', this.value)">
+                            </div>
+                            <div>
+                                <label class="student-field-label"><span>🏠</span> <span>الوضع الاجتماعي:</span></label>
+                                <input type="text" id="evalStudentSocialInput" class="student-input" placeholder="مستقر وطبيعي / رعاية خاصة" oninput="updateStudentField('socialStatus', this.value)">
+                            </div>
+                            <div>
+                                <label class="student-field-label"><span>⭐</span> <span>السلوك الصفي:</span></label>
+                                <input type="text" id="evalStudentBehaviorInput" class="student-input" placeholder="متميز ومؤدب / نشيط" oninput="updateStudentField('behavior', this.value)">
+                            </div>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="button" class="btn-eval-action" onclick="printActiveEvalTab()" style="background: #1e3a8a; color: white;">
+                                <span>🖨️</span> <span>طباعة السجل</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- محدد الفترة الزمنية: الأشهر والأسابيع -->
+                    <div class="eval-period-section">
+                        <div style="font-size: 0.88rem; font-weight: 900; color: #1e3a8a; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between;">
+                            <span>🗓️ اختر شهر التقييم الدراسي (للعام 2026 / 2027):</span>
+                            <span style="font-size: 0.78rem; color: #059669; font-weight: 800;">التقييم أسبوعي مستمر وفق الدليل الوزاري ✅</span>
+                        </div>
+                        <div class="eval-months-pills">
+                            <button type="button" class="month-pill-btn active" data-month="oct" onclick="selectEvalMonth('oct')"><span>🍁</span> <span>تشرين الأول</span></button>
+                            <button type="button" class="month-pill-btn" data-month="nov" onclick="selectEvalMonth('nov')"><span>🍂</span> <span>تشرين الثاني</span></button>
+                            <button type="button" class="month-pill-btn" data-month="dec" onclick="selectEvalMonth('dec')"><span>❄️</span> <span>كانون الأول</span></button>
+                            <button type="button" class="month-pill-btn" data-month="jan" onclick="selectEvalMonth('jan')"><span>🌨️</span> <span>كانون الثاني</span></button>
+                            <button type="button" class="month-pill-btn" data-month="feb" onclick="selectEvalMonth('feb')"><span>🌧️</span> <span>شباط</span></button>
+                            <button type="button" class="month-pill-btn" data-month="mar" onclick="selectEvalMonth('mar')"><span>🌱</span> <span>آذار</span></button>
+                            <button type="button" class="month-pill-btn" data-month="apr" onclick="selectEvalMonth('apr')"><span>🌸</span> <span>نيسان</span></button>
+                            <button type="button" class="month-pill-btn" data-month="may" onclick="selectEvalMonth('may')"><span>☀️</span> <span>أيار</span></button>
+                        </div>
+
+                        <div class="eval-weeks-row">
+                            <div class="eval-weeks-group">
+                                <button type="button" class="week-btn active" data-week="w1" onclick="selectEvalWeek('w1')">الأسبوع الأول</button>
+                                <button type="button" class="week-btn" data-week="w2" onclick="selectEvalWeek('w2')">الأسبوع الثاني</button>
+                                <button type="button" class="week-btn" data-week="w3" onclick="selectEvalWeek('w3')">الأسبوع الثالث</button>
+                                <button type="button" class="week-btn" data-week="w4" onclick="selectEvalWeek('w4')">الأسبوع الرابع</button>
+                            </div>
+                            <div class="quick-grade-actions">
+                                <button type="button" class="btn-quick-fill" onclick="quickFillWeek('ممتاز')" title="رصد كافة المهارات بتقدير ممتاز">
+                                    <span>⚡ رصد الكل: ممتاز 🌟</span>
+                                </button>
+                                <button type="button" class="btn-quick-fill" onclick="quickFillWeek('جيد جداً')" title="رصد كافة المهارات بتقدير جيد جداً">
+                                    <span>⚡ رصد الكل: جيد جداً ✨</span>
+                                </button>
+                                <button type="button" class="btn-quick-fill" onclick="clearWeekGrades()" style="color: #dc2626;" title="مسح تقديرات هذا الأسبوع">
+                                    <span>🔄 تفريغ</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- بطاقات الملخص الإحصائي السريع للأسبوع -->
+                    <div class="eval-summary-cards">
+                        <div class="eval-sum-card">
+                            <div class="eval-sum-icon" style="background: #eff6ff; color: #2563eb;">📊</div>
+                            <div>
+                                <div class="eval-sum-val" id="evalStatTotalGraded">0 / 8</div>
+                                <div class="eval-sum-lbl">المهارات المرصودة بالأسبوع</div>
+                            </div>
+                        </div>
+                        <div class="eval-sum-card">
+                            <div class="eval-sum-icon" style="background: #ecfdf5; color: #059669;">🌟</div>
+                            <div>
+                                <div class="eval-sum-val" id="evalStatOverallRating">بانتظار الرصد</div>
+                                <div class="eval-sum-lbl">التقدير العام للأسبوع</div>
+                            </div>
+                        </div>
+                        <div class="eval-sum-card">
+                            <div class="eval-sum-icon" style="background: #fefce8; color: #ca8a04;">📝</div>
+                            <div>
+                                <div class="eval-sum-val" id="evalStatNotesStatus" style="font-size: 1.05rem;">لا توجد ملاحظات</div>
+                                <div class="eval-sum-lbl">توجيهات المعلم للأسبوع</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- مصفوفة رصد المهارات الـ 8 الرسمية -->
+                    <div class="skills-eval-table">
+                        <div class="skills-eval-header">
+                            <div>#</div>
+                            <div>المهارة والمحور الوزاري</div>
+                            <div>التقدير اللفظي المعتمد (اختر بنقرة واحدة)</div>
+                            <div style="text-align: center;">التقدير المرصود</div>
+                        </div>
+                        <div id="skillsEvalTableBody">
+                            <!-- يتم بناء صفوف المهارات ديناميكياً عبر evaluation.js -->
+                        </div>
+                    </div>
+
+                    <!-- خانة الملاحظات والتوصيات الأسبوعية للمعلم -->
+                    <div class="eval-notes-box">
+                        <div style="font-size: 0.95rem; font-weight: 900; color: #1e3a8a; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                            <span>✍️</span> <span>ملاحظات المعلم وتوصياته التربوية للأسبوع الحالي:</span>
+                        </div>
+                        <div style="font-size: 0.8rem; color: #64748b; font-weight: 700; margin-bottom: 8px;">
+                            سجل هنا نقاط القوة لتعزيزها وجوانب الضعف لمعالجتها ومقترحات الدعم الصفي والمنزلي:
+                        </div>
+                        <textarea id="evalWeekNoteInput" class="student-input" rows="2" style="width: 100%; resize: vertical;" placeholder="مثال: تميز باهر في نطق المدود وتمييز اللام الشمسية، بحاجة لمزيد من التدريب على رسم حرف الطاء..." oninput="updateWeekNote(this.value)"></textarea>
+                    </div>
+                </div>
+
+                <!-- ==============================================
+                     التبويب 2: شهادة التخرج الكبرى (100% المنهج)
+                =============================================== -->
+                <div id="paneEval_cert" class="eval-tab-pane">
+                    <!-- شريط تخصيص الشهادة والتحكم -->
+                    <div class="grand-cert-customizer no-print">
+                        <div style="font-size: 1.05rem; font-weight: 900; color: #92400e; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                            <span>⚙️</span> <span>تخصيص بيانات شهادة التخرج الرسمية والاحتفال:</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 14px;">
+                            <div>
+                                <label class="student-field-label"><span>👤</span> <span>اسم التلميذ / التلميذة:</span></label>
+                                <input type="text" id="certInputName" class="student-input" placeholder="اسم التلميذ..." oninput="updateCertLiveField('name', this.value)">
+                            </div>
+                            <div>
+                                <label class="student-field-label"><span>🏫</span> <span>اسم المدرسة:</span></label>
+                                <input type="text" id="certInputSchool" class="student-input" placeholder="اسم المدرسة..." oninput="updateCertLiveField('school', this.value)">
+                            </div>
+                            <div>
+                                <label class="student-field-label"><span>👨‍🏫</span> <span>اسم المعلم / المعلمة:</span></label>
+                                <input type="text" id="certInputTeacher" class="student-input" placeholder="اسم المعلم..." oninput="updateCertLiveField('teacher', this.value)">
+                            </div>
+                            <div>
+                                <label class="student-field-label"><span>🏆</span> <span>التقدير العام الممنوح:</span></label>
+                                <input type="text" id="certInputRating" class="student-input" value="مُمْتَازٌ مَعَ مَرْتَبَةِ الشَّرَفِ الأُولَى 🏆" oninput="updateCertLiveField('rating', this.value)">
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                            <button type="button" class="btn-primary" onclick="launchCelebration()" style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); border-color: #b45309; font-size: 1.05rem; padding: 10px 24px; box-shadow: 0 4px 14px rgba(217, 119, 6, 0.3);">
+                                <span>🎉</span> <span>أطلق الاحتفال الملكي والألعاب النارية!</span>
+                            </button>
+                            <button type="button" class="btn-secondary" onclick="playCelebrationAudioOnly()" style="font-size: 0.95rem; padding: 10px 18px;">
+                                <span>🔊</span> <span>استمع للتهنئة الصوتية الكبرى</span>
+                            </button>
+                            <button type="button" class="btn-teach" onclick="printActiveEvalTab()" style="font-size: 0.95rem; padding: 10px 20px;">
+                                <span>🖨️</span> <span>طباعة الشهادة الفاخرة (A4)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- وثيقة شهادة التخرج الكبرى المعتمدة القابلة للطباعة -->
+                    <div class="grand-cert-print-container" id="grandCertOfficialContainer">
+                        <!-- الزوايا والزخارف الهندسية -->
+                        <div class="cert-corner-decor cert-corner-tl"></div>
+                        <div class="cert-corner-decor cert-corner-tr"></div>
+                        <div class="cert-corner-decor cert-corner-bl"></div>
+                        <div class="cert-corner-decor cert-corner-br"></div>
+                        <div class="cert-watermark">قِرَاءَتِي الذَّكِيَّة</div>
+
+                        <!-- الترويسة وشعار الجمهورية والوزارة -->
+                        <div class="cert-top-emblem">🎓</div>
+                        <div class="cert-republic-text">جُمْهُورِيَّةُ الْعِرَاقِ • وِزَارَةُ التَّرْبِيَة</div>
+                        <div class="cert-ministry-text">الْمُدِيرِيَّةُ الْعَامَّةُ لِلْمَنَاهِج • مَنَصَّةُ قِرَاءَتِي التَّفَاعُلِيَّةُ الذَّكِيَّة</div>
+
+                        <!-- العنوان الملكي -->
+                        <h1 class="cert-main-headline">
+                            🎓 شَهَادَةُ التَّخَرُّجِ وَالتَّفَوُّقِ الْكُبْرَى — كِتَابُ قِرَاءَتِي ١٠٠٪ 🌟
+                        </h1>
+
+                        <div class="cert-witness-text">
+                            يَشْهَدُ كَادِرُ مَنَصَّةِ (قِرَاءَتِي التَّفَاعُلِيَّةِ الذَّكِيَّة) وَمُعَلِّمُو الْمَادَّةِ بِأَنَّ التِّلْمِيذَ / التِّلْمِيذَةَ الْبَطَل:
+                        </div>
+
+                        <!-- اسم التلميذ البارز الفخم -->
+                        <div>
+                            <div class="cert-student-name-box" id="certDisplayStudentName">
+                                بَطَلُ قِرَاءَتِي الذَّكِيَّة
+                            </div>
+                        </div>
+
+                        <div class="cert-school-badge">
+                            الْمُقَيَّدَ فِي: <b id="certDisplaySchoolName" style="color: #1e3a8a;">مَدْرَسَةُ النُّخْبَةِ الِابْتِدَائِيَّة</b>
+                        </div>
+
+                        <!-- متن الشهادة المشكول شكلاً كاملاً -->
+                        <p class="cert-body-paragraph">
+                            قَدْ أَتَمَّ بِنَجَاحٍ بَاهِرٍ وَتَفَوُّقٍ مُسْتَحَقٍّ كَافَّةَ دُرُوسِ وَأَنْشِطَةِ كِتَابِ <b>«قِرَاءَتِي الْجَدِيد»</b> لِلصَّفِّ الأَوَّلِ الابْتِدَائِيِّ (الوحدات من الأولى إلى السادسة: ص ١ - ١٢٨) كَامِلًا مِئَةً بِالْمِئَة!
+                            وَأَتْقَنَ حُرُوفَ الْهِجَاءِ كَافَّةً بِأَصْوَاتِهَا وَمَوَاقِعِهَا، وَالْمُدُودَ وَالْحَرَكَاتِ وَالتَّنْوِينَ، وَالْمَقَاطِعَ السَّاكِنَةَ وَالْمُشَدَّدَةَ، وَاللَّامَ الشَّمْسِيَّةَ وَالْقَمَرِيَّةَ، وَتَحْلِيلَ وَتَرْكِيبَ وَطَلَاقَةَ الْقِرَاءَةِ وَالْكِتَابَةِ، وَحَفِظَ سُورَةَ الْفَاتِحَةِ وَأَنَاشِيدَ الْكِتَابِ.
+                            وَاسْتَحَقَّ بِكُلِّ جَدَارَةٍ وَافْتِخَارٍ شَهَادَةَ التَّخَرُّجِ وَإِكْلِيلَ التَّفَوُّقِ الْمَلَكِيَّ لِلِانْطِلَاقِ نَحْوَ الصَّفِّ الثَّانِي الابْتِدَائِيّ.
+                        </p>
+
+                        <!-- شريط التقدير العام -->
+                        <div style="margin-bottom: 20px;">
+                            <span style="font-weight: 800; color: #475569; font-size: 1.05rem;">التقدير العام الممنوح: </span>
+                            <span id="certDisplayRating" style="font-size: 1.25rem; font-weight: 900; color: #b45309; background: #fffbeb; border: 1.5px solid #f59e0b; padding: 4px 16px; border-radius: 12px;">مُمْتَازٌ مَعَ مَرْتَبَةِ الشَّرَفِ الأُولَى 🏆</span>
+                        </div>
+
+                        <!-- أوسمة التميز الممنوحة -->
+                        <div class="cert-badges-ribbon">
+                            <span class="cert-mini-badge">🌟 وسام الحروف والمدود</span>
+                            <span class="cert-mini-badge">📖 وسام الطلاقة القرائية</span>
+                            <span class="cert-mini-badge">✍️ وسام الإملاء والخط</span>
+                            <span class="cert-mini-badge">🧩 وسام التحليل والتركيب</span>
+                            <span class="cert-mini-badge">🏆 درع التفوق الأكبر</span>
+                        </div>
+
+                        <!-- صف التواقيع والأختام الرسمية -->
+                        <div class="cert-signatures-row">
+                            <div class="cert-sig-block">
+                                <div class="cert-sig-title">معلم الصف الأول الابتدائي</div>
+                                <div class="cert-sig-name" id="certDisplayTeacherName">مُعَلِّمُ الصَّفِّ الأَوَّل</div>
+                                <div class="cert-sig-sub">الإشراف والتقييم الصفي</div>
+                            </div>
+
+                            <div class="cert-sig-block">
+                                <div class="cert-official-seal">
+                                    <div class="cert-seal-inner">
+                                        <span>قِرَاءَتِي</span>
+                                        <span>مُعْتَمَد</span>
+                                        <span>١٠٠٪</span>
+                                    </div>
+                                </div>
+                                <div style="font-size: 0.75rem; color: #b45309; font-weight: 800; margin-top: 4px;">الختم الرقمي المعتمد</div>
+                            </div>
+
+                            <div class="cert-sig-block">
+                                <div class="cert-sig-title">إعداد وتطوير المنصة</div>
+                                <div class="cert-sig-name" style="color: #047857;">المهندس أسامة خليل هاشم</div>
+                                <div class="cert-sig-sub">تطوير منصة قراءتي الذكية</div>
+                            </div>
+
+                            <div class="cert-sig-block">
+                                <div class="cert-sig-title">تاريخ التخرج والمنح</div>
+                                <div class="cert-sig-name" id="certDisplayDate" style="font-size: 1rem; color: #334155;">2026/2027 م</div>
+                                <div class="cert-sig-sub">العام الدراسي 2026 - 2027</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==============================================
+                     التبويب 3: سجل الإنجاز الشامل ومسيرة التعلم
+                =============================================== -->
+                <div id="paneEval_progress" class="eval-tab-pane">
+                    <!-- لوحة القيادة الكبرى للإنجاز -->
+                    <div class="portfolio-grand-card">
+                        <div>
+                            <div style="font-size: 0.88rem; font-weight: 800; opacity: 0.9; margin-bottom: 4px;">مسيرة إتمام كتاب قراءتي الجديد:</div>
+                            <h2 style="margin: 0; font-size: 1.6rem; font-weight: 900;">🏅 سجل إنجاز التلميذ والمسيرة الشاملة</h2>
+                            <div style="font-size: 0.88rem; opacity: 0.95; margin-top: 6px;">
+                                اكتمال كافة الوحدات الست والدروس الـ 46 من الصفحة ١ إلى الصفحة ١٢٨.
+                            </div>
+                        </div>
+                        <div style="text-align: center; min-width: 140px;">
+                            <div id="portfolioPercentLabel" style="font-size: 2.8rem; font-weight: 900; line-height: 1; color: #34d399;">100%</div>
+                            <div style="font-size: 0.82rem; font-weight: 800; margin-top: 4px;">نسبة الإنجاز الكلي للمنهج</div>
+                        </div>
+                    </div>
+
+                    <!-- إحصاءات الإنجاز التفصيلية -->
+                    <div class="eval-summary-cards" style="margin-bottom: 24px;">
+                        <div class="eval-sum-card">
+                            <div class="eval-sum-icon" style="background: #eff6ff; color: #2563eb;">📚</div>
+                            <div>
+                                <div class="eval-sum-val"><span id="portfolioDoneLessonsCount">46</span> / <span id="portfolioTotalLessonsCount">46</span></div>
+                                <div class="eval-sum-lbl">الدروس المقروءة والمنجزة</div>
+                            </div>
+                        </div>
+                        <div class="eval-sum-card">
+                            <div class="eval-sum-icon" style="background: #fefce8; color: #ca8a04;">⭐</div>
+                            <div>
+                                <div class="eval-sum-val">138 🌟</div>
+                                <div class="eval-sum-lbl">النجوم الذهبية المكتسبة</div>
+                            </div>
+                        </div>
+                        <div class="eval-sum-card">
+                            <div class="eval-sum-icon" style="background: #ecfdf5; color: #059669;">🎖️</div>
+                            <div>
+                                <div class="eval-sum-val">8 / 8 أوسمة</div>
+                                <div class="eval-sum-lbl">أوسمة الوحدات المفتوحة</div>
+                            </div>
+                        </div>
+                        <div class="eval-sum-card">
+                            <div class="eval-sum-icon" style="background: #fdf2f8; color: #db2777;">🏆</div>
+                            <div>
+                                <div class="eval-sum-val" style="font-size: 1.15rem; color: #db2777;">تخرج واكتمال 100%</div>
+                                <div class="eval-sum-lbl">حالة التخرج النهائي</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- أزرار الإدارة السريعة للإنجاز -->
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; flex-wrap: wrap; gap: 8px;">
+                        <div style="font-size: 1rem; font-weight: 900; color: #1e3a8a;">
+                            🗺️ خريطة وحدات المنهج المتسلسلة (ص ١ - ص ١٢٨):
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <button type="button" class="btn-quick-fill" onclick="markAllLessonsDone()">
+                                <span>⚡ تأكيد إنجاز كافة الدروس (100%)</span>
+                            </button>
+                            <button type="button" class="btn-quick-fill" onclick="printActiveEvalTab()">
+                                <span>🖨️ طباعة سجل الإنجاز</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- شبكة رحلة الوحدات الثمانية -->
+                    <div class="units-journey-grid" id="portfolioUnitsGrid">
+                        <!-- تبنى ديناميكياً عبر evaluation.js -->
+                    </div>
+
+                    <!-- خزانة أوسمة الشرف والتفوق -->
+                    <div style="margin-top: 26px;">
+                        <div style="font-size: 1.1rem; font-weight: 900; color: #92400e; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                            <span>👑</span> <span>خزانة أوسمة الشرف والتفوق الملكية (انقر على أي وسام للاستماع):</span>
+                        </div>
+                        <div class="badges-showcase-grid">
+                            <div class="honor-badge-item" onclick="showBadgeDetails('وسام رائد التهيئة', 'أتقن التهيئة والاستعداد والمفاهيم وتسمية الأشياء ونشيد البطة ص 7 - 11!')">
+                                <div class="honor-badge-icon">🌱</div>
+                                <div class="honor-badge-name">وسام رائد التهيئة</div>
+                                <div class="honor-badge-desc">إتقان التهيئة والاستعداد والمفاهيم الأولى ص 7-11</div>
+                            </div>
+
+                            <div class="honor-badge-item" onclick="showBadgeDetails('وسام فارس المدود', 'أتقن أصوات حروف المد الأساسية الثلاثة (ا ، و ، ي) والتمييز الصوتي ص 12 - 16!')">
+                                <div class="honor-badge-icon">🔤</div>
+                                <div class="honor-badge-name">وسام فارس المدود</div>
+                                <div class="honor-badge-desc">إتقان حروف المد الأساسية الثلاثة (ا ، و ، ي) ص 12-16</div>
+                            </div>
+
+                            <div class="honor-badge-item" onclick="showBadgeDetails('وسام فخر الأسرة', 'أتقن حروف الوحدة الأولى (ب ، م ، د ، ف) وقراءة دادا ودور وحفظ سورة الفاتحة ص 17 - 30!')">
+                                <div class="honor-badge-icon">👨‍👩‍👧‍👦</div>
+                                <div class="honor-badge-name">وسام فخر الأسرة</div>
+                                <div class="honor-badge-desc">إتقان الوحدة الأولى وحروف (ب، م، د، ف) وسورة الفاتحة</div>
+                            </div>
+
+                            <div class="honor-badge-item" onclick="showBadgeDetails('إكليل تفوق المدرسة', 'أتقن حروف الوحدة الثانية (ر ، س ، ن ، ت ، ـة) وتنوين الضم ونشيد مدرستي ص 31 - 52!')">
+                                <div class="honor-badge-icon">🏫</div>
+                                <div class="honor-badge-name">إكليل تفوق المدرسة</div>
+                                <div class="honor-badge-desc">إتقان الوحدة الثانية وحروف (ر، س، ن، ت، ـة) وتنوين الضم</div>
+                            </div>
+
+                            <div class="honor-badge-item" onclick="showBadgeDetails('وسام ألعابي وحيواناتي', 'أتقن حروف الوحدة الثالثة (ط ، ف ، ق ، ل ، ع) وقراءة نصوص ريف مناف ونبيل بقال وسالم زراع ص 53 - 72!')">
+                                <div class="honor-badge-icon">🧸</div>
+                                <div class="honor-badge-name">وسام ألعابي وحيواناتي</div>
+                                <div class="honor-badge-desc">إتقان حروف (ط، ف، ق، ل، ع) وقراءة ريف وبوق ونبيل</div>
+                            </div>
+
+                            <div class="honor-badge-item" onclick="showBadgeDetails('درع الصحة والبيئة', 'أتقن حروف الوحدة الرابعة (هـ ، ش ، ز ، ج ، ص) وقراءة نصوص هلال ومطر وشامل ص 73 - 93!')">
+                                <div class="honor-badge-icon">🍎</div>
+                                <div class="honor-badge-name">درع الصحة والبيئة</div>
+                                <div class="honor-badge-desc">إتقان حروف (هـ، ش، ز، ج، ص) والمهارات القرائية</div>
+                            </div>
+
+                            <div class="honor-badge-item" onclick="showBadgeDetails('وسام بطل الهوايات', 'أتقن حروف الوحدة الخامسة (ء ، ض ، خ ، ث ، ك) والشدة وقراءة نصوص حوض الربيع وحفظ نشيد ألعابي ص 94 - 113!')">
+                                <div class="honor-badge-icon">⚽</div>
+                                <div class="honor-badge-name">وسام بطل الهوايات</div>
+                                <div class="honor-badge-desc">إتقان الهمزة وحروف (ض، خ، ث، ك) وتطبيقات الشدة</div>
+                            </div>
+
+                            <div class="honor-badge-item" onclick="showBadgeDetails('درع التخرج الأكبر', 'أتم كتاب قراءتي كاملاً 100% وأتقن اللام الشمسية واللام القمرية ونشيد إلى اللقاء مدرستي ص 114 - 128!')">
+                                <div class="honor-badge-icon">🏆</div>
+                                <div class="honor-badge-name">درع التخرج الأكبر</div>
+                                <div class="honor-badge-desc">اكتمال كتاب قراءتي كاملاً 100% واللام الشمسية والقمرية</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==============================================
+                     التبويب 4: الضوابط والتعليمات الوزارية المعتمدة
+                =============================================== -->
+                <div id="paneEval_guide" class="eval-tab-pane">
+                    <div class="official-rules-container">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
+                            <span style="font-size: 2rem;">📜</span>
+                            <div>
+                                <h3 style="margin: 0; color: #1e3a8a; font-size: 1.2rem;">ضوابط وتعليمات التقييم الأسبوعي لتلاميذ الصف الأول الابتدائي</h3>
+                                <div style="font-size: 0.82rem; color: #059669; font-weight: 800;">
+                                    جمهورية العراق • وزارة التربية • العام الدراسي 2026 / 2027
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- البطاقات الخمس للقواعد الوزارية المعتمدة من تقييم تلاميذ.pdf -->
+                        <div class="rule-highlight-card">
+                            <div class="rule-card-title"><span class="rule-num-pill">1</span> التقييم أسبوعي وليس شهرياً:</div>
+                            <p class="rule-card-text">
+                                أن يكون تقييم مستويات التلاميذ أسبوعياً وليس شهرياً لمتابعة تطور مستواهم الدراسي بصورة مستمرة وتحديد جوانب الضعف لمعالجتها وتعزيز جوانب القوة لديه.
+                            </p>
+                        </div>
+
+                        <div class="rule-highlight-card" style="border-right-color: #10b981;">
+                            <div class="rule-card-title"><span class="rule-num-pill" style="background: #059669;">2</span> التقييم لفظي وليس عددياً:</div>
+                            <p class="rule-card-text">
+                                أن يكون التقييم لفظياً وليس عددياً لحماية البناء النفسي للطفل في هذه المرحلة العمرية المبكرة والتركيز على اكتساب المهارة القرائية السليمة.
+                            </p>
+                        </div>
+
+                        <div class="rule-highlight-card" style="border-right-color: #f59e0b;">
+                            <div class="rule-card-title"><span class="rule-num-pill" style="background: #d97706;">3</span> التقديرات اللفظية المعتمدة رسمياً:</div>
+                            <p class="rule-card-text">
+                                تعتمد التقديرات اللفظية الآتية حصراً في تحديد مستويات التلاميذ: <b>(ضعيف – مقبول – وسط ـــ جيد – جيد جداً – ممتاز)</b>.
+                            </p>
+                        </div>
+
+                        <div class="rule-highlight-card" style="border-right-color: #8b5cf6;">
+                            <div class="rule-card-title"><span class="rule-num-pill" style="background: #6d28d9;">4</span> الدقة والموضوعية المستندة للأداء:</div>
+                            <p class="rule-card-text">
+                                مراعاة الدقة والموضوعية في تحديد مستوى كل تلميذ استناداً إلى أدائه الفعلي في الصف والمنصة ومدى اكتسابه للمهارات المطلوبة.
+                            </p>
+                        </div>
+
+                        <div class="rule-highlight-card" style="border-right-color: #ec4899;">
+                            <div class="rule-card-title"><span class="rule-num-pill" style="background: #be185d;">5</span> التحديث المنتظم للسجل:</div>
+                            <p class="rule-card-text">
+                                الحرص على تحديث السجل بصورة منتظمة ليعكس المستوى الحقيقي للتلميذ ويسهم في تحسين تعلمه وتوجيه ولي الأمر بالشكل الأمثل.
+                            </p>
+                        </div>
+
+                        <!-- جدول الدلالات التربوية للتقديرات اللفظية -->
+                        <div style="margin-top: 24px;">
+                            <div style="font-size: 1rem; font-weight: 900; color: #1e3a8a; margin-bottom: 8px;">
+                                📊 دليل التقديرات اللفظية الستة ودلالتها التربوية:
+                            </div>
+                            <table class="grades-glossary-table">
+                                <thead>
+                                    <tr>
+                                        <th>التقدير اللفظي</th>
+                                        <th>الرمز اللوني</th>
+                                        <th>المعنى والدلالة في اكتساب مهارات القراءة</th>
+                                        <th>الإجراء والتوجيه التربوي المطلوب</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><b>مُمْتَاز</b></td>
+                                        <td><span style="color: #059669; font-weight: 900;">🌟 أخضر زمردي</span></td>
+                                        <td>إتقان تام وسريع للمهارة مع طلاقة وفهم فوري</td>
+                                        <td>تعزيز وتشجيع ومنحه أوسمة إضافية ومهام قيادية صفية</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>جَيِّدٌ جِدًّا</b></td>
+                                        <td><span style="color: #16a34a; font-weight: 900;">✨ أخضر ربيعي</span></td>
+                                        <td>إتقان عالٍ مع أخطاء نادرة جداً يتداركها ذاتياً</td>
+                                        <td>استمرار التحفيز وتوجيهه نحو الطلاقة القصوى</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>جَيِّد</b></td>
+                                        <td><span style="color: #2563eb; font-weight: 900;">👍 أزرق</span></td>
+                                        <td>اكتساب المهارة الأساسية مع تردد يسير في بعض الحركات</td>
+                                        <td>مزيد من التكرار والنمذجة الصوتية مع فصيح</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>وَسَط</b></td>
+                                        <td><span style="color: #ca8a04; font-weight: 900;">⚖️ أصفر كهرماني</span></td>
+                                        <td>أداء متوسط يحتاج لمساعدة وتوجيه متكرر من المعلم</td>
+                                        <td>تدريب موجه على تقطيع المقاطع وإشارات اليد</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>مَقْبُول</b></td>
+                                        <td><span style="color: #ea580c; font-weight: 900;">⚠️ برتقالي</span></td>
+                                        <td>استيعاب جزئي للمهارة مع صعوبة في التركيب والإملاء</td>
+                                        <td>خطة دعم ومتابعة مشتركة مع ولي الأمر في البيت</td>
+                                    </tr>
+                                    <tr>
+                                        <td><b>ضَعِيف</b></td>
+                                        <td><span style="color: #dc2626; font-weight: 900;">🎯 أحمر وردي</span></td>
+                                        <td>تعثر واضح في تمييز الحرف أو الصوت أو القراءة</td>
+                                        <td>خطة علاجية فردية تشمل التدريس المصغر وتكرار التهيئة</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- أسفل النافذة -->
+            <div class="eval-modal-footer">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #059669;">
+                    🌟 منصة قراءتي التفاعلية الذكية • <b>إعداد: المهندس أسامة خليل هاشم</b> • حفظ محلي تلقائي آمن ✅
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button type="button" class="btn-eval-action btn-eval-print" onclick="printActiveEvalTab()">
+                        <span>🖨️</span> <span>طباعة</span>
+                    </button>
+                    <button type="button" class="btn btn-teach" style="padding: 6px 18px; font-size: 0.88rem;" onclick="closeEvaluationModal()">
+                        إغلاق النافذة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
@@ -784,6 +1334,7 @@
     <script src="js/core/modals.js"></script>
     <script src="js/core/audio.js"></script>
     <script src="js/core/navigation.js"></script>
+    <script src="js/core/evaluation.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>
