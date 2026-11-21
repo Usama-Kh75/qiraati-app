@@ -1,0 +1,896 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - اختبارات نهاية الفصل والتدريبات الصيفية الإثرائية وبنك بطاقات القراءة
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* ==========================================================================
+ * 1. أزرار الدخول في الشريط العلوي والقائمة الجانبية (Entry Points)
+ * ========================================================================== */
+.btn-top-enrichment-hub {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #5b21b6 !important;
+    box-shadow: 0 3px 10px rgba(109, 40, 217, 0.25) !important;
+    font-weight: 900 !important;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-top-enrichment-hub:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(109, 40, 217, 0.35) !important;
+    background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%) !important;
+}
+
+.btn-top-exams {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #991b1b !important;
+    box-shadow: 0 3px 10px rgba(185, 28, 28, 0.25) !important;
+}
+.btn-top-exams:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(185, 28, 28, 0.35) !important;
+    background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%) !important;
+}
+
+.btn-top-summer {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #075985 !important;
+    box-shadow: 0 3px 10px rgba(3, 105, 161, 0.25) !important;
+}
+.btn-top-summer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(3, 105, 161, 0.35) !important;
+    background: linear-gradient(135deg, #38bdf8 0%, #0369a1 100%) !important;
+}
+
+.btn-top-cards {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #065f46 !important;
+    box-shadow: 0 3px 10px rgba(4, 120, 87, 0.25) !important;
+}
+.btn-top-cards:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(4, 120, 87, 0.35) !important;
+    background: linear-gradient(135deg, #10b981 0%, #047857 100%) !important;
+}
+
+/* بطاقة الوصول السريع في القائمة الجانبية */
+.sidebar-enrichment-card {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border: 2px solid #8b5cf6;
+    border-radius: 14px;
+    padding: 12px;
+    margin: 8px 12px 14px 12px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(139, 92, 246, 0.12);
+    transition: all 0.2s ease;
+}
+
+.sidebar-enrichment-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(139, 92, 246, 0.25);
+    border-color: #6d28d9;
+}
+
+.sidebar-enrich-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.sidebar-enrich-mini-btn {
+    background: white;
+    border: 1px solid #c4b5fd;
+    border-radius: 8px;
+    padding: 6px 4px;
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #5b21b6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.sidebar-enrich-mini-btn:hover {
+    background: #7c3aed;
+    color: white;
+    border-color: #6d28d9;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+ * 2. هيكل النافذة الرئيسية (Enrichment Modal Box)
+ * ========================================================================== */
+.enrich-modal-box {
+    background: #ffffff;
+    border-radius: 26px;
+    box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.35);
+    max-width: 1100px;
+    width: 95vw;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: modalPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 2px solid #e2e8f0;
+    position: relative;
+}
+
+.enrich-modal-header {
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #4338ca;
+}
+
+.enrich-modal-icon {
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 8px 12px;
+    border-radius: 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.enrich-modal-title {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: #ffffff;
+}
+
+.enrich-modal-subtitle {
+    font-size: 0.84rem;
+    color: #c7d2fe;
+    font-weight: 700;
+    margin-top: 3px;
+}
+
+/* التبويبات العلوية في النافذة */
+.enrich-modal-tabs {
+    display: flex;
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+    padding: 8px 16px 0 16px;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+}
+
+.enrich-modal-tab {
+    padding: 12px 18px;
+    border: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: #64748b;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    border-radius: 10px 10px 0 0;
+    transition: all 0.2s ease;
+}
+
+.enrich-modal-tab:hover {
+    color: #4338ca;
+    background: rgba(238, 242, 255, 0.8);
+}
+
+.enrich-modal-tab.active {
+    color: #4338ca;
+    background: #ffffff;
+    border-bottom: 3px solid #6366f1;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.enrich-modal-body {
+    padding: 20px 24px;
+    overflow-y: auto;
+    flex: 1;
+    background: #f8fafc;
+}
+
+.enrich-tab-pane {
+    display: none;
+    animation: fadeIn 0.25s ease;
+}
+
+.enrich-tab-pane.active {
+    display: block;
+}
+
+.enrich-modal-footer {
+    padding: 12px 24px;
+    background: #ffffff;
+    border-top: 1.5px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* ==========================================================================
+ * 3. تبويب اختبارات نهاية الفصل (Exams & Assessments)
+ * ========================================================================== */
+.exams-hub-selector {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.exam-choice-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+}
+
+.exam-choice-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.exam-choice-card.card-term1 {
+    border-color: #93c5fd;
+    background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+}
+.exam-choice-card.card-term1:hover {
+    border-color: #2563eb;
+}
+
+.exam-choice-card.card-term2 {
+    border-color: #fbcfe8;
+    background: linear-gradient(135deg, #ffffff 0%, #fdf2f8 100%);
+}
+.exam-choice-card.card-term2:hover {
+    border-color: #db2777;
+}
+
+.exam-choice-card.card-final {
+    border-color: #fde68a;
+    background: linear-gradient(135deg, #ffffff 0%, #fffbeb 100%);
+}
+.exam-choice-card.card-final:hover {
+    border-color: #d97706;
+}
+
+.exam-card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    font-size: 0.74rem;
+    font-weight: 900;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.exam-card-title {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #0f172a;
+    margin: 10px 0 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.exam-card-desc {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 14px;
+}
+
+.exam-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px dashed #cbd5e1;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+/* مسرح الاختبار التفاعلي (Active Exam Stage) */
+.active-exam-container {
+    background: #ffffff;
+    border-radius: 20px;
+    border: 2px solid #cbd5e1;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.exam-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f1f5f9;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.exam-progress-bar-wrap {
+    flex: 1;
+    min-width: 200px;
+    max-width: 400px;
+}
+
+.exam-progress-rail {
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.exam-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #6366f1, #4f46e5);
+    border-radius: 12px;
+    transition: width 0.4s ease;
+}
+
+.exam-question-card {
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.exam-skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #ede9fe;
+    color: #6d28d9;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.exam-question-text {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #1e293b;
+    line-height: 1.6;
+    margin: 8px 0 16px 0;
+}
+
+.exam-question-visual {
+    margin: 12px auto;
+    max-width: 240px;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.exam-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.exam-option-btn {
+    background: #ffffff;
+    border: 2.5px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 16px 20px;
+    font-family: inherit;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1e293b;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+.exam-option-btn:hover {
+    transform: translateY(-3px);
+    border-color: #6366f1;
+    background: #f5f3ff;
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.15);
+}
+
+.exam-option-btn.selected-correct {
+    background: #ecfdf5 !important;
+    border-color: #10b981 !important;
+    color: #065f46 !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2) !important;
+}
+
+.exam-option-btn.selected-wrong {
+    background: #fef2f2 !important;
+    border-color: #ef4444 !important;
+    color: #991b1b !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+}
+
+/* شاشة نتيجة الاختبار الكبرى */
+.exam-result-grand-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+    border: 2.5px solid #10b981;
+    border-radius: 24px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(16, 185, 129, 0.15);
+    margin-bottom: 24px;
+}
+
+.exam-score-dial {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.35);
+}
+
+.exam-score-num {
+    font-size: 2.5rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.exam-score-lbl {
+    font-size: 0.85rem;
+    font-weight: 800;
+    opacity: 0.95;
+    margin-top: 4px;
+}
+
+/* ==========================================================================
+ * 4. تبويب التدريبات الصيفية الإثرائية (Summer Enrichment Camp)
+ * ========================================================================== */
+.summer-hero-banner {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.25);
+    flex-wrap: wrap;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+}
+
+.summer-hero-banner::after {
+    content: "☀️🌴";
+    position: absolute;
+    left: -20px;
+    bottom: -20px;
+    font-size: 6rem;
+    opacity: 0.15;
+    pointer-events: none;
+}
+
+.summer-subtabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.summer-subtab-btn {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.summer-subtab-btn:hover {
+    border-color: #0284c7;
+    color: #0284c7;
+}
+
+.summer-subtab-btn.active {
+    background: #0284c7;
+    color: white;
+    border-color: #0369a1;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+}
+
+/* بطاقات القصص الصيفية المشكولة */
+.summer-story-box {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.summer-story-title {
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #0369a1;
+    margin: 0 0 14px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.summer-story-text {
+    font-size: 1.35rem;
+    line-height: 2.2;
+    color: #1e293b;
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 20px;
+    border: 1.5px solid #e2e8f0;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.summer-story-word {
+    display: inline-block;
+    padding: 2px 4px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.summer-story-word:hover {
+    background: #e0f2fe;
+    color: #0369a1;
+    transform: scale(1.08);
+}
+
+/* جدول المتابعة الصيفي (Summer Weekly Tracker) */
+.summer-weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.summer-week-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 16px;
+    transition: all 0.2s ease;
+}
+
+.summer-week-card:hover {
+    border-color: #0284c7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.1);
+}
+
+.summer-week-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 900;
+    color: #0369a1;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1.5px solid #f1f5f9;
+}
+
+.summer-task-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #334155;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+.summer-task-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: #0284c7;
+    cursor: pointer;
+}
+
+/* ==========================================================================
+ * 5. تبويب بنك بطاقات القراءة الذكية (Smart Flashcards Bank)
+ * ========================================================================== */
+.flashcards-toolbar {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.flashcards-filters-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.filter-pill-btn {
+    background: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #475569;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-pill-btn:hover {
+    border-color: #059669;
+    color: #059669;
+}
+
+.filter-pill-btn.active {
+    background: #059669;
+    color: white;
+    border-color: #047857;
+    box-shadow: 0 2px 8px rgba(5, 150, 105, 0.25);
+}
+
+/* شريط التحكم في وضع القراءة السريعة (Auto-Flash Controls) */
+.speed-reading-bar {
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+    border: 2px solid #10b981;
+    border-radius: 16px;
+    padding: 12px 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.btn-speed-toggle {
+    background: #059669;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 8px 18px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
+    transition: all 0.2s ease;
+}
+
+.btn-speed-toggle:hover {
+    background: #047857;
+    transform: translateY(-2px);
+}
+
+/* شبكة البطاقات التفاعلية 3D */
+.flashcards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 18px;
+    perspective: 1200px;
+}
+
+.flashcard-wrapper {
+    height: 260px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flashcard-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.flashcard-wrapper.flipped .flashcard-inner {
+    transform: rotateY(180deg);
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 2.5px solid #e2e8f0;
+}
+
+.flashcard-front {
+    background: #ffffff;
+    border-color: #cbd5e1;
+}
+
+.flashcard-front:hover {
+    border-color: #059669;
+    box-shadow: 0 12px 28px rgba(5, 150, 105, 0.15);
+}
+
+.flashcard-back {
+    background: linear-gradient(135deg, #f0fdf4 0%, #e6fcf5 100%);
+    border-color: #10b981;
+    transform: rotateY(180deg);
+}
+
+.card-top-tag {
+    font-size: 0.74rem;
+    font-weight: 800;
+    background: #f1f5f9;
+    color: #475569;
+    padding: 3px 10px;
+    border-radius: 12px;
+}
+
+.card-main-word {
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: #1e293b;
+    line-height: 1.2;
+    margin: auto 0;
+}
+
+.card-sub-hint {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.card-syllables-row {
+    display: flex;
+    gap: 6px;
+    margin: auto 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.syllable-chip {
+    background: white;
+    border: 1.5px solid #10b981;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #047857;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================================================
+ * 6. أنماط الطباعة والتصدير الورقي (Printable Documents Styles)
+ * ========================================================================== */
+@media print {
+    body * {
+        visibility: hidden;
+    }
+
+    #enrichmentModal,
+    #enrichmentModal * {
+        visibility: visible;
+    }
+
+    #enrichmentModal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        background: transparent !important;
+        display: block !important;
+    }
+
+    .enrich-modal-box {
+        border: none !important;
+        box-shadow: none !important;
+        max-width: 100% !important;
+        width: 100% !important;
+        max-height: none !important;
+        overflow: visible !important;
+    }
+
+    .enrich-modal-header,
+    .enrich-modal-tabs,
+    .enrich-modal-footer,
+    .flashcards-toolbar,
+    .speed-reading-bar,
+    .no-print {
+        display: none !important;
+    }
+
+    .flashcards-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 12px !important;
+    }
+
+    .flashcard-wrapper {
+        height: 220px !important;
+        page-break-inside: avoid;
+    }
+
+    .flashcard-front {
+        border: 2px dashed #64748b !important;
+        box-shadow: none !important;
+    }
+
+    .exam-report-print-container,
+    .summer-print-container {
+        display: block !important;
+        page-break-inside: avoid;
+    }
+}

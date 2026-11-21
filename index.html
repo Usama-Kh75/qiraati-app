@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="css/lessons-unit5.css">
     <link rel="stylesheet" href="css/lessons-unit6.css">
     <link rel="stylesheet" href="css/evaluation.css">
+    <link rel="stylesheet" href="css/enrichment.css">
 
 </head>
 
@@ -109,6 +110,12 @@
             <button class="btn-top btn-top-eval" id="btnTopEvalHub" onclick="openEvaluationModal('eval')" title="سجل تقييم التلاميذ الأسبوعي المعتمد 2026/2027، شهادة التخرج الكبرى، وسجل الإنجاز الشامل">
                 <span>🎓</span>
                 <span>التقييم والشهادة</span>
+            </button>
+
+            <!-- زر منظومة اختبارات نهاية الفصل والتدريبات الصيفية وبنك بطاقات القراءة -->
+            <button class="btn-top btn-top-enrichment-hub" id="btnTopEnrichHub" onclick="openEnrichmentModal('exams')" title="اختبارات نهاية الفصل الدراسي، التدريبات الصيفية الإثرائية، وبنك بطاقات القراءة الذكية">
+                <span>🌟</span>
+                <span>الاختبارات والبطاقات</span>
             </button>
 
             <!-- زر ضبط النظام واختيار الصوت -->
@@ -201,6 +208,27 @@
                 </div>
                 <div class="sidebar-eval-progress-bar">
                     <div class="sidebar-eval-progress-fill" id="sidebarProgressFill" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- بطاقة منظومة الاختبارات والأنشطة الإثرائية وبنك البطاقات في القائمة الجانبية -->
+            <div class="sidebar-enrichment-card" onclick="openEnrichmentModal('exams')" title="اختبارات نهاية الفصل، التدريبات الصيفية الإثرائية، وبنك بطاقات القراءة الذكية">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #5b21b6; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>🌟</span> <span>الاختبارات والبطاقات الذكية</span>
+                    </span>
+                    <span style="font-size: 0.72rem; font-weight: 800; background: #7c3aed; color: white; padding: 2px 6px; border-radius: 6px;">جديد</span>
+                </div>
+                <div class="sidebar-enrich-buttons-grid" onclick="event.stopPropagation()">
+                    <button class="sidebar-enrich-mini-btn" onclick="openEnrichmentModal('exams')" title="اختبارات نهاية الفصل الدراسي الأول والثاني">
+                        <span>📝</span> <span>الاختبارات</span>
+                    </button>
+                    <button class="sidebar-enrich-mini-btn" onclick="openEnrichmentModal('summer')" title="التدريبات والقصص الصيفية الإثرائية">
+                        <span>☀️</span> <span>نادي الصيف</span>
+                    </button>
+                    <button class="sidebar-enrich-mini-btn" onclick="openEnrichmentModal('cards')" title="بنك بطاقات القراءة والتقطيع المقطعي">
+                        <span>🗂️</span> <span>البطاقات</span>
+                    </button>
                 </div>
             </div>
 
@@ -23891,6 +23919,165 @@
         </div>
     </div>
 
+    <!-- ==========================================================================
+         نافذة منظومة اختبارات نهاية الفصل والتدريبات الصيفية وبنك بطاقات القراءة
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    ========================================================================== -->
+    <div class="modal-backdrop" id="enrichmentModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="enrich-modal-box" onclick="event.stopPropagation()">
+            <!-- رأس النافذة -->
+            <div class="enrich-modal-header">
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span class="enrich-modal-icon">🌟</span>
+                    <div>
+                        <h3 class="enrich-modal-title">اختبارات نهاية الفصل والتدريبات الصيفية وبنك البطاقات الذكية</h3>
+                        <div class="enrich-modal-subtitle">
+                            الصف الأول الابتدائي • المنهج الفونيمي الشامل • إعداد وتطوير: المهندس أسامة خليل هاشم
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <button class="btn-eval-action btn-eval-print" onclick="window.print()" title="طباعة القسم الحالي بتنسيق A4">
+                        <span>🖨️</span> <span>طباعة</span>
+                    </button>
+                    <button class="modal-close-btn" onclick="closeEnrichmentModal()" title="إغلاق">&times;</button>
+                </div>
+            </div>
+
+            <!-- أزرار التبويبات الأربعة الرئيسية -->
+            <div class="enrich-modal-tabs">
+                <button class="enrich-modal-tab active" id="tabEnrich_exams" onclick="switchEnrichmentTab('exams')">
+                    <span>📝</span> <span>اختبارات نهاية الفصل (الفصل الأول والنهائي)</span>
+                </button>
+                <button class="enrich-modal-tab" id="tabEnrich_summer" onclick="switchEnrichmentTab('summer')">
+                    <span>☀️</span> <span>التدريبات الصيفية الإثرائية والقصص</span>
+                </button>
+                <button class="enrich-modal-tab" id="tabEnrich_cards" onclick="switchEnrichmentTab('cards')">
+                    <span>🗂️</span> <span>بنك بطاقات القراءة الذكية (3D Flip)</span>
+                </button>
+                <button class="enrich-modal-tab" id="tabEnrich_print" onclick="switchEnrichmentTab('print')">
+                    <span>🖨️</span> <span>مركز الطباعة الورقية (A4)</span>
+                </button>
+            </div>
+
+            <!-- محتوى التبويبات -->
+            <div class="enrich-modal-body">
+                <!-- التبويب 1: اختبارات نهاية الفصل -->
+                <div id="paneEnrich_exams" class="enrich-tab-pane active">
+                    <div id="examsHubContent">
+                        <!-- يُبنى ديناميكياً عبر enrichment.js -->
+                    </div>
+                </div>
+
+                <!-- التبويب 2: التدريبات الصيفية الإثرائية -->
+                <div id="paneEnrich_summer" class="enrich-tab-pane">
+                    <!-- بانر الصيف الترحيبي -->
+                    <div class="summer-hero-banner">
+                        <div>
+                            <div style="font-size: 0.88rem; font-weight: 800; opacity: 0.9; margin-bottom: 4px;">جسر الانتقال إلى الصف الثاني الابتدائي:</div>
+                            <h2 style="margin: 0; font-size: 1.6rem; font-weight: 900;">☀️ مخيم القراءة الصيفي التفاعلي</h2>
+                            <div style="font-size: 0.88rem; opacity: 0.95; margin-top: 6px;">
+                                قصص مشوقة مشكولة بالكامل، تحديات الكلمات البصرية، وجدول متابعة لـ 8 أسابيع لمنع الفاقد التعليمي.
+                            </div>
+                        </div>
+                        <div style="text-align: center; min-width: 140px;">
+                            <div style="font-size: 3rem;">🌴🏖️</div>
+                            <div style="font-size: 0.82rem; font-weight: 800;">عطلة صيفية ممتعة ومفيدة</div>
+                        </div>
+                    </div>
+
+                    <div id="summerStoryContent">
+                        <!-- تُبنى القصص وأسئلة الفهم ديناميكياً -->
+                    </div>
+
+                    <div id="summerWeeksContainer" style="margin-top: 24px;">
+                        <!-- يُبنى جدول الأسابيع ديناميكياً -->
+                    </div>
+                </div>
+
+                <!-- التبويب 3: بنك بطاقات القراءة الذكية -->
+                <div id="paneEnrich_cards" class="enrich-tab-pane">
+                    <!-- شريط أدوات وفلترة البطاقات -->
+                    <div class="flashcards-toolbar no-print">
+                        <div class="flashcards-filters-group">
+                            <span style="font-weight: 900; color: #1e3a8a; font-size: 0.9rem;">الفئات:</span>
+                            <button class="filter-pill-btn active" data-filter="all" onclick="setCardFilter('all')">الكل 🌟</button>
+                            <button class="filter-pill-btn" data-filter="word" onclick="setCardFilter('word')">📖 كلمات بصرية</button>
+                            <button class="filter-pill-btn" data-filter="syllable" onclick="setCardFilter('syllable')">🧩 مقاطع صوتية</button>
+                            <button class="filter-pill-btn" data-filter="letter" onclick="setCardFilter('letter')">🔤 حروف ومدود</button>
+                            <button class="filter-pill-btn" data-filter="sentence" onclick="setCardFilter('sentence')">📜 جمل قرائية</button>
+                        </div>
+
+                        <div style="display: flex; gap: 8px; align-items: center;">
+                            <select onchange="setCardUnitFilter(this.value)" style="padding: 6px 12px; border-radius: 12px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 0.85rem; font-weight: 800; color: #334155; cursor: pointer;">
+                                <option value="all">كافة وحدات الكتاب (1 - 6)</option>
+                                <option value="prep">التهيئة وحروف المد</option>
+                                <option value="unit1">الوحدة 1: أسرتي</option>
+                                <option value="unit2">الوحدة 2: مدرستي</option>
+                                <option value="unit3">الوحدة 3: ألعابي وحيواناتي</option>
+                                <option value="unit4">الوحدة 4: صحتي وبيئتي</option>
+                                <option value="unit5">الوحدة 5: هواياتي وألعابي</option>
+                                <option value="unit6">الوحدة 6: العالم من حولي</option>
+                            </select>
+
+                            <input type="text" placeholder="🔍 بحث سريع..." oninput="searchFlashcards(this.value)" style="padding: 6px 12px; border-radius: 12px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 0.85rem; width: 140px;">
+                        </div>
+                    </div>
+
+                    <!-- شريط التحكم في القراءة السريعة التلقائية -->
+                    <div class="speed-reading-bar no-print">
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <button class="btn-speed-toggle" id="btnAutoFlashToggle" onclick="toggleAutoFlash()">
+                                <span>⚡</span> <span>بدء القراءة السريعة التلقائية</span>
+                            </button>
+                            <span id="cardsCountBadge" style="font-size: 0.84rem; font-weight: 900; color: #047857; background: white; padding: 4px 10px; border-radius: 10px; border: 1px solid #10b981;">
+                                جاري التحميل...
+                            </span>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 800; color: #065f46;">
+                            <span>سرعة التمرير:</span>
+                            <select id="autoFlashSpeedSelect" style="padding: 4px 8px; border-radius: 8px; border: 1px solid #10b981; font-family: inherit; font-weight: 800; cursor: pointer;">
+                                <option value="2000">سريعة جداً (ثانيتان)</option>
+                                <option value="2500" selected>متوسطة (2.5 ثانية)</option>
+                                <option value="3500">هادئة (3.5 ثوانٍ)</option>
+                            </select>
+                            <button class="btn btn-teach" onclick="window.print()" style="font-size: 0.82rem; padding: 4px 12px;">
+                                <span>🖨️ طباعة البطاقات للقص</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- شبكة البطاقات التفاعلية 3D -->
+                    <div class="flashcards-grid" id="flashcardsGridEl">
+                        <!-- تُبنى ديناميكياً عبر enrichment.js -->
+                    </div>
+                </div>
+
+                <!-- التبويب 4: مركز الطباعة والتصدير -->
+                <div id="paneEnrich_print" class="enrich-tab-pane">
+                    <div id="printHubContent">
+                        <!-- يُبنى ديناميكياً -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- أسفل النافذة -->
+            <div class="enrich-modal-footer">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #5b21b6;">
+                    🌟 منصة قراءتي التفاعلية الذكية • <b>إعداد: المهندس أسامة خليل هاشم</b> • بنك البطاقات والاختبارات الشاملة ✅
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button type="button" class="btn-eval-action btn-eval-print" onclick="window.print()">
+                        <span>🖨️</span> <span>طباعة</span>
+                    </button>
+                    <button type="button" class="btn btn-teach" style="padding: 6px 18px; font-size: 0.88rem; background: #6d28d9; border-color: #5b21b6;" onclick="closeEnrichmentModal()">
+                        إغلاق النافذة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
@@ -23902,6 +24089,7 @@
     <script src="js/core/audio.js"></script>
     <script src="js/core/navigation.js"></script>
     <script src="js/core/evaluation.js"></script>
+    <script src="js/core/enrichment.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>
