@@ -73,7 +73,9 @@ def run_integration_audit():
         'btnNextQuestion', 'examFeedbackBox',
         'evalConfettiCanvas',
         'gamificationStarsCanvas', 'certEditableName',
-        'classroomNoticeToast'
+        'classroomNoticeToast',
+        'hostOptionCard_0', 'hostOptionCard_1', 'hostOptionCard_2', 'hostOptionCard_3',
+        'hostOptionCount_0', 'hostOptionCount_1', 'hostOptionCount_2', 'hostOptionCount_3'
     }
 
     # 3. فحص المعرفات البرمجية المستخدمة في ملفات JavaScript الأساسية
@@ -85,6 +87,7 @@ def run_integration_audit():
         'gamification.js': os.path.join(BASE_DIR, 'js', 'core', 'gamification.js'),
         'teacher-dashboard.js': os.path.join(BASE_DIR, 'js', 'core', 'teacher-dashboard.js'),
         'classroom-sync.js': os.path.join(BASE_DIR, 'js', 'core', 'classroom-sync.js'),
+        'classroom-quiz.js': os.path.join(BASE_DIR, 'js', 'core', 'classroom-quiz.js'),
         'audio.js': os.path.join(BASE_DIR, 'js', 'core', 'audio.js'),
         'navigation.js': os.path.join(BASE_DIR, 'js', 'core', 'navigation.js'),
         'modals.js': os.path.join(BASE_DIR, 'js', 'core', 'modals.js'),
@@ -225,6 +228,35 @@ def run_integration_audit():
     if not any("عنصر المزامنة الصفية" in e for e in errors):
         successes.append("كافة عناصر محرك المزامنة الصفية وشاشات التابلت والرادار الحي متكاملة بنسبة 100%.")
 
+    # 7 هـ. فحص محرك المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show)
+    print("\n--- فحص محرك المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show) ---")
+    quiz_elements = [
+        ('زر المسابقات بالشريط العلوي', 'btnTopQuizShow'),
+        ('نافذة المسابقات الرئيسية', 'classroomQuizModal'),
+        ('تبويب شاشة العرض الذكية', 'tabQuizMode_host'),
+        ('تبويب لوحة التابلت', 'tabQuizMode_tablet'),
+        ('تبويب السبورة المباشرة', 'tabQuizMode_hotseat'),
+        ('حاوية شاشة العرض الذكية', 'quizPane_host'),
+        ('حاوية لوحة التابلت', 'quizPane_tablet'),
+        ('حاوية السبورة المباشرة', 'quizPane_hotseat'),
+        ('مرحلة إعداد المسابقة', 'quizHostStage_setup'),
+        ('مرحلة انتظار اللوبي', 'quizHostStage_lobby'),
+        ('مرحلة السؤال التنافسي', 'quizHostStage_question'),
+        ('مرحلة كشف النتيجة', 'quizHostStage_revealed'),
+        ('مرحلة لوحة الصدارة', 'quizHostStage_leaderboard'),
+        ('مرحلة منصة التتويج الكبرى', 'quizHostStage_podium'),
+        ('كانفاس تتويج الأبطال', 'quizPodiumConfettiCanvas'),
+        ('زر بزر التابلت الأحمر', 'tabletBtnOption_0'),
+        ('زر بزر التابلت الأزرق', 'tabletBtnOption_1'),
+        ('زر بزر التابلت الأصفر', 'tabletBtnOption_2'),
+        ('زر بزر التابلت الأخضر', 'tabletBtnOption_3')
+    ]
+    for q_title, q_id in quiz_elements:
+        if q_id not in dom_ids:
+            errors.append(f"عنصر المسابقات التنافسية {q_title} ({q_id}) مفقود!")
+    if not any("عنصر المسابقات التنافسية" in e for e in errors):
+        successes.append("كافة عناصر محرك المسابقات التنافسية الصفية وأجهزة التابلت واستوديو العرض (18 عنصراً) متكاملة بنسبة 100%.")
+
     # 8. فحص عزل مفاتيح التخزين المحلي (LocalStorage Key Hygiene)
     print("\n--- فحص عزل مفاتيح التخزين المحلي (قواعد أسامة) ---")
     storage_keys = []
@@ -248,7 +280,7 @@ def run_integration_audit():
         'css/lessons-unit3.css', 'css/lessons-unit4.css', 'css/lessons-unit5.css',
         'css/lessons-unit6.css', 'css/evaluation.css', 'css/enrichment.css',
         'css/blackboard.css', 'css/games.css', 'css/gamification.css', 'css/teacher-dashboard.css',
-        'css/classroom-sync.css'
+        'css/classroom-sync.css', 'css/classroom-quiz.css'
     ]
     for cf in css_files:
         if cf not in index_html:
@@ -261,7 +293,7 @@ def run_integration_audit():
         'js/core/modals.js', 'js/core/audio.js', 'js/core/navigation.js',
         'js/core/evaluation.js', 'js/core/enrichment.js', 'js/core/blackboard.js',
         'js/core/games.js', 'js/core/gamification.js', 'js/core/teacher-dashboard.js',
-        'js/core/classroom-sync.js', 'js/app.js'
+        'js/core/classroom-sync.js', 'js/core/classroom-quiz.js', 'js/app.js'
     ]
     for cs in core_scripts:
         if cs not in index_html:
@@ -285,8 +317,10 @@ def run_integration_audit():
         ('js/core/gamification.js', open(os.path.join(BASE_DIR, 'js', 'core', 'gamification.js'), encoding='utf-8').read()),
         ('js/core/teacher-dashboard.js', open(os.path.join(BASE_DIR, 'js', 'core', 'teacher-dashboard.js'), encoding='utf-8').read()),
         ('js/core/classroom-sync.js', open(os.path.join(BASE_DIR, 'js', 'core', 'classroom-sync.js'), encoding='utf-8').read()),
+        ('js/core/classroom-quiz.js', open(os.path.join(BASE_DIR, 'js', 'core', 'classroom-quiz.js'), encoding='utf-8').read()),
         ('css/teacher-dashboard.css', open(os.path.join(BASE_DIR, 'css', 'teacher-dashboard.css'), encoding='utf-8').read()),
         ('css/classroom-sync.css', open(os.path.join(BASE_DIR, 'css', 'classroom-sync.css'), encoding='utf-8').read()),
+        ('css/classroom-quiz.css', open(os.path.join(BASE_DIR, 'css', 'classroom-quiz.css'), encoding='utf-8').read()),
     ]
     for s_name, s_content in sig_targets:
         if official_signature not in s_content:

@@ -1747,6 +1747,49 @@
         updateSidebarCard();
     }
 
+    // استيعاب وإيداع نتائج المسابقة التنافسية في سجل درجات ونجوم الصف
+    function ingestQuizResults(players, quizTitle) {
+        if (!Array.isArray(players) || players.length === 0) return;
+        const currentList = getActiveStudents();
+
+        players.forEach(p => {
+            if (!p || !p.name) return;
+            const existing = currentList.find(s => s.id === p.id || s.name.trim() === p.name.trim());
+            const earnedStars = Math.max(10, Math.round((p.total_score || 1000) / 100));
+
+            if (existing) {
+                existing.stars = (existing.stars || 0) + earnedStars;
+                if (!existing.notes) existing.notes = '';
+                existing.notes += ` [مسابقة: ${quizTitle || 'قراءتي'} (+${earnedStars}⭐)]`;
+            } else {
+                const newStd = {
+                    id: p.id || ('std_' + Math.random().toString(36).substring(2, 8)),
+                    name: p.name,
+                    gender: 'boy',
+                    stars: earnedStars,
+                    completedLessons: 15,
+                    status: 'متفوق',
+                    skills: {
+                        listening: 'ممتاز',
+                        speaking: 'ممتاز',
+                        reading: 'ممتاز',
+                        writing: 'جيد جداً',
+                        spelling: 'ممتاز',
+                        memorization: 'ممتاز',
+                        participation: 'ممتاز',
+                        attendance: 'ممتاز'
+                    },
+                    notes: `أبطال مسابقة: ${quizTitle || 'قراءتي'}`
+                };
+                currentList.push(newStd);
+            }
+        });
+
+        saveData();
+        updateSidebarCard();
+        renderOverviewTab();
+    }
+
     // التهيئة عند تحميل المستند
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
@@ -1790,7 +1833,8 @@
         updateSidebarCard,
         getActiveClassStudents,
         getClasses,
-        ingestStudentProgress
+        ingestStudentProgress,
+        ingestQuizResults
     };
 
     // دوال مساعدة عامة على النافذة

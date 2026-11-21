@@ -1,6 +1,6 @@
 ﻿// منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v66';
+const CACHE_NAME = 'qiraati-smart-v67';
 
 const ASSETS_TO_CACHE = [
 
@@ -52,6 +52,8 @@ const ASSETS_TO_CACHE = [
 
   './css/classroom-sync.css',
 
+  './css/classroom-quiz.css',
+
   './js/core/modals.js',
 
   './js/core/audio.js',
@@ -71,6 +73,8 @@ const ASSETS_TO_CACHE = [
   './js/core/teacher-dashboard.js',
 
   './js/core/classroom-sync.js',
+
+  './js/core/classroom-quiz.js',
 
   './js/lessons/prep.js',
 

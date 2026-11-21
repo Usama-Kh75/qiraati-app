@@ -1,0 +1,1057 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - تنسيقات محرك المسابقات التنافسية الصفية المباشرة
+ * (Classroom Live Quiz & Game Show Styles)
+ * متوافق مع الشاشات التفاعلية الذكية وأجهزة التابلت والهواتف المحمولة
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* زر الشريط العلوي للمسابقات التنافسية */
+.btn-top-quiz-show {
+    background: linear-gradient(135deg, #7c2d12 0%, #ea580c 50%, #f59e0b 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #fde047 !important;
+    box-shadow: 0 3px 10px rgba(234, 88, 12, 0.25) !important;
+    font-weight: 800 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+.btn-top-quiz-show:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(234, 88, 12, 0.35) !important;
+    background: linear-gradient(135deg, #9a3412 0%, #ea580c 100%) !important;
+}
+
+/* النافذة المنبثقة الشاملة للمسابقة */
+.quiz-modal-box {
+    width: 95vw;
+    max-width: 1200px;
+    height: 90vh;
+    max-height: 850px;
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0 25px 60px rgba(15, 23, 42, 0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 3px solid #0284c7;
+    position: relative;
+    font-family: inherit;
+    animation: quizModalPop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes quizModalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* الترويسة العلوية للمسابقة */
+.quiz-modal-header {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+    color: white;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(2, 132, 199, 0.25);
+    position: relative;
+    z-index: 10;
+}
+
+.quiz-header-title-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.quiz-header-icon {
+    font-size: 1.8rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.quiz-header-title-box h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+}
+
+.quiz-header-title-box p {
+    margin: 2px 0 0;
+    font-size: 0.85rem;
+    color: #e0f2fe;
+    font-weight: 600;
+}
+
+/* شريط تبويبات الأنماط (شاشة العرض / التابلت / السبورة) */
+.quiz-mode-nav-tabs {
+    display: flex;
+    background: rgba(255, 255, 255, 0.18);
+    padding: 4px;
+    border-radius: 14px;
+    gap: 4px;
+    backdrop-filter: blur(8px);
+}
+
+.quiz-mode-tab {
+    background: transparent;
+    border: none;
+    color: #e0f2fe;
+    padding: 7px 16px;
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.quiz-mode-tab:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+}
+
+.quiz-mode-tab.active {
+    background: #ffffff;
+    color: #0369a1;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* جسم المحتوى الداخلي */
+.quiz-modal-body {
+    flex: 1;
+    overflow-y: auto;
+    position: relative;
+    background: #f8fafc;
+}
+
+/* حاوية العرض الذكية (Arena Host) */
+.quiz-host-container {
+    padding: 24px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 1. مرحلة إعداد الجولة (Setup Stage) */
+.quiz-setup-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+    max-width: 800px;
+    margin: 10px auto;
+}
+
+.quiz-setup-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.quiz-setup-header h2 {
+    font-size: 1.6rem;
+    color: #1e3a8a;
+    margin: 0 0 8px;
+    font-weight: 900;
+}
+
+.quiz-setup-header p {
+    color: #64748b;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.quiz-setup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.quiz-setup-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.quiz-setup-field label {
+    font-weight: 700;
+    color: #334155;
+    font-size: 0.9rem;
+}
+
+.quiz-setup-select, .quiz-setup-input {
+    padding: 10px 14px;
+    border: 2px solid #cbd5e1;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    background: #f8fafc;
+    color: #0f172a;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.quiz-setup-select:focus, .quiz-setup-input:focus {
+    border-color: #0284c7;
+    background: white;
+}
+
+.quiz-mode-selector-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.quiz-mode-select-btn {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #cbd5e1;
+    background: #f8fafc;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #475569;
+    transition: all 0.2s ease;
+}
+
+.quiz-mode-select-btn.active {
+    border-color: #0284c7;
+    background: #e0f2fe;
+    color: #0369a1;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.15);
+}
+
+.quiz-start-cta-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.15rem;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.quiz-start-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(16, 185, 129, 0.4);
+}
+
+/* 2. مرحلة انتظار اللوبي (Lobby Stage) */
+.quiz-lobby-box {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    max-width: 900px;
+    margin: 0 auto;
+    border: 2px solid #e2e8f0;
+}
+
+.quiz-pin-display-banner {
+    background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    min-width: 320px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.2);
+}
+
+.quiz-pin-title {
+    font-size: 0.95rem;
+    color: #93c5fd;
+    font-weight: 700;
+}
+
+.quiz-pin-digits {
+    font-size: 3.5rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: #facc15;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.quiz-pin-hint {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.quiz-lobby-players-counter {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #334155;
+    margin-bottom: 20px;
+}
+
+.quiz-lobby-players-counter b {
+    color: #0284c7;
+    font-size: 1.6rem;
+}
+
+/* 3. مرحلة السؤال التنافسي (Question Stage) */
+.quiz-host-question-screen {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.quiz-question-top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 16px;
+    border: 2px solid #e2e8f0;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+.quiz-q-meta-badges {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quiz-badge {
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 800;
+}
+
+.quiz-badge-primary {
+    background: #e0f2fe;
+    color: #0369a1;
+}
+
+.quiz-badge-category {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.quiz-timer-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.quiz-timer-pill {
+    background: #0f172a;
+    color: #facc15;
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 1.25rem;
+    font-weight: 900;
+    font-family: monospace;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.quiz-answers-counter-pill {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 6px 14px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+.quiz-question-card {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid #e2e8f0;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+.quiz-question-illustration {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    border-radius: 14px;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    padding: 6px;
+}
+
+.quiz-question-text-area {
+    flex: 1;
+}
+
+.quiz-question-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #1e3a8a;
+    line-height: 1.45;
+    margin: 0 0 10px;
+}
+
+.quiz-audio-pronounce-btn {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.quiz-audio-pronounce-btn:hover {
+    background: #bae6fd;
+}
+
+/* شبكة الخيارات الأربعة الكبيرة (Game Show Options Grid) */
+.quiz-options-grid-arena {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    flex: 1;
+}
+
+.quiz-host-option-card {
+    background: white;
+    border: 3.5px solid #cbd5e1;
+    border-radius: 18px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    position: relative;
+    transition: all 0.25s ease;
+}
+
+.quiz-host-option-card.correct-highlight {
+    border-color: #10b981 !important;
+    background: #ecfdf5 !important;
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.45);
+    transform: scale(1.02);
+}
+
+.quiz-option-shape {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    color: white;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+}
+
+.quiz-option-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.quiz-option-letter {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #64748b;
+}
+
+.quiz-option-text {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1.35;
+}
+
+.quiz-option-answer-count {
+    background: #f1f5f9;
+    color: #334155;
+    border-radius: 30px;
+    padding: 4px 12px;
+    font-weight: 800;
+    font-size: 0.95rem;
+}
+
+/* شريط التوقيت السفلي */
+.quiz-host-timer-progress {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 14px;
+}
+
+.quiz-host-timer-bar {
+    height: 100%;
+    width: 100%;
+    background: #0284c7;
+    transition: width 1s linear;
+}
+
+/* 4. مرحلة كشف النتيجة وشرح فصيح */
+.quiz-reveal-stage-banner {
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid #e2e8f0;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.quiz-faseeh-speech-bubble {
+    background: #f0fdf4;
+    border: 2px solid #86efac;
+    padding: 14px 20px;
+    border-radius: 16px;
+    flex: 1;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #166534;
+}
+
+.quiz-distribution-chart {
+    height: 140px;
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    padding: 10px;
+    background: #f8fafc;
+    border-radius: 14px;
+}
+
+.quiz-chart-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+.quiz-chart-bar {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    min-height: 12px;
+    transition: height 0.6s ease;
+}
+
+.quiz-chart-lbl {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #475569;
+}
+
+/* 5. لوحة الصدارة (Leaderboard) */
+.quiz-leaderboard-container {
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.quiz-leaderboard-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.quiz-leaderboard-header h2 {
+    font-size: 1.8rem;
+    color: #1e3a8a;
+    font-weight: 900;
+    margin: 0;
+}
+
+.quiz-leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.quiz-leaderboard-row {
+    background: white;
+    border-radius: 14px;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease;
+}
+
+.quiz-leaderboard-row.rank-1 {
+    border-color: #f59e0b;
+    background: #fefce8;
+}
+
+.leaderboard-rank {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #0284c7;
+    width: 36px;
+}
+
+.leaderboard-avatar {
+    font-size: 1.5rem;
+}
+
+.leaderboard-info {
+    flex: 1;
+}
+
+.leaderboard-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.leaderboard-meta {
+    font-size: 0.82rem;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.quiz-streak-tag {
+    background: #ffedd5;
+    color: #c2410c;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 0.78rem;
+}
+
+.leaderboard-score {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #059669;
+}
+
+/* شبكة ترتيب الفرق */
+.quiz-teams-rank-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.quiz-team-rank-card {
+    background: white;
+    border-radius: 16px;
+    padding: 14px;
+    text-align: center;
+    border: 2px solid #e2e8f0;
+    border-top: 5px solid #0284c7;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.quiz-team-rank-icon {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+}
+
+.quiz-team-rank-name {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #1e293b;
+}
+
+.quiz-team-rank-score {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #0369a1;
+    margin-top: 4px;
+}
+
+/* 6. منصة التتويج الكبرى (Podium Stage) */
+.quiz-podium-stage-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.quiz-podium-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.quiz-podium-banner {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 10;
+}
+
+.quiz-podium-banner h1 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #1e3a8a;
+    margin: 0;
+}
+
+.quiz-podium-3d-blocks {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 650px;
+    height: 320px;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 10;
+}
+
+.podium-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.podium-player-badge {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.podium-avatar {
+    font-size: 2.2rem;
+    margin-bottom: 4px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.podium-player-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+    white-space: nowrap;
+}
+
+.podium-player-score {
+    font-size: 0.92rem;
+    font-weight: 900;
+    color: #059669;
+}
+
+.podium-pedestal {
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.pedestal-1 {
+    height: 200px;
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+}
+
+.pedestal-2 {
+    height: 150px;
+    background: linear-gradient(135deg, #cbd5e1 0%, #64748b 100%);
+}
+
+.pedestal-3 {
+    height: 110px;
+    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+}
+
+.quiz-podium-actions {
+    display: flex;
+    gap: 14px;
+    position: relative;
+    z-index: 10;
+}
+
+/* ==========================================================================
+ * 7. تنسيقات شاشة التابلت للتلميذ (Student Tablet Buzzer Styles)
+ * ========================================================================== */
+.quiz-tablet-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* شاشة الانضمام للتابلت */
+.quiz-tablet-join-card {
+    background: white;
+    border-radius: 20px;
+    padding: 24px;
+    border: 2px solid #e2e8f0;
+    max-width: 450px;
+    margin: 20px auto;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.tablet-buzzer-screen {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tablet-buzzer-header {
+    background: white;
+    padding: 12px 18px;
+    border-radius: 14px;
+    border: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+.tablet-buzzer-buttons-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 14px;
+}
+
+.tablet-buzzer-btn {
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.1s ease, filter 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.tablet-buzzer-btn:active {
+    transform: scale(0.94);
+}
+
+.tablet-buzzer-btn.selected {
+    box-shadow: 0 0 0 6px white, 0 0 25px rgba(0, 0, 0, 0.35);
+    transform: scale(0.97);
+}
+
+.tablet-buzzer-btn.dimmed {
+    opacity: 0.35;
+    filter: grayscale(0.5);
+}
+
+.tablet-btn-red { background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%); }
+.tablet-btn-blue { background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%); }
+.tablet-btn-yellow { background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%); }
+.tablet-btn-green { background: linear-gradient(135deg, #10b981 0%, #047857 100%); }
+
+/* شاشة بعد الإجابة */
+.tablet-answered-waiting-box {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    text-align: center;
+    max-width: 450px;
+    margin: 40px auto;
+    border: 2px solid #e2e8f0;
+}
+
+.tablet-result-box {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    text-align: center;
+    max-width: 450px;
+    margin: 30px auto;
+    border: 3px solid #e2e8f0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.tablet-result-box.correct {
+    border-color: #10b981;
+    background: #ecfdf5;
+}
+
+.tablet-result-box.incorrect {
+    border-color: #f97316;
+    background: #fff7ed;
+}
+
+/* ==========================================================================
+ * 8. نمط السبورة الذكية المباشر (Hotseat Mode)
+ * ========================================================================== */
+.quiz-hotseat-container {
+    padding: 24px;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+.hotseat-teams-bar {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.hotseat-team-chip {
+    background: white;
+    padding: 8px 16px;
+    border-radius: 30px;
+    border: 2.5px solid #cbd5e1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.hotseat-team-chip.active {
+    background: #e0f2fe;
+    border-color: #0284c7;
+    box-shadow: 0 2px 8px rgba(2, 132, 199, 0.2);
+}
+
+.hotseat-option-btn {
+    background: white;
+    border: 3px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-align: right;
+    width: 100%;
+    transition: all 0.2s ease;
+}
+
+.hotseat-option-btn:hover {
+    background: #f8fafc;
+}
+
+.hotseat-option-btn.correct {
+    background: #ecfdf5 !important;
+    border-color: #10b981 !important;
+    color: #065f46;
+}
+
+.hotseat-option-btn.incorrect {
+    background: #fef2f2 !important;
+    border-color: #ef4444 !important;
+    color: #991b1b;
+}
+
+.hotseat-opt-shape {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+ * التكيف والاستجابة للشاشات الصغيرة والتابلت
+ * ========================================================================== */
+@media (max-width: 768px) {
+    .quiz-modal-box {
+        width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        border: none;
+    }
+
+    .quiz-options-grid-arena {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .quiz-question-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .quiz-question-illustration {
+        width: 100px;
+        height: 100px;
+    }
+
+    .quiz-question-text {
+        font-size: 1.2rem;
+    }
+
+    .quiz-teams-rank-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .quiz-pin-digits {
+        font-size: 2.6rem;
+    }
+}

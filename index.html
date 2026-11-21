@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="css/gamification.css">
     <link rel="stylesheet" href="css/teacher-dashboard.css">
     <link rel="stylesheet" href="css/classroom-sync.css">
+    <link rel="stylesheet" href="css/classroom-quiz.css">
 
 </head>
 
@@ -117,6 +118,12 @@
                 <span class="top-stars-count" id="topGlobalStarsCount">0</span>
                 <span class="top-stars-label">نجمة</span>
             </div>
+
+            <!-- زر محرك المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show) بين أجهزة التابلت وشاشة العرض -->
+            <button class="btn-top btn-top-quiz-show" id="btnTopQuizShow" onclick="openClassroomQuizModal('host')" title="استوديو المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show) - شاشة العرض الذكية وأجهزة التابلت">
+                <span>🏆</span>
+                <span id="topQuizStatusLabel">المسابقات التنافسية</span>
+            </button>
 
             <!-- زر محرك المزامنة الصفية المحلية أوفلاين عبر الواي فاي (Local Offline Sync) لمزامنة شاشات التابلت مع المعلم -->
             <button class="btn-top btn-top-class-sync" id="btnTopClassSync" onclick="openClassroomSyncModal()" title="المزامنة الصفية المحلية أوفلاين عبر الواي فاي (Local Offline Sync) - ربط شاشات التابلت مع لوحة تحكم المعلم">
@@ -25298,6 +25305,20 @@
                         </div>
                     </div>
 
+                    <!-- بطاقة إطلاق المسابقات التنافسية الصفية المباشرة -->
+                    <div style="background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%); border: 2px solid #38bdf8; border-radius: 16px; padding: 14px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);">
+                        <div style="display: flex; align-items: center; gap: 14px;">
+                            <div style="font-size: 2.5rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">🏆</div>
+                            <div>
+                                <h4 style="margin: 0 0 4px; font-size: 1.15rem; color: #0369a1; font-weight: 900;">استوديو المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show)</h4>
+                                <p style="margin: 0; color: #475569; font-size: 0.88rem;">بث المسابقات التفاعلية الحية بين شاشة العرض الذكية بالفصل وأجهزة التابلت للتلاميذ أوفلاين 100%</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-teach" style="padding: 10px 20px; font-size: 0.95rem; background: #0284c7; border-color: #0369a1; display: inline-flex; align-items: center; gap: 8px;" onclick="openClassroomQuizModal('host')">
+                            <span>🚀</span> <span>إطلاق مسابقة صفية الآن</span>
+                        </button>
+                    </div>
+
                     <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
                         <!-- مؤشرات إتقان المهارات الفونيمية الثمانية -->
                         <div class="skills-mastery-section">
@@ -25975,6 +25996,418 @@
         </div>
     </div>
 
+    <!-- ==============================================
+         نافذة محرك المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show Modal)
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    =============================================== -->
+    <div class="modal-backdrop" id="classroomQuizModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="quiz-modal-box" onclick="event.stopPropagation()">
+            <!-- الترويسة العلوية للمسابقة -->
+            <div class="quiz-modal-header">
+                <div class="quiz-header-title-box">
+                    <span class="quiz-header-icon">🏆</span>
+                    <div>
+                        <h3>استوديو المسابقات التنافسية الصفية المباشرة</h3>
+                        <p>Classroom Live Quiz & Game Show • بين أجهزة التابلت وشاشة العرض الذكية</p>
+                    </div>
+                </div>
+
+                <!-- شريط تبويبات الأنماط -->
+                <div class="quiz-mode-nav-tabs">
+                    <button type="button" class="quiz-mode-tab active" id="tabQuizMode_host" onclick="ClassroomQuiz.switchViewMode('host')">
+                        <span>📺</span> <span>شاشة العرض الذكية (Arena)</span>
+                    </button>
+                    <button type="button" class="quiz-mode-tab" id="tabQuizMode_tablet" onclick="ClassroomQuiz.switchViewMode('tablet')">
+                        <span>📱</span> <span>لوحة التابلت (Buzzer)</span>
+                    </button>
+                    <button type="button" class="quiz-mode-tab" id="tabQuizMode_hotseat" onclick="ClassroomQuiz.switchViewMode('hotseat')">
+                        <span>⚡</span> <span>السبورة المباشرة (Touch)</span>
+                    </button>
+                </div>
+
+                <button class="modal-close-btn" onclick="ClassroomQuiz.closeQuizModal()" title="إغلاق النافذة">&times;</button>
+            </div>
+
+            <!-- جسم النافذة ومحتوى الأنماط -->
+            <div class="quiz-modal-body">
+
+                <!-- ==============================================
+                     1. نمط شاشة العرض الذكية للمعلم (Smartboard Arena)
+                =============================================== -->
+                <div id="quizPane_host" class="quiz-host-container">
+                    
+                    <!-- أ. مرحلة إعداد الجولة (Setup Stage) -->
+                    <div id="quizHostStage_setup" style="display: block;">
+                        <div class="quiz-setup-card">
+                            <div class="quiz-setup-header">
+                                <h2 id="quizSetupTitle">مسابقة قراءتي التنافسية المباشرة</h2>
+                                <p id="quizSetupDesc">اختر مسابقة الوحدة ونمط التحدي لبدء بث الجولة الحية للتلاميذ على التابلت</p>
+                            </div>
+
+                            <div class="quiz-setup-grid">
+                                <div class="quiz-setup-field" style="grid-column: 1 / -1;">
+                                    <label>📚 بنك أسئلة المسابقة المنهجي:</label>
+                                    <select id="quizSelectCatalog" class="quiz-setup-select" onchange="ClassroomQuiz.onQuizCatalogSelectChange()"></select>
+                                </div>
+
+                                <div class="quiz-setup-field">
+                                    <label>🎮 نمط التنافس الصفي:</label>
+                                    <div class="quiz-mode-selector-btns">
+                                        <button type="button" class="quiz-mode-select-btn active" id="btnModeSolo" onclick="ClassroomQuiz.onGameModeChange('solo')">
+                                            <span>👤</span> <span>فردي للأبطال</span>
+                                        </button>
+                                        <button type="button" class="quiz-mode-select-btn" id="btnModeTeams" onclick="ClassroomQuiz.onGameModeChange('teams')">
+                                            <span>🦅⭐</span> <span>صراع الفرق (4 فرق)</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="quiz-setup-field">
+                                    <label>⏱️ زمن إجابة السؤال (بالثواني):</label>
+                                    <input type="number" id="quizSetupTimeLimit" class="quiz-setup-input" value="20" min="10" max="60" step="5">
+                                </div>
+
+                                <div class="quiz-setup-field" style="grid-column: 1 / -1; background: #f0fdf4; padding: 12px; border-radius: 12px; border: 1.5px solid #86efac; display: flex; align-items: center; justify-content: space-between;">
+                                    <div>
+                                        <span style="font-weight: 800; color: #166534;">عدد أسئلة هذه المسابقة:</span>
+                                        <b id="quizSetupQCount" style="color: #15803d; font-size: 1.1rem; margin-right: 6px;">5 أسئلة</b>
+                                    </div>
+                                    <span style="font-size: 0.85rem; color: #15803d; font-weight: 700;">جاهزة ومقترنة بالأصوات الفونيمية والصور 100% ✅</span>
+                                </div>
+                            </div>
+
+                            <button type="button" class="quiz-start-cta-btn" onclick="ClassroomQuiz.hostStartLobby()">
+                                <span>🚀</span> <span>فتح غرفة الانتظار واللوبي الصفي (Open Lobby)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- ب. مرحلة انتظار اللوبي وانضمام التلاميذ (Lobby Stage) -->
+                    <div id="quizHostStage_lobby" style="display: none;">
+                        <div class="quiz-lobby-box">
+                            <div class="quiz-pin-display-banner">
+                                <span class="quiz-pin-title">رمز انضمام التابلت للمسابقة الصفية (PIN):</span>
+                                <span class="quiz-pin-digits" id="quizLobbyPinDisplay">1234</span>
+                                <span class="quiz-pin-hint">أدخل هذا الرمز على أجهزة التابلت للانضمام فوراً للمسابقة</span>
+                            </div>
+
+                            <div class="quiz-lobby-players-counter">
+                                التلاميذ المنضمون للمسابقة حتى الآن: <b id="quizLobbyPlayersCount">0</b> تلميذ
+                            </div>
+
+                            <div style="display: flex; gap: 14px; justify-content: center; margin-top: 24px;">
+                                <button type="button" class="btn btn-teach" style="padding: 14px 32px; font-size: 1.2rem; background: #10b981; border-color: #059669;" onclick="ClassroomQuiz.hostNextQuestion()">
+                                    <span>▶️</span> <span>إطلاق السؤال الأول الآن!</span>
+                                </button>
+                                <button type="button" class="btn" style="padding: 14px 20px; font-size: 1rem; background: #e2e8f0; color: #475569;" onclick="ClassroomQuiz.generateNewPin()">
+                                    <span>🔄</span> <span>تغيير رمز PIN</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ج. مرحلة السؤال التنافسي (Question Stage) -->
+                    <div id="quizHostStage_question" style="display: none;" class="quiz-host-question-screen">
+                        <div class="quiz-question-top-bar">
+                            <div class="quiz-q-meta-badges">
+                                <span class="quiz-badge quiz-badge-primary" id="quizHostQNumber">السؤال 1 من 5</span>
+                                <span class="quiz-badge quiz-badge-category" id="quizHostQCategory">وعي فونيمي</span>
+                            </div>
+                            <div class="quiz-timer-container">
+                                <div class="quiz-answers-counter-pill">
+                                    <span>📥 استلمنا إجابات: </span>
+                                    <b id="quizHostAnswersCount" style="color: #0284c7;">0</b>
+                                </div>
+                                <div class="quiz-timer-pill">
+                                    <span>⏱️</span>
+                                    <span id="quizHostTimerNum">20</span>
+                                </div>
+                                <button type="button" class="btn btn-eval" style="padding: 6px 14px; font-size: 0.88rem;" onclick="ClassroomQuiz.hostRevealAnswer()">
+                                    <span>⏹️</span> <span>كشف الإجابة فوراً</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- بطاقة السؤال المصورة -->
+                        <div class="quiz-question-card">
+                            <img id="quizHostQImage" class="quiz-question-illustration" src="activity_b_read.png" alt="صورة السؤال" style="display: none;">
+                            <div class="quiz-question-text-area">
+                                <h2 class="quiz-question-text" id="quizHostQText">نص السؤال المنهجي هنا</h2>
+                                <button type="button" class="quiz-audio-pronounce-btn" id="quizHostAudioBtn">
+                                    <span>🔊</span> <span>استمع لنطق الكلمة أو الحرف</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الخيارات الأربعة الكبيرة -->
+                        <div class="quiz-options-grid-arena" id="quizHostOptionsHolder"></div>
+
+                        <!-- شريط التوقيت السفلي -->
+                        <div class="quiz-host-timer-progress">
+                            <div class="quiz-host-timer-bar" id="quizHostTimerBar"></div>
+                        </div>
+                    </div>
+
+                    <!-- د. مرحلة كشف النتيجة وتوزيع الأصوات وشرح فصيح (Revealed Stage) -->
+                    <div id="quizHostStage_revealed" style="display: none;">
+                        <div class="quiz-reveal-stage-banner">
+                            <div style="font-size: 3rem;">✏️</div>
+                            <div class="quiz-faseeh-speech-bubble" id="quizHostExplanationText">
+                                أحسنتم يا أبطال القراءة!
+                            </div>
+                            <button type="button" class="btn btn-teach" style="padding: 12px 24px; font-size: 1.05rem;" onclick="ClassroomQuiz.hostShowLeaderboard()">
+                                <span>📊</span> <span>عرض لوحة الصدارة</span>
+                            </button>
+                        </div>
+
+                        <!-- رسم بياني شريطي لنسب إجابات التلاميذ -->
+                        <div style="background: white; border-radius: 20px; padding: 20px; border: 2px solid #e2e8f0;">
+                            <h4 style="margin: 0 0 14px; font-size: 1.1rem; color: #1e3a8a;">📊 توزيع إجابات تلاميذ الصف:</h4>
+                            <div class="quiz-distribution-chart">
+                                <div class="quiz-chart-column">
+                                    <div class="quiz-chart-bar" id="chartBar_0" style="background: #ef4444; height: 12%;"></div>
+                                    <span class="quiz-chart-lbl" id="chartVal_0">0</span>
+                                    <span class="quiz-chart-lbl" style="color: #ef4444; font-weight: 900;">🔺 أ</span>
+                                </div>
+                                <div class="quiz-chart-column">
+                                    <div class="quiz-chart-bar" id="chartBar_1" style="background: #0284c7; height: 12%;"></div>
+                                    <span class="quiz-chart-lbl" id="chartVal_1">0</span>
+                                    <span class="quiz-chart-lbl" style="color: #0284c7; font-weight: 900;">🔷 ب</span>
+                                </div>
+                                <div class="quiz-chart-column">
+                                    <div class="quiz-chart-bar" id="chartBar_2" style="background: #eab308; height: 12%;"></div>
+                                    <span class="quiz-chart-lbl" id="chartVal_2">0</span>
+                                    <span class="quiz-chart-lbl" style="color: #eab308; font-weight: 900;">🟡 ج</span>
+                                </div>
+                                <div class="quiz-chart-column">
+                                    <div class="quiz-chart-bar" id="chartBar_3" style="background: #10b981; height: 12%;"></div>
+                                    <span class="quiz-chart-lbl" id="chartVal_3">0</span>
+                                    <span class="quiz-chart-lbl" style="color: #10b981; font-weight: 900;">🟩 د</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- هـ. لوحة الصدارة اللحظية (Leaderboard Stage) -->
+                    <div id="quizHostStage_leaderboard" style="display: none;">
+                        <div class="quiz-leaderboard-container">
+                            <div class="quiz-leaderboard-header">
+                                <h2>🌟 لوحة صدارة أبطال القراءة 🌟</h2>
+                            </div>
+
+                            <div class="quiz-teams-rank-grid" id="quizLeaderboardTeams" style="display: none;"></div>
+                            <div class="quiz-leaderboard-list" id="quizLeaderboardList"></div>
+
+                            <div style="text-align: center; margin-top: 20px;">
+                                <button type="button" class="btn btn-teach" style="padding: 12px 30px; font-size: 1.15rem;" onclick="ClassroomQuiz.hostNextQuestion()">
+                                    <span>▶️</span> <span>السؤال التالي</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- و. منصة التتويج النهائية الكبرى (Podium Stage) -->
+                    <div id="quizHostStage_podium" style="display: none;" class="quiz-podium-stage-container">
+                        <canvas id="quizPodiumConfettiCanvas" class="quiz-podium-canvas"></canvas>
+
+                        <div class="quiz-podium-banner">
+                            <h1>👑 أبطال بطولة قراءتي التنافسية الكبرى 👑</h1>
+                        </div>
+
+                        <div class="quiz-podium-3d-blocks">
+                            <!-- المركز الثاني -->
+                            <div class="podium-column">
+                                <div class="podium-player-badge">
+                                    <div class="podium-avatar" id="podiumP2Avatar">🥈</div>
+                                    <div class="podium-player-name" id="podiumP2Name">وصيف البطولة</div>
+                                    <div class="podium-player-score" id="podiumP2Score">0 ⭐</div>
+                                </div>
+                                <div class="podium-pedestal pedestal-2">2</div>
+                            </div>
+
+                            <!-- المركز الأول -->
+                            <div class="podium-column">
+                                <div class="podium-player-badge">
+                                    <div class="podium-avatar" id="podiumP1Avatar">👑</div>
+                                    <div class="podium-player-name" id="podiumP1Name" style="color: #d97706; font-size: 1.25rem;">بطل البطولة</div>
+                                    <div class="podium-player-score" id="podiumP1Score">0 ⭐</div>
+                                </div>
+                                <div class="podium-pedestal pedestal-1">1 🏆</div>
+                            </div>
+
+                            <!-- المركز الثالث -->
+                            <div class="podium-column">
+                                <div class="podium-player-badge">
+                                    <div class="podium-avatar" id="podiumP3Avatar">🥉</div>
+                                    <div class="podium-player-name" id="podiumP3Name">فارس البطولة</div>
+                                    <div class="podium-player-score" id="podiumP3Score">0 ⭐</div>
+                                </div>
+                                <div class="podium-pedestal pedestal-3">3</div>
+                            </div>
+                        </div>
+
+                        <div class="quiz-podium-actions">
+                            <button type="button" class="btn btn-teach" style="padding: 12px 24px; font-size: 1.05rem;" onclick="ClassroomQuiz.ingestQuizResultsToTeacherRecords()">
+                                <span>📥</span> <span>إيداع نتائج المسابقة في سجل لوحة تحكم المعلم</span>
+                            </button>
+                            <button type="button" class="btn" style="padding: 12px 24px; font-size: 1.05rem; background: #e2e8f0; color: #334155;" onclick="ClassroomQuiz.openQuizModal('host')">
+                                <span>🔄</span> <span>مسابقة جديدة</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==============================================
+                     2. نمط شاشة التابلت للتلميذ (Student Tablet Buzzer)
+                =============================================== -->
+                <div id="quizPane_tablet" class="quiz-tablet-container" style="display: none;">
+                    
+                    <!-- مرحلة الانضمام -->
+                    <div id="quizTabletStage_join" style="display: block;">
+                        <div class="quiz-tablet-join-card">
+                            <div style="text-align: center; margin-bottom: 20px;">
+                                <div style="font-size: 3rem;">📱</div>
+                                <h3 style="margin: 8px 0; font-size: 1.4rem; color: #1e3a8a; font-weight: 900;">انضمام لمسابقة الصف</h3>
+                                <p style="margin: 0; color: #64748b; font-size: 0.9rem;">أدخل رمز PIN واسمك لدخول ساحة التحدي والمنافسة</p>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 14px;">
+                                <div>
+                                    <label style="font-weight: 700; color: #334155; font-size: 0.9rem;">رمز PIN للمسابقة:</label>
+                                    <input type="text" id="tabletPinInput" class="form-input" placeholder="مثلاً: 1234" style="font-size: 1.25rem; font-weight: 900; letter-spacing: 4px; text-align: center;">
+                                </div>
+
+                                <div>
+                                    <label style="font-weight: 700; color: #334155; font-size: 0.9rem;">اسم التلميذ البطل:</label>
+                                    <input type="text" id="tabletStudentNameInput" class="form-input" placeholder="اسم التلميذ الثلاثي">
+                                </div>
+
+                                <div>
+                                    <label style="font-weight: 700; color: #334155; font-size: 0.9rem;">الفريق الصفي (إذا فُعّل نمط الفرق):</label>
+                                    <select id="tabletTeamSelect" class="form-input">
+                                        <option value="falcons">🦅 فريق الصقور</option>
+                                        <option value="stars">⭐ فريق النجوم</option>
+                                        <option value="knights">🐎 فريق الفرسان</option>
+                                        <option value="lions">🦁 فريق الأبطال</option>
+                                    </select>
+                                </div>
+
+                                <button type="button" class="btn btn-teach" style="padding: 12px; font-size: 1.1rem; width: 100%; margin-top: 10px;" onclick="ClassroomQuiz.tabletJoinQuiz()">
+                                    <span>🚀</span> <span>دخول المسابقة الآن!</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- مرحلة الانتظار في اللوبي -->
+                    <div id="quizTabletStage_waiting" style="display: none;">
+                        <div class="tablet-answered-waiting-box">
+                            <div style="font-size: 3.5rem; animation: starPulse 1.5s infinite;">⏳</div>
+                            <h3 style="font-size: 1.35rem; color: #1e3a8a; margin: 12px 0;" id="tabletWaitingQuizTitle">أنت في غرفة المسابقة!</h3>
+                            <p style="color: #64748b; font-size: 0.95rem;">خلك جاهز يا بطل... سينطلق السؤال فور إعطاء المعلم إشارة البدء!</p>
+                        </div>
+                    </div>
+
+                    <!-- مرحلة أزرار البزر الأربعة الضخمة (Buzzer Screen) -->
+                    <div id="quizTabletStage_buzzer" style="display: none;" class="tablet-buzzer-screen">
+                        <div class="tablet-buzzer-header">
+                            <span id="tabletBuzzerQTitle" style="font-weight: 800; color: #1e3a8a; font-size: 1rem;">اختر الإجابة الصحيحة بأسرع ما يمكن:</span>
+                            <span id="tabletBuzzerTimer" style="font-weight: 900; color: #ef4444; font-size: 1.2rem; font-family: monospace;">20 ث</span>
+                        </div>
+
+                        <div class="tablet-buzzer-buttons-grid">
+                            <button type="button" class="tablet-buzzer-btn tablet-btn-red" id="tabletBtnOption_0" onclick="ClassroomQuiz.tabletSelectOption(0)">
+                                <span>🔺</span>
+                            </button>
+                            <button type="button" class="tablet-buzzer-btn tablet-btn-blue" id="tabletBtnOption_1" onclick="ClassroomQuiz.tabletSelectOption(1)">
+                                <span>🔷</span>
+                            </button>
+                            <button type="button" class="tablet-buzzer-btn tablet-btn-yellow" id="tabletBtnOption_2" onclick="ClassroomQuiz.tabletSelectOption(2)">
+                                <span>🟡</span>
+                            </button>
+                            <button type="button" class="tablet-buzzer-btn tablet-btn-green" id="tabletBtnOption_3" onclick="ClassroomQuiz.tabletSelectOption(3)">
+                                <span>🟩</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- مرحلة انتظار النتيجة بعد إرسال الإجابة -->
+                    <div id="quizTabletStage_answered" style="display: none;">
+                        <div class="tablet-answered-waiting-box">
+                            <div style="font-size: 3.5rem;">⚡</div>
+                            <h3 style="font-size: 1.35rem; color: #0284c7; margin: 12px 0;">تم تسجيل إجابتك بسرعة البرق!</h3>
+                            <p style="color: #64748b; font-size: 0.95rem;">انتظر إعلان المعلم للنتيجة على شاشة العرض الذكية...</p>
+                        </div>
+                    </div>
+
+                    <!-- مرحلة عرض نتيجة التلميذ بعد الكشف -->
+                    <div id="quizTabletStage_result" style="display: none;">
+                        <div class="tablet-result-box" id="tabletResultCard">
+                            <div style="font-size: 3.5rem;" id="tabletResultIcon">🎉</div>
+                            <h3 style="font-size: 1.35rem; margin: 12px 0;" id="tabletResultTitle">إجابة صحيحة يا بطل!</h3>
+                            <p style="color: #475569; font-size: 0.95rem;" id="tabletResultDesc">أحسنت الاختيار!</p>
+                            <div style="font-size: 1.6rem; font-weight: 900; color: #059669; margin-top: 14px;" id="tabletResultScore">+1200 نقطة ⭐</div>
+                        </div>
+                    </div>
+
+                    <!-- مرحلة لوحة الصدارة للتلميذ -->
+                    <div id="quizTabletStage_leaderboard" style="display: none;">
+                        <div class="tablet-answered-waiting-box">
+                            <div style="font-size: 3rem;">⭐</div>
+                            <h3 style="font-size: 1.35rem; color: #1e3a8a; margin: 12px 0;">رصيدك في المسابقة:</h3>
+                            <div style="font-size: 2rem; font-weight: 900; color: #d97706;" id="tabletPlayerScoreSummary">0 ⭐</div>
+                            <p style="color: #64748b; margin-top: 8px;" id="tabletPlayerStreakSummary">0 إجابات متتالية 🔥</p>
+                        </div>
+                    </div>
+
+                    <!-- مرحلة التتويج للتلميذ -->
+                    <div id="quizTabletStage_podium" style="display: none;">
+                        <div class="tablet-answered-waiting-box">
+                            <div style="font-size: 4rem;">🏆</div>
+                            <h3 style="font-size: 1.5rem; color: #1e3a8a; margin: 12px 0;">انتهت المسابقة التنافسية!</h3>
+                            <p style="color: #64748b; font-size: 1rem;">شاهد منصة التتويج والأبطال الفائزين على شاشة العرض الذكية بالفصل!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==============================================
+                     3. نمط السبورة الذكية المباشر (Smartboard Hot Seat)
+                =============================================== -->
+                <div id="quizPane_hotseat" class="quiz-hotseat-container" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+                        <h3 id="hotseatQuizTitle" style="margin: 0; color: #1e3a8a; font-size: 1.3rem; font-weight: 900;">مسابقة السبورة التفاعلية باللمس</h3>
+                        <span id="hotseatQNumber" style="font-weight: 800; color: #0284c7; background: #e0f2fe; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem;">السؤال 1 من 5</span>
+                    </div>
+
+                    <!-- شريط الفرق المتبارية -->
+                    <div class="hotseat-teams-bar" id="hotseatTeamsBar"></div>
+
+                    <!-- بطاقة السؤال -->
+                    <div class="quiz-question-card" style="margin-bottom: 16px;">
+                        <img id="hotseatQImage" class="quiz-question-illustration" src="" alt="صورة السؤال" style="display: none;">
+                        <div class="quiz-question-text-area">
+                            <h2 class="quiz-question-text" id="hotseatQText">نص السؤال المنهجي</h2>
+                        </div>
+                    </div>
+
+                    <!-- خيارات الإجابة المباشرة باللمس -->
+                    <div style="display: flex; flex-direction: column; gap: 10px;" id="hotseatOptionsHolder"></div>
+                </div>
+
+            </div>
+
+            <!-- أسفل النافذة -->
+            <div style="padding: 10px 22px; background: #f8fafc; border-top: 1.5px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-size: 0.82rem; font-weight: 700; color: #0369a1;">
+                    🏆 محرك المسابقات التنافسية الصفية المباشرة • <b>إعداد: المهندس أسامة خليل هاشم</b> • أوفلاين 100%
+                </span>
+                <button type="button" class="btn" style="padding: 6px 18px; font-size: 0.88rem; background: #e2e8f0; color: #334155;" onclick="ClassroomQuiz.closeQuizModal()">
+                    إغلاق
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- حاوية الطباعة المخصصة لقواعد @media print -->
     <div id="teacherPrintArea" style="display: none;"></div>
 
@@ -25994,6 +26427,7 @@
     <script src="js/core/gamification.js"></script>
     <script src="js/core/teacher-dashboard.js"></script>
     <script src="js/core/classroom-sync.js"></script>
+    <script src="js/core/classroom-quiz.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="css/gamification.css">
     <link rel="stylesheet" href="css/teacher-dashboard.css">
     <link rel="stylesheet" href="css/classroom-sync.css">
+    <link rel="stylesheet" href="css/classroom-quiz.css">
 
 </head>
 
@@ -117,6 +118,12 @@
                 <span class="top-stars-count" id="topGlobalStarsCount">0</span>
                 <span class="top-stars-label">نجمة</span>
             </div>
+
+            <!-- زر محرك المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show) بين أجهزة التابلت وشاشة العرض -->
+            <button class="btn-top btn-top-quiz-show" id="btnTopQuizShow" onclick="openClassroomQuizModal('host')" title="استوديو المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show) - شاشة العرض الذكية وأجهزة التابلت">
+                <span>🏆</span>
+                <span id="topQuizStatusLabel">المسابقات التنافسية</span>
+            </button>
 
             <!-- زر محرك المزامنة الصفية المحلية أوفلاين عبر الواي فاي (Local Offline Sync) لمزامنة شاشات التابلت مع المعلم -->
             <button class="btn-top btn-top-class-sync" id="btnTopClassSync" onclick="openClassroomSyncModal()" title="المزامنة الصفية المحلية أوفلاين عبر الواي فاي (Local Offline Sync) - ربط شاشات التابلت مع لوحة تحكم المعلم">
