@@ -56,6 +56,7 @@
     <link rel="stylesheet" href="css/dictation-lab.css">
     <link rel="stylesheet" href="css/readers-theater.css">
     <link rel="stylesheet" href="css/nasheed-studio.css">
+    <link rel="stylesheet" href="css/story-studio.css">
 
 </head>
 
@@ -178,6 +179,12 @@
             <button class="btn-top btn-top-nasheed-studio" id="btnTopNasheedStudio" onclick="NasheedStudio.openModal('stage')" title="استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي (Interactive Phonics Nasheed & Rhythm Studio) للأجهزة اللوحية والسبورات">
                 <span>🥁</span>
                 <span id="topNasheedStudioLabel">استوديو الأناشيد والإيقاع</span>
+            </button>
+
+            <!-- زر استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية للأجهزة اللوحية والسبورات -->
+            <button class="btn-top btn-top-story-studio" id="btnTopStoryStudio" onclick="StoryStudio.openModal('creator')" title="استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية (Interactive Phonics Storyteller & Comic Maker) للأجهزة اللوحية والسبورات">
+                <span>📚</span>
+                <span id="topStoryStudioLabel">صانع القصص والكوميكس</span>
             </button>
 
             <!-- زر نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) -->
@@ -365,6 +372,26 @@
                     <span>•</span>
                     <span>تحليل موسيقي وA4</span>
                     <span style="color: #7c2d12; font-weight: 900;">فتح الاستوديو ⬅</span>
+                </div>
+            </div>
+
+            <!-- بطاقة استوديو القصة المصورة التفاعلية وصانع القصص الرقمية في القائمة الجانبية -->
+            <div class="sidebar-teacher-card" id="sidebarStoryStudioCard" onclick="StoryStudio.openModal('creator')" style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border-color: #c4b5fd; cursor: pointer;" title="استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية للأجهزة اللوحية والسبورات">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #5b21b6; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>📚</span> <span>صانع القصص والكوميكس</span>
+                    </span>
+                    <span style="font-size: 0.74rem; font-weight: 900; background: #7c3aed; color: white; padding: 2px 8px; border-radius: 8px;">
+                        كوميكس وطباعة A4
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #6d28d9; font-weight: 700;">
+                    <span>تعبير إبداعي</span>
+                    <span>•</span>
+                    <span>قصص فونيمية</span>
+                    <span>•</span>
+                    <span>سبورات وتابلت</span>
+                    <span style="color: #4c1d95; font-weight: 900;">فتح الاستوديو ⬅</span>
                 </div>
             </div>
 

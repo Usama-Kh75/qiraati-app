@@ -56,6 +56,7 @@
     <link rel="stylesheet" href="css/dictation-lab.css">
     <link rel="stylesheet" href="css/readers-theater.css">
     <link rel="stylesheet" href="css/nasheed-studio.css">
+    <link rel="stylesheet" href="css/story-studio.css">
 
 </head>
 
@@ -178,6 +179,12 @@
             <button class="btn-top btn-top-nasheed-studio" id="btnTopNasheedStudio" onclick="NasheedStudio.openModal('stage')" title="استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي (Interactive Phonics Nasheed & Rhythm Studio) للأجهزة اللوحية والسبورات">
                 <span>🥁</span>
                 <span id="topNasheedStudioLabel">استوديو الأناشيد والإيقاع</span>
+            </button>
+
+            <!-- زر استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية للأجهزة اللوحية والسبورات -->
+            <button class="btn-top btn-top-story-studio" id="btnTopStoryStudio" onclick="StoryStudio.openModal('creator')" title="استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية (Interactive Phonics Storyteller & Comic Maker) للأجهزة اللوحية والسبورات">
+                <span>📚</span>
+                <span id="topStoryStudioLabel">صانع القصص والكوميكس</span>
             </button>
 
             <!-- زر نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) -->
@@ -365,6 +372,26 @@
                     <span>•</span>
                     <span>تحليل موسيقي وA4</span>
                     <span style="color: #7c2d12; font-weight: 900;">فتح الاستوديو ⬅</span>
+                </div>
+            </div>
+
+            <!-- بطاقة استوديو القصة المصورة التفاعلية وصانع القصص الرقمية في القائمة الجانبية -->
+            <div class="sidebar-teacher-card" id="sidebarStoryStudioCard" onclick="StoryStudio.openModal('creator')" style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border-color: #c4b5fd; cursor: pointer;" title="استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية للأجهزة اللوحية والسبورات">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #5b21b6; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>📚</span> <span>صانع القصص والكوميكس</span>
+                    </span>
+                    <span style="font-size: 0.74rem; font-weight: 900; background: #7c3aed; color: white; padding: 2px 8px; border-radius: 8px;">
+                        كوميكس وطباعة A4
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #6d28d9; font-weight: 700;">
+                    <span>تعبير إبداعي</span>
+                    <span>•</span>
+                    <span>قصص فونيمية</span>
+                    <span>•</span>
+                    <span>سبورات وتابلت</span>
+                    <span style="color: #4c1d95; font-weight: 900;">فتح الاستوديو ⬅</span>
                 </div>
             </div>
 
@@ -28659,6 +28686,344 @@
     <!-- حاوية الطباعة المنعزلة A4 للأناشيد والشهادات -->
     <div id="nsPrintableContainer" style="display: none;"></div>
 
+    <!-- ==========================================================================
+         نافذة استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية (Interactive Phonics Storyteller & Comic Maker)
+         متوافق 100% مع كتاب قراءتي ومعايير وزارة التربية العراقية للأجهزة اللوحية والسبورات
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+         ========================================================================== -->
+    <div class="modal-backdrop" id="storyStudioModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="story-studio-modal-box" onclick="event.stopPropagation()">
+            <!-- ترويسة الاستوديو -->
+            <div class="ss-modal-header">
+                <div class="ss-header-titles">
+                    <div class="ss-header-icon">📚</div>
+                    <div class="ss-title-text">
+                        <h2>
+                            <span>استوديو القصة المصورة التفاعلية وصانع القصص الرقمية</span>
+                            <span class="ss-title-badge">كوميكس تفاعلي وقصص فونيمية وطباعة A4</span>
+                        </h2>
+                        <div class="ss-subtitle">
+                            تعبير إبداعي وخيال قرائي • مكتبة قصص قراءتي الممسرحة • كشك إكمال القصة • <span class="ss-author-tag">إعداد وتطوير: المهندس أسامة خليل هاشم</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ss-header-actions">
+                    <button class="ss-btn-header" id="ssBtnFullscreen" onclick="StoryStudio.toggleFullscreen()" title="تكبير الاستوديو لملء الشاشة على السبورات الذكية والتابلت">
+                        <span>📺</span> <span>ملء الشاشة</span>
+                    </button>
+                    <button class="ss-btn-close" id="ssBtnClose" onclick="StoryStudio.closeModal()" title="إغلاق استوديو القصة المصورة">
+                        ✕
+                    </button>
+                </div>
+            </div>
+
+            <!-- شريط التبويبات الرئيسي -->
+            <div class="ss-nav-tabs">
+                <button class="ss-tab-btn active" id="ssTabBtnCreator" data-tab="creator" onclick="StoryStudio.switchTab('creator')">
+                    <span>🎨</span> <span>صَانِعُ الكُومِيكْس وَالقَصَصِ</span>
+                    <span class="ss-tab-pill">لوحات ومشاهد تفاعلية</span>
+                </button>
+                <button class="ss-tab-btn" id="ssTabBtnLibrary" data-tab="library" onclick="StoryStudio.switchTab('library')">
+                    <span>📖</span> <span>مَكْتَبَةُ القَصَصِ الفُونِيمِيَّةِ</span>
+                    <span class="ss-tab-pill">5 قصص ممسرحة</span>
+                </button>
+                <button class="ss-tab-btn" id="ssTabBtnChallenge" data-tab="challenge" onclick="StoryStudio.switchTab('challenge')">
+                    <span>🧩</span> <span>تَحَدِّي إِكْمَالِ القِصَّةِ</span>
+                    <span class="ss-tab-pill">تفكير منطقي ونجوم</span>
+                </button>
+                <button class="ss-tab-btn" id="ssTabBtnExport" data-tab="export" onclick="StoryStudio.switchTab('export')">
+                    <span>🖨️</span> <span>مَعْرِضُ القِصَصِ وَالطِّبَاعَةِ A4</span>
+                    <span class="ss-tab-pill">مجلة ورقية وكراسة تلوين</span>
+                </button>
+            </div>
+
+            <!-- منطقة المحتوى الرئيسية -->
+            <div class="ss-main-body">
+                <!-- كانفاس مؤثرات الجزيئات والكونفيتي -->
+                <canvas id="storyStudioConfettiCanvas"></canvas>
+
+                <!-- ==========================================
+                     التبويب 1: صانع الكوميكس والقصص (Creator)
+                     ========================================== -->
+                <div class="ss-tab-panel active" id="ssTabPanel_creator">
+                    <div class="ss-studio-container">
+                        <!-- الشريط الجانبي للموارد (يمين) -->
+                        <div class="ss-studio-sidebar">
+                            <div class="ss-sidebar-subtabs">
+                                <button class="ss-subtab-btn active" data-subtab="chars" onclick="StoryStudio.switchSidebarSubtab('chars')">
+                                    <span class="ss-subtab-icon">👤</span>
+                                    <span>الشخصيات</span>
+                                </button>
+                                <button class="ss-subtab-btn" data-subtab="props" onclick="StoryStudio.switchSidebarSubtab('props')">
+                                    <span class="ss-subtab-icon">📦</span>
+                                    <span>الأدوات</span>
+                                </button>
+                                <button class="ss-subtab-btn" data-subtab="bubbles" onclick="StoryStudio.switchSidebarSubtab('bubbles')">
+                                    <span class="ss-subtab-icon">💬</span>
+                                    <span>الحوار</span>
+                                </button>
+                                <button class="ss-subtab-btn" data-subtab="words" onclick="StoryStudio.switchSidebarSubtab('words')">
+                                    <span class="ss-subtab-icon">🔤</span>
+                                    <span>الكلمات</span>
+                                </button>
+                                <button class="ss-subtab-btn" data-subtab="sfx" onclick="StoryStudio.switchSidebarSubtab('sfx')">
+                                    <span class="ss-subtab-icon">💥</span>
+                                    <span>مؤثرات</span>
+                                </button>
+                                <button class="ss-subtab-btn" data-subtab="bgs" onclick="StoryStudio.switchSidebarSubtab('bgs')">
+                                    <span class="ss-subtab-icon">🏞️</span>
+                                    <span>الخلفيات</span>
+                                </button>
+                            </div>
+
+                            <div class="ss-sidebar-scroll">
+                                <!-- مجموعة الشخصيات -->
+                                <div class="ss-resource-group active" id="ssResourceGrp_chars">
+                                    <div class="ss-group-title">
+                                        <span>شَخْصِيَّاتُ قِرَاءَتِي الكَرْتُونِيَّة (SVG)</span>
+                                        <span style="font-size:0.75rem; color:#7c3aed;">انقر لإدراج الشخصية</span>
+                                    </div>
+                                    <div class="ss-stickers-grid" id="ssCharsGrid"></div>
+                                </div>
+
+                                <!-- مجموعة الأدوات -->
+                                <div class="ss-resource-group" id="ssResourceGrp_props">
+                                    <div class="ss-group-title">
+                                        <span>الأَدَوَاتُ وَالعَنَاصِرُ المَصُورَة</span>
+                                        <span style="font-size:0.75rem; color:#7c3aed;">انقر للإدراج</span>
+                                    </div>
+                                    <div class="ss-stickers-grid" id="ssPropsGrid"></div>
+                                </div>
+
+                                <!-- مجموعة فقاعات الحوار -->
+                                <div class="ss-resource-group" id="ssResourceGrp_bubbles">
+                                    <div class="ss-group-title">
+                                        <span>فَقَاعَاتُ الكَلَامِ وَالتَّفْكِيرِ</span>
+                                    </div>
+                                    <div class="ss-bubbles-palette">
+                                        <div class="ss-bubble-btn" onclick="StoryStudio.addBubbleToPanel('speech')">
+                                            <div class="ss-bubble-icon">💬</div>
+                                            <div class="ss-bubble-info">
+                                                <div class="ss-bubble-label">فَقَاعَةُ كَلَامٍ عَادِيَّة</div>
+                                                <div class="ss-bubble-desc">للحوار المباشر وتبادل الحديث</div>
+                                            </div>
+                                        </div>
+                                        <div class="ss-bubble-btn" onclick="StoryStudio.addBubbleToPanel('thought')">
+                                            <div class="ss-bubble-icon">💭</div>
+                                            <div class="ss-bubble-info">
+                                                <div class="ss-bubble-label">فَقَاعَةُ تَفْكِيرٍ سَحَابِيَّة</div>
+                                                <div class="ss-bubble-desc">لخواطر الشخصية وتأملاتها</div>
+                                            </div>
+                                        </div>
+                                        <div class="ss-bubble-btn" onclick="StoryStudio.addBubbleToPanel('shout')">
+                                            <div class="ss-bubble-icon">🗯️</div>
+                                            <div class="ss-bubble-info">
+                                                <div class="ss-bubble-label">صَرْخَةٌ أَوْ نِدَاءٌ حَمَاسِيّ</div>
+                                                <div class="ss-bubble-desc">للمشاعر القوية والهتاف والتشجيع</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- مجموعة بنك الكلمات الفونيمية -->
+                                <div class="ss-resource-group" id="ssResourceGrp_words">
+                                    <div class="ss-group-title">
+                                        <span>كَلِمَاتُ المَنْهَجِ المَشْكُولَة</span>
+                                        <span style="font-size:0.75rem; color:#7c3aed;">انقر للإضافة للشريط</span>
+                                    </div>
+                                    <div class="ss-word-bank-chips" id="ssWordsBankChips"></div>
+                                    <div class="ss-group-title" style="margin-top: 14px;">
+                                        <span>جُمَلٌ قَصَصِيَّةٌ جَاهِزَة</span>
+                                    </div>
+                                    <div class="ss-word-bank-chips" id="ssSentencesChips"></div>
+                                </div>
+
+                                <!-- مجموعة مؤثرات SFX -->
+                                <div class="ss-resource-group" id="ssResourceGrp_sfx">
+                                    <div class="ss-group-title">
+                                        <span>مُؤَثِّرَاتٌ بَصَرِيَّةٌ كُومِيدِيَّة (SFX)</span>
+                                    </div>
+                                    <div class="ss-sfx-grid" id="ssSfxGrid"></div>
+                                </div>
+
+                                <!-- مجموعة الخلفيات البيئية -->
+                                <div class="ss-resource-group" id="ssResourceGrp_bgs">
+                                    <div class="ss-group-title">
+                                        <span>بَنْكُ الخَلْفِيَّاتِ البِيئِيَّةِ</span>
+                                        <span style="font-size:0.75rem; color:#7c3aed;">انقر لتغيير خلفية المشهد</span>
+                                    </div>
+                                    <div class="ss-bg-grid" id="ssBgsGrid"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- مساحة العمل الرئيسية (يسار) -->
+                        <div class="ss-studio-main">
+                            <!-- شريط التحكم العلوي باللوحات -->
+                            <div class="ss-stage-toolbar">
+                                <div class="ss-layout-selector">
+                                    <span class="ss-layout-label">تَخْطِيطُ اللَّوْحَات:</span>
+                                    <button class="ss-layout-btn" data-layout="2" onclick="StoryStudio.setLayout(2)">لوحتان (٢)</button>
+                                    <button class="ss-layout-btn active" data-layout="3" onclick="StoryStudio.setLayout(3)">٣ لوحات</button>
+                                    <button class="ss-layout-btn" data-layout="4" onclick="StoryStudio.setLayout(4)">٤ لوحات (شبكة)</button>
+                                </div>
+
+                                <div class="ss-panel-nav" id="ssPanelNav"></div>
+
+                                <div class="ss-stage-actions">
+                                    <button class="ss-btn-tool" onclick="StoryStudio.clearCurrentPanel()" title="مسح محتويات اللوحة الحالية">
+                                        <span>🧹</span> <span>مسح المشهد</span>
+                                    </button>
+                                    <button class="ss-btn-tool primary" onclick="StoryStudio.saveStory()" title="حفظ القصة في الرف الشخصي">
+                                        <span>💾</span> <span>حِفْظُ القِصَّة</span>
+                                    </button>
+                                    <button class="ss-btn-tool" onclick="StoryStudio.printA4()" title="طباعة مجلة الكوميكس الورقية الفاخرة A4">
+                                        <span>🖨️</span> <span>طباعة A4</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- كانفاس شبكة الكوميكس واللوحات -->
+                            <div class="ss-stage-viewport">
+                                <div class="ss-comic-page-canvas layout-3" id="ssComicPageCanvas"></div>
+                            </div>
+
+                            <!-- شريط الإدخال السريع للفقاعات -->
+                            <div class="ss-active-panel-editor-bar">
+                                <div class="ss-quick-inputs">
+                                    <span style="font-weight: 800; color: #475569; font-size: 0.88rem;">نَصُّ الحِوَار:</span>
+                                    <input type="text" class="ss-input-bubble-text" id="ssInputBubbleText" placeholder="اكتب جملة الحوار مشكولة، أو اختر كلمة من بنك الكلمات..." />
+                                    <button class="ss-btn-tool" onclick="StoryStudio.addBubbleToPanel('speech')">💬 إدراج كلام</button>
+                                    <button class="ss-btn-tool" onclick="StoryStudio.addBubbleToPanel('thought')">💭 تفكير</button>
+                                    <button class="ss-btn-tool" onclick="StoryStudio.addBubbleToPanel('shout')">🗯️ نداء</button>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="font-weight: 800; color: #475569; font-size: 0.88rem;">عُنْوَانُ القِصَّة:</span>
+                                    <input type="text" class="ss-input-bubble-text" id="ssStoryTitleInput" style="max-width: 180px;" value="قِصَّتِي المُصَوَّرَةُ الجَدِيدَة" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     التبويب 2: مكتبة القصص الجاهزة (Library)
+                     ========================================== -->
+                <div class="ss-tab-panel" id="ssTabPanel_library">
+                    <div class="ss-library-container">
+                        <!-- قائمة القصص -->
+                        <div class="ss-books-sidebar" id="ssBookList"></div>
+
+                        <!-- شاشة قراءة القصة التفاعلية -->
+                        <div class="ss-reader-stage">
+                            <div class="ss-reader-header">
+                                <div class="ss-reader-titles">
+                                    <h3 id="ssReaderTitle">مُغَامَرَةُ فَصِيح فِي دَارِ دَادَا</h3>
+                                    <div class="ss-reader-meta" id="ssReaderMeta">الوحدة الأولى: دار دادا • قراءة تفاعلية فونيمية ممسرحة</div>
+                                </div>
+                                <div class="ss-reader-controls">
+                                    <button class="ss-btn-tool primary" id="ssBtnPlayStory" onclick="StoryStudio.playActiveLibraryStory()">
+                                        <span>▶️</span> <span>تَشْغِيلُ القِرَاءَةِ الفُونِيمِيَّةِ</span>
+                                    </button>
+                                    <button class="ss-btn-tool" id="ssBtnEditStory" onclick="StoryStudio.loadLibraryBookToEditor()">
+                                        <span>✏️</span> <span>فَتْحٌ فِي مُحَرِّرِ الكُومِيكْس</span>
+                                    </button>
+                                    <button class="ss-btn-tool" onclick="StoryStudio.printA4()">
+                                        <span>🖨️</span> <span>طِبَاعَةُ القِصَّةِ A4</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="ss-reader-viewport" id="ssReaderViewport"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     التبويب 3: تحدي إكمال القصة الناقصة (Challenge)
+                     ========================================== -->
+                <div class="ss-tab-panel" id="ssTabPanel_challenge">
+                    <div class="ss-challenge-container">
+                        <div class="ss-challenge-header-box">
+                            <div class="ss-ch-title-wrap">
+                                <div class="ss-ch-icon">🧩</div>
+                                <div class="ss-ch-title-text">
+                                    <h3 id="ssChTitle">تَحَدِّي: صَوْتُ بُوقِ مَازِن</h3>
+                                    <p id="ssChDesc">اقرأ المشهدين الأولين، ثم اختر النهاية الفونيمية السليمة لإكمال القصة المصورة!</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <div class="ss-ch-stars-pill">
+                                    <span>⭐ نُجُومُ التَّحَدِّي:</span>
+                                    <span id="ssChStarsCount">0</span>
+                                </div>
+                                <button class="ss-btn-tool primary" onclick="StoryStudio.nextChallenge()">
+                                    <span>التَّحَدِّي التَّالِي ⬅</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- شريط اللوحات الثلاث -->
+                        <div class="ss-challenge-strip" id="ssChallengeStrip">
+                            <div class="ss-ch-panel-card mystery" id="ssChMysteryPanel">
+                                <div class="ss-ch-panel-visual">
+                                    <div class="ss-ch-mystery-badge">❓</div>
+                                </div>
+                                <div class="ss-ch-panel-caption" id="ssChMysteryCaption">٣. نِهَايَةُ القِصَّةِ المَفْقُودَة</div>
+                            </div>
+                        </div>
+
+                        <!-- خيارات الإجابة الفونيمية -->
+                        <div class="ss-challenge-options-box">
+                            <div class="ss-ch-options-prompt">اخْتَرِ الخِيَارَ السَّلِيمَ الَّذِي يَخْتِمُ القِصَّةَ بِمَعْنَى صَحِيحٍ وَنُطْقٍ فَصِيح:</div>
+                            <div class="ss-ch-options-row" id="ssChOptionsRow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ==========================================
+                     التبويب 4: معرض القصص والطباعة A4 (Export)
+                     ========================================== -->
+                <div class="ss-tab-panel" id="ssTabPanel_export">
+                    <div class="ss-export-container">
+                        <div class="ss-gallery-section">
+                            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px;">
+                                <h3 style="margin: 0; font-size: 1.15rem; font-weight: 900; color: #1e1b4b;">📚 رَفُّ قِصَصِي وَمَجَلَّاتِي المَحْفُوظَة</h3>
+                                <span style="font-size: 0.85rem; color: #64748b;">مُخَزَّنَةٌ مَحَلِّيّاً أَوْفْلَايْن عَلَى جِهَازِك</span>
+                            </div>
+                            <div class="ss-gallery-grid" id="ssSavedGalleryGrid"></div>
+                        </div>
+
+                        <div class="ss-print-preview-section">
+                            <h3 style="margin: 0; font-size: 1.15rem; font-weight: 900; color: #1e1b4b;">🖨️ مُطَبَّعَةُ الكُومِيكْس وَكُرَّاسَاتِ التَّلْوِين A4</h3>
+                            <p style="margin: 0; font-size: 0.84rem; color: #64748b;">تَوْلِيدُ صَفْحَةِ مَجَلَّةِ كُومِيكْس وَرَقِيَّةٍ قِيَاسِيَّة A4 مُعْتَمَدَةٍ لِأَنْشِطَةِ الصَّفِّ وَالمَعَارِضِ المَدْرَسِيَّة.</p>
+
+                            <div class="ss-print-sheet-mockup">
+                                <div class="ss-sheet-header">
+                                    <div class="ss-sheet-title">مَجَلَّةُ القِصَّةِ الفُونِيمِيَّةِ A4</div>
+                                    <div class="ss-sheet-sub">جمهورية العراق • وزارة التربية • كتاب قراءتي</div>
+                                </div>
+                                <div style="flex: 1; display: flex; align-items: center; justify-content: center; font-size: 3rem;">
+                                    📰
+                                </div>
+                                <div style="text-align: center; font-size: 0.78rem; color: #7c3aed; font-weight: 800;">
+                                    جاهزة للطباعة الملونة أو كراسة تلوين أوفلاين
+                                </div>
+                            </div>
+
+                            <button class="ss-btn-tool primary" style="width: 100%; justify-content: center; padding: 12px; font-size: 1rem;" onclick="StoryStudio.printA4()">
+                                <span>🖨️ طِبَاعَةُ المَجَلَّةِ الحَالِيَّةِ A4</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- حاوية الطباعة المنعزلة A4 للقصص والمجلات المصورة -->
+    <div id="storyStudioPrintA4Area" style="display: none;"></div>
+
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
     <script src="audio_data_unit6.js"></script>
@@ -28682,6 +29047,7 @@
     <script src="js/core/dictation-lab.js"></script>
     <script src="js/core/readers-theater.js"></script>
     <script src="js/core/nasheed-studio.js"></script>
+    <script src="js/core/story-studio.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

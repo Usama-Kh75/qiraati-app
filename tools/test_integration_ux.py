@@ -95,6 +95,7 @@ def run_integration_audit():
         'dictation-lab.js': os.path.join(BASE_DIR, 'js', 'core', 'dictation-lab.js'),
         'readers-theater.js': os.path.join(BASE_DIR, 'js', 'core', 'readers-theater.js'),
         'nasheed-studio.js': os.path.join(BASE_DIR, 'js', 'core', 'nasheed-studio.js'),
+        'story-studio.js': os.path.join(BASE_DIR, 'js', 'core', 'story-studio.js'),
         'audio.js': os.path.join(BASE_DIR, 'js', 'core', 'audio.js'),
         'navigation.js': os.path.join(BASE_DIR, 'js', 'core', 'navigation.js'),
         'modals.js': os.path.join(BASE_DIR, 'js', 'core', 'modals.js'),
@@ -528,6 +529,60 @@ def run_integration_audit():
     if not any("عنصر استوديو الأناشيد" in e for e in errors):
         successes.append(f"كافة عناصر استوديو الأناشيد المنهجية والإنشاد الإيقاعي بالدف المدرسي ({len(nasheed_studio_elements)} عنصراً) متكاملة بنسبة 100%.")
 
+    # 8 س. فحص استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية
+    print("\n--- فحص استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية ---")
+    story_studio_elements = [
+        ('زر استوديو القصة بالشريط العلوي', 'btnTopStoryStudio'),
+        ('شارة زر استوديو القصة', 'topStoryStudioLabel'),
+        ('بطاقة استوديو القصة بالقائمة الجانبية', 'sidebarStoryStudioCard'),
+        ('نافذة استوديو القصة الرئيسية', 'storyStudioModal'),
+        ('زر تكبير الاستوديو لملء الشاشة', 'ssBtnFullscreen'),
+        ('زر إغلاق استوديو القصة', 'ssBtnClose'),
+        ('زر تبويب صانع الكوميكس', 'ssTabBtnCreator'),
+        ('زر تبويب مكتبة القصص', 'ssTabBtnLibrary'),
+        ('زر تبويب تحدي إكمال القصة', 'ssTabBtnChallenge'),
+        ('زر تبويب معرض القصص والطباعة', 'ssTabBtnExport'),
+        ('كانفاس مؤثرات الكونفيتي', 'storyStudioConfettiCanvas'),
+        ('حاوية تبويب صانع الكوميكس', 'ssTabPanel_creator'),
+        ('مجموعة الشخصيات بالشريط الجانبي', 'ssResourceGrp_chars'),
+        ('شبكة الشخصيات الكرتونية SVG', 'ssCharsGrid'),
+        ('مجموعة الأدوات بالشريط الجانبي', 'ssResourceGrp_props'),
+        ('شبكة الأدوات والعناصر المصورة', 'ssPropsGrid'),
+        ('مجموعة فقاعات الحوار', 'ssResourceGrp_bubbles'),
+        ('مجموعة بنك الكلمات الفونيمية', 'ssResourceGrp_words'),
+        ('رقائق بنك الكلمات المنهجية', 'ssWordsBankChips'),
+        ('رقائق الجمل القصصية الجاهزة', 'ssSentencesChips'),
+        ('مجموعة المؤثرات الكوميدية SFX', 'ssResourceGrp_sfx'),
+        ('شبكة ملصقات SFX الكوميدية', 'ssSfxGrid'),
+        ('مجموعة الخلفيات البيئية', 'ssResourceGrp_bgs'),
+        ('شبكة بطاقات الخلفيات', 'ssBgsGrid'),
+        ('شريط التنقل بين اللوحات', 'ssPanelNav'),
+        ('كانفاس صفحة الكوميكس واللوحات', 'ssComicPageCanvas'),
+        ('حقل إدخال نص الحوار للفقاعة', 'ssInputBubbleText'),
+        ('حقل إدخال عنوان القصة', 'ssStoryTitleInput'),
+        ('حاوية تبويب مكتبة القصص', 'ssTabPanel_library'),
+        ('قائمة بطاقات القصص بالمكتبة', 'ssBookList'),
+        ('عنوان قصة القارئ التفاعلي', 'ssReaderTitle'),
+        ('معلومات قصة القارئ التفاعلي', 'ssReaderMeta'),
+        ('زر تشغيل القراءة الصوتية بالمكتبة', 'ssBtnPlayStory'),
+        ('زر فتح القصة في محرر الكوميكس', 'ssBtnEditStory'),
+        ('كانفاس عرض القارئ التفاعلي', 'ssReaderViewport'),
+        ('حاوية تبويب تحدي القصة الناقصة', 'ssTabPanel_challenge'),
+        ('عنوان تحدي القصة الناقصة', 'ssChTitle'),
+        ('وصف تحدي القصة الناقصة', 'ssChDesc'),
+        ('عداد نجوم التحدي', 'ssChStarsCount'),
+        ('شريط لوحات التحدي الثلاث', 'ssChallengeStrip'),
+        ('شبكة خيارات الإجابة الفونيمية', 'ssChOptionsRow'),
+        ('حاوية تبويب المعرض والطباعة A4', 'ssTabPanel_export'),
+        ('شبكة القصص المحفوظة بالمعرض', 'ssSavedGalleryGrid'),
+        ('حاوية الطباعة المنعزلة A4', 'storyStudioPrintA4Area')
+    ]
+    for ss_title, ss_id in story_studio_elements:
+        if ss_id not in dom_ids:
+            errors.append(f"عنصر استوديو القصة المصورة {ss_title} ({ss_id}) مفقود!")
+    if not any("عنصر استوديو القصة المصورة" in e for e in errors):
+        successes.append(f"كافة عناصر استوديو القصة المصورة التفاعلية وصانع القصص الرقمية ({len(story_studio_elements)} عنصراً) متكاملة بنسبة 100%.")
+
     # 9. فحص عزل مفاتيح التخزين المحلي (LocalStorage Key Hygiene)
     print("\n--- فحص عزل مفاتيح التخزين المحلي (قواعد أسامة) ---")
     storage_keys = []
@@ -551,7 +606,7 @@ def run_integration_audit():
         'css/lessons-unit3.css', 'css/lessons-unit4.css', 'css/lessons-unit5.css',
         'css/lessons-unit6.css', 'css/evaluation.css', 'css/enrichment.css',
         'css/blackboard.css', 'css/games.css', 'css/gamification.css', 'css/teacher-dashboard.css',
-        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css', 'css/voice-coach.css', 'css/dictation-lab.css', 'css/readers-theater.css', 'css/nasheed-studio.css'
+        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css', 'css/voice-coach.css', 'css/dictation-lab.css', 'css/readers-theater.css', 'css/nasheed-studio.css', 'css/story-studio.css'
     ]
     for cf in css_files:
         if cf not in index_html:
@@ -565,7 +620,7 @@ def run_integration_audit():
         'js/core/evaluation.js', 'js/core/enrichment.js', 'js/core/blackboard.js',
         'js/core/games.js', 'js/core/gamification.js', 'js/core/teacher-dashboard.js',
         'js/core/classroom-sync.js', 'js/core/classroom-quiz.js', 'js/core/interactive-guide.js',
-        'js/core/diagnostic-exams.js', 'js/core/voice-coach.js', 'js/core/dictation-lab.js', 'js/core/readers-theater.js', 'js/core/nasheed-studio.js', 'js/app.js'
+        'js/core/diagnostic-exams.js', 'js/core/voice-coach.js', 'js/core/dictation-lab.js', 'js/core/readers-theater.js', 'js/core/nasheed-studio.js', 'js/core/story-studio.js', 'js/app.js'
     ]
     for cs in core_scripts:
         if cs not in index_html:
@@ -605,6 +660,8 @@ def run_integration_audit():
         ('js/core/readers-theater.js', open(os.path.join(BASE_DIR, 'js', 'core', 'readers-theater.js'), encoding='utf-8').read()),
         ('css/nasheed-studio.css', open(os.path.join(BASE_DIR, 'css', 'nasheed-studio.css'), encoding='utf-8').read()),
         ('js/core/nasheed-studio.js', open(os.path.join(BASE_DIR, 'js', 'core', 'nasheed-studio.js'), encoding='utf-8').read()),
+        ('css/story-studio.css', open(os.path.join(BASE_DIR, 'css', 'story-studio.css'), encoding='utf-8').read()),
+        ('js/core/story-studio.js', open(os.path.join(BASE_DIR, 'js', 'core', 'story-studio.js'), encoding='utf-8').read()),
     ]
     for s_name, s_content in sig_targets:
         if official_signature not in s_content:
