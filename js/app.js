@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // 4. تطبيق وضع زر الإيقاف العائم
-    const savedFloatingStop = localStorage.getItem('qiraati_floating_stop');
+    const savedFloatingStop = localStorage.getItem('qiraati_smart_floating_stop') || localStorage.getItem('qiraati_floating_stop');
     const chkFloating = document.getElementById('chkFloatingStop');
     if (chkFloating && savedFloatingStop !== null) {
         chkFloating.checked = savedFloatingStop === 'true';

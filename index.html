@@ -291,6 +291,15 @@
                     <button class="sidebar-games-mini-btn" onclick="openGamesModal('train')" title="قطار المقاطع وتركيب الكلمات">
                         <span>🚂</span> <span>قطار المقاطع</span>
                     </button>
+                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('memory')" title="صندوق الذاكرة والبطاقات المتطابقة 3D">
+                        <span>🃏</span> <span>صندوق الذاكرة</span>
+                    </button>
+                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('sorter')" title="ميزان اللام الشمسية واللام القمرية">
+                        <span>☀️🌙</span> <span>ميزان اللام</span>
+                    </button>
+                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('quiz')" title="من سيربح وسام القراءة الذهبي" style="grid-column: span 2;">
+                        <span>🏆</span> <span>من سيربح وسام القراءة؟</span>
+                    </button>
                 </div>
             </div>
 
@@ -1629,7 +1638,7 @@
 
                             <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px;">
 
-                                <button class="btn btn-teach" onclick="playFamilyStory('full')" style="font-size: 1rem; padding: 10px 22px;">
+                                <button class="btn btn-teach" id="btnUnit1FamilyStory" onclick="playFamilyStory('full')" style="font-size: 1rem; padding: 10px 22px;">
 
                                     🔊 اِسْتَمِعْ لِقِصَّةِ الْأُسْرَةِ كَامِلَة
 
@@ -1859,7 +1868,7 @@
 
                             <div>
 
-                                <button class="btn btn-teach" onclick="playBPicnicStory()">
+                                <button class="btn btn-teach" id="btnBPicnic" onclick="playBPicnicStory()">
 
                                     🔊 اِسْتَمِعْ لِقِصَّةِ النُّزْهَةِ وَعَنَاصِرِ حَرْفِ الْبَاء
 
@@ -2648,7 +2657,7 @@
 
                             <div>
 
-                                <button class="btn btn-teach" style="background:#a21caf; color:white;" onclick="playMSceneStory()">
+                                <button class="btn btn-teach" id="btnMSceneStory" style="background:#a21caf; color:white;" onclick="playMSceneStory()">
 
                                     🔊 اِسْتَمِعْ لِقِصَّةِ مَامَا وَعَنَاصِرِ حَرْفِ الْمِيم
 
@@ -23744,6 +23753,10 @@
                             <div id="portfolioPercentLabel" style="font-size: 2.8rem; font-weight: 900; line-height: 1; color: #34d399;">100%</div>
                             <div style="font-size: 0.82rem; font-weight: 800; margin-top: 4px;">نسبة الإنجاز الكلي للمنهج</div>
                         </div>
+                    </div>
+
+                    <div style="background: #e2e8f0; border-radius: 999px; height: 12px; margin: -10px 0 20px 0; overflow: hidden; border: 1px solid #cbd5e1; box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);">
+                        <div id="portfolioProgressFill" style="background: linear-gradient(90deg, #10b981, #059669); height: 100%; width: 100%; border-radius: 999px; transition: width 0.6s ease;"></div>
                     </div>
 
                     <!-- إحصاءات الإنجاز التفصيلية -->

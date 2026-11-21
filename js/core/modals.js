@@ -109,14 +109,52 @@
         }
 
         function closeModalOnBackdrop(e) {
-
-            if (e.target.id === 'installModal') {
-
+            if (!e.target.classList || !e.target.classList.contains('modal-backdrop')) return;
+            const targetId = e.target.id;
+            if (targetId === 'installModal') {
                 closeInstallModal();
-
+            } else if (targetId === 'gamesModal' && typeof closeGamesModal === 'function') {
+                closeGamesModal();
+            } else if (targetId === 'blackboardModal' && typeof closeBlackboardModal === 'function') {
+                closeBlackboardModal();
+            } else if (targetId === 'enrichmentModal' && typeof closeEnrichmentModal === 'function') {
+                closeEnrichmentModal();
+            } else if (targetId === 'evaluationModal' && typeof closeEvaluationModal === 'function') {
+                closeEvaluationModal();
+            } else if (targetId === 'settingsModal' && typeof closeSettingsModal === 'function') {
+                closeSettingsModal();
+            } else {
+                e.target.style.display = 'none';
             }
-
         }
+
+        // دعم إغلاق النوافذ بمفتاح الهروب (Escape Key UX)
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (typeof closeGamesModal === 'function') {
+                    const gm = document.getElementById('gamesModal');
+                    if (gm && gm.style.display !== 'none') { closeGamesModal(); return; }
+                }
+                if (typeof closeBlackboardModal === 'function') {
+                    const bm = document.getElementById('blackboardModal');
+                    if (bm && bm.style.display !== 'none') { closeBlackboardModal(); return; }
+                }
+                if (typeof closeEnrichmentModal === 'function') {
+                    const em = document.getElementById('enrichmentModal');
+                    if (em && em.style.display !== 'none') { closeEnrichmentModal(); return; }
+                }
+                if (typeof closeEvaluationModal === 'function') {
+                    const evm = document.getElementById('evaluationModal');
+                    if (evm && evm.style.display !== 'none') { closeEvaluationModal(); return; }
+                }
+                if (typeof closeSettingsModal === 'function') {
+                    const sm = document.getElementById('settingsModal');
+                    if (sm && sm.style.display !== 'none') { closeSettingsModal(); return; }
+                }
+                const im = document.getElementById('installModal');
+                if (im && im.style.display !== 'none') { closeInstallModal(); return; }
+            }
+        });
 
         function showMobileModal() {
 
