@@ -1,6 +1,6 @@
 // منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم
 
-const CACHE_NAME = 'qiraati-smart-v59';
+const CACHE_NAME = 'qiraati-smart-v60';
 
 const ASSETS_TO_CACHE = [
 
@@ -643,6 +643,8 @@ const ASSETS_TO_CACHE = [
   './icons/icon-192.png',
 
   './icons/icon-512.png',
+
+  './icons/qiraati.ico',
 
   './mobile_qr.png',
 

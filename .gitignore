@@ -28,6 +28,8 @@
 !/views/**
 !/tools/
 !/tools/*.py
+!/tools/windows_src/
+!/tools/windows_src/*.cs
 tools/__pycache__/
 __pycache__/
 *.pyc
