@@ -5393,6 +5393,382 @@
     <!-- حاوية الطباعة المنعزلة A4 للتذاكر المدرسية -->
     <div id="rtPrintableTicketContainer" style="display: none;"></div>
 
+    <!-- ==========================================================================
+         نافذة استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي
+         (Interactive Phonics Nasheed & Rhythm Studio)
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+         ========================================================================== -->
+    <div class="modal-backdrop" id="nasheedStudioModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="nasheed-studio-modal-box" onclick="event.stopPropagation()">
+            <!-- ترويسة استوديو الأناشيد -->
+            <div class="ns-modal-header">
+                <div class="ns-header-titles">
+                    <div class="ns-header-icon">🥁</div>
+                    <div class="ns-title-text">
+                        <h2>
+                            <span>استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي</span>
+                            <span class="ns-title-badge">دف مدرسي وتحليل موسيقي وكاراوكي</span>
+                        </h2>
+                        <div class="ns-subtitle">
+                            أناشيد قراءتي المعتمدة • تقطيع فونيمي ونبضات الدف • تحليل طيفي للسبورات والتابلت • <span class="ns-author-tag">إعداد وتطوير: المهندس أسامة خليل هاشم</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="ns-header-actions">
+                    <button class="ns-btn-stage-toggle" id="nsBtnFullscreen" onclick="NasheedStudio.toggleFullscreen()" title="تكبير الاستوديو لملء الشاشة على السبورات الذكية والتابلت">
+                        <span>📺</span> <span>ملء الشاشة</span>
+                    </button>
+                    <button class="ns-btn-close" id="nsBtnClose" onclick="NasheedStudio.closeModal()" title="إغلاق استوديو الأناشيد">
+                        <span>✕</span> <span>إغلاق</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- شريط التبويبات -->
+            <div class="ns-tabs-nav">
+                <button class="ns-tab-btn active" id="nsTabBtn_stage" onclick="NasheedStudio.switchTab('stage')">
+                    <span>🎵</span> <span>مسرح الأناشيد والكاراوكي</span> <span class="ns-tab-badge">تقطيع وكرة نطاطة</span>
+                </button>
+                <button class="ns-tab-btn" id="nsTabBtn_duff" onclick="NasheedStudio.switchTab('duff')">
+                    <span>🥁</span> <span>مختبر الدف المدرسي والإيقاع</span> <span class="ns-tab-badge">لمس متعدد وأنماط</span>
+                </button>
+                <button class="ns-tab-btn" id="nsTabBtn_visualizer" onclick="NasheedStudio.switchTab('visualizer')">
+                    <span>📊</span> <span>المحلل الموسيقي وتحدي الإيقاع</span> <span class="ns-tab-badge">طيف ولعبة النبض</span>
+                </button>
+                <button class="ns-tab-btn" id="nsTabBtn_recorder" onclick="NasheedStudio.switchTab('recorder')">
+                    <span>🎙️</span> <span>استوديو التسجيل والصدى الصفي</span> <span class="ns-tab-badge">تسجيل وEcho</span>
+                </button>
+                <button class="ns-tab-btn" id="nsTabBtn_printables" onclick="NasheedStudio.switchTab('printables')">
+                    <span>🖨️</span> <span>بطاقات الأناشيد وشهادة بلبل الصف</span> <span class="ns-tab-badge">طباعة A4</span>
+                </button>
+            </div>
+
+            <!-- جسم الاستوديو ومحتوى التبويبات -->
+            <div class="ns-modal-body">
+                <!-- التبويب 1: مسرح الأناشيد والكاراوكي -->
+                <div class="ns-tab-content active" id="nsTabContent_stage">
+                    <!-- شريط اختيار الأناشيد المنهجية -->
+                    <div class="ns-curriculum-strip" id="nsCurriculumStrip"></div>
+
+                    <!-- مسرح العرض والأبيات والكاراوكي -->
+                    <div class="ns-stage-panel">
+                        <div class="ns-stage-header-bar">
+                            <div class="ns-song-display-meta">
+                                <div class="ns-song-display-title" id="nsSongDisplayTitle"></div>
+                                <span class="ns-song-unit-badge" id="nsSongUnitBadge"></span>
+                            </div>
+                            <div class="ns-stage-quick-metrics">
+                                <span class="ns-metric-pill" id="nsSongRhythmBadge"></span>
+                                <span class="ns-metric-pill" id="nsSongTempoBadge"></span>
+                            </div>
+                        </div>
+
+                        <!-- عارض الأبيات الكبيرة مع الكرة النطاطة الإيقاعية -->
+                        <div class="ns-karaoke-stage-box">
+                            <div class="ns-bouncing-ball" id="nsBouncingBall"></div>
+                            <div class="ns-verses-list" id="nsVersesList"></div>
+                        </div>
+
+                        <!-- لوحة التحكم بالإيقاع والسرعة والتقطيع -->
+                        <div class="ns-stage-controls-bar">
+                            <div class="ns-controls-group-main">
+                                <button class="ns-btn-primary-play" id="nsBtnPlayChant" onclick="NasheedStudio.togglePlayChant()">
+                                    <span>▶️</span> <span>بدء الإنشاد والكاراوكي</span>
+                                </button>
+                                <button class="ns-btn-ctrl" id="nsBtnToggleSyllables" onclick="NasheedStudio.toggleSyllablesMode()" title="تبديل وضع التقطيع الصوتي الفونيمي للمقاطع">
+                                    <span>🔤</span> <span>التقطيع الفونيمي</span>
+                                </button>
+                                <button class="ns-btn-ctrl active-toggle" id="nsBtnToggleDuff" onclick="NasheedStudio.toggleDuffAccomp()" title="تفعيل أو كتم مصاحبة الدف المدرسي">
+                                    <span>🥁</span> <span>مرافقة الدف</span>
+                                </button>
+                                <button class="ns-btn-ctrl active-toggle" id="nsBtnToggleVocals" onclick="NasheedStudio.toggleVocals()" title="تفعيل أو كتم الإنشاد الصوتي الآلي">
+                                    <span>🗣️</span> <span>الإنشاد الصوتي</span>
+                                </button>
+                            </div>
+
+                            <!-- ضبط سرعة الإيقاع BPM -->
+                            <div class="ns-tempo-slider-box">
+                                <span class="ns-tempo-label">السرعة: <b id="nsTempoValueDisplay">95 BPM</b></span>
+                                <button class="ns-tempo-btn-step" id="nsBtnTempoMinus" onclick="NasheedStudio.adjustTempo(-5)">-</button>
+                                <input type="range" class="ns-tempo-slider" id="nsTempoSlider" min="60" max="140" step="5" value="95" oninput="NasheedStudio.setTempo(this.value)">
+                                <button class="ns-tempo-btn-step" id="nsBtnTempoPlus" onclick="NasheedStudio.adjustTempo(5)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التبويب 2: مختبر الدف المدرسي والإيقاع -->
+                <div class="ns-tab-content" id="nsTabContent_duff">
+                    <div class="ns-duff-lab-container">
+                        <!-- منصة الدف المدرسي التفاعلي -->
+                        <div class="ns-duff-stage-card">
+                            <div class="ns-card-header-styled">
+                                <span>🥁</span> <span>الدُّفُّ المَدْرَسِيُّ التَّفَاعُلِيُّ لِلْمَسِ المُتَعَدِّد (MULTI-TOUCH DUFF)</span>
+                            </div>
+                            <div style="font-size: 0.88rem; color: #78350f; font-weight: 700; margin: 4px 0 10px 0;">
+                                انقر على المركز لصوت «دُم» العريض، أو الإطار لصوت «تَكْ» الحاد، أو الحلقات لصوت «الصُّنُوج»
+                            </div>
+
+                            <!-- الدف المدرسي الفيكتور -->
+                            <div class="ns-duff-drum-wrapper" id="nsDuffDrumWrapper">
+                                <svg class="ns-duff-svg" viewBox="0 0 320 320">
+                                    <!-- الإطار الخشبي الخارجي -->
+                                    <circle cx="160" cy="160" r="150" fill="#78350f" stroke="#451a03" stroke-width="8" />
+                                    <circle cx="160" cy="160" r="142" fill="#9a3412" stroke="#b45309" stroke-width="3" />
+                                    <!-- جلد الدف الطبيعي (حلقة الحافة للتك) -->
+                                    <circle class="ns-drum-zone-rim" cx="160" cy="160" r="135" fill="#ffedd5" stroke="#fed7aa" stroke-width="4" onclick="NasheedStudio.hitTak(event)" title="انقر هنا لصوت تَكْ (TAK) الحاد" />
+                                    <!-- مركز الدف للدم -->
+                                    <circle class="ns-drum-zone-center" cx="160" cy="160" r="85" fill="#fef3c7" stroke="#fcd34d" stroke-width="3" onclick="NasheedStudio.hitDum(event)" title="انقر هنا لصوت دُم (DUM) الرخيم" />
+                                    <text x="160" y="165" text-anchor="middle" font-size="24" font-weight="900" fill="#78350f" pointer-events="none">دُم</text>
+                                    <text x="160" y="55" text-anchor="middle" font-size="16" font-weight="900" fill="#9a3412" pointer-events="none">تَكْ</text>
+                                    <text x="160" y="280" text-anchor="middle" font-size="16" font-weight="900" fill="#9a3412" pointer-events="none">تَكْ</text>
+                                    <!-- الصنوج النحاسية (Jingles) -->
+                                    <g class="ns-drum-zone-jingle" onclick="NasheedStudio.hitJingle(event)" title="رَنَّة الصُّنُوج">
+                                        <ellipse cx="25" cy="160" rx="12" ry="7" fill="#fbbf24" stroke="#d97706" stroke-width="2" />
+                                        <ellipse cx="295" cy="160" rx="12" ry="7" fill="#fbbf24" stroke="#d97706" stroke-width="2" />
+                                        <ellipse cx="160" cy="25" rx="7" ry="12" fill="#fbbf24" stroke="#d97706" stroke-width="2" />
+                                        <ellipse cx="160" cy="295" rx="7" ry="12" fill="#fbbf24" stroke="#d97706" stroke-width="2" />
+                                    </g>
+                                </svg>
+                            </div>
+
+                            <!-- أزرار اللمس السريع أسفل الدف -->
+                            <div class="ns-duff-touch-buttons">
+                                <button class="ns-drum-btn ns-btn-dum" id="nsBtnDum" onclick="NasheedStudio.hitDum(event)">
+                                    <span>💥</span> <span>دُم (DUM) [D]</span>
+                                </button>
+                                <button class="ns-drum-btn ns-btn-tak" id="nsBtnTak" onclick="NasheedStudio.hitTak(event)">
+                                    <span>⚡</span> <span>تَكْ (TAK) [T]</span>
+                                </button>
+                                <button class="ns-drum-btn ns-btn-jingle" id="nsBtnJingle" onclick="NasheedStudio.hitJingle(event)">
+                                    <span>🔔</span> <span>رَنَّةُ الصُّنُوج [J]</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- الآلات المصاحبة والأنماط الإيقاعية الجاهزة -->
+                        <div class="ns-percussion-side-card">
+                            <div class="ns-card-header-styled">
+                                <span>🪇</span> <span>آلات الإيقاع الصفي المصاحبة</span>
+                            </div>
+                            <div class="ns-instruments-grid">
+                                <div class="ns-inst-box" onclick="NasheedStudio.playInst('clap')" title="تصفيق صفي تشجيعي [C]">
+                                    <div class="ns-inst-icon">👏</div>
+                                    <div class="ns-inst-name">تصفيق صفي</div>
+                                </div>
+                                <div class="ns-inst-box" onclick="NasheedStudio.playInst('triangle')" title="مثلث مدرسي رنان [R]">
+                                    <div class="ns-inst-icon">📐</div>
+                                    <div class="ns-inst-name">مثلث مدرسي</div>
+                                </div>
+                                <div class="ns-inst-box" onclick="NasheedStudio.playInst('maracas')" title="شخشيخة الماراكاس [M]">
+                                    <div class="ns-inst-icon">🪇</div>
+                                    <div class="ns-inst-name">شخشيخة</div>
+                                </div>
+                                <div class="ns-inst-box" onclick="NasheedStudio.playInst('snare')" title="طبلة المسيرة المدرسية">
+                                    <div class="ns-inst-icon">🪘</div>
+                                    <div class="ns-inst-name">طبلة مسيرة</div>
+                                </div>
+                            </div>
+
+                            <div class="ns-card-header-styled" style="margin-top: 10px;">
+                                <span>🎼</span> <span>الأنماط الإيقاعية المدرسية</span>
+                            </div>
+                            <div class="ns-patterns-list" id="nsPatternsList">
+                                <div class="ns-pattern-item" onclick="NasheedStudio.playPattern(0)">
+                                    <div>
+                                        <div class="ns-pattern-title">المسيرة المدرسية (4/4)</div>
+                                        <div class="ns-pattern-sub">دُم - تَكْ - تَكْ - دُم</div>
+                                    </div>
+                                    <span>▶️</span>
+                                </div>
+                                <div class="ns-pattern-item" onclick="NasheedStudio.playPattern(1)">
+                                    <div>
+                                        <div class="ns-pattern-title">المقسوم العراقي (4/4)</div>
+                                        <div class="ns-pattern-sub">دُم تَكْ - تَكْ دُم تَكْ</div>
+                                    </div>
+                                    <span>▶️</span>
+                                </div>
+                                <div class="ns-pattern-item" onclick="NasheedStudio.playPattern(2)">
+                                    <div>
+                                        <div class="ns-pattern-title">التهويدة الهادئة (3/4)</div>
+                                        <div class="ns-pattern-sub">دُم - تَكْ - تَكْ</div>
+                                    </div>
+                                    <span>▶️</span>
+                                </div>
+                                <div class="ns-pattern-item" onclick="NasheedStudio.playPattern(3)">
+                                    <div>
+                                        <div class="ns-pattern-title">الملفوف السريع (2/4)</div>
+                                        <div class="ns-pattern-sub">دُم - تَكْ تَكْ</div>
+                                    </div>
+                                    <span>▶️</span>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 6px;">
+                                <div class="ns-pattern-leds" id="nsLedRow" style="justify-content: center;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التبويب 3: المحلل الموسيقي وتحدي دقة الإيقاع -->
+                <div class="ns-tab-content" id="nsTabContent_visualizer">
+                    <div class="ns-visualizer-container">
+                        <!-- لوحة شاشة المحلل الطيفي -->
+                        <div class="ns-visualizer-screen-card">
+                            <div class="ns-screen-top-bar">
+                                <div class="ns-screen-title">
+                                    <span>📊</span> <span>المحلل الموسيقي الطيفي الحي (Real-time Audio Visualizer)</span>
+                                </div>
+                                <div class="ns-visualizer-modes">
+                                    <button class="ns-btn-vis-mode active" id="nsBtnVisMode_bars" onclick="NasheedStudio.setVisualizerMode('bars')">أعمدة التردد</button>
+                                    <button class="ns-btn-vis-mode" id="nsBtnVisMode_wave" onclick="NasheedStudio.setVisualizerMode('wave')">الأمواج التناغمية</button>
+                                    <button class="ns-btn-vis-mode" id="nsBtnVisMode_circles" onclick="NasheedStudio.setVisualizerMode('circles')">الدوائر النبضية</button>
+                                </div>
+                            </div>
+                            <div class="ns-canvas-wrapper">
+                                <canvas id="nsVisualizerCanvas"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- لعبة تحدي دقة الإيقاع -->
+                        <div class="ns-challenge-card">
+                            <div class="ns-card-header-styled">
+                                <span>🎯</span> <span>تَحَدِّي دِقَّةِ الإِيقَاعِ لِلْمُنْشِدِ الصَّغِير (RHYTHM BEAT CHALLENGE)</span>
+                            </div>
+
+                            <div class="ns-challenge-metrics-bar">
+                                <div class="ns-ch-stat">
+                                    <div class="ns-ch-stat-val" id="nsChStatScore">0</div>
+                                    <div class="ns-ch-stat-lbl">النقاط الإيقاعية</div>
+                                </div>
+                                <div class="ns-ch-stat">
+                                    <div class="ns-ch-stat-val" id="nsChStatAccuracy">100%</div>
+                                    <div class="ns-ch-stat-lbl">دقة التوافق</div>
+                                </div>
+                                <div class="ns-ch-stat">
+                                    <div class="ns-ch-stat-val" id="nsChStatStreak">0</div>
+                                    <div class="ns-ch-stat-lbl">التتابع المتتالي</div>
+                                </div>
+                            </div>
+
+                            <!-- خط النوتات الإيقاعية المتحركة -->
+                            <div class="ns-beat-highway" id="nsBeatHighway">
+                                <div class="ns-beat-target-line"></div>
+                            </div>
+
+                            <div class="ns-feedback-banner" id="nsFeedbackBanner">
+                                اضغط على "بدء تحدي دقة الإيقاع" واضرب الدف في التوقيت المثالي!
+                            </div>
+
+                            <div style="display: flex; justify-content: center; gap: 12px;">
+                                <button class="ns-btn-primary-play" id="nsBtnStartChallenge" onclick="NasheedStudio.toggleChallenge()">
+                                    <span>🎮</span> <span>بدء تحدي دقة الإيقاع</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التبويب 4: استوديو التسجيل والصدى الصفي -->
+                <div class="ns-tab-content" id="nsTabContent_recorder">
+                    <div class="ns-recorder-grid">
+                        <!-- لوحة التسجيل والمؤثرات -->
+                        <div class="ns-recorder-panel">
+                            <div class="ns-card-header-styled" style="width: 100%;">
+                                <span>🎙️</span> <span>استوديو تسجيل إنشاد التلميذ والصدى الصفي</span>
+                            </div>
+
+                            <div class="ns-mic-circle" id="nsMicCircle">
+                                🎤
+                            </div>
+
+                            <div class="ns-rec-status-text" id="nsRecStatusText">
+                                الميكروفون جاهز لتسجيل صوت التلميذ مع الدف المدرسي
+                            </div>
+
+                            <!-- مؤثرات الصدى الصفي Reverb -->
+                            <div style="font-size: 0.85rem; font-weight: 800; color: #78350f;">مؤثر ارتداد الصوت الصفي (Echo & Reverb):</div>
+                            <div class="ns-reverb-presets">
+                                <button class="ns-btn-reverb active" id="nsBtnReverb_classroom" onclick="NasheedStudio.setReverbPreset('classroom')">صوت الصف المدرسي</button>
+                                <button class="ns-btn-reverb" id="nsBtnReverb_hall" onclick="NasheedStudio.setReverbPreset('hall')">قاعة الاحتفالات الكبرى</button>
+                                <button class="ns-btn-reverb" id="nsBtnReverb_clean" onclick="NasheedStudio.setReverbPreset('clean')">صوت نقي مباشر</button>
+                            </div>
+
+                            <!-- أزرار التحكم بالتسجيل -->
+                            <div class="ns-rec-actions-row">
+                                <button class="ns-btn-rec-action ns-btn-start-rec" id="nsBtnStartRec" onclick="NasheedStudio.startRecording()">
+                                    <span>🔴</span> <span>بدء التسجيل</span>
+                                </button>
+                                <button class="ns-btn-rec-action ns-btn-stop-rec" id="nsBtnStopRec" onclick="NasheedStudio.stopRecording()">
+                                    <span>⏹️</span> <span>إيقاف وحفظ</span>
+                                </button>
+                                <button class="ns-btn-rec-action ns-btn-play-rec" id="nsBtnPlayRec" onclick="NasheedStudio.playRecording()">
+                                    <span>▶️</span> <span>استماع للتسجيل</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- قائمة التسجيلات المحفوظة -->
+                        <div class="ns-recordings-list-panel">
+                            <div class="ns-card-header-styled">
+                                <span>📁</span> <span>سجل الإنشاد والتسجيلات المحفوظة أوفلاين</span>
+                            </div>
+                            <div class="ns-recordings-list" id="nsRecordingsList"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التبويب 5: بطاقات الأناشيد وشهادات بلبل الصف A4 -->
+                <div class="ns-tab-content" id="nsTabContent_printables">
+                    <div class="ns-printables-container">
+                        <!-- بطاقة النشيد المنهجي A4 -->
+                        <div class="ns-printable-card">
+                            <div class="ns-card-header-styled">
+                                <span>📄</span> <span>بِطَاقَةُ النَّشِيدِ المَنْهَجِيِّ المُقَرَّرِ لِلطِّبَاعَةِ A4</span>
+                            </div>
+                            <div class="ns-preview-box">
+                                <div class="ns-preview-badge">معتمدة وزارياً A4</div>
+                                <div style="font-size: 1.25rem; font-weight: 900; color: #9a3412;" id="nsPreviewSongTitle">
+                                    نَشِيدُ قِرَاءَتِي
+                                </div>
+                                <div style="font-size: 0.88rem; color: #475569;">
+                                    تتضمن الأبيات مضبوطة بالشكل التام، ومعاني الكلمات، والتقطيع الإيقاعي ورموز الدف المدرسي.
+                                </div>
+                            </div>
+                            <button class="ns-btn-print-styled" id="nsBtnPrintCard" onclick="NasheedStudio.printCard()">
+                                <span>🖨️</span> <span>طِبَاعَةُ بِطَاقَةِ النَّشِيدِ المَنْهَجِيِّ A4</span>
+                            </button>
+                        </div>
+
+                        <!-- شهادة بلبل الصف والإنشاد الإيقاعي A4 -->
+                        <div class="ns-printable-card">
+                            <div class="ns-card-header-styled">
+                                <span>🎖️</span> <span>شَهَادَةُ بُلْبُلِ الصَّفِّ وَفَارِسِ الإِنْشَادِ الإِيقَاعِيِّ A4</span>
+                            </div>
+                            <div class="ns-preview-box">
+                                <div class="ns-preview-badge">تكريم التميز A4</div>
+                                <div style="margin-bottom: 6px;">
+                                    <label style="font-size: 0.85rem; font-weight: bold; color: #78350f;">اسْمُ التِّلْمِيذِ المُتَمَيِّز:</label>
+                                    <input type="text" id="nsPreviewPupilName" value="تِلْمِيذُ الصَّفِّ الأَوَّلِ المُبْدِع" style="width: 80%; padding: 6px 12px; border-radius: 8px; border: 1.5px solid #fdba74; font-weight: bold; text-align: center; margin-top: 4px;">
+                                </div>
+                                <div style="font-size: 0.85rem; color: #475569;">
+                                    شهادة تقديرية ملونة فاخرة تُمنح للتلميذ بعد إتقان الإنشاد الصفي مع ضربات الدف المدرسي.
+                                </div>
+                            </div>
+                            <button class="ns-btn-print-styled" id="nsBtnPrintCertificate" onclick="NasheedStudio.printCertificate()">
+                                <span>🏆</span> <span>طِبَاعَةُ شَهَادَةِ بُلْبُلِ الصَّفِّ الفَاخِرَةِ A4</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- حاوية الطباعة المنعزلة A4 للأناشيد والشهادات -->
+    <div id="nsPrintableContainer" style="display: none;"></div>
+
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
     <script src="audio_data_unit6.js"></script>
@@ -5415,6 +5791,7 @@
     <script src="js/core/voice-coach.js"></script>
     <script src="js/core/dictation-lab.js"></script>
     <script src="js/core/readers-theater.js"></script>
+    <script src="js/core/nasheed-studio.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

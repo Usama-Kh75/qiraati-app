@@ -1,0 +1,1340 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - استوديو الأناشيد المنهجية والإنشاد الإيقاعي
+ * التفاعلي بالدف المدرسي والتحليل الموسيقي (Interactive Phonics Nasheed & Rhythm Studio)
+ * متوافق 100% مع كتاب قراءتي ومعايير وزارة التربية العراقية للأجهزة اللوحية والسبورات
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* نافذة استوديو الأناشيد الرئيسية */
+.nasheed-studio-modal-box {
+    background: #ffffff;
+    border-radius: 24px;
+    width: 96%;
+    max-width: 1300px;
+    max-height: 94vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 25px 80px rgba(180, 83, 9, 0.35);
+    border: 2px solid #fed7aa;
+    overflow: hidden;
+    animation: nsModalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    font-family: inherit;
+}
+
+@keyframes nsModalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* وضع ملء الشاشة للسبورات الذكية والأجهزة اللوحية */
+.nasheed-studio-modal-box.fullscreen-mode {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+    border: none !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999;
+}
+
+/* ترويسة استوديو الأناشيد والإيقاع */
+.ns-modal-header {
+    background: linear-gradient(135deg, #7c2d12 0%, #c2410c 50%, #ea580c 100%);
+    color: #ffffff;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #f97316;
+    position: relative;
+    z-index: 5;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.ns-header-titles {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.ns-header-icon {
+    font-size: 2.2rem;
+    background: rgba(255, 255, 255, 0.18);
+    border: 2px solid rgba(255, 255, 255, 0.35);
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: nsPulseSlow 3s infinite ease-in-out;
+}
+
+@keyframes nsPulseSlow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+}
+
+.ns-title-text h2 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ns-title-badge {
+    background: #ffedd5;
+    color: #9a3412;
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 800;
+    border: 1px solid #fdba74;
+}
+
+.ns-subtitle {
+    margin: 4px 0 0 0;
+    font-size: 0.85rem;
+    color: #ffedd5;
+    font-weight: 600;
+}
+
+.ns-author-tag {
+    color: #fef08a;
+    font-weight: 800;
+}
+
+.ns-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ns-btn-stage-toggle {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    padding: 8px 14px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.ns-btn-stage-toggle:hover {
+    background: rgba(255, 255, 255, 0.28);
+    transform: translateY(-1px);
+}
+
+.ns-btn-close {
+    background: #7f1d1d;
+    border: 1.5px solid #ef4444;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.ns-btn-close:hover {
+    background: #991b1b;
+    transform: scale(1.05);
+}
+
+/* شريط التبويبات الرئيسي */
+.ns-tabs-nav {
+    display: flex;
+    background: #fff7ed;
+    border-bottom: 2px solid #fed7aa;
+    padding: 8px 16px 0 16px;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    position: relative;
+    z-index: 4;
+}
+
+.ns-tab-btn {
+    background: #ffedd5;
+    border: 2px solid #fed7aa;
+    border-bottom: none;
+    border-radius: 14px 14px 0 0;
+    padding: 10px 16px;
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #9a3412;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.ns-tab-btn:hover {
+    background: #fed7aa;
+    color: #7c2d12;
+}
+
+.ns-tab-btn.active {
+    background: #ffffff;
+    border-color: #f97316 #f97316 #ffffff #f97316;
+    color: #c2410c;
+    border-top-width: 3px;
+    box-shadow: 0 -4px 10px rgba(249, 115, 22, 0.15);
+}
+
+.ns-tab-badge {
+    background: #ea580c;
+    color: #ffffff;
+    font-size: 0.72rem;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-weight: 900;
+}
+
+.ns-tab-btn.active .ns-tab-badge {
+    background: #c2410c;
+}
+
+/* جسم المحتوى الداخلي */
+.ns-modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background: #fafaf9;
+    position: relative;
+}
+
+.ns-tab-content {
+    display: none;
+    animation: nsTabFade 0.25s ease-out;
+}
+
+.ns-tab-content.active {
+    display: block;
+}
+
+@keyframes nsTabFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================================================
+   التبويب 1: مسرح الأناشيد المنهجية والكاراوكي
+   ========================================================================== */
+
+/* شريط اختيار الأناشيد */
+.ns-curriculum-strip {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    margin-bottom: 18px;
+    scrollbar-width: thin;
+}
+
+.ns-song-chip {
+    background: #ffffff;
+    border: 2px solid #e7e5e4;
+    border-radius: 14px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.ns-song-chip:hover {
+    border-color: #fdba74;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(234, 88, 12, 0.12);
+}
+
+.ns-song-chip.active {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border-color: #ea580c;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.2);
+}
+
+.ns-song-chip-icon {
+    font-size: 1.5rem;
+}
+
+.ns-song-chip-info {
+    text-align: right;
+}
+
+.ns-song-chip-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #292524;
+}
+
+.ns-song-chip.active .ns-song-chip-title {
+    color: #c2410c;
+}
+
+.ns-song-chip-sub {
+    font-size: 0.75rem;
+    color: #78716c;
+    font-weight: 600;
+}
+
+/* لوحة المسرح والكاراوكي الرئيسية */
+.ns-stage-panel {
+    background: #ffffff;
+    border: 2px solid #fed7aa;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.ns-stage-header-bar {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-bottom: 2px solid #fcd34d;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.ns-song-display-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.ns-song-display-title {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #78350f;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ns-song-unit-badge {
+    background: #d97706;
+    color: #ffffff;
+    font-size: 0.78rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 800;
+}
+
+.ns-stage-quick-metrics {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ns-metric-pill {
+    background: #ffffff;
+    border: 1.5px solid #f59e0b;
+    border-radius: 12px;
+    padding: 5px 12px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #92400e;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* مساحة عرض الأبيات والكاراوكي */
+.ns-karaoke-stage-box {
+    padding: 30px 24px;
+    background: radial-gradient(circle at center, #ffffff 0%, #fffbf5 100%);
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 2px solid #fed7aa;
+}
+
+/* الكرة الإيقاعية النطاطة */
+.ns-bouncing-ball {
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background: radial-gradient(circle at 35% 35%, #fef08a 0%, #f59e0b 60%, #b45309 100%);
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.7), 0 0 10px #f59e0b;
+    pointer-events: none;
+    z-index: 10;
+    transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease;
+    opacity: 0;
+}
+
+.ns-bouncing-ball.active {
+    opacity: 1;
+}
+
+/* أبيات النشيد */
+.ns-verses-list {
+    width: 100%;
+    max-width: 980px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ns-verse-item {
+    background: #ffffff;
+    border: 2px solid #f5f5f4;
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+    cursor: pointer;
+    position: relative;
+}
+
+.ns-verse-item:hover {
+    border-color: #fdba74;
+    background: #fffaf0;
+}
+
+.ns-verse-item.active-verse {
+    border-color: #ea580c;
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    box-shadow: 0 6px 20px rgba(234, 88, 12, 0.18);
+    transform: scale(1.015);
+}
+
+.ns-hemistich {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.45rem;
+    font-weight: 900;
+    color: #292524;
+    line-height: 1.8;
+}
+
+.ns-verse-separator {
+    color: #d97706;
+    font-size: 1.4rem;
+    font-weight: 900;
+    padding: 0 8px;
+    user-select: none;
+}
+
+/* الكلمات والمقاطع الفونيمية */
+.ns-karaoke-word {
+    padding: 4px 10px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.ns-karaoke-word:hover {
+    background: rgba(234, 88, 12, 0.1);
+}
+
+.ns-karaoke-word.current-word {
+    background: #ea580c;
+    color: #ffffff !important;
+    transform: scale(1.12);
+    box-shadow: 0 4px 15px rgba(234, 88, 12, 0.4);
+    border-radius: 10px;
+}
+
+/* وضع التقطيع الفونيمي للمقاطع */
+.ns-syllables-mode .ns-karaoke-word {
+    border: 1.5px dashed #fdba74;
+    background: #fffbeb;
+}
+
+.ns-syllable-chunk {
+    padding: 2px 4px;
+    border-radius: 6px;
+    transition: all 0.15s ease;
+}
+
+.ns-syllable-chunk.active-chunk {
+    background: #f59e0b;
+    color: #ffffff;
+    font-weight: 900;
+    transform: scale(1.1);
+}
+
+/* لوحة التحكم بالإيقاع والعزف */
+.ns-stage-controls-bar {
+    background: #fff7ed;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.ns-controls-group-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ns-btn-primary-play {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+    border: none;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 900;
+    padding: 12px 24px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+    transition: all 0.2s ease;
+}
+
+.ns-btn-primary-play:hover {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(234, 88, 12, 0.45);
+}
+
+.ns-btn-ctrl {
+    background: #ffffff;
+    border: 2px solid #fed7aa;
+    color: #9a3412;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.ns-btn-ctrl:hover {
+    border-color: #f97316;
+    background: #ffedd5;
+}
+
+.ns-btn-ctrl.active-toggle {
+    background: #ea580c;
+    color: #ffffff;
+    border-color: #ea580c;
+}
+
+/* ضبط السرعة BPM */
+.ns-tempo-slider-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 2px solid #fed7aa;
+    border-radius: 14px;
+    padding: 6px 14px;
+}
+
+.ns-tempo-label {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #78350f;
+    min-width: 80px;
+}
+
+.ns-tempo-btn-step {
+    background: #ffedd5;
+    border: 1px solid #fdba74;
+    color: #9a3412;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ns-tempo-slider {
+    accent-color: #ea580c;
+    cursor: pointer;
+    width: 110px;
+}
+
+/* ==========================================================================
+   التبويب 2: مختبر الدف المدرسي والإيقاع التفاعلي
+   ========================================================================== */
+
+.ns-duff-lab-container {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .ns-duff-lab-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* منصة الدف المدرسي التفاعلية */
+.ns-duff-stage-card {
+    background: #ffffff;
+    border: 2px solid #fed7aa;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    position: relative;
+    min-height: 440px;
+}
+
+.ns-duff-drum-wrapper {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 10px 0;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+/* الدف الدائري الفيكتور */
+.ns-duff-svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 15px 25px rgba(120, 53, 15, 0.3));
+    transition: transform 0.08s ease;
+}
+
+.ns-duff-svg:active, .ns-duff-drum-wrapper.hit {
+    transform: scale(0.97);
+}
+
+/* مناطق اللمس في الدف */
+.ns-drum-zone-center {
+    cursor: pointer;
+    transition: fill 0.12s ease;
+}
+
+.ns-drum-zone-center:hover {
+    fill: #fef3c7 !important;
+}
+
+.ns-drum-zone-rim {
+    cursor: pointer;
+    transition: fill 0.12s ease;
+}
+
+.ns-drum-zone-rim:hover {
+    fill: #fed7aa !important;
+}
+
+.ns-drum-zone-jingle {
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.ns-drum-zone-jingle:hover {
+    transform: scale(1.1);
+}
+
+/* أمواج النقر الارتدادية */
+.ns-drum-ripple {
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid rgba(245, 158, 11, 0.8);
+    pointer-events: none;
+    animation: nsRippleAnim 0.5s cubic-bezier(0, 0.2, 0.8, 1) forwards;
+}
+
+@keyframes nsRippleAnim {
+    0% {
+        width: 20px;
+        height: 20px;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        width: 280px;
+        height: 280px;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.6);
+    }
+}
+
+/* مفاتيح الإيقاع أسفل الدف */
+.ns-duff-touch-buttons {
+    display: flex;
+    gap: 14px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ns-drum-btn {
+    border-radius: 16px;
+    padding: 12px 22px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: all 0.1s ease;
+    user-select: none;
+}
+
+.ns-drum-btn:active {
+    transform: scale(0.95);
+}
+
+.ns-btn-dum {
+    background: linear-gradient(135deg, #b45309 0%, #78350f 100%);
+    color: #ffffff;
+    border-bottom: 4px solid #451a03;
+}
+
+.ns-btn-tak {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+    color: #ffffff;
+    border-bottom: 4px solid #7c2d12;
+}
+
+.ns-btn-jingle {
+    background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+    color: #713f12;
+    border-bottom: 4px solid #854d0e;
+}
+
+/* آلات الإيقاع المدرسية المصاحبة */
+.ns-percussion-side-card {
+    background: #ffffff;
+    border: 2px solid #fed7aa;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ns-card-header-styled {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #9a3412;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #ffedd5;
+}
+
+.ns-instruments-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.ns-inst-box {
+    background: #fff7ed;
+    border: 2px solid #fed7aa;
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    text-align: center;
+}
+
+.ns-inst-box:hover {
+    border-color: #ea580c;
+    background: #ffedd5;
+    transform: translateY(-2px);
+}
+
+.ns-inst-box:active {
+    transform: scale(0.95);
+    background: #ea580c;
+    color: #ffffff;
+}
+
+.ns-inst-icon {
+    font-size: 1.8rem;
+}
+
+.ns-inst-name {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #78350f;
+}
+
+.ns-inst-box:active .ns-inst-name {
+    color: #ffffff;
+}
+
+/* الأنماط الإيقاعية الجاهزة */
+.ns-patterns-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ns-pattern-item {
+    background: #fafaf9;
+    border: 1.5px solid #e7e5e4;
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ns-pattern-item:hover {
+    border-color: #f97316;
+    background: #fff7ed;
+}
+
+.ns-pattern-item.active {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border-color: #ea580c;
+    box-shadow: 0 2px 8px rgba(234, 88, 12, 0.15);
+}
+
+.ns-pattern-title {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #292524;
+}
+
+.ns-pattern-sub {
+    font-size: 0.72rem;
+    color: #78716c;
+}
+
+.ns-pattern-leds {
+    display: flex;
+    gap: 5px;
+}
+
+.ns-led-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #d6d3d1;
+    transition: all 0.1s ease;
+}
+
+.ns-led-dot.active {
+    background: #ea580c;
+    box-shadow: 0 0 8px #f97316;
+    transform: scale(1.2);
+}
+
+/* ==========================================================================
+   التبويب 3: المحلل الموسيقي المرئي وتحدي دقة الإيقاع
+   ========================================================================== */
+
+.ns-visualizer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* لوحة المحلل الطيفي Canvas */
+.ns-visualizer-screen-card {
+    background: #1c1917;
+    border: 3px solid #f97316;
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.ns-screen-top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.ns-screen-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #fdba74;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ns-visualizer-modes {
+    display: flex;
+    gap: 6px;
+}
+
+.ns-btn-vis-mode {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ns-btn-vis-mode.active {
+    background: #ea580c;
+    border-color: #f97316;
+}
+
+.ns-canvas-wrapper {
+    width: 100%;
+    height: 220px;
+    position: relative;
+}
+
+#nsVisualizerCanvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: #0c0a09;
+}
+
+/* لعبة تحدي دقة الإيقاع */
+.ns-challenge-card {
+    background: #ffffff;
+    border: 2px solid #fed7aa;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.ns-challenge-metrics-bar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff7ed;
+    border: 2px solid #fed7aa;
+    border-radius: 16px;
+    padding: 14px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ns-ch-stat {
+    text-align: center;
+}
+
+.ns-ch-stat-val {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #ea580c;
+}
+
+.ns-ch-stat-lbl {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #78350f;
+}
+
+/* شريط النوتات الإيقاعية المتحركة (Beat Highway) */
+.ns-beat-highway {
+    width: 100%;
+    height: 90px;
+    background: #292524;
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #44403c;
+    display: flex;
+    align-items: center;
+}
+
+.ns-beat-target-line {
+    position: absolute;
+    right: 90px;
+    top: 0;
+    bottom: 0;
+    width: 10px;
+    background: rgba(234, 88, 12, 0.35);
+    border-left: 3px solid #f97316;
+    border-right: 3px solid #f97316;
+    z-index: 5;
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.6);
+}
+
+.ns-beat-node {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fed7aa 0%, #ea580c 100%);
+    border: 2px solid #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(234, 88, 12, 0.6);
+    user-select: none;
+}
+
+.ns-feedback-banner {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #c2410c;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: nsPulseSlow 1s infinite alternate;
+}
+
+/* ==========================================================================
+   التبويب 4: استوديو التسجيل والصدى الصفي
+   ========================================================================== */
+
+.ns-recorder-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .ns-recorder-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ns-recorder-panel {
+    background: #ffffff;
+    border: 2px solid #fed7aa;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    text-align: center;
+}
+
+.ns-mic-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffedd5 0%, #fed7aa 100%);
+    border: 3px solid #f97316;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    color: #c2410c;
+    box-shadow: 0 8px 24px rgba(234, 88, 12, 0.2);
+    transition: all 0.3s ease;
+}
+
+.ns-mic-circle.recording {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+    border-color: #ef4444;
+    color: #b91c1c;
+    animation: nsRecPulse 1.2s infinite ease-in-out;
+}
+
+@keyframes nsRecPulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
+    50% { transform: scale(1.1); box-shadow: 0 0 30px rgba(239, 68, 68, 0.8); }
+}
+
+.ns-rec-status-text {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #78350f;
+}
+
+.ns-reverb-presets {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ns-btn-reverb {
+    background: #ffffff;
+    border: 1.5px solid #fed7aa;
+    color: #9a3412;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.ns-btn-reverb.active {
+    background: #ea580c;
+    color: #ffffff;
+    border-color: #ea580c;
+}
+
+.ns-rec-actions-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ns-btn-rec-action {
+    padding: 10px 20px;
+    border-radius: 14px;
+    font-size: 0.95rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.ns-btn-start-rec {
+    background: #dc2626;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
+}
+
+.ns-btn-stop-rec {
+    background: #4b5563;
+    color: #ffffff;
+}
+
+.ns-btn-play-rec {
+    background: #16a34a;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(22, 163, 74, 0.3);
+}
+
+/* قائمة التسجيلات المحفوظة */
+.ns-recordings-list-panel {
+    background: #ffffff;
+    border: 2px solid #fed7aa;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.ns-rec-item {
+    background: #fafaf9;
+    border: 1.5px solid #e7e5e4;
+    border-radius: 14px;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.ns-rec-meta {
+    text-align: right;
+}
+
+.ns-rec-title {
+    font-size: 0.92rem;
+    font-weight: 800;
+    color: #292524;
+}
+
+.ns-rec-date {
+    font-size: 0.74rem;
+    color: #78716c;
+}
+
+.ns-rec-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.ns-btn-rec-ctrl {
+    background: #ffffff;
+    border: 1px solid #d6d3d1;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   التبويب 5: بطاقات الأناشيد المنهجية والشهادات A4
+   ========================================================================== */
+
+.ns-printables-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .ns-printables-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ns-printable-card {
+    background: #ffffff;
+    border: 2px solid #fed7aa;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ns-preview-box {
+    background: #fffbf5;
+    border: 2px dashed #f59e0b;
+    border-radius: 16px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.ns-preview-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #f59e0b;
+    color: #ffffff;
+    font-size: 0.72rem;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-weight: 800;
+}
+
+.ns-btn-print-styled {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3);
+    transition: all 0.2s ease;
+}
+
+.ns-btn-print-styled:hover {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(234, 88, 12, 0.4);
+}
+
+/* تنسيقات الطباعة A4 المخصصة */
+@media print {
+    body * {
+        visibility: hidden !important;
+    }
+    #nsPrintableContainer, #nsPrintableContainer * {
+        visibility: visible !important;
+    }
+    #nsPrintableContainer {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 15mm !important;
+        background: #ffffff !important;
+        display: block !important;
+    }
+    .ns-print-page {
+        page-break-after: always;
+        border: 4px double #b45309;
+        padding: 20px;
+        border-radius: 16px;
+        box-sizing: border-box;
+    }
+}

@@ -94,6 +94,7 @@ def run_integration_audit():
         'voice-coach.js': os.path.join(BASE_DIR, 'js', 'core', 'voice-coach.js'),
         'dictation-lab.js': os.path.join(BASE_DIR, 'js', 'core', 'dictation-lab.js'),
         'readers-theater.js': os.path.join(BASE_DIR, 'js', 'core', 'readers-theater.js'),
+        'nasheed-studio.js': os.path.join(BASE_DIR, 'js', 'core', 'nasheed-studio.js'),
         'audio.js': os.path.join(BASE_DIR, 'js', 'core', 'audio.js'),
         'navigation.js': os.path.join(BASE_DIR, 'js', 'core', 'navigation.js'),
         'modals.js': os.path.join(BASE_DIR, 'js', 'core', 'modals.js'),
@@ -457,6 +458,76 @@ def run_integration_audit():
     if not any("عنصر مسرح القراءة والدمى" in e for e in errors):
         successes.append(f"كافة عناصر مسرح القراءة التعبيرية والدمى المتحركة الرقمية ({len(readers_theater_elements)} عنصراً) متكاملة بنسبة 100%.")
 
+    # 8 ن. فحص استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي
+    print("\n--- فحص استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي ---")
+    nasheed_studio_elements = [
+        ('زر استوديو الأناشيد بالشريط العلوي', 'btnTopNasheedStudio'),
+        ('بطاقة استوديو الأناشيد بالقائمة الجانبية', 'sidebarNasheedStudioCard'),
+        ('نافذة استوديو الأناشيد الرئيسية', 'nasheedStudioModal'),
+        ('زر تكبير الاستوديو لملء الشاشة', 'nsBtnFullscreen'),
+        ('زر إغلاق استوديو الأناشيد', 'nsBtnClose'),
+        ('زر تبويب مسرح الأناشيد', 'nsTabBtn_stage'),
+        ('زر تبويب مختبر الدف', 'nsTabBtn_duff'),
+        ('زر تبويب المحلل الموسيقي', 'nsTabBtn_visualizer'),
+        ('زر تبويب استوديو التسجيل', 'nsTabBtn_recorder'),
+        ('زر تبويب بطاقات الأناشيد وA4', 'nsTabBtn_printables'),
+        ('حاوية تبويب مسرح الأناشيد', 'nsTabContent_stage'),
+        ('حاوية تبويب مختبر الدف', 'nsTabContent_duff'),
+        ('حاوية تبويب المحلل الموسيقي', 'nsTabContent_visualizer'),
+        ('حاوية تبويب استوديو التسجيل', 'nsTabContent_recorder'),
+        ('حاوية تبويب بطاقات الأناشيد وA4', 'nsTabContent_printables'),
+        ('شريط اختيار الأناشيد المنهجية', 'nsCurriculumStrip'),
+        ('عنوان النشيد المعروض', 'nsSongDisplayTitle'),
+        ('شارة وحدة النشيد', 'nsSongUnitBadge'),
+        ('شارة إيقاع النشيد', 'nsSongRhythmBadge'),
+        ('شارة سرعة النشيد BPM', 'nsSongTempoBadge'),
+        ('الكرة الإيقاعية النطاطة', 'nsBouncingBall'),
+        ('قائمة أبيات النشيد', 'nsVersesList'),
+        ('زر بدء الإنشاد والكاراوكي', 'nsBtnPlayChant'),
+        ('زر التقطيع الفونيمي للمقاطع', 'nsBtnToggleSyllables'),
+        ('زر مرافقة الدف المدرسي', 'nsBtnToggleDuff'),
+        ('زر الإنشاد الصوتي الآلي', 'nsBtnToggleVocals'),
+        ('شريط منزلق ضبط السرعة BPM', 'nsTempoSlider'),
+        ('مؤشر عرض سرعة الإيقاع', 'nsTempoValueDisplay'),
+        ('زر تقليل سرعة الإيقاع', 'nsBtnTempoMinus'),
+        ('زر زيادة سرعة الإيقاع', 'nsBtnTempoPlus'),
+        ('مجسم الدف المدرسي التفاعلي', 'nsDuffDrumWrapper'),
+        ('زر ضربة دُم العميقة', 'nsBtnDum'),
+        ('زر ضربة تَكْ الحادة', 'nsBtnTak'),
+        ('زر رَنَّة الصُّنُوج النحاسية', 'nsBtnJingle'),
+        ('قائمة الأنماط الإيقاعية', 'nsPatternsList'),
+        ('شريط مصابيح LED الإيقاعية', 'nsLedRow'),
+        ('شاشة كانفاس المحلل الموسيقي', 'nsVisualizerCanvas'),
+        ('زر نمط أعمدة التردد', 'nsBtnVisMode_bars'),
+        ('زر نمط الأمواج التناغمية', 'nsBtnVisMode_wave'),
+        ('زر نمط الدوائر النبضية', 'nsBtnVisMode_circles'),
+        ('عداد نقاط تحدي الإيقاع', 'nsChStatScore'),
+        ('مؤشر دقة التوافق الإيقاعي', 'nsChStatAccuracy'),
+        ('مؤشر التتابع الإيقاعي', 'nsChStatStreak'),
+        ('مسار النوتات الإيقاعية المتحركة', 'nsBeatHighway'),
+        ('شريط التوجيه والتغذية الراجعة', 'nsFeedbackBanner'),
+        ('زر بدء تحدي دقة الإيقاع', 'nsBtnStartChallenge'),
+        ('أيقونة الميكروفون التفاعلية', 'nsMicCircle'),
+        ('نص حالة التسجيل الصوتي', 'nsRecStatusText'),
+        ('زر مؤثر صدى الصف المدرسي', 'nsBtnReverb_classroom'),
+        ('زر مؤثر صدى القاعة الكبرى', 'nsBtnReverb_hall'),
+        ('زر الصوت النقي المباشر', 'nsBtnReverb_clean'),
+        ('زر بدء التسجيل الحي', 'nsBtnStartRec'),
+        ('زر إيقاف وحفظ التسجيل', 'nsBtnStopRec'),
+        ('زر الاستماع للتسجيل الحي', 'nsBtnPlayRec'),
+        ('سجل إنشاد التلميذ والتسجيلات', 'nsRecordingsList'),
+        ('عنوان النشيد بالمعاينة', 'nsPreviewSongTitle'),
+        ('حقل اسم التلميذ بالشهادة', 'nsPreviewPupilName'),
+        ('زر طباعة بطاقة النشيد A4', 'nsBtnPrintCard'),
+        ('زر طباعة شهادة بلبل الصف A4', 'nsBtnPrintCertificate'),
+        ('حاوية الطباعة المنعزلة A4', 'nsPrintableContainer')
+    ]
+    for ns_title, ns_id in nasheed_studio_elements:
+        if ns_id not in dom_ids:
+            errors.append(f"عنصر استوديو الأناشيد {ns_title} ({ns_id}) مفقود!")
+    if not any("عنصر استوديو الأناشيد" in e for e in errors):
+        successes.append(f"كافة عناصر استوديو الأناشيد المنهجية والإنشاد الإيقاعي بالدف المدرسي ({len(nasheed_studio_elements)} عنصراً) متكاملة بنسبة 100%.")
+
     # 9. فحص عزل مفاتيح التخزين المحلي (LocalStorage Key Hygiene)
     print("\n--- فحص عزل مفاتيح التخزين المحلي (قواعد أسامة) ---")
     storage_keys = []
@@ -480,7 +551,7 @@ def run_integration_audit():
         'css/lessons-unit3.css', 'css/lessons-unit4.css', 'css/lessons-unit5.css',
         'css/lessons-unit6.css', 'css/evaluation.css', 'css/enrichment.css',
         'css/blackboard.css', 'css/games.css', 'css/gamification.css', 'css/teacher-dashboard.css',
-        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css', 'css/voice-coach.css', 'css/dictation-lab.css', 'css/readers-theater.css'
+        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css', 'css/voice-coach.css', 'css/dictation-lab.css', 'css/readers-theater.css', 'css/nasheed-studio.css'
     ]
     for cf in css_files:
         if cf not in index_html:
@@ -494,7 +565,7 @@ def run_integration_audit():
         'js/core/evaluation.js', 'js/core/enrichment.js', 'js/core/blackboard.js',
         'js/core/games.js', 'js/core/gamification.js', 'js/core/teacher-dashboard.js',
         'js/core/classroom-sync.js', 'js/core/classroom-quiz.js', 'js/core/interactive-guide.js',
-        'js/core/diagnostic-exams.js', 'js/core/voice-coach.js', 'js/core/dictation-lab.js', 'js/core/readers-theater.js', 'js/app.js'
+        'js/core/diagnostic-exams.js', 'js/core/voice-coach.js', 'js/core/dictation-lab.js', 'js/core/readers-theater.js', 'js/core/nasheed-studio.js', 'js/app.js'
     ]
     for cs in core_scripts:
         if cs not in index_html:
@@ -532,6 +603,8 @@ def run_integration_audit():
         ('js/core/dictation-lab.js', open(os.path.join(BASE_DIR, 'js', 'core', 'dictation-lab.js'), encoding='utf-8').read()),
         ('css/readers-theater.css', open(os.path.join(BASE_DIR, 'css', 'readers-theater.css'), encoding='utf-8').read()),
         ('js/core/readers-theater.js', open(os.path.join(BASE_DIR, 'js', 'core', 'readers-theater.js'), encoding='utf-8').read()),
+        ('css/nasheed-studio.css', open(os.path.join(BASE_DIR, 'css', 'nasheed-studio.css'), encoding='utf-8').read()),
+        ('js/core/nasheed-studio.js', open(os.path.join(BASE_DIR, 'js', 'core', 'nasheed-studio.js'), encoding='utf-8').read()),
     ]
     for s_name, s_content in sig_targets:
         if official_signature not in s_content:

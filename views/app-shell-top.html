@@ -55,6 +55,7 @@
     <link rel="stylesheet" href="css/voice-coach.css">
     <link rel="stylesheet" href="css/dictation-lab.css">
     <link rel="stylesheet" href="css/readers-theater.css">
+    <link rel="stylesheet" href="css/nasheed-studio.css">
 
 </head>
 
@@ -171,6 +172,12 @@
             <button class="btn-top btn-top-readers-theater" id="btnTopReadersTheater" onclick="ReadersTheater.openModal('theater')" title="مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية (Interactive Readers Theater & Puppets Lab) للأجهزة اللوحية والسبورات">
                 <span>🎭</span>
                 <span id="topReadersTheaterLabel">مسرح القراءة والدمى</span>
+            </button>
+
+            <!-- زر استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي للأجهزة اللوحية والسبورات -->
+            <button class="btn-top btn-top-nasheed-studio" id="btnTopNasheedStudio" onclick="NasheedStudio.openModal('stage')" title="استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي (Interactive Phonics Nasheed & Rhythm Studio) للأجهزة اللوحية والسبورات">
+                <span>🥁</span>
+                <span id="topNasheedStudioLabel">استوديو الأناشيد والإيقاع</span>
             </button>
 
             <!-- زر نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) -->
@@ -340,6 +347,24 @@
                     <span>•</span>
                     <span>محادثة صفية ومؤثرات</span>
                     <span style="color: #881337; font-weight: 900;">فتح المسرح ⬅</span>
+                </div>
+            </div>
+
+            <!-- بطاقة استوديو الأناشيد المنهجية والإنشاد الإيقاعي في القائمة الجانبية -->
+            <div class="sidebar-teacher-card" id="sidebarNasheedStudioCard" onclick="NasheedStudio.openModal('stage')" style="background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border-color: #fed7aa; cursor: pointer;" title="استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي للأجهزة اللوحية والسبورات">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #9a3412; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>🥁</span> <span>استوديو الأناشيد والإيقاع</span>
+                    </span>
+                    <span style="font-size: 0.74rem; font-weight: 900; background: #ea580c; color: white; padding: 2px 8px; border-radius: 8px;">
+                        دف مدرسي وكاراوكي
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #c2410c; font-weight: 700;">
+                    <span>إنشاد إيقاعي</span>
+                    <span>•</span>
+                    <span>تحليل موسيقي وA4</span>
+                    <span style="color: #7c2d12; font-weight: 900;">فتح الاستوديو ⬅</span>
                 </div>
             </div>
 
