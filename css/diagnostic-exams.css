@@ -1,0 +1,1100 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية A4
+ * (Diagnostic Assessment Engine & Automated A4 Ministerial Paper Exam Generator - Models A/B/C)
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. زر الشريط العلوي (Top Navbar Button)
+   -------------------------------------------------------------------------- */
+.btn-top-diagnostic-exams {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #38bdf8 !important;
+    box-shadow: 0 3px 10px rgba(2, 132, 199, 0.3) !important;
+    font-weight: 800 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-top-diagnostic-exams::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+    transform: rotate(25deg);
+    animation: diagExamShine 4.5s infinite linear;
+}
+
+@keyframes diagExamShine {
+    0% { transform: translateX(100%) rotate(25deg); }
+    25%, 100% { transform: translateX(-100%) rotate(25deg); }
+}
+
+.btn-top-diagnostic-exams:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.45) !important;
+    filter: brightness(1.08);
+}
+
+/* --------------------------------------------------------------------------
+   2. نافذة النظام المنبثقة (Modal Dialog Container)
+   -------------------------------------------------------------------------- */
+#diagnosticExamsModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    padding: 16px;
+    direction: rtl;
+    animation: diagFadeIn 0.25s ease-out;
+}
+
+@keyframes diagFadeIn {
+    from { opacity: 0; transform: scale(0.97); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.diag-modal-box {
+    background: #ffffff;
+    width: 98%;
+    max-width: 1280px;
+    max-height: 94vh;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    border: 2px solid #bae6fd;
+}
+
+/* Header */
+.diag-modal-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+    color: #ffffff;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #38bdf8;
+    position: relative;
+}
+
+.diag-header-titles {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.diag-header-icon {
+    font-size: 2.2rem;
+    background: rgba(255, 255, 255, 0.12);
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.diag-title-text h2 {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #f0f9ff;
+    letter-spacing: -0.3px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.diag-title-badge {
+    background: #0284c7;
+    color: #ffffff;
+    font-size: 0.76rem;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 800;
+    border: 1px solid #7dd3fc;
+}
+
+.diag-subtitle {
+    margin: 4px 0 0 0;
+    font-size: 0.85rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.diag-author-tag {
+    color: #38bdf8;
+    font-weight: 800;
+}
+
+/* Close & Action Buttons */
+.diag-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.diag-close-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #ffffff;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.diag-close-btn:hover {
+    background: #ef4444;
+    border-color: #ef4444;
+    transform: rotate(90deg);
+}
+
+/* Tabs Bar */
+.diag-tabs-bar {
+    display: flex;
+    background: #f1f5f9;
+    padding: 8px 16px 0 16px;
+    border-bottom: 2px solid #e2e8f0;
+    gap: 8px;
+    overflow-x: auto;
+}
+
+.diag-tab-btn {
+    background: transparent;
+    border: none;
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #475569;
+    border-radius: 12px 12px 0 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+}
+
+.diag-tab-btn:hover {
+    color: #0369a1;
+    background: #e2e8f0;
+}
+
+.diag-tab-btn.active {
+    color: #0284c7;
+    background: #ffffff;
+    border-bottom: 3px solid #0284c7;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Body & Panes */
+.diag-modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 22px;
+    background: #f8fafc;
+}
+
+.diag-pane {
+    display: none;
+    animation: diagPaneFade 0.25s ease-out;
+}
+
+.diag-pane.active {
+    display: block;
+}
+
+@keyframes diagPaneFade {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --------------------------------------------------------------------------
+   3. تبويب 1: الاختبار التشخيصي التفاعلي (Interactive Diagnostic Assessment)
+   -------------------------------------------------------------------------- */
+.diag-test-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 900px) {
+    .diag-test-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.diag-sidebar-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.diag-section-title {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 8px;
+}
+
+.diag-field-group {
+    margin-bottom: 14px;
+}
+
+.diag-field-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.diag-input-select,
+.diag-input-text {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    color: #1e293b;
+    background: #ffffff;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.diag-input-select:focus,
+.diag-input-text:focus {
+    outline: none;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* Test Main Content */
+.diag-main-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    min-height: 480px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Progress and Question Counter */
+.diag-quiz-progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 14px;
+}
+
+.diag-quiz-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #0284c7, #38bdf8);
+    transition: width 0.3s ease;
+}
+
+.diag-quiz-header-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    padding: 8px 14px;
+    border-radius: 10px;
+}
+
+.diag-domain-pill {
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 800;
+    font-size: 0.82rem;
+    padding: 4px 10px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Question Prompt */
+.diag-prompt-box {
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.diag-prompt-audio-btn {
+    background: #0284c7;
+    color: #ffffff;
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.3);
+    transition: all 0.2s;
+    margin-bottom: 10px;
+}
+
+.diag-prompt-audio-btn:hover {
+    transform: scale(1.1);
+    background: #0369a1;
+}
+
+.diag-prompt-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 6px 0;
+}
+
+.diag-prompt-desc {
+    font-size: 0.95rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Options Grid */
+.diag-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.diag-option-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 110px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.diag-option-card:hover {
+    border-color: #38bdf8;
+    background: #f0f9ff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(2, 132, 199, 0.12);
+}
+
+.diag-option-card.selected {
+    border-color: #0284c7;
+    background: #e0f2fe;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
+}
+
+.diag-option-card.correct {
+    border-color: #22c55e !important;
+    background: #f0fdf4 !important;
+}
+
+.diag-option-card.incorrect {
+    border-color: #ef4444 !important;
+    background: #fef2f2 !important;
+}
+
+.diag-option-text {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+.diag-option-img {
+    max-width: 90px;
+    max-height: 70px;
+    object-fit: contain;
+}
+
+/* Diagnostic Result & Radar Card */
+.diag-report-container {
+    background: #ffffff;
+    border: 2px solid #cbd5e1;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.diag-profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+}
+
+.diag-gauge-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.diag-score-circle {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 900;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.diag-score-num {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.diag-score-pct {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+.diag-skills-breakdown {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.diag-skill-item {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 12px 16px;
+}
+
+.diag-skill-top {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 800;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+}
+
+.diag-skill-bar-track {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.diag-skill-bar-fill {
+    height: 100%;
+    border-radius: 6px;
+    transition: width 0.4s ease;
+}
+
+/* Remediation Plan Card */
+.diag-remedial-plan-box {
+    background: linear-gradient(135deg, #fefce8 0%, #fffbeb 100%);
+    border: 2px solid #fde047;
+    border-radius: 14px;
+    padding: 18px;
+    margin-top: 20px;
+}
+
+.diag-remedial-title {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #854d0e;
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.diag-remedial-list {
+    margin: 0;
+    padding-right: 20px;
+    color: #713f12;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   4. تبويب 2: مولد الامتحانات الوزارية الورقية A4 (Ministerial A4 Exam Generator)
+   -------------------------------------------------------------------------- */
+.diag-gen-controls-card {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.diag-gen-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    align-items: end;
+}
+
+.diag-model-switcher {
+    display: flex;
+    gap: 8px;
+    background: #f1f5f9;
+    padding: 4px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1;
+}
+
+.diag-model-btn {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: 800;
+    font-size: 0.88rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.diag-model-btn.active {
+    background: #0284c7;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(2, 132, 199, 0.3);
+}
+
+.diag-print-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #e2e8f0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   5. هيكلية ورقة الامتحان الوزاري الرسمية A4 القياسية (Printable A4 Sheet)
+   -------------------------------------------------------------------------- */
+.exam-papers-preview-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 10px 0;
+}
+
+.exam-paper-a4 {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 14mm 16mm;
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.12);
+    border: 1.5px solid #94a3b8;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+    color: #000000;
+    position: relative;
+    page-break-after: always;
+}
+
+/* Official Exam Border */
+.exam-border-frame {
+    border: 2px solid #000000;
+    padding: 8px;
+    min-height: calc(297mm - 32mm);
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.exam-border-inner {
+    border: 1px solid #000000;
+    padding: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Ministry Header */
+.exam-header-grid {
+    display: grid;
+    grid-template-columns: 180px 1fr 180px;
+    align-items: center;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+.exam-header-col-r {
+    text-align: right;
+    font-size: 0.85rem;
+    font-weight: 800;
+    line-height: 1.45;
+}
+
+.exam-header-col-c {
+    text-align: center;
+}
+
+.exam-header-col-c .exam-main-title {
+    font-size: 1.35rem;
+    font-weight: 900;
+    margin: 0;
+    color: #000000;
+}
+
+.exam-header-col-c .exam-sub-title {
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin: 3px 0 0 0;
+}
+
+.exam-header-col-l {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.exam-model-seal {
+    border: 2.5px solid #000000;
+    background: #f1f5f9;
+    padding: 4px 14px;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: 900;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.exam-qr-code-placeholder {
+    font-size: 0.72rem;
+    font-weight: 800;
+    border: 1px dashed #475569;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Student Info & Grading Table Box */
+.exam-meta-box {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 10px;
+    border: 1.5px solid #000000;
+    padding: 8px;
+    margin-bottom: 12px;
+    background: #fafafa;
+}
+
+.exam-student-fields {
+    font-size: 0.88rem;
+    font-weight: 800;
+    line-height: 2;
+}
+
+.exam-dots {
+    border-bottom: 1.5px dotted #000000;
+    display: inline-block;
+    min-width: 130px;
+    height: 18px;
+    vertical-align: bottom;
+}
+
+.exam-score-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.76rem;
+    text-align: center;
+}
+
+.exam-score-table th,
+.exam-score-table td {
+    border: 1px solid #000000;
+    padding: 3px 4px;
+}
+
+.exam-score-table th {
+    background: #e2e8f0;
+    font-weight: 800;
+}
+
+/* Exam Questions Container */
+.exam-questions-list {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.exam-q-row {
+    border: 1px solid #334155;
+    border-radius: 6px;
+    padding: 8px 10px;
+    background: #ffffff;
+}
+
+.exam-q-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 900;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+}
+
+.exam-q-grade-badge {
+    border: 1px solid #000000;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    background: #f8fafc;
+}
+
+.exam-q-body {
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+/* Sub-items formatting */
+.exam-items-flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.exam-word-circle-box {
+    border: 1.5px dashed #475569;
+    padding: 6px 14px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+}
+
+.exam-choice-bubble {
+    width: 24px;
+    height: 24px;
+    border: 1.5px solid #000000;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Phoneme Segmentation Boxes (س2 التحليل) */
+.exam-seg-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.exam-seg-word {
+    font-size: 1.15rem;
+    font-weight: 900;
+    min-width: 60px;
+}
+
+.exam-seg-box {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid #000000;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Phoneme Blending (س3 التركيب) */
+.exam-blend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1.05rem;
+    font-weight: 900;
+}
+
+.exam-blend-answer-line {
+    border-bottom: 1.5px solid #000000;
+    min-width: 80px;
+    height: 26px;
+    display: inline-block;
+}
+
+/* Matching Grid (س4 المطابقة) */
+.exam-match-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 6px;
+}
+
+.exam-match-col {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.exam-match-card {
+    border: 1px solid #64748b;
+    padding: 6px 10px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 800;
+}
+
+.exam-match-anchor {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #000000;
+    border-radius: 50%;
+    background: #e2e8f0;
+}
+
+/* Handwriting Line (س5 الخط والرسم) */
+.exam-handwriting-sample {
+    font-size: 1.3rem;
+    font-weight: 900;
+    text-align: center;
+    margin: 4px 0 10px 0;
+    letter-spacing: 1px;
+}
+
+.exam-handwriting-rule-lines {
+    border-top: 1.5px solid #000000;
+    border-bottom: 1.5px solid #000000;
+    height: 38px;
+    position: relative;
+    background-image: repeating-linear-gradient(to bottom, transparent, transparent 18px, #94a3b8 18px, #94a3b8 19px, transparent 19px);
+    margin: 8px 0;
+}
+
+/* Official Exam Footer */
+.exam-footer-sign-off {
+    border-top: 1.5px solid #000000;
+    padding-top: 6px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+/* --------------------------------------------------------------------------
+   6. تبويب 3: مفاتيح التصحيح وشيت المعلم المدمج (Quick Answer Keys)
+   -------------------------------------------------------------------------- */
+.diag-keys-card {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 22px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.diag-keys-table-container {
+    overflow-x: auto;
+    margin-top: 14px;
+}
+
+.diag-master-stencil-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    text-align: right;
+}
+
+.diag-master-stencil-table th,
+.diag-master-stencil-table td {
+    border: 1.5px solid #cbd5e1;
+    padding: 10px 14px;
+}
+
+.diag-master-stencil-table th {
+    background: #0f172a;
+    color: #ffffff;
+    font-weight: 800;
+    text-align: center;
+}
+
+.diag-master-stencil-table .model-a-col {
+    background: #f0fdf4;
+    border-left: 2px solid #16a34a;
+}
+
+.diag-master-stencil-table .model-b-col {
+    background: #f0f9ff;
+    border-left: 2px solid #0284c7;
+}
+
+.diag-master-stencil-table .model-c-col {
+    background: #faf5ff;
+    border-left: 2px solid #9333ea;
+}
+
+.diag-ans-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-weight: 900;
+    font-size: 0.95rem;
+}
+
+.model-a-col .diag-ans-badge {
+    background: #dcfce7;
+    color: #15803d;
+    border: 1px solid #86efac;
+}
+
+.model-b-col .diag-ans-badge {
+    background: #e0f2fe;
+    color: #0369a1;
+    border: 1px solid #7dd3fc;
+}
+
+.model-c-col .diag-ans-badge {
+    background: #f3e8ff;
+    color: #7e22ce;
+    border: 1px solid #d8b4fe;
+}
+
+/* --------------------------------------------------------------------------
+   7. تنسيقات الطباعة القياسية بنسبة 100% (@media print)
+   -------------------------------------------------------------------------- */
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 8mm 10mm;
+    }
+
+    body * {
+        visibility: hidden !important;
+    }
+
+    #diagnosticExamsModal,
+    #diagnosticExamsModal .diag-modal-box,
+    #diagnosticExamsModal .diag-modal-body,
+    .exam-paper-a4,
+    .exam-paper-a4 *,
+    .printable-stencil-zone,
+    .printable-stencil-zone * {
+        visibility: visible !important;
+    }
+
+    #diagnosticExamsModal {
+        position: absolute !important;
+        left: 0 !important;
+        top: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+
+    .diag-modal-box {
+        border: none !important;
+        box-shadow: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        max-height: none !important;
+        padding: 0 !important;
+    }
+
+    .diag-modal-header,
+    .diag-tabs-bar,
+    .diag-gen-controls-card,
+    .diag-print-bar,
+    .top-navbar,
+    .bottom-navbar,
+    .sidebar-overlay {
+        display: none !important;
+    }
+
+    .exam-paper-a4 {
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        page-break-after: always !important;
+    }
+
+    .exam-border-frame {
+        border: 2px solid #000000 !important;
+        min-height: 275mm !important;
+    }
+}

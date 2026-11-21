@@ -51,6 +51,7 @@
     <link rel="stylesheet" href="css/classroom-sync.css">
     <link rel="stylesheet" href="css/classroom-quiz.css">
     <link rel="stylesheet" href="css/interactive-guide.css">
+    <link rel="stylesheet" href="css/diagnostic-exams.css">
 
 </head>
 
@@ -80,7 +81,7 @@
 
                         <span>قراءتي التفاعلية الذكية</span>
 
-                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.45: جولة الاستكشاف التفاعلية ودليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات - إعداد المهندس أسامة خليل هاشم">v3.45</span>
+                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.46: تطوير نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) مع مفاتيح التصحيح السريع - إعداد المهندس أسامة خليل هاشم">v3.46</span>
 
                     </div>
 
@@ -149,6 +150,12 @@
             <button class="btn-top btn-top-teacher-dashboard" id="btnTopTeacherDashboard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين">
                 <span>🧑‍🏫</span>
                 <span>لوحة المعلم وسجل الصف</span>
+            </button>
+
+            <!-- زر نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) -->
+            <button class="btn-top btn-top-diagnostic-exams" id="btnTopDiagnosticExams" onclick="openDiagnosticExamsModal('generator')" title="نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) مع مفاتيح التصحيح السريع">
+                <span>📝</span>
+                <span>الامتحانات الوزارية وA4</span>
             </button>
 
             <!-- زر نظام الاختبار والتقييم الذكي وتحدي النجوم للأبطال -->
@@ -25538,6 +25545,14 @@
                             </div>
                             <span style="font-size: 0.8rem; font-weight: 800; color: #2563eb;">طباعة أفقية Landscape ⬅</span>
                         </div>
+                        <div class="report-option-card" style="border: 2px dashed #0284c7; background: #f0f9ff;" onclick="TeacherDashboard.closeModal(); openDiagnosticExamsModal('generator');">
+                            <div>
+                                <div class="report-option-icon">📝</div>
+                                <h4 class="report-option-title" style="color: #0369a1;">مولد الامتحانات الوزارية الورقية A4 ونماذج A/B/C</h4>
+                                <p class="report-option-desc">توليد نماذج امتحانات ورقية رسمية مؤتمتة بحجم A4 بنماذج متعددة مع شيت مفاتيح التصحيح السريع للمعلم والاختبارات التشخيصية.</p>
+                            </div>
+                            <span style="font-size: 0.8rem; font-weight: 800; color: #0284c7;">فتح المولد الوزاري المعتمد ⬅</span>
+                        </div>
                     </div>
 
                     <!-- شريط أدوات المعاينة والطباعة الحية -->
@@ -27024,6 +27039,180 @@
     <!-- حاوية الطباعة المخصصة لقواعد @media print -->
     <div id="teacherPrintArea" style="display: none;"></div>
 
+    <!-- ========================================================================== -->
+    <!-- نافذة نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية A4 -->
+    <!-- إعداد وتطوير: المهندس أسامة خليل هاشم -->
+    <!-- ========================================================================== -->
+    <div class="modal-backdrop" id="diagnosticExamsModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="diag-modal-box" onclick="event.stopPropagation()">
+            <!-- ترويسة النافذة -->
+            <div class="diag-modal-header">
+                <div class="diag-header-titles">
+                    <div class="diag-header-icon">📝</div>
+                    <div class="diag-title-text">
+                        <h2>
+                            <span>نظام الاختبارات التشخيصية ومولد الامتحانات الوزارية A4</span>
+                            <span class="diag-title-badge">نماذج A / B / C ومفاتيح التصحيح</span>
+                        </h2>
+                        <div class="diag-subtitle">
+                            توليد نماذج امتحانية مطبوعة مؤتمتة وتقييم تشخيصي فوري • <span class="diag-author-tag">إعداد وتطوير: المهندس أسامة خليل هاشم</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="diag-header-actions">
+                    <button class="diag-close-btn" onclick="closeDiagnosticExamsModal()" title="إغلاق النافذة">&times;</button>
+                </div>
+            </div>
+
+            <!-- شريط التبويبات الأربعة -->
+            <div class="diag-tabs-bar">
+                <button class="diag-tab-btn active" id="tabDiag_generator" onclick="DiagnosticExams.switchTab('generator')">
+                    <span>🖨️</span>
+                    <span>مولد الامتحانات الوزارية A4</span>
+                </button>
+                <button class="diag-tab-btn" id="tabDiag_keys" onclick="DiagnosticExams.switchTab('keys')">
+                    <span>🔑</span>
+                    <span>مفاتيح التصحيح السريع وشيت المعلم</span>
+                </button>
+                <button class="diag-tab-btn" id="tabDiag_test" onclick="DiagnosticExams.switchTab('test')">
+                    <span>📊</span>
+                    <span>الاختبار التشخيصي التفاعلي</span>
+                </button>
+                <button class="diag-tab-btn" id="tabDiag_records" onclick="DiagnosticExams.switchTab('records')">
+                    <span>📈</span>
+                    <span>سجل التشخيص الصفي</span>
+                </button>
+            </div>
+
+            <!-- جسم النافذة والأقسام -->
+            <div class="diag-modal-body">
+                <!-- تبويب 1: مولد الامتحانات الوزارية الورقية A4 -->
+                <div class="diag-pane active" id="paneDiag_generator">
+                    <!-- لوحة التحكم وتخصيص بيانات الامتحان -->
+                    <div class="diag-gen-controls-card">
+                        <div class="diag-gen-controls-grid">
+                            <div class="diag-field-group">
+                                <label class="diag-field-label">اسم المدرسة والمديرية:</label>
+                                <input type="text" id="examInpSchool" class="diag-input-text" value="مَدْرَسَةُ الْعِرَاقِ الِابْتِدَائِيَّةِ" onchange="DiagnosticExams.updateSettings()">
+                            </div>
+                            <div class="diag-field-group">
+                                <label class="diag-field-label">اسم المعلم / المعلمة:</label>
+                                <input type="text" id="examInpTeacher" class="diag-input-text" value="مُعَلِّمُ / مُعَلِّمَةُ الصَّفِّ الأَوَّلِ" onchange="DiagnosticExams.updateSettings()">
+                            </div>
+                            <div class="diag-field-group">
+                                <label class="diag-field-label">العام الدراسي:</label>
+                                <input type="text" id="examInpYear" class="diag-input-text" value="2026 / 2027 م" onchange="DiagnosticExams.updateSettings()">
+                            </div>
+                            <div class="diag-field-group">
+                                <label class="diag-field-label">الفترة / الدور الامتحاني:</label>
+                                <input type="text" id="examInpTerm" class="diag-input-text" value="امْتِحَانُ نِصْفِ السَّنَةِ (الدَّوْرُ الأَوَّلُ)" onchange="DiagnosticExams.updateSettings()">
+                            </div>
+                            <div class="diag-field-group">
+                                <label class="diag-field-label">الدرجة الكلية:</label>
+                                <select id="examInpMarks" class="diag-input-select" onchange="DiagnosticExams.updateSettings()">
+                                    <option value="100" selected>100 درجة (الوزاري المعتمد)</option>
+                                    <option value="50">50 درجة (الفصلي / الشهري)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- شريط التبديل بين النماذج والطباعة -->
+                        <div class="diag-print-bar">
+                            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                                <span style="font-weight: 800; font-size: 0.9rem; color: #1e293b;">النموذج المعروض:</span>
+                                <div class="diag-model-switcher">
+                                    <button class="diag-model-btn active" data-model="A" onclick="DiagnosticExams.setModel('A')">
+                                        <span>🟢</span> <span>النموذج (أ)</span>
+                                    </button>
+                                    <button class="diag-model-btn" data-model="B" onclick="DiagnosticExams.setModel('B')">
+                                        <span>🔵</span> <span>النموذج (ب)</span>
+                                    </button>
+                                    <button class="diag-model-btn" data-model="C" onclick="DiagnosticExams.setModel('C')">
+                                        <span>🟣</span> <span>النموذج (ج)</span>
+                                    </button>
+                                    <button class="diag-model-btn" data-model="ALL" onclick="DiagnosticExams.setModel('ALL')">
+                                        <span>📑</span> <span>كافة النماذج (A/B/C)</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; gap: 8px;">
+                                <button class="btn btn-primary" onclick="DiagnosticExams.printCurrentExam()" style="padding: 9px 18px; font-weight: 800; font-size: 0.92rem; background: #0284c7;">
+                                    <span>🖨️</span> <span>طباعة النموذج الحالي A4</span>
+                                </button>
+                                <button class="btn btn-success" onclick="DiagnosticExams.setModel('ALL'); setTimeout(() => DiagnosticExams.printCurrentExam(), 300);" style="padding: 9px 18px; font-weight: 800; font-size: 0.92rem; background: #16a34a; color: white;">
+                                    <span>🖨️</span> <span>طباعة الحزمة الكاملة (A/B/C)</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- منطقة المعاينة الورقية A4 الحية -->
+                    <div class="exam-papers-preview-area" id="examPaperPreviewArea">
+                        <!-- يُولّد عبر DiagnosticExams.renderPaperExams() -->
+                    </div>
+                </div>
+
+                <!-- تبويب 2: مفاتيح التصحيح السريع وشيت المعلم -->
+                <div class="diag-pane" id="paneDiag_keys">
+                    <div id="diagMasterKeysContent">
+                        <!-- يُولّد عبر DiagnosticExams.renderMasterAnswerKeys() -->
+                    </div>
+                </div>
+
+                <!-- تبويب 3: الاختبار التشخيصي التفاعلي -->
+                <div class="diag-pane" id="paneDiag_test">
+                    <div class="diag-test-layout">
+                        <!-- الشريط الجانبي للاختبار التشخيصي -->
+                        <div class="diag-sidebar-card">
+                            <h4 class="diag-section-title">
+                                <span>⚙️</span> <span>إعدادات التشخيص</span>
+                            </h4>
+
+                            <div class="diag-field-group">
+                                <label class="diag-field-label">نوع الاختبار التشخيصي:</label>
+                                <select id="diagTestSelector" class="diag-input-select"></select>
+                            </div>
+
+                            <div class="diag-field-group">
+                                <label class="diag-field-label">تحديد التلميذ من سجل الصف:</label>
+                                <select id="diagStudentSelector" class="diag-input-select"></select>
+                            </div>
+
+                            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 12px; margin-top: 14px;">
+                                <div style="font-size: 0.82rem; font-weight: 800; color: #166534; margin-bottom: 4px;">🎯 مجالات التقييم الفونيمي الـ 5:</div>
+                                <ul style="margin: 0; padding-right: 18px; font-size: 0.78rem; color: #15803d; line-height: 1.6;">
+                                    <li>الوعي الصوتي والفونيمي</li>
+                                    <li>معرفة الحروف وأشكالها</li>
+                                    <li>الحركات والمدود القصيرة والطويلة</li>
+                                    <li>التحليل والتركيب الصوتي</li>
+                                    <li>الفهم والمطابقة القرائية</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- الحاوية الرئيسية للاختبار والنتائج -->
+                        <div class="diag-main-card" id="diagMainContentArea">
+                            <!-- يُولّد عبر renderDiagnosticQuestion() / renderDiagnosticResultReport() -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تبويب 4: سجل التشخيص الصفي -->
+                <div class="diag-pane" id="paneDiag_records">
+                    <div class="diag-keys-card">
+                        <h4 style="margin: 0 0 12px 0; font-size: 1.15rem; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+                            <span>📈</span> <span>سجل تقارير التشخيص الفونيمي المحفوظة محلياً</span>
+                        </h4>
+                        <div id="diagRecordsListContainer">
+                            <!-- يُولّد عبر renderDiagnosticRecordsTab() -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
     <script src="audio_data_unit6.js"></script>
@@ -27042,6 +27231,7 @@
     <script src="js/core/classroom-sync.js"></script>
     <script src="js/core/classroom-quiz.js"></script>
     <script src="js/core/interactive-guide.js"></script>
+    <script src="js/core/diagnostic-exams.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

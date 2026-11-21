@@ -89,6 +89,7 @@ def run_integration_audit():
         'classroom-sync.js': os.path.join(BASE_DIR, 'js', 'core', 'classroom-sync.js'),
         'classroom-quiz.js': os.path.join(BASE_DIR, 'js', 'core', 'classroom-quiz.js'),
         'interactive-guide.js': os.path.join(BASE_DIR, 'js', 'core', 'interactive-guide.js'),
+        'diagnostic-exams.js': os.path.join(BASE_DIR, 'js', 'core', 'diagnostic-exams.js'),
         'audio.js': os.path.join(BASE_DIR, 'js', 'core', 'audio.js'),
         'navigation.js': os.path.join(BASE_DIR, 'js', 'core', 'navigation.js'),
         'modals.js': os.path.join(BASE_DIR, 'js', 'core', 'modals.js'),
@@ -291,7 +292,38 @@ def run_integration_audit():
     if not any("عنصر الجولة والدليل" in e for e in errors):
         successes.append("كافة عناصر جولة الاستكشاف التفاعلية ودليل المنصة (7 عناصر) متكاملة بنسبة 100%.")
 
-    # 8. فحص عزل مفاتيح التخزين المحلي (LocalStorage Key Hygiene)
+    # 8. فحص نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية A4
+    print("\n--- فحص نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية A4 ---")
+    diag_elements = [
+        ('زر الامتحانات الوزارية بالشريط العلوي', 'btnTopDiagnosticExams'),
+        ('نافذة الاختبارات والامتحانات الوزارية', 'diagnosticExamsModal'),
+        ('تبويب مولد الامتحانات A4', 'tabDiag_generator'),
+        ('حاوية مولد الامتحانات A4', 'paneDiag_generator'),
+        ('تبويب مفاتيح التصحيح السريع', 'tabDiag_keys'),
+        ('حاوية مفاتيح التصحيح السريع', 'paneDiag_keys'),
+        ('تبويب الاختبار التشخيصي التفاعلي', 'tabDiag_test'),
+        ('حاوية الاختبار التشخيصي التفاعلي', 'paneDiag_test'),
+        ('تبويب سجل التشخيص الصفي', 'tabDiag_records'),
+        ('حاوية سجل التشخيص الصفي', 'paneDiag_records'),
+        ('حقل اسم المدرسة', 'examInpSchool'),
+        ('حقل اسم المعلم', 'examInpTeacher'),
+        ('حقل العام الدراسي', 'examInpYear'),
+        ('حقل الدور الامتحاني', 'examInpTerm'),
+        ('حقل الدرجة الكلية', 'examInpMarks'),
+        ('قائمة اختيار نوع الاختبار التشخيصي', 'diagTestSelector'),
+        ('قائمة اختيار التلميذ للتشخيص', 'diagStudentSelector'),
+        ('حاوية معاينة الورقة الامتحانية A4', 'examPaperPreviewArea'),
+        ('حاوية شيت مفاتيح التصحيح A4', 'diagMasterKeysContent'),
+        ('منطقة أسئلة ونتائج الاختبار التشخيصي', 'diagMainContentArea'),
+        ('قائمة سجلات التشخيص المحفوظة', 'diagRecordsListContainer')
+    ]
+    for de_title, de_id in diag_elements:
+        if de_id not in dom_ids:
+            errors.append(f"عنصر الاختبارات والامتحانات الوزارية {de_title} ({de_id}) مفقود!")
+    if not any("عنصر الاختبارات والامتحانات الوزارية" in e for e in errors):
+        successes.append(f"كافة عناصر نظام الاختبارات التشخيصية ومولد الامتحانات الوزارية A4 ({len(diag_elements)} عنصراً) متكاملة بنسبة 100%.")
+
+    # 9. فحص عزل مفاتيح التخزين المحلي (LocalStorage Key Hygiene)
     print("\n--- فحص عزل مفاتيح التخزين المحلي (قواعد أسامة) ---")
     storage_keys = []
     for js_name, js_path in js_files.items():
@@ -314,7 +346,7 @@ def run_integration_audit():
         'css/lessons-unit3.css', 'css/lessons-unit4.css', 'css/lessons-unit5.css',
         'css/lessons-unit6.css', 'css/evaluation.css', 'css/enrichment.css',
         'css/blackboard.css', 'css/games.css', 'css/gamification.css', 'css/teacher-dashboard.css',
-        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css'
+        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css'
     ]
     for cf in css_files:
         if cf not in index_html:
@@ -327,7 +359,8 @@ def run_integration_audit():
         'js/core/modals.js', 'js/core/audio.js', 'js/core/navigation.js',
         'js/core/evaluation.js', 'js/core/enrichment.js', 'js/core/blackboard.js',
         'js/core/games.js', 'js/core/gamification.js', 'js/core/teacher-dashboard.js',
-        'js/core/classroom-sync.js', 'js/core/classroom-quiz.js', 'js/core/interactive-guide.js', 'js/app.js'
+        'js/core/classroom-sync.js', 'js/core/classroom-quiz.js', 'js/core/interactive-guide.js',
+        'js/core/diagnostic-exams.js', 'js/app.js'
     ]
     for cs in core_scripts:
         if cs not in index_html:
@@ -357,6 +390,8 @@ def run_integration_audit():
         ('css/classroom-quiz.css', open(os.path.join(BASE_DIR, 'css', 'classroom-quiz.css'), encoding='utf-8').read()),
         ('css/interactive-guide.css', open(os.path.join(BASE_DIR, 'css', 'interactive-guide.css'), encoding='utf-8').read()),
         ('js/core/interactive-guide.js', open(os.path.join(BASE_DIR, 'js', 'core', 'interactive-guide.js'), encoding='utf-8').read()),
+        ('css/diagnostic-exams.css', open(os.path.join(BASE_DIR, 'css', 'diagnostic-exams.css'), encoding='utf-8').read()),
+        ('js/core/diagnostic-exams.js', open(os.path.join(BASE_DIR, 'js', 'core', 'diagnostic-exams.js'), encoding='utf-8').read()),
     ]
     for s_name, s_content in sig_targets:
         if official_signature not in s_content:
