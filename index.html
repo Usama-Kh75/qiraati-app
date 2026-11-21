@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="css/lessons-unit6.css">
     <link rel="stylesheet" href="css/evaluation.css">
     <link rel="stylesheet" href="css/enrichment.css">
+    <link rel="stylesheet" href="css/blackboard.css">
 
 </head>
 
@@ -116,6 +117,12 @@
             <button class="btn-top btn-top-enrichment-hub" id="btnTopEnrichHub" onclick="openEnrichmentModal('exams')" title="اختبارات نهاية الفصل الدراسي، التدريبات الصيفية الإثرائية، وبنك بطاقات القراءة الذكية">
                 <span>🌟</span>
                 <span>الاختبارات والبطاقات</span>
+            </button>
+
+            <!-- زر سبورة تتبع ورسم الحروف ومختبر الخط العربي والتصحيح الذكي -->
+            <button class="btn-top btn-top-blackboard" id="btnTopBlackboard" onclick="openBlackboardModal('trace')" title="سبورة تتبع ورسم الحروف الهجائية التفاعلية ومختبر الخط العربي والتصحيح الذكي لمسار الكتابة">
+                <span>✍️</span>
+                <span>سبورة الخط والتتبع</span>
             </button>
 
             <!-- زر ضبط النظام واختيار الصوت -->
@@ -228,6 +235,30 @@
                     </button>
                     <button class="sidebar-enrich-mini-btn" onclick="openEnrichmentModal('cards')" title="بنك بطاقات القراءة والتقطيع المقطعي">
                         <span>🗂️</span> <span>البطاقات</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- بطاقة سبورة الخط وتتبع الحروف ومختبر خط النسخ في القائمة الجانبية -->
+            <div class="sidebar-blackboard-card" onclick="openBlackboardModal('trace')" title="سبورة تتبع ورسم الحروف الهجائية ومختبر خط النسخ العربي">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #065f46; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>✍️</span> <span>سبورة الخط والتتبع الذكي</span>
+                    </span>
+                    <span style="font-size: 0.72rem; font-weight: 800; background: #059669; color: white; padding: 2px 6px; border-radius: 6px;">جديد</span>
+                </div>
+                <div class="sidebar-bb-buttons-grid" onclick="event.stopPropagation()">
+                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('trace')" title="تتبع ورسم الحروف مع التصحيح الذكي">
+                        <span>✍️</span> <span>التتبع الذكي</span>
+                    </button>
+                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('anatomy')" title="مختبر الخط وتشريح أسرار الحروف">
+                        <span>🏛️</span> <span>مختبر الخط</span>
+                    </button>
+                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('freehand')" title="سبورة الكلمات والرسم الحر">
+                        <span>🎨</span> <span>سبورة الكلمات</span>
+                    </button>
+                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('print')" title="كراسة أوراق عمل تحسين الخط A4">
+                        <span>📄</span> <span>كراسة النسخ</span>
                     </button>
                 </div>
             </div>
@@ -24079,6 +24110,275 @@
         </div>
     </div>
 
+    <!-- ==========================================================================
+         نافذة سبورة تتبع ورسم الحروف الهجائية ومختبر الخط العربي والتصحيح الذكي
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    ========================================================================== -->
+    <div class="modal-backdrop" id="blackboardModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="blackboard-modal-box" onclick="event.stopPropagation()">
+            <!-- رأس النافذة -->
+            <div class="blackboard-modal-header">
+                <div class="bb-header-title-box">
+                    <span class="bb-header-icon">✍️</span>
+                    <div>
+                        <h3 class="bb-header-title">سبورة تتبع ورسم الحروف ومختبر الخط العربي والتصحيح الذكي</h3>
+                        <div class="bb-header-subtitle">
+                            الصف الأول الابتدائي • محاكاة خط النسخ وتصحيح الاتجاه • إعداد وتطوير: المهندس أسامة خليل هاشم
+                        </div>
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <button class="btn-eval-action btn-eval-print" onclick="window.print()" title="طباعة كراسة الخط A4">
+                        <span>🖨️</span> <span>طباعة</span>
+                    </button>
+                    <button class="modal-close-btn" onclick="closeBlackboardModal()" title="إغلاق">&times;</button>
+                </div>
+            </div>
+
+            <!-- أزرار التبويبات الأربعة الرئيسية -->
+            <div class="blackboard-modal-tabs">
+                <button class="bb-modal-tab active" id="tabBlackboard_trace" onclick="switchBlackboardTab('trace')">
+                    <span>✍️</span> <span>سبورة التتبع والتصحيح الذكي لمسار الحرف</span>
+                </button>
+                <button class="bb-modal-tab" id="tabBlackboard_anatomy" onclick="switchBlackboardTab('anatomy')">
+                    <span>🏛️</span> <span>مختبر خط النسخ وتشريح الحروف</span>
+                </button>
+                <button class="bb-modal-tab" id="tabBlackboard_freehand" onclick="switchBlackboardTab('freehand')">
+                    <span>🎨</span> <span>سبورة الكلمات والرسم الحر</span>
+                </button>
+                <button class="bb-modal-tab" id="tabBlackboard_print" onclick="switchBlackboardTab('print')">
+                    <span>📄</span> <span>كراسة أوراق عمل الخط (A4)</span>
+                </button>
+            </div>
+
+            <!-- محتوى التبويبات -->
+            <div class="blackboard-modal-body">
+                <!-- التبويب 1: سبورة التتبع والتصحيح الذكي -->
+                <div id="paneBlackboard_trace" class="bb-tab-pane active">
+                    <!-- شريط الحروف الأفقي السريع -->
+                    <div class="bb-letter-selector-bar" id="bbLetterSelectorBar">
+                        <!-- يُبنى ديناميكياً عبر blackboard.js -->
+                    </div>
+
+                    <!-- شريط التحكم بمواضع الحرف والحركات والتوجيه -->
+                    <div class="bb-letter-control-strip">
+                        <div class="bb-control-group">
+                            <span style="font-size: 0.82rem; font-weight: 800; color: #1e293b;" id="bbActiveLetterTitle">حرف الألف</span>
+                            <button class="bb-pill-btn active" id="btnForm_isolated" onclick="selectLetterForm('isolated')">منفصل</button>
+                            <button class="bb-pill-btn" id="btnForm_initial" onclick="selectLetterForm('initial')">أول الكلمة</button>
+                            <button class="bb-pill-btn" id="btnForm_medial" onclick="selectLetterForm('medial')">وسط الكلمة</button>
+                            <button class="bb-pill-btn" id="btnForm_final" onclick="selectLetterForm('final')">آخر الكلمة</button>
+                        </div>
+
+                        <div class="bb-control-group">
+                            <span style="font-size: 0.78rem; font-weight: 800; color: #64748b;">الحركات:</span>
+                            <button class="bb-pill-btn" id="btnVowel_fatha" data-vowel="َ" onclick="selectVowel('َ')">ـَ فتحة</button>
+                            <button class="bb-pill-btn" id="btnVowel_damma" data-vowel="ُ" onclick="selectVowel('ُ')">ـُ ضمة</button>
+                            <button class="bb-pill-btn" id="btnVowel_kasra" data-vowel="ِ" onclick="selectVowel('ِ')">ـِ كسرة</button>
+                            <button class="bb-pill-btn" id="btnVowel_sukoon" data-vowel="ْ" onclick="selectVowel('ْ')">ـْ سكون</button>
+                        </div>
+
+                        <div class="bb-control-group">
+                            <button class="bb-action-btn btn-primary-action" onclick="speakLetterSound()" style="width: auto; padding: 4px 12px;" title="استماع لصوت الحرف الفصيح">
+                                <span>🔊</span> <span>نطق الحرف</span>
+                            </button>
+                            <button class="bb-action-btn btn-warn-action" onclick="startAutoDemo()" style="width: auto; padding: 4px 12px;" title="محاكاة حركة القلم واليد الذكية">
+                                <span>🎬</span> <span>عرض حركة القلم</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- مسرح السبورة التفاعلي مع الأدوات الجانبية -->
+                    <div class="bb-stage-wrapper">
+                        <!-- السبورة الكبرى -->
+                        <div class="bb-board-frame theme-green" id="bbBoardFrame">
+                            <!-- تنبيه الاتجاه الخاطئ العائم -->
+                            <div class="bb-direction-warning-pill" id="bbDirectionWarning"></div>
+
+                            <!-- يد المحاكاة الافتراضية -->
+                            <div class="bb-virtual-hand" id="bbVirtualHand">
+                                <span style="font-size: 2.2rem;">✍️</span>
+                            </div>
+
+                            <!-- نافذة تقييم النجوم والاحتفال المنبثقة -->
+                            <div class="bb-evaluation-overlay" id="bbEvaluationOverlay">
+                                <div class="bb-eval-stars" id="bbEvalStars">⭐⭐⭐</div>
+                                <div class="bb-eval-score-badge" id="bbEvalScore">الدقة: 95%</div>
+                                <div class="bb-eval-feedback-msg" id="bbEvalFeedbackMsg">مبدع ورائع! كتبت الحرف بمسار صحيح.</div>
+                                <div style="display: flex; gap: 8px; justify-content: center;">
+                                    <button class="bb-action-btn btn-primary-action" onclick="selectNextLetter()" style="width: auto; padding: 6px 18px;">
+                                        الحرف التالي ⬅️
+                                    </button>
+                                    <button class="bb-action-btn" onclick="clearBlackboard()" style="width: auto; padding: 6px 14px;">
+                                        إعادة المحاولة 🔄
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- حاوية طبقات الكانفاس -->
+                            <div class="bb-canvas-container" id="bbCanvasContainer">
+                                <canvas class="bb-layer-guidelines" id="bbGridCanvas"></canvas>
+                                <canvas class="bb-layer-trace-guide" id="bbGuideCanvas"></canvas>
+                                <canvas class="bb-layer-drawing" id="bbDrawingCanvas"></canvas>
+                            </div>
+
+                            <!-- رف الطباشير السفلي -->
+                            <div class="bb-chalk-shelf">
+                                <div class="bb-chalk-dust"></div>
+                            </div>
+                        </div>
+
+                        <!-- عمود الأدوات الجانبي -->
+                        <div class="bb-sidebar-tools">
+                            <!-- سمة السبورة -->
+                            <div>
+                                <div class="bb-tool-section-title">سمة السبورة</div>
+                                <div style="display: flex; gap: 4px;">
+                                    <button class="bb-pill-btn active" onclick="setBoardTheme('theme-green')">🟢 خضراء</button>
+                                    <button class="bb-pill-btn" onclick="setBoardTheme('theme-black')">⚫ سوداء</button>
+                                    <button class="bb-pill-btn" onclick="setBoardTheme('theme-lined')">⚪ مسطرة</button>
+                                </div>
+                            </div>
+
+                            <!-- ألوان الطباشير -->
+                            <div>
+                                <div class="bb-tool-section-title">ألوان الطباشير</div>
+                                <div class="bb-chalk-palette">
+                                    <button class="bb-chalk-color-btn active" style="background: #ffffff;" onclick="setChalkColor('#ffffff', this)" title="أبيض"></button>
+                                    <button class="bb-chalk-color-btn" style="background: #fde047;" onclick="setChalkColor('#fde047', this)" title="أصفر"></button>
+                                    <button class="bb-chalk-color-btn" style="background: #6ee7b7;" onclick="setChalkColor('#6ee7b7', this)" title="أخضر"></button>
+                                    <button class="bb-chalk-color-btn" style="background: #93c5fd;" onclick="setChalkColor('#93c5fd', this)" title="أزرق"></button>
+                                    <button class="bb-chalk-color-btn" style="background: #f472b6;" onclick="setChalkColor('#f472b6', this)" title="وردي"></button>
+                                    <button class="bb-chalk-color-btn chalk-rainbow" onclick="setChalkColor('rainbow', this)" title="قوس قزح"></button>
+                                </div>
+                            </div>
+
+                            <!-- سماكة القلم -->
+                            <div>
+                                <div class="bb-tool-section-title">سماكة القلم</div>
+                                <div class="bb-stroke-sizes">
+                                    <button class="bb-stroke-size-btn" onclick="setStrokeSize(4, this)" title="رفيع">
+                                        <div class="bb-stroke-dot" style="width: 4px; height: 4px;"></div>
+                                    </button>
+                                    <button class="bb-stroke-size-btn active" onclick="setStrokeSize(8, this)" title="متوسط">
+                                        <div class="bb-stroke-dot" style="width: 8px; height: 8px;"></div>
+                                    </button>
+                                    <button class="bb-stroke-size-btn" onclick="setStrokeSize(14, this)" title="عريض خطاط">
+                                        <div class="bb-stroke-dot" style="width: 14px; height: 14px;"></div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- مستوى المرشد الشفاف -->
+                            <div>
+                                <div class="bb-tool-section-title">مرشد الخط المنقط</div>
+                                <select onchange="setGuideOpacity(this.value)" style="width: 100%; padding: 6px; border-radius: 8px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 0.8rem; font-weight: 800;">
+                                    <option value="0.85" selected>مرشد واضح (تتبع كامل)</option>
+                                    <option value="0.35">مرشد خفيف (تحدي متوسط)</option>
+                                    <option value="0.05">سبورة حرة (اختبار ذاتي)</option>
+                                </select>
+                            </div>
+
+                            <!-- الإجراءات السريعة -->
+                            <div style="margin-top: auto; display: flex; flex-direction: column; gap: 6px;">
+                                <button class="bb-action-btn" onclick="undoStroke()" title="تراجع عن آخر خطوة">
+                                    <span>↩️</span> <span>تراجع</span>
+                                </button>
+                                <button class="bb-action-btn" onclick="clearBlackboard()" title="مسح السبورة بالكامل">
+                                    <span>🧹</span> <span>مسح السبورة</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- شريط نصيحة خط النسخ أسفل السبورة -->
+                    <div style="background: white; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 10px 16px; margin-top: 10px; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.2rem;">💡</span>
+                        <div style="font-size: 0.86rem; color: #334155; font-weight: 700;">
+                            <b>نصيحة خط النسخ:</b> <span id="bbLetterTipText">يستقر حرف الألف على السطر تماماً، ويصعد قائماً كالسيف دون ميلان.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التبويب 2: مختبر الخط وتشريح الحروف -->
+                <div id="paneBlackboard_anatomy" class="bb-tab-pane">
+                    <div id="anatomyHubContent">
+                        <!-- يُبنى ديناميكياً عبر blackboard.js -->
+                    </div>
+                </div>
+
+                <!-- التبويب 3: سبورة الكلمات والرسم الحر -->
+                <div id="paneBlackboard_freehand" class="bb-tab-pane">
+                    <!-- شريط أدوات الكلمات الحرة -->
+                    <div class="freehand-toolbar-container">
+                        <div style="display: flex; align-items: center; gap: 8px; flex: 1; min-width: 280px;">
+                            <span style="font-weight: 900; color: #065f46; font-size: 0.88rem;">كلمات المنهج:</span>
+                            <div class="freehand-word-chips-scroll" id="freehandWordChipsScroll">
+                                <!-- تُبنى ديناميكياً -->
+                            </div>
+                        </div>
+
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <input type="text" placeholder="✍️ اكتب كلمة مخصصة للتدريب..." onchange="setCustomFreehandWord(this.value)" style="padding: 6px 12px; border-radius: 10px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 0.85rem; width: 180px;">
+                            <button class="bb-action-btn btn-primary-action" onclick="exportStudentArtwork()" style="width: auto; padding: 6px 14px;" title="تصدير وحفظ لوحة التلميذ كصورة موثقة">
+                                <span>🖼️</span> <span>حفظ اللوحة</span>
+                            </button>
+                            <button class="bb-action-btn" onclick="clearFreehandBoard()" style="width: auto; padding: 6px 12px;">
+                                <span>🧹</span> <span>مسح</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- مسرح السبورة الحرة -->
+                    <div class="bb-stage-wrapper" style="flex: 1;">
+                        <div class="bb-board-frame theme-green" style="width: 100%;">
+                            <div class="bb-canvas-container" id="freehandCanvasContainer">
+                                <canvas class="bb-layer-guidelines" id="freehandGridCanvas"></canvas>
+                                <canvas class="bb-layer-drawing" id="freehandDrawingCanvas"></canvas>
+                            </div>
+                            <div class="bb-chalk-shelf">
+                                <div class="bb-chalk-dust"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التبويب 4: كراسة أوراق عمل الخط والنسخ A4 -->
+                <div id="paneBlackboard_print" class="bb-tab-pane">
+                    <div class="print-sheets-toolbar no-print">
+                        <div style="font-size: 0.9rem; font-weight: 800; color: #1e3a8a;">
+                            📄 كراسة أوراق عمل تحسين الخط العربي والنسخ (جاهزة للطباعة الورقية A4):
+                        </div>
+                        <div style="display: flex; gap: 8px;">
+                            <button class="btn-eval-action btn-eval-print" onclick="window.print()">
+                                <span>🖨️</span> <span>طباعة هذه الورقة فوراً</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="printSheetsContent">
+                        <!-- يُبنى ديناميكياً عبر blackboard.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- أسفل النافذة -->
+            <div class="blackboard-modal-footer">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #065f46;">
+                    ✍️ منصة قراءتي التفاعلية الذكية • <b>إعداد: المهندس أسامة خليل هاشم</b> • مختبر الخط العربي والتصحيح الذكي ✅
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button type="button" class="btn-eval-action btn-eval-print" onclick="window.print()">
+                        <span>🖨️</span> <span>طباعة</span>
+                    </button>
+                    <button type="button" class="btn btn-teach" style="padding: 6px 18px; font-size: 0.88rem; background: #059669; border-color: #047857;" onclick="closeBlackboardModal()">
+                        إغلاق النافذة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
     <script src="audio_data_unit6.js"></script>
@@ -24090,6 +24390,7 @@
     <script src="js/core/navigation.js"></script>
     <script src="js/core/evaluation.js"></script>
     <script src="js/core/enrichment.js"></script>
+    <script src="js/core/blackboard.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

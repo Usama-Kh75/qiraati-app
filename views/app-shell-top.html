@@ -44,6 +44,7 @@
     <link rel="stylesheet" href="css/lessons-unit6.css">
     <link rel="stylesheet" href="css/evaluation.css">
     <link rel="stylesheet" href="css/enrichment.css">
+    <link rel="stylesheet" href="css/blackboard.css">
 
 </head>
 
@@ -116,6 +117,12 @@
             <button class="btn-top btn-top-enrichment-hub" id="btnTopEnrichHub" onclick="openEnrichmentModal('exams')" title="اختبارات نهاية الفصل الدراسي، التدريبات الصيفية الإثرائية، وبنك بطاقات القراءة الذكية">
                 <span>🌟</span>
                 <span>الاختبارات والبطاقات</span>
+            </button>
+
+            <!-- زر سبورة تتبع ورسم الحروف ومختبر الخط العربي والتصحيح الذكي -->
+            <button class="btn-top btn-top-blackboard" id="btnTopBlackboard" onclick="openBlackboardModal('trace')" title="سبورة تتبع ورسم الحروف الهجائية التفاعلية ومختبر الخط العربي والتصحيح الذكي لمسار الكتابة">
+                <span>✍️</span>
+                <span>سبورة الخط والتتبع</span>
             </button>
 
             <!-- زر ضبط النظام واختيار الصوت -->
@@ -228,6 +235,30 @@
                     </button>
                     <button class="sidebar-enrich-mini-btn" onclick="openEnrichmentModal('cards')" title="بنك بطاقات القراءة والتقطيع المقطعي">
                         <span>🗂️</span> <span>البطاقات</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- بطاقة سبورة الخط وتتبع الحروف ومختبر خط النسخ في القائمة الجانبية -->
+            <div class="sidebar-blackboard-card" onclick="openBlackboardModal('trace')" title="سبورة تتبع ورسم الحروف الهجائية ومختبر خط النسخ العربي">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #065f46; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>✍️</span> <span>سبورة الخط والتتبع الذكي</span>
+                    </span>
+                    <span style="font-size: 0.72rem; font-weight: 800; background: #059669; color: white; padding: 2px 6px; border-radius: 6px;">جديد</span>
+                </div>
+                <div class="sidebar-bb-buttons-grid" onclick="event.stopPropagation()">
+                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('trace')" title="تتبع ورسم الحروف مع التصحيح الذكي">
+                        <span>✍️</span> <span>التتبع الذكي</span>
+                    </button>
+                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('anatomy')" title="مختبر الخط وتشريح أسرار الحروف">
+                        <span>🏛️</span> <span>مختبر الخط</span>
+                    </button>
+                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('freehand')" title="سبورة الكلمات والرسم الحر">
+                        <span>🎨</span> <span>سبورة الكلمات</span>
+                    </button>
+                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('print')" title="كراسة أوراق عمل تحسين الخط A4">
+                        <span>📄</span> <span>كراسة النسخ</span>
                     </button>
                 </div>
             </div>
