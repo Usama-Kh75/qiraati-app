@@ -121,9 +121,9 @@
             </button>
 
             <!-- زر سبورة تتبع ورسم الحروف ومختبر الخط العربي والتصحيح الذكي -->
-            <button class="btn-top btn-top-blackboard" id="btnTopBlackboard" onclick="openBlackboardModal('trace')" title="سبورة تتبع ورسم الحروف الهجائية التفاعلية ومختبر الخط العربي والتصحيح الذكي لمسار الكتابة">
+            <button class="btn-top btn-top-blackboard" id="btnTopBlackboard" onclick="openHandwritingTrace()" title="لوحة تتبع الحروف بالقلم أو الإصبع لتدريب عضلات اليد على الكتابة للأجهزة اللوحية والهواتف">
                 <span>✍️</span>
-                <span>سبورة الخط والتتبع</span>
+                <span>لوحة تتبع الحروف</span>
             </button>
 
             <!-- زر بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات الذكية -->
@@ -247,25 +247,25 @@
             </div>
 
             <!-- بطاقة سبورة الخط وتتبع الحروف ومختبر خط النسخ في القائمة الجانبية -->
-            <div class="sidebar-blackboard-card" onclick="openBlackboardModal('trace')" title="سبورة تتبع ورسم الحروف الهجائية ومختبر خط النسخ العربي">
+            <div class="sidebar-blackboard-card" onclick="openHandwritingTrace()" title="لوحة تتبع الحروف بالقلم أو الإصبع ومختبر خط النسخ العربي">
                 <div style="display: flex; align-items: center; justify-content: space-between;">
                     <span style="font-weight: 900; color: #065f46; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>✍️</span> <span>سبورة الخط والتتبع الذكي</span>
+                        <span>✍️</span> <span>لوحة تتبع الحروف وتدريب اليد</span>
                     </span>
                     <span style="font-size: 0.72rem; font-weight: 800; background: #059669; color: white; padding: 2px 6px; border-radius: 6px;">جديد</span>
                 </div>
                 <div class="sidebar-bb-buttons-grid" onclick="event.stopPropagation()">
-                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('trace')" title="تتبع ورسم الحروف مع التصحيح الذكي">
-                        <span>✍️</span> <span>التتبع الذكي</span>
+                    <button class="sidebar-bb-mini-btn" onclick="openHandwritingTrace()" title="تتبع ورسم الحروف مع التصحيح الذكي">
+                        <span>✍️</span> <span>تتبع الحروف</span>
+                    </button>
+                    <button class="sidebar-bb-mini-btn" onclick="openHandwritingTrace('drill_vertical_rain')" title="تمارين إحماء وتهيئة عضلات اليد والأصابع">
+                        <span>💪</span> <span>إحماء العضلات</span>
                     </button>
                     <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('anatomy')" title="مختبر الخط وتشريح أسرار الحروف">
                         <span>🏛️</span> <span>مختبر الخط</span>
                     </button>
                     <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('freehand')" title="سبورة الكلمات والرسم الحر">
                         <span>🎨</span> <span>سبورة الكلمات</span>
-                    </button>
-                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('print')" title="كراسة أوراق عمل تحسين الخط A4">
-                        <span>📄</span> <span>كراسة النسخ</span>
                     </button>
                 </div>
             </div>
@@ -2512,11 +2512,15 @@
 
                             </div>
 
-                            <div class="controls" style="margin-bottom: 12px;">
+                            <div class="controls" style="margin-bottom: 12px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
 
                                 <button class="btn btn-teach" onclick="playBDrawHint()">🔊 اِسْتَمِعْ لِإِرْشَادِ الرَّسْم</button>
 
                                 <button class="btn btn-reset" onclick="clearBCanvas()">🔄 مَسْحُ السَّبُّورَة</button>
+
+                                <button class="btn btn-teach btn-open-big-trace" onclick="window.openHandwritingTrace('baa', 'isolated')" title="افتح في لوحة تتبع الحروف بالقلم أو الإصبع للأجهزة اللوحية والهواتف">
+                                    ✍️ لوحة التتبع الكبرى (أجهزة لوحية وهواتف) 🚀
+                                </button>
 
                             </div>
 
@@ -3279,11 +3283,15 @@
 
                             </div>
 
-                            <div class="controls" style="margin-bottom: 12px;">
+                            <div class="controls" style="margin-bottom: 12px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
 
                                 <button class="btn btn-teach" style="background:#a21caf; color:white;" onclick="playMDrawHint()">🔊 اِسْتَمِعْ لِإِرْشَادِ الرَّسْم</button>
 
                                 <button class="btn btn-reset" onclick="clearMCanvas()">🔄 مَسْحُ السَّبُّورَة</button>
+
+                                <button class="btn btn-teach btn-open-big-trace" onclick="window.openHandwritingTrace('meem', 'isolated')" title="افتح في لوحة تتبع الحروف بالقلم أو الإصبع للأجهزة اللوحية والهواتف">
+                                    ✍️ لوحة التتبع الكبرى (أجهزة لوحية وهواتف) 🚀
+                                </button>
 
                             </div>
 
@@ -4075,11 +4083,15 @@
 
                             </div>
 
-                            <div class="controls" style="margin-bottom: 12px;">
+                            <div class="controls" style="margin-bottom: 12px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
 
                                 <button class="btn btn-teach" style="background:#059669; color:white;" onclick="playDDrawHint()">🔊 اِسْتَمِعْ لِإِرْشَادِ الرَّسْم</button>
 
                                 <button class="btn btn-reset" onclick="clearDCanvas()">🔄 مَسْحُ السَّبُّورَة</button>
+
+                                <button class="btn btn-teach btn-open-big-trace" onclick="window.openHandwritingTrace('dal', 'isolated')" title="افتح في لوحة تتبع الحروف بالقلم أو الإصبع للأجهزة اللوحية والهواتف">
+                                    ✍️ لوحة التتبع الكبرى (أجهزة لوحية وهواتف) 🚀
+                                </button>
 
                             </div>
 
@@ -4903,6 +4915,10 @@
 
                                     💡 إِرْشَادُ الرَّسْم
 
+                                </button>
+
+                                <button class="btn btn-teach btn-open-big-trace" onclick="window.openHandwritingTrace('faa', 'isolated')" title="افتح في لوحة تتبع الحروف بالقلم أو الإصبع للأجهزة اللوحية والهواتف">
+                                    ✍️ لوحة التتبع الكبرى (أجهزة لوحية وهواتف) 🚀
                                 </button>
 
                             </div>
@@ -6467,12 +6483,15 @@
                                         ابدأ من النقطة الحمراء فوق السطر وانزل منحنياً تحت السطر!
                                     </div>
                                 </div>
-                                <div style="display: flex; gap: 8px;">
+                                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                                     <button class="btn btn-listen" style="padding: 4px 12px; font-size: 0.85rem;" onclick="playRDrawHint()">
                                         <span>💡 إرشاد الرسم</span> <span>🔊</span>
                                     </button>
                                     <button class="btn btn-teach" style="padding: 4px 12px; font-size: 0.85rem;" onclick="clearRCanvas()">
                                         <span>🔄 مسح الكل</span>
+                                    </button>
+                                    <button class="btn btn-teach btn-open-big-trace" onclick="window.openHandwritingTrace('raa', 'isolated')" title="افتح في لوحة تتبع الحروف بالقلم أو الإصبع للأجهزة اللوحية والهواتف">
+                                        <span>✍️</span> <span>لوحة التتبع الكبرى (أجهزة لوحية وهواتف) 🚀</span>
                                     </button>
                                 </div>
                             </div>
@@ -7027,12 +7046,15 @@
                                 <div style="font-weight: 900; font-size: 1.15rem; color: #065f46;">
                                     ✍️ سَبُّوْرَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ السِّينِ ( سـ ، س )
                                 </div>
-                                <div style="display: flex; gap: 8px; align-items: center;">
+                                <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
                                     <button class="btn btn-teach" style="padding: 4px 10px; font-size: 0.82rem; background:#059669;" onclick="playSDrawHint()">
                                         <span>💡</span> <span>إرشاد الرسم</span>
                                     </button>
                                     <button class="btn btn-listen" style="padding: 4px 10px; font-size: 0.82rem; background: #fee2e2; color: #991b1b; border-color: #fca5a5;" onclick="clearSCanvas()">
                                         <span>🗑️</span> <span>مسح</span>
+                                    </button>
+                                    <button class="btn btn-teach btn-open-big-trace" onclick="window.openHandwritingTrace('seen', 'isolated')" title="افتح في لوحة تتبع الحروف بالقلم أو الإصبع للأجهزة اللوحية والهواتف">
+                                        <span>✍️</span> <span>لوحة التتبع الكبرى (أجهزة لوحية وهواتف) 🚀</span>
                                     </button>
                                 </div>
                             </div>
@@ -7563,12 +7585,15 @@
                                 <div style="font-weight: 900; font-size: 1.15rem; color: #3730a3;">
                                     ✍️ سَبُّوْرَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ النُّونِ ( نـ ، ن )
                                 </div>
-                                <div style="display: flex; gap: 8px; align-items: center;">
+                                <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
                                     <button class="btn btn-teach" style="padding: 4px 10px; font-size: 0.82rem; background:#4f46e5;" onclick="playNDrawHint()">
                                         <span>💡</span> <span>إرشاد الرسم</span>
                                     </button>
                                     <button class="btn btn-listen" style="padding: 4px 10px; font-size: 0.82rem; background: #fee2e2; color: #991b1b; border-color: #fca5a5;" onclick="clearNCanvas()">
                                         <span>🗑️</span> <span>مسح</span>
+                                    </button>
+                                    <button class="btn btn-teach btn-open-big-trace" onclick="window.openHandwritingTrace('noon', 'isolated')" title="افتح في لوحة تتبع الحروف بالقلم أو الإصبع للأجهزة اللوحية والهواتف">
+                                        <span>✍️</span> <span>لوحة التتبع الكبرى (أجهزة لوحية وهواتف) 🚀</span>
                                     </button>
                                 </div>
                             </div>
@@ -24231,13 +24256,16 @@
                 <div class="bb-header-title-box">
                     <span class="bb-header-icon">✍️</span>
                     <div>
-                        <h3 class="bb-header-title">سبورة تتبع ورسم الحروف ومختبر الخط العربي والتصحيح الذكي</h3>
+                        <h3 class="bb-header-title">لوحة تتبع الحروف بالقلم أو الإصبع ومختبر الخط العربي والتصحيح الذكي</h3>
                         <div class="bb-header-subtitle">
-                            الصف الأول الابتدائي • محاكاة خط النسخ وتصحيح الاتجاه • إعداد وتطوير: المهندس أسامة خليل هاشم
+                            تدريب عضلات اليد على الكتابة للأجهزة اللوحية المدرسية والهواتف الذكية • إعداد وتطوير: المهندس أسامة خليل هاشم
                         </div>
                     </div>
                 </div>
                 <div style="display: flex; align-items: center; gap: 8px;">
+                    <button class="btn-eval-action btn-eval-fullscreen" id="bbFullscreenBtn" onclick="toggleBlackboardFullscreen()" title="ملء الشاشة للأجهزة اللوحية والشاشات المدرسية">
+                        <span>⛶</span> <span>ملء الشاشة</span>
+                    </button>
                     <button class="btn-eval-action btn-eval-print" onclick="window.print()" title="طباعة كراسة الخط A4">
                         <span>🖨️</span> <span>طباعة</span>
                     </button>
@@ -24248,7 +24276,7 @@
             <!-- أزرار التبويبات الأربعة الرئيسية -->
             <div class="blackboard-modal-tabs">
                 <button class="bb-modal-tab active" id="tabBlackboard_trace" onclick="switchBlackboardTab('trace')">
-                    <span>✍️</span> <span>سبورة التتبع والتصحيح الذكي لمسار الحرف</span>
+                    <span>✍️</span> <span>لوحة التتبع وتدريب عضلات اليد</span>
                 </button>
                 <button class="bb-modal-tab" id="tabBlackboard_anatomy" onclick="switchBlackboardTab('anatomy')">
                     <span>🏛️</span> <span>مختبر خط النسخ وتشريح الحروف</span>
@@ -24265,22 +24293,46 @@
             <div class="blackboard-modal-body">
                 <!-- التبويب 1: سبورة التتبع والتصحيح الذكي -->
                 <div id="paneBlackboard_trace" class="bb-tab-pane active">
+                    <!-- شريط تصنيف الحروف وتمارين عضلات اليد -->
+                    <div class="bb-category-filter-bar" id="bbCategoryFilterBar">
+                        <button class="bb-cat-filter-btn active" data-cat="all" onclick="filterLetterCategory('all')">
+                            <span>🔤</span> <span>جميع الحروف (٢٨)</span>
+                        </button>
+                        <button class="bb-cat-filter-btn btn-warmup-glow" data-cat="warmup" onclick="filterLetterCategory('warmup')">
+                            <span>✍️</span> <span>تمارين عضلات اليد (٧)</span>
+                        </button>
+                        <button class="bb-cat-filter-btn" data-cat="curriculum" onclick="filterLetterCategory('curriculum')">
+                            <span>📖</span> <span>ترتيب كتاب قراءتي</span>
+                        </button>
+                        <button class="bb-cat-filter-btn" data-cat="on_line" onclick="filterLetterCategory('on_line')">
+                            <span>🟢</span> <span>المستقرة على السطر</span>
+                        </button>
+                        <button class="bb-cat-filter-btn" data-cat="below_line" onclick="filterLetterCategory('below_line')">
+                            <span>🌊</span> <span>الهابطة تحت السطر</span>
+                        </button>
+                        <button class="bb-cat-filter-btn" data-cat="non_connector" onclick="filterLetterCategory('non_connector')">
+                            <span>⚡</span> <span>الحروف الرافضة</span>
+                        </button>
+                    </div>
+
                     <!-- شريط الحروف الأفقي السريع -->
                     <div class="bb-letter-selector-bar" id="bbLetterSelectorBar">
                         <!-- يُبنى ديناميكياً عبر blackboard.js -->
                     </div>
 
-                    <!-- شريط التحكم بمواضع الحرف والحركات والتوجيه -->
+                    <!-- شريط التحكم بمواضع الحرف والحركات والتوجيه وشارة القلم والتقدم -->
                     <div class="bb-letter-control-strip">
                         <div class="bb-control-group">
-                            <span style="font-size: 0.82rem; font-weight: 800; color: #1e293b;" id="bbActiveLetterTitle">حرف الألف</span>
-                            <button class="bb-pill-btn active" id="btnForm_isolated" onclick="selectLetterForm('isolated')">منفصل</button>
-                            <button class="bb-pill-btn" id="btnForm_initial" onclick="selectLetterForm('initial')">أول الكلمة</button>
-                            <button class="bb-pill-btn" id="btnForm_medial" onclick="selectLetterForm('medial')">وسط الكلمة</button>
-                            <button class="bb-pill-btn" id="btnForm_final" onclick="selectLetterForm('final')">آخر الكلمة</button>
+                            <span style="font-size: 0.85rem; font-weight: 800; color: #1e293b;" id="bbActiveLetterTitle">حرف الألف</span>
+                            <div id="bbLetterFormsGroup" style="display: inline-flex; gap: 4px;">
+                                <button class="bb-pill-btn active" id="btnForm_isolated" onclick="selectLetterForm('isolated')">منفصل</button>
+                                <button class="bb-pill-btn" id="btnForm_initial" onclick="selectLetterForm('initial')">أول الكلمة</button>
+                                <button class="bb-pill-btn" id="btnForm_medial" onclick="selectLetterForm('medial')">وسط الكلمة</button>
+                                <button class="bb-pill-btn" id="btnForm_final" onclick="selectLetterForm('final')">آخر الكلمة</button>
+                            </div>
                         </div>
 
-                        <div class="bb-control-group">
+                        <div class="bb-control-group" id="bbVowelsGroup">
                             <span style="font-size: 0.78rem; font-weight: 800; color: #64748b;">الحركات:</span>
                             <button class="bb-pill-btn" id="btnVowel_fatha" data-vowel="َ" onclick="selectVowel('َ')">ـَ فتحة</button>
                             <button class="bb-pill-btn" id="btnVowel_damma" data-vowel="ُ" onclick="selectVowel('ُ')">ـُ ضمة</button>
@@ -24288,12 +24340,30 @@
                             <button class="bb-pill-btn" id="btnVowel_sukoon" data-vowel="ْ" onclick="selectVowel('ْ')">ـْ سكون</button>
                         </div>
 
+                        <!-- شارة كشف القلم الذكي والإصبع مع استشعار الضغط -->
+                        <div class="bb-stylus-status-badge" id="bbStylusStatusBadge" title="حالة القلم التفاعلي واللمس">
+                            <span id="bbStylusIcon">👆</span>
+                            <span id="bbStylusText">لمس الإصبع</span>
+                            <div class="bb-pressure-meter-box" id="bbPressureMeterBox" title="مستوى ضغط القلم على الشاشة">
+                                <div class="bb-pressure-meter-fill" id="bbStylusPressureFill" style="width: 50%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- عداد الخطوات ونسبة الإنجاز اللحظي -->
+                        <div class="bb-trace-progress-box" id="bbTraceProgressRing">
+                            <span class="bb-step-badge" id="bbTraceStepBadge">خطوة ١ من ١</span>
+                            <div class="bb-progress-mini-bar">
+                                <div class="bb-progress-mini-fill" id="bbTraceProgressMiniFill" style="width: 0%;"></div>
+                            </div>
+                            <span class="bb-pct-label" id="bbTraceProgressPct">٠%</span>
+                        </div>
+
                         <div class="bb-control-group">
                             <button class="bb-action-btn btn-primary-action" onclick="speakLetterSound()" style="width: auto; padding: 4px 12px;" title="استماع لصوت الحرف الفصيح">
-                                <span>🔊</span> <span>نطق الحرف</span>
+                                <span>🔊</span> <span>نطق</span>
                             </button>
                             <button class="bb-action-btn btn-warn-action" onclick="startAutoDemo()" style="width: auto; padding: 4px 12px;" title="محاكاة حركة القلم واليد الذكية">
-                                <span>🎬</span> <span>عرض حركة القلم</span>
+                                <span>🎬</span> <span>عرض الحركة</span>
                             </button>
                         </div>
                     </div>
@@ -24330,6 +24400,7 @@
                                 <canvas class="bb-layer-guidelines" id="bbGridCanvas"></canvas>
                                 <canvas class="bb-layer-trace-guide" id="bbGuideCanvas"></canvas>
                                 <canvas class="bb-layer-drawing" id="bbDrawingCanvas"></canvas>
+                                <canvas class="bb-layer-particles" id="bbParticleCanvas"></canvas>
                             </div>
 
                             <!-- رف الطباشير السفلي -->
@@ -24340,6 +24411,18 @@
 
                         <!-- عمود الأدوات الجانبي -->
                         <div class="bb-sidebar-tools">
+                            <!-- نوع القلم والفرشاة -->
+                            <div>
+                                <div class="bb-tool-section-title">نوع القلم والفرشاة</div>
+                                <div class="bb-brush-palette">
+                                    <button class="bb-pill-btn active" id="btnBrush_chalk" onclick="setBrushType('chalk', this)" title="طباشير سبورة ناعم">🖍️ طباشير</button>
+                                    <button class="bb-pill-btn" id="btnBrush_calligraphy" onclick="setBrushType('calligraphy', this)" title="قلم خط النسخ المشطوف العربي">✒️ خطاط</button>
+                                    <button class="bb-pill-btn" id="btnBrush_neon" onclick="setBrushType('neon', this)" title="قلم النيون المتوهج السحري">⚡ نيون</button>
+                                    <button class="bb-pill-btn" id="btnBrush_rainbow" onclick="setBrushType('rainbow', this)" title="قلم قوس قزح اللوني">🌈 ألوان</button>
+                                    <button class="bb-pill-btn" id="btnBrush_glitter" onclick="setBrushType('glitter', this)" title="فرشاة بريق النجوم والشرارات">✨ نجوم</button>
+                                </div>
+                            </div>
+
                             <!-- سمة السبورة -->
                             <div>
                                 <div class="bb-tool-section-title">سمة السبورة</div>
@@ -24350,16 +24433,16 @@
                                 </div>
                             </div>
 
-                            <!-- ألوان الطباشير -->
+                            <!-- ألوان الطباشير والحبر -->
                             <div>
-                                <div class="bb-tool-section-title">ألوان الطباشير</div>
+                                <div class="bb-tool-section-title">ألوان الرسم</div>
                                 <div class="bb-chalk-palette">
                                     <button class="bb-chalk-color-btn active" style="background: #ffffff;" onclick="setChalkColor('#ffffff', this)" title="أبيض"></button>
                                     <button class="bb-chalk-color-btn" style="background: #fde047;" onclick="setChalkColor('#fde047', this)" title="أصفر"></button>
                                     <button class="bb-chalk-color-btn" style="background: #6ee7b7;" onclick="setChalkColor('#6ee7b7', this)" title="أخضر"></button>
-                                    <button class="bb-chalk-color-btn" style="background: #93c5fd;" onclick="setChalkColor('#93c5fd', this)" title="أزرق"></button>
+                                    <button class="bb-chalk-color-btn" style="background: #38bdf8;" onclick="setChalkColor('#38bdf8', this)" title="سماوي"></button>
                                     <button class="bb-chalk-color-btn" style="background: #f472b6;" onclick="setChalkColor('#f472b6', this)" title="وردي"></button>
-                                    <button class="bb-chalk-color-btn chalk-rainbow" onclick="setChalkColor('rainbow', this)" title="قوس قزح"></button>
+                                    <button class="bb-chalk-color-btn" style="background: #fb923c;" onclick="setChalkColor('#fb923c', this)" title="برتقالي"></button>
                                 </div>
                             </div>
 

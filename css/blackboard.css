@@ -413,6 +413,17 @@
 }
 
 /* ألوان الطباشير */
+.bb-brush-palette {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.bb-brush-palette .bb-pill-btn {
+    padding: 4px 8px;
+    font-size: 0.76rem;
+}
+
 .bb-chalk-palette {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -920,6 +931,208 @@
     }
 }
 
+/* ==========================================================================
+ * 8. أنماط لوحة تتبع الحروف بالقلم أو الإصبع للأجهزة اللوحية والهواتف الذكية
+ * ========================================================================== */
+
+/* وضع ملء الشاشة للأجهزة اللوحية والشاشات الذكية */
+.blackboard-modal-box.fullscreen-mode {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* شريط تصنيف الحروف وتمارين عضلات اليد */
+.bb-category-filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 4px 2px 8px 2px;
+    scrollbar-width: thin;
+    flex-shrink: 0;
+}
+
+.bb-cat-filter-btn {
+    background: white;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 12px;
+    padding: 6px 14px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #334155;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.bb-cat-filter-btn:hover {
+    background: #f8fafc;
+    border-color: #10b981;
+    color: #065f46;
+}
+
+.bb-cat-filter-btn.active {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: white;
+    border-color: #064e3b;
+    box-shadow: 0 3px 8px rgba(5, 150, 105, 0.25);
+}
+
+.bb-cat-filter-btn.btn-warmup-glow {
+    border-color: #f59e0b;
+    background: #fffbeb;
+    color: #b45309;
+    animation: warmupPulse 2s infinite ease-in-out;
+}
+
+@keyframes warmupPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.35); }
+    50% { box-shadow: 0 0 0 5px rgba(245, 158, 11, 0.2); }
+}
+
+.bb-cat-filter-btn.btn-warmup-glow.active {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    border-color: #92400e;
+}
+
+/* بطاقة الحرف لتمرين الإحماء */
+.bb-letter-chip.chip-warmup {
+    background: #fffbeb;
+    border-color: #fcd34d;
+    color: #b45309;
+    font-size: 1.35rem;
+}
+
+.bb-letter-chip.chip-warmup.active {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    border-color: #92400e;
+}
+
+/* شارة كشف القلم الذكي والإصبع وحساسية الضغط */
+.bb-stylus-status-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #f8fafc;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #334155;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.bb-stylus-status-badge.pen-active {
+    background: #eff6ff;
+    border-color: #93c5fd;
+    color: #1d4ed8;
+}
+
+.bb-pressure-meter-box {
+    width: 40px;
+    height: 6px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bb-pressure-meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #059669);
+    transition: width 0.05s linear;
+}
+
+/* عداد الخطوات وشريط التقدم اللحظي لإنجاز الحرف */
+.bb-trace-progress-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ecfdf5;
+    border: 1.5px solid #a7f3d0;
+    border-radius: 10px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #065f46;
+}
+
+.bb-step-badge {
+    font-size: 0.74rem;
+    color: #047857;
+    font-weight: 800;
+}
+
+.bb-progress-mini-bar {
+    width: 60px;
+    height: 7px;
+    background: #cbd5e1;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bb-progress-mini-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #059669);
+    transition: width 0.15s ease;
+}
+
+.bb-pct-label {
+    font-size: 0.82rem;
+    font-weight: 900;
+    min-width: 32px;
+    text-align: center;
+}
+
+/* طبقة كانفاس الجسيمات البصرية والكونفيتي */
+.bb-layer-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 25;
+}
+
+/* زر الانتقال المباشر للوحة التتبع الكبرى من واجهات الدروس */
+.btn-open-big-trace {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    padding: 9px 18px !important;
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #34d399 !important;
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25) !important;
+    font-weight: 900 !important;
+    font-size: 0.92rem !important;
+    border-radius: 14px !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease !important;
+    margin-top: 6px !important;
+}
+
+.btn-open-big-trace:hover {
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4) !important;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+}
+
 /* توافق الشاشات الصغيرة والهواتف */
 @media (max-width: 900px) {
     .bb-stage-wrapper {
@@ -938,5 +1151,12 @@
         width: 98vw;
         height: 98vh;
         border-radius: 12px;
+    }
+    .bb-letter-control-strip {
+        gap: 6px;
+        padding: 6px 10px;
+    }
+    .bb-stylus-status-badge, .bb-trace-progress-box {
+        padding: 3px 8px;
     }
 }

@@ -510,12 +510,15 @@
                                 <div style="font-weight: 900; font-size: 1.15rem; color: #065f46;">
                                     ✍️ سَبُّوْرَةُ تَتَبُّعِ وَرَسْمِ حَرْفِ السِّينِ ( سـ ، س )
                                 </div>
-                                <div style="display: flex; gap: 8px; align-items: center;">
+                                <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
                                     <button class="btn btn-teach" style="padding: 4px 10px; font-size: 0.82rem; background:#059669;" onclick="playSDrawHint()">
                                         <span>💡</span> <span>إرشاد الرسم</span>
                                     </button>
                                     <button class="btn btn-listen" style="padding: 4px 10px; font-size: 0.82rem; background: #fee2e2; color: #991b1b; border-color: #fca5a5;" onclick="clearSCanvas()">
                                         <span>🗑️</span> <span>مسح</span>
+                                    </button>
+                                    <button class="btn btn-teach btn-open-big-trace" onclick="window.openHandwritingTrace('seen', 'isolated')" title="افتح في لوحة تتبع الحروف بالقلم أو الإصبع للأجهزة اللوحية والهواتف">
+                                        <span>✍️</span> <span>لوحة التتبع الكبرى (أجهزة لوحية وهواتف) 🚀</span>
                                     </button>
                                 </div>
                             </div>

@@ -121,9 +121,9 @@
             </button>
 
             <!-- زر سبورة تتبع ورسم الحروف ومختبر الخط العربي والتصحيح الذكي -->
-            <button class="btn-top btn-top-blackboard" id="btnTopBlackboard" onclick="openBlackboardModal('trace')" title="سبورة تتبع ورسم الحروف الهجائية التفاعلية ومختبر الخط العربي والتصحيح الذكي لمسار الكتابة">
+            <button class="btn-top btn-top-blackboard" id="btnTopBlackboard" onclick="openHandwritingTrace()" title="لوحة تتبع الحروف بالقلم أو الإصبع لتدريب عضلات اليد على الكتابة للأجهزة اللوحية والهواتف">
                 <span>✍️</span>
-                <span>سبورة الخط والتتبع</span>
+                <span>لوحة تتبع الحروف</span>
             </button>
 
             <!-- زر بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات الذكية -->
@@ -247,25 +247,25 @@
             </div>
 
             <!-- بطاقة سبورة الخط وتتبع الحروف ومختبر خط النسخ في القائمة الجانبية -->
-            <div class="sidebar-blackboard-card" onclick="openBlackboardModal('trace')" title="سبورة تتبع ورسم الحروف الهجائية ومختبر خط النسخ العربي">
+            <div class="sidebar-blackboard-card" onclick="openHandwritingTrace()" title="لوحة تتبع الحروف بالقلم أو الإصبع ومختبر خط النسخ العربي">
                 <div style="display: flex; align-items: center; justify-content: space-between;">
                     <span style="font-weight: 900; color: #065f46; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>✍️</span> <span>سبورة الخط والتتبع الذكي</span>
+                        <span>✍️</span> <span>لوحة تتبع الحروف وتدريب اليد</span>
                     </span>
                     <span style="font-size: 0.72rem; font-weight: 800; background: #059669; color: white; padding: 2px 6px; border-radius: 6px;">جديد</span>
                 </div>
                 <div class="sidebar-bb-buttons-grid" onclick="event.stopPropagation()">
-                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('trace')" title="تتبع ورسم الحروف مع التصحيح الذكي">
-                        <span>✍️</span> <span>التتبع الذكي</span>
+                    <button class="sidebar-bb-mini-btn" onclick="openHandwritingTrace()" title="تتبع ورسم الحروف مع التصحيح الذكي">
+                        <span>✍️</span> <span>تتبع الحروف</span>
+                    </button>
+                    <button class="sidebar-bb-mini-btn" onclick="openHandwritingTrace('drill_vertical_rain')" title="تمارين إحماء وتهيئة عضلات اليد والأصابع">
+                        <span>💪</span> <span>إحماء العضلات</span>
                     </button>
                     <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('anatomy')" title="مختبر الخط وتشريح أسرار الحروف">
                         <span>🏛️</span> <span>مختبر الخط</span>
                     </button>
                     <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('freehand')" title="سبورة الكلمات والرسم الحر">
                         <span>🎨</span> <span>سبورة الكلمات</span>
-                    </button>
-                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('print')" title="كراسة أوراق عمل تحسين الخط A4">
-                        <span>📄</span> <span>كراسة النسخ</span>
                     </button>
                 </div>
             </div>

@@ -487,12 +487,15 @@
                                         ابدأ من النقطة الحمراء فوق السطر وانزل منحنياً تحت السطر!
                                     </div>
                                 </div>
-                                <div style="display: flex; gap: 8px;">
+                                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                                     <button class="btn btn-listen" style="padding: 4px 12px; font-size: 0.85rem;" onclick="playRDrawHint()">
                                         <span>💡 إرشاد الرسم</span> <span>🔊</span>
                                     </button>
                                     <button class="btn btn-teach" style="padding: 4px 12px; font-size: 0.85rem;" onclick="clearRCanvas()">
                                         <span>🔄 مسح الكل</span>
+                                    </button>
+                                    <button class="btn btn-teach btn-open-big-trace" onclick="window.openHandwritingTrace('raa', 'isolated')" title="افتح في لوحة تتبع الحروف بالقلم أو الإصبع للأجهزة اللوحية والهواتف">
+                                        <span>✍️</span> <span>لوحة التتبع الكبرى (أجهزة لوحية وهواتف) 🚀</span>
                                     </button>
                                 </div>
                             </div>

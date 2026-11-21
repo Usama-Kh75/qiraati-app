@@ -8,6 +8,155 @@
     'use strict';
 
     // ==========================================================================
+    // تمارين إحماء وتهيئة عضلات اليد والأصابع قبل الكتابة (Fine Motor Drills)
+    // للأجهزة اللوحية المدرسية والهواتف الذكية - رياض الأطفال والصف الأول الابتدائي
+    // ==========================================================================
+    const WARMUP_DRILLS_DATA = [
+        {
+            id: 'drill_vertical_rain',
+            char: '🌧️',
+            name: 'خطوط المطر الرأسية',
+            phoneme: 'تمرين الهبوط الرأسي ⬇️',
+            type: 'warmup',
+            words: ['مَطَر', 'غَيْمَة'],
+            tip: 'ارسم خط المطر من الأعلى إلى الأسفل ⬇️ لتدريب عضلات الأصابع والرسغ على الاستقامة الرأسية (تمهيد للألف واللام والطاء).',
+            startPoint: { x: 50, y: 20 },
+            waypoints: [
+                { x: 50, y: 20 },
+                { x: 50, y: 35 },
+                { x: 50, y: 50 },
+                { x: 50, y: 66 }
+            ],
+            direction: 'down',
+            drillType: 'rain'
+        },
+        {
+            id: 'drill_horizontal_train',
+            char: '🚂',
+            name: 'سكة القطار الأفقية',
+            phoneme: 'تمرين الامتداد الأفقي ⬅️',
+            type: 'warmup',
+            words: ['قِطَار', 'سِكَّة'],
+            tip: 'حرك القلم من اليمين إلى اليسار ⬅️ فوق السطر الأحمر لتدريب اليد على مد الحروف العربية (الباء والتاء والثاء والفاء).',
+            startPoint: { x: 82, y: 66 },
+            waypoints: [
+                { x: 82, y: 66 },
+                { x: 62, y: 66 },
+                { x: 42, y: 66 },
+                { x: 22, y: 66 }
+            ],
+            direction: 'rtl',
+            drillType: 'train'
+        },
+        {
+            id: 'drill_diagonal_slide',
+            char: '🛝',
+            name: 'الزحليقة المائلة',
+            phoneme: 'تمرين الانحدار المائل ↙️',
+            type: 'warmup',
+            words: ['زُحْلَيْقَة', 'لَعِبَ'],
+            tip: 'تزحلق بالقلم من أعلى اليمين إلى أسفل اليسار ↙️ لتمهيد كتابة الراء والزاي وجسم الدال المائل.',
+            startPoint: { x: 75, y: 32 },
+            waypoints: [
+                { x: 75, y: 32 },
+                { x: 60, y: 48 },
+                { x: 45, y: 64 },
+                { x: 28, y: 78 }
+            ],
+            direction: 'down-left',
+            drillType: 'slide'
+        },
+        {
+            id: 'drill_wave_sea',
+            char: '🌊',
+            name: 'أمواج البحر المنحنية',
+            phoneme: 'تمرين انحناءات الكؤوس 〰️',
+            type: 'warmup',
+            words: ['بَحْر', 'مَوْج'],
+            tip: 'اصعد واهبط برفق مع أمواج البحر 〰️ لتدريب مرونة الرسغ على كتابة كؤوس النون واللام والسين والياء.',
+            startPoint: { x: 84, y: 60 },
+            waypoints: [
+                { x: 84, y: 60 },
+                { x: 72, y: 74 },
+                { x: 58, y: 52 },
+                { x: 44, y: 74 },
+                { x: 28, y: 52 },
+                { x: 18, y: 66 }
+            ],
+            direction: 'wave',
+            drillType: 'wave'
+        },
+        {
+            id: 'drill_zigzag_mountains',
+            char: '⛰️',
+            name: 'قمم الجبال المتعرجة',
+            phoneme: 'تمرين أسنان الحروف ∧∧∧',
+            type: 'warmup',
+            words: ['جَبَل', 'قِمَّة'],
+            tip: 'اصعد وانزل كقمم الجبال الحادة ∧∧∧ لتدريب التحكم الحركي الدقيق في رسم أسنان السين والشين وسنة الصاد والضاد.',
+            startPoint: { x: 84, y: 66 },
+            waypoints: [
+                { x: 84, y: 66 },
+                { x: 74, y: 44 },
+                { x: 64, y: 66 },
+                { x: 54, y: 44 },
+                { x: 44, y: 66 },
+                { x: 34, y: 44 },
+                { x: 24, y: 66 }
+            ],
+            direction: 'zigzag',
+            drillType: 'zigzag'
+        },
+        {
+            id: 'drill_circle_sun',
+            char: '☀️',
+            name: 'شمس الصباح الدائرية',
+            phoneme: 'تمرين الرؤوس الدائرية 🔄',
+            type: 'warmup',
+            words: ['شَمْس', 'نُور'],
+            tip: 'دور حول الشمس في حلقة دائرية جميلة 🔄 لتدريب اليد على كتابة رؤوس الواو والميم والفاء والقاف والهاء.',
+            startPoint: { x: 50, y: 35 },
+            waypoints: [
+                { x: 50, y: 35 },
+                { x: 35, y: 50 },
+                { x: 50, y: 67 },
+                { x: 65, y: 50 },
+                { x: 50, y: 35 }
+            ],
+            direction: 'circle',
+            drillType: 'circle'
+        },
+        {
+            id: 'drill_spiral_snail',
+            char: '🐚',
+            name: 'قوقعة الحلزون اللولبية',
+            phoneme: 'تمرين التركيز والتوازن العضلي 🌀',
+            type: 'warmup',
+            words: ['حَلَزُون', 'صَدَفَة'],
+            tip: 'انطلق من قلب القوقعة والتف للخارج بسلاسة 🌀 لتدريب التوازن الحركي الدقيق والتحكم في عضلات الأصابع.',
+            startPoint: { x: 50, y: 52 },
+            waypoints: [
+                { x: 50, y: 52 },
+                { x: 44, y: 46 },
+                { x: 56, y: 40 },
+                { x: 62, y: 56 },
+                { x: 42, y: 64 },
+                { x: 32, y: 44 },
+                { x: 68, y: 34 }
+            ],
+            direction: 'spiral',
+            drillType: 'spiral'
+        }
+    ];
+
+    const CURRICULUM_ORDER_IDS = [
+        'alif', 'waaw', 'yaa', 'baa', 'meem', 'dal', 'faa', 'raa',
+        'noon', 'zaay', 'taa', 'qaaf', 'laam', 'haa', 'seen', 'sheen',
+        'saad', 'dhaad', 'taa_straight', 'kaaf', 'ayn', 'ghayn',
+        'jeem', 'khaa', 'thaa', 'dhal', 'dhaa', 'haa_alone'
+    ];
+
+    // ==========================================================================
     // 1. قاعدة البيانات الشاملة للحروف الهجائية وقواعد خط النسخ
     // ==========================================================================
     const ARABIC_LETTERS_DATA = [
@@ -401,21 +550,28 @@
     // ==========================================================================
     const BlackboardState = {
         activeTab: 'trace', // 'trace' | 'anatomy' | 'freehand' | 'print'
+        activeCategory: 'all', // 'all' | 'warmup' | 'curriculum' | 'on_line' | 'below_line' | 'non_connector'
         activeLetterId: 'alif',
         activeLetterForm: 'isolated',
         activeVowel: '',
         boardTheme: 'theme-green', // 'theme-green' | 'theme-black' | 'theme-lined'
         chalkColor: '#ffffff',
         strokeSize: 8,
-        brushType: 'chalk', // 'chalk' | 'pen' | 'calligraphy' | 'rainbow'
+        brushType: 'chalk', // 'chalk' | 'calligraphy' | 'neon' | 'rainbow' | 'glitter'
         guideOpacity: 0.85,
         isDrawing: false,
         lastPoint: null,
+        currentStrokePoints: [],
         userStrokePoints: [],
         undoStack: [],
         isAutoPlaying: false,
         rainbowHue: 0,
-        activeWord: 'دَار'
+        activeWord: 'دَار',
+        currentStep: 1,
+        totalSteps: 1,
+        traceProgressPct: 0,
+        pointerType: 'touch',
+        pressure: 0.5
     };
 
     // عناصر الكانفاس والمحاور
@@ -425,11 +581,201 @@
     let guideCtx = null;
     let gridCanvas = null;
     let gridCtx = null;
+    let particleCanvas = null;
+    let particleCtx = null;
 
     let freehandCanvas = null;
     let freehandCtx = null;
     let freehandGridCanvas = null;
     let freehandGridCtx = null;
+
+    // ==========================================================================
+    // محرك الجسيمات البصرية والشرارات السحرية والكونفيتي (Particle System)
+    // ==========================================================================
+    const magicParticles = [];
+    let particleAnimFrame = null;
+
+    function spawnMagicSparkles(x, y, color = '#fbbf24') {
+        const count = 3 + Math.floor(Math.random() * 4);
+        for (let i = 0; i < count; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = 0.8 + Math.random() * 2.5;
+            magicParticles.push({
+                x: x,
+                y: y,
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed,
+                radius: 2 + Math.random() * 3,
+                color: color === 'rainbow' ? `hsl(${Math.random() * 360}, 90%, 65%)` : color,
+                alpha: 1,
+                decay: 0.03 + Math.random() * 0.03,
+                isStar: Math.random() > 0.4
+            });
+        }
+        if (!particleAnimFrame) {
+            particleAnimFrame = requestAnimationFrame(animateParticles);
+        }
+    }
+
+    function fireCompletionConfetti() {
+        if (!traceCanvas) return;
+        const w = traceCanvas.width / (window.devicePixelRatio || 1);
+        const h = traceCanvas.height / (window.devicePixelRatio || 1);
+        const colors = ['#f59e0b', '#10b981', '#3b82f6', '#ec4899', '#8b5cf6', '#eab308', '#ffffff'];
+
+        for (let i = 0; i < 75; i++) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = 2 + Math.random() * 6;
+            magicParticles.push({
+                x: w * 0.5 + (Math.random() - 0.5) * 60,
+                y: h * 0.5 + (Math.random() - 0.5) * 60,
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed - 2,
+                radius: 3 + Math.random() * 4,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                alpha: 1,
+                decay: 0.012 + Math.random() * 0.015,
+                isStar: Math.random() > 0.3
+            });
+        }
+        if (!particleAnimFrame) {
+            particleAnimFrame = requestAnimationFrame(animateParticles);
+        }
+    }
+
+    function animateParticles() {
+        if (!particleCanvas || !particleCtx) {
+            particleAnimFrame = null;
+            return;
+        }
+        const dpr = window.devicePixelRatio || 1;
+        const w = particleCanvas.width / dpr;
+        const h = particleCanvas.height / dpr;
+        particleCtx.clearRect(0, 0, w, h);
+
+        for (let i = magicParticles.length - 1; i >= 0; i--) {
+            const p = magicParticles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+            p.alpha -= p.decay;
+
+            if (p.alpha <= 0) {
+                magicParticles.splice(i, 1);
+                continue;
+            }
+
+            particleCtx.save();
+            particleCtx.globalAlpha = p.alpha;
+            particleCtx.fillStyle = p.color;
+
+            if (p.isStar) {
+                drawStarShape(particleCtx, p.x, p.y, 4, p.radius * 2, p.radius * 0.8);
+            } else {
+                particleCtx.beginPath();
+                particleCtx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                particleCtx.fill();
+            }
+            particleCtx.restore();
+        }
+
+        if (magicParticles.length > 0) {
+            particleAnimFrame = requestAnimationFrame(animateParticles);
+        } else {
+            particleAnimFrame = null;
+        }
+    }
+
+    function drawStarShape(ctx, cx, cy, spikes, outerRadius, innerRadius) {
+        let rot = Math.PI / 2 * 3;
+        let x = cx;
+        let y = cy;
+        const step = Math.PI / spikes;
+
+        ctx.beginPath();
+        ctx.moveTo(cx, cy - outerRadius);
+        for (let i = 0; i < spikes; i++) {
+            x = cx + Math.cos(rot) * outerRadius;
+            y = cy + Math.sin(rot) * outerRadius;
+            ctx.lineTo(x, y);
+            rot += step;
+
+            x = cx + Math.cos(rot) * innerRadius;
+            y = cy + Math.sin(rot) * innerRadius;
+            ctx.lineTo(x, y);
+            rot += step;
+        }
+        ctx.lineTo(cx, cy - outerRadius);
+        ctx.closePath();
+        ctx.fill();
+    }
+
+    // ==========================================================================
+    // التغذية اللمسية بالاهتزاز للأجهزة اللوحية والهواتف الذكية (Haptic Engine)
+    // ==========================================================================
+    function triggerHaptic(type) {
+        if (!('vibrate' in navigator)) return;
+        try {
+            switch (type) {
+                case 'start':
+                    navigator.vibrate(12);
+                    break;
+                case 'waypoint':
+                    navigator.vibrate([15, 20, 15]);
+                    break;
+                case 'error':
+                    navigator.vibrate([35, 40, 35]);
+                    break;
+                case 'success':
+                    navigator.vibrate([40, 50, 40, 50, 90]);
+                    break;
+            }
+        } catch (e) { }
+    }
+
+    // ==========================================================================
+    // مؤشرات القلم التفاعلي والضغط والتقدم اللحظي
+    // ==========================================================================
+    function updateStylusIndicator(pointerType, pressure = 0.5) {
+        const badge = document.getElementById('bbStylusStatusBadge');
+        const iconEl = document.getElementById('bbStylusIcon');
+        const textEl = document.getElementById('bbStylusText');
+        const fillEl = document.getElementById('bbStylusPressureFill');
+        if (!badge || !iconEl || !textEl || !fillEl) return;
+
+        if (pointerType === 'pen') {
+            iconEl.innerText = '✍️';
+            textEl.innerText = 'قلم ذكي متصل';
+            badge.classList.add('pen-active');
+        } else if (pointerType === 'touch') {
+            iconEl.innerText = '👆';
+            textEl.innerText = 'لمس الإصبع';
+            badge.classList.remove('pen-active');
+        } else {
+            iconEl.innerText = '🖱️';
+            textEl.innerText = 'مؤشر الفأرة';
+            badge.classList.remove('pen-active');
+        }
+
+        const pct = Math.round(Math.min(1, Math.max(0.1, pressure || 0.5)) * 100);
+        fillEl.style.width = `${pct}%`;
+    }
+
+    function updateTraceProgress(pct, currentStep = 1, totalSteps = 1) {
+        const pctEl = document.getElementById('bbTraceProgressPct');
+        const fillEl = document.getElementById('bbTraceProgressMiniFill');
+        const stepEl = document.getElementById('bbTraceStepBadge');
+
+        const cleanPct = Math.min(100, Math.max(0, Math.round(pct)));
+        if (pctEl) pctEl.innerText = `${cleanPct}%`;
+        if (fillEl) fillEl.style.width = `${cleanPct}%`;
+        if (stepEl) {
+            if (totalSteps > 1) {
+                stepEl.innerText = `خطوة ${currentStep} من ${totalSteps}`;
+            } else {
+                stepEl.innerText = `إنجاز الحرف`;
+            }
+        }
+    }
 
     // ==========================================================================
     // 3. محرك الصوتيات التوليدي (Web Audio Synthesizer)
@@ -584,17 +930,20 @@
         gridCanvas = document.getElementById('bbGridCanvas');
         guideCanvas = document.getElementById('bbGuideCanvas');
         traceCanvas = document.getElementById('bbDrawingCanvas');
+        particleCanvas = document.getElementById('bbParticleCanvas');
 
         if (!gridCanvas || !guideCanvas || !traceCanvas) return;
 
         gridCtx = gridCanvas.getContext('2d');
         guideCtx = guideCanvas.getContext('2d');
         traceCtx = traceCanvas.getContext('2d');
+        if (particleCanvas) particleCtx = particleCanvas.getContext('2d');
 
         resizeTraceCanvases();
         attachDrawingEvents(traceCanvas, traceCtx, true);
 
         window.addEventListener('resize', debounce(resizeTraceCanvases, 150));
+        window.addEventListener('orientationchange', () => setTimeout(resizeTraceCanvases, 250));
     }
 
     function resizeTraceCanvases() {
@@ -608,7 +957,10 @@
         const w = rect.width;
         const h = rect.height;
 
-        [gridCanvas, guideCanvas, traceCanvas].forEach(c => {
+        const canvasesToResize = [gridCanvas, guideCanvas, traceCanvas];
+        if (particleCanvas) canvasesToResize.push(particleCanvas);
+
+        canvasesToResize.forEach(c => {
             c.width = w * dpr;
             c.height = h * dpr;
             c.style.width = `${w}px`;
@@ -689,7 +1041,7 @@
     }
 
     // ==========================================================================
-    // 6. رسم المرشد المنقط للحرف ونقاط البداية والتوجيه
+    // 6. رسم المرشد المنقط للحرف أو تمرين إحماء العضلات
     // ==========================================================================
     function drawLetterGuide() {
         if (!guideCtx || !guideCanvas) return;
@@ -700,6 +1052,12 @@
 
         const letter = getActiveLetter();
         if (!letter) return;
+
+        // إذا كان تمرين إحماء لعضلات اليد
+        if (letter.id.startsWith('drill_')) {
+            drawWarmupDrillGuide(guideCtx, letter, w, h);
+            return;
+        }
 
         guideCtx.save();
         guideCtx.globalAlpha = BlackboardState.guideOpacity;
@@ -730,7 +1088,7 @@
             guideCtx.setLineDash([]);
             guideCtx.fillStyle = '#10b981';
             guideCtx.beginPath();
-            guideCtx.arc(spX, spY, 14, 0, Math.PI * 2);
+            guideCtx.arc(spX, spY, 15, 0, Math.PI * 2);
             guideCtx.fill();
             guideCtx.strokeStyle = '#ffffff';
             guideCtx.lineWidth = 3;
@@ -746,7 +1104,7 @@
             // وسم نصي توجيهي "ابدأ من هنا ✍️"
             guideCtx.fillStyle = '#34d399';
             guideCtx.font = 'bold 11px Tajawal, sans-serif';
-            guideCtx.fillText('ابدأ من هنا 🟢', spX, spY - 22);
+            guideCtx.fillText('ابدأ من هنا 🟢', spX, spY - 24);
         }
 
         // رسم نقاط التوجيه الفرعية (Waypoints) إن وجدت
@@ -757,19 +1115,184 @@
 
                 guideCtx.fillStyle = '#f59e0b';
                 guideCtx.beginPath();
-                guideCtx.arc(ptX, ptY, 8, 0, Math.PI * 2);
+                guideCtx.arc(ptX, ptY, 9, 0, Math.PI * 2);
                 guideCtx.fill();
                 guideCtx.strokeStyle = '#ffffff';
                 guideCtx.lineWidth = 2;
                 guideCtx.stroke();
 
                 guideCtx.fillStyle = '#ffffff';
-                guideCtx.font = 'bold 9px Tajawal, sans-serif';
+                guideCtx.font = 'bold 10px Tajawal, sans-serif';
                 guideCtx.fillText(`${idx + 2}`, ptX, ptY);
             });
         }
 
+        // رسم مؤشر النقط للحروف المنقوطة
+        if (letter.dots && letter.dots.length > 0) {
+            letter.dots.forEach((dot) => {
+                const dotX = (dot.x / 100) * w;
+                const dotY = (dot.y / 100) * h;
+
+                guideCtx.setLineDash([3, 4]);
+                guideCtx.strokeStyle = 'rgba(248, 113, 113, 0.85)';
+                guideCtx.lineWidth = 2;
+                guideCtx.beginPath();
+                guideCtx.arc(dotX, dotY, 11, 0, Math.PI * 2);
+                guideCtx.stroke();
+
+                guideCtx.fillStyle = 'rgba(239, 68, 68, 0.25)';
+                guideCtx.fill();
+
+                guideCtx.fillStyle = '#fca5a5';
+                guideCtx.font = 'bold 9px Tajawal, sans-serif';
+                guideCtx.fillText('نقطة', dotX, dotY - 14);
+            });
+        }
+
         guideCtx.restore();
+    }
+
+    // رسم أدلة تمارين إحماء وتهيئة عضلات اليد والأصابع
+    function drawWarmupDrillGuide(ctx, letter, w, h) {
+        ctx.save();
+        ctx.globalAlpha = BlackboardState.guideOpacity;
+
+        const baselineY = h * 0.66;
+        const ascenderY = h * 0.22;
+
+        ctx.setLineDash([6, 8]);
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 3.5;
+
+        if (letter.drillType === 'rain') {
+            const cols = [w * 0.3, w * 0.5, w * 0.7];
+            cols.forEach(cx => {
+                ctx.beginPath();
+                ctx.moveTo(cx, ascenderY + 24);
+                ctx.lineTo(cx, baselineY);
+                ctx.stroke();
+
+                ctx.font = '24px Tajawal, sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText('☁️', cx, ascenderY + 4);
+                ctx.fillText('💧', cx, baselineY + 22);
+            });
+        } else if (letter.drillType === 'train') {
+            ctx.beginPath();
+            ctx.moveTo(w * 0.84, baselineY);
+            ctx.lineTo(w * 0.16, baselineY);
+            ctx.stroke();
+
+            ctx.font = '28px Tajawal, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('🚂', w * 0.86, baselineY - 14);
+            ctx.fillText('🚉', w * 0.14, baselineY - 14);
+        } else if (letter.drillType === 'slide') {
+            ctx.beginPath();
+            ctx.moveTo(w * 0.78, ascenderY + 20);
+            ctx.lineTo(w * 0.22, baselineY + 20);
+            ctx.stroke();
+
+            ctx.font = '28px Tajawal, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('🛝', w * 0.82, ascenderY + 14);
+            ctx.fillText('🧒', w * 0.20, baselineY + 36);
+        } else if (letter.drillType === 'wave') {
+            ctx.beginPath();
+            ctx.moveTo(w * 0.86, baselineY - 10);
+            ctx.bezierCurveTo(w * 0.72, baselineY + 40, w * 0.58, baselineY - 50, w * 0.44, baselineY + 40);
+            ctx.bezierCurveTo(w * 0.32, baselineY - 40, w * 0.22, baselineY + 20, w * 0.14, baselineY - 10);
+            ctx.stroke();
+
+            ctx.font = '26px Tajawal, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('⛵', w * 0.86, baselineY - 28);
+            ctx.fillText('🐬', w * 0.14, baselineY + 30);
+        } else if (letter.drillType === 'zigzag') {
+            ctx.beginPath();
+            ctx.moveTo(w * 0.86, baselineY);
+            ctx.lineTo(w * 0.74, ascenderY + 30);
+            ctx.lineTo(w * 0.62, baselineY);
+            ctx.lineTo(w * 0.50, ascenderY + 30);
+            ctx.lineTo(w * 0.38, baselineY);
+            ctx.lineTo(w * 0.26, ascenderY + 30);
+            ctx.lineTo(w * 0.14, baselineY);
+            ctx.stroke();
+
+            ctx.font = '24px Tajawal, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('🚩', w * 0.50, ascenderY + 12);
+        } else if (letter.drillType === 'circle') {
+            ctx.beginPath();
+            ctx.arc(w * 0.5, h * 0.5, h * 0.22, 0, Math.PI * 2);
+            ctx.stroke();
+
+            ctx.font = '36px Tajawal, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('☀️', w * 0.5, h * 0.5 + 12);
+        } else if (letter.drillType === 'spiral') {
+            ctx.beginPath();
+            const cx = w * 0.5;
+            const cy = h * 0.5;
+            for (let a = 0; a < Math.PI * 6; a += 0.1) {
+                const r = 4 + a * 10;
+                const x = cx + Math.cos(a) * r;
+                const y = cy + Math.sin(a) * r;
+                if (a === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+
+            ctx.font = '28px Tajawal, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('🐌', cx, cy - 20);
+        }
+
+        // رسم نقطة البداية ونقاط التوجيه للتمرين
+        if (letter.startPoint) {
+            const spX = (letter.startPoint.x / 100) * w;
+            const spY = (letter.startPoint.y / 100) * h;
+
+            ctx.setLineDash([]);
+            ctx.fillStyle = '#10b981';
+            ctx.beginPath();
+            ctx.arc(spX, spY, 15, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 12px Tajawal, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('1', spX, spY);
+
+            ctx.fillStyle = '#34d399';
+            ctx.font = 'bold 11px Tajawal, sans-serif';
+            ctx.fillText('ابدأ من هنا 🟢', spX, spY - 24);
+        }
+
+        if (letter.waypoints && letter.waypoints.length > 2) {
+            letter.waypoints.slice(1, -1).forEach((pt, idx) => {
+                const ptX = (pt.x / 100) * w;
+                const ptY = (pt.y / 100) * h;
+
+                ctx.fillStyle = '#f59e0b';
+                ctx.beginPath();
+                ctx.arc(ptX, ptY, 9, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 10px Tajawal, sans-serif';
+                ctx.fillText(`${idx + 2}`, ptX, ptY);
+            });
+        }
+
+        ctx.restore();
     }
 
     function getDisplayChar(letter) {
@@ -785,7 +1308,7 @@
     }
 
     // ==========================================================================
-    // 7. محرك الرسم والتفاعل الحسي (Drawing & Pointer Handling)
+    // 7. محرك الرسم والتفاعل الحسي وتنعيم المنحنيات (Drawing & Pointer Engine)
     // ==========================================================================
     function attachDrawingEvents(canvas, ctx, isTraceMode = true) {
         canvas.addEventListener('pointerdown', (e) => onPointerDown(e, canvas, ctx, isTraceMode));
@@ -808,42 +1331,53 @@
         BlackboardState.isDrawing = true;
         const pt = getCanvasCoords(e, canvas);
         BlackboardState.lastPoint = pt;
+        BlackboardState.currentStrokePoints = [pt];
+
+        BlackboardState.pointerType = e.pointerType || 'touch';
+        BlackboardState.pressure = e.pressure || 0.5;
+        updateStylusIndicator(e.pointerType, e.pressure);
 
         if (isTraceMode) {
-            BlackboardState.userStrokePoints = [pt];
+            BlackboardState.userStrokePoints.push(pt);
             saveUndoState();
             checkStartingDirection(pt, canvas);
+            triggerHaptic('start');
         }
 
         playChalkSound();
-        drawStrokeSegment(ctx, pt, pt, BlackboardState.strokeSize);
+        spawnMagicSparkles(pt.x, pt.y, BlackboardState.chalkColor);
+        drawStrokeSegment(ctx, pt, pt, getComputedStrokeWidth(pt.pressure));
     }
 
     function onPointerMove(e, canvas, ctx, isTraceMode) {
         if (!BlackboardState.isDrawing) return;
         const pt = getCanvasCoords(e, canvas);
 
+        BlackboardState.currentStrokePoints.push(pt);
+        updateStylusIndicator(e.pointerType, e.pressure);
+
         if (isTraceMode) {
             BlackboardState.userStrokePoints.push(pt);
-            // فحص الاتجاه في الوقت الحقيقي
             realtimeDirectionCheck(canvas);
+            updateRealtimeProgress(canvas);
         }
 
-        // حساب سماكة القلم بناءً على نوع الفرشاة
-        let size = BlackboardState.strokeSize;
-        if (BlackboardState.brushType === 'calligraphy') {
-            // محاكاة قلم الخط المشطوف: يتغير العرض حسب زاوية الحركة
-            const dx = pt.x - BlackboardState.lastPoint.x;
-            const dy = pt.y - BlackboardState.lastPoint.y;
-            const angle = Math.atan2(dy, dx);
-            size = BlackboardState.strokeSize * (0.4 + 0.6 * Math.abs(Math.sin(angle - Math.PI / 4)));
+        const pts = BlackboardState.currentStrokePoints;
+        const pLen = pts.length;
+        const computedSize = getComputedStrokeWidth(pt.pressure);
+
+        if (pLen >= 3) {
+            drawSmoothStrokeSegment(ctx, pts[pLen - 3], pts[pLen - 2], pts[pLen - 1], computedSize);
+        } else {
+            drawStrokeSegment(ctx, BlackboardState.lastPoint, pt, computedSize);
         }
 
-        drawStrokeSegment(ctx, BlackboardState.lastPoint, pt, size);
         BlackboardState.lastPoint = pt;
 
-        // تشغيل صوت طباشيري خفيف أثناء السحب
-        if (Math.random() < 0.25) playChalkSound();
+        if (Math.random() < 0.45) {
+            spawnMagicSparkles(pt.x, pt.y, BlackboardState.chalkColor);
+        }
+        if (Math.random() < 0.2) playChalkSound();
     }
 
     function onPointerUp(e, canvas, ctx, isTraceMode) {
@@ -856,23 +1390,76 @@
         }
     }
 
+    function getComputedStrokeWidth(pressure = 0.5) {
+        let size = BlackboardState.strokeSize;
+        if (BlackboardState.pointerType === 'pen' && pressure > 0) {
+            size = size * (0.45 + pressure * 0.95);
+        }
+        return size;
+    }
+
     function drawStrokeSegment(ctx, fromPt, toPt, size) {
         ctx.save();
         ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
-        ctx.lineWidth = size;
 
         let strokeColor = BlackboardState.chalkColor;
         if (BlackboardState.brushType === 'rainbow') {
-            BlackboardState.rainbowHue = (BlackboardState.rainbowHue + 4) % 360;
+            BlackboardState.rainbowHue = (BlackboardState.rainbowHue + 3) % 360;
             strokeColor = `hsl(${BlackboardState.rainbowHue}, 90%, 65%)`;
         }
 
+        if (BlackboardState.brushType === 'calligraphy') {
+            const dx = toPt.x - fromPt.x;
+            const dy = toPt.y - fromPt.y;
+            const angle = Math.atan2(dy, dx);
+            size = size * (0.35 + 0.65 * Math.abs(Math.sin(angle - Math.PI / 4)));
+        } else if (BlackboardState.brushType === 'neon') {
+            ctx.shadowColor = strokeColor;
+            ctx.shadowBlur = 14;
+        }
+
         ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = size;
 
         ctx.beginPath();
         ctx.moveTo(fromPt.x, fromPt.y);
         ctx.lineTo(toPt.x, toPt.y);
+        ctx.stroke();
+
+        ctx.restore();
+    }
+
+    function drawSmoothStrokeSegment(ctx, p0, p1, p2, size) {
+        ctx.save();
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        let strokeColor = BlackboardState.chalkColor;
+        if (BlackboardState.brushType === 'rainbow') {
+            BlackboardState.rainbowHue = (BlackboardState.rainbowHue + 3) % 360;
+            strokeColor = `hsl(${BlackboardState.rainbowHue}, 90%, 65%)`;
+        }
+
+        if (BlackboardState.brushType === 'calligraphy') {
+            const dx = p2.x - p1.x;
+            const dy = p2.y - p1.y;
+            const angle = Math.atan2(dy, dx);
+            size = size * (0.35 + 0.65 * Math.abs(Math.sin(angle - Math.PI / 4)));
+        } else if (BlackboardState.brushType === 'neon') {
+            ctx.shadowColor = strokeColor;
+            ctx.shadowBlur = 14;
+        }
+
+        ctx.strokeStyle = strokeColor;
+        ctx.lineWidth = size;
+
+        const midX = (p1.x + p2.x) / 2;
+        const midY = (p1.y + p2.y) / 2;
+
+        ctx.beginPath();
+        ctx.moveTo(p0.x, p0.y);
+        ctx.quadraticCurveTo(p1.x, p1.y, midX, midY);
         ctx.stroke();
 
         ctx.restore();
@@ -906,7 +1493,13 @@
         const w = traceCanvas.width / (window.devicePixelRatio || 1);
         const h = traceCanvas.height / (window.devicePixelRatio || 1);
         traceCtx.clearRect(0, 0, w, h);
+        if (particleCtx && particleCanvas) {
+            particleCtx.clearRect(0, 0, w, h);
+        }
+        magicParticles.length = 0;
         BlackboardState.userStrokePoints = [];
+        BlackboardState.currentStrokePoints = [];
+        updateTraceProgress(0, 1, 1);
         hideEvaluationOverlay();
         hideDirectionWarning();
     };
@@ -932,8 +1525,9 @@
 
         // إذا بدأ بعيداً جداً عن النقطة الخضراء
         if (dist > w * 0.28) {
-            showDirectionWarning(`⚠️ انتبه يا بطل: ابدأ دائماً من النقطة الخضراء 🟢 بالأعلى!`);
+            showDirectionWarning(`⚠️ انتبه يا بطل: ابدأ دائماً من النقطة الخضراء 🟢`);
             playWarningSound();
+            triggerHaptic('error');
         }
     }
 
@@ -947,12 +1541,39 @@
 
         // تحقق من الاتجاه المعاكس
         if (letter.direction === 'down' && (pLast.y < p1.y - 40)) {
-            showDirectionWarning(`⚠️ اتجاه خاطئ: حرف ${letter.name} يُكتب من الأعلى إلى الأسفل ⬇️`);
+            showDirectionWarning(`⚠️ اتجاه خاطئ: مسار (${letter.name}) يبدأ من الأعلى إلى الأسفل ⬇️`);
             playWarningSound();
+            triggerHaptic('error');
         } else if (letter.direction === 'rtl' && (pLast.x > p1.x + 50)) {
             showDirectionWarning(`⚠️ انتبه: الكتابة باللغة العربية تبدأ من اليمين نحو اليسار ⬅️`);
             playWarningSound();
+            triggerHaptic('error');
         }
+    }
+
+    function updateRealtimeProgress(canvas) {
+        const pts = BlackboardState.userStrokePoints;
+        if (pts.length < 5) return;
+
+        const letter = getActiveLetter();
+        if (!letter) return;
+
+        const w = canvas.width / (window.devicePixelRatio || 1);
+        const h = canvas.height / (window.devicePixelRatio || 1);
+        const waypoints = letter.waypoints || [letter.startPoint];
+
+        let visited = 0;
+        waypoints.forEach(wp => {
+            const wpX = (wp.x / 100) * w;
+            const wpY = (wp.y / 100) * h;
+            const minDistance = Math.min(...pts.map(p => Math.hypot(p.x - wpX, p.y - wpY)));
+            if (minDistance < w * 0.16) {
+                visited++;
+            }
+        });
+
+        const pct = Math.round((visited / waypoints.length) * 100);
+        updateTraceProgress(pct, 1, 1);
     }
 
     function evaluateUserStroke(canvas) {
@@ -988,18 +1609,25 @@
 
         if (score >= 80) {
             stars = '⭐⭐⭐';
-            feedback = `رائع ومبهر يا بطل! 🌟 كتبت حرف (${letter.name}) ببراعة وإتقان تام لخط النسخ.`;
+            feedback = letter.id.startsWith('drill_')
+                ? `رائع ومبهر يا بطل! 🌟 أنجزت تمرين (${letter.name}) بمرونة وقوة تحكم عالية في عضلات يدك.`
+                : `رائع ومبهر يا بطل! 🌟 كتبت حرف (${letter.name}) ببراعة وإتقان تام لخط النسخ.`;
             starCount = 3;
             score = Math.min(100, score + 10);
+            updateTraceProgress(100, 1, 1);
+            triggerHaptic('success');
+            fireCompletionConfetti();
             if (window.mascotCelebrates) window.mascotCelebrates();
         } else if (score >= 60) {
             stars = '⭐⭐';
             feedback = `أحسنت بني! رسم جميل ومسار طيب، ركز أكثر على البقاء على سطر الأساس.`;
             starCount = 2;
+            triggerHaptic('waypoint');
         } else {
             stars = '⭐';
             feedback = `محاولة شجاعة! حاول مرة أخرى واتبع الأسهم والنقاط من 1 إلى 2.`;
             starCount = 1;
+            triggerHaptic('error');
         }
 
         // تشغيل نغمة النجوم
@@ -1080,7 +1708,6 @@
             }
 
             const t = step / totalSteps;
-            // استيفاء مسار بيزير أو خطوط
             const idx = Math.min(pts.length - 2, Math.floor(t * (pts.length - 1)));
             const subT = (t * (pts.length - 1)) - idx;
             const pA = pts[idx];
@@ -1105,13 +1732,18 @@
     };
 
     // ==========================================================================
-    // 10. تشغيل نطق الحرف بصوت المعلمة الفصيح
+    // 10. تشغيل نطق الحرف أو تمرين الإحماء بصوت المعلمة الفصيح
     // ==========================================================================
     window.speakLetterSound = function () {
         const letter = getActiveLetter();
         if (!letter) return;
 
-        const textToSpeak = `حرف ${letter.name}. صوته: ${letter.phoneme}. مثل: ${letter.words[0] || ''}`;
+        let textToSpeak = '';
+        if (letter.id.startsWith('drill_')) {
+            textToSpeak = `${letter.name}. ${letter.phoneme}. ${letter.tip}`;
+        } else {
+            textToSpeak = `حرف ${letter.name}. صوته: ${letter.phoneme}. مثل: ${letter.words[0] || ''}`;
+        }
 
         if (window.mascotSpeak) {
             window.mascotSpeak(textToSpeak, letter.audioKey || null);
@@ -1124,23 +1756,66 @@
     };
 
     // ==========================================================================
-    // 11. تبديل سمة السبورة وألوان الطباشير وسماكة القلم
+    // 11. تبديل سمة السبورة وألوان الطباشير وسماكة القلم والفرشاة وملء الشاشة
     // ==========================================================================
+    window.toggleBlackboardFullscreen = function () {
+        const modalBox = document.querySelector('.blackboard-modal-box');
+        const btn = document.getElementById('bbFullscreenBtn');
+        if (!modalBox) return;
+
+        modalBox.classList.toggle('fullscreen-mode');
+        const isFull = modalBox.classList.contains('fullscreen-mode');
+
+        if (btn) {
+            btn.innerHTML = isFull ? '<span>🗗</span> <span>نافذة عادية</span>' : '<span>⛶</span> <span>ملء الشاشة</span>';
+        }
+
+        try {
+            if (isFull) {
+                if (document.documentElement.requestFullscreen && !document.fullscreenElement) {
+                    document.documentElement.requestFullscreen().catch(() => { });
+                }
+            } else {
+                if (document.exitFullscreen && document.fullscreenElement) {
+                    document.exitFullscreen().catch(() => { });
+                }
+            }
+        } catch (e) { }
+
+        setTimeout(resizeTraceCanvases, 100);
+    };
+
+    window.openHandwritingTrace = function (letterId, formKey = 'isolated', mode = 'guided') {
+        window.openBlackboardModal('trace');
+        if (letterId) {
+            setTimeout(() => {
+                if (letterId.startsWith('drill_')) {
+                    filterLetterCategory('warmup');
+                }
+                selectLetter(letterId);
+                if (formKey && !letterId.startsWith('drill_')) {
+                    selectLetterForm(formKey);
+                }
+            }, 80);
+        }
+    };
+
     window.setBoardTheme = function (themeKey) {
         BlackboardState.boardTheme = themeKey;
         const board = document.getElementById('bbBoardFrame');
         if (!board) return;
         board.className = `bb-board-frame ${themeKey}`;
 
-        // إعادة رسم الشبكة والخطوط لتتناسب مع السمة
         resizeTraceCanvases();
     };
 
     window.setChalkColor = function (colorHex, btnEl) {
-        BlackboardState.brushType = (colorHex === 'rainbow') ? 'rainbow' : 'chalk';
         BlackboardState.chalkColor = colorHex === 'rainbow' ? '#ffffff' : colorHex;
+        if (colorHex === 'rainbow') {
+            BlackboardState.brushType = 'rainbow';
+        }
 
-        document.querySelectorAll('.bb-chalk-color-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.bb-chalk-palette .bb-chalk-color-btn').forEach(b => b.classList.remove('active'));
         if (btnEl) btnEl.classList.add('active');
     };
 
@@ -1150,8 +1825,15 @@
         if (btnEl) btnEl.classList.add('active');
     };
 
-    window.setBrushType = function (typeKey) {
+    window.setBrushType = function (typeKey, btnEl) {
         BlackboardState.brushType = typeKey;
+        document.querySelectorAll('.bb-brush-palette .bb-pill-btn').forEach(b => b.classList.remove('active'));
+        if (btnEl) {
+            btnEl.classList.add('active');
+        } else {
+            const targetBtn = document.getElementById(`btnBrush_${typeKey}`);
+            if (targetBtn) targetBtn.classList.add('active');
+        }
     };
 
     window.setGuideOpacity = function (opacityVal) {
@@ -1160,14 +1842,63 @@
     };
 
     // ==========================================================================
-    // 12. شريط اختيار الحروف والمواضع والحركات
+    // 12. شريط اختيار وتصنيف الحروف والمواضع والحركات
     // ==========================================================================
+    window.filterLetterCategory = function (catKey) {
+        BlackboardState.activeCategory = catKey;
+        document.querySelectorAll('.bb-cat-filter-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.getAttribute('data-cat') === catKey);
+        });
+        renderLetterSelector();
+
+        // اختيار أول عنصر في التصنيف
+        let firstItem = null;
+        if (catKey === 'warmup') {
+            firstItem = WARMUP_DRILLS_DATA[0];
+        } else if (catKey === 'curriculum') {
+            firstItem = getCurriculumOrderedLetters()[0];
+        } else if (catKey === 'on_line') {
+            firstItem = ARABIC_LETTERS_DATA.find(l => l.type === 'on_line');
+        } else if (catKey === 'below_line') {
+            firstItem = ARABIC_LETTERS_DATA.find(l => l.type === 'below_line');
+        } else if (catKey === 'non_connector') {
+            firstItem = ARABIC_LETTERS_DATA.find(l => !l.connector);
+        } else {
+            firstItem = ARABIC_LETTERS_DATA[0];
+        }
+
+        if (firstItem) {
+            selectLetter(firstItem.id);
+        }
+    };
+
+    function getCurriculumOrderedLetters() {
+        return CURRICULUM_ORDER_IDS.map(id => ARABIC_LETTERS_DATA.find(l => l.id === id)).filter(Boolean);
+    }
+
     function renderLetterSelector() {
         const container = document.getElementById('bbLetterSelectorBar');
         if (!container) return;
 
-        container.innerHTML = ARABIC_LETTERS_DATA.map(l => `
-            <button class="bb-letter-chip ${l.id === BlackboardState.activeLetterId ? 'active' : ''}"
+        let lettersToDisplay = [];
+        const cat = BlackboardState.activeCategory || 'all';
+
+        if (cat === 'warmup') {
+            lettersToDisplay = WARMUP_DRILLS_DATA;
+        } else if (cat === 'curriculum') {
+            lettersToDisplay = getCurriculumOrderedLetters();
+        } else if (cat === 'on_line') {
+            lettersToDisplay = ARABIC_LETTERS_DATA.filter(l => l.type === 'on_line');
+        } else if (cat === 'below_line') {
+            lettersToDisplay = ARABIC_LETTERS_DATA.filter(l => l.type === 'below_line');
+        } else if (cat === 'non_connector') {
+            lettersToDisplay = ARABIC_LETTERS_DATA.filter(l => !l.connector);
+        } else {
+            lettersToDisplay = ARABIC_LETTERS_DATA;
+        }
+
+        container.innerHTML = lettersToDisplay.map(l => `
+            <button class="bb-letter-chip ${l.id === BlackboardState.activeLetterId ? 'active' : ''} ${l.id.startsWith('drill_') ? 'chip-warmup' : ''}"
                     onclick="selectLetter('${l.id}')"
                     title="${l.name}">
                 ${l.char}
@@ -1182,25 +1913,49 @@
         const letter = getActiveLetter();
         if (!letter) return;
 
-        // تحديث شريط المواضع
-        updateLetterFormButtons();
+        const isWarmup = letter.id.startsWith('drill_');
+        const formsGroup = document.getElementById('bbLetterFormsGroup');
+        const vowelsGroup = document.getElementById('bbVowelsGroup');
 
-        // تحديث نصيحة خط النسخ
+        if (formsGroup) formsGroup.style.display = isWarmup ? 'none' : 'inline-flex';
+        if (vowelsGroup) vowelsGroup.style.display = isWarmup ? 'none' : 'flex';
+
+        if (!isWarmup) {
+            updateLetterFormButtons();
+        }
+
         const tipEl = document.getElementById('bbLetterTipText');
         if (tipEl) tipEl.innerText = letter.tip;
 
         const titleEl = document.getElementById('bbActiveLetterTitle');
-        if (titleEl) titleEl.innerText = `حرف ${letter.name} (${letter.char})`;
+        if (titleEl) {
+            titleEl.innerText = isWarmup ? `تمرين: ${letter.name}` : `حرف ${letter.name} (${letter.char})`;
+        }
 
+        updateTraceProgress(0, 1, 1);
         clearBlackboard();
         drawLetterGuide();
     };
 
     window.selectNextLetter = function () {
         hideEvaluationOverlay();
-        const curIdx = ARABIC_LETTERS_DATA.findIndex(l => l.id === BlackboardState.activeLetterId);
-        const nextIdx = (curIdx + 1) % ARABIC_LETTERS_DATA.length;
-        selectLetter(ARABIC_LETTERS_DATA[nextIdx].id);
+        const cat = BlackboardState.activeCategory || 'all';
+        let list = ARABIC_LETTERS_DATA;
+        if (cat === 'warmup') {
+            list = WARMUP_DRILLS_DATA;
+        } else if (cat === 'curriculum') {
+            list = getCurriculumOrderedLetters();
+        } else if (cat === 'on_line') {
+            list = ARABIC_LETTERS_DATA.filter(l => l.type === 'on_line');
+        } else if (cat === 'below_line') {
+            list = ARABIC_LETTERS_DATA.filter(l => l.type === 'below_line');
+        } else if (cat === 'non_connector') {
+            list = ARABIC_LETTERS_DATA.filter(l => !l.connector);
+        }
+
+        const curIdx = list.findIndex(l => l.id === BlackboardState.activeLetterId);
+        const nextIdx = (curIdx + 1) % list.length;
+        selectLetter(list[nextIdx].id);
     };
 
     window.selectLetterForm = function (formKey) {
@@ -1235,6 +1990,9 @@
     }
 
     function getActiveLetter() {
+        if (BlackboardState.activeLetterId && BlackboardState.activeLetterId.startsWith('drill_')) {
+            return WARMUP_DRILLS_DATA.find(d => d.id === BlackboardState.activeLetterId) || WARMUP_DRILLS_DATA[0];
+        }
         return ARABIC_LETTERS_DATA.find(l => l.id === BlackboardState.activeLetterId) || ARABIC_LETTERS_DATA[0];
     }
 
