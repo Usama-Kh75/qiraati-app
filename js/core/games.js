@@ -280,7 +280,7 @@
         { word: 'مَامَا', syllables: ['مَا', 'مَا'], pic: 'unit1_story_kitchen.png', audio: 'letter_m_read_mama' },
         { word: 'نُور', syllables: ['نُو', 'ر'], pic: 'unit2_school_listen.png', audio: 'act5_noor' },
         { word: 'بُوق', syllables: ['بُو', 'ق'], pic: 'activity_booq_scene.png', audio: 'letter_q_booq_syllables' },
-        { word: 'مِيَاه', syllables: ['مِـ', 'يَا', 'ه'], pic: 'activity_7.png', audio: 'act5_halwa' },
+        { word: 'مِيَاه', syllables: ['مِـ', 'يَا', 'ه'], pic: 'activity_ha_scene.png', audio: 'act5_halwa' },
         { word: 'قِطَار', syllables: ['قِـ', 'طَا', 'ر'], pic: 'activity_3_items.png', audio: 'tanween_dham_qitarun' },
         { word: 'غَزَال', syllables: ['غَـ', 'زَا', 'ل'], pic: 'activity_8_directions.png', audio: 'letter_ghayn_words_intro' }
     ];
