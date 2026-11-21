@@ -101,7 +101,8 @@ def build_standalone():
         'css/classroom-quiz.css',
         'css/interactive-guide.css',
         'css/diagnostic-exams.css',
-        'css/voice-coach.css'
+        'css/voice-coach.css',
+        'css/dictation-lab.css'
     ]
 
     css_combined = []
@@ -241,6 +242,7 @@ def build_standalone():
         'js/core/interactive-guide.js',
         'js/core/diagnostic-exams.js',
         'js/core/voice-coach.js',
+        'js/core/dictation-lab.js',
         'js/lessons/prep.js',
         'js/lessons/unit1.js',
         'js/lessons/unit2.js',

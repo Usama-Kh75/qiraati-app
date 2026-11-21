@@ -92,6 +92,7 @@ def run_integration_audit():
         'interactive-guide.js': os.path.join(BASE_DIR, 'js', 'core', 'interactive-guide.js'),
         'diagnostic-exams.js': os.path.join(BASE_DIR, 'js', 'core', 'diagnostic-exams.js'),
         'voice-coach.js': os.path.join(BASE_DIR, 'js', 'core', 'voice-coach.js'),
+        'dictation-lab.js': os.path.join(BASE_DIR, 'js', 'core', 'dictation-lab.js'),
         'audio.js': os.path.join(BASE_DIR, 'js', 'core', 'audio.js'),
         'navigation.js': os.path.join(BASE_DIR, 'js', 'core', 'navigation.js'),
         'modals.js': os.path.join(BASE_DIR, 'js', 'core', 'modals.js'),
@@ -358,6 +359,57 @@ def run_integration_audit():
     if not any("عنصر استوديو التدريب الصوتي" in e for e in errors):
         successes.append(f"كافة عناصر استوديو التدريب الصوتي والتعرف على نطق التلميذ ({len(voice_coach_elements)} عنصراً) متكاملة بنسبة 100%.")
 
+    # فحص عناصر مختبر الإملاء المنظور والاختباري الذكي (Smart Phonics Spelling & Dictation Lab)
+    print("\n--- فحص مختبر الإملاء المنظور والاختباري الذكي بالتحليل الصوتي الفوري ---")
+    dictation_lab_elements = [
+        ('نافذة مختبر الإملاء الرئيسية', 'dictationLabModal'),
+        ('زر تبويب الإملاء المنظور', 'dlTabBtn_seen'),
+        ('زر تبويب الإملاء الاختباري', 'dlTabBtn_blind'),
+        ('زر تبويب سبورة الخط', 'dlTabBtn_whiteboard'),
+        ('زر تبويب بنك المنهج', 'dlTabBtn_bank'),
+        ('زر تبويب شيتات A4', 'dlTabBtn_worksheet'),
+        ('زر تبويب لوحة الإنجاز', 'dlTabBtn_stats'),
+        ('حاوية تبويب الإملاء المنظور', 'dlTabContent_seen'),
+        ('حاوية تبويب الإملاء الاختباري', 'dlTabContent_blind'),
+        ('حاوية تبويب سبورة الخط', 'dlTabContent_whiteboard'),
+        ('حاوية تبويب بنك المنهج', 'dlTabContent_bank'),
+        ('حاوية تبويب شيتات A4', 'dlTabContent_worksheet'),
+        ('حاوية تبويب لوحة الإنجاز', 'dlTabContent_stats'),
+        ('بطاقة عرض الكلمة المستهدفة', 'dlWordDisplayCard'),
+        ('نص الكلمة المستهدفة', 'dlWordTargetText'),
+        ('صف مقاطع الكلمة الملونة', 'dlWordSyllablesRow'),
+        ('شارة المهارة الإملائية النشطة', 'dlActiveSkillBadge'),
+        ('شريط تقدم مؤقت الإخفاء', 'dlTimerProgress'),
+        ('حاوية خانات التهجئة التفاعلية', 'dlSlotsWrapper'),
+        ('صف بطاقات الحروف المبعثرة', 'dlScrambledTilesRow'),
+        ('بطاقة النتيجة والتشخيص التلقائي', 'dlResultCard'),
+        ('أيقونة النتيجة الإملائية', 'dlResultIcon'),
+        ('عنوان نتيجة التشخيص', 'dlResultTitle'),
+        ('الوصف التوضيحي للتشخيص', 'dlResultSubtitle'),
+        ('حاوية مقارنة الفوارق التفصيلية', 'dlDiffContainer'),
+        ('نص نصيحة وتوجيه فصيح', 'dlFaseehAdviceText'),
+        ('زر الاستماع الصوتي المقارن', 'dlFaseehAudioBtn'),
+        ('كانفاس سبورة الخط المسطرة', 'dlWhiteboardCanvas'),
+        ('زر قلم الخط', 'dlWbBtn_pen'),
+        ('زر قلم التصحيح', 'dlWbBtn_corrector'),
+        ('زر قلم التظليل', 'dlWbBtn_highlighter'),
+        ('زر ممحاة السبورة', 'dlWbBtn_eraser'),
+        ('شبكة كلمات بنك المنهج', 'dlBankGrid'),
+        ('فلاتر وحدات بنك الكلمات', 'dlBankUnitFilters'),
+        ('فلاتر مهارات بنك الكلمات', 'dlBankSkillFilters'),
+        ('حقل إدخال الكلمة المخصصة', 'dlCustomWordInput'),
+        ('صفحة شيت الإملاء A4', 'dlSheetPage'),
+        ('عداد إجمالي الكلمات', 'dlStatTotal'),
+        ('عداد الكلمات المتقنة', 'dlStatCorrect'),
+        ('مؤشر الدقة الإملائية', 'dlStatAccuracy'),
+        ('عداد سلسلة الإتقان', 'dlStatStreak')
+    ]
+    for dl_title, dl_id in dictation_lab_elements:
+        if dl_id not in dom_ids:
+            errors.append(f"عنصر مختبر الإملاء الذكي {dl_title} ({dl_id}) مفقود!")
+    if not any("عنصر مختبر الإملاء الذكي" in e for e in errors):
+        successes.append(f"كافة عناصر مختبر الإملاء المنظور والاختباري الذكي ({len(dictation_lab_elements)} عنصراً) متكاملة بنسبة 100%.")
+
     # 9. فحص عزل مفاتيح التخزين المحلي (LocalStorage Key Hygiene)
     print("\n--- فحص عزل مفاتيح التخزين المحلي (قواعد أسامة) ---")
     storage_keys = []
@@ -381,7 +433,7 @@ def run_integration_audit():
         'css/lessons-unit3.css', 'css/lessons-unit4.css', 'css/lessons-unit5.css',
         'css/lessons-unit6.css', 'css/evaluation.css', 'css/enrichment.css',
         'css/blackboard.css', 'css/games.css', 'css/gamification.css', 'css/teacher-dashboard.css',
-        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css', 'css/voice-coach.css'
+        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css', 'css/voice-coach.css', 'css/dictation-lab.css'
     ]
     for cf in css_files:
         if cf not in index_html:
@@ -395,7 +447,7 @@ def run_integration_audit():
         'js/core/evaluation.js', 'js/core/enrichment.js', 'js/core/blackboard.js',
         'js/core/games.js', 'js/core/gamification.js', 'js/core/teacher-dashboard.js',
         'js/core/classroom-sync.js', 'js/core/classroom-quiz.js', 'js/core/interactive-guide.js',
-        'js/core/diagnostic-exams.js', 'js/core/voice-coach.js', 'js/app.js'
+        'js/core/diagnostic-exams.js', 'js/core/voice-coach.js', 'js/core/dictation-lab.js', 'js/app.js'
     ]
     for cs in core_scripts:
         if cs not in index_html:
@@ -429,6 +481,8 @@ def run_integration_audit():
         ('js/core/diagnostic-exams.js', open(os.path.join(BASE_DIR, 'js', 'core', 'diagnostic-exams.js'), encoding='utf-8').read()),
         ('css/voice-coach.css', open(os.path.join(BASE_DIR, 'css', 'voice-coach.css'), encoding='utf-8').read()),
         ('js/core/voice-coach.js', open(os.path.join(BASE_DIR, 'js', 'core', 'voice-coach.js'), encoding='utf-8').read()),
+        ('css/dictation-lab.css', open(os.path.join(BASE_DIR, 'css', 'dictation-lab.css'), encoding='utf-8').read()),
+        ('js/core/dictation-lab.js', open(os.path.join(BASE_DIR, 'js', 'core', 'dictation-lab.js'), encoding='utf-8').read()),
     ]
     for s_name, s_content in sig_targets:
         if official_signature not in s_content:

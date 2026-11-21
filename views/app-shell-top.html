@@ -53,6 +53,7 @@
     <link rel="stylesheet" href="css/interactive-guide.css">
     <link rel="stylesheet" href="css/diagnostic-exams.css">
     <link rel="stylesheet" href="css/voice-coach.css">
+    <link rel="stylesheet" href="css/dictation-lab.css">
 
 </head>
 
@@ -157,6 +158,12 @@
             <button class="btn-top btn-top-voice-coach" id="btnTopVoiceCoach" onclick="VoiceCoach.openModal('studio')" title="استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين (Speech Recognition & Voice Coach) لتحليل الطلاقة القرائية وتصحيح مخارج الحروف">
                 <span>🎙️</span>
                 <span id="topVoiceCoachLabel">المدرب الصوتي ونطق الحروف</span>
+            </button>
+
+            <!-- زر مختبر الإملاء المنظور والاختباري الذكي بالتحليل الصوتي الفوري للأجهزة اللوحية والسبورات -->
+            <button class="btn-top btn-top-dictation-lab" id="btnTopDictationLab" onclick="DictationLab.openModal('seen')" title="مختبر الإملاء المنظور والاختباري الذكي بالتحليل الصوتي الفوري (Smart Phonics Spelling & Dictation Lab) للأجهزة اللوحية والسبورات">
+                <span>✍️</span>
+                <span id="topDictationLabLabel">مختبر الإملاء والسبورة</span>
             </button>
 
             <!-- زر نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) -->
@@ -290,6 +297,24 @@
                     <span>•</span>
                     <span>الطلاقة القرائية</span>
                     <span style="color: #047857; font-weight: 900;">فتح الاستوديو ⬅</span>
+                </div>
+            </div>
+
+            <!-- بطاقة مختبر الإملاء المنظور والاختباري في القائمة الجانبية -->
+            <div class="sidebar-teacher-card" id="sidebarDictationLabCard" onclick="DictationLab.openModal('seen')" style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border-color: #c4b5fd; cursor: pointer;" title="مختبر الإملاء المنظور والاختباري الذكي بالتحليل الصوتي الفوري للأجهزة اللوحية والسبورات">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #4338ca; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>✍️</span> <span>مختبر الإملاء والسبورة الذكية</span>
+                    </span>
+                    <span style="font-size: 0.74rem; font-weight: 900; background: #6366f1; color: white; padding: 2px 8px; border-radius: 8px;">
+                        تصحيح ذكي
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #4f46e5; font-weight: 700;">
+                    <span>إملاء منظور واختباري</span>
+                    <span>•</span>
+                    <span>كراسة الخط A4</span>
+                    <span style="color: #3730a3; font-weight: 900;">فتح المختبر ⬅</span>
                 </div>
             </div>
 

@@ -4707,6 +4707,377 @@
         </div>
     </div>
 
+    <!-- ========================================================
+         نافذة مختبر الإملاء المنظور والاختباري الذكي بالتحليل الصوتي الفوري
+         (Smart Phonics Spelling & Dictation Lab for Tablets & Whiteboards)
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    ======================================================== -->
+    <div class="modal-backdrop" id="dictationLabModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="dictation-lab-modal-box" onclick="event.stopPropagation()">
+            <!-- ترويسة مختبر الإملاء -->
+            <div class="dl-modal-header">
+                <div class="dl-header-titles">
+                    <div class="dl-header-icon">✍️</div>
+                    <div class="dl-title-text">
+                        <h2>
+                            <span>مختبر الإملاء المنظور والاختباري الذكي</span>
+                            <span class="dl-title-badge">تحليل فونيمي وتصحيح تلقائي</span>
+                        </h2>
+                        <div class="dl-subtitle">
+                            تدريب بصري وسمعي • سبورة كراسة الخط واللمس للتابلت • <span class="dl-author-tag">إعداد وتطوير: المهندس أسامة خليل هاشم</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dl-header-actions">
+                    <button class="dl-btn-wb-toggle" onclick="DictationLab.toggleFullscreenWhiteboard()" title="تكبير السبورة الذكية لملء الشاشة">
+                        <span>📺</span> <span>سبورة العرض المكبرة</span>
+                    </button>
+                    <button class="dl-btn-close" onclick="DictationLab.closeModal()" title="إغلاق النافذة">
+                        <span>✕</span> <span>إغلاق</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- شريط التبويبات -->
+            <div class="dl-tabs-nav">
+                <button class="dl-tab-btn active" id="dlTabBtn_seen" onclick="DictationLab.switchTab('seen')">
+                    <span>👁️</span> <span>الإملاء المنظور</span> <span class="dl-tab-badge">بصري</span>
+                </button>
+                <button class="dl-tab-btn" id="dlTabBtn_blind" onclick="DictationLab.switchTab('blind')">
+                    <span>🎧</span> <span>الإملاء الاختباري</span> <span class="dl-tab-badge">سمعي</span>
+                </button>
+                <button class="dl-tab-btn" id="dlTabBtn_whiteboard" onclick="DictationLab.switchTab('whiteboard')">
+                    <span>🖍️</span> <span>سبورة كراسة الخط</span> <span class="dl-tab-badge">قلم ولمس</span>
+                </button>
+                <button class="dl-tab-btn" id="dlTabBtn_bank" onclick="DictationLab.switchTab('bank')">
+                    <span>📚</span> <span>بنك إملاء المنهج</span> <span class="dl-tab-badge">الوحدات</span>
+                </button>
+                <button class="dl-tab-btn" id="dlTabBtn_worksheet" onclick="DictationLab.switchTab('worksheet')">
+                    <span>📄</span> <span>شيتات الإملاء الورقية A4</span> <span class="dl-tab-badge">طباعة</span>
+                </button>
+                <button class="dl-tab-btn" id="dlTabBtn_stats" onclick="DictationLab.switchTab('stats')">
+                    <span>🏆</span> <span>لوحة الإنجاز والشهادة</span> <span class="dl-tab-badge">الأوسمة</span>
+                </button>
+            </div>
+
+            <!-- جسم النافذة -->
+            <div class="dl-modal-body">
+                <!-- تبويب 1: الإملاء المنظور (Seen Dictation) -->
+                <div class="dl-tab-content active" id="dlTabContent_seen">
+                    <div class="dl-seen-card-container">
+                        <!-- بطاقة الكلمة المستهدفة -->
+                        <div class="dl-word-display-card" id="dlWordDisplayCard">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <span class="dl-bank-skill-badge" id="dlActiveSkillBadge">مد الألف • الوحدة الأولى</span>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="dl-btn-tool" onclick="DictationLab.playActiveWordAudio(false)" title="استماع النطق الفصيح">
+                                        <span>🔊</span> <span>نطق فصيح</span>
+                                    </button>
+                                    <button class="dl-btn-tool" onclick="DictationLab.playActiveWordAudio(true)" title="استماع النطق الهجائي البطيء">
+                                        <span>🐢🎧</span> <span>تهجئة بطيئة</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="dl-word-target-text" id="dlWordTargetText">دَادَا</div>
+                            <div class="dl-word-syllables-row" id="dlWordSyllablesRow"></div>
+
+                            <!-- شريط مؤقت الإخفاء التدريجي -->
+                            <div class="dl-timer-bar-wrapper">
+                                <div class="dl-timer-progress" id="dlTimerProgress"></div>
+                            </div>
+
+                            <div class="dl-timer-controls-row">
+                                <span style="font-size: 0.85rem; font-weight: 700; color: #64748b;">مؤقت إخفاء الكلمة (للذاكرة البصرية):</span>
+                                <button class="dl-timer-btn" onclick="DictationLab.startTimedConcealment(3)">٣ ثوانٍ</button>
+                                <button class="dl-timer-btn active" onclick="DictationLab.startTimedConcealment(5)">٥ ثوانٍ</button>
+                                <button class="dl-timer-btn" onclick="DictationLab.startTimedConcealment(10)">١٠ ثوانٍ</button>
+                                <button class="dl-btn-hide-now" onclick="DictationLab.concealWordNow()">🙈 إخفاء الآن</button>
+                                <button class="dl-btn-tool" onclick="DictationLab.revealWordNow()">👁️ كشف الكلمة</button>
+                            </div>
+                        </div>
+
+                        <!-- منطقة خانات التهجئة التفاعلية -->
+                        <div class="dl-spelling-interactive-area">
+                            <div style="font-size: 0.95rem; font-weight: 800; color: #334155;">
+                                ✍️ رتّب أو اكتب حروف الكلمة في الخانات:
+                            </div>
+
+                            <div class="dl-slots-wrapper" id="dlSlotsWrapper"></div>
+
+                            <!-- بطاقات الحروف المبعثرة (Scrambled Tiles) -->
+                            <div class="dl-scrambled-section">
+                                <span class="dl-scrambled-label">أو اضغط الحروف المبعثرة لتكوين الكلمة:</span>
+                                <div class="dl-scrambled-tiles" id="dlScrambledTilesRow"></div>
+                            </div>
+
+                            <!-- لوحة الحروف والمقاطع والحركات اللمسية المخصصة للأجهزة اللوحية والسبورات -->
+                            <div class="dl-touch-keyboard">
+                                <!-- صف الحركات والتنوين والشدة -->
+                                <div class="dl-kb-row">
+                                    <button class="dl-kb-btn vowel-btn" onclick="DictationLab.applyDiacritic('َ')" title="فتحة">َ</button>
+                                    <button class="dl-kb-btn vowel-btn" onclick="DictationLab.applyDiacritic('ُ')" title="ضمة">ُ</button>
+                                    <button class="dl-kb-btn vowel-btn" onclick="DictationLab.applyDiacritic('ِ')" title="كسرة">ِ</button>
+                                    <button class="dl-kb-btn vowel-btn" onclick="DictationLab.applyDiacritic('ْ')" title="سكون">ْ</button>
+                                    <button class="dl-kb-btn shadda-btn" onclick="DictationLab.applyDiacritic('ّ')" title="شدة">ّ</button>
+                                    <button class="dl-kb-btn tanween-btn" onclick="DictationLab.applyDiacritic('ً')" title="تنوين فتح">ً</button>
+                                    <button class="dl-kb-btn tanween-btn" onclick="DictationLab.applyDiacritic('ٌ')" title="تنوين ضم">ٌ</button>
+                                    <button class="dl-kb-btn tanween-btn" onclick="DictationLab.applyDiacritic('ٍ')" title="تنوين كسر">ٍ</button>
+                                    <button class="dl-kb-btn action-btn btn-backspace" onclick="DictationLab.backspaceCharacter()" title="حذف حرف">⌫ حذف</button>
+                                    <button class="dl-kb-btn action-btn btn-clear" onclick="DictationLab.clearAllCharacters()" title="مسح الكل">🗑️ مسح</button>
+                                </div>
+
+                                <!-- صفوف الحروف العربية -->
+                                <div class="dl-kb-row">
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('د')">د</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ر')">ر</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('و')">و</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ي')">ي</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ب')">ب</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ن')">ن</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('م')">م</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ل')">ل</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ق')">ق</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ف')">ف</button>
+                                </div>
+                                <div class="dl-kb-row">
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('س')">س</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ك')">ك</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ت')">ت</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ط')">ط</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ص')">ص</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ض')">ض</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ع')">ع</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ح')">ح</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('خ')">خ</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ج')">ج</button>
+                                </div>
+                                <div class="dl-kb-row">
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ش')">ش</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ز')">ز</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ذ')">ذ</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ظ')">ظ</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('غ')">غ</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ه')">هـ</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ث')">ث</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ة')">ة</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ـة')">ـة</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ى')">ى</button>
+                                </div>
+                                <div class="dl-kb-row">
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ا')">ا</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('أ')">أ</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('إ')">إ</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('آ')">آ</button>
+                                    <button class="dl-kb-btn" onclick="DictationLab.insertCharacter('ء')">ء</button>
+                                    <button class="dl-kb-btn btn-space" onclick="DictationLab.insertCharacter(' ')">مسافة</button>
+                                    <button class="dl-kb-btn btn-submit" onclick="DictationLab.checkCurrentSpelling()">تحقق الآن ✔️</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- بطاقة النتيجة والتشخيص الإملائي التلقائي -->
+                        <div class="dl-result-card" id="dlResultCard">
+                            <div class="dl-result-header">
+                                <div class="dl-result-icon" id="dlResultIcon">🎉</div>
+                                <div class="dl-result-titles">
+                                    <h3 id="dlResultTitle">إجابة صحيحة ومتقنة!</h3>
+                                    <p id="dlResultSubtitle">أحسنت يا بطل! إملاء متقن بنسبة 100%!</p>
+                                </div>
+                            </div>
+
+                            <!-- مقارنة الفوارق الدقيقة (Diff Alignment) -->
+                            <div class="dl-diff-box" id="dlDiffContainer"></div>
+
+                            <!-- توجيه ونصحية فصيح الفونيمية -->
+                            <div class="dl-faseeh-coach-box">
+                                <div class="dl-faseeh-avatar">🦉</div>
+                                <div class="dl-faseeh-msg">
+                                    <h4>نصيحة وتوجيه فصيح الذكي:</h4>
+                                    <p id="dlFaseehAdviceText">ما شاء الله! قمت بكتابة الكلمة وتحديد حروفها ومقاطعها بالشكل الصحيح تماماً.</p>
+                                    <button class="dl-faseeh-audio-btn" id="dlFaseehAudioBtn" style="display: none;">
+                                        <span>🎧</span> <span>استمع للفرق بين الصوتين</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تبويب 2: الإملاء الاختباري (Unseen Dictation) -->
+                <div class="dl-tab-content" id="dlTabContent_blind">
+                    <div style="text-align: center; padding: 20px 0;">
+                        <div style="background: #ffffff; border-radius: 20px; padding: 20px; max-width: 900px; margin: 0 auto; box-shadow: 0 4px 14px rgba(0,0,0,0.05); border: 2px solid #e0e7ff;">
+                            <div style="font-size: 1.3rem; font-weight: 800; color: #1e1b4b; margin-bottom: 8px;">
+                                🎧 الإملاء الاختباري الذكي (بدون رؤية الكلمة)
+                            </div>
+                            <p style="color: #64748b; font-size: 0.95rem; margin: 0 0 16px 0;">
+                                استمع إلى نطق الكلمة عبر السماعة واكتبها بالاعتماد على التحليل السمعي لصوت الحروف والمقاطع.
+                            </p>
+                            <button class="dl-btn-tool primary" onclick="DictationLab.switchTab('seen'); DictationLab.concealWordNow();" style="font-size: 1.1rem; padding: 12px 24px;">
+                                <span>🚀</span> <span>بدء جلسة الإملاء الاختباري فوراً</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تبويب 3: سبورة كراسة الخط والكتابة الحرة بالقلم أو الإصبع -->
+                <div class="dl-tab-content" id="dlTabContent_whiteboard">
+                    <div class="dl-whiteboard-container">
+                        <!-- شريط أدوات السبورة -->
+                        <div class="dl-wb-toolbar">
+                            <div class="dl-wb-tools-group">
+                                <button class="dl-wb-btn active" id="dlWbBtn_pen" onclick="DictationLab.setWhiteboardTool('pen')">
+                                    <span>✏️</span> <span>قلم الخط</span>
+                                </button>
+                                <button class="dl-wb-btn" id="dlWbBtn_corrector" onclick="DictationLab.setWhiteboardTool('corrector')">
+                                    <span>🔴</span> <span>قلم التصحيح</span>
+                                </button>
+                                <button class="dl-wb-btn" id="dlWbBtn_highlighter" onclick="DictationLab.setWhiteboardTool('highlighter')">
+                                    <span>🖍️</span> <span>قلم التظليل</span>
+                                </button>
+                                <button class="dl-wb-btn" id="dlWbBtn_eraser" onclick="DictationLab.setWhiteboardTool('eraser')">
+                                    <span>🧽</span> <span>ممحاة</span>
+                                </button>
+                            </div>
+
+                            <div class="dl-wb-color-picker">
+                                <span style="font-size: 0.85rem; font-weight: 700; color: #475569;">لون الخط:</span>
+                                <div class="dl-wb-color-circle active" style="background: #1e1b4b;" onclick="DictationLab.setWhiteboardColor('#1e1b4b')"></div>
+                                <div class="dl-wb-color-circle" style="background: #2563eb;" onclick="DictationLab.setWhiteboardColor('#2563eb')"></div>
+                                <div class="dl-wb-color-circle" style="background: #16a34a;" onclick="DictationLab.setWhiteboardColor('#16a34a')"></div>
+                                <div class="dl-wb-color-circle" style="background: #dc2626;" onclick="DictationLab.setWhiteboardColor('#dc2626')"></div>
+                            </div>
+
+                            <div class="dl-wb-tools-group">
+                                <button class="dl-wb-btn" onclick="DictationLab.undoWhiteboard()" title="تراجع خطوة">
+                                    <span>↩️</span> <span>تراجع</span>
+                                </button>
+                                <button class="dl-wb-btn" onclick="DictationLab.clearWhiteboard()" title="مسح السبورة">
+                                    <span>🗑️</span> <span>مسح</span>
+                                </button>
+                                <button class="dl-wb-btn" onclick="DictationLab.downloadWhiteboardCard()" title="حفظ البطاقة كصورة">
+                                    <span>💾</span> <span>حفظ البطاقة</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- كانفاس السبورة المسطرة -->
+                        <div class="dl-wb-canvas-wrapper">
+                            <canvas id="dlWhiteboardCanvas" class="dl-wb-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تبويب 4: بنك إملاء المنهج والكلمات المخصصة -->
+                <div class="dl-tab-content" id="dlTabContent_bank">
+                    <div class="dl-bank-container">
+                        <!-- فلاتر الوحدات والمهارات والكلمة المخصصة -->
+                        <div class="dl-bank-filters">
+                            <div class="dl-custom-word-box">
+                                <span style="font-weight: 800; color: #3730a3; white-space: nowrap;">➕ كلمة إملاء مخصصة من المعلم:</span>
+                                <input type="text" id="dlCustomWordInput" class="dl-custom-input" placeholder="اكتب أي كلمة هنا (مثال: بَلَدُنَا، نَجْمَة، بَيْتِي)..." />
+                                <button class="dl-btn-tool primary" onclick="DictationLab.handleCustomWordSubmit()">
+                                    <span>🚀</span> <span>تحليل وبدء الإملاء</span>
+                                </button>
+                            </div>
+
+                            <div class="dl-filter-row" id="dlBankUnitFilters">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: #475569;">الوحدة:</span>
+                                <button class="dl-filter-pill active" data-filter="all" onclick="DictationLab.filterBank('unit', 'all')">الكل</button>
+                                <button class="dl-filter-pill" data-filter="unit1" onclick="DictationLab.filterBank('unit', 'unit1')">الوحدة ١</button>
+                                <button class="dl-filter-pill" data-filter="unit2" onclick="DictationLab.filterBank('unit', 'unit2')">الوحدة ٢</button>
+                                <button class="dl-filter-pill" data-filter="unit3" onclick="DictationLab.filterBank('unit', 'unit3')">الوحدة ٣</button>
+                                <button class="dl-filter-pill" data-filter="unit4" onclick="DictationLab.filterBank('unit', 'unit4')">الوحدة ٤</button>
+                                <button class="dl-filter-pill" data-filter="unit5" onclick="DictationLab.filterBank('unit', 'unit5')">الوحدة ٥</button>
+                                <button class="dl-filter-pill" data-filter="unit6" onclick="DictationLab.filterBank('unit', 'unit6')">الوحدة ٦</button>
+                            </div>
+
+                            <div class="dl-filter-row" id="dlBankSkillFilters">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: #475569;">المهارة:</span>
+                                <button class="dl-filter-pill active" data-filter="all" onclick="DictationLab.filterBank('skill', 'all')">كافة المهارات</button>
+                                <button class="dl-filter-pill" data-filter="mad_alif" onclick="DictationLab.filterBank('skill', 'mad_alif')">مد الألف</button>
+                                <button class="dl-filter-pill" data-filter="mad_waw" onclick="DictationLab.filterBank('skill', 'mad_waw')">مد الواو</button>
+                                <button class="dl-filter-pill" data-filter="mad_yaa" onclick="DictationLab.filterBank('skill', 'mad_yaa')">مد الياء</button>
+                                <button class="dl-filter-pill" data-filter="shadda" onclick="DictationLab.filterBank('skill', 'shadda')">الشدة والتضعيف</button>
+                                <button class="dl-filter-pill" data-filter="short_vowels" onclick="DictationLab.filterBank('skill', 'short_vowels')">الحركات القصيرة</button>
+                                <button class="dl-filter-pill" data-filter="ta_marboota" onclick="DictationLab.filterBank('skill', 'ta_marboota')">التاء المربوطة</button>
+                            </div>
+                        </div>
+
+                        <!-- شبكة الكلمات المنهجية -->
+                        <div class="dl-bank-grid" id="dlBankGrid"></div>
+                    </div>
+                </div>
+
+                <!-- تبويب 5: شيتات الإملاء الورقية الرسمية A4 -->
+                <div class="dl-tab-content" id="dlTabContent_worksheet">
+                    <div class="dl-worksheet-wrapper">
+                        <div class="dl-worksheet-controls">
+                            <div>
+                                <h3 style="margin: 0; color: #1e1b4b; font-size: 1.15rem;">كراسة وأوراق عمل الإملاء المطبوعة A4</h3>
+                                <p style="margin: 2px 0 0 0; font-size: 0.85rem; color: #64748b;">توليد شيت تدريب رسمي منسق مع سطور كراسة النسخ وسلم التقييم</p>
+                            </div>
+                            <button class="dl-btn-tool primary" onclick="DictationLab.printWorksheetA4()">
+                                <span>🖨️</span> <span>طباعة ورقة الإملاء A4 الآن</span>
+                            </button>
+                        </div>
+
+                        <div class="dl-sheet-page" id="dlSheetPage"></div>
+                    </div>
+                </div>
+
+                <!-- تبويب 6: لوحة الإحصائيات وشهادة التميز الإملائي -->
+                <div class="dl-tab-content" id="dlTabContent_stats">
+                    <div>
+                        <!-- شبكة العدادات -->
+                        <div class="dl-stats-grid">
+                            <div class="dl-stat-card">
+                                <div class="dl-stat-icon" style="background: #e0e7ff; color: #4338ca;">📝</div>
+                                <div>
+                                    <div class="dl-stat-num" id="dlStatTotal">0</div>
+                                    <div class="dl-stat-label">إجمالي الكلمات المتدرب عليها</div>
+                                </div>
+                            </div>
+                            <div class="dl-stat-card">
+                                <div class="dl-stat-icon" style="background: #dcfce7; color: #15803d;">⭐</div>
+                                <div>
+                                    <div class="dl-stat-num" id="dlStatCorrect">0</div>
+                                    <div class="dl-stat-label">الكلمات المتقنة بنجاح</div>
+                                </div>
+                            </div>
+                            <div class="dl-stat-card">
+                                <div class="dl-stat-icon" style="background: #fef3c7; color: #b45309;">🎯</div>
+                                <div>
+                                    <div class="dl-stat-num" id="dlStatAccuracy">100%</div>
+                                    <div class="dl-stat-label">معدل الدقة الإملائية العام</div>
+                                </div>
+                            </div>
+                            <div class="dl-stat-card">
+                                <div class="dl-stat-icon" style="background: #fce7f3; color: #be185d;">🔥</div>
+                                <div>
+                                    <div class="dl-stat-num" id="dlStatStreak">0</div>
+                                    <div class="dl-stat-label">سلسلة الإتقان المتتالية</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- شهادة وسام التميز الإملائي الفوري -->
+                        <div class="dl-certificate-card">
+                            <div style="font-size: 3rem;">🎖️</div>
+                            <div class="dl-cert-title">وسام بطل الإملاء الذكي والخط المتقن</div>
+                            <p style="font-size: 1.1rem; color: #78350f; margin: 0;">يُمنح هذا الوسام تقديراً للإتقان الفونيمي المتميز في مختبر الإملاء الذكي</p>
+                            <div class="dl-cert-pupil-name">تلميذ الصف الأول المبدع</div>
+                            <div style="font-size: 0.95rem; font-weight: 700; color: #92400e; margin-top: 10px;">
+                                اعتماد: منصة قراءتي التفاعلية الذكية • إعداد وتطوير: المهندس أسامة خليل هاشم
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
     <script src="audio_data_unit6.js"></script>
@@ -4727,6 +5098,7 @@
     <script src="js/core/interactive-guide.js"></script>
     <script src="js/core/diagnostic-exams.js"></script>
     <script src="js/core/voice-coach.js"></script>
+    <script src="js/core/dictation-lab.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>
