@@ -75,7 +75,8 @@ def run_integration_audit():
         'gamificationStarsCanvas', 'certEditableName',
         'classroomNoticeToast',
         'hostOptionCard_0', 'hostOptionCard_1', 'hostOptionCard_2', 'hostOptionCard_3',
-        'hostOptionCount_0', 'hostOptionCount_1', 'hostOptionCount_2', 'hostOptionCount_3'
+        'hostOptionCount_0', 'hostOptionCount_1', 'hostOptionCount_2', 'hostOptionCount_3',
+        'vcKaraoke_0', 'vcKaraoke_1', 'vcKaraoke_2', 'vcKaraoke_3', 'vcKaraoke_4', 'vcKaraoke_5', 'vcKaraoke_6'
     }
 
     # 3. فحص المعرفات البرمجية المستخدمة في ملفات JavaScript الأساسية
@@ -90,6 +91,7 @@ def run_integration_audit():
         'classroom-quiz.js': os.path.join(BASE_DIR, 'js', 'core', 'classroom-quiz.js'),
         'interactive-guide.js': os.path.join(BASE_DIR, 'js', 'core', 'interactive-guide.js'),
         'diagnostic-exams.js': os.path.join(BASE_DIR, 'js', 'core', 'diagnostic-exams.js'),
+        'voice-coach.js': os.path.join(BASE_DIR, 'js', 'core', 'voice-coach.js'),
         'audio.js': os.path.join(BASE_DIR, 'js', 'core', 'audio.js'),
         'navigation.js': os.path.join(BASE_DIR, 'js', 'core', 'navigation.js'),
         'modals.js': os.path.join(BASE_DIR, 'js', 'core', 'modals.js'),
@@ -323,6 +325,39 @@ def run_integration_audit():
     if not any("عنصر الاختبارات والامتحانات الوزارية" in e for e in errors):
         successes.append(f"كافة عناصر نظام الاختبارات التشخيصية ومولد الامتحانات الوزارية A4 ({len(diag_elements)} عنصراً) متكاملة بنسبة 100%.")
 
+    # 8 ج. فحص استوديو التدريب الصوتي والتعرف على نطق التلميذ أوفلاين (Speech Recognition & Voice Coach)
+    print("\n--- فحص استوديو التدريب الصوتي والتعرف على نطق التلميذ أوفلاين ---")
+    voice_coach_elements = [
+        ('زر المدرب الصوتي بالشريط العلوي', 'btnTopVoiceCoach'),
+        ('بطاقة المدرب الصوتي بالقائمة الجانبية', 'sidebarVoiceCoachCard'),
+        ('نافذة استوديو التدريب الصوتي', 'voiceCoachModal'),
+        ('تبويب استوديو النطق المباشر', 'tabVc_studio'),
+        ('حاوية استوديو النطق المباشر', 'paneVc_studio'),
+        ('تبويب مختبر مخارج الحروف', 'tabVc_articulation'),
+        ('حاوية مختبر مخارج الحروف', 'paneVc_articulation'),
+        ('تبويب استوديو الطلاقة لكلمات المنهج', 'tabVc_fluency'),
+        ('حاوية استوديو الطلاقة لكلمات المنهج', 'paneVc_fluency'),
+        ('تبويب قطار الجمل والقراءة الكاراوكي', 'tabVc_stories'),
+        ('حاوية قطار الجمل والقراءة الكاراوكي', 'paneVc_stories'),
+        ('تبويب سجل التسجيلات والتقارير A4', 'tabVc_portfolio'),
+        ('حاوية سجل التسجيلات والتقارير A4', 'paneVc_portfolio'),
+        ('كانفاس رسم الموجات الصوتية الحية', 'voiceCoachWaveform'),
+        ('زر الميكروفون التفاعلي', 'btnVcMic'),
+        ('زر استماع صوت التلميذ المقارن', 'btnVcPlayPupil'),
+        ('مؤشر نسبة دقة النطق الفورية', 'vcGaugeValue'),
+        ('شارة التغذية الراجعة الفونيمية', 'vcFeedbackBadge'),
+        ('صندوق توجيهات المدرب الصوتي', 'vcCoachAdviceText'),
+        ('حاوية حروف الهجاء الـ 28', 'vcLettersPaletteContainer'),
+        ('حاوية شبكة كلمات الطلاقة المنهجية', 'vcFluencyWordsGrid'),
+        ('حاوية نص الجملة التعبيرية الكاراوكي', 'vcStoryPassageContainer'),
+        ('جدول سجل التسجيلات الصوتية', 'vcRecordsTableBody')
+    ]
+    for vc_title, vc_id in voice_coach_elements:
+        if vc_id not in dom_ids:
+            errors.append(f"عنصر استوديو التدريب الصوتي {vc_title} ({vc_id}) مفقود!")
+    if not any("عنصر استوديو التدريب الصوتي" in e for e in errors):
+        successes.append(f"كافة عناصر استوديو التدريب الصوتي والتعرف على نطق التلميذ ({len(voice_coach_elements)} عنصراً) متكاملة بنسبة 100%.")
+
     # 9. فحص عزل مفاتيح التخزين المحلي (LocalStorage Key Hygiene)
     print("\n--- فحص عزل مفاتيح التخزين المحلي (قواعد أسامة) ---")
     storage_keys = []
@@ -346,7 +381,7 @@ def run_integration_audit():
         'css/lessons-unit3.css', 'css/lessons-unit4.css', 'css/lessons-unit5.css',
         'css/lessons-unit6.css', 'css/evaluation.css', 'css/enrichment.css',
         'css/blackboard.css', 'css/games.css', 'css/gamification.css', 'css/teacher-dashboard.css',
-        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css'
+        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css', 'css/voice-coach.css'
     ]
     for cf in css_files:
         if cf not in index_html:
@@ -360,7 +395,7 @@ def run_integration_audit():
         'js/core/evaluation.js', 'js/core/enrichment.js', 'js/core/blackboard.js',
         'js/core/games.js', 'js/core/gamification.js', 'js/core/teacher-dashboard.js',
         'js/core/classroom-sync.js', 'js/core/classroom-quiz.js', 'js/core/interactive-guide.js',
-        'js/core/diagnostic-exams.js', 'js/app.js'
+        'js/core/diagnostic-exams.js', 'js/core/voice-coach.js', 'js/app.js'
     ]
     for cs in core_scripts:
         if cs not in index_html:
@@ -392,6 +427,8 @@ def run_integration_audit():
         ('js/core/interactive-guide.js', open(os.path.join(BASE_DIR, 'js', 'core', 'interactive-guide.js'), encoding='utf-8').read()),
         ('css/diagnostic-exams.css', open(os.path.join(BASE_DIR, 'css', 'diagnostic-exams.css'), encoding='utf-8').read()),
         ('js/core/diagnostic-exams.js', open(os.path.join(BASE_DIR, 'js', 'core', 'diagnostic-exams.js'), encoding='utf-8').read()),
+        ('css/voice-coach.css', open(os.path.join(BASE_DIR, 'css', 'voice-coach.css'), encoding='utf-8').read()),
+        ('js/core/voice-coach.js', open(os.path.join(BASE_DIR, 'js', 'core', 'voice-coach.js'), encoding='utf-8').read()),
     ]
     for s_name, s_content in sig_targets:
         if official_signature not in s_content:

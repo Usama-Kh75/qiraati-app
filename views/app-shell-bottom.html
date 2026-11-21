@@ -4423,6 +4423,290 @@
         </div>
     </div>
 
+    <!-- ========================================================
+         نافذة استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين (Speech Recognition & Voice Coach)
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    ======================================================== -->
+    <div class="modal-backdrop" id="voiceCoachModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="voice-coach-modal-box" onclick="event.stopPropagation()">
+            <!-- ترويسة الاستوديو الصوتي -->
+            <div class="vc-modal-header">
+                <div class="vc-header-titles">
+                    <div class="vc-header-icon">🎙️</div>
+                    <div class="vc-title-text">
+                        <h2>
+                            <span>استوديو التدريب الصوتي والتعرف على نطق التلميذ أوفلاين</span>
+                            <span class="vc-title-badge">مخارج الحروف والطلاقة القرائية</span>
+                        </h2>
+                        <div class="vc-subtitle">
+                            تحليل فوري لمخارج الحروف ونسب الطلاقة وتسجيل الصوت أوفلاين 100% • <span class="vc-author-tag">إعداد وتطوير: المهندس أسامة خليل هاشم</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="vc-header-actions">
+                    <button class="vc-close-btn" onclick="VoiceCoach.closeModal()" title="إغلاق الاستوديو">&times;</button>
+                </div>
+            </div>
+
+            <!-- شريط التبويبات الخمسة -->
+            <div class="vc-tabs-bar">
+                <button class="vc-tab-btn active" id="tabVc_studio" onclick="VoiceCoach.switchTab('studio')">
+                    <span>🎙️</span>
+                    <span>استوديو النطق والتحليل الحي</span>
+                </button>
+                <button class="vc-tab-btn" id="tabVc_articulation" onclick="VoiceCoach.switchTab('articulation')">
+                    <span>🏛️</span>
+                    <span>مختبر مخارج الحروف وتشريح الصوت</span>
+                </button>
+                <button class="vc-tab-btn" id="tabVc_fluency" onclick="VoiceCoach.switchTab('fluency')">
+                    <span>📖</span>
+                    <span>استوديو الطلاقة لكلمات المنهج</span>
+                </button>
+                <button class="vc-tab-btn" id="tabVc_stories" onclick="VoiceCoach.switchTab('stories')">
+                    <span>🚂</span>
+                    <span>قطار الجمل والقراءة الكاراوكي</span>
+                </button>
+                <button class="vc-tab-btn" id="tabVc_portfolio" onclick="VoiceCoach.switchTab('portfolio')">
+                    <span>📊</span>
+                    <span>سجل التسجيلات والتقرير الفردي A4</span>
+                </button>
+            </div>
+
+            <!-- جسم النافذة والأقسام -->
+            <div class="vc-modal-body">
+                <!-- تبويب 1: استوديو النطق المباشر وتحليل الصوت الحي -->
+                <div class="vc-pane active" id="paneVc_studio">
+                    <div class="vc-studio-layout">
+                        <!-- مسرح العرض الفونيمي -->
+                        <div class="vc-display-stage">
+                            <div class="vc-target-label" id="vcTargetLabel">الحرف المستهدف</div>
+                            <div class="vc-target-item" id="vcTargetItemDisplay">د</div>
+
+                            <!-- المقاطع الصوتية الملونة -->
+                            <div class="vc-syllables-badges" id="vcSyllablesBadgesContainer"></div>
+
+                            <!-- كانفاس الموجات الصوتية الحية -->
+                            <div class="vc-waveform-box">
+                                <div class="vc-waveform-status">
+                                    <span class="vc-status-dot ready" id="vcWaveformStatusDot"></span>
+                                    <span id="vcWaveformStatusText">المحلل الصوتي جاهز (أوفلاين 100%)</span>
+                                </div>
+                                <canvas id="voiceCoachWaveform" width="700" height="90"></canvas>
+                            </div>
+
+                            <!-- شريط أزرار الميكروفون والاستماع المزدوج -->
+                            <div class="vc-audio-action-bar">
+                                <button class="vc-btn-model" onclick="VoiceCoach.playModelAudio()" title="استمع لنطق المعلمة رنا النموذجي المعتمد">
+                                    <span>🔊</span> <span>استمع للنموذج المرجعي</span>
+                                </button>
+
+                                <div class="vc-mic-wrapper">
+                                    <button class="vc-btn-mic" id="btnVcMic" onclick="VoiceCoach.toggleRecording()" title="انقر وتحدث لتسجيل وتحليل صوتك">
+                                        🎙️
+                                    </button>
+                                </div>
+
+                                <button class="vc-btn-pupil-play" id="btnVcPlayPupil" onclick="VoiceCoach.playPupilRecording()" disabled title="استمع لتسجيل صوتك المقارن">
+                                    <span>🎧</span> <span>استمع لنطقك</span>
+                                </button>
+                            </div>
+
+                            <!-- شريط التنقل بين العناصر -->
+                            <div class="vc-nav-toolbar">
+                                <button class="vc-nav-btn" onclick="VoiceCoach.prevItem()">
+                                    <span>➡</span> <span>السابق</span>
+                                </button>
+                                <span style="font-size: 0.85rem; font-weight: 800; color: #64748b;">تدرج منهجي دقيق</span>
+                                <button class="vc-nav-btn" onclick="VoiceCoach.nextItem()">
+                                    <span>التالي</span> <span>⬅</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- لوحة التقييم والنتائج الفورية -->
+                        <div class="vc-results-panel">
+                            <div>
+                                <h4 style="margin: 0 0 12px 0; font-size: 1.1rem; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+                                    <span>🎯</span> <span>مقياس الطلاقة ودقة المخرج</span>
+                                </h4>
+
+                                <div class="vc-gauge-container">
+                                    <div class="vc-gauge-circle">
+                                        <div class="vc-gauge-val" id="vcGaugeValue">--%</div>
+                                        <div class="vc-gauge-label">دقة النطق</div>
+                                    </div>
+                                    <div class="vc-feedback-badge" id="vcFeedbackBadge">بانتظار نطق التلميذ...</div>
+                                </div>
+
+                                <div class="vc-coach-advice-box" id="vcCoachAdviceText">
+                                    <b>توجيه المدرب الصوتي:</b> استمع للنموذج المرجعي واضغط زر الميكروفون للتدرب على نطق الحرف بصوت واضح وجريء!
+                                </div>
+                            </div>
+
+                            <!-- نظام التقييم السريع بنجوم المعلم والتلميذ (Trio Rating) -->
+                            <div class="vc-trio-rating">
+                                <div class="vc-trio-label">تقييم سريع بنقرة واحدة (للمعلم والتلميذ):</div>
+                                <div class="vc-trio-btns">
+                                    <button class="vc-btn-rate rate-3" onclick="VoiceCoach.rateCurrentItemManually(3)" title="نطق متقن تماماً">⭐⭐⭐ ممتاز</button>
+                                    <button class="vc-btn-rate rate-2" onclick="VoiceCoach.rateCurrentItemManually(2)" title="نطق جيد يحتاج تعزيزاً">⭐⭐ جيد جداً</button>
+                                    <button class="vc-btn-rate rate-1" onclick="VoiceCoach.rateCurrentItemManually(1)" title="يحتاج تدريباً وتكراراً">⭐ يحتاج تكرار</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تبويب 2: مختبر مخارج الحروف وتشريح الصوت -->
+                <div class="vc-pane" id="paneVc_articulation">
+                    <div class="vc-articulation-grid">
+                        <!-- قائمة الحروف الهجائية للاختيار السريع -->
+                        <div class="vc-letters-palette">
+                            <div class="vc-palette-title">
+                                <span>حروف الهجاء الـ 28</span>
+                                <span style="font-size: 0.75rem; color: #059669; font-weight: 900;">اختر حرفاً للتمرين</span>
+                            </div>
+                            <div class="vc-letters-flex" id="vcLettersPaletteContainer"></div>
+                        </div>
+
+                        <!-- بطاقة تشريح الحرف المحدد -->
+                        <div class="vc-anatomy-card">
+                            <div class="vc-makhraj-header">
+                                <div>
+                                    <div class="vc-makhraj-title" id="vcAnatomyCharTitle">حرف الدال (د)</div>
+                                    <span class="vc-makhraj-point-badge" id="vcAnatomyMakhrajBadge">طرف اللسان والأسنان</span>
+                                </div>
+                                <button class="vc-btn-model" style="padding: 8px 16px; font-size: 0.9rem;" onclick="VoiceCoach.playModelAudio()">
+                                    <span>🔊</span> <span>استمع للحرف</span>
+                                </button>
+                            </div>
+
+                            <!-- المخطط التشريحي للفم SVG -->
+                            <div class="vc-mouth-diagram-box">
+                                <div class="vc-diagram-svg-wrap" id="vcAnatomySvgWrapper"></div>
+                                <div class="vc-diagram-text">
+                                    <h4>شرح المخرج الفونيمي:</h4>
+                                    <p id="vcAnatomyDescText">يخرج صوت الحرف بدقة عند تلامس أجزاء الجهاز النطقي المحددة.</p>
+                                </div>
+                            </div>
+
+                            <!-- صفات الحرف -->
+                            <div class="vc-traits-grid" id="vcLetterTraitsContainer"></div>
+
+                            <!-- علاج الأزواج المشتبهة في النطق -->
+                            <div class="vc-confusable-section">
+                                <div class="vc-confusable-header">
+                                    <span>⚠️</span> <span id="vcConfusablePairTitle">علاج خلط الأصوات المشتبهة</span>
+                                </div>
+                                <p style="margin: 0; font-size: 0.9rem; color: #78350f; line-height: 1.6;" id="vcConfusableAdviceText"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تبويب 3: استوديو الطلاقة القرائية لكلمات المنهج -->
+                <div class="vc-pane" id="paneVc_fluency">
+                    <div class="vc-card">
+                        <div class="vc-fluency-controls">
+                            <label style="font-weight: 800; color: #1e293b; font-size: 0.95rem;">تصفية الكلمات حسب وحدات كتاب قراءتي:</label>
+                            <select class="vc-select-filter" id="vcFluencyUnitFilter" onchange="VoiceCoach.filterFluencyWords(this.value)">
+                                <option value="all">كافة وحدات المنهج (التهيئة - الوحدة 6)</option>
+                                <option value="unit1">الوحدة 1 (دَادَا، دَار، بَاب، نُور، مَامَا)</option>
+                                <option value="unit2">الوحدة 2 (مِيزَان، قَدُّورِي، زُورَق، بُوق)</option>
+                                <option value="unit3">الوحدة 3 (رِيف، سَبِيل، مَطَر، طَيَّار)</option>
+                                <option value="unit4">الوحدة 4 (عَلَم، كِتَاب، مَكْتَبَة، بَنَات)</option>
+                                <option value="unit5">الوحدة 5 (صَلَاح، فَلَّاح، حَوْض، خَيْمَة)</option>
+                                <option value="unit6">الوحدة 6 (شُرْطِيّ، غَزَال، مَحْفُوظ، هِلَال)</option>
+                            </select>
+                            <span style="font-size: 0.85rem; color: #64748b; font-weight: 700;">اختر أي كلمة للتدرب على نطقها المقطعي الفصيح</span>
+                        </div>
+
+                        <div class="vc-words-grid" id="vcFluencyWordsGrid"></div>
+                    </div>
+                </div>
+
+                <!-- تبويب 4: قطار الجمل والقصص التعبيرية -->
+                <div class="vc-pane" id="paneVc_stories">
+                    <div class="vc-story-express-box">
+                        <div class="vc-story-title-bar">
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.3rem; color: #0f172a;" id="vcStoryCurrentTitle">دَادَا رَبَاب ونَمِير</h3>
+                                <span style="font-size: 0.82rem; font-weight: 800; color: #2563eb;" id="vcStoryCurrentUnit">الوحدة الأولى</span>
+                            </div>
+                            <div style="display: flex; gap: 8px;">
+                                <button class="vc-btn-model" style="background:#059669;" onclick="VoiceCoach.playStoryWithKaraoke()" title="استمع للجملة مع تلوين الكلمات المتزامنة">
+                                    <span>▶️</span> <span>قراءة كاراوكي تفاعلية</span>
+                                </button>
+                                <button class="vc-btn-model" style="background:#e11d48;" onclick="VoiceCoach.toggleRecording()" title="اقرأ الجملة بصوتك لتسجيلها وتقييم الطلاقة">
+                                    <span>🎙️</span> <span>سجل قراءتك للجملة</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- نص الجملة مع تلوين الكلمات (Karaoke Highlighting) -->
+                        <div class="vc-story-passage" id="vcStoryPassageContainer"></div>
+
+                        <!-- اختيار الجمل المنهجية الأخرى -->
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px;">
+                            <span style="font-size: 0.88rem; font-weight: 800; color: #475569; align-self: center;">اختر جملة من دروس المنهج:</span>
+                            <button class="vc-nav-btn" onclick="VoiceCoach.selectStory(0)">دَادَا رَبَاب</button>
+                            <button class="vc-nav-btn" onclick="VoiceCoach.selectStory(1)">مِيزَانُ قَدُّورِي</button>
+                            <button class="vc-nav-btn" onclick="VoiceCoach.selectStory(2)">رِيفُ مَنَاف</button>
+                            <button class="vc-nav-btn" onclick="VoiceCoach.selectStory(3)">فِي المَدْرَسَة</button>
+                            <button class="vc-nav-btn" onclick="VoiceCoach.selectStory(4)">حَوْضُ السِّبَاحَةِ</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- تبويب 5: سجل التسجيلات والتقارير الفردية A4 -->
+                <div class="vc-pane" id="paneVc_portfolio">
+                    <div class="vc-card">
+                        <div class="vc-portfolio-header">
+                            <div>
+                                <h3 style="margin: 0; font-size: 1.25rem; color: #0f172a;">سجل تسجيلات التلميذ الصوتية وتقارير الطلاقة</h3>
+                                <div style="font-size: 0.85rem; color: #64748b; margin-top: 2px;">تخزين محلي مؤمّن ومستقل 100% داخل المتصفح أوفلاين</div>
+                            </div>
+                            <button class="vc-btn-print-report" onclick="VoiceCoach.printFluencyReportA4()">
+                                <span>🖨️</span> <span>طباعة تقرير الطلاقة القرائية A4</span>
+                            </button>
+                        </div>
+
+                        <!-- ملخص الإحصائيات -->
+                        <div class="vc-stats-summary-grid">
+                            <div class="vc-stat-box">
+                                <div class="vc-stat-num" id="vcStatTotalRecords">0</div>
+                                <div class="vc-stat-desc">إجمالي التسجيلات المحفوظة</div>
+                            </div>
+                            <div class="vc-stat-box">
+                                <div class="vc-stat-num" id="vcStatAvgScore">0%</div>
+                                <div class="vc-stat-desc">متوسط دقة النطق والطلاقة</div>
+                            </div>
+                            <div class="vc-stat-box">
+                                <div class="vc-stat-num" id="vcStatMasteredCount">0</div>
+                                <div class="vc-stat-desc">الأصوات والكلمات المتقنة (100%)</div>
+                            </div>
+                        </div>
+
+                        <!-- جدول التسجيلات -->
+                        <div class="vc-records-table-wrap">
+                            <table class="vc-records-table">
+                                <thead>
+                                    <tr>
+                                        <th>الصوت / الكلمة</th>
+                                        <th>المجال</th>
+                                        <th>دقة النطق</th>
+                                        <th>التاريخ والوقت</th>
+                                        <th>إجراء</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="vcRecordsTableBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
     <script src="audio_data_unit6.js"></script>
@@ -4442,6 +4726,7 @@
     <script src="js/core/classroom-quiz.js"></script>
     <script src="js/core/interactive-guide.js"></script>
     <script src="js/core/diagnostic-exams.js"></script>
+    <script src="js/core/voice-coach.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

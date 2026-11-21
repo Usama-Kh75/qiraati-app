@@ -52,6 +52,7 @@
     <link rel="stylesheet" href="css/classroom-quiz.css">
     <link rel="stylesheet" href="css/interactive-guide.css">
     <link rel="stylesheet" href="css/diagnostic-exams.css">
+    <link rel="stylesheet" href="css/voice-coach.css">
 
 </head>
 
@@ -81,7 +82,7 @@
 
                         <span>قراءتي التفاعلية الذكية</span>
 
-                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.46: تطوير نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) مع مفاتيح التصحيح السريع - إعداد المهندس أسامة خليل هاشم">v3.46</span>
+                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.47: استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين (Speech Recognition & Voice Coach) لتحليل الطلاقة القرائية وتصحيح مخارج الحروف - إعداد المهندس أسامة خليل هاشم">v3.47</span>
 
                     </div>
 
@@ -150,6 +151,12 @@
             <button class="btn-top btn-top-teacher-dashboard" id="btnTopTeacherDashboard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين">
                 <span>🧑‍🏫</span>
                 <span>لوحة المعلم وسجل الصف</span>
+            </button>
+
+            <!-- زر استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين (Speech Recognition & Voice Coach) -->
+            <button class="btn-top btn-top-voice-coach" id="btnTopVoiceCoach" onclick="VoiceCoach.openModal('studio')" title="استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين (Speech Recognition & Voice Coach) لتحليل الطلاقة القرائية وتصحيح مخارج الحروف">
+                <span>🎙️</span>
+                <span id="topVoiceCoachLabel">المدرب الصوتي ونطق الحروف</span>
             </button>
 
             <!-- زر نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) -->
@@ -266,6 +273,24 @@
 
                 <p style="margin: 0; font-size: 0.85rem; color: #64748b;">تدرج دروس الكتاب من البداية للنهاية:</p>
 
+            </div>
+
+            <!-- بطاقة استوديو التدريب الصوتي ومخارج الحروف في القائمة الجانبية -->
+            <div class="sidebar-teacher-card" id="sidebarVoiceCoachCard" onclick="VoiceCoach.openModal('studio')" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-color: #86efac; cursor: pointer;" title="استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #166534; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>🎙️</span> <span>المدرب الصوتي ونطق الحروف</span>
+                    </span>
+                    <span style="font-size: 0.74rem; font-weight: 900; background: #059669; color: white; padding: 2px 8px; border-radius: 8px;">
+                        أوفلاين 100%
+                    </span>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #15803d; font-weight: 700;">
+                    <span>مخارج الحروف</span>
+                    <span>•</span>
+                    <span>الطلاقة القرائية</span>
+                    <span style="color: #047857; font-weight: 900;">فتح الاستوديو ⬅</span>
+                </div>
             </div>
 
             <!-- بطاقة لوحة تحكم المعلم وسجل الصف في القائمة الجانبية -->
