@@ -439,6 +439,14 @@
         else if (tabId === 'remedial') renderRemedialTab();
         else if (tabId === 'reports') renderReportsTab();
         else if (tabId === 'settings') renderSettingsTab();
+        else if (tabId === 'sync') renderSyncTab();
+    }
+
+    // ريندر تبويب المزامنة والرادار الصفي الحي
+    function renderSyncTab() {
+        if (window.ClassroomSync && window.ClassroomSync.renderTeacherRadar) {
+            window.ClassroomSync.renderTeacherRadar();
+        }
     }
 
     // بناء قائمة الشعب المنسدلة
@@ -1677,6 +1685,68 @@
         }
     }
 
+    // دوال الربط والمزامنة الصفية مع محرك ClassroomSync
+    function getActiveClassStudents() {
+        return state.studentsMap[state.activeClassId] || [];
+    }
+
+    function getClasses() {
+        return state.classes || [];
+    }
+
+    function ingestStudentProgress(studentData) {
+        if (!studentData || !studentData.name) return;
+        const currentList = state.studentsMap[state.activeClassId] || [];
+
+        // البحث عن التلميذ بالمعرّف أو بالاسم الدقيق
+        let existing = currentList.find(s => s.id === studentData.id || s.name === studentData.name);
+
+        if (existing) {
+            existing.stars = Math.max(existing.stars || 0, studentData.stars || 0);
+            existing.streak = Math.max(existing.streak || 0, studentData.streak || 0);
+            existing.completedLessons = Math.max(existing.completedLessons || 0, studentData.completedLessons || 0);
+
+            // تحديث المهارات الفونيمية بنسب إتقان واقعية
+            const acc = studentData.accuracy || 100;
+            existing.skills.listening = existing.stars > 100 ? 'ممتاز' : (existing.stars > 50 ? 'جيد جداً' : 'جيد');
+            existing.skills.reading = existing.completedLessons > 25 ? 'ممتاز' : (existing.completedLessons > 12 ? 'جيد جداً' : 'جيد');
+            existing.skills.writing = 'ممتاز';
+            existing.skills.spelling = acc >= 90 ? 'ممتاز' : (acc >= 75 ? 'جيد جداً' : 'جيد');
+            existing.skills.participation = 'ممتاز';
+            existing.skills.attendance = 'ممتاز';
+            existing.status = existing.stars > 120 ? 'متفوق' : 'جيد';
+        } else {
+            const newStudent = {
+                id: studentData.id || ('std_' + Date.now() + '_' + Math.random().toString(36).substring(2, 6)),
+                name: studentData.name,
+                gender: 'boy',
+                birthDate: '2018-01-01',
+                guardianName: 'ولي أمر التلميذ',
+                phone: '',
+                stars: studentData.stars || 0,
+                streak: studentData.streak || 0,
+                completedLessons: studentData.completedLessons || 0,
+                skills: {
+                    listening: studentData.stars > 100 ? 'ممتاز' : 'جيد جداً',
+                    speaking: 'ممتاز',
+                    reading: studentData.completedLessons > 20 ? 'ممتاز' : 'جيد جداً',
+                    writing: 'جيد جداً',
+                    spelling: (studentData.accuracy || 100) >= 85 ? 'ممتاز' : 'جيد',
+                    memorization: 'ممتاز',
+                    participation: 'ممتاز',
+                    attendance: 'ممتاز'
+                },
+                status: (studentData.stars || 0) > 100 ? 'متفوق' : 'جيد',
+                notes: 'تمت المزامنة آلياً عبر واي فاي الصف'
+            };
+            currentList.push(newStudent);
+            state.studentsMap[state.activeClassId] = currentList;
+        }
+
+        saveData();
+        updateSidebarCard();
+    }
+
     // التهيئة عند تحميل المستند
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
@@ -1717,7 +1787,10 @@
         importBackupJSON,
         resetClassDataPrompt,
         openStudentInEvaluationModal,
-        updateSidebarCard
+        updateSidebarCard,
+        getActiveClassStudents,
+        getClasses,
+        ingestStudentProgress
     };
 
     // دوال مساعدة عامة على النافذة

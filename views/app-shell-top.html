@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="css/games.css">
     <link rel="stylesheet" href="css/gamification.css">
     <link rel="stylesheet" href="css/teacher-dashboard.css">
+    <link rel="stylesheet" href="css/classroom-sync.css">
 
 </head>
 
@@ -116,6 +117,13 @@
                 <span class="top-stars-count" id="topGlobalStarsCount">0</span>
                 <span class="top-stars-label">نجمة</span>
             </div>
+
+            <!-- زر محرك المزامنة الصفية المحلية أوفلاين عبر الواي فاي (Local Offline Sync) لمزامنة شاشات التابلت مع المعلم -->
+            <button class="btn-top btn-top-class-sync" id="btnTopClassSync" onclick="openClassroomSyncModal()" title="المزامنة الصفية المحلية أوفلاين عبر الواي فاي (Local Offline Sync) - ربط شاشات التابلت مع لوحة تحكم المعلم">
+                <span class="sync-status-dot status-offline" id="topSyncStatusDot"></span>
+                <span>📡</span>
+                <span id="topSyncStatusLabel">المزامنة الصفية</span>
+            </button>
 
             <!-- زر لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين -->
             <button class="btn-top btn-top-teacher-dashboard" id="btnTopTeacherDashboard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين">

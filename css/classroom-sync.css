@@ -1,0 +1,914 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - محرك المزامنة الصفية المحلية أوفلاين عبر الواي فاي
+ * (Classroom Local Offline Wi-Fi Sync Engine)
+ * لمزامنة تقدم التلاميذ بين شاشات التابلت ولوحة تحكم المعلم دون الحاجة للإنترنت
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* --- 1. زر المزامنة في الشريط العلوي (Top Navbar Widget) --- */
+.btn-top-class-sync {
+    background: linear-gradient(135deg, #065f46 0%, #059669 50%, #0d9488 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #34d399 !important;
+    box-shadow: 0 3px 10px rgba(5, 150, 105, 0.25) !important;
+    font-weight: 800 !important;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 6px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+}
+
+.btn-top-class-sync:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(5, 150, 105, 0.35) !important;
+    background: linear-gradient(135deg, #047857 0%, #059669 100%) !important;
+}
+
+/* نقطة الحالة اللحظية (Status Dot) */
+.sync-status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.sync-status-dot.status-online {
+    background: #22c55e;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+    animation: syncPulseGreen 2s infinite;
+}
+
+.sync-status-dot.status-syncing {
+    background: #f59e0b;
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+    animation: syncPulseAmber 1.2s infinite;
+}
+
+.sync-status-dot.status-offline {
+    background: #94a3b8;
+    box-shadow: none;
+}
+
+@keyframes syncPulseGreen {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    70% { transform: scale(1.1); box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+@keyframes syncPulseAmber {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7); }
+    70% { transform: scale(1.15); box-shadow: 0 0 0 7px rgba(245, 158, 11, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+}
+
+/* --- 2. نافذة مزامنة التابلت للتلميذ (Pupil Tablet Sync Modal) --- */
+.sync-modal-box {
+    background: #ffffff;
+    width: 92vw;
+    max-width: 680px;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.35);
+    overflow: hidden;
+    direction: rtl;
+    text-align: right;
+    border: 1.5px solid #cbd5e1;
+    position: relative;
+    animation: syncModalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes syncModalFadeIn {
+    from { opacity: 0; transform: scale(0.96) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.sync-modal-header {
+    background: linear-gradient(135deg, #064e3b 0%, #065f46 60%, #047857 100%);
+    color: #ffffff;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #059669;
+}
+
+.sync-header-title-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sync-header-icon {
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 6px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sync-header-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #ffffff;
+}
+
+.sync-header-subtitle {
+    font-size: 0.82rem;
+    color: #a7f3d0;
+    margin-top: 3px;
+    font-weight: 600;
+}
+
+.sync-modal-body {
+    padding: 20px;
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+/* بطاقة هوية التلميذ والتابلت */
+.sync-pupil-identity-card {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border: 1.5px solid #86efac;
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.sync-pupil-info-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sync-pupil-avatar {
+    width: 52px;
+    height: 52px;
+    background: #ffffff;
+    border: 2px solid #22c55e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 4px 10px rgba(34, 197, 94, 0.2);
+}
+
+.sync-pupil-name {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #14532d;
+    margin-bottom: 4px;
+}
+
+.sync-pupil-meta {
+    font-size: 0.85rem;
+    color: #166534;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sync-pupil-badge {
+    background: #15803d;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+}
+
+/* شارات الإحصاءات السريعة على التابلت */
+.sync-stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.sync-stat-pill {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+}
+
+.sync-stat-val {
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+.sync-stat-lbl {
+    font-size: 0.78rem;
+    color: #64748b;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+/* أزرار الإجراءات الرئيسية للتابلت */
+.sync-actions-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.btn-sync-send-primary {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 14px 20px;
+    font-size: 1.1rem;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.3);
+    transition: all 0.25s ease;
+}
+
+.btn-sync-send-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(5, 150, 105, 0.4);
+}
+
+.btn-sync-raise-hand {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+    transition: all 0.25s ease;
+}
+
+.btn-sync-raise-hand:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(217, 119, 6, 0.35);
+}
+
+.btn-sync-raise-hand.raised {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    animation: handWave 1.5s infinite;
+}
+
+@keyframes handWave {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* إعدادات التوصيل للتابلت */
+.sync-settings-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 14px;
+}
+
+.sync-form-row {
+    margin-bottom: 10px;
+}
+
+.sync-form-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #334155;
+    margin-bottom: 4px;
+}
+
+.sync-form-input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1.5px solid #cbd5e1;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #0f172a;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.sync-form-input:focus {
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
+}
+
+.sync-auto-toggle-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-top: 1px dashed #e2e8f0;
+    margin-top: 8px;
+}
+
+/* بطاقة رمز QR للتابلت */
+.sync-qr-card {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 16px;
+    text-align: center;
+    display: none;
+    margin-top: 14px;
+}
+
+.sync-qr-card.active {
+    display: block;
+}
+
+.sync-qr-canvas-holder {
+    display: inline-block;
+    padding: 10px;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    margin: 10px 0;
+}
+
+/* --- 3. تبويب المزامنة والرادار الصفي في لوحة المعلم (Teacher Live Radar Tab) --- */
+.sync-radar-banner {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #064e3b 100%);
+    border-radius: 16px;
+    padding: 18px 24px;
+    color: white;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1.5px solid #334155;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.sync-radar-info h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #34d399;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sync-radar-info p {
+    margin: 5px 0 0;
+    font-size: 0.88rem;
+    color: #cbd5e1;
+    font-weight: 600;
+}
+
+.sync-radar-counters {
+    display: flex;
+    gap: 14px;
+}
+
+.sync-counter-chip {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 8px 16px;
+    text-align: center;
+    min-width: 90px;
+}
+
+.sync-counter-num {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #ffffff;
+}
+
+.sync-counter-lbl {
+    font-size: 0.75rem;
+    color: #a7f3d0;
+    font-weight: 700;
+}
+
+/* شريط إجراءات المعلم السريعة */
+.sync-teacher-toolbar {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.sync-toolbar-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-radar-action {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #1e293b;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.btn-radar-action:hover {
+    background: #f8fafc;
+    border-color: #059669;
+    color: #059669;
+    transform: translateY(-1px);
+}
+
+.btn-radar-action.btn-radar-primary {
+    background: #059669;
+    border-color: #047857;
+    color: white;
+}
+
+.btn-radar-action.btn-radar-primary:hover {
+    background: #047857;
+    color: white;
+}
+
+.btn-radar-action.btn-radar-warning {
+    background: #d97706;
+    border-color: #b45309;
+    color: white;
+}
+
+.btn-radar-action.btn-radar-warning:hover {
+    background: #b45309;
+    color: white;
+}
+
+/* شبكة رادار أجهزة التابلت الحية */
+.sync-radar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.sync-tablet-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sync-tablet-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+}
+
+.sync-tablet-card.active-online {
+    border-color: #86efac;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.15);
+}
+
+.sync-tablet-card.hand-alert {
+    border-color: #f59e0b;
+    background: #fffbeb;
+    animation: handShake 2s infinite ease-in-out;
+}
+
+@keyframes handShake {
+    0%, 100% { transform: translateY(0); }
+    10%, 30% { transform: translateY(-4px); }
+    20%, 40% { transform: translateY(2px); }
+}
+
+.tablet-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.tablet-pupil-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tablet-pupil-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: 2px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.tablet-pupil-name {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #0f172a;
+}
+
+.tablet-pupil-id {
+    font-size: 0.74rem;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.tablet-status-badge {
+    padding: 3px 8px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tablet-status-badge.online {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.tablet-status-badge.idle {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.tablet-status-badge.offline {
+    background: #f1f5f9;
+    color: #64748b;
+}
+
+/* نشاط التلميذ الحالي */
+.tablet-activity-box {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 8px 10px;
+    margin-bottom: 12px;
+}
+
+.tablet-activity-label {
+    font-size: 0.72rem;
+    color: #64748b;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tablet-activity-text {
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* إحصائيات التابلت */
+.tablet-stats-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 10px;
+    margin-bottom: 12px;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.tablet-stars-pill {
+    color: #d97706;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.tablet-accuracy-pill {
+    color: #2563eb;
+}
+
+.tablet-sync-time {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+/* أزرار تفاعل المعلم مع التابلت */
+.tablet-card-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-tablet-star {
+    flex: 1;
+    background: #fef3c7;
+    border: 1.5px solid #fde047;
+    color: #b45309;
+    font-weight: 800;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    padding: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+
+.btn-tablet-star:hover {
+    background: #fde047;
+    color: #78350f;
+}
+
+.btn-tablet-inspect {
+    background: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    color: #334155;
+    font-weight: 800;
+    font-size: 0.8rem;
+    border-radius: 8px;
+    padding: 6px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-tablet-inspect:hover {
+    background: #e2e8f0;
+}
+
+/* شارة رفع اليد المرتفعة */
+.hand-raised-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #dc2626;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 3px 8px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 8px rgba(220, 38, 38, 0.4);
+    animation: handWave 1s infinite;
+}
+
+/* غرفة التوجيه والتحكم الصفي الجماعي */
+.sync-broadcast-box {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border: 1.5px solid #cbd5e1;
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+.sync-broadcast-title {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #0f172a;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sync-broadcast-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 14px;
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+    .sync-broadcast-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* شريط التغذية الحية للنشاط الصفي */
+.sync-live-feed-card {
+    background: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.sync-feed-title {
+    font-size: 1rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin: 0 0 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sync-feed-list {
+    max-height: 180px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sync-feed-item {
+    font-size: 0.84rem;
+    padding: 8px 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-right: 3px solid #059669;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+}
+
+.sync-feed-time {
+    font-size: 0.72rem;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+/* --- 4. شاشة وضع انتباه الصف (Classroom Focus Overlay) --- */
+.classroom-focus-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 23, 42, 0.94);
+    backdrop-filter: blur(8px);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    animation: focusFadeIn 0.4s ease;
+    direction: rtl;
+}
+
+@keyframes focusFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.focus-box {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border: 2px solid #38bdf8;
+    box-shadow: 0 0 50px rgba(56, 189, 248, 0.3);
+    border-radius: 28px;
+    padding: 40px 30px;
+    max-width: 520px;
+    width: 90%;
+    color: white;
+}
+
+.focus-bell-icon {
+    font-size: 4.5rem;
+    display: inline-block;
+    animation: focusBellRing 1.8s infinite ease-in-out;
+}
+
+@keyframes focusBellRing {
+    0%, 100% { transform: rotate(0); }
+    15% { transform: rotate(16deg) scale(1.1); }
+    30% { transform: rotate(-14deg) scale(1.1); }
+    45% { transform: rotate(10deg); }
+    60% { transform: rotate(-8deg); }
+    75% { transform: rotate(0); }
+}
+
+.focus-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #38bdf8;
+    margin: 16px 0 8px;
+}
+
+.focus-desc {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.focus-signature {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    font-weight: 700;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 14px;
+}
+
+/* --- 5. نافذة ماسح كود التلميذ بالكاميرا (Classroom QR Scanner Modal) --- */
+.qr-scanner-box {
+    background: #0f172a;
+    color: white;
+    border-radius: 20px;
+    width: 90vw;
+    max-width: 520px;
+    overflow: hidden;
+    direction: rtl;
+    text-align: center;
+    border: 2px solid #059669;
+}
+
+.qr-scanner-video-holder {
+    width: 100%;
+    height: 320px;
+    background: #000000;
+    position: relative;
+    overflow: hidden;
+}
+
+.qr-scanner-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.qr-scanner-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    height: 220px;
+    border: 2.5px solid #22c55e;
+    border-radius: 16px;
+    box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.5);
+}
+
+.qr-scanner-beam {
+    width: 100%;
+    height: 3px;
+    background: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+    position: absolute;
+    top: 0;
+    animation: qrBeamScan 2s infinite ease-in-out;
+}
+
+@keyframes qrBeamScan {
+    0%, 100% { top: 0; }
+    50% { top: 100%; }
+}
+
+/* إخفاء أدوات المزامنة عند الطباعة */
+@media print {
+    .btn-top-class-sync,
+    #classroomSyncModal,
+    #classroomFocusOverlay,
+    #classroomQrScanModal {
+        display: none !important;
+    }
+}

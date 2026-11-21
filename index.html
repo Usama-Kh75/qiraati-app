@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="css/games.css">
     <link rel="stylesheet" href="css/gamification.css">
     <link rel="stylesheet" href="css/teacher-dashboard.css">
+    <link rel="stylesheet" href="css/classroom-sync.css">
 
 </head>
 
@@ -116,6 +117,13 @@
                 <span class="top-stars-count" id="topGlobalStarsCount">0</span>
                 <span class="top-stars-label">نجمة</span>
             </div>
+
+            <!-- زر محرك المزامنة الصفية المحلية أوفلاين عبر الواي فاي (Local Offline Sync) لمزامنة شاشات التابلت مع المعلم -->
+            <button class="btn-top btn-top-class-sync" id="btnTopClassSync" onclick="openClassroomSyncModal()" title="المزامنة الصفية المحلية أوفلاين عبر الواي فاي (Local Offline Sync) - ربط شاشات التابلت مع لوحة تحكم المعلم">
+                <span class="sync-status-dot status-offline" id="topSyncStatusDot"></span>
+                <span>📡</span>
+                <span id="topSyncStatusLabel">المزامنة الصفية</span>
+            </button>
 
             <!-- زر لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين -->
             <button class="btn-top btn-top-teacher-dashboard" id="btnTopTeacherDashboard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين">
@@ -25216,6 +25224,9 @@
                 <button class="teacher-modal-tab" id="tabTeacher_settings" onclick="TeacherDashboard.switchTab('settings')">
                     <span>⚙️</span> <span>إعدادات الصف وإدارة البيانات</span>
                 </button>
+                <button class="teacher-modal-tab" id="tabTeacher_sync" onclick="TeacherDashboard.switchTab('sync')">
+                    <span>📡</span> <span>المزامنة والرادار الصفي الحي</span>
+                </button>
             </div>
 
             <!-- جسم النافذة ومحتوى التبويبات -->
@@ -25578,6 +25589,111 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- ==============================================
+                     7. تبويب المزامنة والرادار الصفي الحي (Live Sync & Radar)
+                =============================================== -->
+                <div id="paneTeacher_sync" class="teacher-tab-pane">
+                    <!-- بانر رادار الصف والشبكة المحلية -->
+                    <div class="sync-radar-banner">
+                        <div class="sync-radar-info">
+                            <h4><span>📡</span> رادار الأجهزة اللوحية والمزامنة الصفية المحلية أوفلاين</h4>
+                            <p>مزامنة لحظية مباشرة عبر شبكة الواي فاي الصفية (Local Offline Sync) دون الحاجة للإنترنت • الخادم: <b id="syncHostDisplay">http://localhost:8080</b></p>
+                        </div>
+                        <div class="sync-radar-counters">
+                            <div class="sync-counter-chip">
+                                <div class="sync-counter-num" id="syncConnectedCount">0</div>
+                                <div class="sync-counter-lbl">أجهزة التابلت</div>
+                            </div>
+                            <div class="sync-counter-chip">
+                                <div class="sync-counter-num" id="syncActiveCount">0</div>
+                                <div class="sync-counter-lbl">نشط الآن</div>
+                            </div>
+                            <div class="sync-counter-chip">
+                                <div class="sync-counter-num" id="syncAvgStars">0</div>
+                                <div class="sync-counter-lbl">معدل النجوم ⭐</div>
+                            </div>
+                            <div class="sync-counter-chip" style="border-color: #fca5a5;">
+                                <div class="sync-counter-num" id="syncHandRaiseCount" style="color: #f87171;">0</div>
+                                <div class="sync-counter-lbl">طلب مساعدة ✋</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- شريط أدوات وإجراءات المعلم السريعة -->
+                    <div class="sync-teacher-toolbar">
+                        <div class="sync-toolbar-group">
+                            <button type="button" class="btn-radar-action btn-radar-primary" id="btnSyncRefreshRadar" onclick="ClassroomSync.fetchClassroomReports()" title="تحديث قراءة الرادار الصفي اللحظي">
+                                <span>🔄</span> <span>تحديث الرادار اللحظي</span>
+                            </button>
+                            <button type="button" class="btn-radar-action" id="btnSyncBroadcastRoster" onclick="ClassroomSync.broadcastCurrentClassRoster()" title="تعميم أسماء تلاميذ الشعبة النشطة على كل أجهزة التابلت">
+                                <span>📋</span> <span>بث قائمة أسماء الشعبة للتابلت</span>
+                            </button>
+                            <button type="button" class="btn-radar-action btn-radar-primary" id="btnSyncIngestRoster" onclick="ClassroomSync.ingestAllPupilDataIntoTeacherRecords()" title="سحب وتحديث تقدم التلاميذ في سجل التقييم والتقارير المطبوعة">
+                                <span>📥</span> <span>سحب وتحديث درجات الصف بالسجل</span>
+                            </button>
+                        </div>
+                        <div class="sync-toolbar-group">
+                            <button type="button" class="btn-radar-action" id="btnSyncOpenQrScan" onclick="ClassroomSync.openQrScanner()" title="مسح كود التلميذ بالكاميرا أوفلاين دون شبكة">
+                                <span>📸</span> <span>مسح كود التلميذ (Offline QR)</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- غرفة التحكم والتوجيه الصفي الجماعي -->
+                    <div class="sync-broadcast-box">
+                        <div class="sync-broadcast-title">
+                            <span>🎮</span> <span>غرفة التوجيه والتحكم الصفي المباشر (Classroom Broadcast Console)</span>
+                        </div>
+                        <div class="sync-broadcast-grid">
+                            <div style="display: flex; gap: 8px;">
+                                <select id="syncBroadcastLessonSelect" class="form-select" style="flex: 1; padding: 8px 12px; font-weight: 700;"></select>
+                                <button type="button" class="btn-radar-action btn-radar-primary" id="btnSyncBroadcastLesson" onclick="ClassroomSync.broadcastLessonFromSelect()" title="توجيه كافة أجهزة التابلت لفتح هذا الدرس الآن">
+                                    <span>🚀</span> <span>توجيه الصف</span>
+                                </button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn-radar-action" id="btnSyncToggleFocus" style="width: 100%; justify-content: center;" onclick="ClassroomSync.toggleFocusMode()" title="قفل الشاشات وتوجيه انتباه التلاميذ لشرح المعلم على السبورة">
+                                    <span>🔒</span> <span>وضع انتباه الصف (قفل الشاشات)</span>
+                                </button>
+                            </div>
+                            <div>
+                                <button type="button" class="btn-radar-action" id="btnSyncAwardGroupStars" style="width: 100%; justify-content: center; background: #fef3c7; border-color: #fde047; color: #b45309;" onclick="ClassroomSync.broadcastAwardGroupStars()" title="إرسال مكافأة 5 نجوم تشجيعية لكافة التلاميذ المتصلين">
+                                    <span>⭐</span> <span>مكافأة نجوم جماعية (+5)</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- إرسال رسالة مخصصة -->
+                        <div style="display: flex; gap: 8px; margin-top: 12px;">
+                            <input type="text" id="syncBroadcastMsgInput" class="form-input" placeholder="اكتب توجيهاً أو رسالة تشجيعية لتظهر فوراً على كافة شاشات التابلت..." style="flex: 1;">
+                            <button type="button" class="btn-radar-action" id="btnSyncBroadcastMsg" onclick="ClassroomSync.broadcastCustomMessage()" title="إرسال التوجيه لشاشات الصف">
+                                <span>📢</span> <span>إرسال إشعار للشاشات</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- شبكة رادار أجهزة التابلت الحية -->
+                    <div style="margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center;">
+                        <h4 style="margin: 0; font-size: 1.15rem; font-weight: 900; color: #0f172a; display: flex; align-items: center; gap: 8px;">
+                            <span>📱</span> <span>شاشات التابلت المتصلة بالصف حالياً</span>
+                        </h4>
+                        <span style="font-size: 0.8rem; color: #64748b; font-weight: 700;">تحديث تلقائي كل 4 ثوانٍ</span>
+                    </div>
+                    <div class="sync-radar-grid" id="classroomRadarGrid">
+                        <!-- يُبنى ديناميكياً بواسطة classroom-sync.js -->
+                    </div>
+
+                    <!-- شريط النشاط الصفي اللحظي -->
+                    <div class="sync-live-feed-card">
+                        <div class="sync-feed-title">
+                            <span>⚡</span> <span>سجل النشاط الصفي اللحظي (Live Activity Stream)</span>
+                        </div>
+                        <div class="sync-feed-list" id="classroomActivityFeed">
+                            <!-- يُبنى ديناميكياً بواسطة classroom-sync.js -->
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- أسفل النافذة -->
@@ -25672,6 +25788,193 @@
         </div>
     </div>
 
+    <!-- ==============================================
+         نافذة المزامنة الصفية للأجهزة اللوحية (Pupil Tablet Sync Modal)
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    =============================================== -->
+    <div class="modal-backdrop" id="classroomSyncModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="sync-modal-box" onclick="event.stopPropagation()">
+            <!-- رأس النافذة -->
+            <div class="sync-modal-header">
+                <div class="sync-header-title-box">
+                    <span class="sync-header-icon">📡</span>
+                    <div>
+                        <h3 class="sync-header-title">المزامنة الصفية المحلية أوفلاين عبر الواي فاي</h3>
+                        <div class="sync-header-subtitle">منصة قراءتي التفاعلية الذكية • إعداد المهندس أسامة خليل هاشم</div>
+                    </div>
+                </div>
+                <button class="modal-close-btn" onclick="ClassroomSync.closePupilSyncModal()" title="إغلاق">&times;</button>
+            </div>
+
+            <!-- جسم النافذة -->
+            <div class="sync-modal-body">
+                <!-- مؤشر حالة التوصيل اللحظي -->
+                <div id="syncPupilStatusIndicator" style="display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; border-radius: 12px; font-size: 0.95rem; font-weight: 800; margin-bottom: 16px; background: #fef3c7; color: #b45309; border: 1px solid #fde047;">
+                    <span>⚪</span> <span>جاري فحص الاتصال بشبكة المعلم المحلية...</span>
+                </div>
+
+                <!-- بطاقة هوية التلميذ والتابلت -->
+                <div class="sync-pupil-identity-card">
+                    <div class="sync-pupil-info-group">
+                        <div class="sync-pupil-avatar">🎒</div>
+                        <div>
+                            <div class="sync-pupil-name" id="syncPupilCardName">تلميذ بطل</div>
+                            <div class="sync-pupil-meta">
+                                <span id="syncPupilCardClass">الصف الأول - شعبة (أ)</span>
+                                <span class="sync-pupil-badge" id="syncPupilLevelBadge">برعم القراءة 🌟</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: left;">
+                        <button type="button" class="btn-radar-action" style="font-size: 0.8rem; padding: 5px 10px;" onclick="document.getElementById('syncPupilSettingsArea').style.display = document.getElementById('syncPupilSettingsArea').style.display === 'none' ? 'block' : 'none'">
+                            <span>⚙️</span> <span>تعديل</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- شارات إحصائيات التلميذ -->
+                <div class="sync-stats-row">
+                    <div class="sync-stat-pill">
+                        <div class="sync-stat-val" id="syncPupilStarsBadge" style="color: #d97706;">0 ⭐</div>
+                        <div class="sync-stat-lbl">رصيد النجوم</div>
+                    </div>
+                    <div class="sync-stat-pill">
+                        <div class="sync-stat-val" id="syncPupilCompletedBadge" style="color: #059669;">0</div>
+                        <div class="sync-stat-lbl">الدروس المكتملة</div>
+                    </div>
+                    <div class="sync-stat-pill">
+                        <div class="sync-stat-val" style="color: #2563eb;">100%</div>
+                        <div class="sync-stat-lbl">مستوى الإتقان</div>
+                    </div>
+                </div>
+
+                <!-- أزرار الإجراءات الرئيسية للتابلت -->
+                <div class="sync-actions-group">
+                    <button type="button" class="btn-sync-send-primary" id="btnSyncPupilSend" onclick="ClassroomSync.sendPupilProgressNow()">
+                        <span>🔄</span> <span>إرسال ومزامنة تقدمي مع المعلم الآن</span>
+                    </button>
+                    <button type="button" class="btn-sync-raise-hand" id="btnSyncPupilRaiseHand" onclick="ClassroomSync.toggleRaiseHand()">
+                        <span>🙋‍♂️</span> <span>رفع اليد لطلب مساعدة المعلم</span>
+                    </button>
+                </div>
+
+                <!-- منطقة الإعدادات واختيار الاسم والشعبة -->
+                <div class="sync-settings-card" id="syncPupilSettingsArea" style="display: none;">
+                    <div class="sync-form-row">
+                        <label class="sync-form-label">اختيار الاسم من قائمة الصف:</label>
+                        <select id="syncPupilStudentSelect" class="sync-form-input" onchange="ClassroomSync.onPupilStudentSelectChange(this.value)">
+                            <option value="">-- اختر اسمك إن كان متوفراً --</option>
+                        </select>
+                    </div>
+
+                    <div class="sync-form-row">
+                        <label class="sync-form-label">أو كتابة الاسم يدوياً على هذا التابلت:</label>
+                        <input type="text" id="syncPupilNameInput" class="sync-form-input" placeholder="اسم التلميذ الثلاثي..." oninput="ClassroomSync.onPupilNameInputChange(this.value)">
+                    </div>
+
+                    <div class="sync-form-row">
+                        <label class="sync-form-label">الشعبة الدراسية:</label>
+                        <select id="syncPupilClassSelect" class="sync-form-input" onchange="ClassroomSync.onPupilClassSelectChange(this.value)">
+                            <option value="class_a">الصف الأول - شعبة (أ)</option>
+                            <option value="class_b">الصف الأول - شعبة (ب)</option>
+                            <option value="class_c">الصف الأول - شعبة (ج)</option>
+                            <option value="class_d">الصف الأول - شعبة (د)</option>
+                        </select>
+                    </div>
+
+                    <div class="sync-form-row">
+                        <label class="sync-form-label">عنوان خادم المعلم في الصف (IP Address):</label>
+                        <input type="text" id="syncPupilHostInput" class="sync-form-input" placeholder="http://192.168.1.100:8080" oninput="ClassroomSync.onPupilHostInputChange(this.value)">
+                    </div>
+
+                    <div class="sync-auto-toggle-box">
+                        <span style="font-size: 0.9rem; font-weight: 800; color: #1e293b;">المزامنة التلقائية اللحظية في الخلفية:</span>
+                        <input type="checkbox" id="syncPupilAutoToggle" checked onchange="ClassroomSync.onPupilAutoSyncToggle(this.checked)" style="transform: scale(1.3); cursor: pointer; accent-color: #059669;">
+                    </div>
+                </div>
+
+                <!-- كود QR للمسح بدون أي اتصال واي فاي -->
+                <div style="text-align: center; margin-top: 10px;">
+                    <button type="button" class="btn-radar-action" style="font-size: 0.85rem;" onclick="document.getElementById('syncPupilQrCard').classList.toggle('active')">
+                        <span>📸</span> <span>عرض كود التلميذ (QR) للمسح بكاميرا المعلم أوفلاين</span>
+                    </button>
+                </div>
+
+                <div class="sync-qr-card" id="syncPupilQrCard">
+                    <div style="font-size: 0.9rem; font-weight: 800; color: #1e293b; margin-bottom: 6px;">
+                        رمز تقدم التلميذ المشفر (بدون نت ولا واي فاي)
+                    </div>
+                    <div class="sync-qr-canvas-holder">
+                        <canvas id="syncPupilQrCanvas"></canvas>
+                    </div>
+                    <div style="font-size: 0.78rem; color: #64748b;">
+                        قرّب هذا الكود من كاميرا حاسوب أو تابلت المعلم لنقل النجوم والدرجات فوراً.
+                    </div>
+                </div>
+            </div>
+
+            <!-- أسفل النافذة -->
+            <div style="padding: 12px 20px; background: #f8fafc; border-top: 1.5px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between;">
+                <span style="font-size: 0.82rem; font-weight: 700; color: #059669;">
+                    📡 شبكة المزامنة الصفية أوفلاين • إعداد المهندس أسامة خليل هاشم
+                </span>
+                <button type="button" class="btn btn-teach" style="padding: 6px 18px; font-size: 0.88rem; background: #059669; border-color: #047857;" onclick="ClassroomSync.closePupilSyncModal()">
+                    تم
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         شاشة وضع انتباه وتركيز الصف (Classroom Focus Overlay)
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    =============================================== -->
+    <div class="classroom-focus-overlay" id="classroomFocusOverlay" style="display: none;">
+        <div class="focus-box">
+            <span class="focus-bell-icon">🔔</span>
+            <h2 class="focus-title">انتبهوا لشرح المعلم على السبورة يا أبطال ✨</h2>
+            <p class="focus-desc" id="focusOverlayMsg">
+                المعلم يوجه انتباه الصف الآن... سنعود للقراءة والأنشطة التفاعلية معاً بعد قليل!
+            </p>
+            <div class="focus-signature">
+                منصة قراءتي التفاعلية الذكية • إعداد المهندس أسامة خليل هاشم
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         نافذة مسح كود التلميذ بالكاميرا (Classroom QR Scanner Modal)
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    =============================================== -->
+    <div class="modal-backdrop" id="classroomQrScanModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="qr-scanner-box" onclick="event.stopPropagation()">
+            <div style="padding: 16px 20px; background: #064e3b; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #059669;">
+                <h4 style="margin: 0; font-size: 1.15rem; font-weight: 900; color: white;">📸 مسح كود التلميذ بكاميرا المعلم</h4>
+                <button class="modal-close-btn" onclick="ClassroomSync.closeQrScanner()" title="إغلاق">&times;</button>
+            </div>
+
+            <div class="qr-scanner-video-holder">
+                <video id="qrScannerVideo" class="qr-scanner-video" playsinline></video>
+                <div class="qr-scanner-frame">
+                    <div class="qr-scanner-beam"></div>
+                </div>
+                <canvas id="qrScannerCanvas" style="display: none;"></canvas>
+            </div>
+
+            <div style="padding: 16px; background: #0f172a;">
+                <div style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 10px;">
+                    وجّه الكاميرا نحو كود QR المعروض على شاشة تابلت التلميذ:
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" id="qrScannerManualInput" class="form-input" placeholder="أو الصق نص الكود البصري هنا يدويّاً..." style="flex: 1; font-size: 0.85rem; padding: 6px 10px;">
+                    <button type="button" class="btn-radar-action btn-radar-primary" id="btnQrScannerSubmit" onclick="ClassroomSync.processManualQrCode()">
+                        تأكيد
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- حاوية الطباعة المخصصة لقواعد @media print -->
     <div id="teacherPrintArea" style="display: none;"></div>
 
@@ -25690,6 +25993,7 @@
     <script src="js/core/games.js"></script>
     <script src="js/core/gamification.js"></script>
     <script src="js/core/teacher-dashboard.js"></script>
+    <script src="js/core/classroom-sync.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

@@ -72,7 +72,8 @@ def run_integration_audit():
         'anatomyDescText', 'anatomyNaskhChar',
         'btnNextQuestion', 'examFeedbackBox',
         'evalConfettiCanvas',
-        'gamificationStarsCanvas', 'certEditableName'
+        'gamificationStarsCanvas', 'certEditableName',
+        'classroomNoticeToast'
     }
 
     # 3. فحص المعرفات البرمجية المستخدمة في ملفات JavaScript الأساسية
@@ -83,6 +84,7 @@ def run_integration_audit():
         'evaluation.js': os.path.join(BASE_DIR, 'js', 'core', 'evaluation.js'),
         'gamification.js': os.path.join(BASE_DIR, 'js', 'core', 'gamification.js'),
         'teacher-dashboard.js': os.path.join(BASE_DIR, 'js', 'core', 'teacher-dashboard.js'),
+        'classroom-sync.js': os.path.join(BASE_DIR, 'js', 'core', 'classroom-sync.js'),
         'audio.js': os.path.join(BASE_DIR, 'js', 'core', 'audio.js'),
         'navigation.js': os.path.join(BASE_DIR, 'js', 'core', 'navigation.js'),
         'modals.js': os.path.join(BASE_DIR, 'js', 'core', 'modals.js'),
@@ -188,7 +190,7 @@ def run_integration_audit():
     if not any("تبويب التحدي" in e or "حاوية التحدي" in e for e in errors):
         successes.append("كافة أقسام نظام الاختبار والتقييم الذكي (4 أقسام) متكاملة بنسبة 100%.")
 
-    # 7 ج. فحص لوحة تحكم المعلم وسجل الصف والتقارير المطبوعة أوفلاين (6 تبويبات)
+    # 7 ج. فحص لوحة تحكم المعلم وسجل الصف والتقارير المطبوعة أوفلاين (7 تبويبات)
     print("\n--- فحص لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ والتقارير (Teacher Dashboard) ---")
     teacher_tabs = [
         ('المؤشرات والتحليلات الصفية', 'tabTeacher_overview', 'paneTeacher_overview'),
@@ -196,7 +198,8 @@ def run_integration_audit():
         ('سجل الحضور والغياب اليومي', 'tabTeacher_attendance', 'paneTeacher_attendance'),
         ('خطة الدعم والمعالجة الفونيمية', 'tabTeacher_remedial', 'paneTeacher_remedial'),
         ('التقارير المطبوعة والشهادات أوفلاين', 'tabTeacher_reports', 'paneTeacher_reports'),
-        ('إعدادات الصف وإدارة البيانات', 'tabTeacher_settings', 'paneTeacher_settings')
+        ('إعدادات الصف وإدارة البيانات', 'tabTeacher_settings', 'paneTeacher_settings'),
+        ('المزامنة والرادار الصفي الحي', 'tabTeacher_sync', 'paneTeacher_sync')
     ]
     for t_title, tab_id, pane_id in teacher_tabs:
         if tab_id not in dom_ids:
@@ -204,7 +207,23 @@ def run_integration_audit():
         if pane_id not in dom_ids:
             errors.append(f"حاوية لوحة المعلم {t_title} ({pane_id}) مفقودة!")
     if not any("تبويب لوحة المعلم" in e or "حاوية لوحة المعلم" in e for e in errors):
-        successes.append("كافة أقسام لوحة تحكم المعلم وسجل الصف والتقارير المطبوعة (6 أقسام) متكاملة بنسبة 100%.")
+        successes.append("كافة أقسام لوحة تحكم المعلم وسجل الصف والتقارير المطبوعة (7 أقسام) متكاملة بنسبة 100%.")
+
+    # 7 د. فحص محرك المزامنة الصفية المحلية أوفلاين (Classroom Local Offline Sync)
+    print("\n--- فحص محرك المزامنة الصفية المحلية أوفلاين وشبكة التابلت (Local Offline Sync) ---")
+    sync_elements = [
+        ('زر المزامنة بالشريط العلوي', 'btnTopClassSync'),
+        ('نافذة مزامنة التابلت للتلميذ', 'classroomSyncModal'),
+        ('شاشة وضع انتباه الصف (قفل الشاشات)', 'classroomFocusOverlay'),
+        ('نافذة ماسح كود التلميذ بالكاميرا', 'classroomQrScanModal'),
+        ('قائمة التوجيه الصفي الجماعي للدروس', 'syncBroadcastLessonSelect'),
+        ('شبكة رادار أجهزة التابلت الحية', 'classroomRadarGrid')
+    ]
+    for s_title, s_id in sync_elements:
+        if s_id not in dom_ids:
+            errors.append(f"عنصر المزامنة الصفية {s_title} ({s_id}) مفقود!")
+    if not any("عنصر المزامنة الصفية" in e for e in errors):
+        successes.append("كافة عناصر محرك المزامنة الصفية وشاشات التابلت والرادار الحي متكاملة بنسبة 100%.")
 
     # 8. فحص عزل مفاتيح التخزين المحلي (LocalStorage Key Hygiene)
     print("\n--- فحص عزل مفاتيح التخزين المحلي (قواعد أسامة) ---")
@@ -228,7 +247,8 @@ def run_integration_audit():
         'css/lessons-prep.css', 'css/lessons-unit1.css', 'css/lessons-unit2.css',
         'css/lessons-unit3.css', 'css/lessons-unit4.css', 'css/lessons-unit5.css',
         'css/lessons-unit6.css', 'css/evaluation.css', 'css/enrichment.css',
-        'css/blackboard.css', 'css/games.css', 'css/gamification.css', 'css/teacher-dashboard.css'
+        'css/blackboard.css', 'css/games.css', 'css/gamification.css', 'css/teacher-dashboard.css',
+        'css/classroom-sync.css'
     ]
     for cf in css_files:
         if cf not in index_html:
@@ -240,7 +260,8 @@ def run_integration_audit():
         'audio_data.js', 'audio_data_unit6.js', 'curriculum_data.js',
         'js/core/modals.js', 'js/core/audio.js', 'js/core/navigation.js',
         'js/core/evaluation.js', 'js/core/enrichment.js', 'js/core/blackboard.js',
-        'js/core/games.js', 'js/core/gamification.js', 'js/core/teacher-dashboard.js', 'js/app.js'
+        'js/core/games.js', 'js/core/gamification.js', 'js/core/teacher-dashboard.js',
+        'js/core/classroom-sync.js', 'js/app.js'
     ]
     for cs in core_scripts:
         if cs not in index_html:
@@ -263,7 +284,9 @@ def run_integration_audit():
         ('js/core/evaluation.js', open(os.path.join(BASE_DIR, 'js', 'core', 'evaluation.js'), encoding='utf-8').read()),
         ('js/core/gamification.js', open(os.path.join(BASE_DIR, 'js', 'core', 'gamification.js'), encoding='utf-8').read()),
         ('js/core/teacher-dashboard.js', open(os.path.join(BASE_DIR, 'js', 'core', 'teacher-dashboard.js'), encoding='utf-8').read()),
+        ('js/core/classroom-sync.js', open(os.path.join(BASE_DIR, 'js', 'core', 'classroom-sync.js'), encoding='utf-8').read()),
         ('css/teacher-dashboard.css', open(os.path.join(BASE_DIR, 'css', 'teacher-dashboard.css'), encoding='utf-8').read()),
+        ('css/classroom-sync.css', open(os.path.join(BASE_DIR, 'css', 'classroom-sync.css'), encoding='utf-8').read()),
     ]
     for s_name, s_content in sig_targets:
         if official_signature not in s_content:
