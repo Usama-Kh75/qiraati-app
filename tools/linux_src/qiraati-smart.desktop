@@ -1,0 +1,20 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=قراءتي الذكية
+Name[ar]=قراءتي الذكية
+Name[en]=Qiraati Smart
+GenericName=منصة قراءتي التفاعلية الذكية
+GenericName[ar]=منصة قراءتي التفاعلية الذكية
+GenericName[en]=Interactive Smart Qiraati Educational Platform
+Comment=منصة قراءتي التفاعلية الذكية - الصف الأول الابتدائي (أوفلاين 100%) - إعداد وتطوير: المهندس أسامة خليل هاشم
+Comment[ar]=منصة قراءتي التفاعلية الذكية - الصف الأول الابتدائي (أوفلاين 100%) - إعداد وتطوير: المهندس أسامة خليل هاشم
+Comment[en]=Interactive Smart Qiraati Educational Platform - 1st Primary Grade - 100% Offline
+Exec=AppRun %u
+Icon=qiraati-smart
+Terminal=false
+Categories=Education;KidsGame;PrimarySchool;Languages;
+StartupWMClass=qiraati-smart
+MimeType=text/html;
+Keywords=qiraati;education;arabic;phonics;kids;smart;school;
+X-AppImage-Version=3.41

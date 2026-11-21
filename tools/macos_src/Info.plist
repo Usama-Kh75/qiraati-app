@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>ar</string>
+    <key>CFBundleDisplayName</key>
+    <string>قراءتي الذكية</string>
+    <key>CFBundleExecutable</key>
+    <string>Qiraati_Smart_Launcher</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
+    <key>CFBundleIdentifier</key>
+    <string>org.usama.qiraatismart</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>Qiraati Smart</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>3.41</string>
+    <key>CFBundleVersion</key>
+    <string>3.41</string>
+    <key>LSMinimumSystemVersion</key>
+    <string>10.12</string>
+    <key>NSHumanReadableCopyright</key>
+    <string>إعداد وتطوير: المهندس أسامة خليل هاشم</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSSupportsAutomaticGraphicsSwitching</key>
+    <true/>
+    <key>LSApplicationCategoryType</key>
+    <string>public.app-category.education</string>
+</dict>
+</plist>

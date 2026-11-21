@@ -1,0 +1,60 @@
+#!/bin/sh
+# ==============================================================================
+# منصة قراءتي التفاعلية الذكية - مشغل لينكس الموحد (Linux Universal AppRun)
+# الصف الأول الابتدائي - أوفلاين 100% بدون إنترنت أو خادم خارجي
+# إعداد وتطوير: المهندس أسامة خليل هاشم
+# ==============================================================================
+
+set -e
+
+# تحديد المسار الفعلي لدليل التطبيق AppDir
+HERE="$(dirname "$(readlink -f "$0")")"
+APP_DIR="$HERE/app"
+HTML_FILE="$APP_DIR/قراءتي_التفاعلية_الذكية.html"
+
+# التحقق من وجود الحزمة
+if [ ! -f "$HTML_FILE" ]; then
+    if [ -f "$APP_DIR/index.html" ]; then
+        HTML_FILE="$APP_DIR/index.html"
+    else
+        echo "❌ خطأ فادح: لم يتم العثور على الحزمة الأحادية في: $APP_DIR"
+        exit 1
+    fi
+fi
+
+# معالجة خيار الخادم المخصص
+if [ "$1" = "--server" ]; then
+    PORT=41753
+    echo "🚀 بدء تشغيل خادم قراءتي الذكية المحلي على المنفذ: $PORT..."
+    python3 -m http.server $PORT --directory "$APP_DIR" &
+    SERVER_PID=$!
+    sleep 0.5
+    if command -v xdg-open >/dev/null 2>&1; then
+        xdg-open "http://127.0.0.1:$PORT/قراءتي_التفاعلية_الذكية.html" 2>/dev/null || true
+    elif command -v sensible-browser >/dev/null 2>&1; then
+        sensible-browser "http://127.0.0.1:$PORT/قراءتي_التفاعلية_الذكية.html" 2>/dev/null || true
+    fi
+    wait $SERVER_PID
+    exit 0
+fi
+
+# التشغيل المباشر عبر بروتوكول file://
+# 1. تفضيل متصفحات Chromium/Chrome/Edge لتشغيلها في نمط النافذة المستقلة (App Window Mode)
+for BROWSER in google-chrome google-chrome-stable chromium chromium-browser microsoft-edge-stable microsoft-edge brave-browser; do
+    if command -v "$BROWSER" >/dev/null 2>&1; then
+        exec "$BROWSER" --app="file://$HTML_FILE" --start-maximized "$@" 2>/dev/null
+    fi
+done
+
+# 2. في حال عدم توفر متصفح يدعم نمط --app، استخدام المتصفح الافتراضي للنظام
+if command -v xdg-open >/dev/null 2>&1; then
+    exec xdg-open "file://$HTML_FILE" 2>/dev/null
+elif command -v sensible-browser >/dev/null 2>&1; then
+    exec sensible-browser "file://$HTML_FILE" 2>/dev/null
+elif command -v firefox >/dev/null 2>&1; then
+    exec firefox "file://$HTML_FILE" 2>/dev/null
+else
+    echo "✔ منصة قراءتي التفاعلية الذكية جاهزة للتشغيل."
+    echo "يرجى فتح الرابط التالي في المتصفح:"
+    echo "file://$HTML_FILE"
+fi

@@ -1,0 +1,42 @@
+#!/bin/bash
+# ==============================================================================
+# منصة قراءتي التفاعلية الذكية - مشغل ماك المستقل (macOS Native Launcher)
+# الصف الأول الابتدائي - أوفلاين 100% بدون إنترنت أو خادم خارجي
+# إعداد وتطوير: المهندس أسامة خليل هاشم
+# ==============================================================================
+
+set -e
+
+# تحديد المسار المطلق لمجلد الحزمة والموارد
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+CONTENTS_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+RESOURCES_DIR="$CONTENTS_DIR/Resources"
+APP_DIR="$RESOURCES_DIR/app"
+HTML_FILE="$APP_DIR/قراءتي_التفاعلية_الذكية.html"
+
+# التحقق من وجود الحزمة المستقلة الشاملة
+if [ ! -f "$HTML_FILE" ]; then
+    if [ -f "$APP_DIR/index.html" ]; then
+        HTML_FILE="$APP_DIR/index.html"
+    else
+        osascript -e 'display alert "خطأ في تشغيل قراءتي الذكية" message "تعذر العثور على الحزمة الأحادية لمنصة قراءتي. يرجى إعادة نسخ التطبيق." as critical'
+        exit 1
+    fi
+fi
+
+# نمط الخادم المحلي المخصص (في حال تم التمرير عبر سطر الأوامر)
+if [ "$1" == "--server" ]; then
+    PORT=41753
+    echo "🚀 بدء تشغيل خادم قراءتي الذكية المحلي على المنفذ: $PORT..."
+    python3 -m http.server $PORT --directory "$APP_DIR" &
+    SERVER_PID=$!
+    sleep 0.5
+    open "http://127.0.0.1:$PORT/قراءتي_التفاعلية_الذكية.html"
+    wait $SERVER_PID
+    exit 0
+fi
+
+# النمط الافتراضي القياسي: تشغيل فوري أوفلاين 100% بنقرة واحدة عبر بروتوكول file://
+# يعمل على كافة متصفحات ماك (Safari الافتراضي، Google Chrome، Microsoft Edge، Firefox)
+open "$HTML_FILE"
+exit 0

@@ -32,6 +32,10 @@
 !/tools/windows_src/*.cs
 !/tools/android_src/
 !/tools/android_src/**
+!/tools/macos_src/
+!/tools/macos_src/**
+!/tools/linux_src/
+!/tools/linux_src/**
 tools/android_src/.gradle/
 tools/android_src/**/build/
 tools/android_src/local.properties
