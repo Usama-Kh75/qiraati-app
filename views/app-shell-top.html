@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="css/evaluation.css">
     <link rel="stylesheet" href="css/enrichment.css">
     <link rel="stylesheet" href="css/blackboard.css">
+    <link rel="stylesheet" href="css/games.css">
 
 </head>
 
@@ -123,6 +124,12 @@
             <button class="btn-top btn-top-blackboard" id="btnTopBlackboard" onclick="openBlackboardModal('trace')" title="سبورة تتبع ورسم الحروف الهجائية التفاعلية ومختبر الخط العربي والتصحيح الذكي لمسار الكتابة">
                 <span>✍️</span>
                 <span>سبورة الخط والتتبع</span>
+            </button>
+
+            <!-- زر بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات الذكية -->
+            <button class="btn-top btn-top-games" id="btnTopGamesHub" onclick="openGamesModal('wheel')" title="بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات الذكية والسبورات التفاعلية">
+                <span>🎮</span>
+                <span>الألعاب والمسابقات</span>
             </button>
 
             <!-- زر ضبط النظام واختيار الصوت -->
@@ -259,6 +266,30 @@
                     </button>
                     <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('print')" title="كراسة أوراق عمل تحسين الخط A4">
                         <span>📄</span> <span>كراسة النسخ</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- بطاقة بنك الألعاب والمسابقات الصفية للشاشات الذكية في القائمة الجانبية -->
+            <div class="sidebar-games-card" onclick="openGamesModal('wheel')" title="بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات والسبورات الذكية">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #5b21b6; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>🎮</span> <span>الألعاب والمسابقات الذكية</span>
+                    </span>
+                    <span style="font-size: 0.72rem; font-weight: 800; background: #7c3aed; color: white; padding: 2px 6px; border-radius: 6px;">شاشات ذكية</span>
+                </div>
+                <div class="sidebar-games-buttons-grid" onclick="event.stopPropagation()">
+                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('wheel')" title="عجلة الحظ اللغوية الدوارة">
+                        <span>🎡</span> <span>عجلة الحظ</span>
+                    </button>
+                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('battle')" title="تحدي الشاشة الذكية لمسابقات الفريقين">
+                        <span>⚔️</span> <span>تحدي الفريقين</span>
+                    </button>
+                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('bubble')" title="صائد الفقاعات والكلمات الطائرة">
+                        <span>🫧</span> <span>صائد الفقاعات</span>
+                    </button>
+                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('train')" title="قطار المقاطع وتركيب الكلمات">
+                        <span>🚂</span> <span>قطار المقاطع</span>
                     </button>
                 </div>
             </div>

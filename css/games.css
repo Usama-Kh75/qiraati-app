@@ -1,0 +1,1413 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - بنك الألعاب اللغوية والمسابقات الصفية للشاشات الذكية
+ * الصف الأول الابتدائي • متوافق 100% مع كتاب قراءتي الجديد والسبورات التفاعلية
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+/* ==========================================================================
+ * 1. أزرار الدخول في الشريط العلوي والقائمة الجانبية (Entry Points)
+ * ========================================================================== */
+.btn-top-games {
+    background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 50%, #4c1d95 100%) !important;
+    color: #ffffff !important;
+    border: 1.5px solid #a78bfa !important;
+    box-shadow: 0 3px 12px rgba(124, 58, 237, 0.35) !important;
+    font-weight: 900 !important;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-top-games:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(124, 58, 237, 0.5) !important;
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%) !important;
+}
+
+/* بطاقة بنك الألعاب في القائمة الجانبية */
+.sidebar-games-card {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border: 2px solid #ddd6fe;
+    border-radius: 16px;
+    padding: 12px 14px;
+    margin: 8px 12px;
+    cursor: pointer;
+    box-shadow: 0 3px 10px rgba(109, 40, 217, 0.08);
+    transition: all 0.25s ease;
+}
+
+.sidebar-games-card:hover {
+    transform: translateY(-2px);
+    border-color: #8b5cf6;
+    box-shadow: 0 6px 16px rgba(109, 40, 217, 0.16);
+}
+
+.sidebar-games-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.sidebar-games-mini-btn {
+    background: white;
+    border: 1px solid #c4b5fd;
+    border-radius: 8px;
+    padding: 6px 4px;
+    font-size: 0.74rem;
+    font-weight: 800;
+    color: #5b21b6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-games-mini-btn:hover {
+    background: #7c3aed;
+    color: white;
+    border-color: #6d28d9;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+ * 2. هيكل النافذة المنبثقة لبنك الألعاب (Games Modal Box)
+ * ========================================================================== */
+.games-modal-box {
+    background: #ffffff;
+    width: 96vw;
+    max-width: 1400px;
+    height: 94vh;
+    max-height: 940px;
+    border-radius: 24px;
+    box-shadow: 0 25px 65px rgba(0, 0, 0, 0.35);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 2px solid #c4b5fd;
+    animation: gamesModalSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes gamesModalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* رأس النافذة */
+.games-modal-header {
+    background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 50%, #7c3aed 100%);
+    color: white;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+}
+
+.games-header-title-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.games-header-icon {
+    font-size: 2rem;
+    background: rgba(255, 255, 255, 0.15);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.games-header-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.games-header-subtitle {
+    font-size: 0.78rem;
+    opacity: 0.9;
+    margin-top: 2px;
+    font-weight: 600;
+}
+
+.games-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-games-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 10px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-games-action:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* شريط التبويبات السبعة للألعاب */
+.games-modal-tabs {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    background: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+    overflow-x: auto;
+    flex-shrink: 0;
+    scrollbar-width: thin;
+}
+
+.games-modal-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: 1.5px solid transparent;
+    background: transparent;
+    color: #475569;
+    font-size: 0.88rem;
+    font-weight: 800;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+}
+
+.games-modal-tab:hover {
+    background: #ede9fe;
+    color: #5b21b6;
+    border-color: #ddd6fe;
+}
+
+.games-modal-tab.active {
+    background: #6d28d9;
+    color: #ffffff;
+    border-color: #5b21b6;
+    box-shadow: 0 3px 8px rgba(109, 40, 217, 0.25);
+}
+
+/* جسم النافذة ومحتوى التبويبات */
+.games-modal-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    background: #fdfbf7;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.games-tab-pane {
+    display: none;
+    flex-direction: column;
+    flex: 1;
+    animation: gamesFadeIn 0.25s ease;
+}
+
+.games-tab-pane.active {
+    display: flex;
+}
+
+@keyframes gamesFadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* تذييل النافذة */
+.games-modal-footer {
+    padding: 10px 20px;
+    background: #ffffff;
+    border-top: 1.5px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+ * 3. شريط إحصائيات الألعاب وتحدي النجوم السريع (Games Quick Stat Bar)
+ * ========================================================================== */
+.games-stats-strip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 8px 16px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.games-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    color: #334155;
+}
+
+.games-stat-badge {
+    background: #f1f5f9;
+    padding: 3px 10px;
+    border-radius: 8px;
+    color: #0f172a;
+    font-size: 0.92rem;
+    border: 1px solid #cbd5e1;
+}
+
+/* ==========================================================================
+ * 4. اللعبة 1: عجلة الحظ اللغوية الدوارة (🎡 Spinning Wheel)
+ * ========================================================================== */
+.wheel-game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+}
+
+.wheel-modes-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.wheel-mode-pill {
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1.5px solid #cbd5e1;
+    background: white;
+    color: #475569;
+    font-size: 0.82rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.wheel-mode-pill.active {
+    background: #7c3aed;
+    color: white;
+    border-color: #6d28d9;
+    box-shadow: 0 2px 6px rgba(124, 58, 237, 0.3);
+}
+
+.wheel-arena {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin: auto 0;
+}
+
+.wheel-canvas-box {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#wheelCanvas {
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 0 0 8px #ffffff;
+    cursor: pointer;
+}
+
+.wheel-pointer {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 32px;
+    height: 42px;
+    background: linear-gradient(180deg, #f59e0b 0%, #d97706 100%);
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.3));
+    z-index: 10;
+    transition: transform 0.08s ease;
+}
+
+.wheel-center-pin {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+    border: 4px solid #7c3aed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    z-index: 8;
+}
+
+.wheel-result-card {
+    background: white;
+    border: 2px solid #ddd6fe;
+    border-radius: 20px;
+    padding: 24px 28px;
+    min-width: 320px;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(109, 40, 217, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+}
+
+.wheel-result-badge {
+    background: #ede9fe;
+    color: #6d28d9;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.wheel-result-text {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #1e1b4b;
+    font-family: 'Amiri', 'Traditional Arabic', serif;
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wheel-result-meaning {
+    font-size: 0.95rem;
+    color: #475569;
+    font-weight: 700;
+    min-height: 40px;
+}
+
+.wheel-btn-spin {
+    background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+    color: white;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 50px;
+    font-size: 1.15rem;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(234, 88, 12, 0.4);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wheel-btn-spin:hover:not(:disabled) {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(234, 88, 12, 0.55);
+}
+
+.wheel-btn-spin:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==========================================================================
+ * 5. اللعبة 2: تحدي الشاشة الذكية لمسابقات الفريقين (⚔️ Dual Battle Arena)
+ * ========================================================================== */
+.battle-arena-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 12px;
+}
+
+.battle-teams-board {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 16px;
+    align-items: stretch;
+    flex: 1;
+}
+
+/* عمود الفريق الأحمر (الصقور) */
+.battle-team-column {
+    background: white;
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 2px solid transparent;
+    transition: all 0.25s ease;
+}
+
+.battle-team-red {
+    border-color: #fca5a5;
+    background: linear-gradient(180deg, #fff5f5 0%, #ffffff 100%);
+}
+
+.battle-team-blue {
+    border-color: #93c5fd;
+    background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+}
+
+.battle-team-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #cbd5e1;
+}
+
+.battle-team-identity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.battle-team-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.battle-team-red .battle-team-avatar { background: #fee2e2; border: 2px solid #ef4444; }
+.battle-team-blue .battle-team-avatar { background: #dbeafe; border: 2px solid #3b82f6; }
+
+.battle-team-name-input {
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #1e293b;
+    background: white;
+    width: 140px;
+}
+
+.battle-score-badge {
+    font-size: 2.2rem;
+    font-weight: 900;
+    font-family: 'Impact', sans-serif;
+    padding: 4px 16px;
+    border-radius: 12px;
+}
+
+.battle-team-red .battle-score-badge { color: #dc2626; background: #fee2e2; }
+.battle-team-blue .battle-score-badge { color: #2563eb; background: #dbeafe; }
+
+/* منطقة الخيارات اللمسية للفريق */
+.battle-options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    flex: 1;
+}
+
+.battle-option-btn {
+    background: white;
+    border: 2.5px solid #cbd5e1;
+    border-radius: 16px;
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #1e293b;
+    cursor: pointer;
+    padding: 14px 8px;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+.battle-option-btn:hover {
+    transform: scale(1.02);
+    border-color: #64748b;
+}
+
+.battle-option-btn.correct {
+    background: #dcfce7 !important;
+    border-color: #16a34a !important;
+    color: #15803d !important;
+    animation: correctPulse 0.4s ease;
+}
+
+.battle-option-btn.wrong {
+    background: #fee2e2 !important;
+    border-color: #dc2626 !important;
+    color: #991b1b !important;
+    animation: wrongShake 0.4s ease;
+}
+
+@keyframes correctPulse {
+    0% { transform: scale(0.96); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+/* المركز: شاشة السؤال والمؤقت والتحكم */
+.battle-center-station {
+    width: 280px;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.battle-round-badge {
+    background: #f1f5f9;
+    color: #475569;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.battle-timer-ring {
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    background: conic-gradient(#7c3aed var(--timer-deg, 360deg), #e2e8f0 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0;
+    transition: background 0.1s linear;
+}
+
+.battle-timer-inner {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #1e293b;
+}
+
+.battle-prompt-box {
+    margin: 8px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+}
+
+.battle-prompt-pic {
+    max-width: 90px;
+    max-height: 80px;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.battle-prompt-word {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #0f172a;
+    font-family: 'Amiri', serif;
+}
+
+.battle-prompt-sub {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #64748b;
+}
+
+.battle-center-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+/* ==========================================================================
+ * 6. اللعبة 3: صائد الفقاعات والكلمات الطائرة (🫧 Bubble Popper)
+ * ========================================================================== */
+.bubble-game-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    position: relative;
+    background: radial-gradient(circle at 50% 30%, #e0e7ff 0%, #c7d2fe 100%);
+    border-radius: 20px;
+    border: 2px solid #a5b4fc;
+    overflow: hidden;
+    padding: 16px;
+}
+
+.bubble-task-header {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border: 1.5px solid #818cf8;
+    border-radius: 16px;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.15);
+    z-index: 10;
+}
+
+.bubble-target-instruction {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bubble-target-tag {
+    background: #4f46e5;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 10px;
+    font-weight: 900;
+    font-size: 0.88rem;
+}
+
+.bubble-target-text {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #1e1b4b;
+}
+
+.bubble-stats-group {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 0.92rem;
+    font-weight: 800;
+}
+
+.bubble-canvas-field {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    cursor: crosshair;
+}
+
+/* عناصر الفقاعات التفاعلية */
+.bubble-float-item {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9) 0%, rgba(199, 210, 254, 0.7) 50%, rgba(129, 140, 248, 0.8) 100%);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.25), inset -4px -4px 8px rgba(99, 102, 241, 0.4), inset 4px 4px 8px rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1e1b4b;
+    font-weight: 900;
+    font-family: 'Amiri', serif;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.15s ease;
+}
+
+.bubble-float-item:hover {
+    transform: scale(1.08);
+}
+
+.bubble-float-item.popping {
+    animation: bubblePopEffect 0.3s forwards ease-out;
+}
+
+@keyframes bubblePopEffect {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.8; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* ==========================================================================
+ * 7. اللعبة 4: محطة قطار المقاطع والتركيب (🚂 Syllable Train Station)
+ * ========================================================================== */
+.train-game-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: linear-gradient(180deg, #ecfdf5 0%, #f0fdf4 60%, #e2e8f0 100%);
+    border-radius: 20px;
+    border: 2px solid #86efac;
+    padding: 16px;
+    overflow: hidden;
+    gap: 16px;
+}
+
+.train-target-showcase {
+    background: white;
+    border-radius: 16px;
+    padding: 12px 20px;
+    border: 1.5px solid #bbf7d0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.04);
+}
+
+.train-target-identity {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.train-word-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    object-fit: contain;
+    border: 1px solid #e2e8f0;
+}
+
+.train-word-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: #065f46;
+    font-family: 'Amiri', serif;
+}
+
+/* سكة حديد القطار والعربات */
+.train-track-view {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 180px;
+}
+
+.train-rails-line {
+    position: absolute;
+    bottom: 25px;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: repeating-linear-gradient(90deg, #475569 0px, #475569 14px, #94a3b8 14px, #94a3b8 28px);
+    border-top: 3px solid #334155;
+    border-bottom: 3px solid #334155;
+}
+
+.train-composition {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    position: relative;
+    z-index: 5;
+    transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.train-locomotive {
+    background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+    width: 120px;
+    height: 110px;
+    border-radius: 20px 20px 8px 8px;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(185, 28, 28, 0.35);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 900;
+    border: 3px solid #fecaca;
+}
+
+.train-chimney {
+    position: absolute;
+    top: -20px;
+    right: 25px;
+    width: 22px;
+    height: 22px;
+    background: #7f1d1d;
+    border-radius: 6px 6px 0 0;
+}
+
+.train-smoke-puff {
+    position: absolute;
+    top: -38px;
+    right: 22px;
+    font-size: 1.4rem;
+    animation: smokeFloat 1.2s infinite ease-out;
+}
+
+@keyframes smokeFloat {
+    0% { transform: translateY(0) scale(0.7); opacity: 1; }
+    100% { transform: translateY(-20px) scale(1.3); opacity: 0; }
+}
+
+/* عربات المقاطع */
+.train-wagon-slot {
+    width: 100px;
+    height: 95px;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    border-radius: 12px;
+    border: 3px solid #bfdbfe;
+    box-shadow: 0 6px 14px rgba(29, 78, 216, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.train-wagon-number {
+    position: absolute;
+    top: -12px;
+    background: #fbbf24;
+    color: #78350f;
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 2px 8px;
+    border-radius: 10px;
+    border: 1px solid #f59e0b;
+}
+
+.train-wagon-content {
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    font-family: 'Amiri', serif;
+}
+
+.train-wheel {
+    position: absolute;
+    bottom: -14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #1e293b;
+    border: 3px solid #94a3b8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.train-wheel-left { left: 12px; }
+.train-wheel-right { right: 12px; }
+
+/* بنك المقاطع القابلة للسحب والنقر */
+.train-syllables-bank {
+    background: white;
+    border: 2px dashed #86efac;
+    border-radius: 16px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.train-syllable-tile {
+    background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
+    border: 2.5px solid #eab308;
+    color: #713f12;
+    font-size: 1.8rem;
+    font-weight: 900;
+    font-family: 'Amiri', serif;
+    padding: 8px 24px;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(234, 179, 8, 0.3);
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.train-syllable-tile:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: #fde047;
+}
+
+.train-syllable-tile.used {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==========================================================================
+ * 8. اللعبة 5: صندوق الذاكرة والبطاقات المتطابقة (🃏 Memory Match 3D)
+ * ========================================================================== */
+.memory-game-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 14px;
+}
+
+.memory-controls-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 8px 16px;
+}
+
+.memory-grid-arena {
+    display: grid;
+    gap: 12px;
+    justify-content: center;
+    align-content: center;
+    flex: 1;
+    perspective: 1000px;
+    padding: 10px;
+}
+
+/* شبكة 6 بطاقات (3x2) */
+.memory-grid-6 {
+    grid-template-columns: repeat(3, 140px);
+}
+
+/* شبكة 8 بطاقات (4x2) */
+.memory-grid-8 {
+    grid-template-columns: repeat(4, 140px);
+}
+
+/* شبكة 12 بطاقة (4x3) */
+.memory-grid-12 {
+    grid-template-columns: repeat(4, 130px);
+}
+
+/* بطاقة الذاكرة ثلاثية الأبعاد */
+.memory-card-3d {
+    width: 100%;
+    height: 140px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border-radius: 16px;
+}
+
+.memory-card-3d.flipped,
+.memory-card-3d.matched {
+    transform: rotateY(180deg);
+}
+
+.memory-card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.memory-card-front {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    border: 3px solid #a5b4fc;
+    color: white;
+}
+
+.memory-card-front-pattern {
+    font-size: 2.4rem;
+}
+
+.memory-card-back {
+    background: white;
+    border: 3px solid #818cf8;
+    transform: rotateY(180deg);
+    padding: 8px;
+    text-align: center;
+}
+
+.memory-card-3d.matched .memory-card-back {
+    border-color: #22c55e;
+    background: #f0fdf4;
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+}
+
+.memory-card-img {
+    max-width: 65px;
+    max-height: 60px;
+    object-fit: contain;
+    margin-bottom: 4px;
+}
+
+.memory-card-word {
+    font-size: 1.35rem;
+    font-weight: 900;
+    color: #1e1b4b;
+    font-family: 'Amiri', serif;
+}
+
+/* ==========================================================================
+ * 9. اللعبة 6: ميزان اللام الشمسية واللام القمرية (☀️🌙 Sun & Moon Sorter)
+ * ========================================================================== */
+.sorter-game-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 16px;
+}
+
+.sorter-arena {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1fr;
+    gap: 16px;
+    align-items: center;
+    flex: 1;
+}
+
+.sorter-basket {
+    background: white;
+    border-radius: 24px;
+    padding: 20px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 320px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    border: 3px dashed transparent;
+}
+
+.sorter-sun {
+    border-color: #fde047;
+    background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%);
+}
+
+.sorter-sun:hover {
+    transform: translateY(-4px);
+    border-color: #f59e0b;
+    box-shadow: 0 12px 30px rgba(245, 158, 11, 0.25);
+}
+
+.sorter-moon {
+    border-color: #cbd5e1;
+    background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.sorter-moon:hover {
+    transform: translateY(-4px);
+    border-color: #64748b;
+    box-shadow: 0 12px 30px rgba(100, 116, 139, 0.25);
+}
+
+.sorter-basket-icon {
+    font-size: 4.5rem;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+}
+
+.sorter-basket-title {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.sorter-basket-rule {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #475569;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+/* بطاقة الكلمة المراد فرزها */
+.sorter-center-card {
+    background: white;
+    border: 2px solid #ddd6fe;
+    border-radius: 20px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    box-shadow: 0 10px 30px rgba(109, 40, 217, 0.12);
+    text-align: center;
+}
+
+.sorter-word-display {
+    font-size: 3.2rem;
+    font-weight: 900;
+    color: #1e1b4b;
+    font-family: 'Amiri', serif;
+    padding: 8px 24px;
+    background: #f5f3ff;
+    border-radius: 16px;
+    border: 1.5px solid #c4b5fd;
+    min-width: 220px;
+}
+
+.sorter-feedback-pill {
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    font-weight: 800;
+    display: none;
+}
+
+/* ==========================================================================
+ * 10. اللعبة 7: من سيربح وسام القراءة الذهبي (🏆 Reading Trophy Quiz)
+ * ========================================================================== */
+.quiz-studio-container {
+    display: grid;
+    grid-template-columns: 1fr 240px;
+    gap: 16px;
+    flex: 1;
+}
+
+.quiz-main-stage {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+    border-radius: 20px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(30, 27, 75, 0.4);
+    border: 2px solid #4338ca;
+}
+
+.quiz-lifelines-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.quiz-lifeline-btn {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+    border: 2px solid #fbbf24;
+    color: white;
+    font-size: 0.82rem;
+    font-weight: 900;
+    padding: 6px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.quiz-lifeline-btn:hover:not(:disabled) {
+    transform: scale(1.05);
+}
+
+.quiz-lifeline-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background: #64748b;
+    border-color: #94a3b8;
+}
+
+.quiz-question-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid #818cf8;
+    border-radius: 18px;
+    padding: 20px;
+    text-align: center;
+    margin: 16px 0;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.quiz-question-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.5;
+    font-family: 'Amiri', serif;
+}
+
+.quiz-answers-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.quiz-answer-btn {
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid #6366f1;
+    border-radius: 14px;
+    padding: 14px 16px;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s ease;
+}
+
+.quiz-answer-btn:hover:not(:disabled) {
+    background: rgba(99, 102, 241, 0.3);
+    border-color: #a5b4fc;
+    transform: translateY(-2px);
+}
+
+.quiz-answer-btn.selected {
+    background: #eab308 !important;
+    color: #1e1b4b !important;
+    border-color: #fde047 !important;
+}
+
+.quiz-answer-btn.correct {
+    background: #16a34a !important;
+    border-color: #4ade80 !important;
+    color: white !important;
+}
+
+.quiz-answer-btn.wrong {
+    background: #dc2626 !important;
+    border-color: #f87171 !important;
+    color: white !important;
+}
+
+/* سلم درجات ومكافآت المسابقة */
+.quiz-ladder-panel {
+    background: white;
+    border-radius: 20px;
+    border: 2px solid #e2e8f0;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.quiz-ladder-title {
+    font-size: 0.88rem;
+    font-weight: 900;
+    color: #475569;
+    text-align: center;
+    border-bottom: 1.5px solid #f1f5f9;
+    padding-bottom: 8px;
+}
+
+.quiz-ladder-steps {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 4px;
+    margin: 8px 0;
+}
+
+.quiz-step-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: #64748b;
+    background: #f8fafc;
+}
+
+.quiz-step-item.active {
+    background: #fbbf24;
+    color: #78350f;
+    font-weight: 900;
+    box-shadow: 0 2px 6px rgba(251, 191, 36, 0.4);
+}
+
+.quiz-step-item.completed {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+/* ==========================================================================
+ * 11. التجاوب مع مختلف الشاشات الذكية والأجهزة اللوحية (Responsive)
+ * ========================================================================== */
+@media (max-width: 1024px) {
+    .games-modal-box {
+        width: 98vw;
+        height: 98vh;
+        border-radius: 16px;
+    }
+
+    .battle-teams-board {
+        grid-template-columns: 1fr;
+    }
+
+    .battle-center-station {
+        width: 100%;
+        order: -1;
+    }
+
+    .sorter-arena {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .sorter-basket {
+        min-height: 160px;
+    }
+
+    .quiz-studio-container {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-ladder-panel {
+        display: none;
+    }
+}

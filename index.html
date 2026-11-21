@@ -45,6 +45,7 @@
     <link rel="stylesheet" href="css/evaluation.css">
     <link rel="stylesheet" href="css/enrichment.css">
     <link rel="stylesheet" href="css/blackboard.css">
+    <link rel="stylesheet" href="css/games.css">
 
 </head>
 
@@ -123,6 +124,12 @@
             <button class="btn-top btn-top-blackboard" id="btnTopBlackboard" onclick="openBlackboardModal('trace')" title="سبورة تتبع ورسم الحروف الهجائية التفاعلية ومختبر الخط العربي والتصحيح الذكي لمسار الكتابة">
                 <span>✍️</span>
                 <span>سبورة الخط والتتبع</span>
+            </button>
+
+            <!-- زر بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات الذكية -->
+            <button class="btn-top btn-top-games" id="btnTopGamesHub" onclick="openGamesModal('wheel')" title="بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات الذكية والسبورات التفاعلية">
+                <span>🎮</span>
+                <span>الألعاب والمسابقات</span>
             </button>
 
             <!-- زر ضبط النظام واختيار الصوت -->
@@ -259,6 +266,30 @@
                     </button>
                     <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('print')" title="كراسة أوراق عمل تحسين الخط A4">
                         <span>📄</span> <span>كراسة النسخ</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- بطاقة بنك الألعاب والمسابقات الصفية للشاشات الذكية في القائمة الجانبية -->
+            <div class="sidebar-games-card" onclick="openGamesModal('wheel')" title="بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات والسبورات الذكية">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #5b21b6; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>🎮</span> <span>الألعاب والمسابقات الذكية</span>
+                    </span>
+                    <span style="font-size: 0.72rem; font-weight: 800; background: #7c3aed; color: white; padding: 2px 6px; border-radius: 6px;">شاشات ذكية</span>
+                </div>
+                <div class="sidebar-games-buttons-grid" onclick="event.stopPropagation()">
+                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('wheel')" title="عجلة الحظ اللغوية الدوارة">
+                        <span>🎡</span> <span>عجلة الحظ</span>
+                    </button>
+                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('battle')" title="تحدي الشاشة الذكية لمسابقات الفريقين">
+                        <span>⚔️</span> <span>تحدي الفريقين</span>
+                    </button>
+                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('bubble')" title="صائد الفقاعات والكلمات الطائرة">
+                        <span>🫧</span> <span>صائد الفقاعات</span>
+                    </button>
+                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('train')" title="قطار المقاطع وتركيب الكلمات">
+                        <span>🚂</span> <span>قطار المقاطع</span>
                     </button>
                 </div>
             </div>
@@ -24379,6 +24410,357 @@
         </div>
     </div>
 
+    <!-- ==========================================================================
+         نافذة بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات الذكية
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    ========================================================================== -->
+    <div class="modal-backdrop" id="gamesModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="games-modal-box" onclick="event.stopPropagation()">
+            <!-- رأس النافذة -->
+            <div class="games-modal-header">
+                <div class="games-header-title-box">
+                    <span class="games-header-icon">🎮</span>
+                    <div>
+                        <h3 class="games-header-title">بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات الذكية</h3>
+                        <div class="games-header-subtitle">
+                            الصف الأول الابتدائي • متوافق مع السبورات والشاشات التفاعلية • إعداد وتطوير: المهندس أسامة خليل هاشم
+                        </div>
+                    </div>
+                </div>
+                <div class="games-header-actions">
+                    <button class="btn-games-action" onclick="toggleGamesFullscreen()" title="عرض ملء الشاشة للسبورات الذكية">
+                        <span>⛶</span> <span>ملء الشاشة</span>
+                    </button>
+                    <button class="modal-close-btn" onclick="closeGamesModal()" title="إغلاق">&times;</button>
+                </div>
+            </div>
+
+            <!-- أزرار التبويبات السبعة للألعاب -->
+            <div class="games-modal-tabs">
+                <button class="games-modal-tab active" id="tabGames_wheel" onclick="switchGamesTab('wheel')">
+                    <span>🎡</span> <span>عجلة الحظ الدوارة</span>
+                </button>
+                <button class="games-modal-tab" id="tabGames_battle" onclick="switchGamesTab('battle')">
+                    <span>⚔️</span> <span>تحدي الفريقين (شاشة ذكية)</span>
+                </button>
+                <button class="games-modal-tab" id="tabGames_bubble" onclick="switchGamesTab('bubble')">
+                    <span>🫧</span> <span>صائد الفقاعات والكلمات</span>
+                </button>
+                <button class="games-modal-tab" id="tabGames_train" onclick="switchGamesTab('train')">
+                    <span>🚂</span> <span>قطار المقاطع والتركيب</span>
+                </button>
+                <button class="games-modal-tab" id="tabGames_memory" onclick="switchGamesTab('memory')">
+                    <span>🃏</span> <span>صندوق الذاكرة (3D Flip)</span>
+                </button>
+                <button class="games-modal-tab" id="tabGames_sorter" onclick="switchGamesTab('sorter')">
+                    <span>☀️🌙</span> <span>ميزان اللام (شمسية أم قمرية)</span>
+                </button>
+                <button class="games-modal-tab" id="tabGames_quiz" onclick="switchGamesTab('quiz')">
+                    <span>🏆</span> <span>من سيربح وسام القراءة؟</span>
+                </button>
+            </div>
+
+            <!-- جسم النافذة ومحتوى الألعاب -->
+            <div class="games-modal-body">
+                <!-- شريط الإحصائيات السريع -->
+                <div class="games-stats-strip">
+                    <div class="games-stat-item">
+                        <span>⭐ إجمالي نقاط الألعاب:</span>
+                        <span class="games-stat-badge" id="gamesGlobalScore">0</span>
+                    </div>
+                    <div class="games-stat-item">
+                        <span>🌟 النجوم المكتسبة:</span>
+                        <span class="games-stat-badge" id="gamesGlobalStars">0</span>
+                    </div>
+                    <div class="games-stat-item" style="color: #6d28d9; font-size: 0.82rem;">
+                        <span>💡 مصممة للمس المباشر على الشاشات الذكية والسبورات الصفية</span>
+                    </div>
+                </div>
+
+                <!-- 1. تبويب عجلة الحظ الدوارة -->
+                <div id="paneGames_wheel" class="games-tab-pane active">
+                    <div class="wheel-game-container">
+                        <div class="wheel-modes-bar">
+                            <button class="wheel-mode-pill active" data-mode="letters" onclick="setWheelMode('letters')">
+                                <span>🔤</span> <span>عجلة الحروف الهجائية</span>
+                            </button>
+                            <button class="wheel-mode-pill" data-mode="syllables" onclick="setWheelMode('syllables')">
+                                <span>🧩</span> <span>عجلة المقاطع الصوتية</span>
+                            </button>
+                            <button class="wheel-mode-pill" data-mode="words" onclick="setWheelMode('words')">
+                                <span>📖</span> <span>عجلة كلمات قراءتي</span>
+                            </button>
+                            <button class="wheel-mode-pill" data-mode="challenges" onclick="setWheelMode('challenges')">
+                                <span>🎭</span> <span>عجلة المهام والتحديات الصفية</span>
+                            </button>
+                        </div>
+
+                        <div class="wheel-arena">
+                            <div class="wheel-canvas-box">
+                                <div class="wheel-pointer" id="wheelPointer"></div>
+                                <canvas id="wheelCanvas" onclick="spinWheelNow()" title="انقر لتدوير العجلة"></canvas>
+                                <div class="wheel-center-pin" onclick="spinWheelNow()" title="انقر لتدوير العجلة">🎯</div>
+                            </div>
+
+                            <div class="wheel-result-card" id="wheelResultCard">
+                                <span class="wheel-result-badge">العنصر الفائز بالسحب:</span>
+                                <div class="wheel-result-text" id="wheelResultText">🎯</div>
+                                <div style="font-weight: 900; font-size: 1.2rem; color: #1e293b;" id="wheelResultTitle">دوّر العجلة لتكتشف التحدي!</div>
+                                <div class="wheel-result-meaning" id="wheelResultDesc">اضغط الزر البرتقالي أو المس العجلة لتبدأ الدوران الحماسي.</div>
+                                <button class="wheel-btn-spin" id="btnSpinWheel" onclick="spinWheelNow()">
+                                    <span>🚀</span> <span>دوّر العجلة الآن!</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. تبويب مسابقة الفريقين (تحدي الشاشة الذكية) -->
+                <div id="paneGames_battle" class="games-tab-pane">
+                    <div class="battle-arena-container">
+                        <div class="battle-teams-board">
+                            <!-- الفريق الأحمر: الصقور -->
+                            <div class="battle-team-column battle-team-red">
+                                <div class="battle-team-header">
+                                    <div class="battle-team-identity">
+                                        <div class="battle-team-avatar">🦅</div>
+                                        <div>
+                                            <input type="text" class="battle-team-name-input" id="battleTeamName_red" value="فريق الصقور" title="تعديل اسم الفريق">
+                                            <div style="font-size: 0.72rem; color: #dc2626; font-weight: 700; margin-top: 2px;">الفريق الأحمر (يمين الشاشة)</div>
+                                        </div>
+                                    </div>
+                                    <div class="battle-score-badge" id="battleRedScore">0</div>
+                                </div>
+                                <div class="battle-options-grid" id="battleOptions_red">
+                                    <!-- تُبنى ديناميكياً -->
+                                </div>
+                            </div>
+
+                            <!-- المحطة المركزية للسؤال والمؤقت -->
+                            <div class="battle-center-station">
+                                <span class="battle-round-badge" id="battleRoundBadge">الجولة 1 من 5</span>
+                                <div class="battle-timer-ring" id="battleTimerRing">
+                                    <div class="battle-timer-inner" id="battleTimerText">10</div>
+                                </div>
+                                <div class="battle-prompt-box">
+                                    <img src="activity_5.png" class="battle-prompt-pic" id="battlePromptPic" alt="صورة السؤال">
+                                    <div class="battle-prompt-word" id="battlePromptWord">ما هي الكلمة الصحيحة؟</div>
+                                    <div class="battle-prompt-sub" id="battlePromptSub">أسرع فريق يلمس الإجابة الصحيحة أولاً يحصد النقطة!</div>
+                                </div>
+                                <div class="battle-center-actions">
+                                    <button class="btn-games-action" style="background: #475569; width: 100%; justify-content: center;" onclick="resetBattleGame()">
+                                        <span>🔄</span> <span>إعادة المسابقة</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- الفريق الأزرق: النجوم -->
+                            <div class="battle-team-column battle-team-blue">
+                                <div class="battle-team-header">
+                                    <div class="battle-team-identity">
+                                        <div class="battle-team-avatar">🌟</div>
+                                        <div>
+                                            <input type="text" class="battle-team-name-input" id="battleTeamName_blue" value="فريق النجوم" title="تعديل اسم الفريق">
+                                            <div style="font-size: 0.72rem; color: #2563eb; font-weight: 700; margin-top: 2px;">الفريق الأزرق (يسار الشاشة)</div>
+                                        </div>
+                                    </div>
+                                    <div class="battle-score-badge" id="battleBlueScore">0</div>
+                                </div>
+                                <div class="battle-options-grid" id="battleOptions_blue">
+                                    <!-- تُبنى ديناميكياً -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. تبويب صائد الفقاعات -->
+                <div id="paneGames_bubble" class="games-tab-pane">
+                    <div class="bubble-game-container">
+                        <div class="bubble-task-header">
+                            <div class="bubble-target-instruction">
+                                <span class="bubble-target-tag" id="bubbleTargetTag">حرف الدال</span>
+                                <span class="bubble-target-text" id="bubbleTargetText">فرقع كل فقاعة تحتوي على حرف الدال أو مقاطعه!</span>
+                            </div>
+                            <div class="bubble-stats-group">
+                                <div>⏳ الوقت: <span id="bubbleTimer" style="color: #4338ca;">45 ث</span></div>
+                                <div>🎯 الفقاعات المصطادة: <span id="bubbleScore" style="color: #15803d;">0</span></div>
+                                <button class="btn-games-action" style="background: #4f46e5;" onclick="restartBubbleGame()">
+                                    <span>🔄</span> <span>جولة جديدة</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="bubble-canvas-field" id="bubbleCanvasField">
+                            <!-- الفقاعات تطفو هنا ديناميكياً -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. تبويب قطار المقاطع والتركيب -->
+                <div id="paneGames_train" class="games-tab-pane">
+                    <div class="train-game-container">
+                        <div class="train-target-showcase">
+                            <div class="train-target-identity">
+                                <img src="activity_5.png" class="train-word-pic" id="trainWordPic" alt="صورة الكلمة">
+                                <div>
+                                    <div class="train-word-title" id="trainWordTitle">ركّب مقاطع كلمة: دَار</div>
+                                    <div style="font-size: 0.82rem; color: #047857; font-weight: 700;">المس المقاطع بالترتيب الصحيح لتنطلق عربات القطار!</div>
+                                </div>
+                            </div>
+                            <button class="btn-games-action" style="background: #059669;" onclick="nextTrainWord()">
+                                <span>⏭️</span> <span>الكلمة التالية</span>
+                            </button>
+                        </div>
+
+                        <div class="train-track-view">
+                            <div class="train-rails-line"></div>
+                            <div class="train-composition" id="trainComposition">
+                                <div class="train-locomotive">
+                                    <div class="train-chimney"></div>
+                                    <div class="train-smoke-puff">💨</div>
+                                    <span style="font-size: 1.8rem;">🚂</span>
+                                    <span style="font-size: 0.72rem; margin-top: 2px;">قراءتي</span>
+                                    <div class="train-wheel train-wheel-left"></div>
+                                    <div class="train-wheel train-wheel-right"></div>
+                                </div>
+                                <div id="trainWagonsContainer" style="display: flex; gap: 8px;">
+                                    <!-- عربات المقاطع تُبنى ديناميكياً -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div style="font-size: 0.88rem; font-weight: 800; color: #166534; margin-bottom: 8px; text-align: center;">
+                                📦 بنك المقاطع الصوتية (انقر المقطع بالترتيب الصحيح):
+                            </div>
+                            <div class="train-syllables-bank" id="trainSyllablesBank">
+                                <!-- بطاقات المقاطع تُبنى ديناميكياً -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. تبويب صندوق الذاكرة ثلاثي الأبعاد -->
+                <div id="paneGames_memory" class="games-tab-pane">
+                    <div class="memory-game-container">
+                        <div class="memory-controls-bar">
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                                <span style="font-size: 0.85rem; font-weight: 800; color: #334155;">مستوى التحدي:</span>
+                                <button class="wheel-mode-pill memory-diff-pill active" data-cards="6" onclick="setMemoryDifficulty(6)">6 بطاقات (سهل)</button>
+                                <button class="wheel-mode-pill memory-diff-pill" data-cards="8" onclick="setMemoryDifficulty(8)">8 بطاقات (متوسط)</button>
+                                <button class="wheel-mode-pill memory-diff-pill" data-cards="12" onclick="setMemoryDifficulty(12)">12 بطاقة (بطل الصف)</button>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 16px; font-weight: 800; font-size: 0.9rem;">
+                                <div>🔄 الحركات: <span id="memoryMovesCount" style="color: #6d28d9;">0</span></div>
+                                <div>⏱️ الزمن: <span id="memoryTimerVal" style="color: #059669;">00:00</span></div>
+                                <button class="btn-games-action" style="background: #6366f1;" onclick="restartMemoryGame()">
+                                    <span>🔄</span> <span>خلط البطاقات</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="memory-grid-arena" id="memoryGridArena">
+                            <!-- تُبنى ديناميكياً عبر games.js -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. تبويب ميزان اللام الشمسية واللام القمرية -->
+                <div id="paneGames_sorter" class="games-tab-pane">
+                    <div class="sorter-game-container">
+                        <div style="text-align: center;">
+                            <span style="font-weight: 800; color: #475569; font-size: 0.95rem;">
+                                صنف الكلمة المعروضة: هل تبدأ بـ <b>لام شمسية ☀️</b> أم <b>لام قمرية 🌙</b>؟
+                            </span>
+                            <div style="font-size: 0.82rem; color: #6d28d9; margin-top: 4px;">
+                                متتالية الإجابات الصحيحة: <b id="sorterStreakCount" style="color: #ea580c; font-size: 1.1rem;">0</b> ⭐
+                            </div>
+                        </div>
+
+                        <div class="sorter-arena">
+                            <!-- سلة الشمس -->
+                            <div class="sorter-basket sorter-sun" onclick="classifySorterWord('shamsi')" title="انقر لتصنيفها كـ لام شمسية">
+                                <div class="sorter-basket-icon">☀️</div>
+                                <div class="sorter-basket-title">سلة اللام الشمسية</div>
+                                <div class="sorter-basket-rule">تُكتب ولا تُلفظ، والحرف بعدها مشدد (ـّ)</div>
+                            </div>
+
+                            <!-- بطاقة الكلمة في الوسط -->
+                            <div class="sorter-center-card">
+                                <div style="font-size: 0.82rem; font-weight: 800; color: #64748b;">اقرأ الكلمة بحركاتها:</div>
+                                <div class="sorter-word-display" id="sorterWordDisplay">الشَّمْس</div>
+                                <div style="display: flex; gap: 8px;">
+                                    <button class="btn-games-action" style="background: #7c3aed;" onclick="speakSorterWord()">
+                                        <span>🔊</span> <span>استمع للنطق</span>
+                                    </button>
+                                </div>
+                                <div class="sorter-feedback-pill" id="sorterFeedbackPill"></div>
+                            </div>
+
+                            <!-- سلة القمر -->
+                            <div class="sorter-basket sorter-moon" onclick="classifySorterWord('qamari')" title="انقر لتصنيفها كـ لام قمرية">
+                                <div class="sorter-basket-icon">🌙</div>
+                                <div class="sorter-basket-title">سلة اللام القمرية</div>
+                                <div class="sorter-basket-rule">تُكتب وتُلفظ ساكنة (الْـ) مع الحروف القمرية</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. تبويب من سيربح وسام القراءة الذهبي -->
+                <div id="paneGames_quiz" class="games-tab-pane">
+                    <div class="quiz-studio-container">
+                        <!-- المسرح الرئيسي للمسابقة -->
+                        <div class="quiz-main-stage">
+                            <div class="quiz-lifelines-bar">
+                                <button class="quiz-lifeline-btn" id="btnQuiz50" onclick="useQuizLifeline('fifty')" title="حذف إجابتين">
+                                    <span>✂️</span> <span>50:50</span>
+                                </button>
+                                <button class="quiz-lifeline-btn" id="btnQuizPoll" onclick="useQuizLifeline('poll')" title="تصويت تلاميذ الصف">
+                                    <span>👥</span> <span>تصويت الصف</span>
+                                </button>
+                                <button class="quiz-lifeline-btn" id="btnQuizSwitch" onclick="useQuizLifeline('switch')" title="تبديل السؤال">
+                                    <span>🔄</span> <span>تبديل السؤال</span>
+                                </button>
+                            </div>
+
+                            <div class="quiz-question-box">
+                                <div class="quiz-question-text" id="quizQuestionText">جارٍ تجهيز السؤال اللغوي...</div>
+                            </div>
+
+                            <div class="quiz-answers-grid" id="quizAnswersGrid">
+                                <!-- الخيارات الأربعة تُبنى ديناميكياً -->
+                            </div>
+                        </div>
+
+                        <!-- سلم الجوائز والدرجات -->
+                        <div class="quiz-ladder-panel">
+                            <div class="quiz-ladder-title">🏆 سلم وسام القراءة</div>
+                            <div class="quiz-ladder-steps" id="quizLadderSteps">
+                                <!-- خطوات المسابقة تُبنى ديناميكياً -->
+                            </div>
+                            <button class="btn-games-action" style="background: #475569; width: 100%; justify-content: center;" onclick="restartQuizGame()">
+                                <span>🔄</span> <span>بدء من جديد</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- أسفل النافذة -->
+            <div class="games-modal-footer">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #5b21b6;">
+                    🎮 منصة قراءتي التفاعلية الذكية • <b>إعداد: المهندس أسامة خليل هاشم</b> • بنك الألعاب والمسابقات الصفية ✅
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button type="button" class="btn btn-teach" style="padding: 6px 18px; font-size: 0.88rem; background: #6d28d9; border-color: #5b21b6;" onclick="closeGamesModal()">
+                        إغلاق النافذة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
     <script src="audio_data_unit6.js"></script>
@@ -24391,6 +24773,7 @@
     <script src="js/core/evaluation.js"></script>
     <script src="js/core/enrichment.js"></script>
     <script src="js/core/blackboard.js"></script>
+    <script src="js/core/games.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>
