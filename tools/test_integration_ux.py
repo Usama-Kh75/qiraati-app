@@ -71,7 +71,8 @@ def run_integration_audit():
     dynamic_dom_elements = {
         'anatomyDescText', 'anatomyNaskhChar',
         'btnNextQuestion', 'examFeedbackBox',
-        'evalConfettiCanvas'
+        'evalConfettiCanvas',
+        'gamificationStarsCanvas', 'certEditableName'
     }
 
     # 3. فحص المعرفات البرمجية المستخدمة في ملفات JavaScript الأساسية
@@ -80,6 +81,7 @@ def run_integration_audit():
         'blackboard.js': os.path.join(BASE_DIR, 'js', 'core', 'blackboard.js'),
         'enrichment.js': os.path.join(BASE_DIR, 'js', 'core', 'enrichment.js'),
         'evaluation.js': os.path.join(BASE_DIR, 'js', 'core', 'evaluation.js'),
+        'gamification.js': os.path.join(BASE_DIR, 'js', 'core', 'gamification.js'),
         'audio.js': os.path.join(BASE_DIR, 'js', 'core', 'audio.js'),
         'navigation.js': os.path.join(BASE_DIR, 'js', 'core', 'navigation.js'),
         'modals.js': os.path.join(BASE_DIR, 'js', 'core', 'modals.js'),
@@ -169,6 +171,22 @@ def run_integration_audit():
     if not any("تبويب التقييم" in e or "حاوية التقييم" in e for e in errors):
         successes.append("كافة أقسام منظومة التقييم وسجل الإنجاز والشهادة (3 أقسام) متكاملة بنسبة 100%.")
 
+    # 7 ب. فحص نظام التحدي والتقييم الذكي وتحدي النجوم (4 تبويبات)
+    print("\n--- فحص نظام الاختبار والتقييم الذكي (Gamification & Stars) ---")
+    gamification_tabs = [
+        ('ساحة التحدي والمسابقة', 'tabGamification_challenge', 'paneGamification_challenge'),
+        ('خزانة الأوسمة ورتب الأبطال', 'tabGamification_badges', 'paneGamification_badges'),
+        ('شهادة بطل التحدي الفاخرة', 'tabGamification_certificate', 'paneGamification_certificate'),
+        ('لوحة الذكاء والتقييم القرائي', 'tabGamification_analytics', 'paneGamification_analytics')
+    ]
+    for gm_title, tab_id, pane_id in gamification_tabs:
+        if tab_id not in dom_ids:
+            errors.append(f"تبويب التحدي {gm_title} ({tab_id}) مفقود!")
+        if pane_id not in dom_ids:
+            errors.append(f"حاوية التحدي {gm_title} ({pane_id}) مفقودة!")
+    if not any("تبويب التحدي" in e or "حاوية التحدي" in e for e in errors):
+        successes.append("كافة أقسام نظام الاختبار والتقييم الذكي (4 أقسام) متكاملة بنسبة 100%.")
+
     # 8. فحص عزل مفاتيح التخزين المحلي (LocalStorage Key Hygiene)
     print("\n--- فحص عزل مفاتيح التخزين المحلي (قواعد أسامة) ---")
     storage_keys = []
@@ -191,7 +209,7 @@ def run_integration_audit():
         'css/lessons-prep.css', 'css/lessons-unit1.css', 'css/lessons-unit2.css',
         'css/lessons-unit3.css', 'css/lessons-unit4.css', 'css/lessons-unit5.css',
         'css/lessons-unit6.css', 'css/evaluation.css', 'css/enrichment.css',
-        'css/blackboard.css', 'css/games.css'
+        'css/blackboard.css', 'css/games.css', 'css/gamification.css'
     ]
     for cf in css_files:
         if cf not in index_html:
@@ -203,7 +221,7 @@ def run_integration_audit():
         'audio_data.js', 'audio_data_unit6.js', 'curriculum_data.js',
         'js/core/modals.js', 'js/core/audio.js', 'js/core/navigation.js',
         'js/core/evaluation.js', 'js/core/enrichment.js', 'js/core/blackboard.js',
-        'js/core/games.js', 'js/app.js'
+        'js/core/games.js', 'js/core/gamification.js', 'js/app.js'
     ]
     for cs in core_scripts:
         if cs not in index_html:
@@ -224,6 +242,7 @@ def run_integration_audit():
         ('js/core/blackboard.js', open(os.path.join(BASE_DIR, 'js', 'core', 'blackboard.js'), encoding='utf-8').read()),
         ('js/core/enrichment.js', open(os.path.join(BASE_DIR, 'js', 'core', 'enrichment.js'), encoding='utf-8').read()),
         ('js/core/evaluation.js', open(os.path.join(BASE_DIR, 'js', 'core', 'evaluation.js'), encoding='utf-8').read()),
+        ('js/core/gamification.js', open(os.path.join(BASE_DIR, 'js', 'core', 'gamification.js'), encoding='utf-8').read()),
     ]
     for s_name, s_content in sig_targets:
         if official_signature not in s_content:

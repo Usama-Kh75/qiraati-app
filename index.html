@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="css/enrichment.css">
     <link rel="stylesheet" href="css/blackboard.css">
     <link rel="stylesheet" href="css/games.css">
+    <link rel="stylesheet" href="css/gamification.css">
 
 </head>
 
@@ -107,6 +108,19 @@
                 <input type="range" id="topVolumeSlider" min="30" max="150" value="100" step="5" oninput="changeMasterVolume(this.value)" style="width: 70px; accent-color: #059669; cursor: pointer; height: 6px;">
                 <span id="topVolBadge" style="font-size: 0.76rem; font-weight: 800; color: #065f46; min-width: 32px;">100%</span>
             </div>
+
+            <!-- رصيد النجوم الذكي ومحرك التحدي للأطفال -->
+            <div class="top-stars-widget" id="topStarsWidget" onclick="openGamificationModal('challenge')" title="رصيد نجوم التحدي التفاعلي - انقر لخوض تحدي جديد">
+                <span class="star-icon-anim">⭐</span>
+                <span class="top-stars-count" id="topGlobalStarsCount">0</span>
+                <span class="top-stars-label">نجمة</span>
+            </div>
+
+            <!-- زر نظام الاختبار والتقييم الذكي وتحدي النجوم للأبطال -->
+            <button class="btn-top btn-top-gamification" id="btnTopGamificationHub" onclick="openGamificationModal('challenge')" title="نظام الاختبار والتقييم الذكي (Gamification & Stars System) ومحرك أسئلة التحدي">
+                <span>⭐</span>
+                <span>تحدي النجوم الذكي</span>
+            </button>
 
             <!-- زر منظومة تقييم التلاميذ وشهادة التخرج وسجل الإنجاز -->
             <button class="btn-top btn-top-eval" id="btnTopEvalHub" onclick="openEvaluationModal('eval')" title="سجل تقييم التلاميذ الأسبوعي المعتمد 2026/2027، شهادة التخرج الكبرى، وسجل الإنجاز الشامل">
@@ -222,6 +236,32 @@
                 </div>
                 <div class="sidebar-eval-progress-bar">
                     <div class="sidebar-eval-progress-fill" id="sidebarProgressFill" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- بطاقة نظام الاختبار وتحدي النجوم الذكي في القائمة الجانبية -->
+            <div class="sidebar-gamification-card" onclick="openGamificationModal('challenge')" title="نظام الاختبار وتحدي النجوم الذكي - أوسمة وتحديات الأبطال">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #92400e; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>⭐</span> <span>تحدي النجوم والأوسمة</span>
+                    </span>
+                    <span style="font-size: 0.76rem; font-weight: 900; background: #f59e0b; color: white; padding: 2px 8px; border-radius: 8px;">
+                        <span id="sidebarStarsCount">0</span> ⭐
+                    </span>
+                </div>
+                <div class="sidebar-gamification-grid" onclick="event.stopPropagation()">
+                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'grand')" title="تحدي الأبطال الشامل">
+                        <span>🏆</span> <span>تحدي الأبطال</span>
+                    </button>
+                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'phonemic')" title="تحدي الأصوات والوعي الفونيمي">
+                        <span>👂</span> <span>تحدي الأصوات</span>
+                    </button>
+                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'syllables')" title="تحدي تركيب المقاطع">
+                        <span>🧩</span> <span>تركيب المقاطع</span>
+                    </button>
+                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('badges')" title="خزانة الأوسمة الملكية">
+                        <span>👑</span> <span>خزانة الأوسمة</span>
+                    </button>
                 </div>
             </div>
 
@@ -24923,6 +24963,187 @@
         </div>
     </div>
 
+    <!-- ==========================================================================
+         نافذة نظام الاختبار والتقييم الذكي (Gamification & Stars System)
+         ومحرك أسئلة التحدي لتعزيز دافعية التعلم للأطفال
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    ========================================================================== -->
+    <div class="modal-backdrop" id="gamificationModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="gamification-modal-box" onclick="event.stopPropagation()">
+            <!-- رأس النافذة -->
+            <div class="gamification-modal-header">
+                <div class="gamification-header-title-box">
+                    <span class="gamification-header-icon">⭐</span>
+                    <div>
+                        <h3 class="gamification-header-title">نظام الاختبار والتقييم الذكي وتحدي النجوم للأبطال</h3>
+                        <div class="gamification-header-subtitle">
+                            الصف الأول الابتدائي • تعزيز دافعية التعلم والتلعيب الممتع • إعداد وتطوير: المهندس أسامة خليل هاشم
+                        </div>
+                    </div>
+                </div>
+                <div class="gamification-header-actions">
+                    <button class="btn-gamification-action" onclick="toggleGamificationFullscreen()" title="عرض ملء الشاشة للأجهزة اللوحية والسبورات">
+                        <span>⛶</span> <span>ملء الشاشة</span>
+                    </button>
+                    <button class="modal-close-btn" onclick="closeGamificationModal()" title="إغلاق">&times;</button>
+                </div>
+            </div>
+
+            <!-- أزرار التبويبات الأربعة الرئيسية -->
+            <div class="gamification-modal-tabs">
+                <button class="gamification-modal-tab active" id="tabGamification_challenge" onclick="switchGamificationTab('challenge')">
+                    <span>🎯</span> <span>ساحة التحدي والمسابقة</span>
+                </button>
+                <button class="gamification-modal-tab" id="tabGamification_badges" onclick="switchGamificationTab('badges')">
+                    <span>👑</span> <span>خزانة الأوسمة ورتب الأبطال</span>
+                </button>
+                <button class="gamification-modal-tab" id="tabGamification_certificate" onclick="switchGamificationTab('certificate')">
+                    <span>📜</span> <span>شهادة بطل التحدي الفاخرة</span>
+                </button>
+                <button class="gamification-modal-tab" id="tabGamification_analytics" onclick="switchGamificationTab('analytics')">
+                    <span>📊</span> <span>لوحة الذكاء والتقييم القرائي</span>
+                </button>
+            </div>
+
+            <!-- جسم النافذة ومحتوى التبويبات -->
+            <div class="gamification-modal-body">
+                <!-- شريط الإحصائيات السريع المتوهج -->
+                <div class="gamification-stats-strip">
+                    <div class="gamification-stat-item">
+                        <span>⭐ رصيد النجوم الكلي:</span>
+                        <span class="gamification-stat-badge" id="gamificationModalStarsTotal">0</span>
+                    </div>
+                    <div class="gamification-stat-item">
+                        <span>🎯 نجوم هذه الجولة:</span>
+                        <span class="gamification-stat-badge" id="challengeSessionStars" style="background: #ecfdf5; color: #047857; border-color: #a7f3d0;">0</span>
+                    </div>
+                    <div class="gamification-stat-item" style="color: #b45309; font-size: 0.82rem;">
+                        <span>💡 كل إجابة صحيحة تمنحك نجوماً وتفتح أوسمة جديدة في خزانتك!</span>
+                    </div>
+                </div>
+
+                <!-- 1. تبويب ساحة التحدي والمسابقة -->
+                <div id="paneGamification_challenge" class="gamification-tab-pane active">
+                    <div class="challenge-arena-container">
+                        <!-- شريط تحديد مسار ونمط التحدي ومستوى الصعوبة -->
+                        <div class="challenge-modes-bar">
+                            <div class="challenge-mode-pills">
+                                <button type="button" class="challenge-mode-pill active" data-mode="grand" onclick="setChallengeMode('grand')">
+                                    <span>🏆</span> <span>تحدي الأبطال الشامل</span>
+                                </button>
+                                <button type="button" class="challenge-mode-pill" data-mode="phonemic" onclick="setChallengeMode('phonemic')">
+                                    <span>👂</span> <span>الوعي الفونيمي والأصوات</span>
+                                </button>
+                                <button type="button" class="challenge-mode-pill" data-mode="syllables" onclick="setChallengeMode('syllables')">
+                                    <span>🧩</span> <span>التركيب المقطعي</span>
+                                </button>
+                                <button type="button" class="challenge-mode-pill" data-mode="alphabet" onclick="setChallengeMode('alphabet')">
+                                    <span>🔤</span> <span>الحروف الهجائية ومواقعها</span>
+                                </button>
+                                <button type="button" class="challenge-mode-pill" data-mode="grammar" onclick="setChallengeMode('grammar')">
+                                    <span>☀️🌙</span> <span>الظواهر اللغوية والشدة</span>
+                                </button>
+                                <button type="button" class="challenge-mode-pill" data-mode="lesson" onclick="setChallengeMode('lesson')">
+                                    <span>📖</span> <span>تحدي الدرس الحالي</span>
+                                </button>
+                            </div>
+
+                            <div class="challenge-difficulty-select">
+                                <span>المستوى:</span>
+                                <button type="button" class="difficulty-pill" data-diff="easy" onclick="setChallengeDifficulty('easy')">بطل صغير (5)</button>
+                                <button type="button" class="difficulty-pill active" data-diff="medium" onclick="setChallengeDifficulty('medium')">فارس الكلمات (10)</button>
+                            </div>
+                        </div>
+
+                        <!-- المحتوى الديناميكي لسؤال التحدي النشط -->
+                        <div id="challengeArenaContent">
+                            <div class="challenge-stage-card">
+                                <!-- شريط التقدم والسلسلة الحماسية -->
+                                <div class="challenge-live-status-bar">
+                                    <div class="challenge-q-counter" id="challengeCurrentCounter">
+                                        سؤال 1 من 10
+                                    </div>
+                                    <div class="challenge-progress-track">
+                                        <div class="challenge-progress-fill" id="challengeProgressFill" style="width: 10%;"></div>
+                                    </div>
+                                    <div class="challenge-streak-badge" id="challengeStreakBadge" style="display: none;">
+                                        <span>🔥</span> <span>حماسي: 2 متتالية!</span>
+                                    </div>
+                                </div>
+
+                                <!-- بطاقة السؤال ومساعد فصيح -->
+                                <div class="challenge-prompt-row">
+                                    <div class="challenge-mascot-avatar" onclick="speakCurrentQuestion()" title="صديقك فصيح - انقر للاستماع لنطق السؤال">
+                                        🦉
+                                    </div>
+                                    <div class="challenge-prompt-content">
+                                        <span class="challenge-category-tag" id="challengeCategoryTag">وعي فونيمي</span>
+                                        <h3 class="challenge-question-title" id="challengeQuestionTitle">جارٍ تجهيز السؤال الذكي...</h3>
+                                        <div class="challenge-prompt-media">
+                                            <img id="challengePromptImage" src="activity_5.png" class="challenge-prompt-image" alt="صورة السؤال" style="display: none;">
+                                            <button type="button" class="btn-prompt-audio" onclick="speakCurrentQuestion()" title="استمع لنطق السؤال فصيحاً">
+                                                <span>🔊</span> <span>استمع للسؤال</span>
+                                            </button>
+                                            <button type="button" class="btn-prompt-hint" onclick="useMascotHint()" title="طلب تلميح ذكي وحذف خيارين خاطئين">
+                                                <span>💡</span> <span>مساعدة فصيح</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- فقاعة حوار فصيح التفاعلية -->
+                                <div id="challengeMascotBubble" style="font-size: 0.88rem; font-weight: 800; color: #b45309; background: #fffbeb; border: 1px solid #fde68a; padding: 8px 14px; border-radius: 12px;">
+                                    اقرأ السؤال يا بطل، أو اضغط زر <b>«استمع للسؤال 🔊»</b> لأقرأه لك!
+                                </div>
+
+                                <!-- شبكة خيارات الإجابة -->
+                                <div class="challenge-options-grid" id="challengeOptionsGrid">
+                                    <!-- تُبنى ديناميكياً بواسطة gamification.js -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. تبويب خزانة الأوسمة ورتب الأبطال -->
+                <div id="paneGamification_badges" class="gamification-tab-pane">
+                    <div id="heroRankHeroCardContainer">
+                        <!-- يُبنى ديناميكياً بواسطة gamification.js -->
+                    </div>
+                    <div class="badges-showcase-grid" id="badgesCabinetGrid">
+                        <!-- تُبنى ديناميكياً بواسطة gamification.js -->
+                    </div>
+                </div>
+
+                <!-- 3. تبويب شهادة بطل التحدي الفاخرة -->
+                <div id="paneGamification_certificate" class="gamification-tab-pane">
+                    <div id="victoryCertificateContainer">
+                        <!-- يُبنى ديناميكياً بواسطة gamification.js -->
+                    </div>
+                </div>
+
+                <!-- 4. تبويب لوحة الذكاء والتقييم القرائي -->
+                <div id="paneGamification_analytics" class="gamification-tab-pane">
+                    <div id="analyticsMasteryContainer">
+                        <!-- يُبنى ديناميكياً بواسطة gamification.js -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- أسفل النافذة -->
+            <div class="gamification-modal-footer" style="padding: 12px 20px; background: #f8fafc; border-top: 1.5px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between;">
+                <div style="font-size: 0.82rem; font-weight: 800; color: #92400e;">
+                    ⭐ منصة قراءتي التفاعلية الذكية • <b>إعداد: المهندس أسامة خليل هاشم</b> • نظام التلعيب والتقييم الذكي للأطفال ✅
+                </div>
+                <div style="display: flex; gap: 8px;">
+                    <button type="button" class="btn btn-teach" style="padding: 6px 18px; font-size: 0.88rem; background: #d97706; border-color: #b45309;" onclick="closeGamificationModal()">
+                        إغلاق النافذة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
     <script src="audio_data.js"></script>
     <script src="audio_data_unit6.js"></script>
@@ -24936,6 +25157,7 @@
     <script src="js/core/enrichment.js"></script>
     <script src="js/core/blackboard.js"></script>
     <script src="js/core/games.js"></script>
+    <script src="js/core/gamification.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

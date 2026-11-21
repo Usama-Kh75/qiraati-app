@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="css/enrichment.css">
     <link rel="stylesheet" href="css/blackboard.css">
     <link rel="stylesheet" href="css/games.css">
+    <link rel="stylesheet" href="css/gamification.css">
 
 </head>
 
@@ -107,6 +108,19 @@
                 <input type="range" id="topVolumeSlider" min="30" max="150" value="100" step="5" oninput="changeMasterVolume(this.value)" style="width: 70px; accent-color: #059669; cursor: pointer; height: 6px;">
                 <span id="topVolBadge" style="font-size: 0.76rem; font-weight: 800; color: #065f46; min-width: 32px;">100%</span>
             </div>
+
+            <!-- رصيد النجوم الذكي ومحرك التحدي للأطفال -->
+            <div class="top-stars-widget" id="topStarsWidget" onclick="openGamificationModal('challenge')" title="رصيد نجوم التحدي التفاعلي - انقر لخوض تحدي جديد">
+                <span class="star-icon-anim">⭐</span>
+                <span class="top-stars-count" id="topGlobalStarsCount">0</span>
+                <span class="top-stars-label">نجمة</span>
+            </div>
+
+            <!-- زر نظام الاختبار والتقييم الذكي وتحدي النجوم للأبطال -->
+            <button class="btn-top btn-top-gamification" id="btnTopGamificationHub" onclick="openGamificationModal('challenge')" title="نظام الاختبار والتقييم الذكي (Gamification & Stars System) ومحرك أسئلة التحدي">
+                <span>⭐</span>
+                <span>تحدي النجوم الذكي</span>
+            </button>
 
             <!-- زر منظومة تقييم التلاميذ وشهادة التخرج وسجل الإنجاز -->
             <button class="btn-top btn-top-eval" id="btnTopEvalHub" onclick="openEvaluationModal('eval')" title="سجل تقييم التلاميذ الأسبوعي المعتمد 2026/2027، شهادة التخرج الكبرى، وسجل الإنجاز الشامل">
@@ -222,6 +236,32 @@
                 </div>
                 <div class="sidebar-eval-progress-bar">
                     <div class="sidebar-eval-progress-fill" id="sidebarProgressFill" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- بطاقة نظام الاختبار وتحدي النجوم الذكي في القائمة الجانبية -->
+            <div class="sidebar-gamification-card" onclick="openGamificationModal('challenge')" title="نظام الاختبار وتحدي النجوم الذكي - أوسمة وتحديات الأبطال">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                    <span style="font-weight: 900; color: #92400e; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                        <span>⭐</span> <span>تحدي النجوم والأوسمة</span>
+                    </span>
+                    <span style="font-size: 0.76rem; font-weight: 900; background: #f59e0b; color: white; padding: 2px 8px; border-radius: 8px;">
+                        <span id="sidebarStarsCount">0</span> ⭐
+                    </span>
+                </div>
+                <div class="sidebar-gamification-grid" onclick="event.stopPropagation()">
+                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'grand')" title="تحدي الأبطال الشامل">
+                        <span>🏆</span> <span>تحدي الأبطال</span>
+                    </button>
+                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'phonemic')" title="تحدي الأصوات والوعي الفونيمي">
+                        <span>👂</span> <span>تحدي الأصوات</span>
+                    </button>
+                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'syllables')" title="تحدي تركيب المقاطع">
+                        <span>🧩</span> <span>تركيب المقاطع</span>
+                    </button>
+                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('badges')" title="خزانة الأوسمة الملكية">
+                        <span>👑</span> <span>خزانة الأوسمة</span>
+                    </button>
                 </div>
             </div>
 

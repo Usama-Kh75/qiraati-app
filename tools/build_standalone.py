@@ -94,7 +94,8 @@ def build_standalone():
         'css/evaluation.css',
         'css/enrichment.css',
         'css/blackboard.css',
-        'css/games.css'
+        'css/games.css',
+        'css/gamification.css'
     ]
 
     css_combined = []
@@ -227,6 +228,7 @@ def build_standalone():
         'js/core/enrichment.js',
         'js/core/blackboard.js',
         'js/core/games.js',
+        'js/core/gamification.js',
         'js/lessons/prep.js',
         'js/lessons/unit1.js',
         'js/lessons/unit2.js',
