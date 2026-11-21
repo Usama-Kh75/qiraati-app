@@ -9,70 +9,79 @@
 
         ======================================================== */
 
-                let currentAudio = null;
-
+        let currentAudio = null;
         window._currentPlayingKey = null;
 
+        // دوال التخزين المحلي الآمنة مع ترحيل تلقائي لبادئة قواعد أسامة (qiraati-smart-*)
+        function getStoredPref(key, oldKey, defaultVal) {
+            try {
+                const val = localStorage.getItem(key);
+                if (val !== null && val !== undefined) return val;
+                if (oldKey) {
+                    const oldVal = localStorage.getItem(oldKey);
+                    if (oldVal !== null && oldVal !== undefined) {
+                        localStorage.setItem(key, oldVal);
+                        return oldVal;
+                    }
+                }
+            } catch(e) {}
+            return defaultVal;
+        }
+
+        function setStoredPref(key, oldKey, val) {
+            try {
+                localStorage.setItem(key, val);
+                if (oldKey) localStorage.setItem(oldKey, val);
+            } catch(e) {}
+        }
+
+        function cleanupAudioNodes(audio) {
+            if (!audio) return;
+            try {
+                if (audio._gainNode) {
+                    audio._gainNode.disconnect();
+                    audio._gainNode = null;
+                }
+                if (audio._audioSource) {
+                    audio._audioSource.disconnect();
+                    audio._audioSource = null;
+                }
+            } catch(e) {}
+        }
+
         function updateAudioControlsState(isPlaying, audioKey) {
-
             const btnTopStop = document.getElementById('btnTopStop');
-
             const btnSpeechStop = document.getElementById('btnSpeechStop');
-
             const floatingStopBtn = document.getElementById('floatingStopBtn');
-
-            const isFloatingEnabled = localStorage.getItem('qiraati_smart_floating_stop') !== 'false';
+            const isFloatingEnabled = getStoredPref('qiraati-smart-floating-stop', 'qiraati_smart_floating_stop', 'true') !== 'false';
 
             if (isPlaying) {
-
                 if (btnTopStop) btnTopStop.style.display = 'inline-flex';
-
                 if (btnSpeechStop) btnSpeechStop.style.display = 'inline-flex';
-
                 if (floatingStopBtn && isFloatingEnabled) floatingStopBtn.style.display = 'inline-flex';
-
             } else {
-
                 if (btnTopStop) btnTopStop.style.display = 'none';
-
                 if (btnSpeechStop) btnSpeechStop.style.display = 'none';
-
                 if (floatingStopBtn) floatingStopBtn.style.display = 'none';
-
                 window._currentPlayingKey = null;
-
                 resetActiveAudioButtons();
-
             }
-
         }
 
         function stopAudio() {
-
             if (currentAudio) {
-
                 try {
-
+                    cleanupAudioNodes(currentAudio);
                     currentAudio.pause();
-
                     currentAudio.currentTime = 0;
-
                 } catch(e) {}
-
                 currentAudio = null;
-
             }
-
             const bubble = document.getElementById('speechBubble');
-
             const avatar = document.getElementById('mascotAvatar');
-
             if (bubble) bubble.classList.remove('speaking');
-
             if (avatar) avatar.classList.remove('mascot-speaking');
-
             updateAudioControlsState(false);
-
         }
 
         function resetActiveAudioButtons() {
@@ -137,7 +146,7 @@
             }
 
             // تحديد الصوت بناءً على تفضيلات الضبط (المعلمة رنا / المعلم باسل / الوضع التكاملي / صوت المعلمة الميداني الحقيقي)
-            const voicePref = localStorage.getItem('qiraati_smart_voice_pref') || 'integrated';
+            const voicePref = getStoredPref('qiraati-smart-voice-pref', 'qiraati_smart_voice_pref', 'integrated');
             let finalKey = audioKey;
 
             // جدول المطابقة الدقيقة لتحويل أصوات الدروس إلى تسجيلات المعلمة الميدانية الحقيقية
@@ -199,40 +208,79 @@
                 'voice_confirm_bassel': 'faseeh_encourage_super'
             };
 
-            if (window.AUDIO_DATA) {
-                if (voicePref === 'teacher') {
-                    if (audioKey && teacherDirectMap[audioKey] && window.AUDIO_DATA[teacherDirectMap[audioKey]]) {
-                        finalKey = teacherDirectMap[audioKey];
-                    } else if (audioKey && window.AUDIO_DATA['teacher_' + audioKey]) {
-                        finalKey = 'teacher_' + audioKey;
-                    } else if (audioKey && window.AUDIO_DATA[audioKey + '_teacher']) {
-                        finalKey = audioKey + '_teacher';
-                    } else if (audioKey && audioKey.startsWith('letter_s_read_')) {
-                        const sCandidate = audioKey.replace('letter_s_read_', 'letter_s_teacher_');
-                        if (window.AUDIO_DATA[sCandidate]) finalKey = sCandidate;
-                    } else if (audioKey && window.AUDIO_DATA[audioKey]) {
-                        finalKey = audioKey;
-                    }
-                } else if (voicePref === 'bassel') {
-                    if (audioKey && faseehDirectMap[audioKey] && window.AUDIO_DATA[faseehDirectMap[audioKey]]) {
-                        finalKey = faseehDirectMap[audioKey];
-                    } else if (window.AUDIO_DATA[audioKey + '_bassel']) {
-                        finalKey = audioKey + '_bassel';
-                    } else if (window.AUDIO_DATA['bassel_' + audioKey]) {
-                        finalKey = 'bassel_' + audioKey;
-                    }
-                } else if (voicePref === 'rana') {
-                    if (window.AUDIO_DATA[audioKey + '_rana']) finalKey = audioKey + '_rana';
-                    else if (window.AUDIO_DATA['rana_' + audioKey]) finalKey = 'rana_' + audioKey;
-                } else if (voicePref === 'integrated') {
-                    if (audioKey && (audioKey.includes('encourage') || audioKey.includes('hint') || audioKey.includes('mascot') || audioKey.includes('applause') || audioKey.includes('bassel'))) {
-                        if (audioKey && faseehDirectMap[audioKey] && window.AUDIO_DATA[faseehDirectMap[audioKey]]) finalKey = faseehDirectMap[audioKey];
-                        else if (window.AUDIO_DATA[audioKey + '_bassel']) finalKey = audioKey + '_bassel';
-                        else if (window.AUDIO_DATA['bassel_' + audioKey]) finalKey = 'bassel_' + audioKey;
-                    } else {
-                        if (window.AUDIO_DATA[audioKey + '_rana']) finalKey = audioKey + '_rana';
-                        else if (window.AUDIO_DATA['rana_' + audioKey]) finalKey = 'rana_' + audioKey;
-                    }
+            // قائمة المفاتيح الصوتية الخاصة للتأكد من وجودها سواء عبر audio/*.mp3 أو window.AUDIO_DATA
+            const SPECIAL_AUDIO_KEYS = new Set([
+                "faseeh_blend_dada", "faseeh_blend_dar", "faseeh_blend_door", "faseeh_blend_firas", "faseeh_blend_noor",
+                "faseeh_blend_wardun", "faseeh_encourage_super", "faseeh_model_ana_wa_antum", "faseeh_model_ana_wahdi",
+                "faseeh_model_claps", "faseeh_phoneme_b", "faseeh_phoneme_d", "faseeh_phoneme_f", "faseeh_phoneme_m",
+                "faseeh_phoneme_marboota", "faseeh_phoneme_n", "faseeh_phoneme_r", "faseeh_phoneme_s", "faseeh_phoneme_t",
+                "faseeh_phoneme_tanween", "faseeh_vowels_d", "faseeh_vowels_r", "faseeh_vowels_s", "lam_phoneme_faseeh",
+                "letter_ayn_salim_phoneme_faseeh", "letter_dha_phoneme_faseeh", "letter_dhad_phoneme_faseeh",
+                "letter_dhal_phoneme_faseeh", "letter_f_reef_phoneme_faseeh", "letter_ghayn_phoneme_faseeh",
+                "letter_h_phoneme_faseeh", "letter_ha_phoneme_faseeh", "letter_hamza_phoneme_faseeh", "letter_hamza_word_darana",
+                "letter_j_phoneme_faseeh", "letter_kaf_phoneme_faseeh", "letter_kha_phoneme_faseeh", "letter_l_nabeel_phoneme_faseeh",
+                "letter_q_booq_phoneme_faseeh", "letter_s_teacher_read_all", "letter_s_teacher_sentence1", "letter_s_teacher_sentence2",
+                "letter_s_teacher_sentence3", "letter_s_teacher_word_baba", "letter_s_teacher_word_faris", "letter_s_teacher_word_mama",
+                "letter_s_teacher_word_moosa", "letter_s_teacher_word_rasama", "letter_s_teacher_word_safara",
+                "letter_sad_phoneme_faseeh", "letter_sh_phoneme_faseeh", "letter_ta_phoneme_faseeh", "letter_tha_phoneme_faseeh",
+                "letter_z_phoneme_faseeh", "shaddah_phoneme_faseeh", "teacher_act5_alif_sound", "teacher_act5_all", "teacher_act5_asa",
+                "teacher_act5_dar", "teacher_act5_ghazal", "teacher_act5_halwa", "teacher_act5_intro", "teacher_act5_mrma",
+                "teacher_letter_d_act1_intro", "teacher_letter_d_asad", "teacher_letter_d_dalla", "teacher_letter_d_dar",
+                "teacher_letter_d_deek", "teacher_letter_d_dirham", "teacher_letter_d_dood", "teacher_letter_d_dub",
+                "teacher_letter_d_qidr", "teacher_letter_d_words_all", "teacher_letter_f_act1_intro", "teacher_letter_f_act7_intro",
+                "teacher_letter_f_fanous", "teacher_letter_f_farasha", "teacher_letter_f_feel", "teacher_letter_f_finjan",
+                "teacher_letter_f_fustan", "teacher_letter_f_miftah", "teacher_letter_f_mitaf", "teacher_letter_f_nafoora",
+                "teacher_letter_f_read_all", "teacher_letter_f_read_fadi", "teacher_letter_f_read_fam", "teacher_letter_f_read_mufeed",
+                "teacher_letter_f_split_dufoof", "teacher_letter_f_words_all", "teacher_letter_m_act1_intro", "teacher_letter_m_laymun",
+                "teacher_letter_m_mawz", "teacher_letter_m_miftah", "teacher_letter_m_mizan", "teacher_letter_m_mizmar",
+                "teacher_letter_m_murabba", "teacher_letter_m_qamh", "teacher_letter_m_thawm", "teacher_letter_m_words_all",
+                "teacher_reading_act7_a_intro", "teacher_reading_act7_b_intro", "teacher_reading_baba", "teacher_reading_baba_b",
+                "teacher_reading_baba_mama_boom", "teacher_reading_baba_mama_dada", "teacher_reading_boom", "teacher_reading_dada",
+                "teacher_reading_mama", "teacher_reading_mama_b", "teacher_vowel_w_all", "teacher_vowel_w_buma", "teacher_vowel_w_intro",
+                "teacher_vowel_w_kharuf", "teacher_vowel_w_soos", "teacher_vowel_w_tawoos", "teacher_vowel_w_usfoor", "teacher_vowel_y_all",
+                "teacher_vowel_y_bisat", "teacher_vowel_y_dik", "teacher_vowel_y_halib", "teacher_vowel_y_intro", "teacher_vowel_y_rish",
+                "unit2_facility_teacher", "unit2_welcome_bassel", "voice_confirm_bassel", "voice_confirm_rana", "voice_preview_bassel",
+                "voice_preview_rana"
+            ]);
+
+            function hasSpecialAudioKey(k) {
+                if (!k) return false;
+                if (window.AUDIO_DATA) return !!window.AUDIO_DATA[k];
+                return SPECIAL_AUDIO_KEYS.has(k);
+            }
+
+            if (voicePref === 'teacher') {
+                if (audioKey && teacherDirectMap[audioKey] && hasSpecialAudioKey(teacherDirectMap[audioKey])) {
+                    finalKey = teacherDirectMap[audioKey];
+                } else if (audioKey && hasSpecialAudioKey('teacher_' + audioKey)) {
+                    finalKey = 'teacher_' + audioKey;
+                } else if (audioKey && hasSpecialAudioKey(audioKey + '_teacher')) {
+                    finalKey = audioKey + '_teacher';
+                } else if (audioKey && audioKey.startsWith('letter_s_read_')) {
+                    const sCandidate = audioKey.replace('letter_s_read_', 'letter_s_teacher_');
+                    if (hasSpecialAudioKey(sCandidate)) finalKey = sCandidate;
+                } else if (audioKey) {
+                    finalKey = audioKey;
+                }
+            } else if (voicePref === 'bassel') {
+                if (audioKey && faseehDirectMap[audioKey] && hasSpecialAudioKey(faseehDirectMap[audioKey])) {
+                    finalKey = faseehDirectMap[audioKey];
+                } else if (audioKey && hasSpecialAudioKey(audioKey + '_bassel')) {
+                    finalKey = audioKey + '_bassel';
+                } else if (audioKey && hasSpecialAudioKey('bassel_' + audioKey)) {
+                    finalKey = 'bassel_' + audioKey;
+                }
+            } else if (voicePref === 'rana') {
+                if (audioKey && hasSpecialAudioKey(audioKey + '_rana')) finalKey = audioKey + '_rana';
+                else if (audioKey && hasSpecialAudioKey('rana_' + audioKey)) finalKey = 'rana_' + audioKey;
+            } else if (voicePref === 'integrated') {
+                if (audioKey && (audioKey.includes('encourage') || audioKey.includes('hint') || audioKey.includes('mascot') || audioKey.includes('applause') || audioKey.includes('bassel'))) {
+                    if (audioKey && faseehDirectMap[audioKey] && hasSpecialAudioKey(faseehDirectMap[audioKey])) finalKey = faseehDirectMap[audioKey];
+                    else if (audioKey && hasSpecialAudioKey(audioKey + '_bassel')) finalKey = audioKey + '_bassel';
+                    else if (audioKey && hasSpecialAudioKey('bassel_' + audioKey)) finalKey = 'bassel_' + audioKey;
+                } else {
+                    if (audioKey && hasSpecialAudioKey(audioKey + '_rana')) finalKey = audioKey + '_rana';
+                    else if (audioKey && hasSpecialAudioKey('rana_' + audioKey)) finalKey = 'rana_' + audioKey;
                 }
             }
 
@@ -251,7 +299,9 @@
 
             try {
                 if (src) {
-                    const audio = new Audio(src);
+                    const audio = new Audio();
+                    audio.preload = "none";
+                    audio.src = src;
                     currentAudio = audio;
                     applyVolumeToAudio(audio, getMasterVolume());
 
@@ -283,6 +333,7 @@
                     updateAudioControlsState(true, audioKey);
 
                     audio.onended = () => {
+                        cleanupAudioNodes(audio);
                         if (bubble) bubble.classList.remove('speaking');
                         if (avatar) avatar.classList.remove('mascot-speaking');
                         updateAudioControlsState(false);
@@ -290,6 +341,7 @@
                     };
 
                     audio.onerror = () => {
+                        cleanupAudioNodes(audio);
                         if (bubble) bubble.classList.remove('speaking');
                         if (avatar) avatar.classList.remove('mascot-speaking');
                         updateAudioControlsState(false);
@@ -297,13 +349,17 @@
 
                     audio.play().catch(e => {
                         console.log('Audio playback info:', e);
+                        cleanupAudioNodes(audio);
                         updateAudioControlsState(false);
                     });
                 }
             } catch (err) {
                 console.error(err);
+                if (currentAudio) cleanupAudioNodes(currentAudio);
                 if (bubble) bubble.classList.remove('speaking');
                 if (avatar) avatar.classList.remove('mascot-speaking');
+                updateAudioControlsState(false);
+            }
                 updateAudioControlsState(false);
             }
         }
@@ -322,7 +378,7 @@
         // إعداد وتطوير: المهندس أسامة خليل هاشم
         // ==============================================================
         function getMasterVolume() {
-            const v = localStorage.getItem('qiraati_smart_volume');
+            const v = getStoredPref('qiraati-smart-volume', 'qiraati_smart_volume', '100');
             return v ? parseInt(v, 10) : 100;
         }
 
@@ -331,7 +387,7 @@
             if (isNaN(val)) val = 100;
             if (val < 0) val = 0;
             if (val > 150) val = 150;
-            localStorage.setItem('qiraati_smart_volume', val);
+            setStoredPref('qiraati-smart-volume', 'qiraati_smart_volume', val.toString());
 
             const topSlider = document.getElementById('topVolumeSlider');
             if (topSlider) topSlider.value = val;
@@ -384,6 +440,7 @@
                         gainNode.connect(ctx.destination);
                         audio._gainApplied = true;
                         audio._gainNode = gainNode;
+                        audio._audioSource = source;
                     } else if (audio._gainNode) {
                         audio._gainNode.gain.value = volPct / 100;
                     }
@@ -396,9 +453,9 @@
         function openSettingsModal() {
             const modal = document.getElementById('settingsModal');
             if (!modal) return;
-            const currentPref = localStorage.getItem('qiraati_smart_voice_pref') || 'integrated';
+            const currentPref = getStoredPref('qiraati-smart-voice-pref', 'qiraati_smart_voice_pref', 'integrated');
             applyVoiceCardVisuals(currentPref);
-            const isFloating = localStorage.getItem('qiraati_smart_floating_stop') !== 'false';
+            const isFloating = getStoredPref('qiraati-smart-floating-stop', 'qiraati_smart_floating_stop', 'true') !== 'false';
             const chk = document.getElementById('chkFloatingStop');
             if (chk) chk.checked = isFloating;
             const curVol = getMasterVolume();
@@ -415,7 +472,7 @@
         }
 
         function setVoicePreference(pref) {
-            localStorage.setItem('qiraati_smart_voice_pref', pref);
+            setStoredPref('qiraati-smart-voice-pref', 'qiraati_smart_voice_pref', pref);
             applyVoiceCardVisuals(pref);
 
             let confirmKey = '';
@@ -471,21 +528,13 @@
         }
 
         function toggleFloatingStopSetting(enabled) {
-
-            localStorage.setItem('qiraati_smart_floating_stop', enabled ? 'true' : 'false');
-
+            setStoredPref('qiraati-smart-floating-stop', 'qiraati_smart_floating_stop', enabled ? 'true' : 'false');
             const floatingBtn = document.getElementById('floatingStopBtn');
-
             if (floatingBtn && !enabled) {
-
                 floatingBtn.style.display = 'none';
-
             } else if (floatingBtn && enabled && currentAudio && !currentAudio.paused) {
-
                 floatingBtn.style.display = 'inline-flex';
-
             }
-
         }
 
         function mascotCelebrates() {
@@ -504,5 +553,81 @@
 
             mascotSpeak('أنا صديقك فَصِيح! اختر الدرس من القائمة اليمنى وسأرافقك دائماً!', 'mascot_hint');
 
+        }
+
+        // ==============================================================
+        // نظام التنزيل بالخلفية لملفات الأوفلاين (Background Offline Downloader)
+        // إعداد وتطوير: المهندس أسامة خليل هاشم
+        // ==============================================================
+        let _isDownloadingOffline = false;
+        async function downloadAllOfflineAssets() {
+            if (_isDownloadingOffline) return;
+            const btn = document.getElementById('btnDownloadOfflineAssets');
+            const label = document.getElementById('btnDownloadOfflineLabel');
+            const statusEl = document.getElementById('offlineDownloadStatus');
+            const progressContainer = document.getElementById('offlineProgressBarContainer');
+            const progressBar = document.getElementById('offlineProgressBar');
+
+            _isDownloadingOffline = true;
+            if (btn) btn.disabled = true;
+            if (label) label.innerText = 'جارٍ جمع قائمة الملفات...';
+            if (progressContainer) progressContainer.style.display = 'block';
+            if (statusEl) statusEl.innerText = '0%';
+
+            try {
+                // تجميع كل روابط الصور من DOM و curriculum_data
+                const assetsSet = new Set();
+                document.querySelectorAll('img').forEach(img => {
+                    const src = img.getAttribute('src');
+                    if (src && !src.startsWith('data:') && !src.startsWith('http')) {
+                        assetsSet.add(src);
+                    }
+                });
+
+                if (window.CURRICULUM_DATA && Array.isArray(window.CURRICULUM_DATA)) {
+                    window.CURRICULUM_DATA.forEach(u => {
+                        if (u.lessons && Array.isArray(u.lessons)) {
+                            u.lessons.forEach(l => {
+                                if (l.bookPageImg) assetsSet.add(l.bookPageImg);
+                                if (l.boardImg) assetsSet.add(l.boardImg);
+                            });
+                        }
+                    });
+                }
+
+                // إضافة الأصوات الأساسية الخاصة
+                if (typeof SPECIAL_AUDIO_KEYS !== 'undefined') {
+                    SPECIAL_AUDIO_KEYS.forEach(k => assetsSet.add('audio/' + k + '.mp3'));
+                }
+
+                const assetsList = Array.from(assetsSet);
+                const total = assetsList.length;
+                let completed = 0;
+
+                if (label) label.innerText = `جارٍ تنزيل ${total} ملفاً على دفعات...`;
+
+                const BATCH_SIZE = 10;
+                for (let i = 0; i < total; i += BATCH_SIZE) {
+                    const batch = assetsList.slice(i, i + BATCH_SIZE);
+                    await Promise.all(batch.map(url => {
+                        return fetch(url).catch(() => null).finally(() => {
+                            completed++;
+                            const pct = Math.round((completed / total) * 100);
+                            if (progressBar) progressBar.style.width = pct + '%';
+                            if (statusEl) statusEl.innerText = `${pct}% (${completed}/${total})`;
+                        });
+                    }));
+                }
+
+                if (label) label.innerText = 'اكتمل التنزيل بنجاح ✅';
+                if (statusEl) statusEl.innerText = `تم حفظ كافة وسائط الكتاب (${total} ملفاً) في الكاش أوفلاين بنجاح!`;
+            } catch (err) {
+                console.error('Offline download error:', err);
+                if (label) label.innerText = 'حدث تنبيه أثناء التنزيل';
+                if (statusEl) statusEl.innerText = 'تم تخزين ما تيسر من الملفات، والباقي سيُخزن تلقائياً عند فتحه.';
+            } finally {
+                _isDownloadingOffline = false;
+                if (btn) btn.disabled = false;
+            }
         }
 

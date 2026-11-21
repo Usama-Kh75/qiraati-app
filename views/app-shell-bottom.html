@@ -818,6 +818,29 @@
 
                 </div>
 
+                <!-- قسم تنزيل وسائط المنصة للعمل أوفلاين 100% بدون إنترنت -->
+                <div style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 2px solid #3b82f6; border-radius: 16px; padding: 16px; margin-top: 18px; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.08);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <div style="font-size: 1rem; font-weight: 900; color: #1e40af; display: flex; align-items: center; gap: 8px;">
+                            <span style="font-size: 1.3rem;">📶</span>
+                            <span>التحضير المسبق للعمل أوفلاين (بدون إنترنت):</span>
+                        </div>
+                    </div>
+                    <div style="font-size: 0.82rem; color: #1d4ed8; font-weight: 700; margin-bottom: 12px; line-height: 1.5;">
+                        يقوم التطبيق بحفظ الدروس التي تفتحها تلقائياً. يمكنك هنا تنزيل كافة وسائط وأصوات الكتاب دفعة واحدة بالخلفية لضمان عملها التام في القاعات والمدارس دون الحاجة للاتصال بالإنترنت:
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                        <button class="btn" id="btnDownloadOfflineAssets" onclick="downloadAllOfflineAssets()" style="background: linear-gradient(135deg, #2563eb, #1d4ed8); color: white; padding: 8px 18px; font-size: 0.88rem; font-weight: 800; border-radius: 10px; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                            <span>📥</span>
+                            <span id="btnDownloadOfflineLabel">تنزيل كل ملفات الأوفلاين بالخلفية</span>
+                        </button>
+                        <span id="offlineDownloadStatus" style="font-size: 0.8rem; font-weight: 800; color: #1e3a8a;"></span>
+                    </div>
+                    <div id="offlineProgressBarContainer" style="display: none; margin-top: 10px; background: #bfdbfe; border-radius: 8px; height: 10px; overflow: hidden;">
+                        <div id="offlineProgressBar" style="width: 0%; height: 100%; background: #2563eb; transition: width 0.3s ease;"></div>
+                    </div>
+                </div>
+
             </div>
 
             <div class="modal-footer" style="background: #f8fafc; border-top: 1px solid #e2e8f0; padding: 12px 20px; display: flex; justify-content: space-between; align-items: center;">
@@ -6107,9 +6130,14 @@
     <!-- حاوية الطباعة المنعزلة A4 للقصص والمجلات المصورة -->
     <div id="storyStudioPrintA4Area" style="display: none;"></div>
 
-    <!-- استدعاء قواعد البيانات الصوتية والمنهجية - إعداد المهندس أسامة خليل هاشم -->
-    <script src="audio_data.js"></script>
-    <script src="audio_data_unit6.js"></script>
+    <!-- استدعاء قواعد البيانات المنهجية والصوتية - إعداد المهندس أسامة خليل هاشم -->
+    <script>
+      // تحميل قواعد الصوتيات المضمنة ديناميكياً فقط عند فتح ملف index.html محلياً بدون خادم (file://)
+      if (window.location.protocol === 'file:' && !window.AUDIO_DATA) {
+        document.write('<script src="audio_data.js"><\/script>');
+        document.write('<script src="audio_data_unit6.js"><\/script>');
+      }
+    </script>
     <script src="curriculum_data.js"></script>
 
     <!-- منظومة المنطق البرمجي المجزأة - إعداد المهندس أسامة خليل هاشم -->

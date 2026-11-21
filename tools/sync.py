@@ -48,13 +48,11 @@ def sync_assets(bump_cache=False):
     cur_ver = int(v_match.group(1)) if v_match else 38
     new_ver = cur_ver + 1 if bump_cache else cur_ver
 
-    # 4. بناء مصفوفة ASSETS_TO_CACHE النظيفة والمنظمة
+    # 4. بناء مصفوفة ASSETS_TO_CACHE النظيفة والمنظمة (App Shell الخفيف فقط)
     core_assets = [
         "'./'",
         "'./index.html'",
         "'./manifest.json'",
-        "'./audio_data.js'",
-        "'./audio_data_unit6.js'",
         "'./curriculum_data.js'",
         "'./css/variables.css'",
         "'./css/layout.css'",
@@ -107,13 +105,13 @@ def sync_assets(bump_cache=False):
         "'./js/lessons/unit4.js'",
         "'./js/lessons/unit5.js'",
         "'./js/lessons/unit6.js'",
-        "'./js/app.js'"
+        "'./js/app.js'",
+        "'./icons/icon-192.png'",
+        "'./icons/icon-512.png'",
+        "'./icons/qiraati.ico'"
     ]
 
-    image_assets = [f"'./{img}'" for img in sorted(tracked_pngs)]
-    audio_assets = [f"'./{mp3}'" for mp3 in sorted(tracked_mp3s)]
-
-    all_cache_entries = core_assets + image_assets + audio_assets
+    all_cache_entries = core_assets
     cache_array_str = ",\n\n  ".join(all_cache_entries)
 
     # 5. استبدال مصفوفة ASSETS_TO_CACHE ورقم النسخة في sw.js

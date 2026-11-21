@@ -364,8 +364,8 @@
     // ==========================================================================
     const GamesState = {
         activeTab: 'wheel',
-        totalScore: parseInt(localStorage.getItem('qiraati_smart_games_score') || '0', 10),
-        starsCount: parseInt(localStorage.getItem('qiraati_smart_games_stars') || '0', 10),
+        totalScore: parseInt(localStorage.getItem('qiraati-smart-games-score') || localStorage.getItem('qiraati_smart_games_score') || '0', 10),
+        starsCount: parseInt(localStorage.getItem('qiraati-smart-games-stars') || localStorage.getItem('qiraati_smart_games_stars') || '0', 10),
         
         // حالة عجلة الحظ
         wheel: {
@@ -429,6 +429,8 @@
     };
 
     function saveGamesProgress() {
+        localStorage.setItem('qiraati-smart-games-score', GamesState.totalScore.toString());
+        localStorage.setItem('qiraati-smart-games-stars', GamesState.starsCount.toString());
         localStorage.setItem('qiraati_smart_games_score', GamesState.totalScore.toString());
         localStorage.setItem('qiraati_smart_games_stars', GamesState.starsCount.toString());
         updateGlobalStatsStrip();

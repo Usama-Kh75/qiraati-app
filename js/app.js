@@ -29,14 +29,14 @@ window.addEventListener('DOMContentLoaded', () => {
         if (topIcon) topIcon.innerText = curVol === 0 ? '🔇' : (curVol < 70 ? '🔉' : '🔊');
     }
 
-    // 3. تطبيق تفضيل الصوت المحفوظ
-    const savedVoicePref = localStorage.getItem('qiraati_smart_voice_pref') || 'teacher';
+    // 3. تطبيق تفضيل الصوت المحفوظ مع الترحيل التلقائي
+    const savedVoicePref = localStorage.getItem('qiraati-smart-voice-pref') || localStorage.getItem('qiraati_smart_voice_pref') || 'integrated';
     if (typeof applyVoiceCardVisuals === 'function') {
         applyVoiceCardVisuals(savedVoicePref);
     }
 
-    // 4. تطبيق وضع زر الإيقاف العائم
-    const savedFloatingStop = localStorage.getItem('qiraati_smart_floating_stop') || localStorage.getItem('qiraati_floating_stop');
+    // 4. تطبيق وضع زر الإيقاف العائم مع الترحيل التلقائي
+    const savedFloatingStop = localStorage.getItem('qiraati-smart-floating-stop') || localStorage.getItem('qiraati_smart_floating_stop') || localStorage.getItem('qiraati_floating_stop');
     const chkFloating = document.getElementById('chkFloatingStop');
     if (chkFloating && savedFloatingStop !== null) {
         chkFloating.checked = savedFloatingStop === 'true';

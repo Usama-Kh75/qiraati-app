@@ -8,10 +8,12 @@
 !/index.html
 !/manifest.json
 !/sw.js
-!/audio_data.js
-!/audio_data_unit6.js
 !/curriculum_data.js
 !/README.md
+
+# قواعد الصوتيات Base64 محصورة بالنسخة المستقلة أوفلاين فقط ولا تُرفع للويب
+/audio_data.js
+/audio_data_unit6.js
 
 # ملفات التصميم والمنطق المجزأة للنظام (Modular CSS & JS)
 !/css/

@@ -6,7 +6,7 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم</title>
 
@@ -86,7 +86,7 @@
 
                         <span>قراءتي التفاعلية الذكية</span>
 
-                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.47: استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين (Speech Recognition & Voice Coach) لتحليل الطلاقة القرائية وتصحيح مخارج الحروف - إعداد المهندس أسامة خليل هاشم">v3.47</span>
+                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.52: معالجة تضخم الحجم وتسريع الإقلاع وحل تزاحم الشريط العلوي - إعداد المهندس أسامة خليل هاشم">v3.52</span>
 
                     </div>
 
@@ -105,8 +105,6 @@
         <div class="top-actions">
 
             <!-- زر إيقاف الصوت النشط -->
-
-                        <!-- زر إيقاف الصوت النشط -->
             <button class="btn-top btn-top-stop" id="btnTopStop" onclick="stopAudio()" style="display: none;" title="إيقاف الصوت الحالي فوراً">
                 <span>⏹️</span>
                 <span>إيقاف الصوت</span>
@@ -115,7 +113,7 @@
             <!-- أداة التحكم السريع في مستوى الصوت ومضاعف التعزيز -->
             <div class="top-volume-box" style="display: inline-flex; align-items: center; gap: 6px; background: white; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 4px 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);" title="التحكم في مستوى الصوت وتعزيز النطق (حتى 150%)">
                 <span id="topVolIcon" style="cursor: pointer; font-size: 1.1rem;" onclick="toggleMuteAudio()" title="كتم / تشغيل الصوت">🔊</span>
-                <input type="range" id="topVolumeSlider" min="30" max="150" value="100" step="5" oninput="changeMasterVolume(this.value)" style="width: 70px; accent-color: #059669; cursor: pointer; height: 6px;">
+                <input type="range" id="topVolumeSlider" min="30" max="150" value="100" step="5" oninput="changeMasterVolume(this.value)" style="width: 65px; accent-color: #059669; cursor: pointer; height: 6px;">
                 <span id="topVolBadge" style="font-size: 0.76rem; font-weight: 800; color: #065f46; min-width: 32px;">100%</span>
             </div>
 
@@ -126,144 +124,119 @@
                 <span class="top-stars-label">نجمة</span>
             </div>
 
-            <!-- زر جولة الاستكشاف التفاعلية للمنصة -->
-            <button class="btn-top btn-top-tour" id="btnTopTour" onclick="startPlatformTour(0)" title="خوض جولة الاستكشاف التفاعلية للتعرف على أركان المنصة والمسابقات ومسرح الدرس">
-                <span>🚀</span>
-                <span>جولة استكشافية</span>
-            </button>
-
-            <!-- زر دليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات -->
-            <button class="btn-top btn-top-digital-guide" id="btnTopDigitalGuide" onclick="openDigitalGuideModal('phonics')" title="دليل المعلم وولي الأمر الرقمي لإدارة المنصة والمسابقات والمتابعة المنزلية">
-                <span>📖</span>
-                <span>دليل المنصة والمسابقات</span>
-            </button>
-
-            <!-- زر محرك المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show) بين أجهزة التابلت وشاشة العرض -->
-            <button class="btn-top btn-top-quiz-show" id="btnTopQuizShow" onclick="openClassroomQuizModal('host')" title="استوديو المسابقات التنافسية الصفية المباشرة (Classroom Live Quiz & Game Show) - شاشة العرض الذكية وأجهزة التابلت">
-                <span>🏆</span>
-                <span id="topQuizStatusLabel">المسابقات التنافسية</span>
-            </button>
-
-            <!-- زر محرك المزامنة الصفية المحلية أوفلاين عبر الواي فاي (Local Offline Sync) لمزامنة شاشات التابلت مع المعلم -->
-            <button class="btn-top btn-top-class-sync" id="btnTopClassSync" onclick="openClassroomSyncModal()" title="المزامنة الصفية المحلية أوفلاين عبر الواي فاي (Local Offline Sync) - ربط شاشات التابلت مع لوحة تحكم المعلم">
-                <span class="sync-status-dot status-offline" id="topSyncStatusDot"></span>
-                <span>📡</span>
-                <span id="topSyncStatusLabel">المزامنة الصفية</span>
-            </button>
-
-            <!-- زر لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين -->
-            <button class="btn-top btn-top-teacher-dashboard" id="btnTopTeacherDashboard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين">
-                <span>🧑‍🏫</span>
-                <span>لوحة المعلم وسجل الصف</span>
-            </button>
-
-            <!-- زر استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين (Speech Recognition & Voice Coach) -->
-            <button class="btn-top btn-top-voice-coach" id="btnTopVoiceCoach" onclick="VoiceCoach.openModal('studio')" title="استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين (Speech Recognition & Voice Coach) لتحليل الطلاقة القرائية وتصحيح مخارج الحروف">
+            <!-- الأزرار المباشرة الأساسية -->
+            <!-- زر استوديو التدريب الصوتي الذكي ونطق الحروف -->
+            <button class="btn-top btn-top-voice-coach" id="btnTopVoiceCoach" onclick="VoiceCoach.openModal('studio')" title="استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين">
                 <span>🎙️</span>
-                <span id="topVoiceCoachLabel">المدرب الصوتي ونطق الحروف</span>
+                <span id="topVoiceCoachLabel">المدرب الصوتي</span>
             </button>
 
-            <!-- زر مختبر الإملاء المنظور والاختباري الذكي بالتحليل الصوتي الفوري للأجهزة اللوحية والسبورات -->
-            <button class="btn-top btn-top-dictation-lab" id="btnTopDictationLab" onclick="DictationLab.openModal('seen')" title="مختبر الإملاء المنظور والاختباري الذكي بالتحليل الصوتي الفوري (Smart Phonics Spelling & Dictation Lab) للأجهزة اللوحية والسبورات">
+            <!-- زر مختبر الإملاء المنظور والاختباري الذكي -->
+            <button class="btn-top btn-top-dictation-lab" id="btnTopDictationLab" onclick="DictationLab.openModal('seen')" title="مختبر الإملاء المنظور والاختباري بالتحليل الصوتي">
                 <span>✍️</span>
-                <span id="topDictationLabLabel">مختبر الإملاء والسبورة</span>
+                <span id="topDictationLabLabel">مختبر الإملاء</span>
             </button>
 
-            <!-- زر مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية للأجهزة اللوحية والسبورات -->
-            <button class="btn-top btn-top-readers-theater" id="btnTopReadersTheater" onclick="ReadersTheater.openModal('theater')" title="مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية (Interactive Readers Theater & Puppets Lab) للأجهزة اللوحية والسبورات">
-                <span>🎭</span>
-                <span id="topReadersTheaterLabel">مسرح القراءة والدمى</span>
+            <!-- زر لوحة تحكم المعلم وإدارة سجل الصف -->
+            <button class="btn-top btn-top-teacher-dashboard" id="btnTopTeacherDashboard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ">
+                <span>🧑‍🏫</span>
+                <span>لوحة المعلم</span>
             </button>
 
-            <!-- زر استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي للأجهزة اللوحية والسبورات -->
-            <button class="btn-top btn-top-nasheed-studio" id="btnTopNasheedStudio" onclick="NasheedStudio.openModal('stage')" title="استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي (Interactive Phonics Nasheed & Rhythm Studio) للأجهزة اللوحية والسبورات">
-                <span>🥁</span>
-                <span id="topNasheedStudioLabel">استوديو الأناشيد والإيقاع</span>
-            </button>
+            <!-- قائمة منسدلة 1: استوديوهات وألعاب -->
+            <div class="top-dropdown" id="dropdownStudiosWrapper">
+                <button class="btn-top btn-top-dropdown" id="btnTopDropdownStudios" onclick="toggleTopDropdown('dropdownStudiosMenu', event)" title="استوديوهات القراءة والإنشاد وصانع القصص والألعاب اللغوية">
+                    <span>🎮</span>
+                    <span>استوديوهات وألعاب</span>
+                    <span class="dropdown-arrow">▾</span>
+                </button>
+                <div class="top-dropdown-menu" id="dropdownStudiosMenu" style="display: none;">
+                    <button class="dropdown-item" id="btnTopReadersTheater" onclick="ReadersTheater.openModal('theater'); closeAllTopDropdowns();" title="مسرح القراءة التعبيرية والدمى المتحركة الرقمية">
+                        <span>🎭</span>
+                        <span id="topReadersTheaterLabel">مسرح القراءة والدمى</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopNasheedStudio" onclick="NasheedStudio.openModal('stage'); closeAllTopDropdowns();" title="استوديو الأناشيد المنهجية والإنشاد الإيقاعي">
+                        <span>🥁</span>
+                        <span id="topNasheedStudioLabel">استوديو الأناشيد والإيقاع</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopStoryStudio" onclick="StoryStudio.openModal('creator'); closeAllTopDropdowns();" title="استوديو القصة المصورة وصانع الكوميكس الفونيمي">
+                        <span>📚</span>
+                        <span id="topStoryStudioLabel">صانع القصص والكوميكس</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopGamesHub" onclick="openGamesModal('wheel'); closeAllTopDropdowns();" title="بنك الألعاب اللغوية التفاعلية">
+                        <span>🎯</span>
+                        <span>الألعاب والمسابقات</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopGamificationHub" onclick="openGamificationModal('challenge'); closeAllTopDropdowns();" title="نظام الاختبار والتقييم الذكي وتحدي النجوم">
+                        <span>⭐</span>
+                        <span>تحدي النجوم الذكي</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopBlackboard" onclick="openHandwritingTrace(); closeAllTopDropdowns();" title="لوحة تتبع الحروف بالقلم أو الإصبع">
+                        <span>✍️</span>
+                        <span>لوحة تتبع الحروف</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopEnrichHub" onclick="openEnrichmentModal('exams'); closeAllTopDropdowns();" title="اختبارات نهاية الفصل والتدريبات وبنك البطاقات">
+                        <span>🌟</span>
+                        <span>الاختبارات والبطاقات</span>
+                    </button>
+                </div>
+            </div>
 
-            <!-- زر استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية للأجهزة اللوحية والسبورات -->
-            <button class="btn-top btn-top-story-studio" id="btnTopStoryStudio" onclick="StoryStudio.openModal('creator')" title="استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية (Interactive Phonics Storyteller & Comic Maker) للأجهزة اللوحية والسبورات">
-                <span>📚</span>
-                <span id="topStoryStudioLabel">صانع القصص والكوميكس</span>
-            </button>
-
-            <!-- زر نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) -->
-            <button class="btn-top btn-top-diagnostic-exams" id="btnTopDiagnosticExams" onclick="openDiagnosticExamsModal('generator')" title="نظام الاختبارات التشخيصية وتوليد نماذج الامتحانات الوزارية الورقية المؤتمتة A4 بنماذج متعددة (A/B/C) مع مفاتيح التصحيح السريع">
-                <span>📝</span>
-                <span>الامتحانات الوزارية وA4</span>
-            </button>
-
-            <!-- زر نظام الاختبار والتقييم الذكي وتحدي النجوم للأبطال -->
-            <button class="btn-top btn-top-gamification" id="btnTopGamificationHub" onclick="openGamificationModal('challenge')" title="نظام الاختبار والتقييم الذكي (Gamification & Stars System) ومحرك أسئلة التحدي">
-                <span>⭐</span>
-                <span>تحدي النجوم الذكي</span>
-            </button>
-
-            <!-- زر منظومة تقييم التلاميذ وشهادة التخرج وسجل الإنجاز -->
-            <button class="btn-top btn-top-eval" id="btnTopEvalHub" onclick="openEvaluationModal('eval')" title="سجل تقييم التلاميذ الأسبوعي المعتمد 2026/2027، شهادة التخرج الكبرى، وسجل الإنجاز الشامل">
-                <span>🎓</span>
-                <span>التقييم والشهادة</span>
-            </button>
-
-            <!-- زر منظومة اختبارات نهاية الفصل والتدريبات الصيفية وبنك بطاقات القراءة -->
-            <button class="btn-top btn-top-enrichment-hub" id="btnTopEnrichHub" onclick="openEnrichmentModal('exams')" title="اختبارات نهاية الفصل الدراسي، التدريبات الصيفية الإثرائية، وبنك بطاقات القراءة الذكية">
-                <span>🌟</span>
-                <span>الاختبارات والبطاقات</span>
-            </button>
-
-            <!-- زر سبورة تتبع ورسم الحروف ومختبر الخط العربي والتصحيح الذكي -->
-            <button class="btn-top btn-top-blackboard" id="btnTopBlackboard" onclick="openHandwritingTrace()" title="لوحة تتبع الحروف بالقلم أو الإصبع لتدريب عضلات اليد على الكتابة للأجهزة اللوحية والهواتف">
-                <span>✍️</span>
-                <span>لوحة تتبع الحروف</span>
-            </button>
-
-            <!-- زر بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات الذكية -->
-            <button class="btn-top btn-top-games" id="btnTopGamesHub" onclick="openGamesModal('wheel')" title="بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات الذكية والسبورات التفاعلية">
-                <span>🎮</span>
-                <span>الألعاب والمسابقات</span>
-            </button>
-
-            <!-- زر ضبط النظام واختيار الصوت -->
-
-            <button class="btn-top btn-settings" id="btnTopSettings" onclick="openSettingsModal()" title="إعدادات وضبط النظام وتخصيص الصوت">
-
-                <span>⚙️</span>
-
-                <span>الضبط</span>
-
-            </button>
-
-            <button class="btn-top btn-teacher-guide" id="btnTopGuide" onclick="openCurrentLessonGuide()" title="عرض نتاجات وإرشادات الدرس من دليل المعلم الرسمي">
-
-                <span>📘</span>
-
-                <span>دليل المعلم</span>
-
-            </button>
-
-            <button class="btn-top btn-mobile-connect" onclick="showMobileModal()">
-
-                <span>📱</span>
-
-                <span>الهاتف واللوحي</span>
-
-            </button>
-
-            <button class="btn-top btn-pwa-install" id="btnPwaInstall" onclick="installPWA()">
-
-                <span>📲</span>
-
-                <span>تثبيت التطبيق</span>
-
-            </button>
-
-            <button class="btn-top btn-fullscreen" onclick="toggleFullScreen()">
-
-                <span>⛶</span>
-
-                <span id="fullscreenText">تكبير</span>
-
-            </button>
+            <!-- قائمة منسدلة 2: أدوات المعلم والضبط -->
+            <div class="top-dropdown" id="dropdownToolsWrapper">
+                <button class="btn-top btn-top-dropdown" id="btnTopDropdownTools" onclick="toggleTopDropdown('dropdownToolsMenu', event)" title="أدوات المعلم والمزامنة الصفية والامتحانات والضبط">
+                    <span>🛠️</span>
+                    <span>أدوات المعلم والضبط</span>
+                    <span class="dropdown-arrow">▾</span>
+                </button>
+                <div class="top-dropdown-menu" id="dropdownToolsMenu" style="display: none;">
+                    <button class="dropdown-item" id="btnTopQuizShow" onclick="openClassroomQuizModal('host'); closeAllTopDropdowns();" title="استوديو المسابقات التنافسية الصفية المباشرة">
+                        <span>🏆</span>
+                        <span id="topQuizStatusLabel">المسابقات التنافسية</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopClassSync" onclick="openClassroomSyncModal(); closeAllTopDropdowns();" title="المزامنة الصفية المحلية أوفلاين">
+                        <span class="sync-status-dot status-offline" id="topSyncStatusDot"></span>
+                        <span>📡</span>
+                        <span id="topSyncStatusLabel">المزامنة الصفية</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopDiagnosticExams" onclick="openDiagnosticExamsModal('generator'); closeAllTopDropdowns();" title="نظام الاختبارات التشخيصية ونماذج A4 الورقية">
+                        <span>📝</span>
+                        <span>الامتحانات الوزارية وA4</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopEvalHub" onclick="openEvaluationModal('eval'); closeAllTopDropdowns();" title="سجل تقييم التلاميذ الأسبوعي وشهادة التخرج">
+                        <span>🎓</span>
+                        <span>التقييم والشهادة</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopGuide" onclick="openCurrentLessonGuide(); closeAllTopDropdowns();" title="عرض نتاجات وإرشادات الدرس من دليل المعلم الرسمي">
+                        <span>📘</span>
+                        <span>دليل المعلم</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopDigitalGuide" onclick="openDigitalGuideModal('phonics'); closeAllTopDropdowns();" title="دليل المنصة والمسابقات والمتابعة المنزلية">
+                        <span>📖</span>
+                        <span>دليل المنصة والمسابقات</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopTour" onclick="startPlatformTour(0); closeAllTopDropdowns();" title="خوض جولة الاستكشاف التفاعلية">
+                        <span>🚀</span>
+                        <span>جولة استكشافية</span>
+                    </button>
+                    <button class="dropdown-item" onclick="showMobileModal(); closeAllTopDropdowns();" title="توصيل ومزامنة الهاتف واللوحي">
+                        <span>📱</span>
+                        <span>الهاتف واللوحي</span>
+                    </button>
+                    <button class="dropdown-item" id="btnPwaInstall" onclick="installPWA(); closeAllTopDropdowns();" title="تثبيت التطبيق على جهازك">
+                        <span>📲</span>
+                        <span>تثبيت التطبيق</span>
+                    </button>
+                    <button class="dropdown-item" onclick="toggleFullScreen(); closeAllTopDropdowns();" title="تكبير / استعادة الشاشة">
+                        <span>⛶</span>
+                        <span id="fullscreenText">تكبير الشاشة</span>
+                    </button>
+                    <button class="dropdown-item" id="btnTopSettings" onclick="openSettingsModal(); closeAllTopDropdowns();" style="border-top: 1px solid #e2e8f0; font-weight: 900; color: #065f46;" title="إعدادات وضبط النظام وتخصيص الصوت">
+                        <span>⚙️</span>
+                        <span>إعدادات وضبط المنصة</span>
+                    </button>
+                </div>
+            </div>
 
         </div>
 

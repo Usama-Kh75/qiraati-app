@@ -332,3 +332,30 @@
         window.openBookPageModal = openBookPageModal;
         window.closeBookPageModal = closeBookPageModal;
 
+        /* ========================================================
+           إدارة قوائم الشريط العلوي المنسدلة (Top Navbar Dropdowns)
+           إعداد وتطوير: المهندس أسامة خليل هاشم
+        ======================================================== */
+        function toggleTopDropdown(menuId, event) {
+            if (event) event.stopPropagation();
+            const target = document.getElementById(menuId);
+            const isOpen = target && target.style.display === 'flex';
+            closeAllTopDropdowns();
+            if (target && !isOpen) {
+                target.style.display = 'flex';
+            }
+        }
+
+        function closeAllTopDropdowns() {
+            document.querySelectorAll('.top-dropdown-menu').forEach(el => el.style.display = 'none');
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.top-dropdown')) {
+                closeAllTopDropdowns();
+            }
+        });
+
+        window.toggleTopDropdown = toggleTopDropdown;
+        window.closeAllTopDropdowns = closeAllTopDropdowns;
+

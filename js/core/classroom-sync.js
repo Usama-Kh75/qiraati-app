@@ -61,12 +61,23 @@
             return;
         }
 
-        // إذا كان التطبيق مفتوحاً عبر بروتوكول HTTP المحلي
-        if (window.location.protocol.startsWith('http')) {
+        // التحقق مما إذا كان التطبيق مفتوحاً على شبكة محلية (Localhost / Local IP)
+        const hostname = window.location.hostname || '';
+        const isLocalHost = hostname === 'localhost' ||
+                            hostname === '127.0.0.1' ||
+                            hostname === '[::1]' ||
+                            hostname.startsWith('192.168.') ||
+                            hostname.startsWith('10.') ||
+                            /^172\.(1[6-9]|2\d|3[0-1])\./.test(hostname);
+
+        if (window.location.protocol.startsWith('http') && isLocalHost) {
             state.hostUrl = window.location.origin;
-        } else {
-            // القيمة الافتراضية لخادم بايثون الصفي المحلي
+        } else if (window.location.protocol === 'file:') {
             state.hostUrl = 'http://localhost:8080';
+        } else {
+            // على الاستضافات العامة مثل GitHub Pages لا يوجد خادم مزامنة افتراضي
+            // يبقى العنوان فارغاً حتى يحدده المعلم يدوياً إذا رغب في ربط شبكة الصف
+            state.hostUrl = '';
         }
     }
 
@@ -347,6 +358,7 @@
         if (state.pollTimer) clearInterval(state.pollTimer);
 
         state.pollTimer = setInterval(async () => {
+            if (!state.hostUrl) return;
             if (state.role === 'pupil') {
                 await pollTeacherBroadcast();
                 if (state.autoSync) {

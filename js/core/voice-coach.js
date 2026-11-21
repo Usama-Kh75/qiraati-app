@@ -837,13 +837,21 @@
             cancelAnimationFrame(State.animationFrameId);
             State.animationFrameId = null;
         }
+        if (State.audioContext) {
+            try {
+                if (State.audioContext.state !== 'closed') {
+                    State.audioContext.suspend();
+                }
+            } catch (e) {}
+        }
 
         // رسم خط سكوني هادئ على الكانفاس
         drawIdleWaveform();
 
-        // إن لم يتم تشغيل onresult من SpeechRecognition، نقيّم عبر الطاقة الصوتية والتفاعل
+        // إن لم يتم تشغيل onresult من SpeechRecognition، نفعّل وضع التقييم الموجه
         setTimeout(() => {
-            if (!State.lastRecognizedText) {
+            const modal = document.getElementById('voiceCoachModal');
+            if (modal && modal.style.display !== 'none' && !State.lastRecognizedText) {
                 handleSpeechRecognitionFallback();
             }
         }, 350);
@@ -978,15 +986,18 @@
         State.lastRecognizedText = recognizedText;
         const target = getTargetItem();
         const sim = calculateSimilarity(recognizedText, target.text);
-        const finalScore = Math.max(sim, confidence > 70 ? confidence : sim);
+        const finalScore = sim;
 
         processVoiceEvaluationResult(finalScore, recognizedText, false);
     }
 
     function handleSpeechRecognitionFallback() {
-        // عند عدم توفر محرك تعرف نصي أوفلاين، نعتمد على استجابة التلميذ ونمنحه تقييماً تشجيعياً
-        const simulatedScore = 88;
-        processVoiceEvaluationResult(simulatedScore, '', true);
+        // عند عدم توفر محرك تعرف نصي أوفلاين أو انقطاع الإنترنت: لا نمنح نقاطاً وهمية تلقائية
+        const adviceBox = document.getElementById('vcCoachAdviceText');
+        if (adviceBox) {
+            adviceBox.innerHTML = '🛡️ <b>وضع المتابعة والتوجيه الصفي:</b> استمع للتسجيل المرجعي، وكرر المحاولة بصوت واضح، أو اطلب من المعلم تقييم نطقك بالنجوم أدناه.';
+        }
+        processVoiceEvaluationResult(0, '', true);
     }
 
     function handleMicFallbackMode() {
@@ -994,7 +1005,7 @@
         if (adviceBox) {
             adviceBox.innerHTML = '🛡️ <b>وضع التدريب الصفي الموجه (أوفلاين):</b> يمكنك الاستماع للنموذج المرجعي، والتدرب مع المعلم أو ولي الأمر، وتقييم النطق عبر أزرار النجوم السريعة أدناه!';
         }
-        processVoiceEvaluationResult(90, 'تدريب مسموع', true);
+        processVoiceEvaluationResult(0, 'تدريب مسموع', true);
     }
 
     function processVoiceEvaluationResult(score, spokenText, isFallback) {
@@ -1015,7 +1026,11 @@
         let badgeClass = 'vc-feedback-badge';
         let mascotPraise = '';
 
-        if (score >= 85) {
+        if (isFallback) {
+            badgeText = '✋ تقييم المعلم / ولي الأمر';
+            badgeClass += ' needs-work';
+            mascotPraise = 'استمع لصوت المعلمة رنا جيداً، ولاحظ حركة الشفتين واللسان ثم ردد!';
+        } else if (score >= 85) {
             badgeText = '🌟 نطق سليم وفصيح 100%';
             mascotPraise = 'أحسنت يا بطل! نطقك صحيح وفصيح ومخارج حروفك متقنة جداً!';
             // إضافة نجوم بنظام Gamification إن وجد
@@ -1580,6 +1595,21 @@
         if (modal) modal.style.display = 'none';
         if (State.isRecording) {
             stopRecording();
+        }
+        if (State.micStream) {
+            State.micStream.getTracks().forEach(track => track.stop());
+            State.micStream = null;
+        }
+        if (State.animationFrameId) {
+            cancelAnimationFrame(State.animationFrameId);
+            State.animationFrameId = null;
+        }
+        if (State.audioContext) {
+            try {
+                if (State.audioContext.state !== 'closed') {
+                    State.audioContext.suspend();
+                }
+            } catch (e) {}
         }
     }
 

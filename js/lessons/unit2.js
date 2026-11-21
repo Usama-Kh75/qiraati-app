@@ -11,7 +11,7 @@
 
         function switchUnit2Station(stationNum) {
 
-            document.querySelectorAll('.unit2-station').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('#view-tab-unit2_intro .unit2-station').forEach(el => el.style.display = 'none');
 
             document.querySelectorAll('#view-tab-unit2_intro .station-tab').forEach(el => el.classList.remove('active'));
 
@@ -2393,11 +2393,11 @@
            دوال خاتمة الوحدة الثانية: نشيد (مَدْرَسَتِي) وحصاد المهارات وإكليل التفوق (ص 48 - 52)
            إعداد المهندس أسامة خليل هاشم
         ======================================================== */
-        function switchUnit2Station(stationNum) {
-            document.querySelectorAll('.unit2-station').forEach(el => el.style.display = 'none');
+        function switchUnit2FinaleStation(stationNum) {
+            document.querySelectorAll('#view-tab-unit2_nasheed .unit2-station').forEach(el => el.style.display = 'none');
             document.querySelectorAll('#view-tab-unit2_nasheed .station-tab').forEach(el => el.classList.remove('active'));
 
-            const targetStation = document.getElementById('stationUnit2_' + stationNum);
+            const targetStation = document.getElementById('stationUnit2Finale_' + stationNum);
             const targetBtn = document.getElementById('btnStationU2_' + stationNum);
 
             if (targetStation) targetStation.style.display = 'block';

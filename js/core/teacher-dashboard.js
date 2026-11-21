@@ -64,6 +64,16 @@
         return `${year}-${month}-${day}`;
     }
 
+    function escapeHtml(str) {
+        if (str === null || str === undefined) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
+
     // تهيئة البيانات وتحميلها من التخزين المحلي
     function init() {
         loadData();
@@ -455,7 +465,7 @@
         if (!selectEl) return;
 
         selectEl.innerHTML = state.classes.map(c => `
-            <option value="${c.id}" ${c.id === state.activeClassId ? 'selected' : ''}>${c.name}</option>
+            <option value="${c.id}" ${c.id === state.activeClassId ? 'selected' : ''}>${escapeHtml(c.name)}</option>
         `).join('');
     }
 
@@ -575,7 +585,7 @@
                             <div style="display: flex; align-items: center; gap: 8px;">
                                 <span style="font-size: 1.2rem;">${medal}</span>
                                 <span style="font-size: 1.2rem;">${s.gender === 'boy' ? '👦' : '👧'}</span>
-                                <span style="font-weight: 800; font-size: 0.88rem; color: #1e293b;">${s.name}</span>
+                                <span style="font-weight: 800; font-size: 0.88rem; color: #1e293b;">${escapeHtml(s.name)}</span>
                             </div>
                             <div style="display: flex; align-items: center; gap: 8px;">
                                 <span style="font-size: 0.8rem; font-weight: 900; color: #d97706; background: #fef3c7; padding: 2px 8px; border-radius: 6px;">${s.stars} ⭐</span>
@@ -643,8 +653,8 @@
                         <div class="student-name-box">
                             <span class="student-avatar-pill">${avatar}</span>
                             <div>
-                                <div class="student-full-name">${s.name}</div>
-                                <div class="student-meta-sub">${s.gender === 'boy' ? 'ذكر' : 'أنثى'} • ${s.birthDate || '2018'} • ${s.phone || 'ولي الأمر'}</div>
+                                <div class="student-full-name">${escapeHtml(s.name)}</div>
+                                <div class="student-meta-sub">${s.gender === 'boy' ? 'ذكر' : 'أنثى'} • ${escapeHtml(s.birthDate || '2018')} • ${escapeHtml(s.phone || 'ولي الأمر')}</div>
                             </div>
                         </div>
                     </td>
@@ -903,7 +913,7 @@
                     <td>
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <span style="font-size: 1.3rem;">${avatar}</span>
-                            <span style="font-weight: 800; color: #1e293b;">${s.name}</span>
+                            <span style="font-weight: 800; color: #1e293b;">${escapeHtml(s.name)}</span>
                         </div>
                     </td>
                     <td>
@@ -923,7 +933,7 @@
                         </div>
                     </td>
                     <td>
-                        <span style="font-size: 0.8rem; color: #64748b;">${s.phone || 'ولي الأمر مسجل'}</span>
+                        <span style="font-size: 0.8rem; color: #64748b;">${escapeHtml(s.phone || 'ولي الأمر مسجل')}</span>
                     </td>
                 </tr>
             `;
@@ -1003,7 +1013,7 @@
                         <div class="remedial-student-info">
                             <span class="student-avatar-pill">${avatar}</span>
                             <div>
-                                <div style="font-weight: 900; font-size: 1.05rem; color: #1e293b;">${s.name}</div>
+                                <div style="font-weight: 900; font-size: 1.05rem; color: #1e293b;">${escapeHtml(s.name)}</div>
                                 <div style="font-size: 0.78rem; color: #64748b;">نسبة إنجاز المنهج: ${Math.round((s.completedLessons/46)*100)}% • النجوم: ${s.stars || 0} ⭐</div>
                             </div>
                         </div>
@@ -1059,7 +1069,7 @@
         }
 
         select.innerHTML = students.map(s => `
-            <option value="${s.id}" ${s.id === state.activeReportStudentId ? 'selected' : ''}>${s.name} (${s.gender === 'boy' ? 'ذكر' : 'أنثى'})</option>
+            <option value="${s.id}" ${s.id === state.activeReportStudentId ? 'selected' : ''}>${escapeHtml(s.name)} (${s.gender === 'boy' ? 'ذكر' : 'أنثى'})</option>
         `).join('');
     }
 
@@ -1142,12 +1152,12 @@
                     <div class="official-print-ministry">
                         جمهورية العراق<br>
                         وزارة التربية<br>
-                        ${state.settings.directorate}<br>
-                        ${state.settings.schoolName}
+                        ${escapeHtml(state.settings.directorate)}<br>
+                        ${escapeHtml(state.settings.schoolName)}
                     </div>
                     <div class="official-print-title-box">
                         <h2 class="official-print-main-title">سجل متابعة وتقييم الصف الدراسي الشامل</h2>
-                        <div class="official-print-sub-title">منصة قراءتي التفاعلية الذكية • الصف الأول الابتدائي (${classObj.name})</div>
+                        <div class="official-print-sub-title">منصة قراءتي التفاعلية الذكية • الصف الأول الابتدائي (${escapeHtml(classObj.name)})</div>
                         <div style="font-size: 0.82rem; color: #475569; margin-top: 3px;">العام الدراسي: ${state.settings.academicYear} • تاريخ الطباعة: ${getTodayDateString()}</div>
                     </div>
                     <div class="official-print-logo-box">
@@ -1177,7 +1187,7 @@
                         ${students.map((s, idx) => `
                             <tr style="background: ${idx % 2 === 0 ? '#ffffff' : '#f8fafc'};">
                                 <td style="padding: 5px; border: 1px solid #cbd5e1; text-align: center; font-weight: 800;">${idx + 1}</td>
-                                <td style="padding: 5px; border: 1px solid #cbd5e1; font-weight: 800;">${s.name}</td>
+                                <td style="padding: 5px; border: 1px solid #cbd5e1; font-weight: 800;">${escapeHtml(s.name)}</td>
                                 <td style="padding: 5px; border: 1px solid #cbd5e1; text-align: center;">${s.gender === 'boy' ? 'ذكر' : 'أنثى'}</td>
                                 <td style="padding: 5px; border: 1px solid #cbd5e1; text-align: center; font-weight: 800; color: #b45309;">${s.stars || 0}</td>
                                 <td style="padding: 5px; border: 1px solid #cbd5e1; text-align: center; font-weight: 800; color: #1e40af;">${Math.round((s.completedLessons/46)*100)}%</td>
@@ -1195,7 +1205,7 @@
                 <div class="official-print-footer">
                     <div class="signature-box">
                         <div class="signature-title">معلم الصف الأول الابتدائي</div>
-                        <div class="signature-line">${state.settings.teacherName}</div>
+                        <div class="signature-line">${escapeHtml(state.settings.teacherName)}</div>
                     </div>
                     <div style="text-align: center; font-size: 0.8rem; color: #64748b;">
                         <div>منصة قراءتي التفاعلية الذكية المعتمدة أوفلاين</div>
@@ -1203,7 +1213,7 @@
                     </div>
                     <div class="signature-box">
                         <div class="signature-title">مدير / مديرة المدرسة</div>
-                        <div class="signature-line">${state.settings.headmasterName}</div>
+                        <div class="signature-line">${escapeHtml(state.settings.headmasterName)}</div>
                     </div>
                 </div>
             </div>
@@ -1229,8 +1239,8 @@
                 <div class="official-print-header">
                     <div class="official-print-ministry">
                         جمهورية العراق • وزارة التربية<br>
-                        ${state.settings.directorate}<br>
-                        ${state.settings.schoolName}
+                        ${escapeHtml(state.settings.directorate)}<br>
+                        ${escapeHtml(state.settings.schoolName)}
                     </div>
                     <div class="official-print-title-box">
                         <h2 class="official-print-main-title">بطاقة التقرير الفردي وإشعار ولي الأمر</h2>
@@ -1247,9 +1257,9 @@
                     <div style="display: flex; align-items: center; gap: 14px;">
                         <span style="font-size: 2.8rem;">${std.gender === 'boy' ? '👦' : '👧'}</span>
                         <div>
-                            <h3 style="margin: 0 0 4px 0; font-size: 1.25rem; color: #1e3a8a;">${std.name}</h3>
+                            <h3 style="margin: 0 0 4px 0; font-size: 1.25rem; color: #1e3a8a;">${escapeHtml(std.name)}</h3>
                             <div style="font-size: 0.85rem; color: #475569;">
-                                الشعبة: <b>${classObj.name}</b> • التولد: <b>${std.birthDate || '2018'}</b> • ولي الأمر: <b>${std.guardianName || 'مسجل'}</b>
+                                الشعبة: <b>${escapeHtml(classObj.name)}</b> • التولد: <b>${escapeHtml(std.birthDate || '2018')}</b> • ولي الأمر: <b>${escapeHtml(std.guardianName || 'مسجل')}</b>
                             </div>
                         </div>
                     </div>
@@ -1302,11 +1312,11 @@
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
                     <div style="background: #f0fdf4; border: 1.5px solid #bbf7d0; border-radius: 10px; padding: 10px 14px;">
                         <b style="color: #166534; font-size: 0.85rem;">🌟 نقاط القوة والتميز:</b>
-                        <p style="margin: 4px 0 0 0; font-size: 0.8rem; color: #334155; line-height: 1.4;">${std.notes || 'تلميذ متفاعل ومواظب، يمتلك دافعية عالية للقراءة والتهجئة الفونيمية.'}</p>
+                        <p style="margin: 4px 0 0 0; font-size: 0.8rem; color: #334155; line-height: 1.4;">${escapeHtml(std.notes || 'تلميذ متفاعل ومواظب، يمتلك دافعية عالية للقراءة والتهجئة الفونيمية.')}</p>
                     </div>
                     <div style="background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 10px; padding: 10px 14px;">
                         <b style="color: #92400e; font-size: 0.85rem;">💡 توصيات المعلم لولي الأمر:</b>
-                        <p style="margin: 4px 0 0 0; font-size: 0.8rem; color: #334155; line-height: 1.4;">${std.remedialNotes || 'الاستمرار في تشجيع التلميذ على تتبع الحروف بالقلم واستماع أصوات الكلمات أوفلاين يومياً.'}</p>
+                        <p style="margin: 4px 0 0 0; font-size: 0.8rem; color: #334155; line-height: 1.4;">${escapeHtml(std.remedialNotes || 'الاستمرار في تشجيع التلميذ على تتبع الحروف بالقلم واستماع أصوات الكلمات أوفلاين يومياً.')}</p>
                     </div>
                 </div>
 
@@ -1317,7 +1327,7 @@
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; background: #f8fafc; padding: 8px 14px; border: 1px solid #cbd5e1; border-radius: 8px;">
                         <div>
-                            أنا ولي أمر التلميذ/ة: <b>${std.name}</b> • اطلعت على تقرير المستوى لشهر (تشرين/تشرين الثاني).
+                            أنا ولي أمر التلميذ/ة: <b>${escapeHtml(std.name)}</b> • اطلعت على تقرير المستوى لشهر (تشرين/تشرين الثاني).
                         </div>
                         <div style="display: flex; gap: 20px;">
                             <span>توقيع ولي الأمر: ......................</span>
@@ -1329,7 +1339,7 @@
                 <div class="official-print-footer">
                     <div class="signature-box">
                         <div class="signature-title">معلم الصف الأول الابتدائي</div>
-                        <div class="signature-line">${state.settings.teacherName}</div>
+                        <div class="signature-line">${escapeHtml(state.settings.teacherName)}</div>
                     </div>
                     <div style="text-align: center; font-size: 0.78rem; color: #64748b;">
                         <b>إعداد وتطوير: المهندس أسامة خليل هاشم</b><br>
@@ -1337,7 +1347,7 @@
                     </div>
                     <div class="signature-box">
                         <div class="signature-title">مدير / مديرة المدرسة</div>
-                        <div class="signature-line">${state.settings.headmasterName}</div>
+                        <div class="signature-line">${escapeHtml(state.settings.headmasterName)}</div>
                     </div>
                 </div>
             </div>
@@ -1355,12 +1365,12 @@
                 <div class="official-print-header">
                     <div class="official-print-ministry">
                         جمهورية العراق • وزارة التربية<br>
-                        ${state.settings.directorate}<br>
-                        ${state.settings.schoolName}
+                        ${escapeHtml(state.settings.directorate)}<br>
+                        ${escapeHtml(state.settings.schoolName)}
                     </div>
                     <div class="official-print-title-box">
                         <h2 class="official-print-main-title">سجل خطة الدعم الفونيمي والمعالجة القرائية</h2>
-                        <div class="official-print-sub-title">تشخيص ومتابعة حالات التعثر اللغوي • ${classObj.name}</div>
+                        <div class="official-print-sub-title">تشخيص ومتابعة حالات التعثر اللغوي • ${escapeHtml(classObj.name)}</div>
                         <div style="font-size: 0.82rem; color: #475569; margin-top: 3px;">العام الدراسي: ${state.settings.academicYear}</div>
                     </div>
                     <div class="official-print-logo-box">
@@ -1385,8 +1395,8 @@
                         ` : remedialList.map((s, idx) => `
                             <tr>
                                 <td style="padding: 8px; border: 1px solid #cbd5e1; text-align: center; font-weight: 800;">${idx + 1}</td>
-                                <td style="padding: 8px; border: 1px solid #cbd5e1; font-weight: 800; color: #1e3a8a;">${s.name}</td>
-                                <td style="padding: 8px; border: 1px solid #cbd5e1; color: #b91c1c;">${s.remedialNotes || 'صعوبة في تمييز الحركات وحروف المد والتهجئة المقطعية.'}</td>
+                                <td style="padding: 8px; border: 1px solid #cbd5e1; font-weight: 800; color: #1e3a8a;">${escapeHtml(s.name)}</td>
+                                <td style="padding: 8px; border: 1px solid #cbd5e1; color: #b91c1c;">${escapeHtml(s.remedialNotes || 'صعوبة في تمييز الحركات وحروف المد والتهجئة المقطعية.')}</td>
                                 <td style="padding: 8px; border: 1px solid #cbd5e1; color: #15803d;">سبورة تتبع الحروف + بطاقات القراءة الذكية + تحدي النجوم.</td>
                                 <td style="padding: 8px; border: 1px solid #cbd5e1; text-align: center; font-weight: 800;">قيد المتابعة اليومية</td>
                             </tr>
@@ -1397,7 +1407,7 @@
                 <div class="official-print-footer">
                     <div class="signature-box">
                         <div class="signature-title">معلم الصف الأول الابتدائي</div>
-                        <div class="signature-line">${state.settings.teacherName}</div>
+                        <div class="signature-line">${escapeHtml(state.settings.teacherName)}</div>
                     </div>
                     <div style="text-align: center; font-size: 0.78rem; color: #64748b;">
                         <b>إعداد وتطوير: المهندس أسامة خليل هاشم</b><br>
@@ -1425,10 +1435,10 @@
         return `
             <div class="printable-sheet landscape merit-certificate-sheet">
                 <div class="merit-cert-header-icon">👑</div>
-                <div class="merit-cert-presented-to">جمهورية العراق • وزارة التربية • ${state.settings.schoolName}</div>
+                <div class="merit-cert-presented-to">جمهورية العراق • وزارة التربية • ${escapeHtml(state.settings.schoolName)}</div>
                 <h1 class="merit-cert-title">شهادة شكر وتفوق وتميز قرائي</h1>
                 <div class="merit-cert-presented-to">تتشرف إدارة المدرسة ومعلم الصف بمنح هذه الشهادة للتلميذ/ة البطل/ة:</div>
-                <div class="merit-cert-student-name">${std.name}</div>
+                <div class="merit-cert-student-name">${escapeHtml(std.name)}</div>
                 <div class="merit-cert-body-text">
                     تقديراً لتميزه الباهر واجتهاده الرائع في إتقان دروس كتاب قراءتي الجديد للصف الأول الابتدائي،
                     وحصوله على رصيد <b>(${std.stars || 0}) نجمة تفاعلية</b> في تحديات القراءة الفونيمية والتهجئة الذكية،
@@ -1438,7 +1448,7 @@
                 <div style="display: flex; justify-content: space-around; align-items: flex-end; margin-top: 30px; font-size: 0.95rem;">
                     <div class="signature-box">
                         <div style="font-weight: 900; margin-bottom: 30px; color: #1e3a8a;">معلم الصف الأول الابتدائي</div>
-                        <div class="signature-line">${state.settings.teacherName}</div>
+                        <div class="signature-line">${escapeHtml(state.settings.teacherName)}</div>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 1.8rem;">⭐ 🏅 ⭐</div>
@@ -1448,7 +1458,7 @@
                     </div>
                     <div class="signature-box">
                         <div style="font-weight: 900; margin-bottom: 30px; color: #1e3a8a;">مدير / مديرة المدرسة</div>
-                        <div class="signature-line">${state.settings.headmasterName}</div>
+                        <div class="signature-line">${escapeHtml(state.settings.headmasterName)}</div>
                     </div>
                 </div>
             </div>
@@ -1491,7 +1501,7 @@
         if (classesListEl) {
             classesListEl.innerHTML = state.classes.map(c => `
                 <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; background: white; border: 1px solid #cbd5e1; border-radius: 8px; margin-bottom: 6px;">
-                    <span style="font-weight: 800; color: #1e293b;">${c.name}</span>
+                    <span style="font-weight: 800; color: #1e293b;">${escapeHtml(c.name)}</span>
                     <div style="display: flex; gap: 6px;">
                         <button class="table-btn-action" onclick="TeacherDashboard.renameClassPrompt('${c.id}')">✏️ إعادة تسمية</button>
                         ${state.classes.length > 1 ? `<button class="table-btn-action table-btn-delete" onclick="TeacherDashboard.deleteClassPrompt('${c.id}')">🗑️ حذف</button>` : ''}
