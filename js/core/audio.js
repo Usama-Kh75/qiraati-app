@@ -545,13 +545,52 @@
 
         }
 
-        function mascotInteracted() {
-
+        async function mascotInteracted() {
             mascotCelebrates();
 
-            mascotSpeak('أنا صديقك فَصِيح! اختر الدرس من القائمة اليمنى وسأرافقك دائماً!', 'mascot_hint');
+            // فحص إمكانية استشارة فصيح الذكية بالذكاء الاصطناعي التوليدي
+            if (window.AIBridge && window.AIBridge.isAvailable()) {
+                const curLessonLabel = document.getElementById('currentLessonLabel')?.innerText || 'درس القراءة';
+                try {
+                    const tutorRes = await window.AIBridge.askFaseeh({
+                        currentLesson: curLessonLabel,
+                        userQuestion: 'أخبرني نصيحة مشجعة ومرحة عن هذا الحرف أو الدرس يا فصيح!',
+                        learnedLetters: ['د', 'ر', 'و', 'ب', 'م', 'ن', 'ي', 'س']
+                    });
+                    if (tutorRes && tutorRes.reply) {
+                        mascotSpeak(tutorRes.reply, 'mascot_hint');
+                        return;
+                    }
+                } catch (e) {
+                    console.warn('AI Faseeh tutor error:', e);
+                }
+            }
 
+            mascotSpeak('أَنَا صَدِيقُكَ فَصِيح! اخْتَرِ الدَّرْسَ مِنَ القَائِمَةِ وَسَأُرَافِقُكَ دَائِمَاً لِنَنَالَ النُّجُوم! ⭐', 'mascot_hint');
         }
+
+        async function askFaseehCustomQuestion(questionText) {
+            mascotCelebrates();
+            const curLessonLabel = document.getElementById('currentLessonLabel')?.innerText || 'درس القراءة';
+            if (window.AIBridge) {
+                try {
+                    const tutorRes = await window.AIBridge.askFaseeh({
+                        currentLesson: curLessonLabel,
+                        userQuestion: questionText,
+                        learnedLetters: ['د', 'ر', 'و', 'ب', 'م', 'ن', 'ي', 'س']
+                    });
+                    if (tutorRes && tutorRes.reply) {
+                        mascotSpeak(tutorRes.reply, 'mascot_hint');
+                        return tutorRes.reply;
+                    }
+                } catch (e) {
+                    console.warn('askFaseehCustomQuestion error:', e);
+                }
+            }
+            mascotSpeak('رَائِعٌ يَا بَطَل! اسْتَمِعْ لِصَوْتِ الحَرْفِ جَيِّداً وَرَدِّدْ مَعِي!', 'mascot_hint');
+        }
+
+        window.askFaseehCustomQuestion = askFaseehCustomQuestion;
 
         // ==============================================================
         // نظام التنزيل بالخلفية لملفات الأوفلاين (Background Offline Downloader)

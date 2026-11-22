@@ -1925,6 +1925,67 @@
             window.print();
         },
 
+        generateAiStoryModal: async function () {
+            const letters = ['د', 'ر', 'و', 'ب', 'م', 'ن', 'ي', 'س', 'ق', 'ل', 'ت', 'ف'];
+            
+            const btn = document.querySelector('.btn-ai-story');
+            if (btn) btn.innerHTML = '<span>✨</span> <span>جارٍ التوليد الذكي...</span>';
+
+            if (window.AIBridge) {
+                try {
+                    const res = await window.AIBridge.generateCurriculumStory({
+                        learnedLetters: letters,
+                        theme: 'المدرسة والدار والمرح',
+                        lessonTitle: 'قراءتي'
+                    });
+
+                    if (res && res.success) {
+                        this.applyAiGeneratedStory(res);
+                    }
+                } catch (e) {
+                    console.warn('AI Story Studio generation error:', e);
+                }
+            }
+            if (btn) btn.innerHTML = '<span>✨</span> <span>توليد قصة ذكية (AI)</span>';
+        },
+
+        applyAiGeneratedStory: function (data) {
+            state.currentStory.title = data.title || 'قصة الحروف الذكية';
+            state.activeLayout = 3;
+            state.currentStory.panels = [
+                {
+                    bg: 'school_yard',
+                    items: [
+                        { type: 'char', id: 'dada_nour', x: 25, y: 35, scale: 1.2, flip: false },
+                        { type: 'bubble', bubbleType: 'speech', text: (data.sentences && data.sentences[0]) || data.text, x: 20, y: 10 }
+                    ]
+                },
+                {
+                    bg: 'fruit_market',
+                    items: [
+                        { type: 'char', id: 'faseeh', x: 65, y: 40, scale: 1.1, flip: true },
+                        { type: 'bubble', bubbleType: 'speech', text: (data.sentences && data.sentences[1]) || 'مَرْحَباً بِكُمْ!', x: 25, y: 15 }
+                    ]
+                },
+                {
+                    bg: 'river_bank',
+                    items: [
+                        { type: 'char', id: 'firas', x: 30, y: 38, scale: 1.1, flip: false },
+                        { type: 'bubble', bubbleType: 'thought', text: (data.sentences && data.sentences[2]) || 'دَارِي دَارِي يَا دَادَا!', x: 20, y: 12 }
+                    ]
+                }
+            ];
+            state.activePanelIdx = 0;
+            renderPanels();
+            renderPanelNav();
+            if (typeof window.mascotCelebrates === 'function') {
+                window.mascotCelebrates();
+            }
+            if (typeof window.mascotSpeak === 'function') {
+                window.mascotSpeak(`وَلَّدْتُ لَكَ قِصَّةً جَدِيدَةً بِعُنْوَان: ${data.title}! اقْرَأْهَا وَاسْتَمْتِعْ!`);
+            }
+        },
+
         bindKeyboardShortcuts: function () {
             window.addEventListener('keydown', (e) => {
                 const modal = document.getElementById('storyStudioModal');

@@ -1136,6 +1136,32 @@
         }
     });
 
+    async function evaluateHandwritingWithAI() {
+        if (!State.wbCanvas) return;
+        const targetWord = State.currentWordItem ? State.currentWordItem.word : 'كلمة إملائية';
+
+        if (window.AIBridge) {
+            try {
+                const res = await window.AIBridge.evaluateHandwriting({
+                    canvas: State.wbCanvas,
+                    targetText: targetWord,
+                    mode: 'word'
+                });
+
+                if (res && res.success) {
+                    if (typeof window.showHandwritingFeedbackModal === 'function') {
+                        window.showHandwritingFeedbackModal(res, targetWord);
+                    }
+                    if (res.score >= 80 && window.Gamification && typeof window.Gamification.awardStars === 'function') {
+                        window.Gamification.awardStars(2, 'إتقان إملاء الكلمة');
+                    }
+                }
+            } catch (e) {
+                console.warn('Dictation handwriting evaluation error:', e);
+            }
+        }
+    }
+
     // ==========================================================================
     // 15. الواجهة البرمجية العامة للكائن (Public API)
     // ==========================================================================
@@ -1160,6 +1186,7 @@
         clearWhiteboard: clearWhiteboard,
         toggleFullscreenWhiteboard: toggleFullscreenWhiteboard,
         downloadWhiteboardCard: downloadWhiteboardCard,
+        evaluateHandwritingWithAI: evaluateHandwritingWithAI,
         filterBank: filterBank,
         handleCustomWordSubmit: handleCustomWordSubmit,
         printWorksheetA4: printWorksheetA4

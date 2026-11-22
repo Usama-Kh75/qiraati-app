@@ -1,9 +1,9 @@
 ﻿// عامل الخدمة لمنصة قراءتي التفاعلية الذكية (PWA Service Worker)
 // إعداد وتطوير: المهندس أسامة خليل هاشم
-// الإصدار: v3.54 (تصميم الشريط العلوي ثنائي الصفوف المتجاوب + معالجة الخطأ النحوي)
+// الإصدار: v3.55 (إعادة تصميم عرض الأزرار الاحترافي + طبقة الذكاء الاصطناعي التوليدي)
 
 const APP = 'qiraati-smart';
-const CACHE_NAME = 'qiraati-smart-v77';
+const CACHE_NAME = 'qiraati-smart-v78';
 
 // الهيكل الأساسي للتطبيق (App Shell) - أقل من 4 ميغابايت لتثبيت فوري خلال ثوانٍ
 const ASSETS_TO_CACHE = [
@@ -41,6 +41,7 @@ const ASSETS_TO_CACHE = [
   './css/story-studio.css',
 
   // أكواد JavaScript المجزأة
+  './js/core/ai-bridge.js',
   './js/core/modals.js',
   './js/core/audio.js',
   './js/core/navigation.js',

@@ -350,12 +350,94 @@
             document.querySelectorAll('.top-dropdown-menu').forEach(el => el.style.display = 'none');
         }
 
+        /* ========================================================
+           إدارة مركز الأدوات والاستوديوهات وشريط الأدوات السريع
+           إعداد وتطوير: المهندس أسامة خليل هاشم (الإصدار v3.55)
+        ======================================================== */
+        function toggleToolsHub(event) {
+            if (event) event.stopPropagation();
+            const panel = document.getElementById('toolsMegaPanel');
+            const btn = document.getElementById('btnToolsHub');
+            if (!panel) return;
+            const isShown = panel.style.display === 'flex' || panel.style.display === 'block';
+            closeAllTopDropdowns();
+            if (!isShown) {
+                panel.style.display = 'flex';
+                if (btn) btn.classList.add('active');
+            } else {
+                panel.style.display = 'none';
+                if (btn) btn.classList.remove('active');
+            }
+        }
+
+        function closeToolsHub() {
+            const panel = document.getElementById('toolsMegaPanel');
+            const btn = document.getElementById('btnToolsHub');
+            if (panel) panel.style.display = 'none';
+            if (btn) btn.classList.remove('active');
+        }
+
+        function toggleQuickRibbon() {
+            const ribbon = document.getElementById('navbarQuickRibbon');
+            const btn = document.getElementById('btnToggleRibbon');
+            const icon = document.getElementById('ribbonToggleIcon');
+            const text = document.getElementById('ribbonToggleText');
+            if (!ribbon) return;
+            const isCollapsed = ribbon.classList.contains('ribbon-collapsed');
+            if (isCollapsed) {
+                ribbon.classList.remove('ribbon-collapsed');
+                if (icon) icon.textContent = '▴';
+                if (text) text.textContent = 'إخفاء الشريط السريع';
+                if (btn) btn.classList.remove('collapsed');
+                try { localStorage.setItem('qiraati-smart-quick-ribbon', 'visible'); } catch(e) {}
+            } else {
+                ribbon.classList.add('ribbon-collapsed');
+                if (icon) icon.textContent = '▾';
+                if (text) text.textContent = 'إظهار الشريط السريع';
+                if (btn) btn.classList.add('collapsed');
+                try { localStorage.setItem('qiraati-smart-quick-ribbon', 'hidden'); } catch(e) {}
+            }
+        }
+
+        function initQuickRibbonState() {
+            try {
+                const saved = localStorage.getItem('qiraati-smart-quick-ribbon');
+                if (saved === 'hidden') {
+                    const ribbon = document.getElementById('navbarQuickRibbon');
+                    const btn = document.getElementById('btnToggleRibbon');
+                    const icon = document.getElementById('ribbonToggleIcon');
+                    const text = document.getElementById('ribbonToggleText');
+                    if (ribbon) ribbon.classList.add('ribbon-collapsed');
+                    if (icon) icon.textContent = '▾';
+                    if (text) text.textContent = 'إظهار الشريط السريع';
+                    if (btn) btn.classList.add('collapsed');
+                }
+            } catch(e) {}
+        }
+
         document.addEventListener('click', function(e) {
-            if (!e.target.closest('.top-dropdown')) {
+            if (!e.target.closest('.top-dropdown') && !e.target.closest('.tools-hub-dropdown')) {
                 closeAllTopDropdowns();
+                closeToolsHub();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeAllTopDropdowns();
+                closeToolsHub();
             }
         });
 
         window.toggleTopDropdown = toggleTopDropdown;
         window.closeAllTopDropdowns = closeAllTopDropdowns;
+        window.toggleToolsHub = toggleToolsHub;
+        window.closeToolsHub = closeToolsHub;
+        window.toggleQuickRibbon = toggleQuickRibbon;
+        window.initQuickRibbonState = initQuickRibbonState;
+
+        window.addEventListener('DOMContentLoaded', initQuickRibbonState);
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+            initQuickRibbonState();
+        }
 

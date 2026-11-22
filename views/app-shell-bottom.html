@@ -1806,6 +1806,9 @@
 
                             <!-- الإجراءات السريعة -->
                             <div style="margin-top: auto; display: flex; flex-direction: column; gap: 6px;">
+                                <button class="bb-action-btn" onclick="evaluateBlackboardWithAI('trace')" style="background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%); border-color: #818cf8; color: #3730a3; font-weight: 800;" title="فحص خط الحرف بالذكاء الاصطناعي والرؤية الحاسوبية">
+                                    <span>✨</span> <span>تصحيح خطي (AI)</span>
+                                </button>
                                 <button class="bb-action-btn" onclick="undoStroke()" title="تراجع عن آخر خطوة">
                                     <span>↩️</span> <span>تراجع</span>
                                 </button>
@@ -1845,6 +1848,9 @@
 
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <input type="text" placeholder="✍️ اكتب كلمة مخصصة للتدريب..." onchange="setCustomFreehandWord(this.value)" style="padding: 6px 12px; border-radius: 10px; border: 1.5px solid #cbd5e1; font-family: inherit; font-size: 0.85rem; width: 180px;">
+                            <button class="bb-action-btn" onclick="evaluateBlackboardWithAI('freehand')" style="width: auto; padding: 6px 12px; background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%); border-color: #818cf8; color: #3730a3; font-weight: 800;" title="فحص وتصحيح الكلمة المكتوبة بالذكاء الاصطناعي">
+                                <span>✨</span> <span>تصحيح خطي (AI)</span>
+                            </button>
                             <button class="bb-action-btn btn-primary-action" onclick="exportStudentArtwork()" style="width: auto; padding: 6px 14px;" title="تصدير وحفظ لوحة التلميذ كصورة موثقة">
                                 <span>🖼️</span> <span>حفظ اللوحة</span>
                             </button>
@@ -2571,6 +2577,23 @@
                             <span>🚀</span> <span>إطلاق مسابقة صفية الآن</span>
                         </button>
                     </div>
+
+                    <!-- بطاقة محلل البيانات التربوي والخطط العلاجية بالذكاء الاصطناعي -->
+                    <div style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border: 2px solid #a78bfa; border-radius: 16px; padding: 14px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08); flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 14px;">
+                            <div style="font-size: 2.5rem; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));">✨</div>
+                            <div>
+                                <h4 style="margin: 0 0 4px; font-size: 1.15rem; color: #5b21b6; font-weight: 900;">محلل البيانات التربوي والخطط العلاجية الذكية (AI)</h4>
+                                <p style="margin: 0; color: #475569; font-size: 0.88rem;">تحليل سجل درجات ومهارات الشعبة وتوليد مجموعات الدعم، الخطط الفردية، ورسائل واتساب لأولياء الأمور</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-teach" style="padding: 10px 20px; font-size: 0.95rem; background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); border-color: #5b21b6; color: white; display: inline-flex; align-items: center; gap: 8px; font-weight: 800;" onclick="generateTeacherAiAnalytics()">
+                            <span>✨</span> <span>تحليل بيانات الشعبة وتوليد الخطط (AI)</span>
+                        </button>
+                    </div>
+
+                    <!-- حاوية نتائج التحليل التربوي الذكي -->
+                    <div id="teacherAiAnalyticsContainer" style="display: none; margin-bottom: 20px;"></div>
 
                     <!-- بطاقة دليل المعلم وولي الأمر الرقمي وجولة الاستكشاف -->
                     <div style="background: linear-gradient(135deg, #ecfdf5 0%, #f0fdf4 100%); border: 2px solid #86efac; border-radius: 16px; padding: 14px 20px; margin-bottom: 20px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.08); flex-wrap: wrap; gap: 12px;">
@@ -4973,6 +4996,9 @@
                             </div>
 
                             <div class="dl-wb-tools-group">
+                                <button class="dl-wb-btn" onclick="DictationLab.evaluateHandwritingWithAI()" style="background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%); border-color: #818cf8; color: #3730a3; font-weight: 800;" title="فحص وتصحيح الخط بالذكاء الاصطناعي">
+                                    <span>✨</span> <span>تصحيح خطي (AI)</span>
+                                </button>
                                 <button class="dl-wb-btn" onclick="DictationLab.undoWhiteboard()" title="تراجع خطوة">
                                     <span>↩️</span> <span>تراجع</span>
                                 </button>
@@ -5977,6 +6003,9 @@
                                 <div class="ss-panel-nav" id="ssPanelNav"></div>
 
                                 <div class="ss-stage-actions">
+                                    <button class="ss-btn-tool" onclick="StoryStudio.generateAiStoryModal()" style="background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%); border-color: #818cf8; color: #4338ca; font-weight: 800;" title="توليد قصة مشكولة ومقيدة بحروف المنهج بالذكاء الاصطناعي">
+                                        <span>✨</span> <span>توليد قصة ذكية (AI)</span>
+                                    </button>
                                     <button class="ss-btn-tool" onclick="StoryStudio.clearCurrentPanel()" title="مسح محتويات اللوحة الحالية">
                                         <span>🧹</span> <span>مسح المشهد</span>
                                     </button>
@@ -6141,6 +6170,7 @@
     <script src="curriculum_data.js"></script>
 
     <!-- منظومة المنطق البرمجي المجزأة - إعداد المهندس أسامة خليل هاشم -->
+    <script src="js/core/ai-bridge.js"></script>
     <script src="js/core/modals.js"></script>
     <script src="js/core/audio.js"></script>
     <script src="js/core/navigation.js"></script>

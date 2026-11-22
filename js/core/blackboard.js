@@ -2354,6 +2354,101 @@
     }
 
     // ==========================================================================
+    // تصحيح وتقييم الخط بالذكاء الاصطناعي والرؤية الحاسوبية
+    // ==========================================================================
+    async function evaluateBlackboardWithAI(type = 'trace') {
+        const canvas = (type === 'freehand') ? freehandCanvas : traceCanvas;
+        if (!canvas) {
+            console.warn('Blackboard canvas not found');
+            return;
+        }
+
+        let targetText = '';
+        if (type === 'freehand') {
+            targetText = BlackboardState.activeWord || 'دَار';
+        } else {
+            const letter = LETTERS_DB.find(l => l.id === BlackboardState.activeLetterId);
+            targetText = letter ? (letter.name + ' (' + letter.char + ')') : 'حرف عربي';
+        }
+
+        const tipEl = document.getElementById('bbLetterTipText');
+        const origTip = tipEl ? tipEl.innerHTML : '';
+        if (tipEl) {
+            tipEl.innerHTML = '✨ <b>جارٍ فحص خطك بالذكاء الاصطناعي والرؤية الحاسوبية...</b>';
+        }
+
+        if (window.AIBridge) {
+            try {
+                const res = await window.AIBridge.evaluateHandwriting({
+                    canvas: canvas,
+                    targetText: targetText,
+                    mode: (type === 'freehand') ? 'word' : 'letter'
+                });
+
+                if (res && res.success) {
+                    showHandwritingFeedbackModal(res, targetText);
+                    if (tipEl) {
+                        tipEl.innerHTML = `✨ <b>تقييم الذكاء الاصطناعي (${res.score}%):</b> ${res.advice || ''}`;
+                    }
+                    if (res.score >= 80 && typeof window.mascotCelebrates === 'function') {
+                        window.mascotCelebrates();
+                    }
+                    return;
+                }
+            } catch (e) {
+                console.warn('AI Handwriting error:', e);
+            }
+        }
+
+        if (tipEl) tipEl.innerHTML = origTip;
+    }
+
+    function showHandwritingFeedbackModal(data, targetText) {
+        let modal = document.getElementById('aiHandwritingFeedbackModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'aiHandwritingFeedbackModal';
+            modal.className = 'modal-backdrop';
+            modal.style.display = 'none';
+            modal.style.zIndex = '10000';
+            modal.innerHTML = `
+                <div style="background: white; border-radius: 20px; border: 2.5px solid #818cf8; max-width: 480px; width: 92%; padding: 22px; box-shadow: 0 20px 50px rgba(0,0,0,0.25); text-align: center; animation: fadeInModal 0.2s ease;">
+                    <div style="font-size: 2.5rem; margin-bottom: 6px;">✨ 📝</div>
+                    <h3 style="margin: 0 0 6px; font-size: 1.25rem; font-weight: 900; color: #1e1b4b;" id="aiHwModalTitle">تصحيح الخط بالذكاء الاصطناعي</h3>
+                    <div id="aiHwModalScoreBadge" style="display: inline-block; background: #ecfdf5; border: 1.5px solid #6ee7b7; color: #065f46; font-size: 1.15rem; font-weight: 900; padding: 4px 16px; border-radius: 14px; margin-bottom: 14px;"></div>
+                    <div style="text-align: right; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 12px 14px; margin-bottom: 16px; font-size: 0.88rem; line-height: 1.6; color: #334155;" id="aiHwModalDetails"></div>
+                    <button class="btn btn-teach" onclick="document.getElementById('aiHandwritingFeedbackModal').style.display='none'" style="padding: 10px 24px; font-size: 0.95rem; font-weight: 800; width: 100%; justify-content: center; background: #4f46e5; border-color: #4338ca; color: white;">
+                        <span>✔</span> <span>حسناً، سأواصل التحسين!</span>
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        const titleEl = document.getElementById('aiHwModalTitle');
+        const scoreBadge = document.getElementById('aiHwModalScoreBadge');
+        const detailsEl = document.getElementById('aiHwModalDetails');
+
+        if (titleEl) titleEl.innerText = `تقييم خط: ${targetText}`;
+        if (scoreBadge) scoreBadge.innerText = `الدرجة: ${data.score}% • ${data.status || 'متقن'}`;
+        if (detailsEl) {
+            detailsEl.innerHTML = `
+                <div style="margin-bottom: 6px;"><b>🔹 رسم وشكل الحرف:</b> ${data.letterShape || 'سليم ومتناسق'}</div>
+                <div style="margin-bottom: 6px;"><b>🔹 موضع النقاط:</b> ${data.dotPosition || 'في مكانها الصحيح'}</div>
+                <div style="margin-bottom: 6px;"><b>🔹 سطر الأساس:</b> ${data.lineAdherence || 'التزام ممتاز بالسطر'}</div>
+                <div style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed #cbd5e1; color: #047857; font-weight: 800;">
+                    💡 <b>نصيحة فصيح لتحسين الخط:</b> ${data.advice || 'خط جميل ورائع، ثابر على هذا التميز!'}
+                </div>
+            `;
+        }
+
+        modal.style.display = 'flex';
+    }
+
+    window.evaluateBlackboardWithAI = evaluateBlackboardWithAI;
+    window.showHandwritingFeedbackModal = showHandwritingFeedbackModal;
+
+    // ==========================================================================
     // دالة مساعدة لتأخير التنفيذ (Debounce)
     // ==========================================================================
     function debounce(func, wait) {

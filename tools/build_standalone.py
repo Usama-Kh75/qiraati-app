@@ -229,8 +229,9 @@ def build_standalone():
     html = re.sub(r'<script\s+src=["\'](?:\./)?curriculum_data\.js["\']\s*></script>', '', html)
 
     # 7. دمج كافة وحدات الجافاسكربت المعيارية (Modular JS)
-    print("\n[6/7] جارٍ دمج ملفات JavaScript المعيارية الـ 17 بالترتيب التكاملي الدقيق...")
+    print("\n[6/7] جارٍ دمج ملفات JavaScript المعيارية الـ 18 بالترتيب التكاملي الدقيق...")
     js_modules = [
+        'js/core/ai-bridge.js',
         'js/core/modals.js',
         'js/core/audio.js',
         'js/core/navigation.js',

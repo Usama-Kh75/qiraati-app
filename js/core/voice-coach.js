@@ -789,6 +789,9 @@
                     State.recordedAudioUrl = URL.createObjectURL(State.recordedAudioBlob);
                     const btnPlay = document.getElementById('btnVcPlayPupil');
                     if (btnPlay) btnPlay.disabled = false;
+
+                    // تشغيل التقييم بالذكاء الاصطناعي التوليدي إن كان متاحاً
+                    evaluateVoiceWithAI(State.recordedAudioBlob);
                 }
             };
             State.mediaRecorder.start();
@@ -1008,7 +1011,34 @@
         processVoiceEvaluationResult(0, 'تدريب مسموع', true);
     }
 
-    function processVoiceEvaluationResult(score, spokenText, isFallback) {
+    async function evaluateVoiceWithAI(blob) {
+        if (!window.AIBridge || !window.AIBridge.isAvailable()) return false;
+        const target = getTargetItem();
+        const statusLabel = document.getElementById('vcWaveformStatusText');
+        if (statusLabel) {
+            statusLabel.innerText = '✨ جاري التقييم الدقيق بالذكاء الاصطناعي...';
+            statusLabel.style.color = '#818cf8';
+        }
+        try {
+            const letterData = ARTICULATION_DATABASE[State.selectedLetterKey] || {};
+            const aiRes = await window.AIBridge.evaluatePronunciation({
+                audioBlob: blob,
+                targetWord: target.text,
+                makhraj: letterData.makhrajPoint || 'طرف اللسان والأسنان',
+                confusablePair: letterData.confusable?.pair || ''
+            });
+            if (aiRes && aiRes.success && !aiRes.fallback) {
+                State.lastRecognizedText = aiRes.spokenText || target.text;
+                processVoiceEvaluationResult(aiRes.score || 90, aiRes.spokenText || target.text, false, aiRes);
+                return true;
+            }
+        } catch (e) {
+            console.warn('VoiceCoach AI evaluation error:', e);
+        }
+        return false;
+    }
+
+    function processVoiceEvaluationResult(score, spokenText, isFallback, aiData = null) {
         State.sessionAttempts++;
         State.sessionAccuracyTotal += score;
         if (score >= 80) State.sessionSuccessCount++;
@@ -1026,7 +1056,14 @@
         let badgeClass = 'vc-feedback-badge';
         let mascotPraise = '';
 
-        if (isFallback) {
+        if (aiData) {
+            badgeText = `✨ تقييم الذكاء الاصطناعي (${score}%) - ${aiData.accuracy || 'متقن'}`;
+            badgeClass += (score >= 80 ? '' : ' needs-work');
+            mascotPraise = aiData.faseehAdvice || 'أحسنت يا بطل! نطقك فصيح ومخارجك سليمة!';
+            if (window.Gamification && typeof window.Gamification.awardStars === 'function' && score >= 80) {
+                window.Gamification.awardStars(2, 'إتقان نطق فصيح بالذكاء الاصطناعي');
+            }
+        } else if (isFallback) {
             badgeText = '✋ تقييم المعلم / ولي الأمر';
             badgeClass += ' needs-work';
             mascotPraise = 'استمع لصوت المعلمة رنا جيداً، ولاحظ حركة الشفتين واللسان ثم ردد!';
@@ -1054,9 +1091,17 @@
 
         const target = getTargetItem();
         if (adviceBox) {
-            let note = '<b>توجيه المدرب الصوتي:</b> ' + (target.advice || mascotPraise);
-            if (spokenText) {
-                note += '<br><small style="color:#64748b;">(النطق المسموع: "' + spokenText + '")</small>';
+            let note = '';
+            if (aiData) {
+                note = `<b>✨ توجيه الذكاء الاصطناعي و"فصيح":</b> ${aiData.feedback || ''}<br><small style="color:#059669; font-weight:800;"><b>التشكيل والمدود:</b> ${aiData.formationEvaluation || 'سليم'}</small>`;
+                if (spokenText) {
+                    note += '<br><small style="color:#64748b;">(النطق المسموع: "' + spokenText + '")</small>';
+                }
+            } else {
+                note = '<b>توجيه المدرب الصوتي:</b> ' + (target.advice || mascotPraise);
+                if (spokenText) {
+                    note += '<br><small style="color:#64748b;">(النطق المسموع: "' + spokenText + '")</small>';
+                }
             }
             adviceBox.innerHTML = note;
         }

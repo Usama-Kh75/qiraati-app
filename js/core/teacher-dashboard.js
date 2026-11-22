@@ -1844,8 +1844,147 @@
         getActiveClassStudents,
         getClasses,
         ingestStudentProgress,
-        ingestQuizResults
+        ingestQuizResults,
+        generateTeacherAiAnalytics
     };
+
+    async function generateTeacherAiAnalytics() {
+        const container = document.getElementById('teacherAiAnalyticsContainer');
+        if (!container) return;
+
+        container.style.display = 'block';
+        container.innerHTML = `
+            <div style="background: white; border: 2px solid #818cf8; border-radius: 16px; padding: 24px; text-align: center; color: #4338ca; font-weight: 800; font-size: 1rem; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.12); animation: fadeInModal 0.2s ease;">
+                <div style="font-size: 2rem; margin-bottom: 8px;">✨ 🧑‍🏫</div>
+                <div>جارٍ معالجة وتحليل بيانات الشعبة بالذكاء الاصطناعي...</div>
+                <div style="font-size: 0.8rem; color: #64748b; margin-top: 4px;">تصنيف المجموعات وتوليد الخطط الفردية ورسائل أولياء الأمور</div>
+            </div>
+        `;
+
+        const students = getActiveStudents();
+        const activeClassObj = state.classes.find(c => c.id === state.activeClassId) || { name: 'الأول أ' };
+
+        if (window.AIBridge) {
+            try {
+                const res = await window.AIBridge.analyzeTeacherData({
+                    classId: state.activeClassId,
+                    className: activeClassObj.name,
+                    studentsData: students
+                });
+
+                if (res && res.success) {
+                    renderTeacherAiAnalyticsResults(res, activeClassObj.name);
+                    return;
+                }
+            } catch (e) {
+                console.warn('Teacher AI Analytics error:', e);
+            }
+        }
+
+        container.innerHTML = `
+            <div style="background: #fef2f2; border: 1.5px solid #fecdd3; border-radius: 12px; padding: 16px; color: #991b1b; text-align: center;">
+                تعذر الاتصال بخادم الذكاء الاصطناعي، يرجى تشغيل الخادم في ai_server/.
+            </div>
+        `;
+    }
+
+    function renderTeacherAiAnalyticsResults(data, className) {
+        const container = document.getElementById('teacherAiAnalyticsContainer');
+        if (!container) return;
+
+        const adv = data.groups?.advanced || { title: 'مجموعة التفوق والإثراء', count: 0, recommendation: 'أنشطة إثرائية' };
+        const mas = data.groups?.mastery || { title: 'مجموعة الإتقان المرحلي', count: 0, recommendation: 'تمارين مستمرة' };
+        const rem = data.groups?.remedial || { title: 'مجموعة الدعم العلاجي', count: 0, recommendation: 'تدريب صوتي مركز' };
+
+        const indPlan = (data.individualPlans && data.individualPlans[0]) || {
+            studentName: 'تلميذ بحاجة لدعم',
+            strugglingSkill: 'التمييز بين الحروف والمدود',
+            dailyActivities: ['نشاط الاستماع', 'نشاط التتبع', 'نشاط القراءة']
+        };
+
+        const whatsappText = data.parentWhatsAppTemplate || 'السلام عليكم ولي أمر التلميذ العزيز، نحيطكم علماً بتقدم طفلكم في مادة قراءتي..';
+
+        container.style.display = 'block';
+        container.innerHTML = `
+            <div style="background: #ffffff; border: 2px solid #818cf8; border-radius: 18px; padding: 20px; box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1); margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #f1f5f9; padding-bottom: 12px; margin-bottom: 16px; flex-wrap: wrap; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 1.8rem;">✨</span>
+                        <div>
+                            <h4 style="margin: 0; font-size: 1.15rem; font-weight: 900; color: #1e1b4b;">تقرير التحليل التربوي الذكي للشعبة (${escapeHtml(className)})</h4>
+                            <div style="font-size: 0.78rem; color: #64748b;">توليد آلي مدعوم بنموذج الذكاء الاصطناعي وفق معايير وزارة التربية</div>
+                        </div>
+                    </div>
+                    <button class="btn" onclick="document.getElementById('teacherAiAnalyticsContainer').style.display='none'" style="padding: 4px 10px; font-size: 0.8rem; background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; color: #64748b; cursor: pointer;">✕ إخفاء التقرير</button>
+                </div>
+
+                <!-- 1. الملخص التنفيذي -->
+                <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 12px; padding: 12px 16px; margin-bottom: 16px;">
+                    <div style="font-size: 0.85rem; font-weight: 900; color: #1e40af; margin-bottom: 4px;">📋 الملخص التنفيذي لمستوى الشعبة:</div>
+                    <p style="margin: 0; font-size: 0.88rem; color: #334155; line-height: 1.6;">${escapeHtml(data.executiveSummary || '')}</p>
+                </div>
+
+                <!-- 2. المجموعات المتجانسة الثلاث -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;">
+                    <div style="background: #ecfdf5; border: 1.5px solid #a7f3d0; border-radius: 12px; padding: 12px;">
+                        <div style="font-size: 0.86rem; font-weight: 900; color: #065f46; margin-bottom: 4px;">🌟 ${escapeHtml(adv.title)} (${adv.count})</div>
+                        <p style="margin: 0; font-size: 0.78rem; color: #047857; line-height: 1.5;">${escapeHtml(adv.recommendation)}</p>
+                    </div>
+                    <div style="background: #eff6ff; border: 1.5px solid #bfdbfe; border-radius: 12px; padding: 12px;">
+                        <div style="font-size: 0.86rem; font-weight: 900; color: #1e40af; margin-bottom: 4px;">👍 ${escapeHtml(mas.title)} (${mas.count})</div>
+                        <p style="margin: 0; font-size: 0.78rem; color: #1d4ed8; line-height: 1.5;">${escapeHtml(mas.recommendation)}</p>
+                    </div>
+                    <div style="background: #fff1f2; border: 1.5px solid #fecdd3; border-radius: 12px; padding: 12px;">
+                        <div style="font-size: 0.86rem; font-weight: 900; color: #9f1239; margin-bottom: 4px;">🎯 ${escapeHtml(rem.title)} (${rem.count})</div>
+                        <p style="margin: 0; font-size: 0.78rem; color: #be123c; line-height: 1.5;">${escapeHtml(rem.recommendation)}</p>
+                    </div>
+                </div>
+
+                <!-- 3. الخطة العلاجية الفردية المركزة -->
+                <div style="background: #faf5ff; border: 1.5px solid #e9d5ff; border-radius: 12px; padding: 14px; margin-bottom: 16px;">
+                    <div style="font-size: 0.88rem; font-weight: 900; color: #6b21a8; margin-bottom: 8px;">
+                        🩺 نموذج خطة علاجية فردية مركزة: <u>${escapeHtml(indPlan.studentName)}</u> (المهارة المتعثرة: ${escapeHtml(indPlan.strugglingSkill)})
+                    </div>
+                    <ul style="margin: 0; padding-right: 20px; font-size: 0.84rem; color: #4c1d95; line-height: 1.6;">
+                        ${indPlan.dailyActivities.map(act => `<li>${escapeHtml(act)}</li>`).join('')}
+                    </ul>
+                </div>
+
+                <!-- 4. رسالة واتساب المجهزة لأولياء الأمور -->
+                <div style="background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 12px; padding: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                    <div style="flex: 1; min-width: 260px;">
+                        <div style="font-size: 0.85rem; font-weight: 900; color: #166534; margin-bottom: 4px;">💬 رسالة جاهزة للنسخ والمشاركة مع ولي الأمر عبر واتساب:</div>
+                        <div style="font-size: 0.8rem; color: #14532d; white-space: pre-wrap; max-height: 80px; overflow-y: auto; background: white; padding: 8px 12px; border-radius: 8px; border: 1px solid #bbf7d0;" id="aiTeacherWhatsAppText">${escapeHtml(whatsappText)}</div>
+                    </div>
+                    <button class="btn btn-teach" onclick="copyTeacherWhatsAppMessage()" style="padding: 9px 16px; font-size: 0.85rem; background: #16a34a; border-color: #15803d; color: white; display: inline-flex; align-items: center; gap: 6px;" id="btnCopyTeacherWhatsApp">
+                        <span>📋</span> <span>نسخ الرسالة لواتساب</span>
+                    </button>
+                </div>
+            </div>
+        `;
+    }
+
+    function copyTeacherWhatsAppMessage() {
+        const textEl = document.getElementById('aiTeacherWhatsAppText');
+        const btn = document.getElementById('btnCopyTeacherWhatsApp');
+        if (!textEl) return;
+        const text = textEl.innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            if (btn) {
+                btn.innerHTML = '<span>✔</span> <span>تم نسخ الرسالة بنجاح!</span>';
+                btn.style.background = '#059669';
+                setTimeout(() => {
+                    btn.innerHTML = '<span>📋</span> <span>نسخ الرسالة لواتساب</span>';
+                    btn.style.background = '#16a34a';
+                }, 2500);
+            }
+        }).catch(err => {
+            alert('تعذر النسخ التلقائي: يرجى تحديد النص ونسخه يدوياً.');
+        });
+    }
+
+    window.generateTeacherAiAnalytics = generateTeacherAiAnalytics;
+    window.copyTeacherWhatsAppMessage = copyTeacherWhatsAppMessage;
 
     // دوال مساعدة عامة على النافذة
     window.openTeacherDashboardModal = openModal;
