@@ -57,6 +57,7 @@
     <link rel="stylesheet" href="css/readers-theater.css">
     <link rel="stylesheet" href="css/nasheed-studio.css">
     <link rel="stylesheet" href="css/story-studio.css">
+    <link rel="stylesheet" href="css/student-profiles.css">
 
 </head>
 
@@ -78,7 +79,7 @@
                     <div>
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <span>قراءتي التفاعلية الذكية</span>
-                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.55: إعادة تصميم عرض الأزرار وطبقة الذكاء الاصطناعي - إعداد المهندس أسامة خليل هاشم">v3.55</span>
+                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.56: استوديو واقعية الأصوات البشرية، وضع السبورة الصفية، وملفات التلاميذ - إعداد المهندس أسامة خليل هاشم">v3.56</span>
                         </div>
                         <div class="brand-author" style="font-size: 0.78rem; font-weight: 800; color: #059669; margin-top: 1px;">
                             إعداد: المهندس أسامة خليل هاشم
@@ -253,6 +254,27 @@
                                             <span class="mega-item-desc">دليل الفونيمات ومخارج الأصوات للمنصة</span>
                                         </div>
                                     </button>
+                                    <button class="mega-item" onclick="toggleClassroomPresentation(); closeToolsHub();">
+                                        <span class="mega-item-icon">🖥️</span>
+                                        <div class="mega-item-content">
+                                            <span class="mega-item-title">وضع السبورة الصفية (F9)</span>
+                                            <span class="mega-item-desc">عرض نقي ملء الشاشة 100% مع مؤشر الليزر</span>
+                                        </div>
+                                    </button>
+                                    <button class="mega-item" onclick="StudentProfiles.openModal(); closeToolsHub();">
+                                        <span class="mega-item-icon">👤</span>
+                                        <div class="mega-item-content">
+                                            <span class="mega-item-title">ملفات التلاميذ وخريطة الإتقان</span>
+                                            <span class="mega-item-desc">تتبع دقة الحروف الـ 28 والمراجعة الذكية المتباعدة</span>
+                                        </div>
+                                    </button>
+                                    <button class="mega-item" onclick="openParentCornerModal(); closeToolsHub();">
+                                        <span class="mega-item-icon">👨‍👩‍👦</span>
+                                        <div class="mega-item-content">
+                                            <span class="mega-item-title">زاوية ولي الأمر (محمية بقفل)</span>
+                                            <span class="mega-item-desc">تقرير التقدم المنزلي وإرشادات المتابعة الأسرية</span>
+                                        </div>
+                                    </button>
                                     <!-- أدوات سريعة مدمجة بأسلوب نظيف -->
                                     <div class="mega-quick-actions">
                                         <button class="mega-sub-action" onclick="showMobileModal(); closeToolsHub();" title="توصيل ومزامنة الهاتف">
@@ -279,10 +301,22 @@
                     <span class="ribbon-toggle-icon" id="ribbonToggleIcon">▴</span>
                     <span class="ribbon-toggle-text" id="ribbonToggleText">إخفاء الشريط السريع</span>
                 </button>
+
+                <!-- زر وضع العرض الصفي للسبورة الذكية -->
+                <button class="btn-presentation-mode" id="btnPresentationMode" onclick="toggleClassroomPresentation()" title="وضع العرض الصفي للسبورة الذكية (F9 / Esc)">
+                    <span>🖥️</span>
+                    <span>وضع السبورة الصفية</span>
+                </button>
             </div>
 
             <!-- 3. اليسار: النجوم ومؤشر الصوت وإيقاف الصوت والضبط -->
             <div class="primary-controls">
+                <!-- ملف التلميذ النشط -->
+                <div class="top-student-badge" id="topActiveStudentBadge" onclick="StudentProfiles.openModal()" title="ملف التلميذ وخريطة الإتقان - انقر للتبديل أو المراجعة">
+                    <span class="student-avatar-icon" id="topActiveStudentAvatar">👦</span>
+                    <span class="student-name-text" id="topActiveStudentName">تلميذ مبدع</span>
+                </div>
+
                 <!-- رصيد النجوم الذكي ومحرك التحدي للأطفال -->
                 <div class="top-stars-widget" id="topStarsWidget" onclick="openGamificationModal('challenge')" title="رصيد نجوم التحدي التفاعلي - انقر لخوض تحدي جديد">
                     <span class="star-icon-anim">⭐</span>

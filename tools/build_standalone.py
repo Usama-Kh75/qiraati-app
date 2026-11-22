@@ -105,7 +105,8 @@ def build_standalone():
         'css/dictation-lab.css',
         'css/readers-theater.css',
         'css/nasheed-studio.css',
-        'css/story-studio.css'
+        'css/story-studio.css',
+        'css/student-profiles.css'
     ]
 
     css_combined = []
@@ -250,6 +251,7 @@ def build_standalone():
         'js/core/readers-theater.js',
         'js/core/nasheed-studio.js',
         'js/core/story-studio.js',
+        'js/core/student-profiles.js',
         'js/lessons/prep.js',
         'js/lessons/unit1.js',
         'js/lessons/unit2.js',

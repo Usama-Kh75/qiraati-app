@@ -57,6 +57,7 @@
     <link rel="stylesheet" href="css/readers-theater.css">
     <link rel="stylesheet" href="css/nasheed-studio.css">
     <link rel="stylesheet" href="css/story-studio.css">
+    <link rel="stylesheet" href="css/student-profiles.css">
 
 </head>
 
@@ -78,7 +79,7 @@
                     <div>
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <span>قراءتي التفاعلية الذكية</span>
-                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.55: إعادة تصميم عرض الأزرار وطبقة الذكاء الاصطناعي - إعداد المهندس أسامة خليل هاشم">v3.55</span>
+                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.56: استوديو واقعية الأصوات البشرية، وضع السبورة الصفية، وملفات التلاميذ - إعداد المهندس أسامة خليل هاشم">v3.56</span>
                         </div>
                         <div class="brand-author" style="font-size: 0.78rem; font-weight: 800; color: #059669; margin-top: 1px;">
                             إعداد: المهندس أسامة خليل هاشم
@@ -253,6 +254,27 @@
                                             <span class="mega-item-desc">دليل الفونيمات ومخارج الأصوات للمنصة</span>
                                         </div>
                                     </button>
+                                    <button class="mega-item" onclick="toggleClassroomPresentation(); closeToolsHub();">
+                                        <span class="mega-item-icon">🖥️</span>
+                                        <div class="mega-item-content">
+                                            <span class="mega-item-title">وضع السبورة الصفية (F9)</span>
+                                            <span class="mega-item-desc">عرض نقي ملء الشاشة 100% مع مؤشر الليزر</span>
+                                        </div>
+                                    </button>
+                                    <button class="mega-item" onclick="StudentProfiles.openModal(); closeToolsHub();">
+                                        <span class="mega-item-icon">👤</span>
+                                        <div class="mega-item-content">
+                                            <span class="mega-item-title">ملفات التلاميذ وخريطة الإتقان</span>
+                                            <span class="mega-item-desc">تتبع دقة الحروف الـ 28 والمراجعة الذكية المتباعدة</span>
+                                        </div>
+                                    </button>
+                                    <button class="mega-item" onclick="openParentCornerModal(); closeToolsHub();">
+                                        <span class="mega-item-icon">👨‍👩‍👦</span>
+                                        <div class="mega-item-content">
+                                            <span class="mega-item-title">زاوية ولي الأمر (محمية بقفل)</span>
+                                            <span class="mega-item-desc">تقرير التقدم المنزلي وإرشادات المتابعة الأسرية</span>
+                                        </div>
+                                    </button>
                                     <!-- أدوات سريعة مدمجة بأسلوب نظيف -->
                                     <div class="mega-quick-actions">
                                         <button class="mega-sub-action" onclick="showMobileModal(); closeToolsHub();" title="توصيل ومزامنة الهاتف">
@@ -279,10 +301,22 @@
                     <span class="ribbon-toggle-icon" id="ribbonToggleIcon">▴</span>
                     <span class="ribbon-toggle-text" id="ribbonToggleText">إخفاء الشريط السريع</span>
                 </button>
+
+                <!-- زر وضع العرض الصفي للسبورة الذكية -->
+                <button class="btn-presentation-mode" id="btnPresentationMode" onclick="toggleClassroomPresentation()" title="وضع العرض الصفي للسبورة الذكية (F9 / Esc)">
+                    <span>🖥️</span>
+                    <span>وضع السبورة الصفية</span>
+                </button>
             </div>
 
             <!-- 3. اليسار: النجوم ومؤشر الصوت وإيقاف الصوت والضبط -->
             <div class="primary-controls">
+                <!-- ملف التلميذ النشط -->
+                <div class="top-student-badge" id="topActiveStudentBadge" onclick="StudentProfiles.openModal()" title="ملف التلميذ وخريطة الإتقان - انقر للتبديل أو المراجعة">
+                    <span class="student-avatar-icon" id="topActiveStudentAvatar">👦</span>
+                    <span class="student-name-text" id="topActiveStudentName">تلميذ مبدع</span>
+                </div>
+
                 <!-- رصيد النجوم الذكي ومحرك التحدي للأطفال -->
                 <div class="top-stars-widget" id="topStarsWidget" onclick="openGamificationModal('challenge')" title="رصيد نجوم التحدي التفاعلي - انقر لخوض تحدي جديد">
                     <span class="star-icon-anim">⭐</span>
@@ -768,7 +802,7 @@
 
                     <div class="image-container-nasheed" id="card-nasheed-section">
 
-                        <img src="activity_nasheed_box.png" alt="نشاط 2 - أستمع إلى النشيد وأردد (نشيد البطة)">
+                        <img loading="lazy" src="activity_nasheed_box.png" alt="نشاط 2 - أستمع إلى النشيد وأردد (نشيد البطة)">
 
                     </div>
 
@@ -776,7 +810,7 @@
 
                     <div class="image-container-3items" id="card-items3-section">
 
-                        <img src="activity_3_items.png" alt="نشاط 3 - أسمي الأشياء التي في الصورة">
+                        <img loading="lazy" src="activity_3_items.png" alt="نشاط 3 - أسمي الأشياء التي في الصورة">
 
                         <svg class="svg-overlay-5diff" viewBox="0 0 1140 500">
 
@@ -23300,7 +23334,7 @@
 
                         <div class="qr-wrapper">
 
-                            <img src="mobile_qr.png" alt="رمز QR للتشغيل على الهاتف" class="qr-img" id="qrImg">
+                            <img loading="lazy" src="mobile_qr.png" alt="رمز QR للتشغيل على الهاتف" class="qr-img" id="qrImg">
 
                             <span class="qr-caption">امسح الكاميرا هنا 📸</span>
 
@@ -23628,7 +23662,7 @@
 
             <div style="flex: 1; overflow-y: auto; text-align: center; padding: 14px; background: #f1f5f9;">
 
-                <img id="bookPageModalImg" src="" alt="صفحة الكتاب المدرسي" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #cbd5e1;">
+                <img loading="lazy" id="bookPageModalImg" src="" alt="صفحة الكتاب المدرسي" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #cbd5e1;">
 
             </div>
 
@@ -25113,7 +25147,7 @@
                                     <div class="battle-timer-inner" id="battleTimerText">10</div>
                                 </div>
                                 <div class="battle-prompt-box">
-                                    <img src="activity_5.png" class="battle-prompt-pic" id="battlePromptPic" alt="صورة السؤال">
+                                    <img loading="lazy" src="activity_5.png" class="battle-prompt-pic" id="battlePromptPic" alt="صورة السؤال">
                                     <div class="battle-prompt-word" id="battlePromptWord">ما هي الكلمة الصحيحة؟</div>
                                     <div class="battle-prompt-sub" id="battlePromptSub">أسرع فريق يلمس الإجابة الصحيحة أولاً يحصد النقطة!</div>
                                 </div>
@@ -25171,7 +25205,7 @@
                     <div class="train-game-container">
                         <div class="train-target-showcase">
                             <div class="train-target-identity">
-                                <img src="activity_5.png" class="train-word-pic" id="trainWordPic" alt="صورة الكلمة">
+                                <img loading="lazy" src="activity_5.png" class="train-word-pic" id="trainWordPic" alt="صورة الكلمة">
                                 <div>
                                     <div class="train-word-title" id="trainWordTitle">ركّب مقاطع كلمة: دَار</div>
                                     <div style="font-size: 0.82rem; color: #047857; font-weight: 700;">المس المقاطع بالترتيب الصحيح لتنطلق عربات القطار!</div>
@@ -25448,7 +25482,7 @@
                                         <span class="challenge-category-tag" id="challengeCategoryTag">وعي فونيمي</span>
                                         <h3 class="challenge-question-title" id="challengeQuestionTitle">جارٍ تجهيز السؤال الذكي...</h3>
                                         <div class="challenge-prompt-media">
-                                            <img id="challengePromptImage" src="activity_5.png" class="challenge-prompt-image" alt="صورة السؤال" style="display: none;">
+                                            <img loading="lazy" id="challengePromptImage" src="activity_5.png" class="challenge-prompt-image" alt="صورة السؤال" style="display: none;">
                                             <button type="button" class="btn-prompt-audio" onclick="speakCurrentQuestion()" title="استمع لنطق السؤال فصيحاً">
                                                 <span>🔊</span> <span>استمع للسؤال</span>
                                             </button>
@@ -26503,7 +26537,7 @@
 
                         <!-- بطاقة السؤال المصورة -->
                         <div class="quiz-question-card">
-                            <img id="quizHostQImage" class="quiz-question-illustration" src="activity_b_read.png" alt="صورة السؤال" style="display: none;">
+                            <img loading="lazy" id="quizHostQImage" class="quiz-question-illustration" src="activity_b_read.png" alt="صورة السؤال" style="display: none;">
                             <div class="quiz-question-text-area">
                                 <h2 class="quiz-question-text" id="quizHostQText">نص السؤال المنهجي هنا</h2>
                                 <button type="button" class="quiz-audio-pronounce-btn" id="quizHostAudioBtn">
@@ -26757,7 +26791,7 @@
 
                     <!-- بطاقة السؤال -->
                     <div class="quiz-question-card" style="margin-bottom: 16px;">
-                        <img id="hotseatQImage" class="quiz-question-illustration" src="" alt="صورة السؤال" style="display: none;">
+                        <img loading="lazy" id="hotseatQImage" class="quiz-question-illustration" src="" alt="صورة السؤال" style="display: none;">
                         <div class="quiz-question-text-area">
                             <h2 class="quiz-question-text" id="hotseatQText">نص السؤال المنهجي</h2>
                         </div>
@@ -29229,6 +29263,201 @@
     <!-- حاوية الطباعة المنعزلة A4 للقصص والمجلات المصورة -->
     <div id="storyStudioPrintA4Area" style="display: none;"></div>
 
+    <!-- كانفاس المؤشر الليزري وشريط التحكم العائم لوضع السبورة الصفية الذكية -->
+    <canvas class="presentation-laser-canvas" id="presentationLaserCanvas"></canvas>
+    <div class="presentation-control-bar" id="presentationControlBar" style="display: none;">
+        <button class="pres-btn" onclick="stepLesson(-1)" title="الانتقال إلى الدرس السابق">
+            <span>◀</span> <span>السابق</span>
+        </button>
+        <button class="pres-btn" onclick="stepLesson(1)" title="الانتقال إلى الدرس التالي">
+            <span>التالي</span> <span>▶</span>
+        </button>
+        <button class="pres-btn" onclick="ClassroomPresentation.pronounceLesson()" title="نطق وشرح الدرس الحالي">
+            <span>🔊</span> <span>نطق الدرس</span>
+        </button>
+        <button class="pres-btn active-laser" id="presLaserToggleBtn" onclick="ClassroomPresentation.toggleLaser()" title="تشغيل / تعطيل مؤشر الليزر التفاعلي للشرح">
+            <span>🔴</span> <span>مؤشر الليزر: مفعل</span>
+        </button>
+        <button class="pres-btn pres-btn-exit" onclick="exitClassroomPresentation()" title="إنهاء وضع السبورة الصفية (Esc)">
+            <span>✖</span> <span>إنهاء العرض</span>
+        </button>
+    </div>
+
+    <!-- ===============================================
+         نافذة ملفات التلاميذ وخريطة إتقان الحروف الـ 28 (Student Profiles & Mastery Map Modal)
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    ================================================ -->
+    <div class="modal-backdrop" id="studentProfilesModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="modal-box" style="max-width: 860px;" onclick="event.stopPropagation()">
+            <div class="modal-header" style="background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); color: white;">
+                <div class="modal-title-group">
+                    <span style="font-size: 1.6rem;">👤</span>
+                    <div>
+                        <div style="font-weight: 900; font-size: 1.15rem;">ملفات التلاميذ وخريطة إتقان الحروف الـ 28</div>
+                        <div style="font-size: 0.8rem; opacity: 0.9;">متابعة دقة نطق وكتابة كل حرف والمراجعة الذكية المتباعدة مع «فَصِيح»</div>
+                    </div>
+                </div>
+                <button class="modal-close-btn" onclick="StudentProfiles.closeModal()" title="إغلاق" style="color: white;">&times;</button>
+            </div>
+
+            <div class="modal-tabs">
+                <button class="modal-tab active" id="tabStudent_mastery" onclick="StudentProfiles.switchModalTab('mastery')">
+                    <span>🗺️</span> <span>خريطة إتقان الحروف (Mastery Map)</span>
+                </button>
+                <button class="modal-tab" id="tabStudent_profiles" onclick="StudentProfiles.switchModalTab('profiles')">
+                    <span>👥</span> <span>إدارة ملفات التلاميذ في الجهاز</span>
+                </button>
+            </div>
+
+            <div class="modal-body" style="padding: 20px;">
+                <!-- تبويب خريطة الإتقان -->
+                <div id="paneStudent_mastery" class="profiles-tab-pane">
+                    <!-- راية المراجعة الذكية المتباعدة -->
+                    <div id="spacedRepetitionBannerBox"></div>
+
+                    <!-- ملخص الإحصائيات التراكمي -->
+                    <div style="display: flex; gap: 12px; margin-bottom: 14px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 130px; background: #f0fdf4; border: 1.5px solid #86efac; border-radius: 12px; padding: 10px 14px; text-align: center;">
+                            <div style="font-size: 1.4rem; font-weight: 900; color: #166534;" id="masteryCountMastered">0</div>
+                            <div style="font-size: 0.78rem; font-weight: 800; color: #15803d;">حروف متقنة (أخضر)</div>
+                        </div>
+                        <div style="flex: 1; min-width: 130px; background: #fefce8; border: 1.5px solid #fde047; border-radius: 12px; padding: 10px 14px; text-align: center;">
+                            <div style="font-size: 1.4rem; font-weight: 900; color: #854d0e;" id="masteryCountTraining">0</div>
+                            <div style="font-size: 0.78rem; font-weight: 800; color: #a16207;">قيد التدريب (أصفر)</div>
+                        </div>
+                        <div style="flex: 1; min-width: 130px; background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 10px 14px; text-align: center;">
+                            <div style="font-size: 1.4rem; font-weight: 900; color: #475569;" id="masteryCountNew">28</div>
+                            <div style="font-size: 0.78rem; font-weight: 800; color: #64748b;">حروف جديدة (رمادي)</div>
+                        </div>
+                    </div>
+
+                    <!-- شبكة الحروف الـ 28 -->
+                    <div class="mastery-map-grid" id="masteryMapContainer"></div>
+                </div>
+
+                <!-- تبويب إدارة ملفات التلاميذ -->
+                <div id="paneStudent_profiles" class="profiles-tab-pane" style="display: none;">
+                    <div style="background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 16px; padding: 16px; margin-bottom: 16px;">
+                        <div style="font-weight: 900; font-size: 0.95rem; color: #1e293b; margin-bottom: 10px;">➕ إضافة تلميذ جديد على هذا الجهاز:</div>
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <input type="text" id="newStudentNameInput" placeholder="اسم التلميذ الكامل..." style="flex: 2; min-width: 160px; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-family: inherit;">
+                            <input type="text" id="newStudentSectionInput" placeholder="الشعبة (أ / ب / ج)..." style="flex: 1; min-width: 90px; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-family: inherit;">
+                            <select id="newStudentAvatarSelect" style="flex: 1; min-width: 90px; padding: 8px 12px; border: 1.5px solid #cbd5e1; border-radius: 10px; font-family: inherit;">
+                                <option value="👦">👦 ولد</option>
+                                <option value="👧">👧 بنت</option>
+                                <option value="⭐">⭐ بطل</option>
+                                <option value="🚀">🚀 مبدع</option>
+                            </select>
+                            <button onclick="const n=document.getElementById('newStudentNameInput').value; const s=document.getElementById('newStudentSectionInput').value; const a=document.getElementById('newStudentAvatarSelect').value; if(n){ StudentProfiles.createProfile(n,s,a); document.getElementById('newStudentNameInput').value=''; }" style="background: #2563eb; color: white; border: none; border-radius: 10px; padding: 8px 18px; font-weight: 800; cursor: pointer; font-family: inherit;">
+                                حفظ التلميذ
+                            </button>
+                        </div>
+                    </div>
+
+                    <div style="font-weight: 800; font-size: 0.9rem; color: #475569; margin-bottom: 8px;">التلاميذ المسجلون على هذا الجهاز (اضغط على التلميذ للتبديل إليه):</div>
+                    <div class="profiles-list-grid" id="profilesListContainer"></div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="footer-credit">إعداد وتطوير: المهندس أسامة خليل هاشم</div>
+                <button class="btn-modal-close" onclick="StudentProfiles.closeModal()">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===============================================
+         نافذة زاوية ولي الأمر المحمية بقفل رياضي (Parent Corner Modal)
+         إعداد وتطوير: المهندس أسامة خليل هاشم
+    ================================================ -->
+    <div class="modal-backdrop" id="parentCornerModal" style="display: none;" onclick="closeModalOnBackdrop(event)">
+        <div class="modal-box" style="max-width: 780px;" onclick="event.stopPropagation()">
+            <div class="modal-header" style="background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%); color: white;">
+                <div class="modal-title-group">
+                    <span style="font-size: 1.6rem;">👨‍👩‍👦</span>
+                    <div>
+                        <div style="font-weight: 900; font-size: 1.15rem;">زاوية ولي الأمر والمتابعة المنزلية</div>
+                        <div style="font-size: 0.8rem; opacity: 0.9;">تقرير دقة القراءة والأنشطة وإرشادات المتابعة الأسرية</div>
+                    </div>
+                </div>
+                <button class="modal-close-btn" onclick="ParentCorner.closeModal()" title="إغلاق" style="color: white;">&times;</button>
+            </div>
+
+            <div class="modal-body" style="padding: 24px;">
+                <!-- شاشة القفل الرياضي للتحقق من هوية ولي الأمر -->
+                <div id="parentCornerLockPane">
+                    <div class="parent-lock-box">
+                        <div class="parent-lock-icon">🔒</div>
+                        <div style="font-weight: 900; font-size: 1.1rem; color: #0f172a;">بوابة التحقق الأبوي</div>
+                        <div style="font-size: 0.85rem; color: #64748b; margin-top: 4px;">لحماية تقرير التلميذ من عبث الطفل، يرجى حل المسألة الرياضية التالية:</div>
+                        <div class="parent-lock-question" id="parentLockQuestion">7 + 8 = ؟</div>
+                        <input type="number" class="parent-lock-input" id="parentLockInput" placeholder="الناتج" onkeydown="if(event.key==='Enter') ParentCorner.verifyLock()">
+                        <div id="parentLockError" style="color: #dc2626; font-size: 0.84rem; font-weight: 700; margin-bottom: 10px; display: none;"></div>
+                        <div>
+                            <button onclick="ParentCorner.verifyLock()" style="background: #0d9488; color: white; border: none; padding: 10px 24px; border-radius: 12px; font-weight: 800; font-size: 0.95rem; cursor: pointer; font-family: inherit; box-shadow: 0 4px 12px rgba(13,148,136,0.3);">
+                                🔓 تأكيد ودخول التقرير
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- شاشة عرض التقرير المنزلي لولي الأمر -->
+                <div id="parentCornerContentPane" style="display: none;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px dashed #cbd5e1; padding-bottom: 14px; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                            <div style="font-size: 1.15rem; font-weight: 900; color: #0f172a;">📊 تقرير مستوى التلميذ: <span id="parentReportStudentName" style="color: #0d9488;"></span></div>
+                            <div style="font-size: 0.82rem; color: #64748b;">تتبع إلكتروني فوري لمستوى الإتقان الفونيمي والقراءة</div>
+                        </div>
+                        <button onclick="ParentCorner.printReport()" style="background: #f1f5f9; border: 1.5px solid #cbd5e1; border-radius: 10px; padding: 6px 14px; font-size: 0.85rem; font-weight: 800; cursor: pointer; font-family: inherit; display: inline-flex; align-items: center; gap: 6px;">
+                            <span>🖨️</span> <span>طباعة التقرير الورقي</span>
+                        </button>
+                    </div>
+
+                    <div class="parent-stats-summary">
+                        <div class="parent-stat-box">
+                            <div class="parent-stat-val" id="parentReportTime">0 دقيقة</div>
+                            <div class="parent-stat-title">⏱️ إجمالي وقت التعلم</div>
+                        </div>
+                        <div class="parent-stat-box">
+                            <div class="parent-stat-val" id="parentReportCompleted">0</div>
+                            <div class="parent-stat-title">📖 الدروس المنجزة</div>
+                        </div>
+                        <div class="parent-stat-box">
+                            <div class="parent-stat-val" style="color: #16a34a;" id="parentReportMastered">0 من 28</div>
+                            <div class="parent-stat-title">🌟 الحروف المتقنة كلياً</div>
+                        </div>
+                    </div>
+
+                    <div style="background: #fffbeb; border: 1.5px solid #fde68a; border-radius: 16px; padding: 14px 18px; margin: 16px 0;">
+                        <div style="font-weight: 900; font-size: 0.95rem; color: #92400e; margin-bottom: 6px;">🎯 الحروف التي تحتاج دعماً ومتابعة في البيت هذا الأسبوع:</div>
+                        <div id="parentReportWeakestBox" style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-top: 6px;"></div>
+                    </div>
+
+                    <div class="parent-home-tips">
+                        <div style="font-weight: 900; font-size: 1rem; color: #0f172a; margin-bottom: 8px;">💡 3 إرشادات عملية قصيرة للتدريب في البيت:</div>
+                        <div class="parent-tip-item">
+                            <span class="parent-tip-icon">🔊</span>
+                            <div class="parent-tip-text"><b>١. التكرار الصوتي اليومي:</b> درّب طفلك على نطق صوت الحرف مجرداً ساكناً (مثل: دْ... دْ) لمدة 3 دقائق يومياً قبل قراءة الكلمة، وتجنب نطق اسم الحرف مجرداً (مثل دال).</div>
+                        </div>
+                        <div class="parent-tip-item">
+                            <span class="parent-tip-icon">🏠</span>
+                            <div class="parent-tip-text"><b>٢. الربط بالأشياء المحيطة بالمنزل:</b> ابحث مع طفلك في المطبخ أو غرفة المعيشة عن أشياء تبدأ بالحرف قيد التدريب (مثل: دَار، بَاب، قِدْر، مَوْز) لترسيخ الوعي الصوتي الواقعي.</div>
+                        </div>
+                        <div class="parent-tip-item">
+                            <span class="parent-tip-icon">🌟</span>
+                            <div class="parent-tip-text"><b>٣. التشجيع الإيجابي والقراءة المشتركة:</b> اقرأ مع طفلك سطراً واحداً قبل النوم، وامدح جهده بالنجوم والتشجيع اللفظي لبناء الثقة بالنفس وحب القراءة.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <div class="footer-credit">إعداد وتطوير: المهندس أسامة خليل هاشم</div>
+                <button class="btn-modal-close" onclick="ParentCorner.closeModal()">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
     <!-- استدعاء قواعد البيانات المنهجية والصوتية - إعداد المهندس أسامة خليل هاشم -->
     <script>
       // تحميل قواعد الصوتيات المضمنة ديناميكياً فقط عند فتح ملف index.html محلياً بدون خادم (file://)
@@ -29259,6 +29488,7 @@
     <script src="js/core/readers-theater.js"></script>
     <script src="js/core/nasheed-studio.js"></script>
     <script src="js/core/story-studio.js"></script>
+    <script src="js/core/student-profiles.js"></script>
     <script src="js/lessons/prep.js"></script>
     <script src="js/lessons/unit1.js"></script>
     <script src="js/lessons/unit2.js"></script>

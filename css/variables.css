@@ -5,52 +5,40 @@
 
 
         :root {
+            /* نظام التوازن البصري المهدئ (60% خلفية هادئة - 30% بطاقات بيضاء نقية - 10% تركيز تعليمي) */
+            --bg-page: #f8fafc;
+            --bg-surface: #ffffff;
+            --border-card: #e2e8f0;
+            --card-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+            --card-shadow-hover: 0 8px 24px rgba(15, 23, 42, 0.08);
+            --text-main: #1e293b;
+            --text-muted: #64748b;
 
             --primary: #2563eb;
-
             --primary-hover: #1d4ed8;
-
             --success: #16a34a;
-
             --accent: #f59e0b;
-
             --danger: #dc2626;
-
             --purple: #7c3aed;
-
             --sidebar-w: 330px;
-
         }
 
         * {
-
             box-sizing: border-box;
-
             user-select: none;
-
             -webkit-user-select: none;
-
             -webkit-tap-highlight-color: transparent;
-
         }
 
         body {
-
             margin: 0;
-
             padding: 0;
-
             font-family: 'Tajawal', sans-serif;
-
-            background: linear-gradient(135deg, #f0f9ff 0%, #fef3c7 100%);
-
+            background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+            color: #1e293b;
             min-height: 100vh;
-
             display: flex;
-
             flex-direction: column;
-
             overflow-x: hidden;
-
         }
 

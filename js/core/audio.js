@@ -11,6 +11,8 @@
 
         let currentAudio = null;
         window._currentPlayingKey = null;
+        let _lipSyncAnimId = null;
+        let _karaokeTimer = null;
 
         // دوال التخزين المحلي الآمنة مع ترحيل تلقائي لبادئة قواعد أسامة (qiraati-smart-*)
         function getStoredPref(key, oldKey, defaultVal) {
@@ -36,8 +38,28 @@
         }
 
         function cleanupAudioNodes(audio) {
+            if (_lipSyncAnimId) {
+                cancelAnimationFrame(_lipSyncAnimId);
+                _lipSyncAnimId = null;
+            }
+            const mouth = document.getElementById('mascotMouth');
+            if (mouth) {
+                mouth.style.transform = 'scaleY(1)';
+                mouth.style.transformOrigin = '80px 102px';
+            }
+            if (_karaokeTimer) {
+                clearInterval(_karaokeTimer);
+                _karaokeTimer = null;
+            }
+            const activeKaraokeWords = document.querySelectorAll('.karaoke-word.karaoke-active');
+            activeKaraokeWords.forEach(w => w.classList.remove('karaoke-active'));
+
             if (!audio) return;
             try {
+                if (audio._analyserNode) {
+                    audio._analyserNode.disconnect();
+                    audio._analyserNode = null;
+                }
                 if (audio._gainNode) {
                     audio._gainNode.disconnect();
                     audio._gainNode = null;
@@ -47,6 +69,145 @@
                     audio._audioSource = null;
                 }
             } catch(e) {}
+        }
+
+        // مزامنة فم القلم «فَصِيح» الحقيقية (Real Lip-Sync) مع الموجة الصوتية
+        function setupLipSync(audio) {
+            try {
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (!AudioCtx) return;
+                if (!window._sharedAudioCtx) {
+                    window._sharedAudioCtx = new AudioCtx();
+                }
+                if (window._sharedAudioCtx.state === 'suspended') {
+                    window._sharedAudioCtx.resume();
+                }
+                const ctx = window._sharedAudioCtx;
+
+                // ربط مصدر الصوت دون تكرار
+                let source = audio._audioSource;
+                if (!source) {
+                    source = ctx.createMediaElementSource(audio);
+                    audio._audioSource = source;
+                }
+
+                const analyser = ctx.createAnalyser();
+                analyser.fftSize = 256;
+                analyser.smoothingTimeConstant = 0.45;
+                audio._analyserNode = analyser;
+
+                if (!audio._gainNode) {
+                    const gainNode = ctx.createGain();
+                    const volPct = getMasterVolume();
+                    gainNode.gain.value = volPct > 100 ? volPct / 100 : 1.0;
+                    if (volPct <= 100) {
+                        audio.volume = Math.max(0, Math.min(1.0, volPct / 100));
+                    } else {
+                        audio.volume = 1.0;
+                    }
+                    audio._gainNode = gainNode;
+                }
+
+                source.disconnect();
+                source.connect(analyser);
+                analyser.connect(audio._gainNode);
+                audio._gainNode.disconnect();
+                audio._gainNode.connect(ctx.destination);
+
+                const mouth = document.getElementById('mascotMouth');
+                const bufferLength = analyser.frequencyBinCount;
+                const dataArray = new Uint8Array(bufferLength);
+
+                if (_lipSyncAnimId) {
+                    cancelAnimationFrame(_lipSyncAnimId);
+                    _lipSyncAnimId = null;
+                }
+
+                function updateLipSync() {
+                    if (!currentAudio || currentAudio.paused || currentAudio.ended) {
+                        if (mouth) {
+                            mouth.style.transform = 'scaleY(1)';
+                            mouth.style.transformOrigin = '80px 102px';
+                        }
+                        return;
+                    }
+                    analyser.getByteFrequencyData(dataArray);
+                    let sum = 0;
+                    for (let i = 0; i < bufferLength; i++) {
+                        sum += dataArray[i];
+                    }
+                    const avg = sum / bufferLength;
+                    let scale = 1.0;
+                    if (avg > 8) {
+                        scale = 1.0 + Math.min(1.6, (avg - 8) / 22);
+                    }
+                    if (mouth) {
+                        mouth.style.transformOrigin = '80px 102px';
+                        mouth.style.transform = `scaleY(${scale.toFixed(2)})`;
+                    }
+                    _lipSyncAnimId = requestAnimationFrame(updateLipSync);
+                }
+
+                _lipSyncAnimId = requestAnimationFrame(updateLipSync);
+            } catch (e) {
+                // العمل بسلاسة في حال تعذر Web Audio
+                console.warn('Real lip-sync setup note:', e);
+            }
+        }
+
+        // التظليل الصوتي المتزامن كلمةً بكلمة (Karaoke Reading Highlight)
+        function highlightReadingElement(containerEl, durationMs) {
+            if (typeof containerEl === 'string') {
+                containerEl = document.querySelector(containerEl);
+            }
+            if (!containerEl) return;
+
+            if (_karaokeTimer) {
+                clearInterval(_karaokeTimer);
+                _karaokeTimer = null;
+            }
+            const prevActives = document.querySelectorAll('.karaoke-word.karaoke-active');
+            prevActives.forEach(w => w.classList.remove('karaoke-active'));
+
+            let words = containerEl.querySelectorAll('.karaoke-word');
+            if (words.length === 0) {
+                const childSpans = Array.from(containerEl.children).filter(el => 
+                    el.tagName === 'SPAN' && el.innerText.trim().length > 0 && !(el.getAttribute('onclick') || '').includes('stopAudio')
+                );
+                if (childSpans.length > 0) {
+                    childSpans.forEach(s => s.classList.add('karaoke-word'));
+                    words = containerEl.querySelectorAll('.karaoke-word');
+                } else {
+                    const rawText = containerEl.innerText.trim();
+                    if (!rawText) return;
+                    const tokens = rawText.split(/\s+/);
+                    containerEl.innerHTML = tokens.map(token => `<span class="karaoke-word">${token}</span>`).join(' ');
+                    words = containerEl.querySelectorAll('.karaoke-word');
+                }
+            }
+
+            if (words.length === 0) return;
+
+            const totalDuration = durationMs || (currentAudio && currentAudio.duration && !isNaN(currentAudio.duration) ? currentAudio.duration * 1000 : words.length * 750);
+            const intervalMs = Math.max(150, Math.floor(totalDuration / words.length));
+
+            let idx = 0;
+            words.forEach(w => w.classList.remove('karaoke-active'));
+            words[0].classList.add('karaoke-active');
+
+            _karaokeTimer = setInterval(() => {
+                idx++;
+                if (idx < words.length) {
+                    words.forEach(w => w.classList.remove('karaoke-active'));
+                    words[idx].classList.add('karaoke-active');
+                } else {
+                    clearInterval(_karaokeTimer);
+                    _karaokeTimer = null;
+                    setTimeout(() => {
+                        words.forEach(w => w.classList.remove('karaoke-active'));
+                    }, 500);
+                }
+            }, intervalMs);
         }
 
         function updateAudioControlsState(isPlaying, audioKey) {
@@ -305,30 +466,18 @@
                     currentAudio = audio;
                     applyVolumeToAudio(audio, getMasterVolume());
 
-                    // تطبيق التمايز الصوتي الفوري على النبرة وطبقة الصوت (Pitch & Formant Adaptation)
-                    // لتغيير الصوت فورياً لجميع دروس وكلمات المنصة عند تغيير الخيار من الضبط
+                    // ضبط سرعة التشغيل الطبيعية الصافية (1.0) مع خيار الإبطاء التعليمي النظيف (0.85) للمعلم
+                    // وإلغاء أي تشويه أو تسريع مصطنع (No artificial pitch distortion)
                     try {
-                        if ((finalKey && finalKey.includes('teacher')) || (audioKey && audioKey.includes('teacher'))) {
-                            audio.preservesPitch = true;
-                            audio.playbackRate = 1.0; // صوت المعلمة الميداني الحقيقي الصافي بدون تغيير نبرة
-                        } else if (voicePref === 'bassel') {
-                            audio.preservesPitch = true;
-                            audio.playbackRate = 1.0; // صوت فصيح الذكي المطور بنبرته الطبيعية الدافئة بدون تشويه روبوتي
-                        } else if (voicePref === 'rana') {
-                            if (!finalKey || !finalKey.includes('rana')) {
-                                audio.preservesPitch = false;
-                                audio.playbackRate = 1.07; // طبقة مشرقة دافئة أنثوية
-                            } else {
-                                audio.preservesPitch = true;
-                                audio.playbackRate = 1.0;
-                            }
-                        } else {
-                            audio.preservesPitch = true;
-                            audio.playbackRate = 1.0; // النمط التكاملي الأصلي
-                        }
+                        const isEducationalSlow = getStoredPref('qiraati-smart-slow-rate', 'qiraati_smart_slow_rate', 'false') === 'true';
+                        audio.preservesPitch = true;
+                        audio.playbackRate = isEducationalSlow ? 0.85 : 1.0;
                     } catch (eRate) {
                         console.warn('Audio rate adaptation note:', eRate);
                     }
+
+                    // تفعيل مزامنة فم «فَصِيح» الحقيقية عبر Web Audio API
+                    setupLipSync(audio);
 
                     updateAudioControlsState(true, audioKey);
 
@@ -532,6 +681,18 @@
                 floatingBtn.style.display = 'none';
             } else if (floatingBtn && enabled && currentAudio && !currentAudio.paused) {
                 floatingBtn.style.display = 'inline-flex';
+            }
+        }
+
+        function isEducationalSlowRate() {
+            return getStoredPref('qiraati-smart-slow-rate', 'qiraati_smart_slow_rate', 'false') === 'true';
+        }
+
+        function setEducationalSlowRate(enabled) {
+            setStoredPref('qiraati-smart-slow-rate', 'qiraati_smart_slow_rate', enabled ? 'true' : 'false');
+            if (currentAudio) {
+                currentAudio.preservesPitch = true;
+                currentAudio.playbackRate = enabled ? 0.85 : 1.0;
             }
         }
 
