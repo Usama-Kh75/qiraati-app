@@ -135,7 +135,7 @@ def step4_security_scan():
     return True
 
 def step5_version_alignment():
-    print_header("[5/5] مطابقة رقم الإصدار (v3.57) ومخزن الكاش (qiraati-smart-v80)")
+    print_header("[5/5] مطابقة رقم الإصدار (v3.58) ومخزن الكاش (qiraati-smart-v81)")
     top_shell = os.path.join(BASE_DIR, 'views', 'app-shell-top.html')
     sw_file = os.path.join(BASE_DIR, 'sw.js')
 
@@ -159,8 +159,8 @@ def step5_version_alignment():
     print(f"  - إصدار عامل الخدمة (sw.js): {sw_ver}")
     print(f"  - اسم مخزن الكاش (sw.js): {sw_cache}")
 
-    expected_ver = "v3.57"
-    expected_cache = "qiraati-smart-v80"
+    expected_ver = "v3.58"
+    expected_cache = "qiraati-smart-v81"
 
     errors = []
     if top_ver != expected_ver:
@@ -176,13 +176,13 @@ def step5_version_alignment():
             print(f"  - {e}")
         return False
 
-    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.57 وكاش qiraati-smart-v80.")
+    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.58 وكاش qiraati-smart-v81.")
     return True
 
 def main():
     print("=" * 70)
     print("🛡️ منصة قراءتي التفاعلية الذكية - بوابة الفحص الآلي الإلزامية")
-    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.57)")
+    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.58)")
     print("=" * 70)
 
     steps = [

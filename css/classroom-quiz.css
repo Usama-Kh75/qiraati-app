@@ -418,7 +418,8 @@
     flex: 1;
 }
 
-.quiz-question-text {
+.quiz-question-card .quiz-question-text,
+.quiz-question-text-area .quiz-question-text {
     font-size: 1.5rem;
     font-weight: 900;
     color: #1e3a8a;
@@ -1043,7 +1044,8 @@
         height: 100px;
     }
 
-    .quiz-question-text {
+    .quiz-question-card .quiz-question-text,
+    .quiz-question-text-area .quiz-question-text {
         font-size: 1.2rem;
     }
 
