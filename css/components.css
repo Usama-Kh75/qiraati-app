@@ -10,66 +10,153 @@
         ======================================================== */
 
         .mascot-container {
-
             position: fixed;
-
             bottom: 12px;
-
             left: 20px;
-
             display: flex;
-
             align-items: flex-end;
-
-            gap: 12px;
-
+            gap: 10px;
             z-index: 1000;
-
             pointer-events: none;
+            transition: left 0.15s ease, bottom 0.15s ease;
+        }
 
+        .mascot-container.collapsed .mascot-avatar,
+        .mascot-container.collapsed .speech-bubble {
+            display: none !important;
+        }
+
+        /* شارة فصيح الجانبية المصغرة عند الطي */
+        .mascot-minimized-badge {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #fef08a 0%, #fde047 100%);
+            border: 2px solid #ca8a04;
+            border-radius: 25px;
+            padding: 6px 14px;
+            font-size: 0.88rem;
+            font-weight: 900;
+            color: #854d0e;
+            box-shadow: 0 4px 15px rgba(202, 138, 4, 0.35);
+            cursor: pointer;
+            pointer-events: auto;
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: mascot-mini-pulse 2.5s infinite ease-in-out;
+        }
+
+        .mascot-minimized-badge:hover {
+            transform: scale(1.08) translateY(-2px);
+            box-shadow: 0 6px 18px rgba(202, 138, 4, 0.5);
+        }
+
+        @keyframes mascot-mini-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.04); }
+        }
+
+        .mascot-container.collapsed .mascot-minimized-badge {
+            display: inline-flex !important;
         }
 
         .mascot-avatar {
-
-            width: 105px;
-
-            height: 125px;
-
+            position: relative;
+            width: 95px;
+            height: 115px;
             cursor: pointer;
-
             pointer-events: auto;
-
-            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.2));
-
+            filter: drop-shadow(0 8px 16px rgba(0,0,0,0.18));
             transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-
             animation: mascot-float 3s infinite ease-in-out;
+            user-select: none;
+            touch-action: none;
+        }
 
+        /* زر تصغير فصيح */
+        .btn-mascot-minimize {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid #cbd5e1;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 11px;
+            font-weight: 900;
+            color: #64748b;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0;
+            z-index: 10;
+            transition: all 0.15s ease;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+        }
+
+        .btn-mascot-minimize:hover {
+            background: #eff6ff;
+            border-color: #3b82f6;
+            color: #2563eb;
+            transform: scale(1.15);
         }
 
         @keyframes mascot-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
 
         .speech-bubble {
+            position: relative;
             background: white;
-            border: 2.5px solid #3b82f6;
-            border-radius: 20px 20px 20px 4px;
-            padding: 10px 16px;
-            font-size: 0.95rem;
+            border: 2px solid #3b82f6;
+            border-radius: 16px 16px 16px 4px;
+            padding: 8px 14px 8px 12px;
+            font-size: 0.82rem;
             font-weight: 800;
             color: #1e3a8a;
-            max-width: 290px;
-            box-shadow: 0 8px 22px rgba(0,0,0,0.12);
-            pointer-events: none; /* لا يحجب النقر على عناصر الدرس */
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            line-height: 1.45;
+            max-width: 230px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            pointer-events: auto;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            line-height: 1.4;
+        }
+
+        .speech-bubble.bubble-hidden {
+            opacity: 0 !important;
+            transform: scale(0.85) translateY(8px);
+            pointer-events: none !important;
+        }
+
+        /* زر إغلاق فقاعة الكلام */
+        .btn-bubble-close {
+            position: absolute;
+            top: 4px;
+            left: 5px;
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 50%;
+            width: 17px;
+            height: 17px;
+            font-size: 10px;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #64748b;
+            padding: 0;
+            transition: all 0.15s ease;
+            z-index: 2;
+        }
+
+        .btn-bubble-close:hover {
+            background: #fee2e2;
+            border-color: #fca5a5;
+            color: #ef4444;
         }
 
         .speech-bubble.speaking {
-
             border-color: #10b981;
-
             box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
-
         }
 
         .mascot-eye { animation: eye-blink 4s infinite; transform-origin: center; }

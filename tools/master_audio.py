@@ -119,7 +119,25 @@ def master_single_file(ffmpeg_exe, in_path, out_path=None, backup=False):
         return False, in_path, orig_size, orig_size, "Output file is empty"
 
     new_size = os.path.getsize(temp_out)
-    shutil.move(temp_out, out_path)
+    moved = False
+    for _ in range(6):
+        try:
+            if os.path.exists(out_path):
+                os.replace(temp_out, out_path)
+            else:
+                shutil.move(temp_out, out_path)
+            moved = True
+            break
+        except PermissionError:
+            time.sleep(0.12)
+
+    if not moved:
+        try:
+            shutil.copy2(temp_out, out_path)
+            os.remove(temp_out)
+        except Exception as e:
+            return False, in_path, orig_size, orig_size, f"Move error: {e}"
+
     return True, in_path, orig_size, new_size, ""
 
 def master_all_audio(input_dir=AUDIO_DIR, backup=False, max_workers=None, target_file=None):
@@ -203,7 +221,7 @@ def main():
     parser = argparse.ArgumentParser(description="أداة المعالجة الصوتية الاستوديوية لمنصة قراءتي")
     parser.add_argument("--file", type=str, help="معالجة ملف صوتي واحد محدد")
     parser.add_argument("--dir", type=str, default=AUDIO_DIR, help="مجلد الملفات الصوتية")
-    parser.add_argument("--backup", action="store_true", help="حفظ نسخة احتياطية خام في audio_backup_raw/")
+    parser.add_argument("--backup", action="store_true", default=True, help="حفظ نسخة احتياطية خام في audio_backup_raw/")
     parser.add_argument("--workers", type=int, default=None, help="عدد خيوط المعالجة المتزامنة")
     args = parser.parse_args()
 

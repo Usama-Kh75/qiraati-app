@@ -31,11 +31,20 @@
 
     </div>
 
-    <!-- شخصية "فَصِيح" الكرتونية التفاعلية -->
+    <!-- شخصية "فَصِيح" الكرتونية التفاعلية المحبوبة -->
 
     <div class="mascot-container" id="mascotContainer">
 
-        <div class="mascot-avatar" id="mascotAvatar" onclick="mascotInteracted()" title="أنا صديقك فصيح! انقر عليّ للتحدث">
+        <!-- شارة فصيح المصغرة عند الطي في الزاوية السفلى -->
+        <div class="mascot-minimized-badge" id="mascotMinimizedBadge" onclick="toggleMascotCollapse(event)" title="أنا صديقك فَصِيح! انقر لإظهاري ✏️">
+            <span>✏️</span>
+            <span class="mini-badge-name">فَصِيح</span>
+        </div>
+
+        <div class="mascot-avatar" id="mascotAvatar" onclick="mascotInteracted()" title="أنا صديقك فصيح! انقر عليّ للتحدث (أو اسحبني لتغيير مكاني)">
+
+            <!-- زر تصغير فصيح إلى الزاوية لتوفير مساحة لصفحة الكتاب -->
+            <button class="btn-mascot-minimize" id="btnMascotMinimize" onclick="toggleMascotCollapse(event)" title="تصغير فصيح إلى شارة جانبية">─</button>
 
             <svg viewBox="0 0 160 200" width="100%" height="100%">
 
@@ -104,6 +113,8 @@
         </div>
 
         <div class="speech-bubble" id="speechBubble">
+
+            <button class="btn-bubble-close" onclick="closeMascotBubble(event)" title="إغلاق الفقاعة">✕</button>
 
             <div id="speechText">مرحباً بكم في الدرس الأول من كتاب قراءتي! استمعوا للنشيد واضغطوا على عناصر الصورة لنبدأ الرحلة! 🌟</div>
 

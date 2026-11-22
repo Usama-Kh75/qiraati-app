@@ -79,7 +79,7 @@
                     <div>
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <span>قراءتي التفاعلية الذكية</span>
-                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.56: استوديو واقعية الأصوات البشرية، وضع السبورة الصفية، وملفات التلاميذ - إعداد المهندس أسامة خليل هاشم">v3.56</span>
+                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.57: تحسينات العرض والواجهة الاحترافية والمعالجة الصوتية الاستوديوية - إعداد المهندس أسامة خليل هاشم">v3.57</span>
                         </div>
                         <div class="brand-author" style="font-size: 0.78rem; font-weight: 800; color: #059669; margin-top: 1px;">
                             إعداد: المهندس أسامة خليل هاشم
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                             <div class="mega-panel-status">
-                                <span class="ai-status-badge offline" id="megaAiBadge" title="حالة الاتصال بطبقة الذكاء الاصطناعي">⚡ أوفلاين محلي</span>
+                                <span class="ai-status-badge offline" id="megaAiBadge" title="حالة الاتصال بطبقة الذكاء الاصطناعي">⚡ أوفلاين</span>
                                 <button class="btn-mega-close" onclick="closeToolsHub()" title="إغلاق اللوحة (Esc)">✕</button>
                             </div>
                         </div>
@@ -297,15 +297,15 @@
                 </div>
 
                 <!-- زر إظهار / إخفاء شريط الأدوات السريع -->
-                <button class="btn-toggle-ribbon" id="btnToggleRibbon" onclick="toggleQuickRibbon()" title="إظهار / إخفاء شريط الأدوات السريع للسبورة التفاعلية">
-                    <span class="ribbon-toggle-icon" id="ribbonToggleIcon">▴</span>
-                    <span class="ribbon-toggle-text" id="ribbonToggleText">إخفاء الشريط السريع</span>
+                <button class="btn-toggle-ribbon collapsed" id="btnToggleRibbon" onclick="toggleQuickRibbon()" title="إظهار / إخفاء شريط الأدوات السريع للسبورة التفاعلية">
+                    <span class="ribbon-toggle-icon" id="ribbonToggleIcon">▾</span>
+                    <span class="ribbon-toggle-text" id="ribbonToggleText">إظهار الشريط السريع</span>
                 </button>
 
                 <!-- زر وضع العرض الصفي للسبورة الذكية -->
                 <button class="btn-presentation-mode" id="btnPresentationMode" onclick="toggleClassroomPresentation()" title="وضع العرض الصفي للسبورة الذكية (F9 / Esc)">
                     <span>🖥️</span>
-                    <span>وضع السبورة الصفية</span>
+                    <span class="btn-presentation-text">وضع السبورة الصفية</span>
                 </button>
             </div>
 
@@ -325,10 +325,10 @@
                 </div>
 
                 <!-- أداة التحكم السريع في مستوى الصوت ومضاعف التعزيز -->
-                <div class="top-volume-box" style="display: inline-flex; align-items: center; gap: 6px; background: white; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 4px 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);" title="التحكم في مستوى الصوت وتعزيز النطق (حتى 150%)">
+                <div class="top-volume-box" title="التحكم في مستوى الصوت وتعزيز النطق (حتى 150%)">
                     <span id="topVolIcon" style="cursor: pointer; font-size: 1.1rem;" onclick="toggleMuteAudio()" title="كتم / تشغيل الصوت">🔊</span>
-                    <input type="range" id="topVolumeSlider" min="30" max="150" value="100" step="5" oninput="changeMasterVolume(this.value)" style="width: 65px; accent-color: #059669; cursor: pointer; height: 6px;">
-                    <span id="topVolBadge" style="font-size: 0.76rem; font-weight: 800; color: #065f46; min-width: 32px;">100%</span>
+                    <input type="range" id="topVolumeSlider" min="30" max="150" value="100" step="5" oninput="changeMasterVolume(this.value)">
+                    <span id="topVolBadge">100%</span>
                 </div>
 
                 <!-- زر إيقاف الصوت النشط (يظهر أثناء التشغيل فقط) -->
@@ -346,7 +346,7 @@
         </div>
 
         <!-- الصف الثاني (اختياري/قابل للطي على الحاسوب والسبورة) — شريط الشبكة الموزونة (Balanced 2-Row Grid Ribbon) -->
-        <nav class="navbar-row navbar-row-tools" id="navbarQuickRibbon" aria-label="شريط الأدوات السريع لمنصة قراءتي">
+        <nav class="navbar-row navbar-row-tools ribbon-collapsed" id="navbarQuickRibbon" aria-label="شريط الأدوات السريع لمنصة قراءتي">
             <div class="tools-ribbon-grid">
 
                 <!-- صف 1 — أدوات التلميذ التفاعلية (8 أزرار متساوية العرض والارتفاع) -->
@@ -490,233 +490,236 @@
 
             </div>
 
-            <!-- بطاقة استوديو التدريب الصوتي ومخارج الحروف في القائمة الجانبية -->
-            <div class="sidebar-teacher-card" id="sidebarVoiceCoachCard" onclick="VoiceCoach.openModal('studio')" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-color: #86efac; cursor: pointer;" title="استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-weight: 900; color: #166534; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>🎙️</span> <span>المدرب الصوتي ونطق الحروف</span>
-                    </span>
-                    <span style="font-size: 0.74rem; font-weight: 900; background: #059669; color: white; padding: 2px 8px; border-radius: 8px;">
-                        أوفلاين 100%
-                    </span>
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #15803d; font-weight: 700;">
-                    <span>مخارج الحروف</span>
-                    <span>•</span>
-                    <span>الطلاقة القرائية</span>
-                    <span style="color: #047857; font-weight: 900;">فتح الاستوديو ⬅</span>
-                </div>
-            </div>
-
-            <!-- بطاقة مختبر الإملاء المنظور والاختباري في القائمة الجانبية -->
-            <div class="sidebar-teacher-card" id="sidebarDictationLabCard" onclick="DictationLab.openModal('seen')" style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border-color: #c4b5fd; cursor: pointer;" title="مختبر الإملاء المنظور والاختباري الذكي بالتحليل الصوتي الفوري للأجهزة اللوحية والسبورات">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-weight: 900; color: #4338ca; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>✍️</span> <span>مختبر الإملاء والسبورة الذكية</span>
-                    </span>
-                    <span style="font-size: 0.74rem; font-weight: 900; background: #6366f1; color: white; padding: 2px 8px; border-radius: 8px;">
-                        تصحيح ذكي
-                    </span>
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #4f46e5; font-weight: 700;">
-                    <span>إملاء منظور واختباري</span>
-                    <span>•</span>
-                    <span>كراسة الخط A4</span>
-                    <span style="color: #3730a3; font-weight: 900;">فتح المختبر ⬅</span>
-                </div>
-            </div>
-
-            <!-- بطاقة مسرح القراءة التعبيرية والدمى المتحركة الرقمية في القائمة الجانبية -->
-            <div class="sidebar-teacher-card" id="sidebarReadersTheaterCard" onclick="ReadersTheater.openModal('theater')" style="background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); border-color: #fca5a5; cursor: pointer;" title="مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية للأجهزة اللوحية والسبورات">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-weight: 900; color: #9f1239; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>🎭</span> <span>مسرح القراءة والدمى الرقمية</span>
-                    </span>
-                    <span style="font-size: 0.74rem; font-weight: 900; background: #e11d48; color: white; padding: 2px 8px; border-radius: 8px;">
-                        تفاعلي ودرامي
-                    </span>
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #be123c; font-weight: 700;">
-                    <span>مسرح العرائس</span>
-                    <span>•</span>
-                    <span>محادثة صفية ومؤثرات</span>
-                    <span style="color: #881337; font-weight: 900;">فتح المسرح ⬅</span>
-                </div>
-            </div>
-
-            <!-- بطاقة استوديو الأناشيد المنهجية والإنشاد الإيقاعي في القائمة الجانبية -->
-            <div class="sidebar-teacher-card" id="sidebarNasheedStudioCard" onclick="NasheedStudio.openModal('stage')" style="background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border-color: #fed7aa; cursor: pointer;" title="استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي للأجهزة اللوحية والسبورات">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-weight: 900; color: #9a3412; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>🥁</span> <span>استوديو الأناشيد والإيقاع</span>
-                    </span>
-                    <span style="font-size: 0.74rem; font-weight: 900; background: #ea580c; color: white; padding: 2px 8px; border-radius: 8px;">
-                        دف مدرسي وكاراوكي
-                    </span>
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #c2410c; font-weight: 700;">
-                    <span>إنشاد إيقاعي</span>
-                    <span>•</span>
-                    <span>تحليل موسيقي وA4</span>
-                    <span style="color: #7c2d12; font-weight: 900;">فتح الاستوديو ⬅</span>
-                </div>
-            </div>
-
-            <!-- بطاقة استوديو القصة المصورة التفاعلية وصانع القصص الرقمية في القائمة الجانبية -->
-            <div class="sidebar-teacher-card" id="sidebarStoryStudioCard" onclick="StoryStudio.openModal('creator')" style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border-color: #c4b5fd; cursor: pointer;" title="استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية للأجهزة اللوحية والسبورات">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-weight: 900; color: #5b21b6; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>📚</span> <span>صانع القصص والكوميكس</span>
-                    </span>
-                    <span style="font-size: 0.74rem; font-weight: 900; background: #7c3aed; color: white; padding: 2px 8px; border-radius: 8px;">
-                        كوميكس وطباعة A4
-                    </span>
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #6d28d9; font-weight: 700;">
-                    <span>تعبير إبداعي</span>
-                    <span>•</span>
-                    <span>قصص فونيمية</span>
-                    <span>•</span>
-                    <span>سبورات وتابلت</span>
-                    <span style="color: #4c1d95; font-weight: 900;">فتح الاستوديو ⬅</span>
-                </div>
-            </div>
-
-            <!-- بطاقة لوحة تحكم المعلم وسجل الصف في القائمة الجانبية -->
-            <div class="sidebar-teacher-card" id="sidebarTeacherCard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-weight: 900; color: #1e3a8a; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>🧑‍🏫</span> <span>لوحة المعلم وسجل الصف</span>
-                    </span>
-                    <span id="sidebarTeacherClassBadge" style="font-size: 0.76rem; font-weight: 900; background: #2563eb; color: white; padding: 2px 8px; border-radius: 8px;">
-                        شعبة (أ)
-                    </span>
-                </div>
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 6px; font-size: 0.78rem; color: #475569; font-weight: 700;">
-                    <span>التلاميذ: <b id="sidebarTeacherStudentsCount" style="color: #1e3a8a;">0</b></span>
-                    <span>الإنجاز: <b id="sidebarTeacherAvgProgress" style="color: #059669;">0%</b></span>
-                    <span style="color: #2563eb; font-weight: 800;">إدارة الصف ⬅</span>
-                </div>
-            </div>
-
-            <!-- بطاقة سجل الإنجاز والتقييم السريعة في القائمة الجانبية -->
-            <div class="sidebar-eval-card" onclick="openEvaluationModal('progress')" title="عرض سجل إنجاز التلميذ ومسيرة التعلم والأوسمة الملكية">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-weight: 900; color: #92400e; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>🏅</span> <span>سجل الإنجاز والتقييم</span>
-                    </span>
-                    <span id="sidebarProgressPill" style="font-size: 0.76rem; font-weight: 800; background: #059669; color: white; padding: 2px 8px; border-radius: 8px;">100% مكتمل</span>
-                </div>
-                <div class="sidebar-eval-progress-bar">
-                    <div class="sidebar-eval-progress-fill" id="sidebarProgressFill" style="width: 100%;"></div>
-                </div>
-            </div>
-
-            <!-- بطاقة نظام الاختبار وتحدي النجوم الذكي في القائمة الجانبية -->
-            <div class="sidebar-gamification-card" onclick="openGamificationModal('challenge')" title="نظام الاختبار وتحدي النجوم الذكي - أوسمة وتحديات الأبطال">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-weight: 900; color: #92400e; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>⭐</span> <span>تحدي النجوم والأوسمة</span>
-                    </span>
-                    <span style="font-size: 0.76rem; font-weight: 900; background: #f59e0b; color: white; padding: 2px 8px; border-radius: 8px;">
-                        <span id="sidebarStarsCount">0</span> ⭐
-                    </span>
-                </div>
-                <div class="sidebar-gamification-grid" onclick="event.stopPropagation()">
-                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'grand')" title="تحدي الأبطال الشامل">
-                        <span>🏆</span> <span>تحدي الأبطال</span>
-                    </button>
-                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'phonemic')" title="تحدي الأصوات والوعي الفونيمي">
-                        <span>👂</span> <span>تحدي الأصوات</span>
-                    </button>
-                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'syllables')" title="تحدي تركيب المقاطع">
-                        <span>🧩</span> <span>تركيب المقاطع</span>
-                    </button>
-                    <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('badges')" title="خزانة الأوسمة الملكية">
-                        <span>👑</span> <span>خزانة الأوسمة</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- بطاقة منظومة الاختبارات والأنشطة الإثرائية وبنك البطاقات في القائمة الجانبية -->
-            <div class="sidebar-enrichment-card" onclick="openEnrichmentModal('exams')" title="اختبارات نهاية الفصل، التدريبات الصيفية الإثرائية، وبنك بطاقات القراءة الذكية">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-weight: 900; color: #5b21b6; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>🌟</span> <span>الاختبارات والبطاقات الذكية</span>
-                    </span>
-                    <span style="font-size: 0.72rem; font-weight: 800; background: #7c3aed; color: white; padding: 2px 6px; border-radius: 6px;">جديد</span>
-                </div>
-                <div class="sidebar-enrich-buttons-grid" onclick="event.stopPropagation()">
-                    <button class="sidebar-enrich-mini-btn" onclick="openEnrichmentModal('exams')" title="اختبارات نهاية الفصل الدراسي الأول والثاني">
-                        <span>📝</span> <span>الاختبارات</span>
-                    </button>
-                    <button class="sidebar-enrich-mini-btn" onclick="openEnrichmentModal('summer')" title="التدريبات والقصص الصيفية الإثرائية">
-                        <span>☀️</span> <span>نادي الصيف</span>
-                    </button>
-                    <button class="sidebar-enrich-mini-btn" onclick="openEnrichmentModal('cards')" title="بنك بطاقات القراءة والتقطيع المقطعي">
-                        <span>🗂️</span> <span>البطاقات</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- بطاقة سبورة الخط وتتبع الحروف ومختبر خط النسخ في القائمة الجانبية -->
-            <div class="sidebar-blackboard-card" onclick="openHandwritingTrace()" title="لوحة تتبع الحروف بالقلم أو الإصبع ومختبر خط النسخ العربي">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-weight: 900; color: #065f46; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>✍️</span> <span>لوحة تتبع الحروف وتدريب اليد</span>
-                    </span>
-                    <span style="font-size: 0.72rem; font-weight: 800; background: #059669; color: white; padding: 2px 6px; border-radius: 6px;">جديد</span>
-                </div>
-                <div class="sidebar-bb-buttons-grid" onclick="event.stopPropagation()">
-                    <button class="sidebar-bb-mini-btn" onclick="openHandwritingTrace()" title="تتبع ورسم الحروف مع التصحيح الذكي">
-                        <span>✍️</span> <span>تتبع الحروف</span>
-                    </button>
-                    <button class="sidebar-bb-mini-btn" onclick="openHandwritingTrace('drill_vertical_rain')" title="تمارين إحماء وتهيئة عضلات اليد والأصابع">
-                        <span>💪</span> <span>إحماء العضلات</span>
-                    </button>
-                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('anatomy')" title="مختبر الخط وتشريح أسرار الحروف">
-                        <span>🏛️</span> <span>مختبر الخط</span>
-                    </button>
-                    <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('freehand')" title="سبورة الكلمات والرسم الحر">
-                        <span>🎨</span> <span>سبورة الكلمات</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- بطاقة بنك الألعاب والمسابقات الصفية للشاشات الذكية في القائمة الجانبية -->
-            <div class="sidebar-games-card" onclick="openGamesModal('wheel')" title="بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات والسبورات الذكية">
-                <div style="display: flex; align-items: center; justify-content: space-between;">
-                    <span style="font-weight: 900; color: #5b21b6; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
-                        <span>🎮</span> <span>الألعاب والمسابقات الذكية</span>
-                    </span>
-                    <span style="font-size: 0.72rem; font-weight: 800; background: #7c3aed; color: white; padding: 2px 6px; border-radius: 6px;">شاشات ذكية</span>
-                </div>
-                <div class="sidebar-games-buttons-grid" onclick="event.stopPropagation()">
-                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('wheel')" title="عجلة الحظ اللغوية الدوارة">
-                        <span>🎡</span> <span>عجلة الحظ</span>
-                    </button>
-                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('battle')" title="تحدي الشاشة الذكية لمسابقات الفريقين">
-                        <span>⚔️</span> <span>تحدي الفريقين</span>
-                    </button>
-                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('bubble')" title="صائد الفقاعات والكلمات الطائرة">
-                        <span>🫧</span> <span>صائد الفقاعات</span>
-                    </button>
-                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('train')" title="قطار المقاطع وتركيب الكلمات">
-                        <span>🚂</span> <span>قطار المقاطع</span>
-                    </button>
-                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('memory')" title="صندوق الذاكرة والبطاقات المتطابقة 3D">
-                        <span>🃏</span> <span>صندوق الذاكرة</span>
-                    </button>
-                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('sorter')" title="ميزان اللام الشمسية واللام القمرية">
-                        <span>☀️🌙</span> <span>ميزان اللام</span>
-                    </button>
-                    <button class="sidebar-games-mini-btn" onclick="openGamesModal('quiz')" title="من سيربح وسام القراءة الذهبي" style="grid-column: span 2;">
-                        <span>🏆</span> <span>من سيربح وسام القراءة؟</span>
-                    </button>
-                </div>
-            </div>
-
+            <!-- فهرس الوحدات والدروس أولاً مباشرة تحت العنوان -->
             <div class="units-accordion" id="unitsAccordion"></div>
+
+            <!-- قسم الاستوديوهات والأدوات المنهجية الممتدة (قابل للطي أسفل الفهرس) -->
+            <details class="sidebar-studios-collapsible" id="sidebarStudiosCollapsible">
+                <summary class="sidebar-studios-summary" style="padding: 10px 14px; margin: 10px; background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 12px; font-weight: 800; font-size: 0.84rem; color: #334155; cursor: pointer; display: flex; align-items: center; justify-content: space-between; user-select: none;">
+                    <span style="display: flex; align-items: center; gap: 6px;">
+                        <span>🧩</span> <span>الاستوديوهات والأدوات المنهجية الصفية</span>
+                    </span>
+                    <span class="studios-caret" style="font-size: 0.85rem; color: #64748b;">▾</span>
+                </summary>
+
+                <div class="sidebar-studios-content" style="padding-bottom: 12px;">
+
+                    <!-- بطاقة استوديو التدريب الصوتي ومخارج الحروف في القائمة الجانبية -->
+                    <div class="sidebar-teacher-card" id="sidebarVoiceCoachCard" onclick="VoiceCoach.openModal('studio')" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border-color: #86efac; cursor: pointer;" title="استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-weight: 900; color: #166534; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                                <span>🎙️</span> <span>المدرب الصوتي ونطق الحروف</span>
+                            </span>
+                            <span style="font-size: 0.74rem; font-weight: 900; background: #059669; color: white; padding: 2px 8px; border-radius: 8px;">
+                                أوفلاين 100%
+                            </span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-top: 6px; font-size: 0.78rem; line-height: 1.4; color: #15803d; font-weight: 700;">
+                            <span>مخارج الحروف • الطلاقة القرائية</span>
+                            <span style="color: #047857; font-weight: 900; white-space: nowrap;">فتح الاستوديو ⬅</span>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة مختبر الإملاء المنظور والاختباري في القائمة الجانبية -->
+                    <div class="sidebar-teacher-card" id="sidebarDictationLabCard" onclick="DictationLab.openModal('seen')" style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border-color: #c4b5fd; cursor: pointer;" title="مختبر الإملاء المنظور والاختباري الذكي بالتحليل الصوتي الفوري للأجهزة اللوحية والسبورات">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-weight: 900; color: #4338ca; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                                <span>✍️</span> <span>مختبر الإملاء والسبورة الذكية</span>
+                            </span>
+                            <span style="font-size: 0.74rem; font-weight: 900; background: #6366f1; color: white; padding: 2px 8px; border-radius: 8px;">
+                                تصحيح ذكي
+                            </span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-top: 6px; font-size: 0.78rem; line-height: 1.4; color: #4f46e5; font-weight: 700;">
+                            <span>إملاء منظور • كراسة الخط A4</span>
+                            <span style="color: #3730a3; font-weight: 900; white-space: nowrap;">فتح المختبر ⬅</span>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة مسرح القراءة التعبيرية والدمى المتحركة الرقمية في القائمة الجانبية -->
+                    <div class="sidebar-teacher-card" id="sidebarReadersTheaterCard" onclick="ReadersTheater.openModal('theater')" style="background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); border-color: #fca5a5; cursor: pointer;" title="مسرح القراءة التعبيرية والدمى المتحركة الرقمية ومحاكاة المحادثة الصفية للأجهزة اللوحية والسبورات">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-weight: 900; color: #9f1239; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                                <span>🎭</span> <span>مسرح القراءة والدمى الرقمية</span>
+                            </span>
+                            <span style="font-size: 0.74rem; font-weight: 900; background: #e11d48; color: white; padding: 2px 8px; border-radius: 8px;">
+                                تفاعلي ودرامي
+                            </span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-top: 6px; font-size: 0.78rem; line-height: 1.4; color: #be123c; font-weight: 700;">
+                            <span>مسرح العرائس • محادثة صفية</span>
+                            <span style="color: #881337; font-weight: 900; white-space: nowrap;">فتح المسرح ⬅</span>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة استوديو الأناشيد المنهجية والإنشاد الإيقاعي في القائمة الجانبية -->
+                    <div class="sidebar-teacher-card" id="sidebarNasheedStudioCard" onclick="NasheedStudio.openModal('stage')" style="background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%); border-color: #fed7aa; cursor: pointer;" title="استوديو الأناشيد المنهجية والإنشاد الإيقاعي التفاعلي بالدف المدرسي والتحليل الموسيقي للأجهزة اللوحية والسبورات">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-weight: 900; color: #9a3412; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                                <span>🥁</span> <span>استوديو الأناشيد والإيقاع</span>
+                            </span>
+                            <span style="font-size: 0.74rem; font-weight: 900; background: #ea580c; color: white; padding: 2px 8px; border-radius: 8px;">
+                                دف مدرسي وكاراوكي
+                            </span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-top: 6px; font-size: 0.78rem; line-height: 1.4; color: #c2410c; font-weight: 700;">
+                            <span>إنشاد إيقاعي • تحليل موسيقي</span>
+                            <span style="color: #7c2d12; font-weight: 900; white-space: nowrap;">فتح الاستوديو ⬅</span>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة استوديو القصة المصورة التفاعلية وصانع القصص الرقمية في القائمة الجانبية -->
+                    <div class="sidebar-teacher-card" id="sidebarStoryStudioCard" onclick="StoryStudio.openModal('creator')" style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border-color: #c4b5fd; cursor: pointer;" title="استوديو القصة المصورة التفاعلية وصانع القصص الرقمية الفونيمية للأجهزة اللوحية والسبورات">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-weight: 900; color: #5b21b6; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                                <span>📚</span> <span>صانع القصص والكوميكس</span>
+                            </span>
+                            <span style="font-size: 0.74rem; font-weight: 900; background: #7c3aed; color: white; padding: 2px 8px; border-radius: 8px;">
+                                كوميكس وطباعة A4
+                            </span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-top: 6px; font-size: 0.78rem; line-height: 1.4; color: #6d28d9; font-weight: 700;">
+                            <span>تعبير إبداعي • قصص فونيمية</span>
+                            <span style="color: #4c1d95; font-weight: 900; white-space: nowrap;">فتح الاستوديو ⬅</span>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة لوحة تحكم المعلم وسجل الصف في القائمة الجانبية -->
+                    <div class="sidebar-teacher-card" id="sidebarTeacherCard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ الصفي والتقارير المطبوعة أوفلاين">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-weight: 900; color: #1e3a8a; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                                <span>🧑‍🏫</span> <span>لوحة المعلم وسجل الصف</span>
+                            </span>
+                            <span id="sidebarTeacherClassBadge" style="font-size: 0.76rem; font-weight: 900; background: #2563eb; color: white; padding: 2px 8px; border-radius: 8px;">
+                                شعبة (أ)
+                            </span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-top: 6px; font-size: 0.78rem; line-height: 1.4; color: #475569; font-weight: 700;">
+                            <span>التلاميذ: <b id="sidebarTeacherStudentsCount" style="color: #1e3a8a;">0</b></span>
+                            <span>الإنجاز: <b id="sidebarTeacherAvgProgress" style="color: #059669;">0%</b></span>
+                            <span style="color: #2563eb; font-weight: 800; white-space: nowrap;">إدارة الصف ⬅</span>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة سجل الإنجاز والتقييم السريعة في القائمة الجانبية -->
+                    <div class="sidebar-eval-card" onclick="openEvaluationModal('progress')" title="عرض سجل إنجاز التلميذ ومسيرة التعلم والأوسمة الملكية">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-weight: 900; color: #92400e; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                                <span>🏅</span> <span>سجل الإنجاز والتقييم</span>
+                            </span>
+                            <span id="sidebarProgressPill" style="font-size: 0.76rem; font-weight: 800; background: #059669; color: white; padding: 2px 8px; border-radius: 8px;">100% مكتمل</span>
+                        </div>
+                        <div class="sidebar-eval-progress-bar">
+                            <div class="sidebar-eval-progress-fill" id="sidebarProgressFill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة نظام الاختبار وتحدي النجوم الذكي في القائمة الجانبية -->
+                    <div class="sidebar-gamification-card" onclick="openGamificationModal('challenge')" title="نظام الاختبار وتحدي النجوم الذكي - أوسمة وتحديات الأبطال">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-weight: 900; color: #92400e; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                                <span>⭐</span> <span>تحدي النجوم والأوسمة</span>
+                            </span>
+                            <span style="font-size: 0.76rem; font-weight: 900; background: #f59e0b; color: white; padding: 2px 8px; border-radius: 8px;">
+                                <span id="sidebarStarsCount">0</span> ⭐
+                            </span>
+                        </div>
+                        <div class="sidebar-gamification-grid" onclick="event.stopPropagation()">
+                            <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'grand')" title="تحدي الأبطال الشامل">
+                                <span>🏆</span> <span>تحدي الأبطال</span>
+                            </button>
+                            <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'phonemic')" title="تحدي الأصوات والوعي الفونيمي">
+                                <span>👂</span> <span>تحدي الأصوات</span>
+                            </button>
+                            <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('challenge', 'syllables')" title="تحدي تركيب المقاطع">
+                                <span>🧩</span> <span>تركيب المقاطع</span>
+                            </button>
+                            <button class="sidebar-gamification-mini-btn" onclick="openGamificationModal('badges')" title="خزانة الأوسمة الملكية">
+                                <span>👑</span> <span>خزانة الأوسمة</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة منظومة الاختبارات والأنشطة الإثرائية وبنك البطاقات في القائمة الجانبية -->
+                    <div class="sidebar-enrichment-card" onclick="openEnrichmentModal('exams')" title="اختبارات نهاية الفصل، التدريبات الصيفية الإثرائية، وبنك بطاقات القراءة الذكية">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-weight: 900; color: #5b21b6; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                                <span>🌟</span> <span>الاختبارات والبطاقات الذكية</span>
+                            </span>
+                            <span style="font-size: 0.72rem; font-weight: 800; background: #7c3aed; color: white; padding: 2px 6px; border-radius: 6px;">جديد</span>
+                        </div>
+                        <div class="sidebar-enrich-buttons-grid" onclick="event.stopPropagation()">
+                            <button class="sidebar-enrich-mini-btn" onclick="openEnrichmentModal('exams')" title="اختبارات نهاية الفصل الدراسي الأول والثاني">
+                                <span>📝</span> <span>الاختبارات</span>
+                            </button>
+                            <button class="sidebar-enrich-mini-btn" onclick="openEnrichmentModal('summer')" title="التدريبات والقصص الصيفية الإثرائية">
+                                <span>☀️</span> <span>نادي الصيف</span>
+                            </button>
+                            <button class="sidebar-enrich-mini-btn" onclick="openEnrichmentModal('cards')" title="بنك بطاقات القراءة والتقطيع المقطعي">
+                                <span>🗂️</span> <span>البطاقات</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة سبورة الخط وتتبع الحروف ومختبر خط النسخ في القائمة الجانبية -->
+                    <div class="sidebar-blackboard-card" onclick="openHandwritingTrace()" title="لوحة تتبع الحروف بالقلم أو الإصبع ومختبر خط النسخ العربي">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-weight: 900; color: #065f46; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                                <span>✍️</span> <span>لوحة تتبع الحروف وتدريب اليد</span>
+                            </span>
+                            <span style="font-size: 0.72rem; font-weight: 800; background: #059669; color: white; padding: 2px 6px; border-radius: 6px;">جديد</span>
+                        </div>
+                        <div class="sidebar-bb-buttons-grid" onclick="event.stopPropagation()">
+                            <button class="sidebar-bb-mini-btn" onclick="openHandwritingTrace()" title="تتبع ورسم الحروف مع التصحيح الذكي">
+                                <span>✍️</span> <span>تتبع الحروف</span>
+                            </button>
+                            <button class="sidebar-bb-mini-btn" onclick="openHandwritingTrace('drill_vertical_rain')" title="تمارين إحماء وتهيئة عضلات اليد والأصابع">
+                                <span>💪</span> <span>إحماء العضلات</span>
+                            </button>
+                            <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('anatomy')" title="مختبر الخط وتشريح أسرار الحروف">
+                                <span>🏛️</span> <span>مختبر الخط</span>
+                            </button>
+                            <button class="sidebar-bb-mini-btn" onclick="openBlackboardModal('freehand')" title="سبورة الكلمات والرسم الحر">
+                                <span>🎨</span> <span>سبورة الكلمات</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- بطاقة بنك الألعاب والمسابقات الصفية للشاشات الذكية في القائمة الجانبية -->
+                    <div class="sidebar-games-card" onclick="openGamesModal('wheel')" title="بنك الألعاب اللغوية التفاعلية والمسابقات الصفية للشاشات والسبورات الذكية">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="font-weight: 900; color: #5b21b6; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
+                                <span>🎮</span> <span>الألعاب والمسابقات الذكية</span>
+                            </span>
+                            <span style="font-size: 0.72rem; font-weight: 800; background: #7c3aed; color: white; padding: 2px 6px; border-radius: 6px;">شاشات ذكية</span>
+                        </div>
+                        <div class="sidebar-games-buttons-grid" onclick="event.stopPropagation()">
+                            <button class="sidebar-games-mini-btn" onclick="openGamesModal('wheel')" title="عجلة الحظ اللغوية الدوارة">
+                                <span>🎡</span> <span>عجلة الحظ</span>
+                            </button>
+                            <button class="sidebar-games-mini-btn" onclick="openGamesModal('battle')" title="تحدي الشاشة الذكية لمسابقات الفريقين">
+                                <span>⚔️</span> <span>تحدي الفريقين</span>
+                            </button>
+                            <button class="sidebar-games-mini-btn" onclick="openGamesModal('bubble')" title="صائد الفقاعات والكلمات الطائرة">
+                                <span>🫧</span> <span>صائد الفقاعات</span>
+                            </button>
+                            <button class="sidebar-games-mini-btn" onclick="openGamesModal('train')" title="قطار المقاطع وتركيب الكلمات">
+                                <span>🚂</span> <span>قطار المقاطع</span>
+                            </button>
+                            <button class="sidebar-games-mini-btn" onclick="openGamesModal('memory')" title="صندوق الذاكرة والبطاقات المتطابقة 3D">
+                                <span>🃏</span> <span>صندوق الذاكرة</span>
+                            </button>
+                            <button class="sidebar-games-mini-btn" onclick="openGamesModal('sorter')" title="ميزان اللام الشمسية واللام القمرية">
+                                <span>☀️🌙</span> <span>ميزان اللام</span>
+                            </button>
+                            <button class="sidebar-games-mini-btn" onclick="openGamesModal('quiz')" title="من سيربح وسام القراءة الذهبي" style="grid-column: span 2;">
+                                <span>🏆</span> <span>من سيربح وسام القراءة؟</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </details>
 
         </aside>
 
@@ -23135,11 +23138,20 @@
 
     </div>
 
-    <!-- شخصية "فَصِيح" الكرتونية التفاعلية -->
+    <!-- شخصية "فَصِيح" الكرتونية التفاعلية المحبوبة -->
 
     <div class="mascot-container" id="mascotContainer">
 
-        <div class="mascot-avatar" id="mascotAvatar" onclick="mascotInteracted()" title="أنا صديقك فصيح! انقر عليّ للتحدث">
+        <!-- شارة فصيح المصغرة عند الطي في الزاوية السفلى -->
+        <div class="mascot-minimized-badge" id="mascotMinimizedBadge" onclick="toggleMascotCollapse(event)" title="أنا صديقك فَصِيح! انقر لإظهاري ✏️">
+            <span>✏️</span>
+            <span class="mini-badge-name">فَصِيح</span>
+        </div>
+
+        <div class="mascot-avatar" id="mascotAvatar" onclick="mascotInteracted()" title="أنا صديقك فصيح! انقر عليّ للتحدث (أو اسحبني لتغيير مكاني)">
+
+            <!-- زر تصغير فصيح إلى الزاوية لتوفير مساحة لصفحة الكتاب -->
+            <button class="btn-mascot-minimize" id="btnMascotMinimize" onclick="toggleMascotCollapse(event)" title="تصغير فصيح إلى شارة جانبية">─</button>
 
             <svg viewBox="0 0 160 200" width="100%" height="100%">
 
@@ -23208,6 +23220,8 @@
         </div>
 
         <div class="speech-bubble" id="speechBubble">
+
+            <button class="btn-bubble-close" onclick="closeMascotBubble(event)" title="إغلاق الفقاعة">✕</button>
 
             <div id="speechText">مرحباً بكم في الدرس الأول من كتاب قراءتي! استمعوا للنشيد واضغطوا على عناصر الصورة لنبدأ الرحلة! 🌟</div>
 

@@ -281,6 +281,49 @@
 
         }
 
+        let mascotBubbleTimer = null;
+
+        function closeMascotBubble(e) {
+            if (e && e.stopPropagation) e.stopPropagation();
+            if (mascotBubbleTimer) {
+                clearTimeout(mascotBubbleTimer);
+                mascotBubbleTimer = null;
+            }
+            const bubble = document.getElementById('speechBubble');
+            if (bubble) {
+                bubble.classList.add('bubble-hidden');
+                bubble.classList.remove('speaking');
+            }
+        }
+
+        function scheduleMascotBubbleAutoClose() {
+            if (mascotBubbleTimer) {
+                clearTimeout(mascotBubbleTimer);
+                mascotBubbleTimer = null;
+            }
+            mascotBubbleTimer = setTimeout(() => {
+                closeMascotBubble();
+            }, 5000);
+        }
+
+        function toggleMascotCollapse(e) {
+            if (e && e.stopPropagation) e.stopPropagation();
+            const container = document.getElementById('mascotContainer');
+            if (!container) return;
+            const isCollapsed = container.classList.contains('collapsed');
+            if (isCollapsed) {
+                container.classList.remove('collapsed');
+                try { localStorage.setItem('qiraati-smart-faseeh-collapsed', 'false'); } catch(err) {}
+            } else {
+                container.classList.add('collapsed');
+                closeMascotBubble();
+                try { localStorage.setItem('qiraati-smart-faseeh-collapsed', 'true'); } catch(err) {}
+            }
+        }
+
+        window.closeMascotBubble = closeMascotBubble;
+        window.toggleMascotCollapse = toggleMascotCollapse;
+
         function playAudio(audioKey, onEndedCallback) {
             mascotSpeak('', audioKey, onEndedCallback);
         }
@@ -294,7 +337,9 @@
                 speechText.innerHTML = text;
             }
             if (text && bubble) {
+                bubble.classList.remove('bubble-hidden');
                 bubble.classList.add('speaking');
+                scheduleMascotBubbleAutoClose();
             }
             if (avatar) avatar.classList.add('mascot-speaking');
 
@@ -707,6 +752,8 @@
         }
 
         async function mascotInteracted() {
+            const avatar = document.getElementById('mascotAvatar');
+            if (avatar && avatar.getAttribute('data-dragged') === 'true') return;
             mascotCelebrates();
 
             // فحص إمكانية استشارة فصيح الذكية بالذكاء الاصطناعي التوليدي
@@ -827,5 +874,83 @@
                 _isDownloadingOffline = false;
                 if (btn) btn.disabled = false;
             }
+        }
+
+        // ==============================================================
+        // تهيئة ميزات فصيح الذكية (الطي التلقائي، السحب، والإغلاق المؤقت)
+        // ==============================================================
+        function initMascotFeatures() {
+            try {
+                if (localStorage.getItem('qiraati-smart-faseeh-collapsed') === 'true') {
+                    const container = document.getElementById('mascotContainer');
+                    if (container) container.classList.add('collapsed');
+                }
+            } catch(e) {}
+
+            // إغلاق فقاعة الترحيب تلقائياً بعد 5 ثوانٍ
+            scheduleMascotBubbleAutoClose();
+
+            // تفعيل سحب فصيح بحرية لمنع حجب نصوص أو صور كتاب القراءة
+            const avatar = document.getElementById('mascotAvatar');
+            const container = document.getElementById('mascotContainer');
+            if (!avatar || !container) return;
+
+            let isDragging = false;
+            let startX = 0, startY = 0, origLeft = 0, origBottom = 0;
+            let hasMoved = false;
+
+            function onPointerDown(e) {
+                if (e.target.closest('#btnMascotMinimize') || e.target.closest('.btn-bubble-close')) return;
+                isDragging = true;
+                hasMoved = false;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                startX = clientX;
+                startY = clientY;
+                const rect = container.getBoundingClientRect();
+                origLeft = rect.left;
+                origBottom = window.innerHeight - rect.bottom;
+            }
+
+            function onPointerMove(e) {
+                if (!isDragging) return;
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+                const dx = clientX - startX;
+                const dy = clientY - startY;
+                if (Math.abs(dx) > 6 || Math.abs(dy) > 6) {
+                    hasMoved = true;
+                }
+                if (hasMoved) {
+                    let newLeft = origLeft + dx;
+                    let newBottom = origBottom - dy;
+                    newLeft = Math.max(10, Math.min(window.innerWidth - 110, newLeft));
+                    newBottom = Math.max(10, Math.min(window.innerHeight - 140, newBottom));
+                    container.style.left = `${newLeft}px`;
+                    container.style.bottom = `${newBottom}px`;
+                }
+            }
+
+            function onPointerUp() {
+                if (isDragging && hasMoved) {
+                    avatar.setAttribute('data-dragged', 'true');
+                    setTimeout(() => avatar.removeAttribute('data-dragged'), 150);
+                }
+                isDragging = false;
+            }
+
+            avatar.addEventListener('mousedown', onPointerDown);
+            window.addEventListener('mousemove', onPointerMove);
+            window.addEventListener('mouseup', onPointerUp);
+
+            avatar.addEventListener('touchstart', onPointerDown, { passive: true });
+            window.addEventListener('touchmove', onPointerMove, { passive: true });
+            window.addEventListener('touchend', onPointerUp);
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initMascotFeatures);
+        } else {
+            initMascotFeatures();
         }
 

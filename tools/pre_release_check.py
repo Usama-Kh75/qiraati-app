@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 بوابة الفحص والجودة الآلية الإلزامية قبل كل إصدار
-لمنصة قراءتي التفاعلية الذكية (v3.56)
+لمنصة قراءتي التفاعلية الذكية (v3.57)
 إعداد وتطوير: المهندس أسامة خليل هاشم
 
 تقوم هذه الأداة بإجراء كافة الفحوصات الصارمة لمنع أي أخطاء قبل النشر:
@@ -9,7 +9,7 @@
 2. فحص السلامة النحوية عبر node --check لجميع ملفات js/**/*.js و sw.js (0 أخطاء).
 3. فحص index.html للتحقق من خلوه تماماً من المعرفات المكررة (0 Duplicate IDs) والتحقق من وجود loading="lazy" للصور.
 4. الفحص الأمني الصارم لعدم وجود أي مفاتيح سرية (AIza...) في أي ملف واجهة أمامي.
-5. مطابقة رقم الإصدار (v3.56) وترقية مخزن الكاش إلى (qiraati-smart-v79).
+5. مطابقة رقم الإصدار (v3.57) وترقية مخزن الكاش إلى (qiraati-smart-v80).
 """
 
 import os
@@ -135,7 +135,7 @@ def step4_security_scan():
     return True
 
 def step5_version_alignment():
-    print_header("[5/5] مطابقة رقم الإصدار (v3.56) ومخزن الكاش (qiraati-smart-v79)")
+    print_header("[5/5] مطابقة رقم الإصدار (v3.57) ومخزن الكاش (qiraati-smart-v80)")
     top_shell = os.path.join(BASE_DIR, 'views', 'app-shell-top.html')
     sw_file = os.path.join(BASE_DIR, 'sw.js')
 
@@ -159,8 +159,8 @@ def step5_version_alignment():
     print(f"  - إصدار عامل الخدمة (sw.js): {sw_ver}")
     print(f"  - اسم مخزن الكاش (sw.js): {sw_cache}")
 
-    expected_ver = "v3.56"
-    expected_cache = "qiraati-smart-v79"
+    expected_ver = "v3.57"
+    expected_cache = "qiraati-smart-v80"
 
     errors = []
     if top_ver != expected_ver:
@@ -176,13 +176,13 @@ def step5_version_alignment():
             print(f"  - {e}")
         return False
 
-    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.56 وكاش qiraati-smart-v79.")
+    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.57 وكاش qiraati-smart-v80.")
     return True
 
 def main():
     print("=" * 70)
     print("🛡️ منصة قراءتي التفاعلية الذكية - بوابة الفحص الآلي الإلزامية")
-    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.56)")
+    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.57)")
     print("=" * 70)
 
     steps = [

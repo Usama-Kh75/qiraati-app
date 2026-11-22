@@ -402,11 +402,16 @@
         function initQuickRibbonState() {
             try {
                 const saved = localStorage.getItem('qiraati-smart-quick-ribbon');
-                if (saved === 'hidden') {
-                    const ribbon = document.getElementById('navbarQuickRibbon');
-                    const btn = document.getElementById('btnToggleRibbon');
-                    const icon = document.getElementById('ribbonToggleIcon');
-                    const text = document.getElementById('ribbonToggleText');
+                const ribbon = document.getElementById('navbarQuickRibbon');
+                const btn = document.getElementById('btnToggleRibbon');
+                const icon = document.getElementById('ribbonToggleIcon');
+                const text = document.getElementById('ribbonToggleText');
+                if (saved === 'visible') {
+                    if (ribbon) ribbon.classList.remove('ribbon-collapsed');
+                    if (icon) icon.textContent = '▴';
+                    if (text) text.textContent = 'إخفاء الشريط السريع';
+                    if (btn) btn.classList.remove('collapsed');
+                } else {
                     if (ribbon) ribbon.classList.add('ribbon-collapsed');
                     if (icon) icon.textContent = '▾';
                     if (text) text.textContent = 'إظهار الشريط السريع';

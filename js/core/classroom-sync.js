@@ -174,7 +174,7 @@
             lbl.textContent = 'جاري المزامنة 🔄';
         } else {
             dot.classList.add('status-offline');
-            lbl.textContent = 'أوفلاين محلي ⚪';
+            lbl.textContent = 'أوفلاين ⚪';
         }
     }
 

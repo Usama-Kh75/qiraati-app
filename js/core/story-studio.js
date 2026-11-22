@@ -78,14 +78,17 @@
     // ==========================================================================
     // 2. بنك الشخصيات الكرتونية الفونيمية المتجهة SVG
     // ==========================================================================
+    let ssFaseehSvgCounter = 0;
     const CHARACTERS_DATA = {
         faseeh: {
             id: 'faseeh',
             name: 'فَصِيح',
             phonics: 'القَلَمُ الذَّكِيّ',
-            svg: `<svg viewBox="0 0 120 150" width="90" height="110">
+            get svg() {
+                const idx = ++ssFaseehSvgCounter;
+                return `<svg viewBox="0 0 120 150" width="90" height="110">
                 <defs>
-                    <linearGradient id="ss_faseeh_body" x1="0" y1="0" x2="1" y2="0">
+                    <linearGradient id="ss_faseeh_body_${idx}" x1="0" y1="0" x2="1" y2="0">
                         <stop offset="0%" stop-color="#f59e0b"/>
                         <stop offset="50%" stop-color="#fbbf24"/>
                         <stop offset="100%" stop-color="#d97706"/>
@@ -93,14 +96,15 @@
                 </defs>
                 <polygon points="60,5 30,45 90,45" fill="#fed7aa"/>
                 <polygon points="60,5 50,22 70,22" fill="#1e1b4b"/>
-                <rect x="30" y="45" width="60" height="75" fill="url(#ss_faseeh_body)" rx="4"/>
+                <rect x="30" y="45" width="60" height="75" fill="url(#ss_faseeh_body_${idx})" rx="4"/>
                 <rect x="30" y="120" width="60" height="14" fill="#cbd5e1"/>
                 <path d="M 30 134 C 30 148, 90 148, 90 134 Z" fill="#ef4444"/>
                 <circle cx="48" cy="70" r="9" fill="#ffffff"/><circle cx="48" cy="70" r="4.5" fill="#1e1b4b"/>
                 <circle cx="72" cy="70" r="9" fill="#ffffff"/><circle cx="72" cy="70" r="4.5" fill="#1e1b4b"/>
                 <path d="M 50 92 Q 60 102 70 92" stroke="#1e1b4b" stroke-width="3" fill="none" stroke-linecap="round"/>
                 <ellipse cx="60" cy="110" rx="8" ry="4" fill="#dc2626"/>
-            </svg>`
+            </svg>`;
+            }
         },
         dada: {
             id: 'dada',

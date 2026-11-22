@@ -14,6 +14,7 @@
 # قواعد الصوتيات Base64 محصورة بالنسخة المستقلة أوفلاين فقط ولا تُرفع للويب
 /audio_data.js
 /audio_data_unit6.js
+/audio_backup_raw/
 
 # ملفات التصميم والمنطق المجزأة للنظام (Modular CSS & JS)
 !/css/

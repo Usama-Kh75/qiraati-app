@@ -351,6 +351,34 @@
             flex-wrap: nowrap;
         }
 
+        .top-volume-box {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: white;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 12px;
+            padding: 4px 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+
+        .top-volume-box input[type="range"] {
+            width: 60px;
+            accent-color: #059669;
+            cursor: pointer;
+            height: 6px;
+            transition: width 0.2s ease;
+        }
+
+        #topVolBadge {
+            font-size: 0.76rem;
+            font-weight: 800;
+            color: #065f46;
+            min-width: 28px;
+        }
+
         .btn-system-mini {
             display: inline-flex;
             align-items: center;
@@ -928,69 +956,46 @@
         ======================================================== */
 
         .main-stage {
-
             flex: 1;
-
             height: 100%;
-
             overflow-y: auto;
-
-            padding: 20px;
-
+            padding: 10px 16px 20px;
             display: flex;
-
             flex-direction: column;
-
             align-items: center;
-
             position: relative;
-
         }
 
         .stage-card {
-
             width: 100%;
-
             max-width: 950px;
-
             background: white;
-
-            border-radius: 24px;
-
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-
-            padding: 16px;
-
+            border-radius: 20px;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+            padding: 12px 14px;
             position: relative;
-
-            margin-bottom: 20px;
-
+            margin-bottom: 16px;
         }
 
         /* شريط التنقل المتسلسل بين الدروس (التالي والسابق) */
-
         .lesson-stepper-bar {
-
             width: 100%;
-
             max-width: 950px;
-
             display: flex;
-
             justify-content: space-between;
-
             align-items: center;
-
-            padding: 10px 16px;
-
+            padding: 8px 16px;
             background: white;
-
             border-radius: 50px;
-
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            margin-bottom: 80px; /* مساحة لفصيح في أسفل مسرح الدرس */
+        }
 
-            margin-bottom: 120px; /* مساحة لفصيح */
-
+        /* شريط التنقل المتسلسل العلوي - هوامش مضغوطة لصالح صفحة الكتاب */
+        .lesson-stepper-bar.top-stepper {
+            margin-bottom: 10px;
+            padding: 6px 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
 
         .btn-step {
@@ -1048,35 +1053,21 @@
         .lesson-view.active { display: flex; }
 
         .controls {
-
             display: flex;
-
-            gap: 12px;
-
-            margin-bottom: 15px;
-
+            gap: 8px;
+            margin-bottom: 10px;
             flex-wrap: wrap;
-
             justify-content: center;
-
             width: 100%;
-
         }
 
         .btn {
-
-            padding: 10px 22px;
-
-            font-size: 1.05rem;
-
+            padding: 8px 18px;
+            font-size: 0.96rem;
             font-weight: 800;
-
             font-family: inherit;
-
             border: none;
-
             border-radius: 50px;
-
             cursor: pointer;
 
             transition: all 0.2s ease;
@@ -1233,12 +1224,130 @@
 
         }
 
-        @media (max-width: 1024px) {
+        /* تجاوب الشريط العلوي الرئيسي لضمان بقاء زر الضبط وشريط الصوت داخل الشاشة على جميع المقاسات */
+        @media (max-width: 1440px) {
+            .navbar-row-main {
+                padding: 0 12px;
+                gap: 10px;
+            }
+            .brand-section {
+                gap: 8px;
+            }
+            .primary-controls {
+                gap: 6px;
+            }
+            .top-volume-box input[type="range"] {
+                width: 60px;
+            }
+        }
+
+        @media (max-width: 1380px) {
             .navbar-row-main {
                 padding: 0 10px;
+                gap: 8px;
+            }
+            .brand-section {
+                gap: 6px;
+            }
+            .brand-title span:first-child {
+                font-size: 1.35rem !important;
+            }
+            .brand-author {
+                font-size: 0.72rem;
+            }
+            .navbar-center-controls {
+                gap: 5px;
+            }
+            .btn-tools-hub {
+                padding: 5px 10px;
+                font-size: 0.82rem;
+                gap: 4px;
+            }
+            /* إخفاء النص الطويل لزر وضع السبورة الصفية وإبقاء الأيقونة مع العنوان التوضيحي */
+            .btn-presentation-mode {
+                padding: 6px 10px;
+            }
+            .btn-presentation-mode .btn-presentation-text {
+                display: none !important;
+            }
+            /* إخفاء نص زر إظهار/إخفاء الشريط السريع وإبقاء الأيقونة */
+            .btn-toggle-ribbon {
+                padding: 6px 10px;
+            }
+            .btn-toggle-ribbon .ribbon-toggle-text {
+                display: none !important;
+            }
+            /* سلايدر الصوت أكثر إحكاماً */
+            .top-volume-box {
+                padding: 3px 6px;
+                gap: 4px;
+            }
+            .top-volume-box input[type="range"] {
+                width: 55px !important;
+            }
+            #topVolBadge {
+                font-size: 0.72rem;
+                min-width: 26px;
+            }
+            .primary-controls {
+                gap: 5px;
+            }
+            .top-student-badge {
+                padding: 3px 8px;
+            }
+            .top-student-badge .student-name-text {
+                max-width: 75px;
+                font-size: 0.78rem;
+            }
+            .top-stars-widget {
+                padding: 3px 7px;
+                gap: 3px;
+                font-size: 0.8rem;
+            }
+            .top-stars-widget .top-stars-label {
+                display: none;
+            }
+            .btn-system-mini {
+                padding: 5px 8px;
+            }
+        }
+
+        @media (max-width: 1280px) {
+            .navbar-row-main {
+                padding: 0 8px;
+                gap: 6px;
+            }
+            .btn-sidebar-toggle {
+                padding: 5px 8px;
+                font-size: 0.8rem;
+            }
+            .btn-sidebar-toggle .btn-sidebar-text {
+                display: none;
+            }
+            .btn-tools-hub .hub-text {
+                font-size: 0.8rem;
+            }
+            .top-student-badge .student-name-text {
+                max-width: 60px;
+            }
+            .btn-system-mini .btn-system-text {
+                display: none;
+            }
+            .top-volume-box input[type="range"] {
+                width: 50px !important;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .navbar-row-main {
+                padding: 0 6px;
                 height: 56px;
                 min-height: 56px;
                 max-height: 56px;
+                gap: 4px;
+            }
+            .brand-author {
+                display: none;
             }
             /* إخفاء شريط الصفين تلقائياً على الشاشات اللوحية والهواتف */
             .navbar-row-tools {
@@ -1248,8 +1357,8 @@
                 display: none !important;
             }
             .btn-tools-hub {
-                padding: 5px 10px;
-                font-size: 0.81rem;
+                padding: 5px 8px;
+                font-size: 0.8rem;
             }
             .tools-mega-panel {
                 width: 95vw;
@@ -1261,8 +1370,22 @@
             .btn-system-mini .btn-system-text {
                 display: none;
             }
+            .top-student-badge {
+                padding: 2px 5px;
+            }
+            .top-student-badge .student-name-text {
+                max-width: 45px;
+            }
+            .top-volume-box {
+                padding: 2px 4px;
+                gap: 3px;
+            }
             .top-volume-box input[type="range"] {
-                width: 50px !important;
+                width: 45px !important;
+            }
+            #topVolBadge {
+                font-size: 0.68rem;
+                min-width: 22px;
             }
         }
 

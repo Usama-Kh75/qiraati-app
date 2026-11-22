@@ -122,7 +122,7 @@
             } else {
                 b.className = 'ai-status-badge offline';
                 b.title = 'خادم الذكاء الاصطناعي غير متصل - يعمل بالوضع المحلي أوفلاين 100%';
-                b.innerHTML = '⚡ أوفلاين محلي';
+                b.innerHTML = '⚡ أوفلاين';
             }
         });
     }
