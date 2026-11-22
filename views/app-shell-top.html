@@ -62,184 +62,174 @@
 
 <body>
 
-    <!-- الشريط العلوي -->
-
+    <!-- الشريط العلوي ثنائي الصفوف (Two-Tier Modern Ribbon Navbar) - إعداد المهندس أسامة خليل هاشم -->
     <header class="top-navbar">
 
-        <div class="brand-section">
-
-            <button class="btn-sidebar-toggle" onclick="toggleSidebar()">
-
-                <span>📚</span>
-
-                <span>فهرس الدروس</span>
-
-            </button>
-
-            <div class="brand-title">
-
-                <span style="font-size: 1.6rem;">📖</span>
-
-                <div>
-
-                    <div style="display: flex; align-items: center; gap: 8px;">
-
-                        <span>قراءتي التفاعلية الذكية</span>
-
-                        <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.52: معالجة تضخم الحجم وتسريع الإقلاع وحل تزاحم الشريط العلوي - إعداد المهندس أسامة خليل هاشم">v3.52</span>
-
+        <!-- الصف الأول: شريط الهوية والتحكم العام السريع -->
+        <div class="navbar-row navbar-row-main">
+            <div class="brand-section">
+                <button class="btn-sidebar-toggle" onclick="toggleSidebar()" title="فتح فهرس المنهج والدروس">
+                    <span>📚</span>
+                    <span>فهرس الدروس</span>
+                </button>
+                <div class="brand-title">
+                    <span style="font-size: 1.6rem;">📖</span>
+                    <div>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span>قراءتي التفاعلية الذكية</span>
+                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.53: تصميم الشريط العلوي ثنائي الصفوف - إعداد المهندس أسامة خليل هاشم">v3.53</span>
+                        </div>
+                        <div style="font-size: 0.8rem; font-weight: 800; color: #059669; margin-top: 1px;">
+                            إعداد: المهندس أسامة خليل هاشم
+                        </div>
                     </div>
-
-                    <div style="font-size: 0.8rem; font-weight: 800; color: #059669; margin-top: 1px;">
-
-                        إعداد: المهندس أسامة خليل هاشم
-
-                    </div>
-
                 </div>
-
             </div>
 
+            <div class="primary-controls">
+                <!-- زر إيقاف الصوت النشط -->
+                <button class="btn-top btn-top-stop" id="btnTopStop" onclick="stopAudio()" style="display: none;" title="إيقاف الصوت الحالي فوراً">
+                    <span>⏹️</span>
+                    <span>إيقاف الصوت</span>
+                </button>
+
+                <!-- أداة التحكم السريع في مستوى الصوت ومضاعف التعزيز -->
+                <div class="top-volume-box" style="display: inline-flex; align-items: center; gap: 6px; background: white; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 4px 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);" title="التحكم في مستوى الصوت وتعزيز النطق (حتى 150%)">
+                    <span id="topVolIcon" style="cursor: pointer; font-size: 1.1rem;" onclick="toggleMuteAudio()" title="كتم / تشغيل الصوت">🔊</span>
+                    <input type="range" id="topVolumeSlider" min="30" max="150" value="100" step="5" oninput="changeMasterVolume(this.value)" style="width: 65px; accent-color: #059669; cursor: pointer; height: 6px;">
+                    <span id="topVolBadge" style="font-size: 0.76rem; font-weight: 800; color: #065f46; min-width: 32px;">100%</span>
+                </div>
+
+                <!-- رصيد النجوم الذكي ومحرك التحدي للأطفال -->
+                <div class="top-stars-widget" id="topStarsWidget" onclick="openGamificationModal('challenge')" title="رصيد نجوم التحدي التفاعلي - انقر لخوض تحدي جديد">
+                    <span class="star-icon-anim">⭐</span>
+                    <span class="top-stars-count" id="topGlobalStarsCount">0</span>
+                    <span class="top-stars-label">نجمة</span>
+                </div>
+
+                <!-- أزرار النظام السريعة المباشرة -->
+                <button class="btn-system-mini" onclick="showMobileModal()" title="توصيل ومزامنة الهاتف واللوحي">
+                    <span>📱</span>
+                    <span class="btn-system-text">الهاتف</span>
+                </button>
+                <button class="btn-system-mini" onclick="toggleFullScreen()" title="تكبير / استعادة الشاشة">
+                    <span>⛶</span>
+                    <span class="btn-system-text" id="fullscreenText">شاشة كاملة</span>
+                </button>
+                <button class="btn-system-mini btn-system-settings" id="btnTopSettings" onclick="openSettingsModal()" title="إعدادات وضبط المنصة وتنزيل الأوفلاين">
+                    <span>⚙️</span>
+                    <span class="btn-system-text">الضبط</span>
+                </button>
+            </div>
         </div>
 
-        <div class="top-actions">
+        <!-- الصف الثاني: شريط الاستوديوهات والألعاب وأدوات المعلم والمسابقات (كامل العرض 100%) -->
+        <nav class="navbar-row navbar-row-tools" aria-label="أدوات واستوديوهات المنصة التعليمية">
+            <div class="tools-ribbon">
 
-            <!-- زر إيقاف الصوت النشط -->
-            <button class="btn-top btn-top-stop" id="btnTopStop" onclick="stopAudio()" style="display: none;" title="إيقاف الصوت الحالي فوراً">
-                <span>⏹️</span>
-                <span>إيقاف الصوت</span>
-            </button>
-
-            <!-- أداة التحكم السريع في مستوى الصوت ومضاعف التعزيز -->
-            <div class="top-volume-box" style="display: inline-flex; align-items: center; gap: 6px; background: white; border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 4px 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);" title="التحكم في مستوى الصوت وتعزيز النطق (حتى 150%)">
-                <span id="topVolIcon" style="cursor: pointer; font-size: 1.1rem;" onclick="toggleMuteAudio()" title="كتم / تشغيل الصوت">🔊</span>
-                <input type="range" id="topVolumeSlider" min="30" max="150" value="100" step="5" oninput="changeMasterVolume(this.value)" style="width: 65px; accent-color: #059669; cursor: pointer; height: 6px;">
-                <span id="topVolBadge" style="font-size: 0.76rem; font-weight: 800; color: #065f46; min-width: 32px;">100%</span>
-            </div>
-
-            <!-- رصيد النجوم الذكي ومحرك التحدي للأطفال -->
-            <div class="top-stars-widget" id="topStarsWidget" onclick="openGamificationModal('challenge')" title="رصيد نجوم التحدي التفاعلي - انقر لخوض تحدي جديد">
-                <span class="star-icon-anim">⭐</span>
-                <span class="top-stars-count" id="topGlobalStarsCount">0</span>
-                <span class="top-stars-label">نجمة</span>
-            </div>
-
-            <!-- الأزرار المباشرة الأساسية -->
-            <!-- زر استوديو التدريب الصوتي الذكي ونطق الحروف -->
-            <button class="btn-top btn-top-voice-coach" id="btnTopVoiceCoach" onclick="VoiceCoach.openModal('studio')" title="استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين">
-                <span>🎙️</span>
-                <span id="topVoiceCoachLabel">المدرب الصوتي</span>
-            </button>
-
-            <!-- زر مختبر الإملاء المنظور والاختباري الذكي -->
-            <button class="btn-top btn-top-dictation-lab" id="btnTopDictationLab" onclick="DictationLab.openModal('seen')" title="مختبر الإملاء المنظور والاختباري بالتحليل الصوتي">
-                <span>✍️</span>
-                <span id="topDictationLabLabel">مختبر الإملاء</span>
-            </button>
-
-            <!-- زر لوحة تحكم المعلم وإدارة سجل الصف -->
-            <button class="btn-top btn-top-teacher-dashboard" id="btnTopTeacherDashboard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ">
-                <span>🧑‍🏫</span>
-                <span>لوحة المعلم</span>
-            </button>
-
-            <!-- قائمة منسدلة 1: استوديوهات وألعاب -->
-            <div class="top-dropdown" id="dropdownStudiosWrapper">
-                <button class="btn-top btn-top-dropdown" id="btnTopDropdownStudios" onclick="toggleTopDropdown('dropdownStudiosMenu', event)" title="استوديوهات القراءة والإنشاد وصانع القصص والألعاب اللغوية">
-                    <span>🎮</span>
-                    <span>استوديوهات وألعاب</span>
-                    <span class="dropdown-arrow">▾</span>
+                <!-- 1. استوديوهات النطق والإنتاج اللغوي -->
+                <button class="btn-tool-ribbon tool-voice" id="btnTopVoiceCoach" onclick="VoiceCoach.openModal('studio')" title="استوديو التدريب الصوتي الذكي والتعرف على نطق التلميذ أوفلاين">
+                    <span class="tool-icon">🎙️</span>
+                    <span class="tool-text" id="topVoiceCoachLabel">المدرب الصوتي</span>
                 </button>
-                <div class="top-dropdown-menu" id="dropdownStudiosMenu" style="display: none;">
-                    <button class="dropdown-item" id="btnTopReadersTheater" onclick="ReadersTheater.openModal('theater'); closeAllTopDropdowns();" title="مسرح القراءة التعبيرية والدمى المتحركة الرقمية">
-                        <span>🎭</span>
-                        <span id="topReadersTheaterLabel">مسرح القراءة والدمى</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopNasheedStudio" onclick="NasheedStudio.openModal('stage'); closeAllTopDropdowns();" title="استوديو الأناشيد المنهجية والإنشاد الإيقاعي">
-                        <span>🥁</span>
-                        <span id="topNasheedStudioLabel">استوديو الأناشيد والإيقاع</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopStoryStudio" onclick="StoryStudio.openModal('creator'); closeAllTopDropdowns();" title="استوديو القصة المصورة وصانع الكوميكس الفونيمي">
-                        <span>📚</span>
-                        <span id="topStoryStudioLabel">صانع القصص والكوميكس</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopGamesHub" onclick="openGamesModal('wheel'); closeAllTopDropdowns();" title="بنك الألعاب اللغوية التفاعلية">
-                        <span>🎯</span>
-                        <span>الألعاب والمسابقات</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopGamificationHub" onclick="openGamificationModal('challenge'); closeAllTopDropdowns();" title="نظام الاختبار والتقييم الذكي وتحدي النجوم">
-                        <span>⭐</span>
-                        <span>تحدي النجوم الذكي</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopBlackboard" onclick="openHandwritingTrace(); closeAllTopDropdowns();" title="لوحة تتبع الحروف بالقلم أو الإصبع">
-                        <span>✍️</span>
-                        <span>لوحة تتبع الحروف</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopEnrichHub" onclick="openEnrichmentModal('exams'); closeAllTopDropdowns();" title="اختبارات نهاية الفصل والتدريبات وبنك البطاقات">
-                        <span>🌟</span>
-                        <span>الاختبارات والبطاقات</span>
-                    </button>
-                </div>
-            </div>
 
-            <!-- قائمة منسدلة 2: أدوات المعلم والضبط -->
-            <div class="top-dropdown" id="dropdownToolsWrapper">
-                <button class="btn-top btn-top-dropdown" id="btnTopDropdownTools" onclick="toggleTopDropdown('dropdownToolsMenu', event)" title="أدوات المعلم والمزامنة الصفية والامتحانات والضبط">
-                    <span>🛠️</span>
-                    <span>أدوات المعلم والضبط</span>
-                    <span class="dropdown-arrow">▾</span>
+                <button class="btn-tool-ribbon tool-dictation" id="btnTopDictationLab" onclick="DictationLab.openModal('seen')" title="مختبر الإملاء المنظور والاختباري بالتحليل الصوتي">
+                    <span class="tool-icon">✍️</span>
+                    <span class="tool-text" id="topDictationLabLabel">مختبر الإملاء</span>
                 </button>
-                <div class="top-dropdown-menu" id="dropdownToolsMenu" style="display: none;">
-                    <button class="dropdown-item" id="btnTopQuizShow" onclick="openClassroomQuizModal('host'); closeAllTopDropdowns();" title="استوديو المسابقات التنافسية الصفية المباشرة">
-                        <span>🏆</span>
-                        <span id="topQuizStatusLabel">المسابقات التنافسية</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopClassSync" onclick="openClassroomSyncModal(); closeAllTopDropdowns();" title="المزامنة الصفية المحلية أوفلاين">
-                        <span class="sync-status-dot status-offline" id="topSyncStatusDot"></span>
-                        <span>📡</span>
-                        <span id="topSyncStatusLabel">المزامنة الصفية</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopDiagnosticExams" onclick="openDiagnosticExamsModal('generator'); closeAllTopDropdowns();" title="نظام الاختبارات التشخيصية ونماذج A4 الورقية">
-                        <span>📝</span>
-                        <span>الامتحانات الوزارية وA4</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopEvalHub" onclick="openEvaluationModal('eval'); closeAllTopDropdowns();" title="سجل تقييم التلاميذ الأسبوعي وشهادة التخرج">
-                        <span>🎓</span>
-                        <span>التقييم والشهادة</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopGuide" onclick="openCurrentLessonGuide(); closeAllTopDropdowns();" title="عرض نتاجات وإرشادات الدرس من دليل المعلم الرسمي">
-                        <span>📘</span>
-                        <span>دليل المعلم</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopDigitalGuide" onclick="openDigitalGuideModal('phonics'); closeAllTopDropdowns();" title="دليل المنصة والمسابقات والمتابعة المنزلية">
-                        <span>📖</span>
-                        <span>دليل المنصة والمسابقات</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopTour" onclick="startPlatformTour(0); closeAllTopDropdowns();" title="خوض جولة الاستكشاف التفاعلية">
-                        <span>🚀</span>
-                        <span>جولة استكشافية</span>
-                    </button>
-                    <button class="dropdown-item" onclick="showMobileModal(); closeAllTopDropdowns();" title="توصيل ومزامنة الهاتف واللوحي">
-                        <span>📱</span>
-                        <span>الهاتف واللوحي</span>
-                    </button>
-                    <button class="dropdown-item" id="btnPwaInstall" onclick="installPWA(); closeAllTopDropdowns();" title="تثبيت التطبيق على جهازك">
-                        <span>📲</span>
-                        <span>تثبيت التطبيق</span>
-                    </button>
-                    <button class="dropdown-item" onclick="toggleFullScreen(); closeAllTopDropdowns();" title="تكبير / استعادة الشاشة">
-                        <span>⛶</span>
-                        <span id="fullscreenText">تكبير الشاشة</span>
-                    </button>
-                    <button class="dropdown-item" id="btnTopSettings" onclick="openSettingsModal(); closeAllTopDropdowns();" style="border-top: 1px solid #e2e8f0; font-weight: 900; color: #065f46;" title="إعدادات وضبط النظام وتخصيص الصوت">
-                        <span>⚙️</span>
-                        <span>إعدادات وضبط المنصة</span>
-                    </button>
-                </div>
+
+                <button class="btn-tool-ribbon tool-theater" id="btnTopReadersTheater" onclick="ReadersTheater.openModal('theater')" title="مسرح القراءة التعبيرية والدمى المتحركة الرقمية">
+                    <span class="tool-icon">🎭</span>
+                    <span class="tool-text" id="topReadersTheaterLabel">مسرح القراءة</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-nasheed" id="btnTopNasheedStudio" onclick="NasheedStudio.openModal('stage')" title="استوديو الأناشيد المنهجية والإنشاد الإيقاعي">
+                    <span class="tool-icon">🥁</span>
+                    <span class="tool-text" id="topNasheedStudioLabel">الأناشيد والإيقاع</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-story" id="btnTopStoryStudio" onclick="StoryStudio.openModal('creator')" title="استوديو القصة المصورة وصانع الكوميكس الفونيمي">
+                    <span class="tool-icon">📚</span>
+                    <span class="tool-text" id="topStoryStudioLabel">صانع القصص</span>
+                </button>
+
+                <span class="tools-divider"></span>
+
+                <!-- 2. الألعاب والمهارات والتحديات التفاعلية -->
+                <button class="btn-tool-ribbon tool-games" id="btnTopGamesHub" onclick="openGamesModal('wheel')" title="بنك الألعاب اللغوية التفاعلية">
+                    <span class="tool-icon">🎯</span>
+                    <span class="tool-text">الألعاب اللغوية</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-challenge" id="btnTopGamificationHub" onclick="openGamificationModal('challenge')" title="نظام الاختبار والتقييم الذكي وتحدي النجوم">
+                    <span class="tool-icon">⭐</span>
+                    <span class="tool-text">تحدي النجوم</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-blackboard" id="btnTopBlackboard" onclick="openHandwritingTrace()" title="لوحة تتبع الحروف بالقلم أو الإصبع">
+                    <span class="tool-icon">📝</span>
+                    <span class="tool-text">سبورة الخط</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-enrich" id="btnTopEnrichHub" onclick="openEnrichmentModal('exams')" title="اختبارات نهاية الفصل والتدريبات وبنك البطاقات">
+                    <span class="tool-icon">🌟</span>
+                    <span class="tool-text">بنك البطاقات</span>
+                </button>
+
+                <span class="tools-divider"></span>
+
+                <!-- 3. لوحة المعلم والمزامنة الصفية والامتحانات والتقييم -->
+                <button class="btn-tool-ribbon tool-teacher" id="btnTopTeacherDashboard" onclick="openTeacherDashboardModal('overview')" title="لوحة تحكم المعلم وإدارة سجل تقدم التلاميذ">
+                    <span class="tool-icon">🧑‍🏫</span>
+                    <span class="tool-text">لوحة المعلم</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-quiz" id="btnTopQuizShow" onclick="openClassroomQuizModal('host')" title="استوديو المسابقات التنافسية الصفية المباشرة">
+                    <span class="tool-icon">🏆</span>
+                    <span class="tool-text" id="topQuizStatusLabel">المسابقات</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-sync" id="btnTopClassSync" onclick="openClassroomSyncModal()" title="المزامنة الصفية المحلية أوفلاين">
+                    <span class="sync-status-dot status-offline" id="topSyncStatusDot"></span>
+                    <span class="tool-icon">📡</span>
+                    <span class="tool-text" id="topSyncStatusLabel">المزامنة</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-exams" id="btnTopDiagnosticExams" onclick="openDiagnosticExamsModal('generator')" title="نظام الاختبارات التشخيصية ونماذج A4 الورقية">
+                    <span class="tool-icon">📄</span>
+                    <span class="tool-text">امتحانات A4</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-eval" id="btnTopEvalHub" onclick="openEvaluationModal('eval')" title="سجل تقييم التلاميذ الأسبوعي وشهادة التخرج">
+                    <span class="tool-icon">🎓</span>
+                    <span class="tool-text">التقييم والشهادة</span>
+                </button>
+
+                <span class="tools-divider"></span>
+
+                <!-- 4. أدلة المنصة والجولة الاستكشافية وتثبيت التطبيق -->
+                <button class="btn-tool-ribbon tool-guide" id="btnTopGuide" onclick="openCurrentLessonGuide()" title="عرض نتاجات وإرشادات الدرس من دليل المعلم الرسمي">
+                    <span class="tool-icon">📘</span>
+                    <span class="tool-text">دليل المعلم</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-dguide" id="btnTopDigitalGuide" onclick="openDigitalGuideModal('phonics')" title="دليل المنصة والمسابقات والمتابعة المنزلية">
+                    <span class="tool-icon">📖</span>
+                    <span class="tool-text">دليل المنصة</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-tour" id="btnTopTour" onclick="startPlatformTour(0)" title="خوض جولة الاستكشاف التفاعلية">
+                    <span class="tool-icon">🚀</span>
+                    <span class="tool-text">جولة استكشافية</span>
+                </button>
+
+                <button class="btn-tool-ribbon tool-install" id="btnPwaInstall" onclick="installPWA()" title="تثبيت التطبيق على جهازك للعمل بدون إنترنت">
+                    <span class="tool-icon">📲</span>
+                    <span class="tool-text">تثبيت التطبيق</span>
+                </button>
+
             </div>
-
-        </div>
-
+        </nav>
     </header>
 
     <!-- هيكل التطبيق: مسرح الدرس على اليسار + القائمة اليمنى للمنهج -->

@@ -1,9 +1,9 @@
 ﻿// عامل الخدمة لمنصة قراءتي التفاعلية الذكية (PWA Service Worker)
 // إعداد وتطوير: المهندس أسامة خليل هاشم
-// الإصدار: v3.52 (الهيكل الأساسي الخفيف + التخزين التلقائي وقت التشغيل Runtime Caching)
+// الإصدار: v3.53 (تصميم الشريط العلوي ثنائي الصفوف + التخزين التلقائي وقت التشغيل Runtime Caching)
 
 const APP = 'qiraati-smart';
-const CACHE_NAME = 'qiraati-smart-v75';
+const CACHE_NAME = 'qiraati-smart-v76';
 
 // الهيكل الأساسي للتطبيق (App Shell) - أقل من 4 ميغابايت لتثبيت فوري خلال ثوانٍ
 const ASSETS_TO_CACHE = [
