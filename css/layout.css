@@ -376,6 +376,58 @@
             text-align: center;
         }
 
+        /* قائمة الأدوات للشاشات الصغيرة */
+        .mobile-tools-dropdown {
+            display: none;
+            position: relative;
+        }
+
+        .btn-mobile-tools {
+            background: #eff6ff !important;
+            border: 1.5px solid #bfdbfe !important;
+            color: #1e40af !important;
+            font-weight: 800 !important;
+        }
+
+        .btn-mobile-tools:hover {
+            background: #dbeafe !important;
+            border-color: #93c5fd !important;
+        }
+
+        .mobile-tools-menu {
+            position: absolute;
+            top: calc(100% + 6px);
+            left: 0;
+            min-width: 240px;
+            max-width: 300px;
+            max-height: 75vh;
+            overflow-y: auto;
+            background: #ffffff;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 16px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.06);
+            padding: 8px;
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            gap: 2px;
+            scrollbar-width: thin;
+        }
+
+        .mobile-tools-group-title {
+            font-size: 0.74rem;
+            font-weight: 900;
+            color: #64748b;
+            padding: 6px 8px 3px 8px;
+            margin-top: 4px;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .mobile-tools-group-title:first-child {
+            margin-top: 0;
+            border-top: none;
+        }
+
         .btn-top {
             padding: 6px 12px;
             font-size: 0.88rem;
@@ -1002,13 +1054,16 @@
             }
             .navbar-row-tools {
                 padding: 4px 8px;
+                overflow-x: visible;
             }
             .tools-ribbon {
-                flex-wrap: nowrap;
-                gap: 4px;
+                flex-wrap: wrap !important;
+                gap: 5px;
+                justify-content: flex-start;
+                width: 100%;
             }
             .btn-tool-ribbon {
-                padding: 4px 8px;
+                padding: 3px 8px;
                 font-size: 0.78rem;
             }
             .btn-system-mini .btn-system-text {
@@ -1037,7 +1092,7 @@
                 font-size: 0.95rem !important;
             }
             .tools-ribbon {
-                flex-wrap: nowrap;
+                flex-wrap: wrap !important;
                 gap: 4px;
             }
             .btn-tool-ribbon {
@@ -1075,9 +1130,9 @@
 
                 height: auto;
 
-                padding: 8px 12px;
+                padding: 0;
 
-                gap: 8px;
+                gap: 0;
 
             }
 
@@ -1183,5 +1238,167 @@
 
             }
 
+        }
+
+        /* ==========================================================================
+           تجاوب الهواتف والشاشات الصغيرة (Mobile Responsiveness <= 640px)
+           إعداد وتطوير: المهندس أسامة خليل هاشم
+           ========================================================================== */
+        @media (max-width: 640px) {
+            .top-navbar {
+                height: auto !important;
+                max-height: 88px !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                gap: 0 !important;
+                width: 100% !important;
+                max-width: 100vw !important;
+                box-sizing: border-box !important;
+                overflow: visible !important;
+            }
+
+            /* طي شريط الأدوات الثانوي كاملاً لتقليص الارتفاع من 206px إلى أقل من 96px */
+            .navbar-row-tools {
+                display: none !important;
+            }
+
+            /* إظهار زر قائمة الأدوات والاستوديوهات المنسدلة في الصف الأول */
+            .mobile-tools-dropdown {
+                display: inline-block !important;
+            }
+
+            .navbar-row-main {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                justify-content: flex-start !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 3px 6px !important;
+                gap: 3px !important;
+                min-height: auto !important;
+            }
+
+            .brand-section {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                gap: 4px !important;
+                min-width: 0 !important;
+                flex-shrink: 1 !important;
+            }
+
+            .btn-sidebar-toggle {
+                display: inline-flex !important;
+                padding: 2px 6px !important;
+                font-size: 0.78rem !important;
+                border-radius: 8px !important;
+                gap: 3px !important;
+                flex-shrink: 0 !important;
+            }
+
+            .btn-sidebar-toggle .btn-sidebar-text {
+                font-size: 0.75rem !important;
+            }
+
+            .brand-title {
+                font-size: 0.9rem !important;
+                gap: 4px !important;
+                min-width: 0 !important;
+                flex-shrink: 1 !important;
+            }
+
+            .brand-title span:first-child {
+                font-size: 1.15rem !important;
+            }
+
+            .brand-title div > div:first-child span:first-child {
+                font-size: 0.82rem !important;
+                white-space: nowrap !important;
+            }
+
+            .brand-author {
+                font-size: 0.68rem !important;
+                line-height: 1.1 !important;
+                white-space: nowrap !important;
+            }
+
+            .primary-controls {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                gap: 2px !important;
+                flex-shrink: 1 !important;
+                flex-wrap: nowrap !important;
+                min-width: 0 !important;
+            }
+
+            .top-volume-box {
+                padding: 2px 4px !important;
+                gap: 2px !important;
+                border-radius: 8px !important;
+                flex-shrink: 0 !important;
+            }
+
+            .top-volume-box input[type="range"] {
+                width: 36px !important;
+                height: 5px !important;
+            }
+
+            #topVolIcon {
+                font-size: 0.92rem !important;
+            }
+
+            #topVolBadge {
+                font-size: 0.68rem !important;
+                min-width: 22px !important;
+            }
+
+            .top-stars-widget {
+                padding: 2px 5px !important;
+                gap: 2px !important;
+                font-size: 0.74rem !important;
+                border-radius: 8px !important;
+                flex-shrink: 0 !important;
+            }
+
+            .top-stars-label {
+                display: none !important;
+            }
+
+            .btn-mobile-tools {
+                padding: 2px 5px !important;
+                font-size: 0.75rem !important;
+                border-radius: 8px !important;
+                gap: 2px !important;
+                flex-shrink: 0 !important;
+            }
+
+            .btn-system-mini {
+                padding: 2px 5px !important;
+                font-size: 0.78rem !important;
+                border-radius: 8px !important;
+                flex-shrink: 0 !important;
+                gap: 2px !important;
+            }
+
+            .btn-system-mini .btn-system-text {
+                display: none !important;
+            }
+
+            .btn-top-stop {
+                padding: 2px 5px !important;
+                font-size: 0.72rem !important;
+                border-radius: 8px !important;
+                gap: 2px !important;
+                flex-shrink: 0 !important;
+            }
         }
 

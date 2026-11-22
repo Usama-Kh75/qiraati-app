@@ -360,8 +360,6 @@
                 if (avatar) avatar.classList.remove('mascot-speaking');
                 updateAudioControlsState(false);
             }
-                updateAudioControlsState(false);
-            }
         }
 
         // ==============================================================

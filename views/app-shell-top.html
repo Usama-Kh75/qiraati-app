@@ -70,16 +70,16 @@
             <div class="brand-section">
                 <button class="btn-sidebar-toggle" onclick="toggleSidebar()" title="فتح فهرس المنهج والدروس">
                     <span>📚</span>
-                    <span>فهرس الدروس</span>
+                    <span class="btn-sidebar-text">فهرس الدروس</span>
                 </button>
                 <div class="brand-title">
                     <span style="font-size: 1.6rem;">📖</span>
                     <div>
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <span>قراءتي التفاعلية الذكية</span>
-                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.53: تصميم الشريط العلوي ثنائي الصفوف - إعداد المهندس أسامة خليل هاشم">v3.53</span>
+                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.54: معالجة التجاوب والخطأ النحوي - إعداد المهندس أسامة خليل هاشم">v3.54</span>
                         </div>
-                        <div style="font-size: 0.8rem; font-weight: 800; color: #059669; margin-top: 1px;">
+                        <div class="brand-author" style="font-size: 0.8rem; font-weight: 800; color: #059669; margin-top: 1px;">
                             إعداد: المهندس أسامة خليل هاشم
                         </div>
                     </div>
@@ -105,6 +105,78 @@
                     <span class="star-icon-anim">⭐</span>
                     <span class="top-stars-count" id="topGlobalStarsCount">0</span>
                     <span class="top-stars-label">نجمة</span>
+                </div>
+
+                <!-- قائمة الأدوات والاستوديوهات المنسدلة للشاشات الصغيرة (الأدوات ▾) -->
+                <div class="top-dropdown mobile-tools-dropdown" id="mobileToolsDropdown">
+                    <button class="btn-system-mini btn-mobile-tools" id="btnMobileTools" onclick="toggleTopDropdown('mobileToolsMenu', event)" title="استعراض جميع استوديوهات وأدوات المنصة">
+                        <span>🛠️</span>
+                        <span class="btn-tools-label">الأدوات</span>
+                        <span class="dropdown-arrow">▾</span>
+                    </button>
+                    <div class="top-dropdown-menu mobile-tools-menu" id="mobileToolsMenu" style="display: none;">
+                        <div class="mobile-tools-group-title">🎙️ استوديوهات النطق والتعبير</div>
+                        <button class="dropdown-item" onclick="VoiceCoach.openModal('studio'); closeAllTopDropdowns();">
+                            <span>🎙️</span> <span>المدرب الصوتي</span>
+                        </button>
+                        <button class="dropdown-item" onclick="DictationLab.openModal('seen'); closeAllTopDropdowns();">
+                            <span>✍️</span> <span>مختبر الإملاء</span>
+                        </button>
+                        <button class="dropdown-item" onclick="ReadersTheater.openModal('theater'); closeAllTopDropdowns();">
+                            <span>🎭</span> <span>مسرح القراءة والدمى</span>
+                        </button>
+                        <button class="dropdown-item" onclick="NasheedStudio.openModal('stage'); closeAllTopDropdowns();">
+                            <span>🥁</span> <span>الأناشيد والإيقاع</span>
+                        </button>
+                        <button class="dropdown-item" onclick="StoryStudio.openModal('creator'); closeAllTopDropdowns();">
+                            <span>📚</span> <span>صانع القصص والكوميكس</span>
+                        </button>
+
+                        <div class="mobile-tools-group-title">🎮 الألعاب والمهارات</div>
+                        <button class="dropdown-item" onclick="openGamesModal('wheel'); closeAllTopDropdowns();">
+                            <span>🎯</span> <span>الألعاب اللغوية</span>
+                        </button>
+                        <button class="dropdown-item" onclick="openGamificationModal('challenge'); closeAllTopDropdowns();">
+                            <span>⭐</span> <span>تحدي النجوم الذكي</span>
+                        </button>
+                        <button class="dropdown-item" onclick="openHandwritingTrace(); closeAllTopDropdowns();">
+                            <span>📝</span> <span>سبورة الخط وتتبع الحروف</span>
+                        </button>
+                        <button class="dropdown-item" onclick="openEnrichmentModal('exams'); closeAllTopDropdowns();">
+                            <span>🌟</span> <span>بنك البطاقات والتدريبات</span>
+                        </button>
+
+                        <div class="mobile-tools-group-title">🧑‍🏫 أدوات المعلم والمزامنة</div>
+                        <button class="dropdown-item" onclick="openTeacherDashboardModal('overview'); closeAllTopDropdowns();">
+                            <span>🧑‍🏫</span> <span>لوحة المعلم</span>
+                        </button>
+                        <button class="dropdown-item" onclick="openClassroomQuizModal('host'); closeAllTopDropdowns();">
+                            <span>🏆</span> <span>المسابقات الصفية</span>
+                        </button>
+                        <button class="dropdown-item" onclick="openClassroomSyncModal(); closeAllTopDropdowns();">
+                            <span>📡</span> <span>المزامنة الصفية</span>
+                        </button>
+                        <button class="dropdown-item" onclick="openDiagnosticExamsModal('generator'); closeAllTopDropdowns();">
+                            <span>📄</span> <span>امتحانات A4 التشخيصية</span>
+                        </button>
+                        <button class="dropdown-item" onclick="openEvaluationModal('eval'); closeAllTopDropdowns();">
+                            <span>🎓</span> <span>سجل التقييم والشهادة</span>
+                        </button>
+
+                        <div class="mobile-tools-group-title">📘 الأدلة والتثبيت</div>
+                        <button class="dropdown-item" onclick="openCurrentLessonGuide(); closeAllTopDropdowns();">
+                            <span>📘</span> <span>دليل المعلم الرسمي</span>
+                        </button>
+                        <button class="dropdown-item" onclick="openDigitalGuideModal('phonics'); closeAllTopDropdowns();">
+                            <span>📖</span> <span>دليل المنصة</span>
+                        </button>
+                        <button class="dropdown-item" onclick="startPlatformTour(0); closeAllTopDropdowns();">
+                            <span>🚀</span> <span>جولة استكشافية</span>
+                        </button>
+                        <button class="dropdown-item" onclick="installPWA(); closeAllTopDropdowns();">
+                            <span>📲</span> <span>تثبيت التطبيق أوفلاين</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- أزرار النظام السريعة المباشرة -->
