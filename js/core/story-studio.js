@@ -1356,7 +1356,10 @@
                 bEl.className = `ss-placed-bubble ${b.type}`;
                 bEl.style.left = `${b.x}%`;
                 bEl.style.top = `${b.y}%`;
-                bEl.innerHTML = `<div class="ss-bubble-body">${b.text}</div>`;
+                const bodyEl = document.createElement('div');
+                bodyEl.className = 'ss-bubble-body';
+                bodyEl.textContent = b.text || '';
+                bEl.appendChild(bodyEl);
                 bEl.onclick = () => {
                     speakPhonicsText(b.text);
                     playPop();

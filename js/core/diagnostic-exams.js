@@ -499,9 +499,10 @@
             if (raw) students = JSON.parse(raw);
         } catch (e) { }
 
+        const esc = window.qiraatiEscapeHtml || (v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])));
         let opts = `<option value="">-- تلميذ افتراضي / زائر --</option>`;
         if (Array.isArray(students) && students.length > 0) {
-            opts += students.map(s => `<option value="${s.id}">${s.name} (${s.gender === 'female' ? 'طالبة' : 'طالب'})</option>`).join('');
+            opts += students.map(s => `<option value="${esc(s.id)}">${esc(s.name)} (${s.gender === 'female' ? 'طالبة' : 'طالب'})</option>`).join('');
         }
         sel.innerHTML = opts;
 

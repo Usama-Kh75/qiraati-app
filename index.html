@@ -79,7 +79,7 @@
                     <div>
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <span>قراءتي التفاعلية الذكية</span>
-                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.59: تصحيح تطابق الكلمات مع الصور والأصوات وإزالة الصور المكسورة وبناء بطاقات الألعاب وترقية كاش PWA إلى v82 - إعداد المهندس أسامة خليل هاشم">v3.59</span>
+                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.60: إصلاح تخزين API في عامل الخدمة وتفعيل الدوال المفقودة وتحصين XSS وتوحيد مفاتيح التخزين وترقية كاش PWA إلى v83 - إعداد المهندس أسامة خليل هاشم">v3.60</span>
                         </div>
                         <div class="brand-author" style="font-size: 0.78rem; font-weight: 800; color: #059669; margin-top: 1px;">
                             إعداد: المهندس أسامة خليل هاشم
@@ -8197,7 +8197,7 @@
 
                         <!-- زر معاينة صفحة الكتاب 41 -->
                         <div style="text-align: center; margin: 10px 0 16px;">
-                            <button class="btn btn-secondary" onclick="openBookModal('page_41.png', 'الكتاب المدرسي - صفحة ٤١ (أتعرف الحرف والكلمات المصورة)')">
+                            <button class="btn btn-secondary" onclick="openBookPageModal('page_41.png', 'الكتاب المدرسي - صفحة ٤١ (أتعرف الحرف والكلمات المصورة)')">
                                 <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ الأَصْلِيَّةِ ص ٤١</span>
                             </button>
                         </div>
@@ -8334,7 +8334,7 @@
 
                         <!-- زر معاينة صفحة الكتاب 42 -->
                         <div style="text-align: center; margin: 10px 0 16px;">
-                            <button class="btn btn-secondary" onclick="openBookModal('page_42.png', 'الكتاب المدرسي - صفحة ٤٢ (أصوات المدود والمقاطع والتحليل)')">
+                            <button class="btn btn-secondary" onclick="openBookPageModal('page_42.png', 'الكتاب المدرسي - صفحة ٤٢ (أصوات المدود والمقاطع والتحليل)')">
                                 <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ الأَصْلِيَّةِ ص ٤٢</span>
                             </button>
                         </div>
@@ -8464,7 +8464,7 @@
 
                         <!-- زر معاينة صفحة الكتاب 42 -->
                         <div style="text-align: center; margin: 10px 0 16px;">
-                            <button class="btn btn-secondary" onclick="openBookModal('page_42.png', 'الكتاب المدرسي - صفحة ٤٢')">
+                            <button class="btn btn-secondary" onclick="openBookPageModal('page_42.png', 'الكتاب المدرسي - صفحة ٤٢')">
                                 <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ الأَصْلِيَّةِ ص ٤٢</span>
                             </button>
                         </div>
@@ -8679,16 +8679,16 @@
                                 📚 تَصَفَّحْ صَفَحَاتِ الْكِتَابِ الْمَدْرَسِيِّ الأَصْلِيَّةِ لِهَذَا الدَّرْسِ (ص ٤١ - ٤٤):
                             </div>
                             <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                                <button class="btn btn-secondary" onclick="openBookModal('page_41.png', 'الكتاب المدرسي - صفحة ٤١ (حرف التاء والكلمات)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_41.png', 'الكتاب المدرسي - صفحة ٤١ (حرف التاء والكلمات)')">
                                     <span>📖</span> <span>صَفْحَة ٤١</span>
                                 </button>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_42.png', 'الكتاب المدرسي - صفحة ٤٢ (المدود والمقاطع والتحليل)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_42.png', 'الكتاب المدرسي - صفحة ٤٢ (المدود والمقاطع والتحليل)')">
                                     <span>📖</span> <span>صَفْحَة ٤٢</span>
                                 </button>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_43.png', 'الكتاب المدرسي - صفحة ٤٣ (التركيب وبستان فاتن)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_43.png', 'الكتاب المدرسي - صفحة ٤٣ (التركيب وبستان فاتن)')">
                                     <span>📖</span> <span>صَفْحَة ٤٣</span>
                                 </button>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_44.png', 'الكتاب المدرسي - صفحة ٤٤ (مدخل التاء المربوطة)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_44.png', 'الكتاب المدرسي - صفحة ٤٤ (مدخل التاء المربوطة)')">
                                     <span>📖</span> <span>صَفْحَة ٤٤</span>
                                 </button>
                             </div>
@@ -8825,7 +8825,7 @@
 
                         <!-- زر معاينة صفحة الكتاب 44 -->
                         <div style="text-align: center; margin: 10px 0 16px;">
-                            <button class="btn btn-secondary" onclick="openBookModal('page_44.png', 'الكتاب المدرسي - صفحة ٤٤ (أتعرف التاء المربوطة)')">
+                            <button class="btn btn-secondary" onclick="openBookPageModal('page_44.png', 'الكتاب المدرسي - صفحة ٤٤ (أتعرف التاء المربوطة)')">
                                 <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ الأَصْلِيَّةِ ص ٤٤</span>
                             </button>
                         </div>
@@ -8924,7 +8924,7 @@
                         <div style="text-align: center; margin: 10px 0 16px;">
                             <img loading="lazy" decoding="async" src="activity_marboota_vowels.png" alt="نشاط 2 الحركات" style="max-width: 600px; width: 100%; border-radius: 12px; border: 1.5px solid #e9d5ff; box-shadow: 0 4px 10px rgba(0,0,0,0.04); margin-bottom: 8px;">
                             <div>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_44.png', 'الكتاب المدرسي - صفحة ٤٤ (الحركات والوصل والوقف)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_44.png', 'الكتاب المدرسي - صفحة ٤٤ (الحركات والوصل والوقف)')">
                                     <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ الأَصْلِيَّةِ ص ٤٤</span>
                                 </button>
                             </div>
@@ -9141,7 +9141,7 @@
                         <div style="text-align: center; margin: 10px 0 16px;">
                             <img loading="lazy" decoding="async" src="activity_marboota_analysis.png" alt="نشاط 5 التحليل" style="max-width: 600px; width: 100%; border-radius: 12px; border: 1.5px solid #e9d5ff; box-shadow: 0 4px 10px rgba(0,0,0,0.04); margin-bottom: 8px;">
                             <div>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_45.png', 'الكتاب المدرسي - صفحة ٤٥ (الفرز والتحليل والمقاطع)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_45.png', 'الكتاب المدرسي - صفحة ٤٥ (الفرز والتحليل والمقاطع)')">
                                     <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ الأَصْلِيَّةِ ص ٤٥</span>
                                 </button>
                             </div>
@@ -9337,13 +9337,13 @@
                                 📚 تَصَفَّحْ صَفَحَاتِ الْكِتَابِ الْمَدْرَسِيِّ الأَصْلِيَّةِ لِهَذَا الدَّرْسِ (ص ٤٤ - ٤٦):
                             </div>
                             <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                                <button class="btn btn-secondary" onclick="openBookModal('page_44.png', 'الكتاب المدرسي - صفحة ٤٤ (أتعرف التاء المربوطة)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_44.png', 'الكتاب المدرسي - صفحة ٤٤ (أتعرف التاء المربوطة)')">
                                     <span>📖</span> <span>صَفْحَة ٤٤</span>
                                 </button>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_45.png', 'الكتاب المدرسي - صفحة ٤٥ (الفرز والتحليل والمقاطع)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_45.png', 'الكتاب المدرسي - صفحة ٤٥ (الفرز والتحليل والمقاطع)')">
                                     <span>📖</span> <span>صَفْحَة ٤٥</span>
                                 </button>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_46.png', 'الكتاب المدرسي - صفحة ٤٦ (التركيب وقراءة في مدرسة سارة)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_46.png', 'الكتاب المدرسي - صفحة ٤٦ (التركيب وقراءة في مدرسة سارة)')">
                                     <span>📖</span> <span>صَفْحَة ٤٦</span>
                                 </button>
                             </div>
@@ -9464,7 +9464,7 @@
 
                         <!-- زر معاينة صفحة الكتاب 47 -->
                         <div style="text-align: center; margin: 10px 0 16px;">
-                            <button class="btn btn-secondary" onclick="openBookModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (أتعرف تنوين الضم)')">
+                            <button class="btn btn-secondary" onclick="openBookPageModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (أتعرف تنوين الضم)')">
                                 <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ الأَصْلِيَّةِ ص ٤٧</span>
                             </button>
                         </div>
@@ -9608,7 +9608,7 @@
                         <div style="text-align: center; margin: 10px 0 16px;">
                             <img loading="lazy" decoding="async" src="activity_tanween_dham_distinguish.png" alt="نشاط 2 الاستماع والتمييز" style="max-width: 650px; width: 100%; border-radius: 12px; border: 1.5px solid #fde68a; box-shadow: 0 4px 10px rgba(0,0,0,0.04); margin-bottom: 8px;">
                             <div>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (التمييز السمعي لتنوين الضم)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (التمييز السمعي لتنوين الضم)')">
                                     <span>📖</span> <span>عَرْضُ صَفْحَةِ الْكِتَابِ الأَصْلِيَّةِ ص ٤٧</span>
                                 </button>
                             </div>
@@ -9734,10 +9734,10 @@
 
                         <!-- أزرار معاينة صفحات الكتاب -->
                         <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 10px 0 16px;">
-                            <button class="btn btn-secondary" onclick="openBookModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (التحليل الصوتي)')">
+                            <button class="btn btn-secondary" onclick="openBookPageModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (التحليل الصوتي)')">
                                 <span>📖</span> <span>صَفْحَة ٤٧</span>
                             </button>
-                            <button class="btn btn-secondary" onclick="openBookModal('page_48.png', 'الكتاب المدرسي - صفحة ٤٨ (تركيب المقاطع)')">
+                            <button class="btn btn-secondary" onclick="openBookPageModal('page_48.png', 'الكتاب المدرسي - صفحة ٤٨ (تركيب المقاطع)')">
                                 <span>📖</span> <span>صَفْحَة ٤٨</span>
                             </button>
                         </div>
@@ -9880,10 +9880,10 @@
 
                         <!-- أزرار معاينة صفحات الكتاب -->
                         <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 10px 0 16px;">
-                            <button class="btn btn-secondary" onclick="openBookModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (تنوين الضم)')">
+                            <button class="btn btn-secondary" onclick="openBookPageModal('page_47.png', 'الكتاب المدرسي - صفحة ٤٧ (تنوين الضم)')">
                                 <span>📖</span> <span>صَفْحَة ٤٧</span>
                             </button>
-                            <button class="btn btn-secondary" onclick="openBookModal('page_48.png', 'الكتاب المدرسي - صفحة ٤٨ (القراءة المقررة)')">
+                            <button class="btn btn-secondary" onclick="openBookPageModal('page_48.png', 'الكتاب المدرسي - صفحة ٤٨ (القراءة المقررة)')">
                                 <span>📖</span> <span>صَفْحَة ٤٨</span>
                             </button>
                         </div>
@@ -10318,19 +10318,19 @@
                                     📚 مَعْرِضُ صَفَحَاتِ كِتَابِ قِرَاءَتِي (ص ٤٨ - ٥٢):
                                 </div>
                                 <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_48.png', 'الكتاب المدرسي - صفحة ٤٨ (نشيد مدرستي والقراءة المقررة)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_48.png', 'الكتاب المدرسي - صفحة ٤٨ (نشيد مدرستي والقراءة المقررة)')">
                                         <span>📖</span> <span>صَفْحَة ٤٨ (النشيد)</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_49.png', 'الكتاب المدرسي - صفحة ٤٩ (غلاف الوحدة الثالثة: وطني)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_49.png', 'الكتاب المدرسي - صفحة ٤٩ (غلاف الوحدة الثالثة: وطني)')">
                                         <span>📖</span> <span>صَفْحَة ٤٩ (وطني)</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_50.png', 'الكتاب المدرسي - صفحة ٥٠ (أتعرف الحرف و)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_50.png', 'الكتاب المدرسي - صفحة ٥٠ (أتعرف الحرف و)')">
                                         <span>📖</span> <span>صَفْحَة ٥٠ (الحرف و)</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_51.png', 'الكتاب المدرسي - صفحة ٥١ (أصوات ومدود و)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_51.png', 'الكتاب المدرسي - صفحة ٥١ (أصوات ومدود و)')">
                                         <span>📖</span> <span>صَفْحَة ٥١ (المدود)</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_52.png', 'الكتاب المدرسي - صفحة ٥٢ (قراءة وسام ووسن)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_52.png', 'الكتاب المدرسي - صفحة ٥٢ (قراءة وسام ووسن)')">
                                         <span>📖</span> <span>صَفْحَة ٥٢ (وسام ووسن)</span>
                                     </button>
                                 </div>
@@ -10480,25 +10480,25 @@
                                     📖 تَصَفَّحْ صَفَحَاتِ كِتَابِ قِرَاءَتِي الْمَدْرَسِيِّ الْمُعْتَمَدَةِ:
                                 </div>
                                 <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_53.png', 'الكتاب المدرسي - صفحة ٥٣ (مدخل الوحدة الثالثة)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_53.png', 'الكتاب المدرسي - صفحة ٥٣ (مدخل الوحدة الثالثة)')">
                                         <span>📖</span> <span>صَفْحَة ٥٣</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_54.png', 'الكتاب المدرسي - صفحة ٥٤ (أنشطة الوحدة)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_54.png', 'الكتاب المدرسي - صفحة ٥٤ (أنشطة الوحدة)')">
                                         <span>📖</span> <span>صَفْحَة ٥٤</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_55.png', 'الكتاب المدرسي - صفحة ٥٥ (قراءة الوحدة)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_55.png', 'الكتاب المدرسي - صفحة ٥٥ (قراءة الوحدة)')">
                                         <span>📖</span> <span>صَفْحَة ٥٥</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_56.png', 'الكتاب المدرسي - صفحة ٥٦ (مهارات الوحدة)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_56.png', 'الكتاب المدرسي - صفحة ٥٦ (مهارات الوحدة)')">
                                         <span>📖</span> <span>صَفْحَة ٥٦</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_62.png', 'الكتاب المدرسي - صفحة ٦٢ (أتعرف الحرف ط)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_62.png', 'الكتاب المدرسي - صفحة ٦٢ (أتعرف الحرف ط)')">
                                         <span>📖</span> <span>صَفْحَة ٦٢ (حرف الطاء)</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_63.png', 'الكتاب المدرسي - صفحة ٦٣ (أنشطة ومدود ط)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_63.png', 'الكتاب المدرسي - صفحة ٦٣ (أنشطة ومدود ط)')">
                                         <span>📖</span> <span>صَفْحَة ٦٣ (مدود ط)</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_64.png', 'الكتاب المدرسي - صفحة ٦٤ (قراءة ط)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_64.png', 'الكتاب المدرسي - صفحة ٦٤ (قراءة ط)')">
                                         <span>📖</span> <span>صَفْحَة ٦٤ (قراءة ط)</span>
                                     </button>
                                 </div>
@@ -11111,25 +11111,25 @@
                                     📖 صَفَحَاتُ الْكِتَابِ الْمَدْرَسِيِّ الْمُعْتَمَدَةُ (انْقُرْ لِعَرْضِ الصَّفْحَةِ مُكَبَّرَة):
                                 </div>
                                 <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_57.png', 'الكتاب المدرسي - صفحة ٥٧ (أنشطة ومدخل الدرس)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_57.png', 'الكتاب المدرسي - صفحة ٥٧ (أنشطة ومدخل الدرس)')">
                                         <span>📖</span> <span>صَفْحَة ٥٧</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_58.png', 'الكتاب المدرسي - صفحة ٥٨ (التحليل والتركيب)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_58.png', 'الكتاب المدرسي - صفحة ٥٨ (التحليل والتركيب)')">
                                         <span>📖</span> <span>صَفْحَة ٥٨</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_59.png', 'الكتاب المدرسي - صفحة ٥٩ (تطبيقات وقراءة)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_59.png', 'الكتاب المدرسي - صفحة ٥٩ (تطبيقات وقراءة)')">
                                         <span>📖</span> <span>صَفْحَة ٥٩</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_60.png', 'الكتاب المدرسي - صفحة ٦٠ (مهارات القراءة)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_60.png', 'الكتاب المدرسي - صفحة ٦٠ (مهارات القراءة)')">
                                         <span>📖</span> <span>صَفْحَة ٦٠</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_27.png', 'الكتاب المدرسي - صفحة ٢٧ (أنشطة الحرف ف)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_27.png', 'الكتاب المدرسي - صفحة ٢٧ (أنشطة الحرف ف)')">
                                         <span>📖</span> <span>صَفْحَة ٢٧</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_28.png', 'الكتاب المدرسي - صفحة ٢٨ (أصوات المدود)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_28.png', 'الكتاب المدرسي - صفحة ٢٨ (أصوات المدود)')">
                                         <span>📖</span> <span>صَفْحَة ٢٨</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_29.png', 'الكتاب المدرسي - صفحة ٢٩ (التحليل وقراءة ف)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_29.png', 'الكتاب المدرسي - صفحة ٢٩ (التحليل وقراءة ف)')">
                                         <span>📖</span> <span>صَفْحَة ٢٩</span>
                                     </button>
                                 </div>
@@ -11533,25 +11533,25 @@
                                     📖 صَفَحَاتُ الْكِتَابِ الْمَدْرَسِيِّ الْمُعْتَمَدَةُ (انْقُرْ لِعَرْضِ الصَّفْحَةِ مُكَبَّرَة):
                                 </div>
                                 <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_61.png', 'الكتاب المدرسي - صفحة ٦١ (أنشطة ومدخل درس بوق نديم)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_61.png', 'الكتاب المدرسي - صفحة ٦١ (أنشطة ومدخل درس بوق نديم)')">
                                         <span>📖</span> <span>صَفْحَة ٦١</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_62.png', 'الكتاب المدرسي - صفحة ٦٢ (المدود والتحليل)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_62.png', 'الكتاب المدرسي - صفحة ٦٢ (المدود والتحليل)')">
                                         <span>📖</span> <span>صَفْحَة ٦٢</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_63.png', 'الكتاب المدرسي - صفحة ٦٣ (التركيب وقراءة بوق نديم)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_63.png', 'الكتاب المدرسي - صفحة ٦٣ (التركيب وقراءة بوق نديم)')">
                                         <span>📖</span> <span>صَفْحَة ٦٣</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_64.png', 'الكتاب المدرسي - صفحة ٦٤ (تطبيقات القراءة والخط)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_64.png', 'الكتاب المدرسي - صفحة ٦٤ (تطبيقات القراءة والخط)')">
                                         <span>📖</span> <span>صَفْحَة ٦٤</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_56.png', 'كتاب الوزارة - صفحة ٥٦ (حرف القاف وصوره)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_56.png', 'كتاب الوزارة - صفحة ٥٦ (حرف القاف وصوره)')">
                                         <span>📖</span> <span>صَفْحَة ٥٦ (الوزارة)</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_57.png', 'كتاب الوزارة - صفحة ٥٧ (أنشطة المدود والسكون)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_57.png', 'كتاب الوزارة - صفحة ٥٧ (أنشطة المدود والسكون)')">
                                         <span>📖</span> <span>صَفْحَة ٥٧ (الوزارة)</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_58.png', 'كتاب الوزارة - صفحة ٥٨ (قراءة قرب مدينتنا)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_58.png', 'كتاب الوزارة - صفحة ٥٨ (قراءة قرب مدينتنا)')">
                                         <span>📖</span> <span>صَفْحَة ٥٨ (الوزارة)</span>
                                     </button>
                                 </div>
@@ -11981,25 +11981,25 @@
                                     📖 صَفَحَاتُ الْكِتَابِ الْمَدْرَسِيِّ الْمُعْتَمَدَةُ (انْقُرْ لِعَرْضِ الصَّفْحَةِ مُكَبَّرَة):
                                 </div>
                                 <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_65.png', 'الكتاب المدرسي - صفحة ٦٥ (أنشطة ومدخل درس نَبِيل بَقَّال)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_65.png', 'الكتاب المدرسي - صفحة ٦٥ (أنشطة ومدخل درس نَبِيل بَقَّال)')">
                                         <span>📖</span> <span>صَفْحَة ٦٥</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_66.png', 'الكتاب المدرسي - صفحة ٦٦ (المدود والتحليل)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_66.png', 'الكتاب المدرسي - صفحة ٦٦ (المدود والتحليل)')">
                                         <span>📖</span> <span>صَفْحَة ٦٦</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_67.png', 'الكتاب المدرسي - صفحة ٦٧ (التركيب وقراءة نَبِيل بَقَّال)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_67.png', 'الكتاب المدرسي - صفحة ٦٧ (التركيب وقراءة نَبِيل بَقَّال)')">
                                         <span>📖</span> <span>صَفْحَة ٦٧</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_68.png', 'الكتاب المدرسي - صفحة ٦٨ (تطبيقات القراءة والخط)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_68.png', 'الكتاب المدرسي - صفحة ٦٨ (تطبيقات القراءة والخط)')">
                                         <span>📖</span> <span>صَفْحَة ٦٨</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_59.png', 'كتاب الوزارة - صفحة ٥٩ (حرف اللام وصوره)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_59.png', 'كتاب الوزارة - صفحة ٥٩ (حرف اللام وصوره)')">
                                         <span>📖</span> <span>صَفْحَة ٥٩ (الوزارة)</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_60.png', 'كتاب الوزارة - صفحة ٦٠ (أنشطة المدود والسكون)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_60.png', 'كتاب الوزارة - صفحة ٦٠ (أنشطة المدود والسكون)')">
                                         <span>📖</span> <span>صَفْحَة ٦٠ (الوزارة)</span>
                                     </button>
-                                    <button class="btn btn-secondary" onclick="openBookModal('page_61.png', 'كتاب الوزارة - صفحة ٦١ (قراءة قالت نوال في بلدي بيتي)')">
+                                    <button class="btn btn-secondary" onclick="openBookPageModal('page_61.png', 'كتاب الوزارة - صفحة ٦١ (قراءة قالت نوال في بلدي بيتي)')">
                                         <span>📖</span> <span>صَفْحَة ٦١ (الوزارة)</span>
                                     </button>
                                 </div>
@@ -12462,25 +12462,25 @@
                                 📖 صَفَحَاتُ الْكِتَابِ الْمَدْرَسِيِّ الْمُعْتَمَدَةُ (انْقُرْ لِعَرْضِ الصَّفْحَةِ مُكَبَّرَة):
                             </div>
                             <div style="display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
-                                <button class="btn btn-secondary" onclick="openBookModal('page_69.png', 'الكتاب المدرسي - صفحة ٦٩ (تنوين الفتح ونشاط ١ و ٢ و ٣)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_69.png', 'الكتاب المدرسي - صفحة ٦٩ (تنوين الفتح ونشاط ١ و ٢ و ٣)')">
                                     <span>📖</span> <span>صَفْحَة ٦٩</span>
                                 </button>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_70.png', 'الكتاب المدرسي - صفحة ٧٠ (أركب وأقرأ: رفع عامر علما)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_70.png', 'الكتاب المدرسي - صفحة ٧٠ (أركب وأقرأ: رفع عامر علما)')">
                                     <span>📖</span> <span>صَفْحَة ٧٠</span>
                                 </button>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_71.png', 'الكتاب المدرسي - صفحة ٧١ (محفوظة: نحن أطفال العراق)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_71.png', 'الكتاب المدرسي - صفحة ٧١ (محفوظة: نحن أطفال العراق)')">
                                     <span>📖</span> <span>صَفْحَة ٧١</span>
                                 </button>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_72.png', 'الكتاب المدرسي - صفحة ٧٢ (مدخل الوحدة الرابعة: صحتي وبيئتي)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_72.png', 'الكتاب المدرسي - صفحة ٧٢ (مدخل الوحدة الرابعة: صحتي وبيئتي)')">
                                     <span>📖</span> <span>صَفْحَة ٧٢</span>
                                 </button>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_66.png', 'كتاب الوزارة - صفحة ٦٦ (حرف العين وأصوات المدود)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_66.png', 'كتاب الوزارة - صفحة ٦٦ (حرف العين وأصوات المدود)')">
                                     <span>📖</span> <span>صَفْحَة ٦٦ (الوزارة)</span>
                                 </button>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_67.png', 'كتاب الوزارة - صفحة ٦٧ (أنشطة العين الساكنة والتحليل)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_67.png', 'كتاب الوزارة - صفحة ٦٧ (أنشطة العين الساكنة والتحليل)')">
                                     <span>📖</span> <span>صَفْحَة ٦٧ (الوزارة)</span>
                                 </button>
-                                <button class="btn btn-secondary" onclick="openBookModal('page_68.png', 'كتاب الوزارة - صفحة ٦٨ (تركيب المقاطع وقراءة يرفع عامر علم وطني)')">
+                                <button class="btn btn-secondary" onclick="openBookPageModal('page_68.png', 'كتاب الوزارة - صفحة ٦٨ (تركيب المقاطع وقراءة يرفع عامر علم وطني)')">
                                     <span>📖</span> <span>صَفْحَة ٦٨ (الوزارة)</span>
                                 </button>
                             </div>
@@ -23360,7 +23360,7 @@
 
                             <div class="url-copy-box">
 
-                                <input type="text" readonly id="mobileUrlInput" value="http://192.168.0.133:8080" class="url-input">
+                                <input type="text" readonly id="mobileUrlInput" value="https://usama-kh75.github.io/qiraati-app/" class="url-input">
 
                                 <button onclick="copyMobileUrl()" class="btn-copy" id="btnCopy">
 

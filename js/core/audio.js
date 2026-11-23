@@ -33,9 +33,50 @@
         function setStoredPref(key, oldKey, val) {
             try {
                 localStorage.setItem(key, val);
-                if (oldKey) localStorage.setItem(oldKey, val);
             } catch(e) {}
         }
+
+        // دالة تهريب HTML موحدة لمنع ثغرات XSS في جميع وحدات المنصة
+        function qiraatiEscapeHtml(str) {
+            if (str === null || str === undefined) return '';
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;');
+        }
+        window.qiraatiEscapeHtml = qiraatiEscapeHtml;
+
+        // دالة قراءة كلمات لوحة الشرف في ختام الوحدتين الأولى والثانية
+        function playWordRead(wordKey) {
+            const WORD_READ_MAP = {
+                baba:  { audio: 'letter_d_read_baba',  text: 'بَابَا (بَا + بَا) 🌟' },
+                mama:  { audio: 'letter_m_read_mama',  text: 'مَامَا (مَا + مَا) 🌟' },
+                dada:  { audio: 'letter_d_read_dada',  text: 'دَادَا (دَا + دَا) 🌟' },
+                dar:   { audio: 'letter_d_dar',        text: 'دَارٌ 🏡' },
+                firas: { audio: 'letter_s_read_word_firas', text: 'فِرَاسٌ 👦' },
+                noor:  { audio: 'letter_n_read_word_noor',  text: 'نُورٌ 👧' },
+                banat: { audio: 'letter_n_bint',       text: 'بَنَاتٌ 👭' },
+                sarah: { audio: null,                  text: 'سَارَةُ 👩‍🎨' },
+                ward:  { audio: 'faseeh_blend_wardun', text: 'وَرْدٌ 🌹' }
+            };
+            const item = WORD_READ_MAP[wordKey];
+            if (item && item.audio) {
+                if (typeof mascotSpeak === 'function') {
+                    mascotSpeak(`استمع جيداً للكلمة: <b>${item.text}</b>`, item.audio);
+                } else {
+                    playAudio(item.audio);
+                }
+            } else if (item) {
+                if (typeof mascotSpeak === 'function') {
+                    mascotSpeak(`اقرأ معي بوضوح: <b>${item.text}</b>`);
+                }
+            } else if (wordKey) {
+                playAudio(wordKey);
+            }
+        }
+        window.playWordRead = playWordRead;
 
         function cleanupAudioNodes(audio) {
             if (_lipSyncAnimId) {

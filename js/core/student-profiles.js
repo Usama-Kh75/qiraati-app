@@ -259,17 +259,22 @@
         renderProfilesList() {
             const container = document.getElementById('profilesListContainer');
             if (!container) return;
+            const esc = window.qiraatiEscapeHtml || (s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])));
             let html = '';
             this.profiles.forEach(p => {
                 const isActive = p.id === this.activeId;
+                const safeId = esc(p.id);
+                const safeName = esc(p.name);
+                const safeSection = esc(p.section || 'أ');
+                const safeAvatar = esc(p.avatar || '👦');
                 html += `
-                    <div class="profile-card-item ${isActive ? 'active-profile' : ''}" onclick="StudentProfiles.switchProfile('${p.id}')">
-                        <div class="profile-card-avatar">${p.avatar || '👦'}</div>
+                    <div class="profile-card-item ${isActive ? 'active-profile' : ''}" onclick="StudentProfiles.switchProfile('${safeId}')">
+                        <div class="profile-card-avatar">${safeAvatar}</div>
                         <div class="profile-card-info">
-                            <div class="profile-card-name">${p.name} ${isActive ? '🌟 (النشط)' : ''}</div>
-                            <div class="profile-card-meta">الصف الأول / شعبة (${p.section || 'أ'})</div>
+                            <div class="profile-card-name">${safeName} ${isActive ? '🌟 (النشط)' : ''}</div>
+                            <div class="profile-card-meta">الصف الأول / شعبة (${safeSection})</div>
                         </div>
-                        ${this.profiles.length > 1 ? `<button onclick="event.stopPropagation(); StudentProfiles.deleteProfile('${p.id}')" style="background:none; border:none; color:#ef4444; font-size:1.1rem; cursor:pointer;" title="حذف">🗑️</button>` : ''}
+                        ${this.profiles.length > 1 ? `<button onclick="event.stopPropagation(); StudentProfiles.deleteProfile('${safeId}')" style="background:none; border:none; color:#ef4444; font-size:1.1rem; cursor:pointer;" title="حذف">🗑️</button>` : ''}
                     </div>
                 `;
             });

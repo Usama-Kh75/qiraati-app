@@ -19,9 +19,9 @@ android {
     signingConfigs {
         create("release") {
             storeFile = file("qiraati-release.keystore")
-            storePassword = "qiraati_smart_2026"
-            keyAlias = "qiraati"
-            keyPassword = "qiraati_smart_2026"
+            storePassword = System.getenv("QIRAATI_KEYSTORE_PASSWORD") ?: ""
+            keyAlias = System.getenv("QIRAATI_KEY_ALIAS") ?: "qiraati"
+            keyPassword = System.getenv("QIRAATI_KEY_PASSWORD") ?: System.getenv("QIRAATI_KEYSTORE_PASSWORD") ?: ""
         }
     }
 

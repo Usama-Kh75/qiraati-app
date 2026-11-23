@@ -582,7 +582,7 @@
         if (!select) return;
 
         select.innerHTML = '<option value="">-- اختر اسمك من قائمة الصف --</option>' +
-            roster.map(s => `<option value="${s.id}" ${s.id === state.student.id ? 'selected' : ''}>${s.name}</option>`).join('');
+            roster.map(s => `<option value="${escapeHtml(s.id)}" ${s.id === state.student.id ? 'selected' : ''}>${escapeHtml(s.name)}</option>`).join('');
     }
 
     // ==========================================================================

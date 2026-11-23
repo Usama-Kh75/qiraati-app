@@ -1,11 +1,11 @@
 ﻿// عامل الخدمة لمنصة قراءتي التفاعلية الذكية (PWA Service Worker)
 // إعداد وتطوير: المهندس أسامة خليل هاشم
-// الإصدار: v3.59 (تصحيح تطابق الكلمات مع الصور والأصوات وإزالة الصور المكسورة وبناء بطاقات الألعاب وترقية كاش PWA إلى v82)
+// الإصدار: v3.60 (إصلاح تخزين طلبات API وعامل الخدمة وتفعيل الدوال المفقودة وتحصين XSS وتوحيد مفاتيح التخزين وترقية كاش PWA إلى v83)
 
 const APP = 'qiraati-smart';
-const CACHE_NAME = 'qiraati-smart-v82';
+const CACHE_NAME = 'qiraati-smart-v83';
 
-// الهيكل الأساسي للتطبيق (App Shell) - أقل من 4 ميغابايت لتثبيت فوري خلال ثوانٍ
+// الهيكل الأساسي للتطبيق (App Shell) لتشغيل فوري ودعم العمل دون إنترنت
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -106,6 +106,21 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  // تجاهل الطلبات غير GET (مثل POST للذكاء الاصطناعي والمزامنة) وطلبات API والروابط الخارجية
+  if (event.request.method !== 'GET') return;
+
+  let reqUrl;
+  try {
+    reqUrl = new URL(event.request.url);
+  } catch (e) {
+    return;
+  }
+
+  // استثناء طلبات API (المسابقة الصفية، رادار المعلم، الذكاء الاصطناعي) والروابط خارج نطاق التطبيق
+  if (reqUrl.origin !== self.location.origin || reqUrl.pathname.startsWith('/api/')) {
+    return;
+  }
+
   // للروابط ومستند HTML الرئيسي: محاولة الجلب من الشبكة أولاً مع التحديث التلقائي للكاش، والرجوع للمخزن عند عدم الاتصال
   if (event.request.mode === 'navigate' || event.request.destination === 'document') {
     event.respondWith(
@@ -122,7 +137,7 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // لبقية الأصول (الأصوات audio/*.mp3، الصور *.png، الخطوط):
+  // لبقية الأصول المحلية (الأصوات audio/*.mp3، الصور *.png، CSS، JS):
   // استراتيجية Cache-First مع التخزين التلقائي وقت التشغيل (Runtime Caching)
   event.respondWith(
     caches.match(event.request, { cacheName: CACHE_NAME }).then((cachedResponse) => {
@@ -130,11 +145,13 @@ self.addEventListener('fetch', (event) => {
         return cachedResponse;
       }
       return fetch(event.request).then((networkResponse) => {
-        if (networkResponse && networkResponse.status === 200 && (networkResponse.type === 'basic' || networkResponse.type === 'cors')) {
+        if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
           const responseClone = networkResponse.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
         }
         return networkResponse;
+      }).catch(() => {
+        return new Response('', { status: 503, statusText: 'Offline' });
       });
     })
   );

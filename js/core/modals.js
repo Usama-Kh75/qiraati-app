@@ -10,19 +10,7 @@
 
         ======================================================== */
 
-        if ('serviceWorker' in navigator) {
-
-            window.addEventListener('load', () => {
-
-                navigator.serviceWorker.register('./sw.js')
-
-                    .then(reg => console.log('SW Registered'))
-
-                    .catch(err => console.log('SW Failed', err));
-
-            });
-
-        }
+        // تسجيل Service Worker يتم مركزياً في js/app.js منعاً للازدواجية
 
         let deferredPrompt = null;
 
@@ -86,13 +74,13 @@
 
             if (input) {
 
-                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                if (window.location.protocol === 'http:' || window.location.protocol === 'https:') {
 
-                    input.value = 'http://192.168.0.133:8080';
+                    input.value = window.location.href.split('?')[0].split('#')[0];
 
                 } else {
 
-                    input.value = window.location.origin;
+                    input.value = 'https://usama-kh75.github.io/qiraati-app/';
 
                 }
 
@@ -330,6 +318,7 @@
         }
 
         window.openBookPageModal = openBookPageModal;
+        window.openBookModal = openBookPageModal;
         window.closeBookPageModal = closeBookPageModal;
 
         /* ========================================================

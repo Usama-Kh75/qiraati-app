@@ -830,7 +830,8 @@
             puppetIds.forEach(id => {
                 const puppet = PUPPETS_DATA[id];
                 if (puppet) {
-                    const pupilName = State.castAssignments[id] || puppet.name;
+                    const esc = window.qiraatiEscapeHtml || (v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])));
+                    const pupilName = esc(State.castAssignments[id] || puppet.name);
                     html += `
                     <div class="rt-puppet-figure" id="rtPuppet_${id}" onclick="ReadersTheater.onPuppetClick('${id}')">
                         <div class="rt-speech-bubble" id="rtBubble_${id}"></div>
@@ -1231,13 +1232,13 @@
                         تَمَّ مَنْحُ هَذِهِ التَّذْكِرَةِ التَّقْدِيرِيَّةِ لِلْمُمَثِّلِ الصَّغِيرِ البَارِع:
                     </div>
                     <div style="font-size: 1.85rem; font-weight: 900; color: #be123c; background: #ffffff; padding: 8px 24px; border-radius: 16px; border: 2px dashed #f43f5e; display: inline-block; margin: 10px auto;">
-                        ${pupilName}
+                        ${(window.qiraatiEscapeHtml || (v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))))(pupilName)}
                     </div>
                     <div style="font-size: 1.3rem; font-weight: 800; color: #047857; margin: 15px 0;">
-                        لِأَدَائِهِ المُتَمَيِّزِ لِدَوْرِ: <span style="color: #b45309; text-decoration: underline;">${roleName}</span>
+                        لِأَدَائِهِ المُتَمَيِّزِ لِدَوْرِ: <span style="color: #b45309; text-decoration: underline;">${(window.qiraatiEscapeHtml || (v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))))(roleName)}</span>
                     </div>
                     <div style="font-size: 1.2rem; font-weight: 700; color: #475569; margin: 10px 0;">
-                        فِي ${play.title}
+                        فِي ${(window.qiraatiEscapeHtml || (v => String(v ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))))(play.title)}
                     </div>
                     <div style="display: flex; justify-content: space-around; margin-top: 30px; font-size: 1rem; font-weight: 800; color: #78350f;">
                         <div>تَارِيخُ العَرْض: ${new Date().toLocaleDateString('ar-IQ')}</div>

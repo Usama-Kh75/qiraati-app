@@ -103,8 +103,11 @@
         ],
 
         init() {
-            // التحقق من خوض الجولة سابقاً
-            const completed = localStorage.getItem('qiraati_tour_completed');
+            // التحقق من خوض الجولة سابقاً (مع ترحيل تلقائي من المفتاح القديم)
+            const completed = localStorage.getItem('qiraati-smart-tour-completed') || localStorage.getItem('qiraati_tour_completed');
+            if (completed && !localStorage.getItem('qiraati-smart-tour-completed')) {
+                try { localStorage.setItem('qiraati-smart-tour-completed', completed); } catch (e) {}
+            }
             if (!completed) {
                 // تشغيل تلقائي هادئ بعد اكتمال تحميل الواجهة بـ 1.8 ثانية
                 setTimeout(() => {
@@ -309,7 +312,7 @@
             if (popover) popover.classList.remove('active');
 
             if (userCompleted) {
-                localStorage.setItem('qiraati_tour_completed', 'true');
+                try { localStorage.setItem('qiraati-smart-tour-completed', 'true'); } catch (e) {}
             }
 
             // مؤثر صوتي عند الإنهاء
@@ -376,8 +379,11 @@
         activeFilter: 'all',
 
         init() {
-            // استرجاع آخر فصل تمت قراءته
-            const savedChapter = localStorage.getItem('qiraati_guide_last_chapter');
+            // استرجاع آخر فصل تمت قراءته (مع ترحيل تلقائي من المفتاح القديم)
+            const savedChapter = localStorage.getItem('qiraati-smart-guide-last-chapter') || localStorage.getItem('qiraati_guide_last_chapter');
+            if (savedChapter && !localStorage.getItem('qiraati-smart-guide-last-chapter')) {
+                try { localStorage.setItem('qiraati-smart-guide-last-chapter', savedChapter); } catch (e) {}
+            }
             if (savedChapter && document.getElementById(`paneGuide_${savedChapter}`)) {
                 this.activeChapter = savedChapter;
             }
@@ -402,7 +408,7 @@
 
         switchChapter(chapterId) {
             this.activeChapter = chapterId;
-            localStorage.setItem('qiraati_guide_last_chapter', chapterId);
+            try { localStorage.setItem('qiraati-smart-guide-last-chapter', chapterId); } catch (e) {}
 
             // تحديث أزرار الفصول في الشريط الجانبي
             const chapterBtns = document.querySelectorAll('.guide-chapter-btn');

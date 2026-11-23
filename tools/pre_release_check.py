@@ -200,8 +200,8 @@ def step6_version_alignment():
     print(f"  - إصدار عامل الخدمة (sw.js): {sw_ver}")
     print(f"  - اسم مخزن الكاش (sw.js): {sw_cache}")
 
-    expected_ver = "v3.59"
-    expected_cache = "qiraati-smart-v82"
+    expected_ver = "v3.60"
+    expected_cache = "qiraati-smart-v83"
 
     errors = []
     if top_ver != expected_ver:
@@ -217,13 +217,13 @@ def step6_version_alignment():
             print(f"  - {e}")
         return False
 
-    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.59 وكاش qiraati-smart-v82.")
+    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.60 وكاش qiraati-smart-v83.")
     return True
 
 def main():
     print("=" * 70)
     print("🛡️ منصة قراءتي التفاعلية الذكية - بوابة الفحص الآلي الإلزامية")
-    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.59)")
+    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.60)")
     print("=" * 70)
 
     steps = [

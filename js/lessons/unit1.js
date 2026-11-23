@@ -317,6 +317,26 @@
 
         }
 
+        function switchModelingMode(mode) {
+            const normalized = (mode === 'model') ? 'model' : 'student';
+            window.currentModelingMode = normalized;
+            document.querySelectorAll('#btnFModel1, #btnFModel2').forEach(b => b.classList.remove('active'));
+            const activeBtn = document.getElementById(normalized === 'model' ? 'btnFModel1' : 'btnFModel2');
+            if (activeBtn) activeBtn.classList.add('active');
+            if (normalized === 'model') {
+                if (typeof mascotCelebrates === 'function') mascotCelebrates();
+                if (typeof mascotSpeak === 'function') {
+                    mascotSpeak('🎓 <b>طَوْرُ النَّمْذَجَةِ («أَنَا وَحْدِي»):</b><br>فَصِيح يُمَثِّلُ الْمُعَلِّمَ، سَأُفَكِّرُ بِصَوْتٍ عَالٍ وَأُحَلِّلُ الْمَقَاطِعَ مَعَ الصَّفَقَاتِ أَمَامَكَ!');
+                }
+            } else {
+                if (typeof mascotCelebrates === 'function') mascotCelebrates();
+                if (typeof mascotSpeak === 'function') {
+                    mascotSpeak('🕹️ <b>طَوْرُ التَّحَدِّي («أَنْتُمْ وَحْدَكُمْ»):</b><br>خُذْ وَقْتَكَ فِي التَّفْكِيرِ (٣٠ ثَانِيَة)، ثُمَّ اضْغَطْ وَحَلِّلِ الْكَلِمَةَ بِنَفْسِكَ يَا بَطَل!');
+                }
+            }
+        }
+        window.switchModelingMode = switchModelingMode;
+
         function playClapAudio() {
 
             try {

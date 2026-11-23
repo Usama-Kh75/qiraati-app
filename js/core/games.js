@@ -502,8 +502,6 @@
     function saveGamesProgress() {
         localStorage.setItem('qiraati-smart-games-score', GamesState.totalScore.toString());
         localStorage.setItem('qiraati-smart-games-stars', GamesState.starsCount.toString());
-        localStorage.setItem('qiraati_smart_games_score', GamesState.totalScore.toString());
-        localStorage.setItem('qiraati_smart_games_stars', GamesState.starsCount.toString());
         updateGlobalStatsStrip();
     }
 
@@ -815,6 +813,16 @@
         // بدء العد التنازلي الحماسي (10 ثوانٍ)
         startBattleTimer();
     }
+
+    window.playCurrentBattleAudio = function () {
+        const q = GamesState.battle && GamesState.battle.activeQuestion;
+        if (!q || !q.item) return;
+        if (q.item.audio && typeof window.playAudio === 'function') {
+            window.playAudio(q.item.audio);
+        } else if (typeof window.mascotSpeak === 'function') {
+            window.mascotSpeak(`ابحث عن الكلمة: ${q.item.word}`, q.item.audio || null);
+        }
+    };
 
     function renderBattleTeamOptions(team, options, correctAnswer) {
         const container = document.getElementById(`battleOptions_${team}`);

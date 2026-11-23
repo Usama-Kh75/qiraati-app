@@ -129,19 +129,25 @@ def ensure_keystore():
         print(f"✔ شهادة التوقيع موجودة مسبقاً: {keystore_path}")
         return keystore_path
 
+    store_pass = os.environ.get("QIRAATI_KEYSTORE_PASSWORD")
+    key_pass = os.environ.get("QIRAATI_KEY_PASSWORD") or store_pass
+    if not store_pass:
+        print("❌ يرجى ضبط متغير البيئة QIRAATI_KEYSTORE_PASSWORD قبل إنشاء شهادة التوقيع.")
+        sys.exit(1)
+
     print("🔑 جارٍ إنشاء شهادة التوقيع الرقمي الرسمية للمهندس أسامة خليل هاشم...")
     cmd = [
         KEYTOOL_PATH,
         "-genkeypair",
         "-v",
         "-keystore", keystore_path,
-        "-alias", "qiraati",
+        "-alias", os.environ.get("QIRAATI_KEY_ALIAS", "qiraati"),
         "-keyalg", "RSA",
         "-keysize", "2048",
         "-validity", "10000",
-        "-storepass", "qiraati_smart_2026",
-        "-keypass", "qiraati_smart_2026",
-        "-dname", "CN=Osama Khalil Hashem, OU=Educational Technology, O=Qiraati Smart Platform, L=Baghdad, ST=Baghdad, C=IQ"
+        "-storepass", store_pass,
+        "-keypass", key_pass,
+        "-dname", "CN=Usama Khaleel Hashim, OU=Educational Technology, O=Qiraati Smart Platform, L=Baghdad, ST=Baghdad, C=IQ"
     ]
     res = subprocess.run(cmd, capture_output=True, text=True)
     if res.returncode != 0:
