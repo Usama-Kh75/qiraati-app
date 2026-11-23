@@ -139,7 +139,7 @@
                 {
                     text: 'ما الفرق بين كلمة «دَار» وكلمة «دُور»؟',
                     category: 'المدود الفونيمية',
-                    image: 'activity_5.png',
+                    image: 'activity_r_scene.png',
                     audioWord: 'دَار',
                     options: ['دَار فيها مد الألف (ا)، ودُور فيها مد الواو (و)', 'لا يوجد أي فرق', 'دَار تبدأ بالباء', 'دُور تنتهي بالميم'],
                     correct: 0,
@@ -180,7 +180,7 @@
                 {
                     text: 'إذا أضفنا تنوين الضم (ـٌ) إلى كلمة «وَرْد»، فكيف نلفظها؟',
                     category: 'التنوين',
-                    image: 'unit2_school_listen.png',
+                    image: 'activity_tanween_dham_scene.png',
                     audioWord: 'وَرْدٌ',
                     options: ['وَرْدٌ (وَرْدُنْ)', 'وَرْدَ (وَرْدَا)', 'وَرْدِ (وَرْدِنْ)', 'وَرْدْ'],
                     correct: 0,
@@ -200,7 +200,7 @@
                 {
                     text: 'حرف النون في أول كلمة «نُور» يكتب بالشكل:',
                     category: 'أشكال الحروف',
-                    image: 'unit2_school_listen.png',
+                    image: 'activity_n_scene.png',
                     audioWord: 'نُور',
                     options: ['نـ (يمد يده ليتصل بما بعده)', 'ن (منفصل)', 'ـن (متصل آخري)', 'ة'],
                     correct: 0,
@@ -241,7 +241,7 @@
                 {
                     text: 'كلمة «رِيف» وكلمة «فَارُوق» تشتركان في وجود حرف:',
                     category: 'الحروف الهجائية',
-                    image: 'activity_f_read.png',
+                    image: 'activity_reef_read.png',
                     audioWord: 'رِيف',
                     options: ['حرف الفاء (فـ / ف)', 'حرف الطاء (ط)', 'حرف الصاد (ص)', 'حرف الدال (د)'],
                     correct: 0,
@@ -251,7 +251,7 @@
                 {
                     text: 'ما هو الحرف الذي يميز كلمة «بَـ طّ» في نهايته مع الشدة؟',
                     category: 'الظواهر اللغوية',
-                    image: 'activity_t_read.png',
+                    image: 'activity_ta_scene.png',
                     audioWord: 'بَطّ',
                     options: ['حرف الطاء المشدد (طّ)', 'حرف التاء (ت)', 'حرف الظاء (ظ)', 'حرف الدال (د)'],
                     correct: 0,
@@ -271,7 +271,7 @@
                 {
                     text: 'رِيفُ مَنَافٍ فِيهِ بَقَرٌ وَ...... أكمل الجملة الصحيحة:',
                     category: 'فهم المقروء',
-                    image: 'activity_f_picnic.png',
+                    image: 'activity_reef_scene.png',
                     audioWord: 'بَقَرٌ وَوَزّ',
                     options: ['بَقَرٌ وَوَزٌّ', 'سَمَكٌ وَحِيتَان', 'طَيَّارَات وَسَيَّارَات', 'ذِئَاب وَنُمُور'],
                     correct: 0,
@@ -322,7 +322,7 @@
                 {
                     text: 'علامة تنوين الكسر (ـٍ) توضع:',
                     category: 'الحركات والتنوين',
-                    image: 'activity_3_items.png',
+                    image: 'activity_sad_tanween_kasr.png',
                     audioWord: 'تَنْوِينُ الْكَسْر',
                     options: ['تَحْتَ الْحَرْفِ (كسرتان)', 'فَوْقَ الْحَرْفِ (ضمتان)', 'فَوْقَ الْأَلِفِ (فتحتان)', 'بِجَانِبِ الْحَرْف'],
                     correct: 0,
@@ -332,7 +332,7 @@
                 {
                     text: 'أي الحيوانات التالية يبدأ بحرف الجيم (جـ)؟',
                     category: 'الوعي الفونيمي',
-                    image: 'activity_jeem_read.png',
+                    image: 'activity_j_scene.png',
                     audioWord: 'جَمَل',
                     options: ['جَمَل (سفينة الصحراء)', 'حِصَان', 'خَرُوف', 'أَسَد'],
                     correct: 0,
@@ -475,7 +475,7 @@
                 {
                     text: 'ما هو الصوت النقي لحرف الدال الصامت كما في الطريقة الفونيمية؟',
                     category: 'الوعي الفونيمي',
-                    image: 'activity_5.png',
+                    image: 'activity_d_scene.png',
                     audioWord: 'دْ',
                     options: ['صوت (دْ) النقي الساكن', 'اسم الحرف (دال)', 'صوت الضاد', 'صوت الدال مع التنوين'],
                     correct: 0,
@@ -505,7 +505,7 @@
                 {
                     text: 'ما هي الكلمة الصحيحة التي تدل على جمع كلمة «دَار»؟',
                     category: 'المفرد والجمع',
-                    image: 'activity_5.png',
+                    image: 'activity_r_scene.png',
                     audioWord: 'دُور',
                     options: ['دُور (بمد الواو)', 'دَارَات', 'أَدْوَار', 'دَيْر'],
                     correct: 0,
@@ -515,7 +515,7 @@
                 {
                     text: 'شخصية مساعدنا الذكي المرح في منصة قراءتي يسمى:',
                     category: 'هوية المنصة',
-                    image: 'activity_3_items.png',
+                    image: 'icons/faseeh_avatar.svg',
                     audioWord: 'فَصِيح',
                     options: ['القلم الذكي «فَصِيح» ✏️', 'الغراب الصغير', 'العصفور المغرد', 'البطة السريعة'],
                     correct: 0,

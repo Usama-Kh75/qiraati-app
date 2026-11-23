@@ -208,13 +208,13 @@
             { text: 'ب', title: 'حرف الباء', desc: 'مثل: بَابَا - بُوم', audio: 'letter_b_sound' },
             { text: 'م', title: 'حرف الميم', desc: 'مثل: مَامَا - مِيَاه', audio: 'letter_m_sound' },
             { text: 'ن', title: 'حرف النون', desc: 'مثل: نُور - نَمِير', audio: 'letter_n_sound' },
-            { text: 'ق', title: 'حرف القاف', desc: 'مثل: بُوق - قِطَار', audio: 'letter_q_words_intro' },
-            { text: 'ل', title: 'حرف اللام', desc: 'مثل: لَبَن - نَبِيل', audio: 'letter_l_words_intro' },
+            { text: 'ق', title: 'حرف القاف', desc: 'مثل: بُوق - قِطَار', audio: 'letter_q_booq_sound' },
+            { text: 'ل', title: 'حرف اللام', desc: 'مثل: لَبَن - نَبِيل', audio: 'letter_l_nabeel_sound' },
             { text: 'ف', title: 'حرف الفاء', desc: 'مثل: فِرَاس - رِيف', audio: 'letter_f_sound' },
             { text: 'س', title: 'حرف السين', desc: 'مثل: سَارَة - سَالِم', audio: 'letter_s_sound' },
-            { text: 'ط', title: 'حرف الطاء', desc: 'مثل: طَيَّارَة - بَطّ', audio: 'letter_ta_words_intro' },
-            { text: 'ع', title: 'حرف العين', desc: 'مثل: عَلَم - عِيد', audio: 'letter_ayn_words_intro' },
-            { text: 'ز', title: 'حرف الزاي', desc: 'مثل: زَيْد - زَيْتُون', audio: 'letter_z_words_intro' }
+            { text: 'ط', title: 'حرف الطاء', desc: 'مثل: طَيَّارَة - بَطّ', audio: 'letter_ta_sound' },
+            { text: 'ع', title: 'حرف العين', desc: 'مثل: عَلَم - عِيد', audio: 'letter_ayn_salim_sound' },
+            { text: 'ز', title: 'حرف الزاي', desc: 'مثل: زَيْد - زَيْتُون', audio: 'letter_z_sound' }
         ],
         syllables: [
             { text: 'دَا', title: 'مقطع دَا', desc: 'دال ممدودة بالألف (دَادَا)', audio: 'letter_d_sound' },
@@ -226,23 +226,23 @@
             { text: 'رُو', title: 'مقطع رُو', desc: 'راء ممدودة بالواو (خَرُوف)', audio: 'letter_r_sound' },
             { text: 'نُو', title: 'مقطع نُو', desc: 'نون ممدودة بالواو (نُور)', audio: 'letter_n_sound' },
             { text: 'مِيـ', title: 'مقطع مِيـ', desc: 'ميم ممدودة بالياء (نَمِير)', audio: 'letter_m_sound' },
-            { text: 'قَا', title: 'مقطع قَا', desc: 'قاف ممدودة بالألف (قَال)', audio: 'letter_q_words_intro' },
+            { text: 'قَا', title: 'مقطع قَا', desc: 'قاف ممدودة بالألف (قَال)', audio: 'letter_q_booq_sound' },
             { text: 'سَا', title: 'مقطع سَا', desc: 'سين ممدودة بالألف (سَارَة)', audio: 'letter_s_sound' },
-            { text: 'طَا', title: 'مقطع طَا', desc: 'طاء ممدودة بالألف (قِطَار)', audio: 'letter_ta_words_intro' }
+            { text: 'طَا', title: 'مقطع طَا', desc: 'طاء ممدودة بالألف (قِطَار)', audio: 'letter_ta_sound' }
         ],
         words: [
             { text: 'دَادَا', title: 'دَادَا', desc: 'الطفل الرضيع الصغير (دَا + دَا)', audio: 'faseeh_blend_dada' },
-            { text: 'دَار', title: 'دَار', desc: 'بيت الأسرة الجميل (دَا + ر)', audio: 'letter_r_read_dar' },
-            { text: 'بَابَا', title: 'بَابَا', desc: 'الأب الحنون (بَا + بَا)', audio: 'letter_b_read_baba' },
+            { text: 'دَار', title: 'دَار', desc: 'بيت الأسرة الجميل (دَا + ر)', audio: 'faseeh_blend_dar' },
+            { text: 'بَابَا', title: 'بَابَا', desc: 'الأب الحنون (بَا + بَا)', audio: 'letter_d_read_baba' },
             { text: 'مَامَا', title: 'مَامَا', desc: 'الأم الغالية (مَا + مَا)', audio: 'letter_m_read_mama' },
-            { text: 'نُور', title: 'نُور', desc: 'الضياء واسم بنت (نُو + ر)', audio: 'act5_noor' },
-            { text: 'بُوق', title: 'بُوق', desc: 'بوق نديم القديم (بُو + ق)', audio: 'letter_q_booq_syllables' },
-            { text: 'مِيَاه', title: 'مِيَاه', desc: 'مياه المطر تسقي الزرع', audio: 'act5_halwa' },
+            { text: 'نُور', title: 'نُور', desc: 'الضياء واسم بنت (نُو + ر)', audio: 'faseeh_blend_noor' },
+            { text: 'بُوق', title: 'بُوق', desc: 'بوق نديم القديم (بُو + ق)', audio: 'letter_q_booq_word_booq' },
+            { text: 'مِيَاه', title: 'مِيَاه', desc: 'مياه المطر تسقي الزرع', audio: 'letter_ha_word_miah' },
             { text: 'زَيْتُون', title: 'زَيْتُون', desc: 'زيتون بلادي الشهي', audio: 'letter_z_words_intro' },
-            { text: 'قِطَارٌ', title: 'قِطَارٌ', desc: 'قطار سريع بتنوين الضم', audio: 'tanween_dham_qitarun' },
-            { text: 'غَزَال', title: 'غَزَال', desc: 'غزال وغراب صديقان', audio: 'letter_ghayn_words_intro' },
-            { text: 'سَالِم', title: 'سَالِم', desc: 'سالم زارع البستان النشيط', audio: 'letter_ayn_salim_syllables' },
-            { text: 'نَبِيه', title: 'نَبِيه', desc: 'نبيه تلميذ نشيط وذكي', audio: 'act5_halwa' }
+            { text: 'قِطَارٌ', title: 'قِطَارٌ', desc: 'قطار سريع بتنوين الضم', audio: 'item_qitar' },
+            { text: 'غَزَال', title: 'غَزَال', desc: 'غزال وغراب صديقان', audio: 'letter_z_word_ghazal' },
+            { text: 'سَالِم', title: 'سَالِم', desc: 'سالم زارع البستان النشيط', audio: 'letter_ayn_salim_word_salim' },
+            { text: 'نَبِيه', title: 'نَبِيه', desc: 'نبيه تلميذ نشيط وذكي', audio: 'letter_ha_word_nabeeh' }
         ],
         challenges: [
             { text: '👏 صفق!', title: 'تحدي التصفيق المقطعي', desc: 'اقرأ الكلمة (بَابَا) وصفق بعدد مقاطعها!' },
@@ -274,15 +274,86 @@
 
     // بنك كلمات قطار المقاطع والتركيب
     const TRAIN_WORDS_BANK = [
-        { word: 'دَار', syllables: ['دَا', 'ر'], pic: 'activity_5.png', audio: 'letter_r_read_dar' },
-        { word: 'دَادَا', syllables: ['دَا', 'دَا'], pic: 'unit1_family_listen.png', audio: 'faseeh_blend_dada' },
-        { word: 'بَابَا', syllables: ['بَا', 'بَا'], pic: 'unit1_story_living.png', audio: 'letter_b_read_baba' },
-        { word: 'مَامَا', syllables: ['مَا', 'مَا'], pic: 'unit1_story_kitchen.png', audio: 'letter_m_read_mama' },
-        { word: 'نُور', syllables: ['نُو', 'ر'], pic: 'unit2_school_listen.png', audio: 'act5_noor' },
-        { word: 'بُوق', syllables: ['بُو', 'ق'], pic: 'activity_booq_scene.png', audio: 'letter_q_booq_syllables' },
-        { word: 'مِيَاه', syllables: ['مِـ', 'يَا', 'ه'], pic: 'activity_ha_scene.png', audio: 'act5_halwa' },
-        { word: 'قِطَار', syllables: ['قِـ', 'طَا', 'ر'], pic: 'activity_3_items.png', audio: 'tanween_dham_qitarun' },
-        { word: 'غَزَال', syllables: ['غَـ', 'زَا', 'ل'], pic: 'activity_8_directions.png', audio: 'letter_ghayn_words_intro' }
+        {
+            word: 'دَار',
+            syllables: ['دَا', 'ر'],
+            pic: 'activity_r_scene.png',
+            scenePic: 'activity_r_scene.png',
+            audio: 'faseeh_blend_dar',
+            visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="20" y="42" width="60" height="46" rx="4" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/><polygon points="12,44 50,14 88,44" fill="#ef4444" stroke="#b91c1c" stroke-width="2.5" stroke-linejoin="round"/><rect x="68" y="20" width="10" height="18" fill="#b91c1c" rx="1"/><circle cx="73" cy="14" r="4" fill="#cbd5e1" opacity="0.8"/><circle cx="76" cy="8" r="5" fill="#cbd5e1" opacity="0.6"/><rect x="42" y="54" width="16" height="34" rx="2" fill="#92400e"/><circle cx="54" cy="72" r="2" fill="#fbbf24"/><rect x="25" y="50" width="14" height="14" rx="2" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/><line x1="32" y1="50" x2="32" y2="64" stroke="#ffffff" stroke-width="1.5"/><line x1="25" y1="57" x2="39" y2="57" stroke="#ffffff" stroke-width="1.5"/><rect x="61" y="50" width="14" height="14" rx="2" fill="#38bdf8" stroke="#0284c7" stroke-width="1.5"/><line x1="68" y1="50" x2="68" y2="64" stroke="#ffffff" stroke-width="1.5"/><line x1="61" y1="57" x2="75" y2="57" stroke="#ffffff" stroke-width="1.5"/><path d="M10 88 Q20 84 30 88 T50 88 T70 88 T90 88" fill="none" stroke="#22c55e" stroke-width="3"/></svg>'
+        },
+        {
+            word: 'دَادَا',
+            syllables: ['دَا', 'دَا'],
+            pic: 'activity_d_scene.png',
+            scenePic: 'activity_d_scene.png',
+            audio: 'faseeh_blend_dada',
+            visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><circle cx="50" cy="46" r="28" fill="#fed7aa" stroke="#f97316" stroke-width="2"/><path d="M50 18 Q55 10 46 12" fill="none" stroke="#d97706" stroke-width="3" stroke-linecap="round"/><ellipse cx="40" cy="44" rx="3.5" ry="4.5" fill="#1e293b"/><ellipse cx="60" cy="44" rx="3.5" ry="4.5" fill="#1e293b"/><circle cx="41.5" cy="42.5" r="1.5" fill="#ffffff"/><circle cx="61.5" cy="42.5" r="1.5" fill="#ffffff"/><circle cx="34" cy="52" r="4.5" fill="#f43f5e" opacity="0.45"/><circle cx="66" cy="52" r="4.5" fill="#f43f5e" opacity="0.45"/><path d="M44 54 Q50 62 56 54" fill="#be123c" stroke="#9f1239" stroke-width="1"/><path d="M30 72 Q50 68 70 72 L66 90 Q50 96 34 90 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/><circle cx="50" cy="80" r="4" fill="#fbbf24"/></svg>'
+        },
+        {
+            word: 'بَابَا',
+            syllables: ['بَا', 'بَا'],
+            pic: 'unit1_story_living.png',
+            scenePic: 'unit1_story_living.png',
+            audio: 'letter_d_read_baba',
+            visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M26 38 C26 20 74 20 74 38 L74 44 C74 44 76 28 64 24 C52 20 38 22 28 32 Z" fill="#1e293b"/><circle cx="50" cy="48" r="24" fill="#fed7aa" stroke="#f97316" stroke-width="1.8"/><ellipse cx="41" cy="46" rx="3" ry="3.5" fill="#1e293b"/><ellipse cx="59" cy="46" rx="3" ry="3.5" fill="#1e293b"/><path d="M36 40 Q41 37 46 40" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/><path d="M54 40 Q59 37 64 40" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/><path d="M44 56 Q50 63 56 56" fill="none" stroke="#be123c" stroke-width="2.5" stroke-linecap="round"/><path d="M24 78 C24 70 36 68 50 68 C64 68 76 70 76 78 L74 94 L26 94 Z" fill="#2563eb"/><polygon points="50,68 44,78 50,82 56,78" fill="#ffffff"/></svg>'
+        },
+        {
+            word: 'مَامَا',
+            syllables: ['مَا', 'مَا'],
+            pic: 'activity_m_scene.png',
+            scenePic: 'activity_m_scene.png',
+            audio: 'letter_m_read_mama',
+            visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><circle cx="50" cy="48" r="23" fill="#fed7aa" stroke="#f97316" stroke-width="1.8"/><path d="M26 44 C24 24 76 24 74 44 C72 26 28 26 26 44 Z" fill="#334155"/><ellipse cx="41" cy="47" rx="3" ry="3.5" fill="#1e293b"/><ellipse cx="59" cy="47" rx="3" ry="3.5" fill="#1e293b"/><circle cx="42" cy="46" r="1.2" fill="#ffffff"/><circle cx="60" cy="46" r="1.2" fill="#ffffff"/><circle cx="34" cy="54" r="4" fill="#f43f5e" opacity="0.45"/><circle cx="66" cy="54" r="4" fill="#f43f5e" opacity="0.45"/><path d="M44 57 Q50 64 56 57" fill="none" stroke="#be123c" stroke-width="2.5" stroke-linecap="round"/><path d="M22 80 C22 68 36 66 50 66 C64 66 78 68 78 80 L76 94 L24 94 Z" fill="#ec4899"/><circle cx="50" cy="74" r="3" fill="#fde047"/></svg>'
+        },
+        {
+            word: 'بُوق',
+            syllables: ['بُو', 'ق'],
+            pic: 'activity_booq_scene.png',
+            scenePic: 'activity_booq_scene.png',
+            audio: 'letter_q_booq_word_booq',
+            visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M16 54 L34 54 C42 54 48 50 48 44 C48 38 42 34 34 34 L26 34 C20 34 16 38 16 44 C16 50 22 54 30 54 L58 54 L84 70 L84 38 L58 54" fill="none" stroke="#f59e0b" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="84" cy="54" rx="5" ry="16" fill="#fbbf24" stroke="#d97706" stroke-width="2"/><rect x="12" y="51" width="5" height="6" rx="1" fill="#94a3b8"/><path d="M88 42 Q96 46 94 54 Q92 62 88 66" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/><path d="M92 36 Q102 42 99 54 Q96 66 92 72" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 3"/></svg>'
+        },
+        {
+            word: 'بَطّ',
+            syllables: ['بَـ', 'طّ'],
+            pic: 'activity_ta_scene.png',
+            scenePic: 'activity_ta_scene.png',
+            audio: 'letter_ta_word_bat',
+            visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M20 62 C20 48 38 46 54 48 C64 48 84 52 82 66 C80 76 66 80 46 80 C30 80 20 74 20 62 Z" fill="#fbbf24" stroke="#d97706" stroke-width="2"/><circle cx="66" cy="38" r="16" fill="#fbbf24" stroke="#d97706" stroke-width="2"/><ellipse cx="72" cy="36" rx="2.5" ry="3.5" fill="#1e293b"/><circle cx="73" cy="35" r="1" fill="#ffffff"/><path d="M78 38 L94 42 L78 47 Z" fill="#ea580c"/><path d="M34 58 C38 52 52 52 50 64 C48 70 38 70 34 58 Z" fill="#f59e0b"/><path d="M10 82 Q30 78 50 82 T90 82" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round"/><path d="M18 88 Q35 84 55 88 T85 88" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/></svg>'
+        },
+        {
+            word: 'قِطَار',
+            syllables: ['قِـ', 'طَا', 'ر'],
+            pic: 'activity_ta_words.png',
+            scenePic: 'activity_ta_words.png',
+            audio: 'item_qitar',
+            visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="15" y="38" width="34" height="38" rx="3" fill="#2563eb" stroke="#1d4ed8" stroke-width="2"/><rect x="49" y="48" width="34" height="28" rx="2" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/><polygon points="83,56 94,66 83,76" fill="#f59e0b"/><rect x="22" y="44" width="14" height="14" rx="2" fill="#bae6fd" stroke="#0284c7" stroke-width="1.5"/><rect x="68" y="32" width="8" height="16" fill="#475569"/><ellipse cx="72" cy="32" rx="6" ry="2" fill="#334155"/><circle cx="72" cy="22" r="5" fill="#cbd5e1" opacity="0.8"/><circle cx="76" cy="14" r="7" fill="#cbd5e1" opacity="0.6"/><circle cx="28" cy="78" r="9" fill="#334155" stroke="#fbbf24" stroke-width="3"/><circle cx="54" cy="78" r="9" fill="#334155" stroke="#fbbf24" stroke-width="3"/><circle cx="76" cy="78" r="9" fill="#334155" stroke="#fbbf24" stroke-width="3"/><line x1="8" y1="87" x2="96" y2="87" stroke="#64748b" stroke-width="3"/></svg>'
+        },
+        {
+            word: 'غَزَال',
+            syllables: ['غَـ', 'زَا', 'ل'],
+            pic: 'activity_ghayn_scene.png',
+            scenePic: 'activity_ghayn_scene.png',
+            audio: 'letter_z_word_ghazal',
+            visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M28 58 C28 48 40 46 54 50 L64 36 L70 38 L62 56 C70 60 72 70 68 78 L64 78 C66 70 60 66 52 66 L38 66 L34 82 L28 82 Z" fill="#d97706" stroke="#b45309" stroke-width="1.5"/><circle cx="68" cy="32" r="10" fill="#f59e0b" stroke="#b45309" stroke-width="1.5"/><path d="M66 22 L62 10 M63 15 L58 13 M70 22 L74 10 M71 15 L77 14" stroke="#78350f" stroke-width="2" stroke-linecap="round"/><ellipse cx="72" cy="30" rx="2" ry="2.5" fill="#1e293b"/><circle cx="72.6" cy="29.2" r="0.8" fill="#ffffff"/><polygon points="76,33 80,35 76,37" fill="#1e293b"/><circle cx="42" cy="56" r="1.5" fill="#fef3c7"/><circle cx="48" cy="54" r="1.5" fill="#fef3c7"/><circle cx="46" cy="60" r="1.5" fill="#fef3c7"/><path d="M28 58 Q22 54 24 50" fill="none" stroke="#d97706" stroke-width="3" stroke-linecap="round"/></svg>'
+        },
+        {
+            word: 'مِيَاه',
+            syllables: ['مِـ', 'يَا', 'ه'],
+            pic: 'activity_ha_scene.png',
+            scenePic: 'activity_ha_scene.png',
+            audio: 'letter_ha_word_miah',
+            visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M50 14 C50 14 26 44 26 62 C26 76 36 86 50 86 C64 86 74 76 74 62 C74 44 50 14 50 14 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/><path d="M42 36 C42 36 34 50 34 60 C34 68 38 74 46 76 C42 74 38 68 38 60 C38 52 44 40 44 36 Z" fill="#ffffff" opacity="0.6"/><circle cx="20" cy="72" r="4" fill="#7dd3fc"/><circle cx="80" cy="68" r="5" fill="#7dd3fc"/><circle cx="78" cy="48" r="3" fill="#bae6fd"/><path d="M12 90 Q30 84 50 90 T88 90" fill="none" stroke="#0284c7" stroke-width="3" stroke-linecap="round"/></svg>'
+        },
+        {
+            word: 'وَرْد',
+            syllables: ['وَرْ', 'د'],
+            pic: 'activity_tanween_dham_scene.png',
+            scenePic: 'activity_tanween_dham_scene.png',
+            audio: 'tanween_dham_word_wardun',
+            visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M50 56 Q50 78 50 92" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/><path d="M50 74 Q34 66 30 76 Q42 82 50 74" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/><path d="M50 68 Q66 60 70 70 Q58 76 50 68" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/><circle cx="50" cy="38" r="22" fill="#e11d48"/><path d="M50 18 C40 18 32 26 32 36 C32 46 42 54 50 54 C58 54 68 46 68 36 C68 26 60 18 50 18 Z" fill="#f43f5e"/><path d="M50 24 C44 24 38 30 38 36 C38 42 44 48 50 48 C56 48 62 42 62 36 C62 30 56 24 50 24 Z" fill="#fb7185"/><path d="M48 30 Q54 28 54 34 Q54 40 48 40" fill="none" stroke="#be123c" stroke-width="2.5" stroke-linecap="round"/></svg>'
+        }
     ];
 
     // أسئلة مسابقة وسام القراءة الذهبي (10 مستويات)
@@ -721,12 +792,18 @@
 
         // تحديث محطة السؤال المركزية
         const promptPic = document.getElementById('battlePromptPic');
+        const promptSvg = document.getElementById('battlePromptSvg');
         const promptWord = document.getElementById('battlePromptWord');
         const promptSub = document.getElementById('battlePromptSub');
 
-        if (promptPic) {
-            promptPic.src = correctItem.pic;
+        if (promptSvg && correctItem.visualSvg) {
+            promptSvg.innerHTML = correctItem.visualSvg;
+            promptSvg.style.display = 'flex';
+            if (promptPic) promptPic.style.display = 'none';
+        } else if (promptPic) {
+            promptPic.src = correctItem.pic || correctItem.scenePic;
             promptPic.style.display = 'block';
+            if (promptSvg) promptSvg.style.display = 'none';
         }
         if (promptWord) promptWord.textContent = 'ما هي الكلمة الصحيحة؟';
         if (promptSub) promptSub.textContent = 'أسرع فريق يلمس الإجابة يحصد النقطة!';
@@ -908,10 +985,32 @@
             if (GamesState.bubble.timerVal <= 0) {
                 stopBubbleGame();
                 playCheerFanfare();
-                alert(`أحسنت يا بطل! 🎉 تم اصطياد ${GamesState.bubble.poppedCount} فقاعة بنجاح!`);
                 addScoreAndStars(GamesState.bubble.poppedCount * 10, 2);
+                showBubbleResultCard();
             }
         }, 1000);
+    }
+
+    function showBubbleResultCard() {
+        const field = document.getElementById('bubbleCanvasField');
+        if (!field) return;
+
+        // إزالة الفقاعات وعرض بطاقة النتيجة البهيجة المباشرة
+        field.innerHTML = `
+            <div class="bubble-result-card">
+                <div style="font-size: 3.2rem; margin-bottom: 6px;">🎉🏆🎈</div>
+                <h3 style="margin: 0 0 6px; color: #166534; font-size: 1.4rem; font-weight: 900;">أَحْسَنْتَ يَا بَطَلَ القِرَاءَة!</h3>
+                <p style="margin: 0 0 14px; color: #1e293b; font-size: 1.05rem; font-weight: 700;">
+                    تَمَّ اصْطِيَادُ <span style="color: #059669; font-size: 1.5rem; font-weight: 900;">${GamesState.bubble.poppedCount}</span> فُقَّاعَة بِنَجَاح!
+                </p>
+                <div style="background: #ecfdf5; border: 1px dashed #10b981; border-radius: 12px; padding: 8px 12px; margin-bottom: 18px; font-weight: 800; color: #047857; font-size: 0.95rem;">
+                    ⭐ رصيدك زاد بمقدار ${GamesState.bubble.poppedCount * 10} نقطة ونجمتين! ⭐
+                </div>
+                <button type="button" class="btn-games-action" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); width: 100%; justify-content: center; font-size: 1.05rem; padding: 12px 20px; border-radius: 14px; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.35);" onclick="restartBubbleGame()">
+                    <span>🔄</span> <span>إِعَادَةُ اللَّعِبِ</span>
+                </button>
+            </div>
+        `;
     }
 
     function stopBubbleGame() {
@@ -996,11 +1095,20 @@
         GamesState.train.placedSyllables = [];
 
         const picEl = document.getElementById('trainWordPic');
+        const svgEl = document.getElementById('trainWordSvg');
         const titleEl = document.getElementById('trainWordTitle');
         const wagonsContainer = document.getElementById('trainWagonsContainer');
         const bankContainer = document.getElementById('trainSyllablesBank');
 
-        if (picEl) picEl.src = item.pic;
+        if (svgEl && item.visualSvg) {
+            svgEl.innerHTML = item.visualSvg;
+            svgEl.style.display = 'flex';
+            if (picEl) picEl.style.display = 'none';
+        } else if (picEl) {
+            picEl.src = item.pic || item.scenePic;
+            picEl.style.display = 'block';
+            if (svgEl) svgEl.style.display = 'none';
+        }
         if (titleEl) titleEl.textContent = `ركّب مقاطع كلمة: ${item.word}`;
 
         // تجهيز العربات الفارغة
@@ -1085,6 +1193,13 @@
         loadTrainWord(GamesState.train.currentIndex);
     };
 
+    window.playCurrentTrainAudio = function () {
+        const item = TRAIN_WORDS_BANK[GamesState.train.currentIndex % TRAIN_WORDS_BANK.length];
+        if (item) {
+            speakGameItem(item.word, item.audio || null);
+        }
+    };
+
     // ==========================================================================
     // 9. اللعبة 5: صندوق الذاكرة والبطاقات المتطابقة (🃏 Memory Match 3D Logic)
     // ==========================================================================
@@ -1126,7 +1241,7 @@
         const deck = [];
         selectedWords.forEach((item, idx) => {
             deck.push({ pairId: idx, type: 'word', content: item.word, audio: item.audio });
-            deck.push({ pairId: idx, type: 'pic', content: item.pic, title: item.word, audio: item.audio });
+            deck.push({ pairId: idx, type: 'pic', content: item.pic || item.scenePic, visualSvg: item.visualSvg, title: item.word, audio: item.audio });
         });
 
         // خلط البطاقات
@@ -1138,12 +1253,17 @@
             cardEl.className = 'memory-card-3d';
             cardEl.setAttribute('data-index', index);
 
+            const visualContent = card.type === 'pic'
+                ? (card.visualSvg ? `<div class="memory-card-svg-box">${card.visualSvg}</div>` : `<img src="${card.content}" class="memory-card-img" alt="${card.title}">`)
+                : `<span class="memory-card-word">${card.content}</span>`;
+
             cardEl.innerHTML = `
                 <div class="memory-card-face memory-card-front">
                     <span class="memory-card-front-pattern">🌟</span>
                 </div>
                 <div class="memory-card-face memory-card-back">
-                    ${card.type === 'pic' ? `<img src="${card.content}" class="memory-card-img" alt="${card.title}">` : `<span class="memory-card-word">${card.content}</span>`}
+                    ${visualContent}
+                    <button type="button" class="memory-card-speaker" onclick="event.stopPropagation(); window.playMemoryCardSound('${card.title || card.content}', '${card.audio || ''}')" title="استمع للصوت">🔊</button>
                 </div>
             `;
 
@@ -1154,12 +1274,20 @@
         startMemoryTimer();
     }
 
+    window.playMemoryCardSound = function (text, audioKey) {
+        speakGameItem(text, audioKey || null);
+    };
+
     function flipMemoryCard(cardEl, card, index) {
         if (GamesState.memory.flippedCards.length >= 2) return;
         if (cardEl.classList.contains('flipped') || cardEl.classList.contains('matched')) return;
 
         cardEl.classList.add('flipped');
         playBubblePopSound();
+
+        if (card.audio) {
+            speakGameItem(card.title || card.content, card.audio);
+        }
 
         GamesState.memory.flippedCards.push({ element: cardEl, data: card });
 

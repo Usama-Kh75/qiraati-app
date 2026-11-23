@@ -1,15 +1,16 @@
 #!/usr/bin/env python3
 """
 بوابة الفحص والجودة الآلية الإلزامية قبل كل إصدار
-لمنصة قراءتي التفاعلية الذكية (v3.57)
+لمنصة قراءتي التفاعلية الذكية (v3.59)
 إعداد وتطوير: المهندس أسامة خليل هاشم
 
 تقوم هذه الأداة بإجراء كافة الفحوصات الصارمة لمنع أي أخطاء قبل النشر:
 1. بناء index.html وتوليد الحزمة الأحادية المستقلة (build.py + build_standalone.py).
 2. فحص السلامة النحوية عبر node --check لجميع ملفات js/**/*.js و sw.js (0 أخطاء).
 3. فحص index.html للتحقق من خلوه تماماً من المعرفات المكررة (0 Duplicate IDs) والتحقق من وجود loading="lazy" للصور.
-4. الفحص الأمني الصارم لعدم وجود أي مفاتيح سرية (AIza...) في أي ملف واجهة أمامي.
-5. مطابقة رقم الإصدار (v3.57) وترقية مخزن الكاش إلى (qiraati-smart-v80).
+4. فحص تكامل وجود كافة الصور والأصول الرقمية المذكورة في الكود والتحقق الصارم من وجودها على القرص (0 صور مكسورة 404).
+5. الفحص الأمني الصارم لعدم وجود أي مفاتيح سرية (AIza...) في أي ملف واجهة أمامي.
+6. مطابقة رقم الإصدار (v3.59) وترقية مخزن الكاش إلى (qiraati-smart-v82).
 """
 
 import os
@@ -27,7 +28,7 @@ def print_header(title):
     print("=" * 70)
 
 def step1_build():
-    print_header("[1/5] بناء وتجميع الواجهات والحزمة المستقلة")
+    print_header("[1/6] بناء وتجميع الواجهات والحزمة المستقلة")
     # 1. build.py
     cmd_build = [sys.executable, os.path.join(BASE_DIR, 'tools', 'build.py')]
     res_b = subprocess.run(cmd_build, capture_output=True, text=True, encoding='utf-8')
@@ -48,7 +49,7 @@ def step1_build():
     return True
 
 def step2_syntax_check():
-    print_header("[2/5] الفحص النحوي الشامل لأكواد JavaScript (node --check)")
+    print_header("[2/6] الفحص النحوي الشامل لأكواد JavaScript (node --check)")
     js_files = glob.glob(os.path.join(BASE_DIR, 'js', '**', '*.js'), recursive=True)
     js_files.append(os.path.join(BASE_DIR, 'sw.js'))
 
@@ -71,7 +72,7 @@ def step2_syntax_check():
     return True
 
 def step3_dom_integrity():
-    print_header("[3/5] فحص سلامة DOM والصور في index.html")
+    print_header("[3/6] فحص سلامة DOM والصور في index.html")
     index_path = os.path.join(BASE_DIR, 'index.html')
     if not os.path.exists(index_path):
         print("❌ ملف index.html غير موجود!")
@@ -102,8 +103,48 @@ def step3_dom_integrity():
     print(f"✔ سلامة الصور: جميع الصور ({len(imgs)} صورة) تحتوي على خاصية loading=\"lazy\" بنسبة 100%.")
     return True
 
-def step4_security_scan():
-    print_header("[4/5] الفحص الأمني لعدم وجود مفاتيح سرية (Secret Keys Scan)")
+def step4_image_assets_integrity():
+    print_header("[4/6] فحص تكامل وجود كافة الصور والأصول الرقمية (0 صور مكسورة 404)")
+    scan_files = (
+        glob.glob(os.path.join(BASE_DIR, 'js', '**', '*.js'), recursive=True) +
+        glob.glob(os.path.join(BASE_DIR, 'views', '**', '*.html'), recursive=True) +
+        [os.path.join(BASE_DIR, 'index.html'), os.path.join(BASE_DIR, 'sw.js')]
+    )
+
+    img_pattern = re.compile(r'["\']([^"\'\n\r\t<>]*?\.(?:png|jpg|jpeg|webp|svg|gif))["\']', re.IGNORECASE)
+    missing = []
+    checked_count = 0
+
+    for sf in scan_files:
+        try:
+            with open(sf, 'r', encoding='utf-8', errors='ignore') as fp:
+                content = fp.read()
+                matches = img_pattern.findall(content)
+                for match in matches:
+                    if match.startswith('http') or match.startswith('data:') or '${' in match:
+                        continue
+                    checked_count += 1
+                    clean = match.lstrip('./').replace('/', os.sep)
+                    target = os.path.join(BASE_DIR, clean)
+                    if not os.path.exists(target):
+                        basename_target = os.path.join(BASE_DIR, os.path.basename(clean))
+                        if not os.path.exists(basename_target):
+                            rel_src = os.path.relpath(sf, BASE_DIR)
+                            missing.append((rel_src, match))
+        except Exception as e:
+            print(f"  ⚠ خطأ في قراءة {sf}: {e}")
+
+    if missing:
+        print(f"❌ تم العثور على {len(missing)} إشارات لصور غير موجودة على القرص (404 Not Found):")
+        for src, img in sorted(set(missing)):
+            print(f"  - في {src}: {img}")
+        return False
+
+    print(f"✔ تكامل الصور 100%: تم فحص {checked_count} إشارة للصور في {len(scan_files)} ملفاً، وكافة الصور موجودة على القرص (0 صور مكسورة).")
+    return True
+
+def step5_security_scan():
+    print_header("[5/6] الفحص الأمني لعدم وجود مفاتيح سرية (Secret Keys Scan)")
     scan_files = (
         glob.glob(os.path.join(BASE_DIR, 'js', '**', '*.js'), recursive=True) +
         glob.glob(os.path.join(BASE_DIR, 'views', '**', '*.html'), recursive=True) +
@@ -134,8 +175,8 @@ def step4_security_scan():
     print(f"✔ الأمان الرقمي 100%: تم مسح {len(scan_files)} ملفاً، ولم يُعثر على أي مفتاح سري.")
     return True
 
-def step5_version_alignment():
-    print_header("[5/5] مطابقة رقم الإصدار (v3.58) ومخزن الكاش (qiraati-smart-v81)")
+def step6_version_alignment():
+    print_header("[6/6] مطابقة رقم الإصدار (v3.59) ومخزن الكاش (qiraati-smart-v82)")
     top_shell = os.path.join(BASE_DIR, 'views', 'app-shell-top.html')
     sw_file = os.path.join(BASE_DIR, 'sw.js')
 
@@ -159,8 +200,8 @@ def step5_version_alignment():
     print(f"  - إصدار عامل الخدمة (sw.js): {sw_ver}")
     print(f"  - اسم مخزن الكاش (sw.js): {sw_cache}")
 
-    expected_ver = "v3.58"
-    expected_cache = "qiraati-smart-v81"
+    expected_ver = "v3.59"
+    expected_cache = "qiraati-smart-v82"
 
     errors = []
     if top_ver != expected_ver:
@@ -176,21 +217,22 @@ def step5_version_alignment():
             print(f"  - {e}")
         return False
 
-    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.58 وكاش qiraati-smart-v81.")
+    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.59 وكاش qiraati-smart-v82.")
     return True
 
 def main():
     print("=" * 70)
     print("🛡️ منصة قراءتي التفاعلية الذكية - بوابة الفحص الآلي الإلزامية")
-    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.58)")
+    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.59)")
     print("=" * 70)
 
     steps = [
         ("البناء والتجميع", step1_build),
         ("الفحص النحوي", step2_syntax_check),
-        ("سلامة المعرفات والصور", step3_dom_integrity),
-        ("الفحص الأمني", step4_security_scan),
-        ("مطابقة الإصدار والكاش", step5_version_alignment)
+        ("سلامة المعرفات والصور في DOM", step3_dom_integrity),
+        ("تكامل وجود الصور والأصول (0 أخطاء 404)", step4_image_assets_integrity),
+        ("الفحص الأمني", step5_security_scan),
+        ("مطابقة الإصدار والكاش", step6_version_alignment)
     ]
 
     all_passed = True

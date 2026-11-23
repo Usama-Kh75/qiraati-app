@@ -75,7 +75,7 @@
                     domain: 'comprehension_matching',
                     domainName: 'الفهم والمطابقة القرائية',
                     prompt: 'اختر الكلمة المطابقة للصورة (صورة دار):',
-                    image: 'activity_d_house.png',
+                    image: 'activity_r_scene.png',
                     options: [
                         { text: 'دَار', isCorrect: true },
                         { text: 'نَار', isCorrect: false },

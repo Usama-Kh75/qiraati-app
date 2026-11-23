@@ -1,9 +1,9 @@
 ﻿// عامل الخدمة لمنصة قراءتي التفاعلية الذكية (PWA Service Worker)
 // إعداد وتطوير: المهندس أسامة خليل هاشم
-// الإصدار: v3.58 (إصلاح تباين ووضوح خط السؤال في مسابقة وسام القراءة الذهبي وترقية كاش PWA إلى v81)
+// الإصدار: v3.59 (تصحيح تطابق الكلمات مع الصور والأصوات وإزالة الصور المكسورة وبناء بطاقات الألعاب وترقية كاش PWA إلى v82)
 
 const APP = 'qiraati-smart';
-const CACHE_NAME = 'qiraati-smart-v81';
+const CACHE_NAME = 'qiraati-smart-v82';
 
 // الهيكل الأساسي للتطبيق (App Shell) - أقل من 4 ميغابايت لتثبيت فوري خلال ثوانٍ
 const ASSETS_TO_CACHE = [
@@ -74,6 +74,8 @@ const ASSETS_TO_CACHE = [
   // أيقونات التطبيق
   './icons/icon-192.png',
   './icons/icon-512.png',
+  './icons/faseeh_avatar.svg',
+  './icons/faseeh_avatar.png',
   './icons/qiraati.ico'
 ];
 

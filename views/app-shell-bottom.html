@@ -2054,7 +2054,11 @@
                                     <div class="battle-timer-inner" id="battleTimerText">10</div>
                                 </div>
                                 <div class="battle-prompt-box">
-                                    <img loading="lazy" src="activity_5.png" class="battle-prompt-pic" id="battlePromptPic" alt="صورة السؤال">
+                                    <div class="battle-visual-wrap" style="position: relative; width: 110px; height: 110px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 2px solid #e2e8f0; padding: 6px;">
+                                        <div id="battlePromptSvg" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"></div>
+                                        <img loading="lazy" src="activity_r_scene.png" class="battle-prompt-pic" id="battlePromptPic" alt="صورة السؤال" style="display: none; width: 100%; height: 100%; object-fit: contain; border-radius: 12px;">
+                                        <button type="button" class="btn-sound-bubble" id="battleSoundBtn" onclick="playCurrentBattleAudio()" title="استمع للكلمة" style="position: absolute; bottom: -6px; left: -6px; width: 34px; height: 34px; border-radius: 50%; background: #2563eb; color: #fff; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.25); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem;">🔊</button>
+                                    </div>
                                     <div class="battle-prompt-word" id="battlePromptWord">ما هي الكلمة الصحيحة؟</div>
                                     <div class="battle-prompt-sub" id="battlePromptSub">أسرع فريق يلمس الإجابة الصحيحة أولاً يحصد النقطة!</div>
                                 </div>
@@ -2112,7 +2116,11 @@
                     <div class="train-game-container">
                         <div class="train-target-showcase">
                             <div class="train-target-identity">
-                                <img loading="lazy" src="activity_5.png" class="train-word-pic" id="trainWordPic" alt="صورة الكلمة">
+                                <div class="train-visual-wrap" style="position: relative; width: 72px; height: 72px; min-width: 72px; background: #ffffff; border-radius: 14px; border: 2px solid #cbd5e1; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; padding: 4px;">
+                                    <div id="trainWordSvg" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"></div>
+                                    <img loading="lazy" src="activity_r_scene.png" class="train-word-pic" id="trainWordPic" alt="صورة الكلمة" style="display: none; width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                                    <button type="button" class="btn-sound-mini" onclick="playCurrentTrainAudio()" title="استمع للكلمة" style="position: absolute; bottom: -4px; left: -4px; width: 26px; height: 26px; border-radius: 50%; background: #059669; color: #fff; border: 2px solid #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">🔊</button>
+                                </div>
                                 <div>
                                     <div class="train-word-title" id="trainWordTitle">ركّب مقاطع كلمة: دَار</div>
                                     <div style="font-size: 0.82rem; color: #047857; font-weight: 700;">المس المقاطع بالترتيب الصحيح لتنطلق عربات القطار!</div>
