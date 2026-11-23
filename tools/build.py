@@ -45,13 +45,32 @@ def build_index():
     with open(bottom_shell, 'r', encoding='utf-8') as f:
         output_lines.extend(f.readlines())
 
+    # تقليص الأسطر الفارغة المتكررة خارج وسوم <script> و<pre> و<textarea> لتسريع التحميل
+    compact_lines = []
+    in_raw_block = False
+    prev_blank = False
+    for line in output_lines:
+        lower = line.lower()
+        if any(tag in lower for tag in ('<script', '<pre', '<textarea')):
+            in_raw_block = True
+        is_blank = (line.strip() == '')
+        if not in_raw_block and is_blank:
+            if prev_blank:
+                continue
+            prev_blank = True
+        else:
+            prev_blank = False
+        compact_lines.append(line)
+        if any(tag in lower for tag in ('</script>', '</pre>', '</textarea>')):
+            in_raw_block = False
+
     with open(index_path, 'w', encoding='utf-8') as f:
-        f.writelines(output_lines)
+        f.writelines(compact_lines)
 
     t1 = time.time()
     print(f"✨ تم بناء وتجميع index.html بنجاح في {(t1-t0)*1000:.1f} مللي ثانية!")
     print(f"   عدد الواجهات المجمعة: {total_views} واجهة")
-    print(f"   إجمالي أسطر index.html: {len(output_lines)} سطر")
+    print(f"   إجمالي أسطر index.html: {len(compact_lines)} سطر (وفّر {len(output_lines) - len(compact_lines)} سطراً فارغاً)")
 
 if __name__ == '__main__':
     build_index()

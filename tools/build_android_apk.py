@@ -190,16 +190,34 @@ def sync_assets():
                 files_copied += 1
             total_files += 1
 
-    # 2. صور الجذر (page_*.png, activity_*.png, unit*.png, mobile_qr.png)
-    for p in glob.glob(os.path.join(BASE_DIR, "*.png")):
+    # 2. صور الجذر المستخدمة والمتتبَّعة في git (لتجنب نسخ صور غير مستخدمة أو مؤقتة)
+    root_pngs = []
+    try:
+        ls_res = subprocess.run(
+            ["git", "-c", "core.quotepath=false", "ls-files", "*.png"],
+            cwd=BASE_DIR, capture_output=True, text=True, encoding="utf-8"
+        )
+        if ls_res.returncode == 0 and ls_res.stdout.strip():
+            root_pngs = [
+                os.path.join(BASE_DIR, line.strip())
+                for line in ls_res.stdout.splitlines()
+                if line.strip() and "/" not in line.strip() and "\\" not in line.strip()
+                and os.path.exists(os.path.join(BASE_DIR, line.strip()))
+            ]
+    except Exception:
+        root_pngs = []
+    if not root_pngs:
+        root_pngs = glob.glob(os.path.join(BASE_DIR, "*.png"))
+
+    for p in root_pngs:
         fname = os.path.basename(p)
         dst = os.path.join(ASSETS_DIR, fname)
         if copy_if_newer(p, dst):
             files_copied += 1
         total_files += 1
 
-    # 3. المجلدات الفرعية: css, js, audio, icons
-    for sub in ["css", "js", "audio", "icons"]:
+    # 3. المجلدات الفرعية: css, js, audio, icons, fonts
+    for sub in ["css", "js", "audio", "icons", "fonts"]:
         sub_src = os.path.join(BASE_DIR, sub)
         if os.path.exists(sub_src):
             for root, dirs, files in os.walk(sub_src):

@@ -186,10 +186,12 @@
         } catch (e) { }
     }
 
-    // نطق الكلمة أو الحرف بالاعتماد على محرك المنصة أو النطق التخليقي
+    // نطق الكلمة أو الحرف بالاعتماد على محرك المنصة وصوت فصيح الطبيعي
     function speakGameItem(text, audioKey) {
         if (window.mascotSpeak) {
             window.mascotSpeak(text, audioKey || null);
+        } else if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
+            window.FaseehVoice.speak(text, { rate: 0.88 });
         } else if ('speechSynthesis' in window) {
             const utter = new SpeechSynthesisUtterance(text);
             utter.lang = 'ar-SA';

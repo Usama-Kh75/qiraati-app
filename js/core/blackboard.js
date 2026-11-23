@@ -1747,6 +1747,8 @@
 
         if (window.mascotSpeak) {
             window.mascotSpeak(textToSpeak, letter.audioKey || null);
+        } else if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
+            window.FaseehVoice.speak(textToSpeak, { rate: 0.88 });
         } else if ('speechSynthesis' in window) {
             const utter = new SpeechSynthesisUtterance(textToSpeak);
             utter.lang = 'ar-SA';

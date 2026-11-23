@@ -1,9 +1,9 @@
 ﻿// عامل الخدمة لمنصة قراءتي التفاعلية الذكية (PWA Service Worker)
 // إعداد وتطوير: المهندس أسامة خليل هاشم
-// الإصدار: v3.60 (إصلاح تخزين طلبات API وعامل الخدمة وتفعيل الدوال المفقودة وتحصين XSS وتوحيد مفاتيح التخزين وترقية كاش PWA إلى v83)
+// الإصدار: v3.61 (استضافة خط Tajawal محلياً، مراجعة الصور، تحسينات الأداء والتجاوب، وترقية نطق فصيح البشري وكاش PWA إلى v84)
 
 const APP = 'qiraati-smart';
-const CACHE_NAME = 'qiraati-smart-v83';
+const CACHE_NAME = 'qiraati-smart-v84';
 
 // الهيكل الأساسي للتطبيق (App Shell) لتشغيل فوري ودعم العمل دون إنترنت
 const ASSETS_TO_CACHE = [
@@ -12,7 +12,16 @@ const ASSETS_TO_CACHE = [
   './manifest.json',
   './curriculum_data.js',
 
-  // أنماط CSS
+  // الخطوط وأنماط CSS
+  './css/fonts.css',
+  './fonts/tajawal-400-arabic.woff2',
+  './fonts/tajawal-400-latin.woff2',
+  './fonts/tajawal-700-arabic.woff2',
+  './fonts/tajawal-700-latin.woff2',
+  './fonts/tajawal-800-arabic.woff2',
+  './fonts/tajawal-800-latin.woff2',
+  './fonts/tajawal-900-arabic.woff2',
+  './fonts/tajawal-900-latin.woff2',
   './css/variables.css',
   './css/layout.css',
   './css/components.css',

@@ -1214,7 +1214,6 @@
 
     window.playShaddahPhonemeFaseeh = function() {
         mascotCelebrates();
-        playAudio('shaddah_phoneme_faseeh');
         mascotSpeak('فَصِيح يَقُولُ: عِنْدَ رُؤْيَةِ الشَّدَّةِ نَضْغَطُ عَلَى الْحَرْفِ بِقُوَّةٍ خَفِيفَةٍ كَأَنَّهُ مَرَّتَيْنِ: قِطْـ طَة... قِطَّة! 🗣️', 'shaddah_phoneme_faseeh');
     };
 

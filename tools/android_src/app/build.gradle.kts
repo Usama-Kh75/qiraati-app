@@ -40,7 +40,7 @@ android {
     }
 
     androidResources {
-        noCompress += listOf("mp3", "wav", "ogg", "png", "jpg", "jpeg", "webp", "js", "css", "html", "json")
+        noCompress += listOf("mp3", "wav", "ogg", "png", "jpg", "jpeg", "webp", "woff2", "js", "css", "html", "json")
     }
 
     compileOptions {

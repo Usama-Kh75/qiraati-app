@@ -1044,14 +1044,19 @@
                 noteIndex++;
             }
 
-            // نطق الكلمة إلكترونياً عند تفعيل الإنشاد الصوتي
-            if (state.isVocalsEnabled && window.speechSynthesis) {
+            // نطق الكلمة عبر محرك فصيح الطبيعي عند تفعيل الإنشاد الصوتي
+            if (state.isVocalsEnabled) {
                 try {
-                    const utter = new SpeechSynthesisUtterance(item.word);
-                    utter.lang = 'ar-SA';
-                    utter.rate = (state.currentBpm / 100) * 0.95;
-                    utter.pitch = 1.15; // نبرة طفولية مرحة
-                    window.speechSynthesis.speak(utter);
+                    const targetRate = (state.currentBpm / 100) * 0.92;
+                    if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
+                        window.FaseehVoice.speak(item.word, { rate: targetRate, keepBubble: true });
+                    } else if (window.speechSynthesis) {
+                        const utter = new SpeechSynthesisUtterance(item.word);
+                        utter.lang = 'ar-SA';
+                        utter.rate = targetRate;
+                        utter.pitch = 1.05;
+                        window.speechSynthesis.speak(utter);
+                    }
                 } catch (e) {
                     // تجاهل الأخطاء أوفلاين
                 }
@@ -1767,16 +1772,18 @@
             initAudioContext();
             playDumSound();
 
-            if (window.speechSynthesis) {
-                try {
+            try {
+                if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
+                    window.FaseehVoice.speak(wordText, { rate: 0.90, keepBubble: true });
+                } else if (window.speechSynthesis) {
                     const utter = new SpeechSynthesisUtterance(wordText);
                     utter.lang = 'ar-SA';
                     utter.rate = 0.9;
-                    utter.pitch = 1.1;
+                    utter.pitch = 1.05;
                     window.speechSynthesis.speak(utter);
-                } catch (e) {
-                    // تجاهل
                 }
+            } catch (e) {
+                // تجاهل
             }
         },
 

@@ -376,6 +376,30 @@
         };
     }
 
+    /**
+     * 6. النطق الصوتي الحي لشخصية فصيح (Gemini 3.8 TTS via AI Server with local cache)
+     */
+    const _ttsDataUriCache = new Map();
+    async function speakWithFaseeh(text) {
+        const clean = String(text || '').trim().slice(0, 300);
+        if (!clean) return null;
+        if (_ttsDataUriCache.has(clean)) {
+            return _ttsDataUriCache.get(clean);
+        }
+        const res = await postAi('/api/ai/tts', { text: clean });
+        if (res && res.success && res.audioBase64) {
+            const mime = res.mimeType || 'audio/wav';
+            const dataUri = `data:${mime};base64,${res.audioBase64}`;
+            if (_ttsDataUriCache.size >= 40) {
+                const firstKey = _ttsDataUriCache.keys().next().value;
+                _ttsDataUriCache.delete(firstKey);
+            }
+            _ttsDataUriCache.set(clean, dataUri);
+            return dataUri;
+        }
+        return null;
+    }
+
     // فحص مبكر عند تحميل الصفحة
     if (typeof window !== 'undefined') {
         window.addEventListener('DOMContentLoaded', () => {
@@ -391,6 +415,7 @@
         analyzeTeacherData,
         generateCurriculumStory,
         askFaseeh,
+        speakWithFaseeh,
         isAvailable: () => State.isOnline,
         getServerUrl: () => State.serverUrl,
         setServerUrl: (url) => {

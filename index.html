@@ -10,8 +10,6 @@
 
     <title>منصة قراءتي التفاعلية الذكية - إعداد المهندس أسامة خليل هاشم</title>
 
-    
-
     <!-- PWA Meta Tags & Manifest -->
 
     <link rel="manifest" href="manifest.json">
@@ -26,9 +24,10 @@
 
     <link rel="apple-touch-icon" href="icons/icon-192.png">
 
-    <!-- Fonts -->
-
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <!-- Fonts: استضافة خط Tajawal محلياً بالكامل للعمل أوفلاين 100% -->
+    <link rel="preload" href="fonts/tajawal-700-arabic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/tajawal-400-arabic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/fonts.css">
 
     <!-- منظومة الأنماط والتصميم المجزأة - إعداد المهندس أسامة خليل هاشم -->
     <link rel="stylesheet" href="css/variables.css">
@@ -79,7 +78,7 @@
                     <div>
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <span>قراءتي التفاعلية الذكية</span>
-                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.60: إصلاح تخزين API في عامل الخدمة وتفعيل الدوال المفقودة وتحصين XSS وتوحيد مفاتيح التخزين وترقية كاش PWA إلى v83 - إعداد المهندس أسامة خليل هاشم">v3.60</span>
+                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.61: استضافة خط Tajawal محلياً وتحسينات الأداء والتجاوب ومراجعة الصور وترقية صوت فصيح البشري التعبيري وترقية كاش PWA إلى v84 - إعداد المهندس أسامة خليل هاشم">v3.61</span>
                         </div>
                         <div class="brand-author" style="font-size: 0.78rem; font-weight: 800; color: #059669; margin-top: 1px;">
                             إعداد: المهندس أسامة خليل هاشم
@@ -805,7 +804,7 @@
 
                     <div class="image-container-nasheed" id="card-nasheed-section">
 
-                        <img loading="lazy" src="activity_nasheed_box.png" alt="نشاط 2 - أستمع إلى النشيد وأردد (نشيد البطة)">
+                        <img loading="eager" fetchpriority="high" decoding="async" src="activity_nasheed_box.png" alt="نشاط 2 - أستمع إلى النشيد وأردد (نشيد البطة)">
 
                     </div>
 
@@ -813,7 +812,7 @@
 
                     <div class="image-container-3items" id="card-items3-section">
 
-                        <img loading="lazy" src="activity_3_items.png" alt="نشاط 3 - أسمي الأشياء التي في الصورة">
+                        <img loading="eager" fetchpriority="high" decoding="async" src="activity_3_items.png" alt="نشاط 3 - أسمي الأشياء التي في الصورة">
 
                         <svg class="svg-overlay-5diff" viewBox="0 0 1140 500">
 
@@ -2003,8 +2002,6 @@
                     </div>
 
                 </div>
-
-                
 
                 <!-- ========================================================
 
@@ -5015,8 +5012,6 @@
 
                                 <div style="font-size: 0.9rem; color: #64748b;">اختر طور النمذجة ثم انقر على الكلمة لتشاهد وتسمع التقطيع الصوتي المتقن:</div>
 
-                                
-
                                 <div class="modeling-toggle-container" style="margin-top: 10px;">
 
                                     <button class="modeling-btn active" id="btnFModel1" onclick="switchModelingMode('model')">
@@ -5635,6 +5630,20 @@
 
                             </div>
 
+                            <!-- الإطار المصور الأصلي لنشيد ماما بابا من كتاب القراءة (ص 30) -->
+
+                            <div style="background: #ffffff; border: 2px solid #fecdd3; border-radius: 18px; padding: 14px; text-align: center; max-width: 680px; margin: 0 auto 20px auto; box-shadow: 0 4px 15px rgba(225, 29, 72, 0.08);">
+
+                                <div style="font-weight: 800; color: #9f1239; margin-bottom: 8px; font-size: 0.95rem;">
+
+                                    ✨ صَفْحَةُ النَّشِيدِ الأَصْلِيَّةُ مِنْ كِتَابِ قِرَاءَتِي (ص ٣٠):
+
+                                </div>
+
+                                <img loading="lazy" decoding="async" src="activity_nasheed_mama_baba.png" alt="نشيد ماما بابا من كتاب قراءتي" style="max-width: 460px; width: 100%; border-radius: 12px; border: 1px solid #ffe4e6;">
+
+                            </div>
+
                             <!-- أبيات النشيد الستة التفاعلية -->
 
                             <div id="nasheedCoupletsList" style="max-width: 680px; margin: 0 auto 24px auto;">
@@ -6079,9 +6088,6 @@
 
                 </div>
 
-
-            
-
                 <!-- ========================================================
 
                      الوحدة الثانية: مدرستي - مدخل الوحدة: الاستماع والمحادثة (ص 31)
@@ -6406,7 +6412,6 @@
 
                 </div>
 
-            
                 <!-- ========================================================
                      الدرس الثاني: حرف الراء (ر) وتركيب كلمة (دَار) (ص 32 - 34)
                 ======================================================== -->
@@ -7504,8 +7509,6 @@
                         </div>
                     </div>
 
-
-            
                 <!-- ========================================================
                      درس حرف النون (نـ ، ن) وقراءة (نُور) (ص 38 - 40)
                 ======================================================== -->
@@ -8043,8 +8046,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
                 <!-- ========================================================
                      درس حرف التاء (تـ ، ت) وقراءة (بَنَات / فِي بُسْتَانِ فَاتِن) (ص 41 - 44)
@@ -8695,8 +8696,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
                 <!-- ========================================================
                      درس التاء المربوطة (ـة ، ة) وقراءة (فِي مَدْرَسَةِ سَارَة) (ص 44 - 46)
@@ -9350,8 +9349,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
                 <!-- ========================================================
                      درس تنوين الضم (ـٌ) وتطبيقاته وقراءة (وَرْدٌ) (ص 47 - 48)
@@ -10339,9 +10336,6 @@
                     </div>
                 </div>
 
-
-
-
                 <!-- مدخل الوحدة الثالثة: ألعابي وحيواناتي (ص 53) -->
                 <div class="lesson-view" id="view-tab-unit3_intro">
                     <!-- شريط المحطات التفاعلي لمدخل الوحدة -->
@@ -10808,8 +10802,6 @@
                         </div>
                     </div>
                 </div>
-
-
 
                 <!-- ========================================================
                      الوحدة الثالثة: الدرس الثالث - حرف الفاء (فـ ، ف) وقراءة (رِيف) (ص ٥٧ - ٦٠)
@@ -12488,7 +12480,6 @@
                     </div>
                 </div>
 
-            
                 <!-- ===============================================
                      عرض مدخل الوحدة الرابعة: الاستماع والمحادثة (صحتي وبيئتي) (ص ٧١ - ٧٢)
                 =============================================== -->
@@ -15924,6 +15915,12 @@
                             <button class="btn-secondary" onclick="openBookPageModal('page_91.png', 'كتاب قراءتي الجديد: ص ٩٠')">
                                 <span>📖</span> <span>صَفْحَة ٩٠ (حَرْفُ الْهَمْزَةِ)</span>
                             </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_92.png', 'كتاب قراءتي الجديد: ص ٩١')">
+                                <span>📖</span> <span>صَفْحَة ٩١ (الأَنْشِطَة)</span>
+                            </button>
+                            <button class="btn-secondary" onclick="openBookPageModal('page_93.png', 'كتاب قراءتي الجديد: ص ٩٢')">
+                                <span>📖</span> <span>صَفْحَة ٩٢ (الْقِرَاءَةُ)</span>
+                            </button>
                         </div>
 
                         <!-- لوحة مدخل الوحدة: الاستماع والمحادثة ص 89 -->
@@ -15947,6 +15944,9 @@
                                         <li>كِتَابَةُ قِصَّةٍ قَصِيرَةٍ عَنْ حُبِّ الْقِرَاءَةِ وَالْهِوَايَاتِ الْمُفِيدَةِ.</li>
                                     </ul>
                                 </div>
+                            </div>
+                            <div style="margin-top: 14px; border-radius: 16px; overflow: hidden; border: 2px solid #e0f2fe; background: #ffffff; padding: 8px; text-align: center;">
+                                <img loading="lazy" decoding="async" src="unit5_story_hobbies.png" alt="لوحة المحادثة والتعبير: هواياتي وألعابي" style="width: 100%; max-height: 300px; object-fit: contain; border-radius: 10px;">
                             </div>
                         </div>
 
@@ -23237,7 +23237,6 @@
 
     <!-- استدعاء ملفات الصوت والبيانات -->
 
-    
                 <!-- ==============================================
 
          نافذة تثبيت وتشغيل التطبيق على الهاتف والحاسوب
@@ -23348,7 +23347,7 @@
 
                         <div class="qr-wrapper">
 
-                            <img loading="lazy" src="mobile_qr.png" alt="رمز QR للتشغيل على الهاتف" class="qr-img" id="qrImg">
+                            <img loading="lazy" decoding="async" src="mobile_qr.png" alt="رمز QR للتشغيل على الهاتف" class="qr-img" id="qrImg">
 
                             <span class="qr-caption">امسح الكاميرا هنا 📸</span>
 
@@ -23676,7 +23675,7 @@
 
             <div style="flex: 1; overflow-y: auto; text-align: center; padding: 14px; background: #f1f5f9;">
 
-                <img loading="lazy" id="bookPageModalImg" src="" alt="صفحة الكتاب المدرسي" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #cbd5e1;">
+                <img loading="lazy" decoding="async" id="bookPageModalImg" src="" alt="صفحة الكتاب المدرسي" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #cbd5e1;">
 
             </div>
 
@@ -23750,8 +23749,6 @@
                         <button type="button" class="btn" style="padding: 4px 10px; font-size: 0.78rem; background: #059669; color: white; border: none; border-radius: 8px; font-weight: 800; cursor: pointer;" onclick="changeMasterVolume(150)">150% (تعزيز أقصى 🚀)</button>
                     </div>
                 </div>
-
-
 
                 <!-- القسم 1: اختيار الصوت العراقي الفصيح -->
 
@@ -23835,23 +23832,23 @@
 
                             <div>
 
-                                <div style="font-weight: 900; font-size: 0.95rem; color: #1d4ed8; display: flex; align-items: center; gap: 6px;">
+                                <div style="font-weight: 900; font-size: 0.95rem; color: #1d4ed8; display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
 
-                                    <span>👨‍🏫 صوت فصيح الذكي المطور (عراقي فصيح - نطق فونيمي دافئ)</span>
-                                    <span style="font-size: 0.72rem; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 8px;">مطور ومتقن</span>
+                                    <span>✏️ صوت فصيح البشري التعبيري (عراقي/عربي فصيح طبيعي)</span>
+                                    <span style="font-size: 0.72rem; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 8px;">بشري وتعبيري</span>
 
                                 </div>
 
                                 <div style="font-size: 0.8rem; color: #64748b; font-weight: 700; margin-top: 2px;">
 
-                                    نطق فونيمي متأنٍ بنبرة دافئة مع إزالة الرنين المعدني ومطابقة مخارج الحروف لدليل المعلم الوزاري.
+                                    نطق بشري دافئ وتفاعلي بوقفات تنفس طبيعية ومخارج حروف واضحة للأطفال ومطابقة لدليل المعلم الوزاري.
 
                                 </div>
 
                                 <div style="margin-top: 8px;">
-                                    <a href="معاينة_الأصوات_العراقية_الفصيحة.html" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; padding: 4px 12px; border-radius: 10px; font-size: 0.78rem; font-weight: 800; text-decoration: none;">
-                                        <span>🔬</span> <span>فتح مختبر تدريب وتطوير صوت فصيح والمخارج الفونيمية</span>
-                                    </a>
+                                    <button type="button" onclick="event.stopPropagation(); if (typeof playFaseehVoiceShowcase === 'function') playFaseehVoiceShowcase();" style="display: inline-flex; align-items: center; gap: 6px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; padding: 5px 12px; border-radius: 10px; font-size: 0.78rem; font-weight: 800; cursor: pointer; font-family: inherit;">
+                                        <span>🎙️</span> <span>استمع لنموذج فصيح التعبيري المطور أوفلاين</span>
+                                    </button>
                                 </div>
 
                             </div>
@@ -25163,7 +25160,7 @@
                                 <div class="battle-prompt-box">
                                     <div class="battle-visual-wrap" style="position: relative; width: 110px; height: 110px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; background: #ffffff; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 2px solid #e2e8f0; padding: 6px;">
                                         <div id="battlePromptSvg" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"></div>
-                                        <img loading="lazy" src="activity_r_scene.png" class="battle-prompt-pic" id="battlePromptPic" alt="صورة السؤال" style="display: none; width: 100%; height: 100%; object-fit: contain; border-radius: 12px;">
+                                        <img loading="lazy" decoding="async" src="activity_r_scene.png" class="battle-prompt-pic" id="battlePromptPic" alt="صورة السؤال" style="display: none; width: 100%; height: 100%; object-fit: contain; border-radius: 12px;">
                                         <button type="button" class="btn-sound-bubble" id="battleSoundBtn" onclick="playCurrentBattleAudio()" title="استمع للكلمة" style="position: absolute; bottom: -6px; left: -6px; width: 34px; height: 34px; border-radius: 50%; background: #2563eb; color: #fff; border: 2px solid #fff; box-shadow: 0 2px 6px rgba(0,0,0,0.25); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1rem;">🔊</button>
                                     </div>
                                     <div class="battle-prompt-word" id="battlePromptWord">ما هي الكلمة الصحيحة؟</div>
@@ -25225,7 +25222,7 @@
                             <div class="train-target-identity">
                                 <div class="train-visual-wrap" style="position: relative; width: 72px; height: 72px; min-width: 72px; background: #ffffff; border-radius: 14px; border: 2px solid #cbd5e1; box-shadow: 0 2px 8px rgba(0,0,0,0.06); display: flex; align-items: center; justify-content: center; padding: 4px;">
                                     <div id="trainWordSvg" style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"></div>
-                                    <img loading="lazy" src="activity_r_scene.png" class="train-word-pic" id="trainWordPic" alt="صورة الكلمة" style="display: none; width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
+                                    <img loading="lazy" decoding="async" src="activity_r_scene.png" class="train-word-pic" id="trainWordPic" alt="صورة الكلمة" style="display: none; width: 100%; height: 100%; object-fit: contain; border-radius: 10px;">
                                     <button type="button" class="btn-sound-mini" onclick="playCurrentTrainAudio()" title="استمع للكلمة" style="position: absolute; bottom: -4px; left: -4px; width: 26px; height: 26px; border-radius: 50%; background: #059669; color: #fff; border: 2px solid #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">🔊</button>
                                 </div>
                                 <div>
@@ -25504,7 +25501,7 @@
                                         <span class="challenge-category-tag" id="challengeCategoryTag">وعي فونيمي</span>
                                         <h3 class="challenge-question-title" id="challengeQuestionTitle">جارٍ تجهيز السؤال الذكي...</h3>
                                         <div class="challenge-prompt-media">
-                                            <img loading="lazy" id="challengePromptImage" src="activity_5.png" class="challenge-prompt-image" alt="صورة السؤال" style="display: none;">
+                                            <img loading="lazy" decoding="async" id="challengePromptImage" src="activity_5.png" class="challenge-prompt-image" alt="صورة السؤال" style="display: none;">
                                             <button type="button" class="btn-prompt-audio" onclick="speakCurrentQuestion()" title="استمع لنطق السؤال فصيحاً">
                                                 <span>🔊</span> <span>استمع للسؤال</span>
                                             </button>
@@ -26559,7 +26556,7 @@
 
                         <!-- بطاقة السؤال المصورة -->
                         <div class="quiz-question-card">
-                            <img loading="lazy" id="quizHostQImage" class="quiz-question-illustration" src="activity_b_read.png" alt="صورة السؤال" style="display: none;">
+                            <img loading="lazy" decoding="async" id="quizHostQImage" class="quiz-question-illustration" src="activity_b_read.png" alt="صورة السؤال" style="display: none;">
                             <div class="quiz-question-text-area">
                                 <h2 class="quiz-question-text" id="quizHostQText">نص السؤال المنهجي هنا</h2>
                                 <button type="button" class="quiz-audio-pronounce-btn" id="quizHostAudioBtn">
@@ -26813,7 +26810,7 @@
 
                     <!-- بطاقة السؤال -->
                     <div class="quiz-question-card" style="margin-bottom: 16px;">
-                        <img loading="lazy" id="hotseatQImage" class="quiz-question-illustration" src="" alt="صورة السؤال" style="display: none;">
+                        <img loading="lazy" decoding="async" id="hotseatQImage" class="quiz-question-illustration" src="" alt="صورة السؤال" style="display: none;">
                         <div class="quiz-question-text-area">
                             <h2 class="quiz-question-text" id="hotseatQText">نص السؤال المنهجي</h2>
                         </div>
@@ -29488,37 +29485,37 @@
         document.write('<script src="audio_data_unit6.js"><\/script>');
       }
     </script>
-    <script src="curriculum_data.js"></script>
+    <script defer src="curriculum_data.js"></script>
 
     <!-- منظومة المنطق البرمجي المجزأة - إعداد المهندس أسامة خليل هاشم -->
-    <script src="js/core/ai-bridge.js"></script>
-    <script src="js/core/modals.js"></script>
-    <script src="js/core/audio.js"></script>
-    <script src="js/core/navigation.js"></script>
-    <script src="js/core/evaluation.js"></script>
-    <script src="js/core/enrichment.js"></script>
-    <script src="js/core/blackboard.js"></script>
-    <script src="js/core/games.js"></script>
-    <script src="js/core/gamification.js"></script>
-    <script src="js/core/teacher-dashboard.js"></script>
-    <script src="js/core/classroom-sync.js"></script>
-    <script src="js/core/classroom-quiz.js"></script>
-    <script src="js/core/interactive-guide.js"></script>
-    <script src="js/core/diagnostic-exams.js"></script>
-    <script src="js/core/voice-coach.js"></script>
-    <script src="js/core/dictation-lab.js"></script>
-    <script src="js/core/readers-theater.js"></script>
-    <script src="js/core/nasheed-studio.js"></script>
-    <script src="js/core/story-studio.js"></script>
-    <script src="js/core/student-profiles.js"></script>
-    <script src="js/lessons/prep.js"></script>
-    <script src="js/lessons/unit1.js"></script>
-    <script src="js/lessons/unit2.js"></script>
-    <script src="js/lessons/unit3.js"></script>
-    <script src="js/lessons/unit4.js"></script>
-    <script src="js/lessons/unit5.js"></script>
-    <script src="js/lessons/unit6.js"></script>
-    <script src="js/app.js"></script>
+    <script defer src="js/core/ai-bridge.js"></script>
+    <script defer src="js/core/modals.js"></script>
+    <script defer src="js/core/audio.js"></script>
+    <script defer src="js/core/navigation.js"></script>
+    <script defer src="js/core/evaluation.js"></script>
+    <script defer src="js/core/enrichment.js"></script>
+    <script defer src="js/core/blackboard.js"></script>
+    <script defer src="js/core/games.js"></script>
+    <script defer src="js/core/gamification.js"></script>
+    <script defer src="js/core/teacher-dashboard.js"></script>
+    <script defer src="js/core/classroom-sync.js"></script>
+    <script defer src="js/core/classroom-quiz.js"></script>
+    <script defer src="js/core/interactive-guide.js"></script>
+    <script defer src="js/core/diagnostic-exams.js"></script>
+    <script defer src="js/core/voice-coach.js"></script>
+    <script defer src="js/core/dictation-lab.js"></script>
+    <script defer src="js/core/readers-theater.js"></script>
+    <script defer src="js/core/nasheed-studio.js"></script>
+    <script defer src="js/core/story-studio.js"></script>
+    <script defer src="js/core/student-profiles.js"></script>
+    <script defer src="js/lessons/prep.js"></script>
+    <script defer src="js/lessons/unit1.js"></script>
+    <script defer src="js/lessons/unit2.js"></script>
+    <script defer src="js/lessons/unit3.js"></script>
+    <script defer src="js/lessons/unit4.js"></script>
+    <script defer src="js/lessons/unit5.js"></script>
+    <script defer src="js/lessons/unit6.js"></script>
+    <script defer src="js/app.js"></script>
 </body>
 
 </html>

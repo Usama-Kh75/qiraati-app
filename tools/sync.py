@@ -54,6 +54,15 @@ def sync_assets(bump_cache=False):
         "'./index.html'",
         "'./manifest.json'",
         "'./curriculum_data.js'",
+        "'./css/fonts.css'",
+        "'./fonts/tajawal-400-arabic.woff2'",
+        "'./fonts/tajawal-400-latin.woff2'",
+        "'./fonts/tajawal-700-arabic.woff2'",
+        "'./fonts/tajawal-700-latin.woff2'",
+        "'./fonts/tajawal-800-arabic.woff2'",
+        "'./fonts/tajawal-800-latin.woff2'",
+        "'./fonts/tajawal-900-arabic.woff2'",
+        "'./fonts/tajawal-900-latin.woff2'",
         "'./css/variables.css'",
         "'./css/layout.css'",
         "'./css/components.css'",
@@ -80,6 +89,8 @@ def sync_assets(bump_cache=False):
         "'./css/readers-theater.css'",
         "'./css/nasheed-studio.css'",
         "'./css/story-studio.css'",
+        "'./css/student-profiles.css'",
+        "'./js/core/ai-bridge.js'",
         "'./js/core/modals.js'",
         "'./js/core/audio.js'",
         "'./js/core/navigation.js'",
@@ -98,6 +109,7 @@ def sync_assets(bump_cache=False):
         "'./js/core/readers-theater.js'",
         "'./js/core/nasheed-studio.js'",
         "'./js/core/story-studio.js'",
+        "'./js/core/student-profiles.js'",
         "'./js/lessons/prep.js'",
         "'./js/lessons/unit1.js'",
         "'./js/lessons/unit2.js'",
@@ -108,11 +120,13 @@ def sync_assets(bump_cache=False):
         "'./js/app.js'",
         "'./icons/icon-192.png'",
         "'./icons/icon-512.png'",
+        "'./icons/faseeh_avatar.svg'",
+        "'./icons/faseeh_avatar.png'",
         "'./icons/qiraati.ico'"
     ]
 
     all_cache_entries = core_assets
-    cache_array_str = ",\n\n  ".join(all_cache_entries)
+    cache_array_str = ",\n  ".join(all_cache_entries)
 
     # 5. استبدال مصفوفة ASSETS_TO_CACHE ورقم النسخة في sw.js
     new_sw_txt = re.sub(
@@ -123,7 +137,7 @@ def sync_assets(bump_cache=False):
 
     new_sw_txt = re.sub(
         r"const\s+ASSETS_TO_CACHE\s*=\s*\[[\s\S]*?\];",
-        f"const ASSETS_TO_CACHE = [\n\n  {cache_array_str}\n\n];",
+        f"const ASSETS_TO_CACHE = [\n  {cache_array_str}\n];",
         new_sw_txt
     )
 
@@ -132,7 +146,7 @@ def sync_assets(bump_cache=False):
 
     t1 = time.time()
     print(f"✔ تم تحديث sw.js بنجاح (الكاش: qiraati-smart-v{new_ver})")
-    print(f"   إجمالي الأصول المخزنة: {len(all_cache_entries)} أصلاً ({len(core_assets)} أساسي + {len(image_assets)} صور + {len(audio_assets)} صوت).")
+    print(f"   إجمالي الأصول المخزنة: {len(all_cache_entries)} أصلاً أساسياً في هيكل App Shell.")
     print(f"   زمن المزامنة: {(t1 - t0)*1000:.1f} مللي ثانية.")
 
     # 6. تشغيل فحص ما قبل الدفع للتحقق التلقائي

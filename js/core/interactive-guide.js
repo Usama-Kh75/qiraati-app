@@ -327,8 +327,11 @@
 
         playTourChime() {
             try {
-                if (window.AudioContext || window.webkitAudioContext) {
-                    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (AudioCtx) {
+                    if (!window._sharedAudioCtx) window._sharedAudioCtx = new AudioCtx();
+                    const ctx = window._sharedAudioCtx;
+                    if (ctx.state === 'suspended') ctx.resume();
                     const osc = ctx.createOscillator();
                     const gain = ctx.createGain();
                     osc.type = 'sine';
@@ -348,8 +351,11 @@
 
         playSuccessChime() {
             try {
-                if (window.AudioContext || window.webkitAudioContext) {
-                    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                if (AudioCtx) {
+                    if (!window._sharedAudioCtx) window._sharedAudioCtx = new AudioCtx();
+                    const ctx = window._sharedAudioCtx;
+                    if (ctx.state === 'suspended') ctx.resume();
                     const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
                     notes.forEach((freq, idx) => {
                         const osc = ctx.createOscillator();

@@ -58,6 +58,8 @@ __pycache__/
 # المجلدات المسموح بها
 !/icons/
 !/audio/
+!/fonts/
+!/fonts/*.woff2
 
 # الصور المستخدمة فعلياً في التطبيق المنشور
 # التهيؤ والاستعداد وقراءة الصور
@@ -91,12 +93,6 @@ __pycache__/
 !/page_19.png
 !/page_20.png
 !/activity_b_picnic.png
-!/activity_b_words.png
-!/activity_b_vowels.png
-!/activity_b_vowel_words.png
-!/activity_b_syllables.png
-!/activity_b_analysis.png
-!/activity_b_blend.png
 !/activity_b_read.png
 
 # درس حرف الميم (ص 21 - 23)
@@ -104,28 +100,12 @@ __pycache__/
 !/page_22.png
 !/page_23.png
 !/activity_m_scene.png
-!/activity_m_words.png
-!/activity_m_vowels.png
-!/activity_m_vowel_words.png
-!/activity_m_syllables.png
-!/activity_m_analysis.png
-!/activity_m_blend.png
-!/activity_m_read.png
-!/activity_m_trace.png
 
 # درس حرف الدال (ص 24 - 26)
 !/page_24.png
 !/page_25.png
 !/page_26.png
 !/activity_d_scene.png
-!/activity_d_words.png
-!/activity_d_vowels.png
-!/activity_d_vowel_words.png
-!/activity_d_syllables.png
-!/activity_d_analysis.png
-!/activity_d_blend.png
-!/activity_d_read.png
-!/activity_d_trace.png
 
 # درس حرف الفاء (ص 27 - 29)
 !/page_27.png
@@ -186,29 +166,18 @@ __pycache__/
 !/page_43.png
 !/page_44.png
 !/activity_t_scene.png
-!/activity_t_words.png
-!/activity_t_vowel_words.png
-!/activity_t_syllables.png
-!/activity_t_analysis.png
-!/activity_t_blend.png
-!/activity_t_read.png
-!/activity_t_trace.png
 # درس التاء المربوطة (ص 44 - 46)
 !/page_45.png
 !/page_46.png
 !/activity_marboota_scene.png
-!/activity_marboota_words.png
 !/activity_marboota_vowels.png
-!/activity_marboota_syllables.png
 !/activity_marboota_analysis.png
-!/activity_marboota_blend.png
 !/activity_marboota_read.png
 !/activity_marboota_trace.png
 # درس تنوين الضم (ص 47 - 48)
 !/page_47.png
 !/page_48.png
 !/activity_tanween_dham_scene.png
-!/activity_tanween_dham_words.png
 !/activity_tanween_dham_distinguish.png
 !/activity_tanween_dham_analysis.png
 !/activity_tanween_dham_blend.png
@@ -278,7 +247,6 @@ __pycache__/
 !/activity_nabeel_analysis.png
 !/activity_nabeel_blend.png
 !/activity_nabeel_read.png
-!/activity_nabeel_trace.png
 
 # درس حرف العين (عـ ، ـعـ ، ـع ، ع) وقراءة سَالِم زَرَّاع (ص 69 - 72)
 !/page_69.png
@@ -379,7 +347,6 @@ __pycache__/
 !/activity_hamza_scene.png
 !/activity_hamza_words.png
 !/activity_hamza_vowels.png
-!/activity_hamza_vowel_words.png
 !/activity_hamza_syllables.png
 !/activity_hamza_analysis.png
 !/activity_hamza_blend.png
@@ -412,7 +379,6 @@ __pycache__/
 !/activity_kha_analysis.png
 !/activity_kha_blend.png
 !/activity_kha_read.png
-!/activity_kha_trace.png
 
 # الوحدة الخامسة - الدرس الرابع: حرف الثاء (ثـ ، ث) وتطبيقاته (ص 99 - 101)
 !/page_100.png
@@ -426,7 +392,6 @@ __pycache__/
 !/activity_tha_analysis.png
 !/activity_tha_blend.png
 !/activity_tha_read.png
-!/activity_tha_trace.png
 
 # الوحدة الخامسة - الدرس الخامس: حرف الكاف (كـ ، ك) وتطبيقاته (ص 102 - 104)
 !/page_103.png
@@ -440,7 +405,6 @@ __pycache__/
 !/activity_kaf_analysis.png
 !/activity_kaf_blend.png
 !/activity_kaf_read.png
-!/activity_kaf_trace.png
 
 # الوحدة الخامسة - الدرس السادس: الشدة (ـّ) وتطبيقاتها وقراءة زُرْنَا بَيْتَ جَدِّي ونشيد هَيَّا نَلْعَبْ (ص 105 - 108)
 !/page_106.png
@@ -475,14 +439,12 @@ __pycache__/
 !/activity_ghayn_blend.png
 !/activity_ghayn_order.png
 !/activity_ghayn_read.png
-!/activity_ghayn_trace.png
 
 # إضافات خط الإنتاج التلقائي make_lesson.py
 !/page_115.png
 !/page_116.png
 !/page_117.png
 !/page_118.png
-!/activity_ha_trace.png
 !/activity_ha_scene.png
 !/activity_ha_words.png
 !/activity_ha_vowels.png
@@ -500,7 +462,6 @@ __pycache__/
 !/page_120.png
 !/page_121.png
 !/page_122.png
-!/activity_dhal_trace.png
 !/activity_dhal_scene.png
 !/activity_dhal_words.png
 !/activity_dhal_vowels.png
@@ -518,7 +479,6 @@ __pycache__/
 !/page_124.png
 !/page_125.png
 !/page_126.png
-!/activity_dha_trace.png
 !/activity_dha_scene.png
 !/activity_dha_words.png
 !/activity_dha_vowels.png

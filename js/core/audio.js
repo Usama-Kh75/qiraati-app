@@ -70,7 +70,7 @@
                 }
             } else if (item) {
                 if (typeof mascotSpeak === 'function') {
-                    mascotSpeak(`اقرأ معي بوضوح: <b>${item.text}</b>`);
+                    mascotSpeak(`اقرأ معي بوضوح: <b>${item.text}</b>`, null);
                 }
             } else if (wordKey) {
                 playAudio(wordKey);
@@ -270,7 +270,7 @@
             }
         }
 
-        function stopAudio() {
+        function stopCurrentMediaAudio() {
             if (currentAudio) {
                 try {
                     cleanupAudioNodes(currentAudio);
@@ -279,8 +279,20 @@
                 } catch(e) {}
                 currentAudio = null;
             }
+        }
+
+        function stopAudio() {
+            stopCurrentMediaAudio();
+            if (window.FaseehVoice && typeof window.FaseehVoice.stop === 'function') {
+                window.FaseehVoice.stop();
+            }
             const bubble = document.getElementById('speechBubble');
             const avatar = document.getElementById('mascotAvatar');
+            const mouth = document.getElementById('mascotMouth');
+            if (mouth) {
+                mouth.style.transform = 'scaleY(1)';
+                mouth.style.transformOrigin = '80px 102px';
+            }
             if (bubble) bubble.classList.remove('speaking');
             if (avatar) avatar.classList.remove('mascot-speaking');
             updateAudioControlsState(false);
@@ -369,6 +381,81 @@
             mascotSpeak('', audioKey, onEndedCallback);
         }
 
+        function playAudioSource(src, opts) {
+            const options = opts || {};
+            const audioKey = options.audioKey !== undefined ? options.audioKey : null;
+            const onEndedCallback = typeof options.onEnded === 'function'
+                ? options.onEnded
+                : (typeof options.onEnd === 'function' ? options.onEnd : null);
+            const onErrorCallback = typeof options.onError === 'function' ? options.onError : null;
+            const bubble = document.getElementById('speechBubble');
+            const avatar = document.getElementById('mascotAvatar');
+
+            window._currentPlayingKey = audioKey;
+            if (avatar) avatar.classList.add('mascot-speaking');
+
+            try {
+                const audio = new Audio();
+                audio.preload = "none";
+                audio.src = src;
+                currentAudio = audio;
+                applyVolumeToAudio(audio, getMasterVolume());
+
+                // ضبط سرعة التشغيل الطبيعية الصافية (1.0) مع خيار الإبطاء التعليمي النظيف (0.85) للمعلم
+                // وإلغاء أي تشويه أو تسريع مصطنع (No artificial pitch distortion)
+                try {
+                    const isEducationalSlow = getStoredPref('qiraati-smart-slow-rate', 'qiraati_smart_slow_rate', 'false') === 'true';
+                    audio.preservesPitch = true;
+                    audio.playbackRate = isEducationalSlow ? 0.85 : 1.0;
+                } catch (eRate) {
+                    console.warn('Audio rate adaptation note:', eRate);
+                }
+
+                // تفعيل مزامنة فم «فَصِيح» الحقيقية عبر Web Audio API
+                setupLipSync(audio);
+                updateAudioControlsState(true, audioKey);
+
+                const finalizeVisuals = () => {
+                    cleanupAudioNodes(audio);
+                    if (currentAudio === audio) currentAudio = null;
+                    const mouth = document.getElementById('mascotMouth');
+                    if (mouth) {
+                        mouth.style.transform = 'scaleY(1)';
+                        mouth.style.transformOrigin = '80px 102px';
+                    }
+                    if (bubble) bubble.classList.remove('speaking');
+                    if (avatar) avatar.classList.remove('mascot-speaking');
+                    updateAudioControlsState(false);
+                };
+
+                audio.onended = () => {
+                    finalizeVisuals();
+                    if (onEndedCallback) onEndedCallback();
+                };
+
+                audio.onerror = () => {
+                    finalizeVisuals();
+                    if (onErrorCallback) onErrorCallback();
+                };
+
+                audio.play().catch(e => {
+                    console.log('Audio playback info:', e);
+                    finalizeVisuals();
+                    if (onErrorCallback) onErrorCallback();
+                });
+                return audio;
+            } catch (err) {
+                console.error(err);
+                if (currentAudio) cleanupAudioNodes(currentAudio);
+                currentAudio = null;
+                if (bubble) bubble.classList.remove('speaking');
+                if (avatar) avatar.classList.remove('mascot-speaking');
+                updateAudioControlsState(false);
+                if (onErrorCallback) onErrorCallback();
+                return null;
+            }
+        }
+
         function mascotSpeak(text, audioKey, onEndedCallback) {
             const bubble = document.getElementById('speechBubble');
             const speechText = document.getElementById('speechText');
@@ -382,15 +469,29 @@
                 bubble.classList.add('speaking');
                 scheduleMascotBubbleAutoClose();
             }
-            if (avatar) avatar.classList.add('mascot-speaking');
 
-            if (currentAudio) {
-                try {
-                    currentAudio.pause();
-                    currentAudio.currentTime = 0;
-                } catch(e) {}
-                currentAudio = null;
+            stopCurrentMediaAudio();
+            if (window.FaseehVoice && typeof window.FaseehVoice.stop === 'function') {
+                window.FaseehVoice.stop();
             }
+
+            // النطق البشري الذكي للنصوص التي لا تملك مفتاحاً مسجلاً مسبقاً (audioKey === null صراحةً)
+            if (audioKey === null && text) {
+                if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
+                    window.FaseehVoice.speak(text, { onEnded: onEndedCallback, keepBubble: true });
+                } else if (typeof onEndedCallback === 'function') {
+                    onEndedCallback();
+                }
+                return;
+            }
+
+            // استدعاء نصي مرئي فقط دون صوت
+            if (!audioKey) {
+                if (avatar) avatar.classList.remove('mascot-speaking');
+                return;
+            }
+
+            if (avatar) avatar.classList.add('mascot-speaking');
 
             // تحديد الصوت بناءً على تفضيلات الضبط (المعلمة رنا / المعلم باسل / الوضع التكاملي / صوت المعلمة الميداني الحقيقي)
             const voicePref = getStoredPref('qiraati-smart-voice-pref', 'qiraati_smart_voice_pref', 'integrated');
@@ -470,7 +571,7 @@
                 "letter_s_teacher_sentence3", "letter_s_teacher_word_baba", "letter_s_teacher_word_faris", "letter_s_teacher_word_mama",
                 "letter_s_teacher_word_moosa", "letter_s_teacher_word_rasama", "letter_s_teacher_word_safara",
                 "letter_sad_phoneme_faseeh", "letter_sh_phoneme_faseeh", "letter_ta_phoneme_faseeh", "letter_tha_phoneme_faseeh",
-                "letter_z_phoneme_faseeh", "shaddah_phoneme_faseeh", "teacher_act5_alif_sound", "teacher_act5_all", "teacher_act5_asa",
+                "letter_z_phoneme_faseeh", "mascot_hint", "mascot_welcome", "shaddah_phoneme_faseeh", "teacher_act5_alif_sound", "teacher_act5_all", "teacher_act5_asa",
                 "teacher_act5_dar", "teacher_act5_ghazal", "teacher_act5_halwa", "teacher_act5_intro", "teacher_act5_mrma",
                 "teacher_letter_d_act1_intro", "teacher_letter_d_asad", "teacher_letter_d_dalla", "teacher_letter_d_dar",
                 "teacher_letter_d_deek", "teacher_letter_d_dirham", "teacher_letter_d_dood", "teacher_letter_d_dub",
@@ -486,7 +587,7 @@
                 "teacher_reading_mama", "teacher_reading_mama_b", "teacher_vowel_w_all", "teacher_vowel_w_buma", "teacher_vowel_w_intro",
                 "teacher_vowel_w_kharuf", "teacher_vowel_w_soos", "teacher_vowel_w_tawoos", "teacher_vowel_w_usfoor", "teacher_vowel_y_all",
                 "teacher_vowel_y_bisat", "teacher_vowel_y_dik", "teacher_vowel_y_halib", "teacher_vowel_y_intro", "teacher_vowel_y_rish",
-                "unit2_facility_teacher", "unit2_welcome_bassel", "voice_confirm_bassel", "voice_confirm_rana", "voice_preview_bassel",
+                "unit2_facility_teacher", "unit2_welcome_bassel", "voice_confirm_bassel", "voice_confirm_integrated", "voice_confirm_rana", "voice_preview_bassel",
                 "voice_preview_rana"
             ]);
 
@@ -512,6 +613,8 @@
             } else if (voicePref === 'bassel') {
                 if (audioKey && faseehDirectMap[audioKey] && hasSpecialAudioKey(faseehDirectMap[audioKey])) {
                     finalKey = faseehDirectMap[audioKey];
+                } else if (audioKey && audioKey.endsWith('_sound') && hasSpecialAudioKey(audioKey.replace(/_sound$/, '_phoneme_faseeh'))) {
+                    finalKey = audioKey.replace(/_sound$/, '_phoneme_faseeh');
                 } else if (audioKey && hasSpecialAudioKey(audioKey + '_bassel')) {
                     finalKey = audioKey + '_bassel';
                 } else if (audioKey && hasSpecialAudioKey('bassel_' + audioKey)) {
@@ -521,7 +624,7 @@
                 if (audioKey && hasSpecialAudioKey(audioKey + '_rana')) finalKey = audioKey + '_rana';
                 else if (audioKey && hasSpecialAudioKey('rana_' + audioKey)) finalKey = 'rana_' + audioKey;
             } else if (voicePref === 'integrated') {
-                if (audioKey && (audioKey.includes('encourage') || audioKey.includes('hint') || audioKey.includes('mascot') || audioKey.includes('applause') || audioKey.includes('bassel'))) {
+                if (audioKey && (audioKey.includes('encourage') || audioKey.includes('hint') || audioKey.includes('mascot') || audioKey.includes('applause') || audioKey.includes('bassel') || audioKey.includes('faseeh'))) {
                     if (audioKey && faseehDirectMap[audioKey] && hasSpecialAudioKey(faseehDirectMap[audioKey])) finalKey = faseehDirectMap[audioKey];
                     else if (audioKey && hasSpecialAudioKey(audioKey + '_bassel')) finalKey = audioKey + '_bassel';
                     else if (audioKey && hasSpecialAudioKey('bassel_' + audioKey)) finalKey = 'bassel_' + audioKey;
@@ -542,58 +645,8 @@
                 src = 'audio/' + audioKey + '.mp3';
             }
 
-            window._currentPlayingKey = audioKey;
-
-            try {
-                if (src) {
-                    const audio = new Audio();
-                    audio.preload = "none";
-                    audio.src = src;
-                    currentAudio = audio;
-                    applyVolumeToAudio(audio, getMasterVolume());
-
-                    // ضبط سرعة التشغيل الطبيعية الصافية (1.0) مع خيار الإبطاء التعليمي النظيف (0.85) للمعلم
-                    // وإلغاء أي تشويه أو تسريع مصطنع (No artificial pitch distortion)
-                    try {
-                        const isEducationalSlow = getStoredPref('qiraati-smart-slow-rate', 'qiraati_smart_slow_rate', 'false') === 'true';
-                        audio.preservesPitch = true;
-                        audio.playbackRate = isEducationalSlow ? 0.85 : 1.0;
-                    } catch (eRate) {
-                        console.warn('Audio rate adaptation note:', eRate);
-                    }
-
-                    // تفعيل مزامنة فم «فَصِيح» الحقيقية عبر Web Audio API
-                    setupLipSync(audio);
-
-                    updateAudioControlsState(true, audioKey);
-
-                    audio.onended = () => {
-                        cleanupAudioNodes(audio);
-                        if (bubble) bubble.classList.remove('speaking');
-                        if (avatar) avatar.classList.remove('mascot-speaking');
-                        updateAudioControlsState(false);
-                        if (onEndedCallback) onEndedCallback();
-                    };
-
-                    audio.onerror = () => {
-                        cleanupAudioNodes(audio);
-                        if (bubble) bubble.classList.remove('speaking');
-                        if (avatar) avatar.classList.remove('mascot-speaking');
-                        updateAudioControlsState(false);
-                    };
-
-                    audio.play().catch(e => {
-                        console.log('Audio playback info:', e);
-                        cleanupAudioNodes(audio);
-                        updateAudioControlsState(false);
-                    });
-                }
-            } catch (err) {
-                console.error(err);
-                if (currentAudio) cleanupAudioNodes(currentAudio);
-                if (bubble) bubble.classList.remove('speaking');
-                if (avatar) avatar.classList.remove('mascot-speaking');
-                updateAudioControlsState(false);
+            if (src) {
+                playAudioSource(src, { audioKey, onEnded: onEndedCallback });
             }
         }
 
@@ -654,6 +707,9 @@
             if (!audio) return;
             if (volPct <= 100) {
                 audio.volume = Math.max(0, Math.min(1.0, volPct / 100));
+                if (audio._gainNode) {
+                    audio._gainNode.gain.value = 1.0;
+                }
             } else {
                 audio.volume = 1.0;
                 try {
@@ -807,7 +863,7 @@
                         learnedLetters: ['د', 'ر', 'و', 'ب', 'م', 'ن', 'ي', 'س']
                     });
                     if (tutorRes && tutorRes.reply) {
-                        mascotSpeak(tutorRes.reply, 'mascot_hint');
+                        mascotSpeak(tutorRes.reply, null);
                         return;
                     }
                 } catch (e) {
@@ -829,7 +885,7 @@
                         learnedLetters: ['د', 'ر', 'و', 'ب', 'م', 'ن', 'ي', 'س']
                     });
                     if (tutorRes && tutorRes.reply) {
-                        mascotSpeak(tutorRes.reply, 'mascot_hint');
+                        mascotSpeak(tutorRes.reply, null);
                         return tutorRes.reply;
                     }
                 } catch (e) {
@@ -988,6 +1044,548 @@
             window.addEventListener('touchmove', onPointerMove, { passive: true });
             window.addEventListener('touchend', onPointerUp);
         }
+
+        // ==============================================================
+        // محرك النطق البشري الذكي لشخصية «فَصِيح» (FaseehVoice & AudioEngine)
+        // يجمع بين: 1) تسجيلات الاستوديو البشري 2) Gemini Live TTS 3) الصوت العصبي المتدرج
+        // إعداد وتطوير: المهندس أسامة خليل هاشم
+        // ==============================================================
+        const FaseehVoice = (() => {
+            let _ttsToken = 0;
+            let _ttsMouthTimer = null;
+            let _ttsChunkTimer = null;
+            let _voicesLoaded = false;
+
+            const WORD_AUDIO_MAP = {
+                // حروف ومخارج فونيمية
+                'ب': 'letter_b_sound',
+                'د': 'letter_d_sound',
+                'ف': 'letter_f_sound',
+                'م': 'letter_m_sound',
+                'ن': 'letter_n_sound',
+                'ر': 'letter_r_sound',
+                'س': 'letter_s_sound',
+                'ت': 'letter_t_sound',
+                'ط': 'letter_ta_sound',
+                'ق': 'letter_q_booq_sound',
+                'ل': 'letter_l_nabeel_sound',
+                'ع': 'letter_ayn_salim_sound',
+                'ه': 'letter_h_sound',
+                'هـ': 'letter_h_sound',
+                'ش': 'letter_sh_sound',
+                'ز': 'letter_z_sound',
+                'ج': 'letter_j_sound',
+                'ص': 'letter_sad_sound',
+                'ا': 'teacher_act5_alif_sound',
+                'ء': 'letter_hamza_sound',
+                'ض': 'letter_dhad_sound',
+                'خ': 'letter_kha_sound',
+                'ث': 'letter_tha_sound',
+                'ك': 'letter_kaf_sound',
+                'غ': 'letter_ghayn_sound',
+                'ح': 'letter_ha_sound',
+                'ذ': 'letter_dhal_sound',
+                'ظ': 'letter_dha_sound',
+                'و': 'vowel_w_sound',
+                'ي': 'vowel_y_sound',
+                'ى': 'vowel_y_sound',
+                'ة': 'letter_marboota_sound',
+                'تنوين': 'tanween_dham_sound',
+                'شدة': 'shaddah_sound',
+                // كلمات المنهج
+                'دادا': 'faseeh_blend_dada',
+                'بابا': 'letter_d_read_baba',
+                'ماما': 'letter_m_read_mama',
+                'دار': 'faseeh_blend_dar',
+                'دور': 'faseeh_blend_door',
+                'نور': 'faseeh_blend_noor',
+                'فراس': 'faseeh_blend_firas',
+                'ورد': 'faseeh_blend_wardun',
+                'بوق': 'letter_q_booq_word_booq',
+                'ريف': 'letter_f_reef_word_reef',
+                'بط': 'letter_ta_word_bat',
+                'صلاح': 'letter_h_word_salah',
+                'شامل': 'letter_sh_word_shamil',
+                'ميزان': 'letter_z_word_mizan',
+                'فرج': 'letter_j_word_faraj',
+                'طيارة': 'letter_sad_word_tayyarah',
+                'ارنب': 'letter_hamza_word_arnab',
+                'حوض': 'letter_dhad_word_hawd',
+                'خروف': 'vowel_w_kharuf',
+                'ثمار': 'letter_tha_word_thimaar',
+                'كتاب': 'item_kitab',
+                'غزال': 'letter_z_word_ghazal',
+                'هدهد': 'letter_ha_word_hudhud',
+                'ذئب': 'letter_dhal_word_dhib',
+                'ظبي': 'letter_dha_word_zaby',
+                'شمس': 'lam_word_ashams',
+                'الشمس': 'lam_word_ashams',
+                'قمر': 'lam_word_alqamar',
+                'القمر': 'lam_word_alqamar',
+                // عبارات فصيح المعيارية
+                'ممتاز يا بطل': 'faseeh_encourage_super',
+                'اهلا بكم في منصة قراءتي الذكية': 'mascot_welcome'
+            };
+
+            const ISOLATED_LETTER_NAMES = {
+                'ا': 'أَلِفْ', 'أ': 'أَلِفْ هَمْزَة', 'إ': 'أَلِفْ مَكْسُورَة', 'آ': 'أَلِفْ مَمْدُودَة', 'ء': 'هَمْزَة',
+                'ب': 'بَاءْ', 'ت': 'تَاءْ', 'ث': 'ثَاءْ', 'ج': 'جِيمْ', 'ح': 'حَاءْ', 'خ': 'خَاءْ',
+                'د': 'دَالْ', 'ذ': 'ذَالْ', 'ر': 'رَاءْ', 'ز': 'زَايْ', 'س': 'سِينْ', 'ش': 'شِينْ',
+                'ص': 'صَادْ', 'ض': 'ضَادْ', 'ط': 'طَاءْ', 'ظ': 'ظَاءْ', 'ع': 'عَيْنْ', 'غ': 'غَيْنْ',
+                'ف': 'فَاءْ', 'ق': 'قَافْ', 'ك': 'كَافْ', 'ل': 'لَامْ', 'م': 'مِيمْ', 'ن': 'نُونْ',
+                'ه': 'هَاءْ', 'هـ': 'هَاءْ', 'ة': 'تَاءْ مَرْبُوطَة', 'و': 'وَاوْ', 'ي': 'يَاءْ', 'ى': 'أَلِفْ مَقْصُورَة'
+            };
+
+            function stripHtmlAndEmoji(raw) {
+                if (!raw) return '';
+                let s = String(raw);
+                s = s.replace(/<br\s*\/?>/gi, '، ')
+                    .replace(/<\/(p|div|li|h[1-6])>/gi, '، ')
+                    .replace(/<[^>]*>/g, ' ')
+                    .replace(/&nbsp;/gi, ' ')
+                    .replace(/&amp;/gi, ' و ')
+                    .replace(/&quot;|&apos;|&#39;|&lt;|&gt;/gi, ' ');
+                // إزالة الرموز التعبيرية والعناصر الزخرفية مع إبقاء العربية والأرقام وعلامات الترقيم
+                try {
+                    s = s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\uFE00-\uFE0F\u200D]/gu, ' ');
+                } catch (e) {
+                    s = s.replace(/[\uD800-\uDFFF]/g, ' ');
+                }
+                return s.replace(/[*_`#~|]+/g, ' ').replace(/\s+/g, ' ').trim();
+            }
+
+            function normalizeArabicForAudio(raw) {
+                let s = stripHtmlAndEmoji(raw);
+                // إزالة التشكيل والمدّة وعلامات الترقيم
+                s = s.replace(/[\u064B-\u065F\u0670\u0640]/g, '')
+                    .replace(/[أإآٱ]/g, 'ا')
+                    .replace(/[^\u0621-\u064A0-9\s]/g, ' ')
+                    .replace(/\s+/g, ' ')
+                    .trim();
+                if (s.startsWith('حرف ')) {
+                    const rest = s.slice(4).trim();
+                    if (WORD_AUDIO_MAP[rest]) return rest;
+                }
+                return s;
+            }
+
+            function prepareArabicSpeechText(raw) {
+                let s = stripHtmlAndEmoji(raw);
+                s = s.replace(/\s*\+\s*/g, ' وَ ')
+                    .replace(/\s*\/\s*/g, '، أَوْ ')
+                    .replace(/[←→↔⇒⇐]/g, '، ')
+                    .replace(/[:؛]+/g, '، ');
+
+                // إذا كان النص حرفاً منفرداً فقط لتفادي التهجئة الآلية الخشنة
+                const bareNoMarks = s.replace(/[\u064B-\u065F\u0670\u0640]/g, '').trim();
+                if (ISOLATED_LETTER_NAMES[bareNoMarks]) {
+                    return 'حَرْفُ ' + ISOLATED_LETTER_NAMES[bareNoMarks];
+                }
+
+                // تحويل صيغ "حرف د" إلى "حرف الدال" لنطق طبيعي وسليم
+                s = s.replace(/(^|\s)حَرْفُ?\s+([\u0621-\u064A])(\s|[،.؟!]|$)/g, (m, p1, ch, p3) => {
+                    const nm = ISOLATED_LETTER_NAMES[ch];
+                    return nm ? `${p1}حَرْفُ ${nm}${p3}` : m;
+                });
+
+                return s.replace(/\s+/g, ' ').trim();
+            }
+
+            function splitArabicSpeechChunks(text) {
+                if (!text) return [];
+                const rawParts = text.split(/(?<=[.!؟؛،\n])\s+/).map(p => p.trim()).filter(Boolean);
+                const merged = [];
+                for (const part of rawParts) {
+                    if (merged.length > 0 && part.split(/\s+/).length < 3 && (merged[merged.length - 1].length + part.length) < 125) {
+                        merged[merged.length - 1] += ' ' + part;
+                    } else if (part.length > 150) {
+                        const words = part.split(/\s+/);
+                        let buf = '';
+                        for (const w of words) {
+                            if ((buf + ' ' + w).trim().length > 130 && buf) {
+                                merged.push(buf.trim());
+                                buf = w;
+                            } else {
+                                buf = (buf + ' ' + w).trim();
+                            }
+                        }
+                        if (buf) merged.push(buf);
+                    } else {
+                        merged.push(part);
+                    }
+                }
+                return merged.length > 0 ? merged : [text];
+            }
+
+            function selectBestArabicVoice() {
+                if (typeof window === 'undefined' || !('speechSynthesis' in window)) return null;
+                const voices = window.speechSynthesis.getVoices() || [];
+                const arVoices = voices.filter(v => v.lang && v.lang.toLowerCase().startsWith('ar'));
+                if (arVoices.length === 0) return null;
+
+                let best = null;
+                let bestScore = -999;
+                for (const v of arVoices) {
+                    const name = (v.name || '').toLowerCase();
+                    const lang = (v.lang || '').toLowerCase();
+                    let score = 0;
+                    if (/natural|neural|online/.test(name)) score += 120;
+                    if (/google/.test(name)) score += 90;
+                    if (/hamed|bassel|shakir|maged|tarik|naayf|salman|omar|zayd|fahed|jamal|ayman|rami/.test(name)) score += 45;
+                    if (/zariyah|rana|salma|noura|laila|mariam|hoda|amina/.test(name)) score += 25;
+                    if (lang === 'ar-iq') score += 20;
+                    else if (/ar-sa|ar-eg|ar-ae|ar-jo/.test(lang)) score += 12;
+                    if (/espeak|rhvoice|festival|android/.test(name) && !/google|natural/.test(name)) score -= 200;
+                    if (!v.localService) score += 10;
+                    if (score > bestScore) {
+                        bestScore = score;
+                        best = v;
+                    }
+                }
+                return best;
+            }
+
+            if (typeof window !== 'undefined' && 'speechSynthesis' in window && !_voicesLoaded) {
+                _voicesLoaded = true;
+                try {
+                    window.speechSynthesis.getVoices();
+                    if (typeof window.speechSynthesis.addEventListener === 'function') {
+                        window.speechSynthesis.addEventListener('voiceschanged', () => {
+                            window.speechSynthesis.getVoices();
+                        });
+                    }
+                } catch (e) {}
+            }
+
+            function stopTtsTimersAndMouth() {
+                if (_ttsMouthTimer) {
+                    clearInterval(_ttsMouthTimer);
+                    _ttsMouthTimer = null;
+                }
+                if (_ttsChunkTimer) {
+                    clearTimeout(_ttsChunkTimer);
+                    _ttsChunkTimer = null;
+                }
+                const mouth = document.getElementById('mascotMouth');
+                if (mouth) {
+                    mouth.style.transform = 'scaleY(1)';
+                    mouth.style.transformOrigin = '80px 102px';
+                }
+            }
+
+            function startOrganicMouthAnim(token) {
+                stopTtsTimersAndMouth();
+                const avatar = document.getElementById('mascotAvatar');
+                const mouth = document.getElementById('mascotMouth');
+                if (avatar) avatar.classList.add('mascot-speaking');
+                let step = 0;
+                _ttsMouthTimer = setInterval(() => {
+                    if (token !== _ttsToken) {
+                        stopTtsTimersAndMouth();
+                        return;
+                    }
+                    step++;
+                    if (mouth) {
+                        const wave = 1.08 + Math.abs(Math.sin(step * 1.15) * 0.34 + Math.cos(step * 0.7) * 0.12);
+                        mouth.style.transformOrigin = '80px 102px';
+                        mouth.style.transform = `scaleY(${wave.toFixed(2)})`;
+                    }
+                }, 115);
+            }
+
+            function stop() {
+                _ttsToken++;
+                stopTtsTimersAndMouth();
+                if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+                    try {
+                        window.speechSynthesis.cancel();
+                    } catch (e) {}
+                }
+                if (!currentAudio) {
+                    const bubble = document.getElementById('speechBubble');
+                    const avatar = document.getElementById('mascotAvatar');
+                    if (bubble) bubble.classList.remove('speaking');
+                    if (avatar) avatar.classList.remove('mascot-speaking');
+                    updateAudioControlsState(false);
+                }
+            }
+
+            function speakWithBrowserNeuralFallback(text, token, opts, doneCb) {
+                if (token !== _ttsToken) return Promise.resolve({ mode: 'cancelled' });
+                if (typeof window === 'undefined' || !('speechSynthesis' in window)) {
+                    doneCb();
+                    return Promise.resolve({ mode: 'none' });
+                }
+
+                const prepared = prepareArabicSpeechText(text);
+                if (!prepared) {
+                    doneCb();
+                    return Promise.resolve({ mode: 'empty' });
+                }
+
+                const chunks = splitArabicSpeechChunks(prepared);
+                const voice = selectBestArabicVoice();
+                const isSlow = isEducationalSlowRate();
+                const rate = typeof opts.rate === 'number' ? opts.rate : (isSlow ? 0.78 : 0.90);
+                const pitch = typeof opts.pitch === 'number' ? opts.pitch : 1.03;
+                const vol = Math.min(1.0, Math.max(0.0, getMasterVolume() / 100));
+
+                return new Promise(resolve => {
+                    let idx = 0;
+                    let finished = false;
+                    const bubble = document.getElementById('speechBubble');
+                    const avatar = document.getElementById('mascotAvatar');
+
+                    function finishAll(modeLabel) {
+                        if (finished) return;
+                        finished = true;
+                        stopTtsTimersAndMouth();
+                        if (token === _ttsToken) {
+                            if (bubble) bubble.classList.remove('speaking');
+                            if (avatar) avatar.classList.remove('mascot-speaking');
+                            updateAudioControlsState(false);
+                            doneCb();
+                        }
+                        resolve({ mode: modeLabel || 'speechSynthesis' });
+                    }
+
+                    function nextChunk() {
+                        if (token !== _ttsToken) {
+                            finishAll('cancelled');
+                            return;
+                        }
+                        if (idx >= chunks.length) {
+                            finishAll('speechSynthesis');
+                            return;
+                        }
+                        const utter = new SpeechSynthesisUtterance(chunks[idx]);
+                        utter.lang = (voice && voice.lang) ? voice.lang : (opts.lang || 'ar-SA');
+                        if (voice) utter.voice = voice;
+                        utter.rate = rate;
+                        utter.pitch = pitch;
+                        utter.volume = vol;
+
+                        utter.onstart = () => {
+                            if (token !== _ttsToken) return;
+                            updateAudioControlsState(true, 'faseeh_speech');
+                            startOrganicMouthAnim(token);
+                        };
+                        utter.onend = () => {
+                            if (token !== _ttsToken) {
+                                finishAll('cancelled');
+                                return;
+                            }
+                            idx++;
+                            if (idx < chunks.length) {
+                                // وقفة تنفس طبيعية قصيرة بين الجمل تمنع السرد الآلي المتلاحق
+                                _ttsChunkTimer = setTimeout(nextChunk, 150);
+                            } else {
+                                finishAll('speechSynthesis');
+                            }
+                        };
+                        utter.onerror = () => {
+                            if (token !== _ttsToken) {
+                                finishAll('cancelled');
+                                return;
+                            }
+                            idx++;
+                            if (idx < chunks.length) {
+                                _ttsChunkTimer = setTimeout(nextChunk, 90);
+                            } else {
+                                finishAll('speechSynthesis_fallback');
+                            }
+                        };
+
+                        try {
+                            window.speechSynthesis.speak(utter);
+                        } catch (e) {
+                            finishAll('speechSynthesis_error');
+                        }
+                    }
+
+                    try {
+                        window.speechSynthesis.cancel();
+                    } catch (e) {}
+                    updateAudioControlsState(true, 'faseeh_speech');
+                    nextChunk();
+                });
+            }
+
+            async function speak(text, opts) {
+                const options = opts || {};
+                const onEndedCb = typeof options.onEnded === 'function'
+                    ? options.onEnded
+                    : (typeof options.onEnd === 'function' ? options.onEnd : () => {});
+
+                stopCurrentMediaAudio();
+                _ttsToken++;
+                const myToken = _ttsToken;
+                stopTtsTimersAndMouth();
+                if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+                    try { window.speechSynthesis.cancel(); } catch (e) {}
+                }
+
+                if (!text || !String(text).trim()) {
+                    onEndedCb();
+                    return { mode: 'empty' };
+                }
+
+                // 1) مطابقة الكلمات والحروف المسجلة بالصوت البشري التوليدي الدافئ (أوفلاين 100% وزمن استجابة صفر)
+                const normalized = normalizeArabicForAudio(text);
+                const mappedKey = !options.preferLive ? WORD_AUDIO_MAP[normalized] : null;
+                if (mappedKey) {
+                    const mappedSrc = (window.AUDIO_DATA && window.AUDIO_DATA[mappedKey])
+                        ? window.AUDIO_DATA[mappedKey]
+                        : `audio/${mappedKey}.mp3`;
+                    return await new Promise(resolve => {
+                        let resolved = false;
+                        const finishMp3 = (info) => {
+                            if (resolved) return;
+                            resolved = true;
+                            resolve(info);
+                        };
+                        playAudioSource(mappedSrc, {
+                            audioKey: mappedKey,
+                            onEnded: () => {
+                                onEndedCb();
+                                finishMp3({ mode: 'mp3', key: mappedKey });
+                            },
+                            onError: () => {
+                                if (myToken !== _ttsToken) {
+                                    finishMp3({ mode: 'cancelled' });
+                                    return;
+                                }
+                                speakWithBrowserNeuralFallback(text, myToken, options, onEndedCb).then(finishMp3);
+                            }
+                        });
+                    });
+                }
+
+                // 2) النطق الحي الذكي عبر Gemini TTS إذا كان الخادم المحلي متاحاً
+                const cleanForAi = stripHtmlAndEmoji(text);
+                if (cleanForAi.length > 0 && cleanForAi.length <= 450
+                    && window.AIBridge && typeof window.AIBridge.speakWithFaseeh === 'function'
+                    && (!window.AIBridge.isAvailable || window.AIBridge.isAvailable())) {
+                    try {
+                        const aiRes = await window.AIBridge.speakWithFaseeh(cleanForAi);
+                        if (myToken !== _ttsToken) return { mode: 'cancelled' };
+                        const aiUri = typeof aiRes === 'string'
+                            ? aiRes
+                            : (aiRes && (aiRes.audioDataUri || aiRes.dataUri || aiRes.audio || aiRes.url || aiRes.audioUrl));
+                        if (aiUri) {
+                            return await new Promise(resolve => {
+                                let resolved = false;
+                                const finishAi = (info) => {
+                                    if (resolved) return;
+                                    resolved = true;
+                                    resolve(info);
+                                };
+                                playAudioSource(aiUri, {
+                                    audioKey: 'faseeh_ai_tts',
+                                    onEnded: () => {
+                                        onEndedCb();
+                                        finishAi({ mode: 'gemini_tts' });
+                                    },
+                                    onError: () => {
+                                        if (myToken !== _ttsToken) {
+                                            finishAi({ mode: 'cancelled' });
+                                            return;
+                                        }
+                                        speakWithBrowserNeuralFallback(text, myToken, options, onEndedCb).then(finishAi);
+                                    }
+                                });
+                            });
+                        }
+                    } catch (e) {
+                        console.warn('Faseeh AI TTS fallback note:', e);
+                        if (myToken !== _ttsToken) return { mode: 'cancelled' };
+                    }
+                }
+
+                // 3) الصوت العصبي المتدرج للمتصفح عند العمل أوفلاين
+                return await speakWithBrowserNeuralFallback(text, myToken, options, onEndedCb);
+            }
+
+            return {
+                speak,
+                stop,
+                normalizeArabicForAudio,
+                WORD_AUDIO_MAP
+            };
+        })();
+
+        const AudioEngine = {
+            speakWord(word, opts) {
+                return FaseehVoice.speak(word, opts);
+            },
+            playSystemTone(type) {
+                try {
+                    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+                    if (!AudioCtx) return;
+                    if (!window._sharedAudioCtx) {
+                        window._sharedAudioCtx = new AudioCtx();
+                    }
+                    const ctx = window._sharedAudioCtx;
+                    if (ctx.state === 'suspended') ctx.resume();
+
+                    const now = ctx.currentTime;
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    const volScale = Math.max(0.05, Math.min(1.0, getMasterVolume() / 100)) * 0.14;
+
+                    if (type === 'success' || type === 'correct' || type === 'win') {
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(523.25, now);
+                        osc.frequency.exponentialRampToValueAtTime(783.99, now + 0.16);
+                        gain.gain.setValueAtTime(volScale, now);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.28);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now);
+                        osc.stop(now + 0.3);
+                    } else if (type === 'error' || type === 'wrong') {
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(290, now);
+                        osc.frequency.exponentialRampToValueAtTime(195, now + 0.18);
+                        gain.gain.setValueAtTime(volScale, now);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now);
+                        osc.stop(now + 0.25);
+                    } else {
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(640, now);
+                        gain.gain.setValueAtTime(volScale * 0.7, now);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now);
+                        osc.stop(now + 0.09);
+                    }
+                } catch (e) {}
+            }
+        };
+
+        function playFaseehVoiceShowcase() {
+            const showcaseText = '👨‍🏫 <b>عَرْضُ صَوْتِ «فَصِيح» الْجَدِيدِ (Gemini Natural Voice):</b><br>«أَنَا وَحْدِي: أَنْظُرُ إِلَى الْكَلِمَة... دَا... دَا... دَادَا!» 🌟';
+            if (typeof playAudio === 'function') {
+                mascotSpeak(showcaseText, 'faseeh_model_ana_wahdi', () => {
+                    setTimeout(() => {
+                        if (!currentAudio) {
+                            mascotSpeak('مُمْتَازٌ يَا بَطَل! نُطْقٌ دَافِئٌ وَفَصِيحٌ 100% بِمَخَارِجِ الْحُرُوفِ الْعَرَبِيَّةِ الصَّحِيحَةِ! ⭐', 'faseeh_encourage_super');
+                        }
+                    }, 300);
+                });
+            }
+        }
+
+        window.FaseehVoice = FaseehVoice;
+        window.AudioEngine = AudioEngine;
+        window.playFaseehVoiceShowcase = playFaseehVoiceShowcase;
+        window.mascotSpeak = mascotSpeak;
+        window.playAudio = playAudio;
+        window.stopAudio = stopAudio;
 
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initMascotFeatures);

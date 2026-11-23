@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 """
 بوابة الفحص والجودة الآلية الإلزامية قبل كل إصدار
-لمنصة قراءتي التفاعلية الذكية (v3.59)
+لمنصة قراءتي التفاعلية الذكية (v3.61)
 إعداد وتطوير: المهندس أسامة خليل هاشم
 
 تقوم هذه الأداة بإجراء كافة الفحوصات الصارمة لمنع أي أخطاء قبل النشر:
 1. بناء index.html وتوليد الحزمة الأحادية المستقلة (build.py + build_standalone.py).
 2. فحص السلامة النحوية عبر node --check لجميع ملفات js/**/*.js و sw.js (0 أخطاء).
-3. فحص index.html للتحقق من خلوه تماماً من المعرفات المكررة (0 Duplicate IDs) والتحقق من وجود loading="lazy" للصور.
+3. فحص index.html للتحقق من خلوه تماماً من المعرفات المكررة (0 Duplicate IDs) والتحقق من وجود loading="lazy" للصور واستضافة خط Tajawal محلياً.
 4. فحص تكامل وجود كافة الصور والأصول الرقمية المذكورة في الكود والتحقق الصارم من وجودها على القرص (0 صور مكسورة 404).
 5. الفحص الأمني الصارم لعدم وجود أي مفاتيح سرية (AIza...) في أي ملف واجهة أمامي.
-6. مطابقة رقم الإصدار (v3.59) وترقية مخزن الكاش إلى (qiraati-smart-v82).
+6. مطابقة رقم الإصدار (v3.61) وترقية مخزن الكاش إلى (qiraati-smart-v84).
 """
 
 import os
@@ -176,14 +176,17 @@ def step5_security_scan():
     return True
 
 def step6_version_alignment():
-    print_header("[6/6] مطابقة رقم الإصدار (v3.59) ومخزن الكاش (qiraati-smart-v82)")
+    print_header("[6/6] مطابقة رقم الإصدار (v3.61) ومخزن الكاش (qiraati-smart-v84) واستضافة الخطوط")
     top_shell = os.path.join(BASE_DIR, 'views', 'app-shell-top.html')
     sw_file = os.path.join(BASE_DIR, 'sw.js')
+    index_file = os.path.join(BASE_DIR, 'index.html')
 
     with open(top_shell, 'r', encoding='utf-8') as f:
         top_content = f.read()
     with open(sw_file, 'r', encoding='utf-8') as f:
         sw_content = f.read()
+    with open(index_file, 'r', encoding='utf-8') as f:
+        index_content = f.read()
 
     # فحص الإصدار في views/app-shell-top.html
     top_ver_match = re.search(r'class="app-version-badge"[^>]*>([^<]+)<', top_content)
@@ -200,8 +203,8 @@ def step6_version_alignment():
     print(f"  - إصدار عامل الخدمة (sw.js): {sw_ver}")
     print(f"  - اسم مخزن الكاش (sw.js): {sw_cache}")
 
-    expected_ver = "v3.60"
-    expected_cache = "qiraati-smart-v83"
+    expected_ver = "v3.61"
+    expected_cache = "qiraati-smart-v84"
 
     errors = []
     if top_ver != expected_ver:
@@ -211,19 +214,41 @@ def step6_version_alignment():
     if sw_cache != expected_cache:
         errors.append(f"مخزن الكاش يجب أن يكون {expected_cache} (الموجود: {sw_cache})")
 
+    # التحقق من خلو index.html و views من Google Fonts ووجود ملفات Tajawal الثمانية محلياً
+    if 'fonts.googleapis.com' in index_content or 'fonts.gstatic.com' in index_content:
+        errors.append("تم العثور على رابط خارجي لخطوط Google Fonts داخل index.html!")
+
+    expected_fonts = [
+        os.path.join('css', 'fonts.css'),
+        os.path.join('fonts', 'tajawal-400-arabic.woff2'),
+        os.path.join('fonts', 'tajawal-400-latin.woff2'),
+        os.path.join('fonts', 'tajawal-700-arabic.woff2'),
+        os.path.join('fonts', 'tajawal-700-latin.woff2'),
+        os.path.join('fonts', 'tajawal-800-arabic.woff2'),
+        os.path.join('fonts', 'tajawal-800-latin.woff2'),
+        os.path.join('fonts', 'tajawal-900-arabic.woff2'),
+        os.path.join('fonts', 'tajawal-900-latin.woff2'),
+    ]
+    for font_rel in expected_fonts:
+        if not os.path.exists(os.path.join(BASE_DIR, font_rel)):
+            errors.append(f"ملف الخط المحلي مفقود: {font_rel}")
+        sw_entry = "'./" + font_rel.replace('\\', '/') + "'"
+        if sw_entry not in sw_content:
+            errors.append(f"ملف الخط المحلي غير مدرج في sw.js: {sw_entry}")
+
     if errors:
-        print("\n❌ عدم تطابق في بيانات الإصدار:")
+        print("\n❌ عدم تطابق في بيانات الإصدار أو الخطوط:")
         for e in errors:
             print(f"  - {e}")
         return False
 
-    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.60 وكاش qiraati-smart-v83.")
+    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.61 وكاش qiraati-smart-v84 وملفات خط Tajawal المحلية (8 WOFF2).")
     return True
 
 def main():
     print("=" * 70)
     print("🛡️ منصة قراءتي التفاعلية الذكية - بوابة الفحص الآلي الإلزامية")
-    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.60)")
+    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.61)")
     print("=" * 70)
 
     steps = [

@@ -1002,7 +1002,9 @@
     }
 
     function speakArabicTTS(text, rate) {
-        if ('speechSynthesis' in window) {
+        if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
+            window.FaseehVoice.speak(text, { rate: rate || 0.90 });
+        } else if ('speechSynthesis' in window) {
             try {
                 window.speechSynthesis.cancel();
                 const utter = new SpeechSynthesisUtterance(text);
@@ -1019,7 +1021,11 @@
         try {
             const AudioCtx = window.AudioContext || window.webkitAudioContext;
             if (!AudioCtx) return;
-            const ctx = new AudioCtx();
+            if (!window._sharedAudioCtx) {
+                window._sharedAudioCtx = new AudioCtx();
+            }
+            const ctx = window._sharedAudioCtx;
+            if (ctx.state === 'suspended') ctx.resume();
             const osc = ctx.createOscillator();
             const gain = ctx.createGain();
             osc.type = 'sine';

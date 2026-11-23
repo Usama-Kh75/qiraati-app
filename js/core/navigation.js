@@ -126,7 +126,7 @@
 
             const lesson = flatLessonsList[index];
 
-            if (window.innerWidth <= 992) {
+            if (window.innerWidth <= 1024) {
 
                 const sb = document.getElementById('curriculumSidebar');
 

@@ -155,13 +155,28 @@ def build_windows_package():
             if os.path.exists(fp):
                 zf.write(fp, fn)
 
-        # إضافة كافة صور PNG (413 صورة)
-        for fn in os.listdir(BASE_DIR):
-            if fn.endswith(".png"):
-                zf.write(os.path.join(BASE_DIR, fn), fn)
+        # إضافة صور PNG الجذرية المستخدمة والمتتبَّعة في git
+        win_pngs = []
+        try:
+            ls_res = subprocess.run(
+                ["git", "-c", "core.quotepath=false", "ls-files", "*.png"],
+                cwd=BASE_DIR, capture_output=True, text=True, encoding="utf-8"
+            )
+            if ls_res.returncode == 0 and ls_res.stdout.strip():
+                win_pngs = [
+                    line.strip() for line in ls_res.stdout.splitlines()
+                    if line.strip() and "/" not in line.strip() and "\\" not in line.strip()
+                    and os.path.exists(os.path.join(BASE_DIR, line.strip()))
+                ]
+        except Exception:
+            win_pngs = []
+        if not win_pngs:
+            win_pngs = [fn for fn in os.listdir(BASE_DIR) if fn.endswith(".png")]
+        for fn in win_pngs:
+            zf.write(os.path.join(BASE_DIR, fn), fn)
 
         # إضافة المجلدات
-        for folder in ["css", "js", "icons", "audio"]:
+        for folder in ["css", "js", "icons", "audio", "fonts"]:
             folder_path = os.path.join(BASE_DIR, folder)
             if os.path.exists(folder_path):
                 for root, dirs, files in os.walk(folder_path):

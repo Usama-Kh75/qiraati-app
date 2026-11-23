@@ -747,45 +747,7 @@
 
         }
 
-        @media (max-width: 992px) {
-
-            .btn-sidebar-toggle { display: inline-flex; }
-
-            .btn-sidebar-close { display: inline-flex; }
-
-            .curriculum-sidebar {
-
-                position: fixed;
-
-                right: 0;
-
-                top: 0;
-
-                width: 85%;
-
-                max-width: 330px;
-
-                height: 100vh;
-
-                transform: translateX(110%);
-
-                z-index: 2000;
-
-                box-shadow: none;
-
-                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-
-            }
-
-            .curriculum-sidebar.open {
-
-                transform: translateX(0);
-
-                box-shadow: -10px 0 35px rgba(0,0,0,0.35);
-
-            }
-
-        }
+        /* ملاحظة: قواعد الدرج الجانبي الموحدة على الأجهزة اللوحية والهواتف انتقلت إلى css/layout.css عند (max-width: 1024px) */
 
         /* ========================================================
 

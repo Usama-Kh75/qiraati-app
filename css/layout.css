@@ -134,12 +134,12 @@
 
         /* لوحة مركز الأدوات والاستوديوهات الشاملة (Mega Panel) */
         .tools-mega-panel {
-            position: absolute;
-            top: calc(100% + 8px);
-            right: 50%;
-            transform: translateX(50%);
-            width: 95vw;
-            max-width: 1080px;
+            position: fixed;
+            top: 62px;
+            left: 50%;
+            right: auto;
+            transform: translateX(-50%);
+            width: min(96vw, 1060px);
             background: #ffffff;
             border: 1.5px solid #cbd5e1;
             border-radius: 18px;
@@ -150,15 +150,16 @@
             flex-direction: column;
             gap: 12px;
             animation: fadeInMega 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-            max-height: 82vh;
+            max-height: calc(100vh - 76px);
+            max-height: calc(100dvh - 76px);
             overflow-y: auto;
             scrollbar-width: thin;
             box-sizing: border-box;
         }
 
         @keyframes fadeInMega {
-            from { opacity: 0; transform: translate(50%, -8px); }
-            to { opacity: 1; transform: translate(50%, 0); }
+            from { opacity: 0; transform: translate(-50%, -8px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
         }
 
         .mega-panel-header {
@@ -975,6 +976,7 @@
             padding: 12px 14px;
             position: relative;
             margin-bottom: 16px;
+            contain: layout style;
         }
 
         /* شريط التنقل المتسلسل بين الدروس (التالي والسابق) */
@@ -1339,6 +1341,30 @@
         }
 
         @media (max-width: 1024px) {
+            /* توحيد إظهار زر فهرس الدروس والدرج الجانبي المنزلق للأجهزة اللوحية والهواتف */
+            .btn-sidebar-toggle {
+                display: inline-flex;
+            }
+            .btn-sidebar-close {
+                display: inline-flex;
+            }
+            .curriculum-sidebar {
+                position: fixed;
+                right: 0;
+                top: 0;
+                width: 85%;
+                max-width: 330px;
+                height: 100vh;
+                height: 100dvh;
+                transform: translateX(110%);
+                z-index: 2000;
+                box-shadow: none;
+                transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .curriculum-sidebar.open {
+                transform: translateX(0);
+                box-shadow: -10px 0 35px rgba(0, 0, 0, 0.35);
+            }
             .navbar-row-main {
                 padding: 0 6px;
                 height: 56px;
@@ -1361,8 +1387,8 @@
                 font-size: 0.8rem;
             }
             .tools-mega-panel {
-                width: 95vw;
-                max-width: 760px;
+                width: min(95vw, 760px);
+                top: 60px;
             }
             .mega-panel-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -1392,6 +1418,7 @@
         @media (max-width: 768px) {
             .mobile-install-banner { display: flex; }
             .btn-mobile-connect { display: none !important; }
+            .btn-presentation-mode { display: none !important; }
 
             .navbar-row-main {
                 flex-direction: column !important;
@@ -1416,11 +1443,15 @@
                 padding: 6px 10px;
             }
             .tools-mega-panel {
+                top: 98px;
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
                 width: 96vw;
-                max-width: 100%;
+                max-width: 96vw;
+                max-height: calc(100vh - 110px);
+                max-height: calc(100dvh - 110px);
                 padding: 10px;
-                right: 50%;
-                transform: translateX(50%);
             }
             .mega-panel-grid {
                 grid-template-columns: 1fr;
@@ -1738,6 +1769,40 @@
             }
         }
 
+        /* تجاوب الشاشات فائقة الصغر (360px - 480px) */
+        @media (max-width: 480px) {
+            .top-student-badge .student-name-text {
+                display: none !important;
+            }
+            .top-volume-box input[type="range"] {
+                width: 30px !important;
+            }
+            .app-version-badge {
+                font-size: 0.68rem !important;
+                padding: 1px 6px !important;
+            }
+            .lesson-stepper-bar {
+                flex-wrap: wrap;
+                gap: 6px;
+                padding: 6px 10px;
+                border-radius: 20px;
+            }
+            .current-lesson-label-top, #currentLessonLabel {
+                order: -1;
+                width: 100%;
+                text-align: center;
+                font-size: 0.8rem !important;
+            }
+            .mascot-container {
+                left: 8px;
+                bottom: 70px;
+            }
+            .mascot-avatar {
+                width: 58px;
+                height: 72px;
+            }
+        }
+
         /* ==========================================================================
            وضع العرض الصفي للسبورة الذكية (Classroom Presentation Mode)
            إعداد وتطوير: المهندس أسامة خليل هاشم
@@ -1747,6 +1812,7 @@
         }
 
         body.classroom-presentation-active .top-navbar,
+        body.classroom-presentation-active .curriculum-sidebar,
         body.classroom-presentation-active .sidebar-nav,
         body.classroom-presentation-active .sidebar-backdrop,
         body.classroom-presentation-active .navbar-row-tools,

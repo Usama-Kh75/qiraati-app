@@ -2,78 +2,310 @@
   "meta": {
     "title": "جدول نصوص التوليد الصوتي التعبيري لمنصة قراءتي التفاعلية الذكية",
     "author": "المهندس أسامة خليل هاشم",
-    "version": "v3.56"
+    "version": "v3.61",
+    "faseeh_voice": "ar-001-tutor-2",
+    "faseeh_style": "warm, cheerful, smiling Arabic primary teacher speaking clearly and gently to 6-year-old children"
   },
   "items": [
     {
+      "key": "mascot_welcome",
+      "character": "faseeh",
+      "text": "<chuckle> أَهْلاً بِكُمْ يَا أَبْطَالَ الصَّفِّ الأَوَّلِ فِي مَنَصَّةِ قِرَاءَتِي الذَّكِيَّةِ! <short pause> أَنَا صَدِيقُكُمْ فَصِيحٌ، وَسَأُرَافِقُكُمْ فِي رِحْلَةِ تَعَلُّمِ القِرَاءَةِ الْمُمْتِعَةِ!",
+      "style": "warm, cheerful, smiling Arabic primary teacher welcoming young students"
+    },
+    {
+      "key": "mascot_hint",
+      "character": "faseeh",
+      "text": "أَنَا صَدِيقُكَ فَصِيحٌ! <short pause> اِضْغَطْ عَلَى أَيِّ عُنْصُرٍ فِي الصَّفْحَةِ، وَسَأُسَاعِدُكَ عَلَى تَعَلُّمِ صَوْتِهِ وَنُطْقِهِ الصَّحِيحِ!",
+      "style": "warm, cheerful, encouraging Arabic primary teacher helping a child"
+    },
+    {
+      "key": "voice_preview_bassel",
+      "character": "faseeh",
+      "text": "<chuckle> أَهْلاً بِكُمْ يَا أَبْطَالَ القِرَاءَةِ! <short pause> أَنَا صَدِيقُكُمْ فَصِيحٌ، أُرَافِقُكُمْ فِي كُلِّ خُطْوَةٍ لِنُحَلِّلَ الْكَلِمَاتِ وَنَقْرَأَ بِطَلَاقَةٍ وَمَرَحٍ!",
+      "style": "warm, cheerful, smiling Arabic primary teacher speaking naturally to children"
+    },
+    {
+      "key": "voice_confirm_bassel",
+      "character": "faseeh",
+      "text": "تَمَّ اعْتِمَادُ صَوْتِ فَصِيحٍ التَّعْبِيرِيِّ الْمُطَوَّرِ لِجَمِيعِ الدُّرُوسِ وَالْأَنْشِطَةِ! <short pause> هَيَّا نَبْدَأُ مَعاً!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "voice_confirm_integrated",
+      "character": "faseeh",
+      "text": "تَمَّ اعْتِمَادُ الْوَضْعِ التَّكَامُلِيِّ الْمُشْتَرَكِ! <short pause> الْمُعَلِّمَةُ رَنَا لِلدُّرُوسِ وَالْكَلِمَاتِ، وَفَصِيحٌ لِلتَّشْجِيعِ وَالتَّوْجِيهِ التَّفَاعُلِيِّ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "unit2_welcome_bassel",
+      "character": "faseeh",
+      "text": "مَرْحَباً بِكُمْ فِي مَدْرَسَتِنَا الْجَمِيلَةِ! <short pause> أَنَا صَدِيقُكُمْ فَصِيحٌ، هَيَّا بِنَا نَسْتَمِعْ لِقِصَّةِ الْمَدْرَسَةِ وَنَتَحَدَّثْ عَنْ صُوَرِهَا الرَّائِعَةِ!",
+      "style": "warm, cheerful, smiling Arabic primary teacher"
+    },
+    {
       "key": "faseeh_encourage_super",
       "character": "faseeh",
-      "text": "أَحْسَنْتَ يَا بَطَلُ! ... قِرَاءَتُكَ رَائِعَةٌ وَمُتْقَنَةٌ جِدّاً! 🌟",
-      "style": "صديق مرح دافئ ومشجع بابتسامة صوتية طبيعية تناسب عمر 6–7 سنوات",
-      "voice": "Puck"
+      "text": "<chuckle> يَا سَلَامُ! أَحْسَنْتَ يَا بَطَلُ! <short pause> إِجَابَةٌ رَائِعَةٌ وَنُطْقٌ سَلِيمٌ جِدّاً! تَسْتَحِقُّ خَمْسَ نُجُومٍ لَامِعَةٍ!",
+      "style": "excited, joyful, proud Arabic primary teacher praising a child"
     },
     {
       "key": "faseeh_model_ana_wahdi",
       "character": "faseeh",
-      "text": "اِسْتَمِعُوا لِي جَيِّداً ... أَنَا وَحْدِي أَوَّلاً: دَ ... ا ... دَادَا!",
-      "style": "صديق مرح دافئ ومشجع بابتسامة صوتية طبيعية تناسب عمر 6–7 سنوات، إيقاع تعليمي",
-      "voice": "Puck"
+      "text": "أَنَا وَحْدِي، اِنْتَبِهُوا إِلَيَّ جَيِّداً! <short pause> أَنْظُرُ إِلَى الْكَلِمَةِ، أَرَى الْمَقْطَعَ الأَوَّلَ: دَا! <short pause> ثُمَّ الْمَقْطَعَ الثَّانِي: دَا! <short pause> أَدْمِجُهُمَا مَعاً: دَا، دَا، دَادَا! هَكَذَا أُفَكِّرُ بِصَوْتٍ مَسْمُوعٍ!",
+      "style": "clear, patient, warm Arabic primary teacher modeling reading aloud"
     },
     {
       "key": "faseeh_model_ana_wa_antum",
       "character": "faseeh",
-      "text": "الآنَ مَعاً ... أَنَا وَأَنْتُمْ بِصَوْتٍ وَاحِدٍ: دَادَا! 👏",
-      "style": "صديق مرح دافئ وحماسي يشجع الأطفال على الترديد الجماعي",
-      "voice": "Puck"
+      "text": "الآنَ مَعاً، أَنَا وَأَنْتُمْ! <short pause> نَضَعُ إِصْبَعَنَا عَلَى الْكَلِمَةِ وَنَقْرَأُ بِصَوْتٍ وَاحِدٍ: دَا، دَا، دَادَا! <short pause> أَحْسَنْتُمْ يَا أَبْطَالَ الصَّفِّ!",
+      "style": "warm, encouraging Arabic primary teacher leading group reading"
     },
     {
       "key": "faseeh_model_claps",
       "character": "faseeh",
-      "text": "صَفِّقُوا مَعِي بِحَسَبِ الْمَقَاطِعِ: دَا ... دَا! صَفْقَتَانِ!",
-      "style": "إيقاع حركي ومرح للأطفال مع نبرة تشجيعية",
-      "voice": "Puck"
+      "text": "هَيَّا نُصَفِّقُ مَعاً لِمَقَاطِعِ الْكَلِمَةِ! <short pause> صَفْقَةٌ لِلْمَقْطَعِ الأَوَّلِ: دَا! <short pause> وَصَفْقَةٌ لِلْمَقْطَعِ الثَّانِي: دَا! <short pause> صَفْقَتَانِ: دَا، دَا، دَادَا! أَحْسَنْتُمْ!",
+      "style": "playful, rhythmic, cheerful Arabic primary teacher"
     },
     {
       "key": "faseeh_blend_dada",
       "character": "faseeh",
-      "text": "دَا ... دَا ... دَادَا!",
-      "style": "دمج صوتي بطيء ودقيق للتهجئة المقطعية، دافئ وواضح",
-      "voice": "Puck"
+      "text": "دَا <short pause> دَا <short pause> دَادَا!",
+      "style": "clear, gentle Arabic primary teacher modeling syllable blending"
     },
     {
       "key": "faseeh_blend_dar",
       "character": "faseeh",
-      "text": "دَا ... رْ ... دَارْ!",
-      "style": "دمج صوتي بطيء ودقيق للتهجئة المقطعية، دافئ وواضح",
-      "voice": "Puck"
+      "text": "دَا <short pause> أَرْ <short pause> دَارٌ!",
+      "style": "clear, gentle Arabic primary teacher modeling syllable blending"
     },
     {
       "key": "faseeh_blend_door",
       "character": "faseeh",
-      "text": "دُو ... رْ ... دُورْ!",
-      "style": "دمج صوتي بطيء ودقيق للتهجئة المقطعية، دافئ وواضح",
-      "voice": "Puck"
+      "text": "دُو <short pause> أَرْ <short pause> دُورٌ!",
+      "style": "clear, gentle Arabic primary teacher modeling syllable blending"
     },
     {
       "key": "faseeh_blend_noor",
       "character": "faseeh",
-      "text": "نُو ... رْ ... نُورْ!",
-      "style": "دمج صوتي بطيء ودقيق للتهجئة المقطعية، دافئ وواضح",
-      "voice": "Puck"
+      "text": "نُو <short pause> أَرْ <short pause> نُورٌ!",
+      "style": "clear, gentle Arabic primary teacher modeling syllable blending"
     },
     {
       "key": "faseeh_blend_firas",
       "character": "faseeh",
-      "text": "فِـ ... رَا ... سُ ... فِرَاسُ!",
-      "style": "دمج صوتي بطيء ودقيق للتهجئة المقطعية، دافئ وواضح",
-      "voice": "Puck"
+      "text": "فِـ <short pause> رَا <short pause> سٌ <short pause> فِرَاسٌ!",
+      "style": "clear, gentle Arabic primary teacher modeling syllable blending"
     },
     {
       "key": "faseeh_blend_wardun",
       "character": "faseeh",
-      "text": "وَرْ ... دٌ ... وَرْدٌ!",
-      "style": "دمج صوتي بطيء ودقيق للتهجئة المقطعية مع وضوح التنوين",
-      "voice": "Puck"
+      "text": "وَرْ <short pause> دٌ <short pause> وَرْدٌ!",
+      "style": "clear, gentle Arabic primary teacher modeling syllable blending"
+    },
+    {
+      "key": "faseeh_phoneme_b",
+      "character": "faseeh",
+      "text": "صَوْتُ حَرْفِ الْبَاءِ النَّقِيُّ: أَبْ <short pause> أَبْ! <short pause> مِثْلَ كَلِمَةِ: بَابٌ، وَبَطَّةٌ! رَدِّدْ مَعِي: بَ <short pause> بُ <short pause> بِ!",
+      "style": "warm, clear Arabic primary teacher teaching letter sound"
+    },
+    {
+      "key": "faseeh_phoneme_d",
+      "character": "faseeh",
+      "text": "صَوْتُ حَرْفِ الدَّالِ النَّقِيُّ: أَدْ <short pause> أَدْ! <short pause> مِثْلَ كَلِمَةِ: دَارٌ، وَدُبٌّ! رَدِّدْ مَعِي: دَ <short pause> دُ <short pause> دِ!",
+      "style": "warm, clear Arabic primary teacher teaching letter sound"
+    },
+    {
+      "key": "faseeh_phoneme_f",
+      "character": "faseeh",
+      "text": "صَوْتُ حَرْفِ الْفَاءِ النَّقِيُّ: أَفْ <short pause> أَفْ! <short pause> مِثْلَ كَلِمَةِ: فَرَاشَةٌ، وَفِيلٌ! رَدِّدْ مَعِي: فَ <short pause> فُ <short pause> فِ!",
+      "style": "warm, clear Arabic primary teacher teaching letter sound"
+    },
+    {
+      "key": "faseeh_phoneme_m",
+      "character": "faseeh",
+      "text": "صَوْتُ حَرْفِ الْمِيمِ النَّقِيُّ: أَمْ <short pause> أَمْ! <short pause> مِثْلَ كَلِمَةِ: مَامَا، وَمَوْزٌ! رَدِّدْ مَعِي: مَ <short pause> مُ <short pause> مِ!",
+      "style": "warm, clear Arabic primary teacher teaching letter sound"
+    },
+    {
+      "key": "faseeh_phoneme_n",
+      "character": "faseeh",
+      "text": "صَوْتُ حَرْفِ النُّونِ النَّقِيُّ: أَنْ <short pause> أَنْ! <short pause> مِثْلَ كَلِمَةِ: نُورٌ، وَنَسْرٌ! رَدِّدْ مَعِي: نَ <short pause> نُ <short pause> نِ!",
+      "style": "warm, clear Arabic primary teacher teaching letter sound"
+    },
+    {
+      "key": "faseeh_phoneme_r",
+      "character": "faseeh",
+      "text": "صَوْتُ حَرْفِ الرَّاءِ النَّقِيُّ: أَرْ <short pause> أَرْ! <short pause> مِثْلَ كَلِمَةِ: رُمَّانٌ، وَرَامِي! رَدِّدْ مَعِي: رَ <short pause> رُ <short pause> رِ!",
+      "style": "warm, clear Arabic primary teacher teaching letter sound"
+    },
+    {
+      "key": "faseeh_phoneme_s",
+      "character": "faseeh",
+      "text": "صَوْتُ حَرْفِ السِّينِ النَّقِيُّ: أَسْ <short pause> أَسْ! <short pause> مِثْلَ كَلِمَةِ: سَمَكَةٌ، وَفِرَاسٌ! رَدِّدْ مَعِي: سَ <short pause> سُ <short pause> سِ!",
+      "style": "warm, clear Arabic primary teacher teaching letter sound"
+    },
+    {
+      "key": "faseeh_phoneme_t",
+      "character": "faseeh",
+      "text": "صَوْتُ حَرْفِ التَّاءِ النَّقِيُّ: أَتْ <short pause> أَتْ! <short pause> مِثْلَ كَلِمَةِ: تِينٌ، وَتَمْرٌ! رَدِّدْ مَعِي: تَ <short pause> تُ <short pause> تِ!",
+      "style": "warm, clear Arabic primary teacher teaching letter sound"
+    },
+    {
+      "key": "faseeh_phoneme_marboota",
+      "character": "faseeh",
+      "text": "التَّاءُ الْمَرْبُوطَةُ اللَّطِيفَةُ! <short pause> عِنْدَ الْوَقْفِ نَنْطِقُهَا هَاءً، مِثْلَ: مَدْرَسَةْ! <short pause> وَعِنْدَ الْحَرَكَةِ نَنْطِقُهَا تَاءً، مِثْلَ: مَدْرَسَتِي، فِي مَدْرَسَةِ سَارَةَ!",
+      "style": "warm, clear Arabic primary teacher explaining grammar gently"
+    },
+    {
+      "key": "faseeh_phoneme_tanween",
+      "character": "faseeh",
+      "text": "تَنْوِينُ الضَّمِّ! هُوَ صَوْتُ ضَمَّةٍ تَرِنُّ مَعَهَا نُونٌ سَاكِنَةٌ فِي النُّطْقِ! <short pause> رَدِّدُوا مَعِي: دٌ <short pause> رٌ <short pause> وَرْدٌ جَمِيلٌ!",
+      "style": "warm, clear Arabic primary teacher"
+    },
+    {
+      "key": "faseeh_vowels_d",
+      "character": "faseeh",
+      "text": "قَارِنْ مَعِي يَا بَطَلُ صَوْتَ حَرْفِ الدَّالِ! <short pause> أَدْ <short pause> أَدْ! <short pause> مَعَ الْفَتْحَةِ: دَ، مَدٌّ طَوِيلٌ: دَا! <short pause> مَعَ الضَّمَّةِ: دُ، مَدٌّ طَوِيلٌ: دُو! <short pause> مَعَ الْكَسْرَةِ: دِ، مَدٌّ طَوِيلٌ: دِي!",
+      "style": "clear, rhythmic Arabic primary teacher contrasting short and long vowels"
+    },
+    {
+      "key": "faseeh_vowels_r",
+      "character": "faseeh",
+      "text": "اِسْتَمِعْ لِمَدِّ حَرْفِ الرَّاءِ! <short pause> أَرْ <short pause> أَرْ! <short pause> فَتْحَةٌ قَصِيرَةٌ: رَ، مَدٌّ بِالأَلِفِ: رَا! <short pause> ضَمَّةٌ قَصِيرَةٌ: رُ، مَدٌّ بِالْوَاوِ: رُو! <short pause> كَسْرَةٌ قَصِيرَةٌ: رِ، مَدٌّ بِالْيَاءِ: رِي!",
+      "style": "clear, rhythmic Arabic primary teacher contrasting short and long vowels"
+    },
+    {
+      "key": "faseeh_vowels_s",
+      "character": "faseeh",
+      "text": "مُدُودُ حَرْفِ السِّينِ الرَّائِعَةُ! <short pause> أَسْ <short pause> أَسْ! <short pause> سَ، مَدٌّ طَوِيلٌ: سَا! <short pause> سُ، مَدٌّ طَوِيلٌ: سُو! <short pause> سِ، مَدٌّ طَوِيلٌ: سِي! مُمْتَازٌ!",
+      "style": "clear, rhythmic Arabic primary teacher contrasting short and long vowels"
+    },
+    {
+      "key": "letter_ta_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَهْلاً يَا أَصْدِقَائِي، أَنَا فَصِيحٌ! <short pause> حَرْفُ الطَّاءِ حَرْفٌ مُفَخَّمٌ قَوِيٌّ، يَخْرُجُ صَوْتُهُ بِنَغْمَةٍ مُمْتَلِئَةٍ: أَطْ <short pause> أَطْ! <short pause> مِثْلَ: بَطٌّ وَطُيُورٌ! رَدِّدُوا مَعِي: طَ <short pause> طُ <short pause> طِ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_f_reef_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَنَا صَدِيقُكُمْ فَصِيحٌ! <short pause> يَخْرُجُ صَوْتُ حَرْفِ الْفَاءِ مِنْ بَاطِنِ الشَّفَةِ السُّفْلَى مَعَ أَطْرَافِ الثَّنَايَا الْعُلْيَا بِصَوْتٍ رَقِيقٍ مَهْمُوسٍ: أَفْ <short pause> أَفْ! <short pause> مِثْلَ: رِيفُ مَنَافٍ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_q_booq_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَنَا فَصِيحٌ! اِنْتَبِهُوا يَا أَصْدِقَائِي: <short pause> حَرْفُ الْقَافِ حَرْفٌ مُفَخَّمٌ قَوِيٌّ، يَخْرُجُ مِنْ أَقْصَى اللِّسَانِ قُرْبَ اللَّهَاةِ: أَقْ <short pause> أَقْ! <short pause> مِثْلَ: بُوقُ نَدِيمٍ! رَدِّدُوا مَعِي: قَ <short pause> قُ <short pause> قِ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_l_nabeel_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَنَا فَصِيحٌ! اِنْتَبِهُوا يَا أَصْدِقَائِي: <short pause> حَرْفُ اللَّامِ حَرْفٌ لَطِيفٌ مُرَقَّقٌ، يَخْرُجُ مِنْ طَرَفِ اللِّسَانِ مَعَ أُصُولِ الثَّنَايَا الْعُلْيَا: أَلْ <short pause> أَلْ! <short pause> مِثْلَ: نَبِيلٌ بَقَّالٌ! رَدِّدُوا مَعِي: لَ <short pause> لُ <short pause> لِ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_ayn_salim_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَنَا فَصِيحٌ! اِنْتَبِهُوا يَا أَصْدِقَائِي: <short pause> حَرْفُ الْعَيْنِ حَرْفٌ عَرَبِيٌّ أَصِيلٌ، يَخْرُجُ مِنْ وَسَطِ الْحَلْقِ بِوُضُوحٍ وَنَقَاءٍ: أَعْ <short pause> أَعْ! <short pause> مِثْلَ: سَالِمٌ زَرَّاعٌ! رَدِّدُوا مَعِي: عَ <short pause> عُ <short pause> عِ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_h_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَهْلاً يَا أَبْطَالُ، أَنَا فَصِيحٌ! <short pause> حَرْفُ الْحَاءِ حَرْفٌ حَلْقِيٌّ مَهْمُوسٌ نَقِيٌّ، يَخْرُجُ بِهَوَاءٍ صَافٍ مِنْ وَسَطِ الْحَلْقِ: أَحْ <short pause> أَحْ! <short pause> رَدِّدُوا مَعِي: حَ <short pause> حُ <short pause> حِ! مِثْلَ: صَلَاحٌ فَلَّاحٌ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_sh_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَنَا صَدِيقُكُمْ فَصِيحٌ! <short pause> حَرْفُ الشِّينِ حَرْفٌ لَطِيفٌ فِيهِ صِفَةُ التَّفَشِّي، يَنْتَشِرُ مَعَهُ النَّفَسُ فِي الْفَمِ عِنْدَ النُّطْقِ: أَشْ <short pause> أَشْ! <short pause> رَدِّدُوا مَعِي: شَ <short pause> شُ <short pause> شِ! مِثْلَ: شَامِلٌ شُرْطِيُّ الْمُرُورِ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_z_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَنَا فَصِيحٌ! <short pause> حَرْفُ الزَّايِ حَرْفٌ رَنَّانٌ فِيهِ صَفِيرٌ جَمِيلٌ يُشْبِهُ أَزِيزَ النَّحْلِ: أَزْ <short pause> أَزْ! <short pause> رَدِّدُوا مَعِي: زَ <short pause> زُ <short pause> زِ! مِثْلَ: مِيزَانُ قَدُّورِي وَوَزٌّ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_j_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَنَا فَصِيحٌ! اِسْتَمِعُوا لِنُطْقِ الْجِيمِ الْفَصِيحِ! <short pause> يَخْرُجُ مِنْ وَسَطِ اللِّسَانِ مَعَ الْحَنَكِ الأَعْلَى بِصَوْتٍ قَوِيٍّ وَاضِحٍ: أَجْ <short pause> أَجْ! <short pause> رَدِّدُوا مَعِي: جَ <short pause> جُ <short pause> جِ! مِثْلَ: جَمَلٌ وَفَرَجٌ نَسَّاجٌ!",
+      "style": "warm, cheerful Standard Arabic primary teacher with classical Jim pronunciation"
+    },
+    {
+      "key": "letter_sad_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَنَا صَدِيقُكُمْ فَصِيحٌ! <short pause> حَرْفُ الصَّادِ حَرْفٌ مُفَخَّمٌ فِيهِ صَفِيرٌ قَوِيٌّ، يَخْرُجُ مِنْ طَرَفِ اللِّسَانِ مَعَ الثَّنَايَا السُّفْلَى: أَصْ <short pause> أَصْ! <short pause> رَدِّدُوا مَعِي: صَ <short pause> صُ <short pause> صِ! مِثْلَ: طَيَّارَةُ وَقَّاصٍ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_hamza_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَنَا صَدِيقُكُمْ فَصِيحٌ! <short pause> صَوْتُ الْهَمْزَةِ صَوْتٌ حَنْجَرِيٌّ قَوِيٌّ يَخْرُجُ مِنْ أَقْصَى الْحَلْقِ: أَءْ <short pause> أَءْ! <short pause> رَدِّدُوا مَعِي: أَ <short pause> أُ <short pause> إِ! مِثْلَ: أَرْنَبٌ، وَأُذُنٌ، وَإِوَزَّةٌ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_dhad_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَهْلاً يَا أَبْطَالَ الْقِرَاءَةِ، أَنَا فَصِيحٌ! <short pause> حَرْفُ الضَّادِ هُوَ حَرْفُنَا الْعَرَبِيُّ الْمُمَيَّزُ! يَخْرُجُ مِنْ حَافَّةِ اللِّسَانِ مَعَ الأَضْرَاسِ الْعُلْيَا مُفَخَّماً قَوِيّاً: أَضْ <short pause> أَضْ! <short pause> رَدِّدُوا مَعِي: ضَ <short pause> ضُ <short pause> ضِ! مِثْلَ: ضُحَى وَحَوْضُ السِّبَاحَةِ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_kha_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَهْلاً بِكُمْ يَا أَبْطَالَ الْقِرَاءَةِ، أَنَا فَصِيحٌ! <short pause> حَرْفُ الْخَاءِ حَرْفٌ حَلْقِيٌّ مُفَخَّمٌ جَمِيلٌ، يَخْرُجُ مِنْ أَدْنَى الْحَلْقِ: أَخْ <short pause> أَخْ! <short pause> وَفَوْقَهُ نُقْطَةٌ وَاحِدَةٌ كَالْجَوْهَرَةِ! رَدِّدُوا مَعِي: خَ <short pause> خُ <short pause> خِ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_tha_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "مَرْحَباً يَا عَبَاقِرَةَ الْقِرَاءَةِ، أَنَا فَصِيحٌ! <short pause> حَرْفُ الثَّاءِ حَرْفٌ لِثَوِيٌّ لَطِيفٌ، نُخْرِجُ فِيهِ طَرَفَ اللِّسَانِ قَلِيلاً مَعَ أَطْرَافِ الثَّنَايَا الْعُلْيَا: أَثْ <short pause> أَثْ! <short pause> وَفَوْقَهُ ثَلَاثُ نِقَاطٍ كَالتَّاجِ! رَدِّدُوا مَعِي: ثَ <short pause> ثُ <short pause> ثِ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_kaf_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "مَرْحَباً يَا أَصْدِقَائِي، أَنَا فَصِيحٌ! <short pause> صَوْتُ حَرْفِ الْكَافِ هُوَ: أَكْ <short pause> أَكْ! <short pause> يَخْرُجُ مِنْ أَقْصَى اللِّسَانِ مَعَ الْحَنَكِ الأَعْلَى بِخِفَّةٍ وَتَرْقِيقٍ، وَيَتَمَيَّزُ عَنِ الْقَافِ الْمُفَخَّمَةِ! رَدِّدُوا مَعِي: كَ <short pause> كُ <short pause> كِ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "shaddah_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَنَا صَدِيقُكُمْ فَصِيحٌ! <short pause> عِنْدَ رُؤْيَةِ الشَّدَّةِ نَضْغَطُ عَلَى الْحَرْفِ بِلُطْفٍ كَأَنَّنَا نَنْطِقُهُ مَرَّتَيْنِ! <short pause> قِطْ، طَة: قِطَّةٌ! <short pause> طَيَّارَةٌ! <short pause> سَبُّورَةٌ!",
+      "style": "warm, cheerful Arabic primary teacher explaining shaddah"
+    },
+    {
+      "key": "letter_ghayn_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَهْلاً يَا أَبْطَالَ الْعِرَاقِ، أَنَا فَصِيحٌ! <short pause> حَرْفُ الْغَيْنِ حَرْفٌ حَلْقِيٌّ مُفَخَّمٌ، يَخْرُجُ مِنْ أَدْنَى الْحَلْقِ وَيَجْرِي مَعَهُ الصَّوْتُ بِقُوَّةٍ: أَغْ <short pause> أَغْ! <short pause> رَدِّدُوا مَعِي: غَ <short pause> غُ <short pause> غِ! مِثْلَ: غَزَالٌ وَغُرَابٌ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_ha_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَهْلاً بِكُمْ يَا أَصْدِقَائِي، أَنَا فَصِيحٌ! <short pause> حَرْفُ الْهَاءِ حَرْفٌ حَلْقِيٌّ خَفِيفٌ يَخْرُجُ مِنْ أَقْصَى الْحَلْقِ: أَهْ <short pause> أَهْ! <short pause> رَدِّدُوا مَعِي: هَـ <short pause> هُـ <short pause> هِـ! مِثْلَ: هُدْهُدٌ، وَهِلَالٌ، وَمِيَاهٌ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_dhal_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَهْلاً بِكُمْ يَا أَصْدِقَائِي، أَنَا فَصِيحٌ! <short pause> حَرْفُ الذَّالِ حَرْفٌ لِثَوِيٌّ جَمِيلٌ، نُخْرِجُ فِيهِ طَرَفَ اللِّسَانِ قَلِيلاً عِنْدَ النُّطْقِ: أَذْ <short pause> أَذْ! <short pause> رَدِّدُوا مَعِي: ذَ <short pause> ذُ <short pause> ذِ! وَانْتَبِهُوا، لَا نَخْلِطْ بَيْنَهُ وَبَيْنَ حَرْفِ الزَّايِ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "letter_dha_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَهْلاً بِكُمْ يَا أَصْدِقَائِي، أَنَا فَصِيحٌ! <short pause> حَرْفُ الظَّاءِ حَرْفٌ لِثَوِيٌّ مُفَخَّمٌ، نُخْرِجُ فِيهِ طَرَفَ اللِّسَانِ مَعَ تَفْخِيمِ الصَّوْتِ: أَظْ <short pause> أَظْ! <short pause> رَدِّدُوا مَعِي: ظَ <short pause> ظُ <short pause> ظِ! مِثْلَ: ظَبْيٌ وَظَافِرٌ!",
+      "style": "warm, cheerful Arabic primary teacher"
+    },
+    {
+      "key": "lam_phoneme_faseeh",
+      "character": "faseeh",
+      "text": "أَهْلاً بِكُمْ يَا أَبْطَالَ قِرَاءَتِي، أَنَا فَصِيحٌ! <short pause> تَعَلَّمُوا الْفَرْقَ الْجَمِيلَ: اللَّامُ الشَّمْسِيَّةُ مِثْلُ الشَّمْسِ، تُكْتَبُ وَلَا نَلْفِظُهَا، وَالْحَرْفُ بَعْدَهَا مُشَدَّدٌ مِثْلُ: الشَّمْسُ، الثَّلْجُ، النَّجْمُ! <short pause> أَمَّا اللَّامُ الْقَمَرِيَّةُ فَمِثْلُ الْقَمَرِ، تُكْتَبُ وَتُلْفَظُ سَاكِنَةً وَاضِحَةً مِثْلَ: الْقَمَرُ، الْكَوْكَبُ، الْمَطَرُ!",
+      "style": "warm, cheerful Arabic primary teacher explaining solar and lunar lam clearly"
     },
     {
       "key": "teacher_reading_dada",

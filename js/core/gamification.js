@@ -856,6 +856,8 @@
 
         if (window.mascotSpeak) {
             window.mascotSpeak(textToRead, q.audioKey || null);
+        } else if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
+            window.FaseehVoice.speak(textToRead, { rate: 0.88 });
         } else if ('speechSynthesis' in window) {
             const utter = new SpeechSynthesisUtterance(textToRead);
             utter.lang = 'ar-SA';

@@ -61,13 +61,28 @@ def build_standalone():
     with open(index_path, 'r', encoding='utf-8') as f:
         html = f.read()
 
-    # 2. حصر وترميز كافة الصور والأيقونات (Base64 Data URIs)
-    print("\n[1/7] جارٍ ترميز كافة الصور والأيقونات في الذاكرة (Base64)...")
-    png_files = glob.glob(os.path.join(BASE_DIR, '*.png')) + glob.glob(os.path.join(BASE_DIR, 'icons', '*.png'))
-    print(f"✔ تم العثور على {len(png_files)} صورة وأيقونة على القرص.")
+    # 2. حصر وترميز كافة الصور والأيقونات المستخدمة فعلياً (Base64 Data URIs)
+    print("\n[1/7] جارٍ ترميز الصور والأيقونات المستخدمة فعلياً في الذاكرة (Base64)...")
+    ref_sources = [html]
+    for extra_ref in ['curriculum_data.js', 'manifest.json']:
+        ep = os.path.join(BASE_DIR, extra_ref)
+        if os.path.exists(ep):
+            with open(ep, 'r', encoding='utf-8', errors='ignore') as rf:
+                ref_sources.append(rf.read())
+    for jp in glob.glob(os.path.join(BASE_DIR, 'js', '**', '*.js'), recursive=True):
+        with open(jp, 'r', encoding='utf-8', errors='ignore') as rf:
+            ref_sources.append(rf.read())
+
+    referenced_names = set(re.findall(r'([a-zA-Z0-9_\-]+\.png)', "\n".join(ref_sources)))
+    png_files = [
+        os.path.join(BASE_DIR, name)
+        for name in sorted(referenced_names)
+        if os.path.exists(os.path.join(BASE_DIR, name))
+    ] + sorted(glob.glob(os.path.join(BASE_DIR, 'icons', '*.png')))
+    print(f"✔ تم العثور على {len(png_files)} صورة وأيقونة مستخدمة على القرص.")
 
     raw_image_data = {}
-    for pf in sorted(png_files):
+    for pf in png_files:
         fname = os.path.basename(pf)
         b64_uri = file_to_base64_image(pf)
         raw_image_data[fname] = b64_uri
@@ -77,9 +92,10 @@ def build_standalone():
 
     print(f"✔ تم ترميز {len(raw_image_data)} أصلاً صورياً بنجاح بنسبة 100%.")
 
-    # 3. دمج وضغط ملفات التنسيق CSS الـ 17 داخل وسم style واحد
-    print("\n[2/7] جارٍ دمج ملفات التصميم CSS الـ 17 داخل وسم <style>...")
+    # 3. دمج وضغط ملفات التنسيق CSS داخل وسم style واحد مع تضمين خطوط Tajawal WOFF2
+    print("\n[2/7] جارٍ دمج ملفات التصميم CSS وخط Tajawal المحلي داخل وسم <style>...")
     css_files = [
+        'css/fonts.css',
         'css/variables.css',
         'css/layout.css',
         'css/components.css',
@@ -115,6 +131,16 @@ def build_standalone():
         if os.path.exists(cpath):
             with open(cpath, 'r', encoding='utf-8') as f:
                 ccontent = f.read()
+            if cfile == 'css/fonts.css':
+                def embed_font_woff2(m):
+                    font_fname = m.group(1)
+                    fpath = os.path.join(BASE_DIR, 'fonts', font_fname)
+                    if os.path.exists(fpath):
+                        with open(fpath, 'rb') as ff:
+                            fb64 = base64.b64encode(ff.read()).decode('utf-8')
+                        return f"url('data:font/woff2;base64,{fb64}')"
+                    return m.group(0)
+                ccontent = re.sub(r"url\(['\"]?\.\./fonts/([a-zA-Z0-9_\-\.]+\.woff2)['\"]?\)", embed_font_woff2, ccontent)
             css_combined.append(f"/* === {cfile} === */\n" + ccontent)
         else:
             print(f"⚠️ تنبيه: ملف CSS مفقود: {cfile}")
@@ -129,13 +155,13 @@ def build_standalone():
         "\n</style>"
     )
 
-    # استبدال استدعاءات CSS في index.html
-    # إزالة وسوم link rel="stylesheet"
+    # استبدال استدعاءات CSS وروابط preload الخاصة بالخطوط في index.html
+    html = re.sub(r'<link\s+rel="preload"\s+href="fonts/[^"]+"\s+[^>]*>\s*', '', html)
     css_link_pattern = r'<link\s+rel="stylesheet"\s+href="css/[^"]+"\s*>\s*'
     html = re.sub(css_link_pattern, '', html)
     # وضع وسم style المدمج قبل </head>
     html = html.replace('</head>', f"{inlined_css_str}\n</head>")
-    print("✔ تم دمج كافة ملفات التنسيق الـ 15 بنجاح داخل وسم <style>.")
+    print("✔ تم دمج كافة ملفات التنسيق وخط Tajawal WOFF2 بنجاح داخل وسم <style>.")
 
     # 4. دمج وترميز ملف manifest.json
     print("\n[3/7] جارٍ دمج ملف manifest.json كـ Data URI...")
@@ -156,59 +182,45 @@ def build_standalone():
                       f'<link rel="apple-touch-icon" href="{raw_image_data["icons/icon-192.png"]}">', html)
     print("✔ تم دمج بيانات manifest.json و apple-touch-icon.")
 
-    # 5. دمج الأصوات والتسجيلات الفونيمية بنسبة 100%
-    print("\n[4/7] جارٍ دمج قواعد الصوتيات الفونيمية (AUDIO_DATA) 100%...")
+    # 5. دمج الأصوات والتسجيلات الفونيمية مباشرة من audio/*.mp3 مع حفظ المفاتيح التراثية
+    print("\n[4/7] جارٍ دمج قواعد الصوتيات الفونيمية المحدثة (AUDIO_DATA) 100%...")
     audio_path1 = os.path.join(BASE_DIR, 'audio_data.js')
     audio_path2 = os.path.join(BASE_DIR, 'audio_data_unit6.js')
 
-    with open(audio_path1, 'r', encoding='utf-8') as f:
-        audio_js1 = f.read()
+    merged_audio_data = {}
+    legacy_pattern = re.compile(r'"([a-zA-Z0-9_\-]+)"\s*:\s*"(data:audio/[^"]+)"')
+    for apath in (audio_path1, audio_path2):
+        if os.path.exists(apath):
+            with open(apath, 'r', encoding='utf-8') as f:
+                for k, v in legacy_pattern.findall(f.read()):
+                    merged_audio_data[k] = v
 
-    with open(audio_path2, 'r', encoding='utf-8') as f:
-        audio_js2 = f.read()
+    existing_audio_keys = set(merged_audio_data.keys())
+    audio_dir = os.path.join(BASE_DIR, 'audio')
+    audio_files_disk = sorted([f for f in os.listdir(audio_dir) if f.endswith('.mp3')])
+    print(f"✔ إجمالي الملفات الصوتية المحدثة على القرص في audio/: {len(audio_files_disk)} ملف mp3.")
 
-    # فحص أي ملفات MP3 متتبعة على القرص ولكنها غير مدرجة في ملفات audio_data
-    # (مثل تسجيلات حرف النون والسين والتاء التي تم تشغيلها حديثاً)
-    audio_files_disk = [f for f in os.listdir(os.path.join(BASE_DIR, 'audio')) if f.endswith('.mp3')]
-    print(f"✔ إجمالي الملفات الصوتية على القرص في audio/: {len(audio_files_disk)} ملف mp3.")
-
-    # استخراج المفاتيح الموجودة في السكربتين
-    existing_audio_keys = set(re.findall(r'"([a-zA-Z0-9_\-]+)"\s*:\s*"data:audio', audio_js1)) | \
-                          set(re.findall(r'"([a-zA-Z0-9_\-]+)"\s*:\s*"data:audio', audio_js2))
-    
-    missing_mp3s = [f for f in audio_files_disk if f.replace('.mp3', '') not in existing_audio_keys]
-    print(f"✔ عدد المفاتيح الصوتية المسجلة مسبقاً: {len(existing_audio_keys)}")
-    
     supplemental_audio_dict = {}
-    if missing_mp3s:
-        print(f"✔ جارٍ ترميز {len(missing_mp3s)} ملف صوتي تكميلي لضمان التغطية 100%...")
-        for mf in sorted(missing_mp3s):
-            mkey = mf.replace('.mp3', '')
-            mpath = os.path.join(BASE_DIR, 'audio', mf)
-            supplemental_audio_dict[mkey] = file_to_base64_audio(mpath)
-        print(f"✔ تم ترميز كافة الملفات الصوتية التكميلية ({len(supplemental_audio_dict)} ملف).")
+    for mf in audio_files_disk:
+        mkey = mf[:-4]
+        mpath = os.path.join(audio_dir, mf)
+        b64_audio = file_to_base64_audio(mpath)
+        if mkey not in existing_audio_keys:
+            supplemental_audio_dict[mkey] = b64_audio
+        merged_audio_data[mkey] = b64_audio
 
-    # تكوين السكربت الصوتي المدمج الشامل
-    supplement_js = ""
-    if supplemental_audio_dict:
-        supp_json = json.dumps(supplemental_audio_dict, ensure_ascii=False)
-        supplement_js = (
-            "\n<script>\n"
-            "/* SUPPLEMENTARY PHONEMIC AUDIO (100% FULL CURRICULUM COVERAGE) - إعداد المهندس أسامة خليل هاشم */\n"
-            "window.AUDIO_DATA = window.AUDIO_DATA || {};\n"
-            f"Object.assign(window.AUDIO_DATA, {supp_json});\n"
-            "</script>\n"
-        )
-
+    print(f"✔ تم تحديث وترميز {len(merged_audio_data)} مفتاحاً صوتياً (منها {len(audio_files_disk)} ملف MP3 حديث من القرص).")
+    merged_audio_json = json.dumps(merged_audio_data, ensure_ascii=False)
     inlined_audio_block = (
-        f"<script>\n/* AUDIO DATA (UNITS PREP - 5) - إعداد المهندس أسامة خليل هاشم */\n{audio_js1}\n</script>\n"
-        f"<script>\n/* AUDIO DATA (UNIT 6) - إعداد المهندس أسامة خليل هاشم */\n{audio_js2}\n</script>\n"
-        f"{supplement_js}"
+        "<script>\n"
+        "/* FULL FRESH AUDIO DATA (DISK + LEGACY KEYS) - إعداد المهندس أسامة خليل هاشم */\n"
+        f"window.AUDIO_DATA = {merged_audio_json};\n"
+        "</script>\n"
     )
 
     # استبدال وسوم audio_data.js و audio_data_unit6.js
-    html = re.sub(r'<script\s+src=["\'](?:\./)?audio_data\.js["\']\s*></script>', '', html)
-    html = re.sub(r'<script\s+src=["\'](?:\./)?audio_data_unit6\.js["\']\s*></script>', '', html)
+    html = re.sub(r'<script\s+(?:defer\s+)?src=["\'](?:\./)?audio_data\.js["\']\s*></script>', '', html)
+    html = re.sub(r'<script\s+(?:defer\s+)?src=["\'](?:\./)?audio_data_unit6\.js["\']\s*></script>', '', html)
 
     # 6. دمج فهرس المنهج curriculum_data.js وترميز صوره
     print("\n[5/7] جارٍ دمج فهرس المنهج curriculum_data.js...")
@@ -227,7 +239,7 @@ def build_standalone():
 
     curriculum_js = re.sub(r'(["\'])(?:\./)?([a-zA-Z0-9_\-\/]+\.png)(["\'])', replace_curr_img, curriculum_js)
     inlined_curriculum = f"<script>\n/* CURRICULUM DATA INLINED - إعداد المهندس أسامة خليل هاشم */\n{curriculum_js}\n</script>"
-    html = re.sub(r'<script\s+src=["\'](?:\./)?curriculum_data\.js["\']\s*></script>', '', html)
+    html = re.sub(r'<script\s+(?:defer\s+)?src=["\'](?:\./)?curriculum_data\.js["\']\s*></script>', '', html)
 
     # 7. دمج كافة وحدات الجافاسكربت المعيارية (Modular JS)
     print("\n[6/7] جارٍ دمج ملفات JavaScript المعيارية الـ 18 بالترتيب التكاملي الدقيق...")
@@ -280,8 +292,8 @@ def build_standalone():
                 )
 
             inlined_js_blocks.append(f"<script>\n/* === {jmod} - إعداد المهندس أسامة خليل هاشم === */\n{jcode}\n</script>")
-            # إزالة استدعاء السكربت القديم
-            pat = rf'<script\s+src=["\'](?:\./)?{re.escape(jmod)}["\']\s*></script>'
+            # إزالة استدعاء السكربت القديم (يدعم defer الاختيارية)
+            pat = rf'<script\s+(?:defer\s+)?src=["\'](?:\./)?{re.escape(jmod)}["\']\s*></script>'
             html = re.sub(pat, '', html)
         else:
             print(f"⚠️ تنبيه: ملف JS مفقود: {jmod}")
@@ -321,13 +333,7 @@ def build_standalone():
     else:
         print("✔ تم التحقق: 100% من كافة الصور والأيقونات مدمجة بصيغة Data-URI خالية من أي روابط خارجية.")
 
-    # التأكد من التوافقية العالية للخطوط أوفلاين
-    html = html.replace(
-        '<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet">',
-        '<!-- خط تجوال أوفلاين ونظامي مدعوم -->\n<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media=\'all\'">'
-    )
-
-    # 9. حفظ الحزمة المستقلة الشاملة
+    # 9. حفظ الحزمة المستقلة الشاملة (خط Tajawal مضمن محلياً بالكامل كـ Base64 WOFF2)
     print("\n💾 جارٍ كتابة ملف الحزمة الأحادية المستقلة الشاملة...")
     with open(out_path, 'w', encoding='utf-8') as f:
         f.write(html)

@@ -835,12 +835,14 @@
 
     // نطق الكلمات والجمل الفونيمية صوتياً
     function speakPhonicsText(text) {
-        if ('speechSynthesis' in window) {
+        if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
+            window.FaseehVoice.speak(text, { rate: 0.88, keepBubble: true });
+        } else if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
             const u = new SpeechSynthesisUtterance(text);
             u.lang = 'ar-SA';
             u.rate = 0.85;
-            u.pitch = 1.1;
+            u.pitch = 1.05;
             window.speechSynthesis.speak(u);
         }
     }
