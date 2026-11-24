@@ -27,7 +27,7 @@
                     id: 1,
                     skill: 'الوعي الصوتي وحروف المد',
                     question: 'مَا هُوَ حَرْفُ الْمَدِّ فِي كَلِمَةِ (دَار)؟',
-                    audio: 'vowel_a_sound',
+                    audio: 'phoneme_pure_alif',
                     options: [
                         { text: 'حَرْفُ الْأَلِفِ (ا)', correct: true },
                         { text: 'حَرْفُ الْوَاوِ (و)', correct: false },
@@ -51,7 +51,7 @@
                     id: 3,
                     skill: 'تمييز الحركات والمدود القصيرة',
                     question: 'أَيُّ كَلِمَةٍ تَبْدَأُ بِحَرَكَةِ الضَّمَّةِ الْقَصِيرَةِ (بُـ)؟',
-                    audio: 'letter_b_bu_sound',
+                    audio: 'syl_bu',
                     options: [
                         { text: 'بُرْتُقَال', correct: true },
                         { text: 'بَصَل', correct: false },
@@ -63,7 +63,7 @@
                     id: 4,
                     skill: 'تركيب المقاطع لتكوين كلمة',
                     question: 'عِنْدَ تَرْكِيبِ الْمَقْطَعَيْنِ (نُو + ر)، مَاذَا تَتَكَوَّنُ؟',
-                    audio: 'act5_noor',
+                    audio: 'word_noor',
                     options: [
                         { text: 'نُور', correct: true },
                         { text: 'نَار', correct: false },
@@ -75,7 +75,7 @@
                     id: 5,
                     skill: 'تمييز تنوين الضم',
                     question: 'أَيُّ كَلِمَةٍ تَحْتَوِي عَلَى تَنْوِينِ الضَّمِّ (ـٌ)؟',
-                    audio: 'tanween_dham_wardun',
+                    audio: 'word_ward',
                     options: [
                         { text: 'وَرْدٌ', correct: true },
                         { text: 'وَرْدَةَ', correct: false },
@@ -111,7 +111,7 @@
                     id: 8,
                     skill: 'قراءة الكلمات البصرية',
                     question: 'أَيُّ كَلِمَةٍ مِنَ الْكَلِمَاتِ الْآتِيَةِ هِيَ كَلِمَةُ (بُوق)؟',
-                    audio: 'letter_q_booq_syllables',
+                    audio: 'word_booq',
                     options: [
                         { text: 'بُوق', correct: true },
                         { text: 'بَقَر', correct: false },
@@ -123,7 +123,7 @@
                     id: 9,
                     skill: 'التاء المربوطة والمفتوحة',
                     question: 'كَلِمَةُ (سَارَة) تَنْتَهِي بِـ:',
-                    audio: 'unit2_sarah_word',
+                    audio: 'word_sarah',
                     options: [
                         { text: 'تَاءٍ مَرْبُوطَةٍ (ـة / ة)', correct: true },
                         { text: 'تَاءٍ مَفْتُوحَةٍ (ت)', correct: false },
@@ -135,7 +135,7 @@
                     id: 10,
                     skill: 'الفهم القرائي والتطابق الدلالي',
                     question: 'مَنْ هُوَ الَّذِي يَقُودُ بَقَرَ بَدْرَانَ فِي الدَّرْسِ؟',
-                    audio: 'letter_q_nadeem_sentence',
+                    audio: 'sentence_booq_nadeem',
                     options: [
                         { text: 'نَدِيم', correct: true },
                         { text: 'فَارُوق', correct: false },
@@ -180,7 +180,7 @@
                     id: 3,
                     skill: 'الشدة وتضعيف الحرف',
                     question: 'مَا مَعْنَى وُجُودِ الشَّدَّةِ (ـّ) فَوْقَ الْحَرْفِ؟',
-                    audio: 'shaddah_formation',
+                    audio: 'shaddah_phoneme_faseeh',
                     options: [
                         { text: 'أَنَّ الْحَرْفَ مَرَّتَانِ (أَوَّلُهُ سَاكِنٌ وَالثَّانِي مُتَحَرِّك)', correct: true },
                         { text: 'أَنَّ الْحَرْفَ يُنْطَقُ مَدًّا طَوِيلًا فَقَطْ', correct: false },
@@ -192,7 +192,7 @@
                     id: 4,
                     skill: 'تنوين الكسر',
                     question: 'أَيُّ كَلِمَةٍ مِمَّا يَلِي تَنْتَهِي بِتَنْوِينِ الْكَسْرِ (ـٍ)؟',
-                    audio: 'letter_sad_tayyarah_words',
+                    audio: 'word_khaleelin',
                     options: [
                         { text: 'خَلِيلٍ', correct: true },
                         { text: 'خَلِيلٌ', correct: false },
@@ -228,7 +228,7 @@
                     id: 7,
                     skill: 'أشكال حرف الهاء',
                     question: 'كَلِمَةُ (مِيَاهُ الْمَطَرِ)، كَلِمَةُ (مِيَاه) تَنْتَهِي بِـ:',
-                    audio: 'letter_h_sound',
+                    audio: 'phoneme_pure_ha',
                     options: [
                         { text: 'هَاءٍ آخِرِيَّةٍ مُنْفَصِلَةٍ (ـه / ه)', correct: true },
                         { text: 'تَاءٍ مَرْبُوطَةٍ مُنْقَّطَة (ة)', correct: false },
@@ -240,7 +240,7 @@
                     id: 8,
                     skill: 'تحليل الكلمات المشددة',
                     question: 'تَحْلِيلُ كَلِمَةِ (بَطّ) هُوَ:',
-                    audio: 'letter_t_batt_syllables',
+                    audio: 'word_batt',
                     options: [
                         { text: 'بَطْ + طُ', correct: true },
                         { text: 'بَ + طَ', correct: false },
@@ -376,46 +376,46 @@
     // ==========================================================================
     const FLASHCARDS_BANK = [
         // حروف ومدود
-        { id: 'c_01', type: 'letter', unit: 'prep', word: 'اَ / ا / اِ / اُ', syllables: ['أَ', 'إِ', 'أُ', 'ا'], audio: 'vowel_a_sound', hint: 'أصوات الألف والمد', meaning: 'حرف الألف بحركاته ومدوده' },
-        { id: 'c_02', type: 'letter', unit: 'prep', word: 'و / وُ / وِ / وَ', syllables: ['وَ', 'وُ', 'وِ', 'وُو'], audio: 'vowel_w_sound', hint: 'مد الواو وصوته', meaning: 'حرف الواو وحركاته' },
-        { id: 'c_03', type: 'letter', unit: 'prep', word: 'يـ / ي / يُ / يِ', syllables: ['يَـ', 'يُـ', 'يِـ', 'يِي'], audio: 'vowel_y_sound', hint: 'مد الياء وصوته', meaning: 'حرف الياء وأشكاله' },
+        { id: 'c_01', type: 'letter', unit: 'prep', word: 'اَ / ا / اِ / اُ', syllables: ['أَ', 'إِ', 'أُ', 'ا'], audio: 'phoneme_pure_alif', hint: 'أصوات الألف والمد', meaning: 'حرف الألف بحركاته ومدوده' },
+        { id: 'c_02', type: 'letter', unit: 'prep', word: 'و / وُ / وِ / وَ', syllables: ['وَ', 'وُ', 'وِ', 'وُو'], audio: 'phoneme_pure_waw', hint: 'مد الواو وصوته', meaning: 'حرف الواو وحركاته' },
+        { id: 'c_03', type: 'letter', unit: 'prep', word: 'يـ / ي / يُ / يِ', syllables: ['يَـ', 'يُـ', 'يِـ', 'يِي'], audio: 'phoneme_pure_yaa', hint: 'مد الياء وصوته', meaning: 'حرف الياء وأشكاله' },
         
         // كلمات الوحدة 1 (أسرتي)
         { id: 'c_04', type: 'word', unit: 'unit1', word: 'دَادَا', syllables: ['دَا', 'دَا'], audio: 'faseeh_blend_dada', hint: 'الطفل الرضيع الصغير', meaning: 'كلمة أساسية تتكون من مقطعين متماثلين (دَا + دَا)' },
-        { id: 'c_05', type: 'word', unit: 'unit1', word: 'دَار', syllables: ['دَا', 'ر'], audio: 'letter_r_read_dar', hint: 'البيت والمنزل', meaning: 'مقطع ممدود بالألف يليه حرف الراء' },
-        { id: 'c_06', type: 'word', unit: 'unit1', word: 'بَابَا', syllables: ['بَا', 'بَا'], audio: 'letter_b_read_baba', hint: 'الأب الحنون', meaning: 'مقطعان صوتيان (بَا + بَا)' },
+        { id: 'c_05', type: 'word', unit: 'unit1', word: 'دَار', syllables: ['دَا', 'ر'], audio: 'word_dar', hint: 'البيت والمنزل', meaning: 'مقطع ممدود بالألف يليه حرف الراء' },
+        { id: 'c_06', type: 'word', unit: 'unit1', word: 'بَابَا', syllables: ['بَا', 'بَا'], audio: 'faseeh_blend_baba', hint: 'الأب الحنون', meaning: 'مقطعان صوتيان (بَا + بَا)' },
         { id: 'c_07', type: 'word', unit: 'unit1', word: 'مَامَا', syllables: ['مَا', 'مَا'], audio: 'letter_m_read_mama', hint: 'الأم الغالية', meaning: 'مقطعان صوتيان (مَا + مَا)' },
-        { id: 'c_08', type: 'word', unit: 'unit1', word: 'بَابُ', syllables: ['بَا', 'بُ'], audio: 'letter_b_read_babu', hint: 'باب البيت', meaning: 'مقطع ممدود ومقطع مضموم' },
+        { id: 'c_08', type: 'word', unit: 'unit1', word: 'بَابُ', syllables: ['بَا', 'بُ'], audio: 'word_babu', hint: 'باب البيت', meaning: 'مقطع ممدود ومقطع مضموم' },
         { id: 'c_09', type: 'word', unit: 'unit1', word: 'بُوم', syllables: ['بُو', 'م'], audio: 'letter_m_read_bum', hint: 'طائر البوم', meaning: 'مد بالواو يليه الميم' },
-        { id: 'c_10', type: 'word', unit: 'unit1', word: 'دُود', syllables: ['دُو', 'د'], audio: 'letter_d_dood_syllables', hint: 'دودة الأرض', meaning: 'مد بالواو وصوت الدال' },
+        { id: 'c_10', type: 'word', unit: 'unit1', word: 'دُود', syllables: ['دُو', 'د'], audio: 'word_dood', hint: 'دودة الأرض', meaning: 'مد بالواو وصوت الدال' },
 
         // كلمات الوحدة 2 (مدرستي)
-        { id: 'c_11', type: 'word', unit: 'unit2', word: 'نُور', syllables: ['نُو', 'ر'], audio: 'act5_noor', hint: 'الضياء واسم بنت', meaning: 'مقطع نُو ممدود يليه راء' },
-        { id: 'c_12', type: 'word', unit: 'unit2', word: 'دُور', syllables: ['دُو', 'ر'], audio: 'letter_r_read_door', hint: 'بيوت كثيرة', meaning: 'جمع دار، مقطع دُو يليه راء' },
-        { id: 'c_13', type: 'word', unit: 'unit2', word: 'فِرَاس', syllables: ['فِـ', 'رَا', 'س'], audio: 'unit2_firas_word', hint: 'اسم تلميذ شجاع', meaning: 'ثلاثة مقاطع صوتية متناسقة' },
-        { id: 'c_14', type: 'word', unit: 'unit2', word: 'بَنَات', syllables: ['بَـ', 'نَا', 'ت'], audio: 'unit2_banat_word', hint: 'جمع بنت', meaning: 'تاء مفتوحة في آخر الكلمة' },
-        { id: 'c_15', type: 'word', unit: 'unit2', word: 'سَارَة', syllables: ['سَا', 'رَ', 'ة'], audio: 'unit2_sarah_word', hint: 'اسم تلميذة لطيفة', meaning: 'تنتهي بتاء مربوطة' },
-        { id: 'c_16', type: 'word', unit: 'unit2', word: 'وَرْدٌ', syllables: ['وَرْ', 'دٌ'], audio: 'tanween_dham_wardun', hint: 'أزهار جميلة', meaning: 'مقطع ساكن يليه تنوين ضم' },
-        { id: 'c_17', type: 'word', unit: 'unit2', word: 'قِطَارٌ', syllables: ['قِـ', 'طَا', 'رٌ'], audio: 'tanween_dham_qitarun', hint: 'وسيلة نقل سريعة', meaning: 'تنتهي بتنوين ضم (ـٌ)' },
-        { id: 'c_18', type: 'word', unit: 'unit2', word: 'نَمِير', syllables: ['نَـ', 'مِيـ', 'ر'], audio: 'unit2_nameer_word', hint: 'اسم تلميذ نشيط', meaning: 'مد بالياء في الوسط (مِيـ)' },
+        { id: 'c_11', type: 'word', unit: 'unit2', word: 'نُور', syllables: ['نُو', 'ر'], audio: 'word_noor', hint: 'الضياء واسم بنت', meaning: 'مقطع نُو ممدود يليه راء' },
+        { id: 'c_12', type: 'word', unit: 'unit2', word: 'دُور', syllables: ['دُو', 'ر'], audio: 'word_door', hint: 'بيوت كثيرة', meaning: 'جمع دار، مقطع دُو يليه راء' },
+        { id: 'c_13', type: 'word', unit: 'unit2', word: 'فِرَاس', syllables: ['فِـ', 'رَا', 'س'], audio: 'word_firas', hint: 'اسم تلميذ شجاع', meaning: 'ثلاثة مقاطع صوتية متناسقة' },
+        { id: 'c_14', type: 'word', unit: 'unit2', word: 'بَنَات', syllables: ['بَـ', 'نَا', 'ت'], audio: 'word_banat', hint: 'جمع بنت', meaning: 'تاء مفتوحة في آخر الكلمة' },
+        { id: 'c_15', type: 'word', unit: 'unit2', word: 'سَارَة', syllables: ['سَا', 'رَ', 'ة'], audio: 'word_sarah', hint: 'اسم تلميذة لطيفة', meaning: 'تنتهي بتاء مربوطة' },
+        { id: 'c_16', type: 'word', unit: 'unit2', word: 'وَرْدٌ', syllables: ['وَرْ', 'دٌ'], audio: 'word_ward', hint: 'أزهار جميلة', meaning: 'مقطع ساكن يليه تنوين ضم' },
+        { id: 'c_17', type: 'word', unit: 'unit2', word: 'قِطَارٌ', syllables: ['قِـ', 'طَا', 'رٌ'], audio: 'word_qitar', hint: 'وسيلة نقل سريعة', meaning: 'تنتهي بتنوين ضم (ـٌ)' },
+        { id: 'c_18', type: 'word', unit: 'unit2', word: 'نَمِير', syllables: ['نَـ', 'مِيـ', 'ر'], audio: 'word_nameer', hint: 'اسم تلميذ نشيط', meaning: 'مد بالياء في الوسط (مِيـ)' },
 
         // كلمات الوحدة 3 (ألعابي وحيواناتي)
-        { id: 'c_19', type: 'word', unit: 'unit3', word: 'بَطّ', syllables: ['بَطْ', 'طُ'], audio: 'letter_t_batt_syllables', hint: 'طائر يسبح في الماء', meaning: 'كلمة مشددة الحرف الأخير' },
-        { id: 'c_20', type: 'word', unit: 'unit3', word: 'طُيُور', syllables: ['طُ', 'يُو', 'ر'], audio: 'letter_t_tuyooro_syllables', hint: 'كائنات تطير في السماء', meaning: 'مد بالواو وحرف الطاء' },
-        { id: 'c_21', type: 'word', unit: 'unit3', word: 'طَارِق', syllables: ['طَا', 'رِ', 'ق'], audio: 'letter_t_tariq_syllables', hint: 'اسم ولد بطل', meaning: 'ثلاثة مقاطع صوتية' },
-        { id: 'c_22', type: 'word', unit: 'unit3', word: 'رِيف', syllables: ['رِيـ', 'ف'], audio: 'letter_f_reef_syllables', hint: 'الطبيعة الخضراء', meaning: 'مد بالياء يليه فاء' },
-        { id: 'c_23', type: 'word', unit: 'unit3', word: 'مَنَاف', syllables: ['مَـ', 'نَا', 'ف'], audio: 'letter_f_manaf_syllables', hint: 'اسم رجل في الريف', meaning: 'مقطع ممدود بالألف' },
-        { id: 'c_24', type: 'word', unit: 'unit3', word: 'بُوق', syllables: ['بُو', 'ق'], audio: 'letter_q_booq_syllables', hint: 'آلة موسيقية للنفخ', meaning: 'بوق قديم لناديم' },
-        { id: 'c_25', type: 'word', unit: 'unit3', word: 'نَدِيم', syllables: ['نَـ', 'دِيـ', 'م'], audio: 'letter_q_nadeem_syllables', hint: 'يقود بقر بدران', meaning: 'مد بالياء في الوسط' },
-        { id: 'c_26', type: 'word', unit: 'unit3', word: 'نَبِيل', syllables: ['نَـ', 'بِيـ', 'ل'], audio: 'letter_l_nabeel_syllables', hint: 'بقال يبيع اللبن والرمان', meaning: 'مد بالياء وحرف اللام' },
-        { id: 'c_27', type: 'word', unit: 'unit3', word: 'سَالِم', syllables: ['سَا', 'لِـ', 'م'], audio: 'letter_ayn_salim_syllables', hint: 'مزارع في البستان', meaning: 'مد بالألف وحرف العين' },
+        { id: 'c_19', type: 'word', unit: 'unit3', word: 'بَطّ', syllables: ['بَطْ', 'طُ'], audio: 'word_batt', hint: 'طائر يسبح في الماء', meaning: 'كلمة مشددة الحرف الأخير' },
+        { id: 'c_20', type: 'word', unit: 'unit3', word: 'طُيُور', syllables: ['طُ', 'يُو', 'ر'], audio: 'word_tuyoor', hint: 'كائنات تطير في السماء', meaning: 'مد بالواو وحرف الطاء' },
+        { id: 'c_21', type: 'word', unit: 'unit3', word: 'طَارِق', syllables: ['طَا', 'رِ', 'ق'], audio: 'word_tariq', hint: 'اسم ولد بطل', meaning: 'ثلاثة مقاطع صوتية' },
+        { id: 'c_22', type: 'word', unit: 'unit3', word: 'رِيف', syllables: ['رِيـ', 'ف'], audio: 'word_reef', hint: 'الطبيعة الخضراء', meaning: 'مد بالياء يليه فاء' },
+        { id: 'c_23', type: 'word', unit: 'unit3', word: 'مَنَاف', syllables: ['مَـ', 'نَا', 'ف'], audio: 'word_manaf', hint: 'اسم رجل في الريف', meaning: 'مقطع ممدود بالألف' },
+        { id: 'c_24', type: 'word', unit: 'unit3', word: 'بُوق', syllables: ['بُو', 'ق'], audio: 'word_booq', hint: 'آلة موسيقية للنفخ', meaning: 'بوق قديم لناديم' },
+        { id: 'c_25', type: 'word', unit: 'unit3', word: 'نَدِيم', syllables: ['نَـ', 'دِيـ', 'م'], audio: 'word_nadeem', hint: 'يقود بقر بدران', meaning: 'مد بالياء في الوسط' },
+        { id: 'c_26', type: 'word', unit: 'unit3', word: 'نَبِيل', syllables: ['نَـ', 'بِيـ', 'ل'], audio: 'word_nabeel', hint: 'بقال يبيع اللبن والرمان', meaning: 'مد بالياء وحرف اللام' },
+        { id: 'c_27', type: 'word', unit: 'unit3', word: 'سَالِم', syllables: ['سَا', 'لِـ', 'م'], audio: 'faseeh_word_salim', hint: 'مزارع في البستان', meaning: 'مد بالألف وحرف العين' },
 
         // كلمات الوحدة 4 (صحتي وبيئتي)
-        { id: 'c_28', type: 'word', unit: 'unit4', word: 'حِمَار', syllables: ['حِـ', 'مَا', 'ر'], audio: 'letter_ha_words_intro', hint: 'حيوان أليف صبور', meaning: 'حاء مكسورة ومد بالألف' },
+        { id: 'c_28', type: 'word', unit: 'unit4', word: 'حِمَار', syllables: ['حِـ', 'مَا', 'ر'], audio: 'word_himar', hint: 'حيوان أليف صبور', meaning: 'حاء مكسورة ومد بالألف' },
         { id: 'c_29', type: 'word', unit: 'unit4', word: 'شَمْس', syllables: ['شَمْ', 'س'], audio: 'letter_sh_sound', hint: 'تضيء الكون بالنهار', meaning: 'مقطع ساكن (شَمْـ)' },
         { id: 'c_30', type: 'word', unit: 'unit4', word: 'زَيْتُون', syllables: ['زَيْـ', 'تُو', 'ن'], audio: 'letter_z_words_intro', hint: 'شجرة مباركة وثمر شهي', meaning: 'مقطع ساكن ومد بالواو' },
         { id: 'c_31', type: 'word', unit: 'unit4', word: 'جَمَل', syllables: ['جَـ', 'مَـ', 'ل'], audio: 'letter_j_words_intro', hint: 'سفينة الصحراء', meaning: 'حركات قصيرة متوالية' },
-        { id: 'c_32', type: 'word', unit: 'unit4', word: 'طَيَّارَة', syllables: ['طَيْـ', 'يَا', 'رَ', 'ة'], audio: 'letter_sad_tayyarah_words', hint: 'طائرة وقاص الورقية', meaning: 'ياء مشددة وتاء مربوطة' },
+        { id: 'c_32', type: 'word', unit: 'unit4', word: 'طَيَّارَة', syllables: ['طَيْـ', 'يَا', 'رَ', 'ة'], audio: 'word_tayyarah', hint: 'طائرة وقاص الورقية', meaning: 'ياء مشددة وتاء مربوطة' },
         { id: 'c_33', type: 'word', unit: 'unit4', word: 'مَقَصّ', syllables: ['مَـ', 'قَصْ', 'صُ'], audio: 'letter_sad_words_intro', hint: 'أداة لقص الورق', meaning: 'صاد مشددة بالضم' },
 
         // كلمات الوحدة 5 (هواياتي وألعابي)
@@ -427,35 +427,35 @@
         { id: 'c_39', type: 'word', unit: 'unit5', word: 'مِحْرَاث', syllables: ['مِحْـ', 'رَا', 'ث'], audio: 'letter_tha_words_intro', hint: 'محراث حارث الفلاح', meaning: 'مقطع ساكن وحرف الثاء' },
         { id: 'c_40', type: 'word', unit: 'unit5', word: 'كِتَاب', syllables: ['كِـ', 'تَا', 'ب'], audio: 'letter_kaf_words_intro', hint: 'كتاب حكايات مفيدة', meaning: 'كاف مكسورة ومد بالألف' },
         { id: 'c_41', type: 'word', unit: 'unit5', word: 'مَالِك', syllables: ['مَا', 'لِـ', 'ك'], audio: 'letter_kaf_words_intro', hint: 'سماك يبيع السمك', meaning: 'مد بالألف وكاف متطرفة' },
-        { id: 'c_42', type: 'word', unit: 'unit5', word: 'جَدِّي', syllables: ['جَدْ', 'دِي'], audio: 'shaddah_formation', hint: 'أبو الأب الحكيم', meaning: 'دال مشددة ومد بالياء' },
+        { id: 'c_42', type: 'word', unit: 'unit5', word: 'جَدِّي', syllables: ['جَدْ', 'دِي'], audio: 'word_jaddi', hint: 'أبو الأب الحكيم', meaning: 'دال مشددة ومد بالياء' },
 
         // كلمات الوحدة 6 (العالم من حولي)
-        { id: 'c_43', type: 'word', unit: 'unit6', word: 'غُرَاب', syllables: ['غُـ', 'رَا', 'ب'], audio: 'letter_ghayn_words_intro', hint: 'طائر ذكي أسود', meaning: 'غين مضمومة ومد بالألف' },
-        { id: 'c_44', type: 'word', unit: 'unit6', word: 'غَزَال', syllables: ['غَـ', 'زَا', 'ل'], audio: 'letter_ghayn_words_intro', hint: 'غزال رشيق في الغابة', meaning: 'غين مفتوحة ومد بالألف' },
-        { id: 'c_45', type: 'word', unit: 'unit6', word: 'مِيَاه', syllables: ['مِـ', 'يَا', 'ه'], audio: 'letter_h_words_intro', hint: 'مياه المطر العذبة', meaning: 'تنتهي بهاء منفصلة' },
-        { id: 'c_46', type: 'word', unit: 'unit6', word: 'هِلَال', syllables: ['هِـ', 'لَا', 'ل'], audio: 'letter_h_words_intro', hint: 'هلال العيد في السماء', meaning: 'هاء مكسورة ومقطع لَا' },
-        { id: 'c_47', type: 'word', unit: 'unit6', word: 'أُسْتَاذ', syllables: ['أُسْـ', 'تَا', 'ذ'], audio: 'letter_dhal_words_intro', hint: 'أستاذ وتلاميذ في الصف', meaning: 'همزة مضمومة وحرف الذال' },
-        { id: 'c_48', type: 'word', unit: 'unit6', word: 'مُنْتَظَر', syllables: ['مُنْـ', 'تَـ', 'ظَـ', 'ر'], audio: 'letter_dha_words_intro', hint: 'تلميذ نشيط ومجتهد', meaning: 'أربعة مقاطع بحرف الظاء' },
-        { id: 'c_49', type: 'word', unit: 'unit6', word: 'مَحْفُوظ', syllables: ['مَحْـ', 'فُو', 'ظ'], audio: 'letter_dha_words_intro', hint: 'تلميذ نظيف يحفظ دروسه', meaning: 'مقطع ساكن ومد وحرف الظاء' },
+        { id: 'c_43', type: 'word', unit: 'unit6', word: 'غُرَاب', syllables: ['غُـ', 'رَا', 'ب'], audio: 'word_ghurab', hint: 'طائر ذكي أسود', meaning: 'غين مضمومة ومد بالألف' },
+        { id: 'c_44', type: 'word', unit: 'unit6', word: 'غَزَال', syllables: ['غَـ', 'زَا', 'ل'], audio: 'word_ghazal', hint: 'غزال رشيق في الغابة', meaning: 'غين مفتوحة ومد بالألف' },
+        { id: 'c_45', type: 'word', unit: 'unit6', word: 'مِيَاه', syllables: ['مِـ', 'يَا', 'ه'], audio: 'faseeh_blend_miah', hint: 'مياه المطر العذبة', meaning: 'تنتهي بهاء منفصلة' },
+        { id: 'c_46', type: 'word', unit: 'unit6', word: 'هِلَال', syllables: ['هِـ', 'لَا', 'ل'], audio: 'word_hilal', hint: 'هلال العيد في السماء', meaning: 'هاء مكسورة ومقطع لَا' },
+        { id: 'c_47', type: 'word', unit: 'unit6', word: 'أُسْتَاذ', syllables: ['أُسْـ', 'تَا', 'ذ'], audio: 'word_ustadh', hint: 'أستاذ وتلاميذ في الصف', meaning: 'همزة مضمومة وحرف الذال' },
+        { id: 'c_48', type: 'word', unit: 'unit6', word: 'مُنْتَظَر', syllables: ['مُنْـ', 'تَـ', 'ظَـ', 'ر'], audio: 'word_muntadhar', hint: 'تلميذ نشيط ومجتهد', meaning: 'أربعة مقاطع بحرف الظاء' },
+        { id: 'c_49', type: 'word', unit: 'unit6', word: 'مَحْفُوظ', syllables: ['مَحْـ', 'فُو', 'ظ'], audio: 'word_mahfooth', hint: 'تلميذ نظيف يحفظ دروسه', meaning: 'مقطع ساكن ومد وحرف الظاء' },
         { id: 'c_50', type: 'word', unit: 'unit6', word: 'الشَّمْسُ', syllables: ['اشْـ', 'شَمْـ', 'سُ'], audio: 'lam_word_ashams', hint: 'اللام الشمسية المدغمة', meaning: 'لام شمسية لا تُنطق وبعدها شدة' },
         { id: 'c_51', type: 'word', unit: 'unit6', word: 'الْقَمَرُ', syllables: ['اَلْـ', 'قَـ', 'مَـ', 'رُ'], audio: 'lam_word_alqamar', hint: 'اللام القمرية المظهرة', meaning: 'لام قمرية ساكنة تُنطق بوضوح' },
         { id: 'c_52', type: 'word', unit: 'unit6', word: 'الْمُعَلِّمُ', syllables: ['اَلْـ', 'مُـ', 'عَلْـ', 'لِـ', 'مُ'], audio: 'lam_word_almuallim', hint: 'معلم القراءة الفاضل', meaning: 'لام قمرية ولام مشددة' },
 
         // مقاطع صوتية تأسيسية (Syllables)
-        { id: 'c_53', type: 'syllable', unit: 'unit1', word: 'دَا', syllables: ['دَ', 'ا'], audio: 'vowel_a_sound', hint: 'مقطع مد مفتوح', meaning: 'دال مع مد الألف' },
-        { id: 'c_54', type: 'syllable', unit: 'unit1', word: 'بَا', syllables: ['بَ', 'ا'], audio: 'letter_b_ba_sound', hint: 'مقطع مد مفتوح', meaning: 'باء مع مد الألف' },
-        { id: 'c_55', type: 'syllable', unit: 'unit1', word: 'مَا', syllables: ['مَ', 'ا'], audio: 'letter_m_ma_sound', hint: 'مقطع مد مفتوح', meaning: 'ميم مع مد الألف' },
-        { id: 'c_56', type: 'syllable', unit: 'unit1', word: 'دُو', syllables: ['دُ', 'و'], audio: 'letter_d_du_sound', hint: 'مقطع مد بالواو', meaning: 'دال مع مد الواو' },
-        { id: 'c_57', type: 'syllable', unit: 'unit2', word: 'نُو', syllables: ['نُ', 'و'], audio: 'act5_noor', hint: 'مقطع مد بالواو', meaning: 'نون مع مد الواو' },
-        { id: 'c_58', type: 'syllable', unit: 'unit2', word: 'رِيـ', syllables: ['رِ', 'ي'], audio: 'letter_r_sound', hint: 'مقطع مد بالياء', meaning: 'راء مع مد الياء' },
+        { id: 'c_53', type: 'syllable', unit: 'unit1', word: 'دَا', syllables: ['دَ', 'ا'], audio: 'syl_daa', hint: 'مقطع مد مفتوح', meaning: 'دال مع مد الألف' },
+        { id: 'c_54', type: 'syllable', unit: 'unit1', word: 'بَا', syllables: ['بَ', 'ا'], audio: 'syl_baa', hint: 'مقطع مد مفتوح', meaning: 'باء مع مد الألف' },
+        { id: 'c_55', type: 'syllable', unit: 'unit1', word: 'مَا', syllables: ['مَ', 'ا'], audio: 'syl_maa', hint: 'مقطع مد مفتوح', meaning: 'ميم مع مد الألف' },
+        { id: 'c_56', type: 'syllable', unit: 'unit1', word: 'دُو', syllables: ['دُ', 'و'], audio: 'syl_doo', hint: 'مقطع مد بالواو', meaning: 'دال مع مد الواو' },
+        { id: 'c_57', type: 'syllable', unit: 'unit2', word: 'نُو', syllables: ['نُ', 'و'], audio: 'syl_noo', hint: 'مقطع مد بالواو', meaning: 'نون مع مد الواو' },
+        { id: 'c_58', type: 'syllable', unit: 'unit2', word: 'رِيـ', syllables: ['رِ', 'ي'], audio: 'syl_ree', hint: 'مقطع مد بالياء', meaning: 'راء مع مد الياء' },
         { id: 'c_59', type: 'syllable', unit: 'unit3', word: 'قِدْ', syllables: ['قِ', 'دْ'], audio: 'letter_d_qidr_syllable', hint: 'مقطع ساكن مغلق', meaning: 'قاف مكسورة ودال ساكنة ✊' },
         { id: 'c_60', type: 'syllable', unit: 'unit3', word: 'طَبْـ', syllables: ['طَ', 'بْ'], audio: 'letter_b_tabl_syllable', hint: 'مقطع ساكن مغلق', meaning: 'طاء مفتوحة وباء ساكنة ✊' },
 
         // جمل قرائية مسترسلة (Sentences Fluency)
         { id: 'c_61', type: 'sentence', unit: 'unit1', word: 'دَادَا دَارُ دُور', syllables: ['دَادَا', 'دَارُ', 'دُور'], audio: 'letter_d_read_all', hint: 'جملة الوحدة الأولى الأساسية', meaning: 'قراءة مسترسلة من 3 كلمات تأسيسية' },
         { id: 'c_62', type: 'sentence', unit: 'unit1', word: 'بَابَا مَامَا دَادَا', syllables: ['بَابَا', 'مَامَا', 'دَادَا'], audio: 'letter_d_read_all', hint: 'الأسرة السعيدة', meaning: 'قراءة كلمات الوحدة الأولى الثلاث' },
-        { id: 'c_63', type: 'sentence', unit: 'unit2', word: 'دَارُ نُور بَابُ دَارِنَا', syllables: ['دَارُ', 'نُور', 'بَابُ', 'دَارِنَا'], audio: 'unit2_firas_sentence1', hint: 'جملة درس دار نور', meaning: 'طلاقة قرائية مركبة' },
-        { id: 'c_64', type: 'sentence', unit: 'unit3', word: 'بُوقُ نَدِيمٍ قَدِيمٌ', syllables: ['بُوقُ', 'نَدِيمٍ', 'قَدِيمٌ'], audio: 'letter_q_nadeem_sentence', hint: 'جملة درس بوق نديم', meaning: 'جملة متناغمة القوافي' },
+        { id: 'c_63', type: 'sentence', unit: 'unit2', word: 'دَارُ نُور بَابُ دَارِنَا', syllables: ['دَارُ', 'نُور', 'بَابُ', 'دَارِنَا'], audio: 'sentence_dar_noor', hint: 'جملة درس دار نور', meaning: 'طلاقة قرائية مركبة' },
+        { id: 'c_64', type: 'sentence', unit: 'unit3', word: 'بُوقُ نَدِيمٍ قَدِيمٌ', syllables: ['بُوقُ', 'نَدِيمٍ', 'قَدِيمٌ'], audio: 'sentence_booq_nadeem', hint: 'جملة درس بوق نديم', meaning: 'جملة متناغمة القوافي' },
         { id: 'c_65', type: 'sentence', unit: 'unit6', word: 'سَأَلَ الْمُعَلِّمُ التَّلَامِيذَ', syllables: ['سَأَلَ', 'الْمُعَلِّمُ', 'التَّلَامِيذَ'], audio: 'lam_read_s1', hint: 'جملة درس اللام الشمسية والقمرية', meaning: 'جمع اللام القمرية والشمسية في جملة واحدة' },
         { id: 'c_66', type: 'sentence', unit: 'unit6', word: 'نَرَى الشَّمْسَ وَالْقَمَرَ', syllables: ['نَرَى', 'الشَّمْسَ', 'وَالْقَمَرَ'], audio: 'lam_read_s2', hint: 'مقولة التلميذة زينب', meaning: 'قراءة شمسية وقمرية بطلاقة' }
     ];

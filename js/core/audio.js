@@ -58,7 +58,7 @@
                 firas: { audio: 'letter_s_read_word_firas', text: 'فِرَاسٌ 👦' },
                 noor:  { audio: 'letter_n_read_word_noor',  text: 'نُورٌ 👧' },
                 banat: { audio: 'letter_n_bint',       text: 'بَنَاتٌ 👭' },
-                sarah: { audio: null,                  text: 'سَارَةُ 👩‍🎨' },
+                sarah: { audio: 'word_sarah',          text: 'سَارَةُ 👩‍🎨' },
                 ward:  { audio: 'faseeh_blend_wardun', text: 'وَرْدٌ 🌹' }
             };
             const item = WORD_READ_MAP[wordKey];
@@ -495,6 +495,51 @@
 
             // تحديد الصوت بناءً على تفضيلات الضبط (المعلم باسل الافتراضي / المعلمة رنا / الوضع التكاملي / صوت المعلمة الميداني الحقيقي)
             const voicePref = getStoredPref('qiraati-smart-voice-pref', 'qiraati_smart_voice_pref', 'bassel');
+            const AUDIO_KEY_ALIASES = {
+                sound_alif: 'phoneme_pure_alif',
+                vowel_a_sound: 'phoneme_pure_alif',
+                sound_ba: 'phoneme_pure_baa',
+                letter_b: 'phoneme_pure_baa',
+                sound_ta: 'phoneme_pure_taa',
+                sound_tha: 'phoneme_pure_thaa',
+                sound_ja: 'phoneme_pure_jeem',
+                sound_jeem: 'phoneme_pure_jeem',
+                sound_ha: 'phoneme_pure_haa',
+                sound_kha: 'phoneme_pure_khaa',
+                sound_da: 'phoneme_pure_dal',
+                sound_dha: 'phoneme_pure_dhal',
+                sound_dhal: 'phoneme_pure_dhal',
+                sound_ra: 'phoneme_pure_raa',
+                sound_za: 'phoneme_pure_zay',
+                sound_sa: 'phoneme_pure_seen',
+                sound_sha: 'phoneme_pure_sheen',
+                sound_sheen: 'phoneme_pure_sheen',
+                sound_sad: 'phoneme_pure_sad',
+                sound_dad: 'phoneme_pure_dhad',
+                sound_dhad: 'phoneme_pure_dhad',
+                sound_taa: 'phoneme_pure_ta',
+                sound_ta_heavy: 'phoneme_pure_ta',
+                sound_dhaa: 'phoneme_pure_dha',
+                sound_dha_heavy: 'phoneme_pure_dha',
+                sound_ain: 'phoneme_pure_ayn',
+                sound_ghain: 'phoneme_pure_ghayn',
+                sound_fa: 'phoneme_pure_faa',
+                sound_qa: 'phoneme_pure_qaf',
+                letter_qaf: 'phoneme_pure_qaf',
+                sound_ka: 'phoneme_pure_kaf',
+                sound_la: 'phoneme_pure_lam',
+                sound_ma: 'phoneme_pure_meem',
+                sound_na: 'phoneme_pure_noon',
+                sound_haa: 'phoneme_pure_ha',
+                sound_wa: 'phoneme_pure_waw',
+                sound_ya: 'phoneme_pure_yaa',
+                sound_du: 'word_dood',
+                sound_di: 'word_nadeem',
+                marboota_sound: 'letter_marboota_sound'
+            };
+            if (audioKey && AUDIO_KEY_ALIASES[audioKey]) {
+                audioKey = AUDIO_KEY_ALIASES[audioKey];
+            }
             let finalKey = audioKey;
 
             // جدول المطابقة الدقيقة لتحويل أصوات الدروس إلى تسجيلات المعلمة الميدانية الحقيقية
@@ -529,7 +574,7 @@
                 'letter_s_read_word_mama': 'letter_s_teacher_word_mama'
             };
 
-            // جدول المطابقة الدقيقة لتحويل أصوات فصيح والأستاذ باسل إلى التسجيلات الفونيمية المطورة
+            // جدول المطابقة الدقيقة لتحويل أصوات فصيح والأستاذ باسل (توجيه البطاقات لمكتبة الفونيمات النقية الـ 28)
             const faseehDirectMap = {
                 'word_dada': 'faseeh_blend_dada',
                 'letter_d_read_dada': 'faseeh_blend_dada',
@@ -549,16 +594,39 @@
                 'letter_ha_word_miah': 'faseeh_blend_miah',
                 'letter_ayn_salim_word_salim': 'faseeh_word_salim',
                 'letter_ha_word_nabeeh': 'faseeh_word_nabeeh',
-                'letter_d_sound': 'faseeh_phoneme_d',
-                'letter_r_sound': 'faseeh_phoneme_r',
-                'letter_s_sound': 'faseeh_phoneme_s',
-                'letter_m_sound': 'faseeh_phoneme_m',
-                'letter_b_sound': 'faseeh_phoneme_b',
-                'letter_n_sound': 'faseeh_phoneme_n',
-                'letter_f_sound': 'faseeh_phoneme_f',
-                'letter_t_sound': 'faseeh_phoneme_t',
-                'marboota_sound': 'faseeh_phoneme_marboota',
-                'tanween_dham_sound': 'faseeh_phoneme_tanween',
+                'letter_hamza_sound': 'phoneme_pure_alif',
+                'letter_b_sound': 'phoneme_pure_baa',
+                'letter_t_sound': 'phoneme_pure_taa',
+                'letter_tha_sound': 'phoneme_pure_thaa',
+                'letter_j_sound': 'phoneme_pure_jeem',
+                'letter_h_sound': 'phoneme_pure_haa',
+                'letter_kha_sound': 'phoneme_pure_khaa',
+                'letter_d_sound': 'phoneme_pure_dal',
+                'letter_dhal_sound': 'phoneme_pure_dhal',
+                'letter_r_sound': 'phoneme_pure_raa',
+                'letter_z_sound': 'phoneme_pure_zay',
+                'letter_s_sound': 'phoneme_pure_seen',
+                'letter_sh_sound': 'phoneme_pure_sheen',
+                'letter_sad_sound': 'phoneme_pure_sad',
+                'letter_dhad_sound': 'phoneme_pure_dhad',
+                'letter_ta_sound': 'phoneme_pure_ta',
+                'letter_dha_sound': 'phoneme_pure_dha',
+                'letter_ayn_salim_sound': 'phoneme_pure_ayn',
+                'letter_ghayn_sound': 'phoneme_pure_ghayn',
+                'letter_f_sound': 'phoneme_pure_faa',
+                'letter_f_reef_sound': 'phoneme_pure_faa',
+                'letter_q_booq_sound': 'phoneme_pure_qaf',
+                'letter_kaf_sound': 'phoneme_pure_kaf',
+                'letter_l_nabeel_sound': 'phoneme_pure_lam',
+                'letter_m_sound': 'phoneme_pure_meem',
+                'letter_n_sound': 'phoneme_pure_noon',
+                'letter_ha_sound': 'phoneme_pure_ha',
+                'vowel_w_sound': 'phoneme_pure_waw',
+                'vowel_y_sound': 'phoneme_pure_yaa',
+                'marboota_sound': 'letter_marboota_sound',
+                'letter_marboota_sound': 'letter_marboota_sound',
+                'tanween_dham_sound': 'tanween_dham_sound',
+                'shaddah_sound': 'shaddah_sound',
                 'letter_d_vowels_intro': 'faseeh_vowels_d',
                 'letter_r_vowels_intro': 'faseeh_vowels_r',
                 'letter_s_vowels_intro': 'faseeh_vowels_s'
@@ -566,6 +634,7 @@
 
             // قائمة المفاتيح الصوتية الخاصة للتأكد من وجودها سواء عبر audio/*.mp3 أو window.AUDIO_DATA
             const SPECIAL_AUDIO_KEYS = new Set([
+                "applause", "hint_draw",
                 "faseeh_blend_baba", "faseeh_blend_bat", "faseeh_blend_booq", "faseeh_blend_dada", "faseeh_blend_dar",
                 "faseeh_blend_door", "faseeh_blend_firas", "faseeh_blend_ghazal", "faseeh_blend_mama", "faseeh_blend_miah",
                 "faseeh_blend_noor", "faseeh_blend_qitar", "faseeh_blend_wardun", "faseeh_encourage_super",
@@ -581,11 +650,17 @@
                 "letter_dhal_phoneme_faseeh", "letter_f_reef_phoneme_faseeh", "letter_ghayn_phoneme_faseeh",
                 "letter_h_phoneme_faseeh", "letter_ha_phoneme_faseeh", "letter_hamza_phoneme_faseeh", "letter_hamza_word_darana",
                 "letter_j_phoneme_faseeh", "letter_kaf_phoneme_faseeh", "letter_kha_phoneme_faseeh", "letter_l_nabeel_phoneme_faseeh",
-                "letter_q_booq_phoneme_faseeh", "letter_s_teacher_read_all", "letter_s_teacher_sentence1", "letter_s_teacher_sentence2",
-                "letter_s_teacher_sentence3", "letter_s_teacher_word_baba", "letter_s_teacher_word_faris", "letter_s_teacher_word_mama",
-                "letter_s_teacher_word_moosa", "letter_s_teacher_word_rasama", "letter_s_teacher_word_safara",
+                "letter_marboota_sound", "letter_q_booq_phoneme_faseeh", "letter_s_teacher_read_all", "letter_s_teacher_sentence1",
+                "letter_s_teacher_sentence2", "letter_s_teacher_sentence3", "letter_s_teacher_word_baba", "letter_s_teacher_word_faris",
+                "letter_s_teacher_word_mama", "letter_s_teacher_word_moosa", "letter_s_teacher_word_rasama", "letter_s_teacher_word_safara",
                 "letter_sad_phoneme_faseeh", "letter_sh_phoneme_faseeh", "letter_ta_phoneme_faseeh", "letter_tha_phoneme_faseeh",
                 "letter_z_phoneme_faseeh", "mascot_hint", "mascot_welcome",
+                "phoneme_pure_alif", "phoneme_pure_baa", "phoneme_pure_taa", "phoneme_pure_thaa", "phoneme_pure_jeem",
+                "phoneme_pure_haa", "phoneme_pure_khaa", "phoneme_pure_dal", "phoneme_pure_dhal", "phoneme_pure_raa",
+                "phoneme_pure_zay", "phoneme_pure_seen", "phoneme_pure_sheen", "phoneme_pure_sad", "phoneme_pure_dhad",
+                "phoneme_pure_ta", "phoneme_pure_dha", "phoneme_pure_ayn", "phoneme_pure_ghayn", "phoneme_pure_faa",
+                "phoneme_pure_qaf", "phoneme_pure_kaf", "phoneme_pure_lam", "phoneme_pure_meem", "phoneme_pure_noon",
+                "phoneme_pure_ha", "phoneme_pure_waw", "phoneme_pure_yaa",
                 "rt_convo_asking_help_partner", "rt_convo_feedback_correct", "rt_convo_feedback_retry",
                 "rt_convo_greeting_partner", "rt_convo_picture_desc_partner",
                 "rt_play_baqar_basim_l1", "rt_play_baqar_basim_l2", "rt_play_baqar_basim_l3", "rt_play_baqar_basim_l4", "rt_play_baqar_basim_l5",
@@ -594,7 +669,8 @@
                 "rt_play_dar_dada_l1", "rt_play_dar_dada_l2", "rt_play_dar_dada_l3", "rt_play_dar_dada_l4", "rt_play_dar_dada_l5",
                 "rt_play_matar_bulbul_l1", "rt_play_matar_bulbul_l2", "rt_play_matar_bulbul_l3", "rt_play_matar_bulbul_l4", "rt_play_matar_bulbul_l5",
                 "rt_play_mizan_qaddouri_l1", "rt_play_mizan_qaddouri_l2", "rt_play_mizan_qaddouri_l3", "rt_play_mizan_qaddouri_l4", "rt_play_mizan_qaddouri_l5",
-                "shaddah_phoneme_faseeh",
+                "sentence_booq_nadeem", "sentence_dar_noor",
+                "shaddah_phoneme_faseeh", "shaddah_sound",
                 "ss_basim_countryside_p1", "ss_basim_countryside_p2", "ss_basim_countryside_p3",
                 "ss_ch_crow_water_prompt", "ss_ch_crow_water_win", "ss_ch_mazin_horn_prompt", "ss_ch_mazin_horn_win",
                 "ss_ch_qaddoori_scale_prompt", "ss_ch_qaddoori_scale_win",
@@ -603,6 +679,9 @@
                 "ss_faseeh_dada_p1", "ss_faseeh_dada_p2", "ss_faseeh_dada_p3", "ss_faseeh_dada_p4",
                 "ss_mazin_horn_p1", "ss_mazin_horn_p2", "ss_mazin_horn_p3",
                 "ss_qaddoori_scale_p1", "ss_qaddoori_scale_p2", "ss_qaddoori_scale_p3",
+                "story_dada_rabab", "story_mizan_qaddouri", "story_reef_manaf", "story_school_pupil", "story_swimming_pool",
+                "syl_baa", "syl_bu", "syl_daa", "syl_doo", "syl_maa", "syl_noo", "syl_ree",
+                "tanween_dham_sound",
                 "teacher_act5_alif_sound", "teacher_act5_all", "teacher_act5_asa",
                 "teacher_act5_dar", "teacher_act5_ghazal", "teacher_act5_halwa", "teacher_act5_intro", "teacher_act5_mrma",
                 "teacher_letter_d_act1_intro", "teacher_letter_d_asad", "teacher_letter_d_dalla", "teacher_letter_d_dar",
@@ -620,7 +699,16 @@
                 "teacher_vowel_w_kharuf", "teacher_vowel_w_soos", "teacher_vowel_w_tawoos", "teacher_vowel_w_usfoor", "teacher_vowel_y_all",
                 "teacher_vowel_y_bisat", "teacher_vowel_y_dik", "teacher_vowel_y_halib", "teacher_vowel_y_intro", "teacher_vowel_y_rish",
                 "unit2_facility_teacher", "unit2_welcome_bassel", "voice_confirm_bassel", "voice_confirm_integrated", "voice_confirm_rana", "voice_preview_bassel",
-                "voice_preview_rana"
+                "voice_preview_rana",
+                "word_alam", "word_athath", "word_bab", "word_babu", "word_ban", "word_banat", "word_baqar", "word_batt",
+                "word_bilad", "word_booq", "word_dar", "word_dari", "word_dawr", "word_deena", "word_dhubab", "word_dood",
+                "word_door", "word_fallah", "word_firas", "word_ghazal", "word_ghurab", "word_haql", "word_hawdh", "word_hilal",
+                "word_himar", "word_jaddi", "word_jamal", "word_khaleelin", "word_khayma", "word_kitab", "word_mahfooth", "word_maktaba",
+                "word_mama", "word_manaf", "word_matar", "word_mazin", "word_mizan", "word_muntadhar", "word_muroor", "word_naam",
+                "word_nabeel", "word_nadeem", "word_nakhl", "word_nameer", "word_natheef", "word_noor", "word_nouri", "word_qaddouri",
+                "word_qalam", "word_qitar", "word_reef", "word_reem", "word_sabeel", "word_salah", "word_salma", "word_sarah",
+                "word_shurti", "word_tariq", "word_tayyar", "word_tayyarah", "word_tuyoor", "word_ustadh", "word_ward", "word_wazz",
+                "word_wazzan", "word_zoraq"
             ]);
 
             function hasSpecialAudioKey(k) {
@@ -645,8 +733,6 @@
             } else if (voicePref === 'bassel') {
                 if (audioKey && faseehDirectMap[audioKey] && hasSpecialAudioKey(faseehDirectMap[audioKey])) {
                     finalKey = faseehDirectMap[audioKey];
-                } else if (audioKey && audioKey.endsWith('_sound') && hasSpecialAudioKey(audioKey.replace(/_sound$/, '_phoneme_faseeh'))) {
-                    finalKey = audioKey.replace(/_sound$/, '_phoneme_faseeh');
                 } else if (audioKey && hasSpecialAudioKey(audioKey + '_bassel')) {
                     finalKey = audioKey + '_bassel';
                 } else if (audioKey && hasSpecialAudioKey('bassel_' + audioKey)) {
@@ -1097,38 +1183,41 @@
             let _voicesLoaded = false;
 
             const WORD_AUDIO_MAP = {
-                // حروف ومخارج فونيمية
-                'ب': 'letter_b_sound',
-                'د': 'letter_d_sound',
-                'ف': 'letter_f_sound',
-                'م': 'letter_m_sound',
-                'ن': 'letter_n_sound',
-                'ر': 'letter_r_sound',
-                'س': 'letter_s_sound',
-                'ت': 'letter_t_sound',
-                'ط': 'letter_ta_sound',
-                'ق': 'letter_q_booq_sound',
-                'ل': 'letter_l_nabeel_sound',
-                'ع': 'letter_ayn_salim_sound',
-                'ه': 'letter_h_sound',
-                'هـ': 'letter_h_sound',
-                'ش': 'letter_sh_sound',
-                'ز': 'letter_z_sound',
-                'ج': 'letter_j_sound',
-                'ص': 'letter_sad_sound',
-                'ا': 'teacher_act5_alif_sound',
-                'ء': 'letter_hamza_sound',
-                'ض': 'letter_dhad_sound',
-                'خ': 'letter_kha_sound',
-                'ث': 'letter_tha_sound',
-                'ك': 'letter_kaf_sound',
-                'غ': 'letter_ghayn_sound',
-                'ح': 'letter_ha_sound',
-                'ذ': 'letter_dhal_sound',
-                'ظ': 'letter_dha_sound',
-                'و': 'vowel_w_sound',
-                'ي': 'vowel_y_sound',
-                'ى': 'vowel_y_sound',
+                // حروف ومخارج فونيمية (مكتبة الفونيمات النقية الـ 28 كاملة)
+                'ا': 'phoneme_pure_alif',
+                'أ': 'phoneme_pure_alif',
+                'إ': 'phoneme_pure_alif',
+                'آ': 'phoneme_pure_alif',
+                'ء': 'phoneme_pure_alif',
+                'ب': 'phoneme_pure_baa',
+                'ت': 'phoneme_pure_taa',
+                'ث': 'phoneme_pure_thaa',
+                'ج': 'phoneme_pure_jeem',
+                'ح': 'phoneme_pure_haa',
+                'خ': 'phoneme_pure_khaa',
+                'د': 'phoneme_pure_dal',
+                'ذ': 'phoneme_pure_dhal',
+                'ر': 'phoneme_pure_raa',
+                'ز': 'phoneme_pure_zay',
+                'س': 'phoneme_pure_seen',
+                'ش': 'phoneme_pure_sheen',
+                'ص': 'phoneme_pure_sad',
+                'ض': 'phoneme_pure_dhad',
+                'ط': 'phoneme_pure_ta',
+                'ظ': 'phoneme_pure_dha',
+                'ع': 'phoneme_pure_ayn',
+                'غ': 'phoneme_pure_ghayn',
+                'ف': 'phoneme_pure_faa',
+                'ق': 'phoneme_pure_qaf',
+                'ك': 'phoneme_pure_kaf',
+                'ل': 'phoneme_pure_lam',
+                'م': 'phoneme_pure_meem',
+                'ن': 'phoneme_pure_noon',
+                'ه': 'phoneme_pure_ha',
+                'هـ': 'phoneme_pure_ha',
+                'و': 'phoneme_pure_waw',
+                'ي': 'phoneme_pure_yaa',
+                'ى': 'phoneme_pure_yaa',
                 'ة': 'letter_marboota_sound',
                 'تنوين': 'tanween_dham_sound',
                 'شدة': 'shaddah_sound',

@@ -161,7 +161,7 @@
     // ==========================================================================
     const ARABIC_LETTERS_DATA = [
         {
-            id: 'alif', char: 'أ', name: 'ألف', phoneme: 'أَ / ا',
+            id: 'alif', char: 'أ', name: 'ألف', phoneme: 'أَ / ا', audioKey: 'phoneme_pure_alif',
             type: 'on_line', connector: false,
             forms: { isolated: 'أ', initial: 'أ', medial: 'ـأ', final: 'ـأ' },
             vowels: ['أَ', 'أُ', 'إِ', 'أْ', 'آ', 'أً', 'أٌ', 'إٍ'],
@@ -174,7 +174,7 @@
             hasHamza: true
         },
         {
-            id: 'baa', char: 'ب', name: 'باء', phoneme: 'بْ / بـ',
+            id: 'baa', char: 'ب', name: 'باء', phoneme: 'بْ / بـ', audioKey: 'phoneme_pure_baa',
             type: 'on_line', connector: true,
             forms: { isolated: 'ب', initial: 'بـ', medial: 'ـبـ', final: 'ـب' },
             vowels: ['بَ', 'بُ', 'بِ', 'بْ', 'بَا', 'بُو', 'بِي'],
@@ -187,7 +187,7 @@
             dots: [{ x: 50, y: 78 }]
         },
         {
-            id: 'taa', char: 'ت', name: 'تاء', phoneme: 'تْ / تـ',
+            id: 'taa', char: 'ت', name: 'تاء', phoneme: 'تْ / تـ', audioKey: 'phoneme_pure_taa',
             type: 'on_line', connector: true,
             forms: { isolated: 'ت', initial: 'تـ', medial: 'ـتـ', final: 'ـت' },
             vowels: ['تَ', 'تُ', 'تِ', 'تْ', 'تَا', 'تُو', 'تِي'],
@@ -200,7 +200,7 @@
             dots: [{ x: 46, y: 45 }, { x: 54, y: 45 }]
         },
         {
-            id: 'thaa', char: 'ث', name: 'ثاء', phoneme: 'ثْ / ثـ',
+            id: 'thaa', char: 'ث', name: 'ثاء', phoneme: 'ثْ / ثـ', audioKey: 'phoneme_pure_thaa',
             type: 'on_line', connector: true,
             forms: { isolated: 'ث', initial: 'ثـ', medial: 'ـثـ', final: 'ـث' },
             vowels: ['ثَ', 'ثُ', 'ثِ', 'ثْ', 'ثَا', 'ثُو', 'ثِي'],
@@ -213,7 +213,7 @@
             dots: [{ x: 46, y: 47 }, { x: 54, y: 47 }, { x: 50, y: 39 }]
         },
         {
-            id: 'jeem', char: 'ج', name: 'جيم', phoneme: 'جْ / جـ',
+            id: 'jeem', char: 'ج', name: 'جيم', phoneme: 'جْ / جـ', audioKey: 'phoneme_pure_jeem',
             type: 'below_line', connector: true,
             forms: { isolated: 'ج', initial: 'جـ', medial: 'ـجـ', final: 'ـج' },
             vowels: ['جَ', 'جُ', 'جِ', 'جْ', 'جَا', 'جُو', 'جِي'],
@@ -226,7 +226,7 @@
             dots: [{ x: 45, y: 68 }]
         },
         {
-            id: 'haa', char: 'ح', name: 'حاء', phoneme: 'حْ / حـ',
+            id: 'haa', char: 'ح', name: 'حاء', phoneme: 'حْ / حـ', audioKey: 'phoneme_pure_haa',
             type: 'below_line', connector: true,
             forms: { isolated: 'ح', initial: 'حـ', medial: 'ـحـ', final: 'ـح' },
             vowels: ['حَ', 'حُ', 'حِ', 'حْ', 'حَا', 'حُو', 'حِي'],
@@ -238,7 +238,7 @@
             svgPath: 'M 68 48 L 45 48 C 65 54 68 76 40 84 C 28 84 25 72 26 70'
         },
         {
-            id: 'khaa', char: 'خ', name: 'خاء', phoneme: 'خْ / خـ',
+            id: 'khaa', char: 'خ', name: 'خاء', phoneme: 'خْ / خـ', audioKey: 'phoneme_pure_khaa',
             type: 'below_line', connector: true,
             forms: { isolated: 'خ', initial: 'خـ', medial: 'ـخـ', final: 'ـخ' },
             vowels: ['خَ', 'خُ', 'خِ', 'خْ', 'خَا', 'خُو', 'خِي'],
@@ -251,7 +251,7 @@
             dots: [{ x: 52, y: 36 }]
         },
         {
-            id: 'dal', char: 'د', name: 'دال', phoneme: 'دْ / دَ',
+            id: 'dal', char: 'د', name: 'دال', phoneme: 'دْ / دَ', audioKey: 'phoneme_pure_dal',
             type: 'on_line', connector: false,
             forms: { isolated: 'د', initial: 'د', medial: 'ـد', final: 'ـد' },
             vowels: ['دَ', 'دُ', 'دِ', 'دْ', 'دَا', 'دُو', 'دِي'],
@@ -263,7 +263,7 @@
             svgPath: 'M 62 50 Q 52 64 34 66'
         },
         {
-            id: 'dhal', char: 'ذ', name: 'ذال', phoneme: 'ذْ / ذَ',
+            id: 'dhal', char: 'ذ', name: 'ذال', phoneme: 'ذْ / ذَ', audioKey: 'phoneme_pure_dhal',
             type: 'on_line', connector: false,
             forms: { isolated: 'ذ', initial: 'ذ', medial: 'ـذ', final: 'ـذ' },
             vowels: ['ذَ', 'ذُ', 'ذِ', 'ذْ', 'ذَا', 'ذُو', 'ذِي'],
@@ -276,7 +276,7 @@
             dots: [{ x: 58, y: 40 }]
         },
         {
-            id: 'raa', char: 'ر', name: 'راء', phoneme: 'رْ / رَ',
+            id: 'raa', char: 'ر', name: 'راء', phoneme: 'رْ / رَ', audioKey: 'phoneme_pure_raa',
             type: 'below_line', connector: false,
             forms: { isolated: 'ر', initial: 'ر', medial: 'ـر', final: 'ـر' },
             vowels: ['رَ', 'رُ', 'رِ', 'رْ', 'رَا', 'رُو', 'رِي'],
@@ -288,7 +288,7 @@
             svgPath: 'M 58 58 Q 54 66 45 76 T 32 84'
         },
         {
-            id: 'zaay', char: 'ز', name: 'زاي', phoneme: 'زْ / زَ',
+            id: 'zaay', char: 'ز', name: 'زاي', phoneme: 'زْ / زَ', audioKey: 'phoneme_pure_zay',
             type: 'below_line', connector: false,
             forms: { isolated: 'ز', initial: 'ز', medial: 'ـز', final: 'ـز' },
             vowels: ['زَ', 'زُ', 'زِ', 'زْ', 'زَا', 'زُو', 'زِي'],
@@ -301,7 +301,7 @@
             dots: [{ x: 58, y: 46 }]
         },
         {
-            id: 'seen', char: 'س', name: 'سين', phoneme: 'سْ / سـ',
+            id: 'seen', char: 'س', name: 'سين', phoneme: 'سْ / سـ', audioKey: 'phoneme_pure_seen',
             type: 'below_line', connector: true,
             forms: { isolated: 'س', initial: 'سـ', medial: 'ـسـ', final: 'ـس' },
             vowels: ['سَ', 'سُ', 'سِ', 'سْ', 'سَا', 'سُو', 'سِي'],
@@ -313,7 +313,7 @@
             svgPath: 'M 74 58 Q 70 66 66 66 L 58 66 Q 54 66 50 66 C 50 78 30 84 28 72'
         },
         {
-            id: 'sheen', char: 'ش', name: 'شين', phoneme: 'شْ / شـ',
+            id: 'sheen', char: 'ش', name: 'شين', phoneme: 'شْ / شـ', audioKey: 'phoneme_pure_sheen',
             type: 'below_line', connector: true,
             forms: { isolated: 'ش', initial: 'شـ', medial: 'ـشـ', final: 'ـش' },
             vowels: ['شَ', 'شُ', 'شِ', 'شْ', 'شَا', 'شُو', 'شِي'],
@@ -326,7 +326,7 @@
             dots: [{ x: 58, y: 47 }, { x: 66, y: 47 }, { x: 62, y: 39 }]
         },
         {
-            id: 'saad', char: 'ص', name: 'صاد', phoneme: 'صْ / صـ',
+            id: 'saad', char: 'ص', name: 'صاد', phoneme: 'صْ / صـ', audioKey: 'phoneme_pure_sad',
             type: 'below_line', connector: true,
             forms: { isolated: 'ص', initial: 'صـ', medial: 'ـصـ', final: 'ـص' },
             vowels: ['صَ', 'صُ', 'صِ', 'صْ', 'صَا', 'صُو', 'صِي'],
@@ -338,7 +338,7 @@
             svgPath: 'M 56 66 C 68 56 75 58 70 66 L 46 66 L 46 58 C 46 78 28 84 26 72'
         },
         {
-            id: 'dhaad', char: 'ض', name: 'ضاد', phoneme: 'ضْ / ضـ',
+            id: 'dhaad', char: 'ض', name: 'ضاد', phoneme: 'ضْ / ضـ', audioKey: 'phoneme_pure_dhad',
             type: 'below_line', connector: true,
             forms: { isolated: 'ض', initial: 'ضـ', medial: 'ـضـ', final: 'ـض' },
             vowels: ['ضَ', 'ضُ', 'ضِ', 'ضْ', 'ضَا', 'ضُو', 'ضِي'],
@@ -351,7 +351,7 @@
             dots: [{ x: 62, y: 44 }]
         },
         {
-            id: 'taa_straight', char: 'ط', name: 'طاء', phoneme: 'طْ / طـ',
+            id: 'taa_straight', char: 'ط', name: 'طاء', phoneme: 'طْ / طـ', audioKey: 'phoneme_pure_ta',
             type: 'on_line', connector: true,
             forms: { isolated: 'ط', initial: 'طـ', medial: 'ـطـ', final: 'ـط' },
             vowels: ['طَ', 'طُ', 'طِ', 'طْ', 'طَا', 'طُو', 'طِي'],
@@ -363,7 +363,7 @@
             svgPath: 'M 55 66 C 68 56 74 58 68 66 L 28 66 M 52 24 L 52 66'
         },
         {
-            id: 'dhaa', char: 'ظ', name: 'ظاء', phoneme: 'ظْ / ظـ',
+            id: 'dhaa', char: 'ظ', name: 'ظاء', phoneme: 'ظْ / ظـ', audioKey: 'phoneme_pure_dha',
             type: 'on_line', connector: true,
             forms: { isolated: 'ظ', initial: 'ظـ', medial: 'ـظـ', final: 'ـظ' },
             vowels: ['ظَ', 'ظُ', 'ظِ', 'ظْ', 'ظَا', 'ظُو', 'ظِي'],
@@ -376,7 +376,7 @@
             dots: [{ x: 42, y: 44 }]
         },
         {
-            id: 'ayn', char: 'ع', name: 'عين', phoneme: 'عْ / عـ',
+            id: 'ayn', char: 'ع', name: 'عين', phoneme: 'عْ / عـ', audioKey: 'phoneme_pure_ayn',
             type: 'below_line', connector: true,
             forms: { isolated: 'ع', initial: 'عـ', medial: 'ـعـ', final: 'ـع' },
             vowels: ['عَ', 'عُ', 'عِ', 'عْ', 'عَا', 'عُو', 'عِي'],
@@ -388,7 +388,7 @@
             svgPath: 'M 64 48 C 64 42 50 42 52 56 L 56 62 C 68 66 66 84 40 84 C 28 84 25 72 26 70'
         },
         {
-            id: 'ghayn', char: 'غ', name: 'غين', phoneme: 'غْ / غـ',
+            id: 'ghayn', char: 'غ', name: 'غين', phoneme: 'غْ / غـ', audioKey: 'phoneme_pure_ghayn',
             type: 'below_line', connector: true,
             forms: { isolated: 'غ', initial: 'غـ', medial: 'ـغـ', final: 'ـغ' },
             vowels: ['غَ', 'غُ', 'غِ', 'غْ', 'غَا', 'غُو', 'غِي'],
@@ -401,7 +401,7 @@
             dots: [{ x: 56, y: 34 }]
         },
         {
-            id: 'faa', char: 'ف', name: 'فاء', phoneme: 'فْ / فـ',
+            id: 'faa', char: 'ف', name: 'فاء', phoneme: 'فْ / فـ', audioKey: 'phoneme_pure_faa',
             type: 'on_line', connector: true,
             forms: { isolated: 'ف', initial: 'فـ', medial: 'ـفـ', final: 'ـف' },
             vowels: ['فَ', 'فُ', 'فِ', 'فْ', 'فَا', 'فُو', 'فِي'],
@@ -414,7 +414,7 @@
             dots: [{ x: 66, y: 40 }]
         },
         {
-            id: 'qaaf', char: 'ق', name: 'قاف', phoneme: 'قْ / قـ',
+            id: 'qaaf', char: 'ق', name: 'قاف', phoneme: 'قْ / قـ', audioKey: 'phoneme_pure_qaf',
             type: 'below_line', connector: true,
             forms: { isolated: 'ق', initial: 'قـ', medial: 'ـقـ', final: 'ـق' },
             vowels: ['قَ', 'قُ', 'قِ', 'قْ', 'قَا', 'قُو', 'قِي'],
@@ -427,7 +427,7 @@
             dots: [{ x: 62, y: 38 }, { x: 70, y: 38 }]
         },
         {
-            id: 'kaaf', char: 'ك', name: 'كاف', phoneme: 'كْ / كـ',
+            id: 'kaaf', char: 'ك', name: 'كاف', phoneme: 'كْ / كـ', audioKey: 'phoneme_pure_kaf',
             type: 'on_line', connector: true,
             forms: { isolated: 'ك', initial: 'كـ', medial: 'ـكـ', final: 'ـك' },
             vowels: ['كَ', 'كُ', 'كِ', 'كْ', 'كَا', 'كُو', 'كِي'],
@@ -439,7 +439,7 @@
             svgPath: 'M 68 24 L 68 66 L 34 66 Q 28 66 28 56 M 52 48 Q 46 44 48 40'
         },
         {
-            id: 'laam', char: 'ل', name: 'لام', phoneme: 'لْ / لـ',
+            id: 'laam', char: 'ل', name: 'لام', phoneme: 'لْ / لـ', audioKey: 'phoneme_pure_lam',
             type: 'below_line', connector: true,
             forms: { isolated: 'ل', initial: 'لـ', medial: 'ـلـ', final: 'ـل' },
             vowels: ['لَ', 'لُ', 'لِ', 'لْ', 'لَا', 'لُو', 'لِي'],
@@ -451,7 +451,7 @@
             svgPath: 'M 62 24 L 62 66 C 62 82 32 82 30 68'
         },
         {
-            id: 'meem', char: 'م', name: 'ميم', phoneme: 'مْ / مـ',
+            id: 'meem', char: 'م', name: 'ميم', phoneme: 'مْ / مـ', audioKey: 'phoneme_pure_meem',
             type: 'below_line', connector: true,
             forms: { isolated: 'م', initial: 'مـ', medial: 'ـمـ', final: 'ـم' },
             vowels: ['مَ', 'مُ', 'مِ', 'مْ', 'مَا', 'مُو', 'مِي'],
@@ -463,7 +463,7 @@
             svgPath: 'M 62 60 C 62 54 50 54 50 66 L 44 66 L 44 88'
         },
         {
-            id: 'noon', char: 'ن', name: 'نون', phoneme: 'نْ / نـ',
+            id: 'noon', char: 'ن', name: 'نون', phoneme: 'نْ / نـ', audioKey: 'phoneme_pure_noon',
             type: 'below_line', connector: true,
             forms: { isolated: 'ن', initial: 'نـ', medial: 'ـنـ', final: 'ـن' },
             vowels: ['نَ', 'نُ', 'نِ', 'نْ', 'نَا', 'نُو', 'نِي'],
@@ -476,7 +476,7 @@
             dots: [{ x: 48, y: 60 }]
         },
         {
-            id: 'haa_alone', char: 'هـ', name: 'هاء', phoneme: 'هْ / هـ',
+            id: 'haa_alone', char: 'هـ', name: 'هاء', phoneme: 'هْ / هـ', audioKey: 'phoneme_pure_ha',
             type: 'on_line', connector: true,
             forms: { isolated: 'ه', initial: 'هـ', medial: 'ـهـ', final: 'ـه' },
             vowels: ['هَ', 'هُ', 'هِ', 'هْ', 'هَا', 'هُو', 'هِي'],
@@ -488,7 +488,7 @@
             svgPath: 'M 66 55 C 66 45 46 45 46 66 L 28 66 M 58 58 C 58 52 50 52 50 62'
         },
         {
-            id: 'waaw', char: 'و', name: 'واو', phoneme: 'و / وْ',
+            id: 'waaw', char: 'و', name: 'واو', phoneme: 'و / وْ', audioKey: 'phoneme_pure_waw',
             type: 'below_line', connector: false,
             forms: { isolated: 'و', initial: 'و', medial: 'ـو', final: 'ـو' },
             vowels: ['وَ', 'وُ', 'وِ', 'وْ', 'وَا', 'وُو', 'وِي'],
@@ -500,7 +500,7 @@
             svgPath: 'M 62 58 C 68 52 74 60 62 66 Q 52 74 34 84'
         },
         {
-            id: 'yaa', char: 'ي', name: 'ياء', phoneme: 'يْ / يـ',
+            id: 'yaa', char: 'ي', name: 'ياء', phoneme: 'يْ / يـ', audioKey: 'phoneme_pure_yaa',
             type: 'below_line', connector: true,
             forms: { isolated: 'ي', initial: 'يـ', medial: 'ـيـ', final: 'ـي' },
             vowels: ['يَ', 'يُ', 'يِ', 'يْ', 'يَا', 'يُو', 'يِي'],

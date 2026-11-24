@@ -39,8 +39,8 @@ AUDIO_DIR = os.path.join(BASE_DIR, 'audio')
 BACKUP_DIR = os.path.join(BASE_DIR, 'audio_backup_raw')
 MANIFEST_PATH = os.path.join(BASE_DIR, 'tools', 'tts_manifest.json')
 TRANSCRIPTS_CACHE_PATH = os.path.join(BACKUP_DIR, 'transcripts_cache.json')
-TTS_DONE_LOG_PATH = os.path.join(BACKUP_DIR, 'tts_done_v362.json')
-BATCH_JOBS_STATE_PATH = os.path.join(BACKUP_DIR, 'tts_batch_jobs_v362.json')
+TTS_DONE_LOG_PATH = os.path.join(BACKUP_DIR, 'tts_done_v363.json')
+BATCH_JOBS_STATE_PATH = os.path.join(BACKUP_DIR, 'tts_batch_jobs_v363.json')
 
 sys.path.insert(0, os.path.join(BASE_DIR, 'tools'))
 try:
@@ -48,9 +48,9 @@ try:
 except ImportError:
     master_audio = None
 
-DEFAULT_FASEEH_VOICE = "ar-001-tutor-2"
-DEFAULT_FASEEH_STYLE = "warm, cheerful, smiling Arabic primary teacher speaking clearly and gently to 6-year-old children"
-DEFAULT_TTS_MODEL = "gemini-3.8-flash-lite-tts"
+DEFAULT_FASEEH_VOICE = "voice_xoaeymuomp2b"
+DEFAULT_FASEEH_STYLE = "warm, cheerful, clear"
+DEFAULT_TTS_MODEL = "gemini-3.8-flash-tts"
 DEFAULT_TEXT_MODEL = "gemini-4-hydrogen"
 
 
@@ -354,15 +354,21 @@ def transcribe_audio_with_gemini(mp3_path, ref_text, api_key):
 
 def select_style_for_key(key):
     """تحديد الأسلوب التعبيري المناسب لصوت الأستاذ باسل حسب نوع الحوار"""
+    if key.startswith('phoneme_pure_') or key.startswith('syl_') or key in ('letter_marboota_sound', 'tanween_dham_sound', 'shaddah_sound'):
+        return "calm, crisp, slow articulation"
+    if key.startswith('word_'):
+        return "clear, steady, distinct"
+    if key.startswith('sentence_'):
+        return "warm, clear, steady"
     if any(x in key for x in ('_story', 'story_', '_scene', 'scene_', '_listen', '_picnic', 'act4_full_story')):
-        return "warm, expressive, gentle Arabic primary teacher narrating a story clearly to 6-year-old children"
-    if any(x in key for x in ('_correct', '_encourage_super', '_complete', '_congrats', '_success')):
-        return "excited, joyful, proud, smiling Arabic primary teacher praising a young child"
+        return "warm, expressive storytelling"
+    if any(x in key for x in ('_correct', '_encourage_super', '_complete', '_congrats', '_success', 'applause')):
+        return "joyful, proud, encouraging"
     if '_wrong' in key:
-        return "gentle, patient, encouraging Arabic primary teacher guiding a child kindly to try again"
+        return "gentle, patient, reassuring"
     if 'nasheed' in key:
-        return "cheerful, rhythmic, warm Arabic primary teacher reciting a playful children's rhyme"
-    return "warm, cheerful, clear Arabic primary teacher speaking naturally to 6-year-old children"
+        return "cheerful, rhythmic, playful"
+    return "warm, cheerful, clear"
 
 
 def is_dialogue_audio_key(key):
@@ -384,16 +390,16 @@ def parse_js_module_dialogues():
 
     # 1. بنك الألعاب — الكلمات والتركيبات الفونيمية (10 ملفات)
     games_words = [
-        ("faseeh_blend_baba", "بَا <short pause> بَا <short pause> بَابَا!", "clear, gentle Arabic primary teacher modeling syllable blending"),
-        ("faseeh_blend_mama", "مَا <short pause> مَا <short pause> مَامَا!", "clear, gentle Arabic primary teacher modeling syllable blending"),
-        ("faseeh_blend_booq", "بُو <short pause> أَقْ <short pause> بُوقٌ!", "clear, gentle Arabic primary teacher modeling syllable blending"),
-        ("faseeh_blend_bat", "بَـ <short pause> أَطْ <short pause> بَطٌّ!", "clear, gentle Arabic primary teacher modeling syllable blending"),
-        ("faseeh_blend_qitar", "قِـ <short pause> طَا <short pause> أَرْ <short pause> قِطَارٌ!", "clear, gentle Arabic primary teacher modeling syllable blending"),
-        ("faseeh_blend_ghazal", "غَـ <short pause> زَا <short pause> أَلْ <short pause> غَزَالٌ!", "clear, gentle Arabic primary teacher modeling syllable blending"),
-        ("faseeh_blend_miah", "مِـ <short pause> يَا <short pause> أَهْ <short pause> مِيَاهٌ!", "clear, gentle Arabic primary teacher modeling syllable blending"),
-        ("faseeh_word_zaytoon", "زَيْتُونٌ!", "warm, clear Arabic primary teacher pronouncing a vocabulary word"),
-        ("faseeh_word_salim", "سَالِمٌ!", "warm, clear Arabic primary teacher pronouncing a vocabulary word"),
-        ("faseeh_word_nabeeh", "نَبِيهٌ!", "warm, clear Arabic primary teacher pronouncing a vocabulary word"),
+        ("faseeh_blend_baba", "بَا <short pause> بَا <short pause> بَابَا!", "clear, steady, distinct"),
+        ("faseeh_blend_mama", "مَا <short pause> مَا <short pause> مَامَا!", "clear, steady, distinct"),
+        ("faseeh_blend_booq", "بُو <short pause> أَقْ <short pause> بُوقٌ!", "clear, steady, distinct"),
+        ("faseeh_blend_bat", "بَ <short pause> أَطْ <short pause> بَطٌّ!", "clear, steady, distinct"),
+        ("faseeh_blend_qitar", "قِ <short pause> طَا <short pause> أَرْ <short pause> قِطَارٌ!", "clear, steady, distinct"),
+        ("faseeh_blend_ghazal", "غَ <short pause> زَا <short pause> أَلْ <short pause> غَزَالٌ!", "clear, steady, distinct"),
+        ("faseeh_blend_miah", "مِ <short pause> يَا <short pause> أَهْ <short pause> مِيَاهٌ!", "clear, steady, distinct"),
+        ("faseeh_word_zaytoon", "زَيْتُونٌ!", "clear, steady, distinct"),
+        ("faseeh_word_salim", "سَالِمٌ!", "clear, steady, distinct"),
+        ("faseeh_word_nabeeh", "نَبِيهٌ!", "clear, steady, distinct"),
     ]
     for k, t, st in games_words:
         items.append({"key": k, "character": "bassel_module", "text": t, "style": st, "voice": DEFAULT_FASEEH_VOICE})
@@ -414,7 +420,7 @@ def parse_js_module_dialogues():
             "key": f"game_quiz_q{idx}",
             "character": "bassel_module",
             "text": q_txt.strip(),
-            "style": "warm, encouraging Arabic primary teacher reading a quiz question clearly to children",
+            "style": "warm, encouraging, clear",
             "voice": DEFAULT_FASEEH_VOICE
         })
 
@@ -429,7 +435,7 @@ def parse_js_module_dialogues():
             "key": f"game_lam_w{idx}",
             "character": "bassel_module",
             "text": w_txt.strip(),
-            "style": "warm, clear Arabic primary teacher pronouncing a single word distinctly",
+            "style": "clear, steady, distinct",
             "voice": DEFAULT_FASEEH_VOICE
         })
 
@@ -452,7 +458,7 @@ def parse_js_module_dialogues():
                 "key": f"rt_{play_id}_l{l_idx}",
                 "character": "bassel_module",
                 "text": l_txt.strip(),
-                "style": "expressive, theatrical, warm Arabic primary teacher performing a children's classroom play line with clear articulation",
+                "style": "expressive, theatrical, warm",
                 "voice": DEFAULT_FASEEH_VOICE
             })
 
@@ -469,7 +475,7 @@ def parse_js_module_dialogues():
                 "key": f"rt_{convo_id}_partner",
                 "character": "bassel_module",
                 "text": m_msg.group(1).strip(),
-                "style": "warm, friendly Arabic primary teacher speaking naturally in a classroom conversation",
+                "style": "warm, friendly, conversational",
                 "voice": DEFAULT_FASEEH_VOICE
             })
 
@@ -477,14 +483,14 @@ def parse_js_module_dialogues():
         "key": "rt_convo_feedback_correct",
         "character": "bassel_module",
         "text": "أَحْسَنْتَ يَا بَطَلُ! <short pause> تَعْبِيرُكَ صَحِيحٌ وَنَبْرَتُكَ مُؤَدَّبَةٌ وَرَائِعَةٌ!",
-        "style": "excited, joyful, proud, smiling Arabic primary teacher praising a young child",
+        "style": "joyful, proud, encouraging",
         "voice": DEFAULT_FASEEH_VOICE
     })
     items.append({
         "key": "rt_convo_feedback_retry",
         "character": "bassel_module",
         "text": "حَاوِلْ مَرَّةً أُخْرَى بِنَبْرَةٍ أَكْثَرَ لُطْفاً وَتَعْبِيراً يَا بَطَلُ!",
-        "style": "gentle, patient, encouraging Arabic primary teacher guiding a child kindly to try again",
+        "style": "gentle, patient, reassuring",
         "voice": DEFAULT_FASEEH_VOICE
     })
 
@@ -506,7 +512,7 @@ def parse_js_module_dialogues():
                 "key": f"ss_{book_id}_p{p_idx}",
                 "character": "bassel_module",
                 "text": b_txt.strip(),
-                "style": "warm, expressive, cheerful Arabic primary teacher reading a children's picture storybook",
+                "style": "warm, expressive storytelling",
                 "voice": DEFAULT_FASEEH_VOICE
             })
 
@@ -519,7 +525,7 @@ def parse_js_module_dialogues():
             "key": f"ss_default_story_p{p_idx}",
             "character": "bassel_module",
             "text": b_txt.strip(),
-            "style": "warm, expressive, cheerful Arabic primary teacher reading a children's picture storybook",
+            "style": "warm, expressive storytelling",
             "voice": DEFAULT_FASEEH_VOICE
         })
 
@@ -537,7 +543,7 @@ def parse_js_module_dialogues():
                 "key": f"ss_{ch_id}_prompt",
                 "character": "bassel_module",
                 "text": m_desc.group(1).strip(),
-                "style": "warm, encouraging Arabic primary teacher presenting a story puzzle to children",
+                "style": "warm, encouraging, clear",
                 "voice": DEFAULT_FASEEH_VOICE
             })
         if m_win:
@@ -545,7 +551,7 @@ def parse_js_module_dialogues():
                 "key": f"ss_{ch_id}_win",
                 "character": "bassel_module",
                 "text": m_win.group(1).strip(),
-                "style": "excited, joyful Arabic primary teacher celebrating a completed story",
+                "style": "joyful, proud, encouraging",
                 "voice": DEFAULT_FASEEH_VOICE
             })
 
@@ -676,8 +682,10 @@ def build_dialogues_manifest(api_key):
         seen_keys.add(it["key"])
         merged_items.append(it)
 
-    manifest["meta"]["version"] = "v3.62"
+    manifest["meta"]["version"] = "v3.63"
     manifest["meta"]["faseeh_voice"] = DEFAULT_FASEEH_VOICE
+    manifest["meta"]["faseeh_style"] = DEFAULT_FASEEH_STYLE
+    manifest["meta"]["tts_model"] = DEFAULT_TTS_MODEL
     manifest["items"] = merged_items
 
     with open(MANIFEST_PATH, 'w', encoding='utf-8') as f:
@@ -690,6 +698,251 @@ def build_dialogues_manifest(api_key):
     print(f"   - bassel_dialogue (Cat A): {sum(1 for i in merged_items if i.get('character') == 'bassel_dialogue')}")
     print(f"   - bassel_module (Cat B): {sum(1 for i in merged_items if i.get('character') == 'bassel_module')}")
     print(f"   - الإجمالي الكلي: {len(merged_items)}")
+    print("=" * 70)
+
+
+PHONEME_PURE_DEFINITIONS = [
+    ("phoneme_pure_alif", "أَ <short pause> أُ <short pause> إِ <short pause> آا"),
+    ("phoneme_pure_baa", "أَبْ <short pause> أَبْ <short pause> بَ"),
+    ("phoneme_pure_taa", "أَتْ <short pause> أَتْ <short pause> تَ"),
+    ("phoneme_pure_thaa", "أَثْ <short pause> أَثْ <short pause> ثَ"),
+    ("phoneme_pure_jeem", "أَجْ <short pause> أَجْ <short pause> جَ"),
+    ("phoneme_pure_haa", "أَحْ <short pause> أَحْ <short pause> حَ"),
+    ("phoneme_pure_khaa", "أَخْ <short pause> أَخْ <short pause> خَ"),
+    ("phoneme_pure_dal", "أَدْ <short pause> أَدْ <short pause> دَ"),
+    ("phoneme_pure_dhal", "أَذْ <short pause> أَذْ <short pause> ذَ"),
+    ("phoneme_pure_raa", "أَرْ <short pause> أَرْ <short pause> رَ"),
+    ("phoneme_pure_zay", "أَزْ <short pause> أَزْ <short pause> زَ"),
+    ("phoneme_pure_seen", "أَسْ <short pause> أَسْ <short pause> سَ"),
+    ("phoneme_pure_sheen", "أَشْ <short pause> أَشْ <short pause> شَ"),
+    ("phoneme_pure_sad", "أَصْ <short pause> أَصْ <short pause> صَ"),
+    ("phoneme_pure_dhad", "أَضْ <short pause> أَضْ <short pause> ضَ"),
+    ("phoneme_pure_ta", "أَطْ <short pause> أَطْ <short pause> طَ"),
+    ("phoneme_pure_dha", "أَظْ <short pause> أَظْ <short pause> ظَ"),
+    ("phoneme_pure_ayn", "أَعْ <short pause> أَعْ <short pause> عَ"),
+    ("phoneme_pure_ghayn", "غَ <short pause> غُ <short pause> غِ"),
+    ("phoneme_pure_faa", "أَفْ <short pause> أَفْ <short pause> فَ"),
+    ("phoneme_pure_qaf", "أَقْ <short pause> أَقْ <short pause> قَ"),
+    ("phoneme_pure_kaf", "أَكْ <short pause> أَكْ <short pause> كَ"),
+    ("phoneme_pure_lam", "أَلْ <short pause> أَلْ <short pause> لَ"),
+    ("phoneme_pure_meem", "أَمْ <short pause> أَمْ <short pause> مَ"),
+    ("phoneme_pure_noon", "أَنْ <short pause> أَنْ <short pause> نَ"),
+    ("phoneme_pure_ha", "أَهْ <short pause> أَهْ <short pause> هَ"),
+    ("phoneme_pure_waw", "أَوْ <short pause> وُو <short pause> وَ"),
+    ("phoneme_pure_yaa", "أَيْ <short pause> يِي <short pause> يَ"),
+    ("letter_marboota_sound", "تْ <short pause> هْ <short pause> مَدْرَسَةْ <short pause> مَدْرَسَةٌ"),
+    ("tanween_dham_sound", "أُنْ <short pause> أُنْ <short pause> دٌ <short pause> رٌ <short pause> وَرْدٌ"),
+    ("shaddah_sound", "قِطْ، طَة <short pause> قِطَّةٌ <short pause> بَطَّةٌ"),
+]
+
+MISSING_V363_DEFINITIONS = [
+    # 53 مفردة معجمية وإملائية وتشخيصية أساسية
+    ("word_alam", "عَلَمٌ", "clear, steady, distinct"),
+    ("word_athath", "أَثَاثٌ", "clear, steady, distinct"),
+    ("word_bab", "بَابٌ", "clear, steady, distinct"),
+    ("word_ban", "بَانٌ", "clear, steady, distinct"),
+    ("word_banat", "بَنَاتٌ", "clear, steady, distinct"),
+    ("word_baqar", "بَقَرٌ", "clear, steady, distinct"),
+    ("word_batt", "بَطٌّ", "clear, steady, distinct"),
+    ("word_bilad", "بِلَادٌ", "clear, steady, distinct"),
+    ("word_booq", "بُوقٌ", "clear, steady, distinct"),
+    ("word_dar", "دَارٌ", "clear, steady, distinct"),
+    ("word_dari", "دَارِي", "clear, steady, distinct"),
+    ("word_dawr", "دَوْرٌ", "clear, steady, distinct"),
+    ("word_deena", "دِينَا", "clear, steady, distinct"),
+    ("word_dhubab", "ذُبَابٌ", "clear, steady, distinct"),
+    ("word_dood", "دُودٌ", "clear, steady, distinct"),
+    ("word_door", "دُورٌ", "clear, steady, distinct"),
+    ("word_fallah", "فَلَّاحٌ", "clear, steady, distinct"),
+    ("word_ghazal", "غَزَالٌ", "clear, steady, distinct"),
+    ("word_haql", "حَقْلٌ", "clear, steady, distinct"),
+    ("word_hawdh", "حَوْضٌ", "clear, steady, distinct"),
+    ("word_hilal", "هِلَالٌ", "clear, steady, distinct"),
+    ("word_jamal", "جَمَلٌ", "clear, steady, distinct"),
+    ("word_khayma", "خَيْمَةٌ", "clear, steady, distinct"),
+    ("word_kitab", "كِتَابٌ", "clear, steady, distinct"),
+    ("word_mahfooth", "مَحْفُوظٌ", "clear, steady, distinct"),
+    ("word_maktaba", "مَكْتَبَةٌ", "clear, steady, distinct"),
+    ("word_mama", "مَامَا", "clear, steady, distinct"),
+    ("word_manaf", "مَنَافٌ", "clear, steady, distinct"),
+    ("word_matar", "مَطَرٌ", "clear, steady, distinct"),
+    ("word_mazin", "مَازِنٌ", "clear, steady, distinct"),
+    ("word_mizan", "مِيزَانٌ", "clear, steady, distinct"),
+    ("word_muroor", "مُرُورٌ", "clear, steady, distinct"),
+    ("word_naam", "نَامَ", "clear, steady, distinct"),
+    ("word_nabeel", "نَبِيلٌ", "clear, steady, distinct"),
+    ("word_nadeem", "نَدِيمٌ", "clear, steady, distinct"),
+    ("word_nakhl", "نَخْلٌ", "clear, steady, distinct"),
+    ("word_natheef", "نَظِيفٌ", "clear, steady, distinct"),
+    ("word_noor", "نُورٌ", "clear, steady, distinct"),
+    ("word_nouri", "نُورِي", "clear, steady, distinct"),
+    ("word_qaddouri", "قَدُّورِي", "clear, steady, distinct"),
+    ("word_qalam", "قَلَمٌ", "clear, steady, distinct"),
+    ("word_qitar", "قِطَارٌ", "clear, steady, distinct"),
+    ("word_reef", "رِيفٌ", "clear, steady, distinct"),
+    ("word_reem", "رِيمٌ", "clear, steady, distinct"),
+    ("word_sabeel", "سَبِيلٌ", "clear, steady, distinct"),
+    ("word_salah", "صَلَاحٌ", "clear, steady, distinct"),
+    ("word_salma", "سَلْمَى", "clear, steady, distinct"),
+    ("word_shurti", "شُرْطِيٌّ", "clear, steady, distinct"),
+    ("word_tayyar", "طَيَّارٌ", "clear, steady, distinct"),
+    ("word_ward", "وَرْدٌ", "clear, steady, distinct"),
+    ("word_wazz", "وَزٌّ", "clear, steady, distinct"),
+    ("word_wazzan", "وَزَّانٌ", "clear, steady, distinct"),
+    ("word_zoraq", "زُورَقٌ", "clear, steady, distinct"),
+    # 13 مفردة إضافية لبطاقات الإثراء والتحدي والاختبارات
+    ("word_babu", "بَابُ", "clear, steady, distinct"),
+    ("word_firas", "فِرَاسٌ", "clear, steady, distinct"),
+    ("word_sarah", "سَارَةُ", "clear, steady, distinct"),
+    ("word_nameer", "نَمِيرٌ", "clear, steady, distinct"),
+    ("word_tuyoor", "طُيُورٌ", "clear, steady, distinct"),
+    ("word_tariq", "طَارِقٌ", "clear, steady, distinct"),
+    ("word_himar", "حِمَارٌ", "clear, steady, distinct"),
+    ("word_tayyarah", "طَيَّارَةٌ", "clear, steady, distinct"),
+    ("word_khaleelin", "خَلِيلٍ", "clear, steady, distinct"),
+    ("word_jaddi", "جَدِّي", "clear, steady, distinct"),
+    ("word_ghurab", "غُرَابٌ", "clear, steady, distinct"),
+    ("word_ustadh", "أُسْتَاذٌ", "clear, steady, distinct"),
+    ("word_muntadhar", "مُنْتَظَرٌ", "clear, steady, distinct"),
+    # 7 مقاطع صوتية تأسيسية نقية
+    ("syl_bu", "بُ <short pause> بُ", "calm, crisp, slow articulation"),
+    ("syl_daa", "دَا <short pause> دَا", "calm, crisp, slow articulation"),
+    ("syl_baa", "بَا <short pause> بَا", "calm, crisp, slow articulation"),
+    ("syl_maa", "مَا <short pause> مَا", "calm, crisp, slow articulation"),
+    ("syl_doo", "دُو <short pause> دُو", "calm, crisp, slow articulation"),
+    ("syl_noo", "نُو <short pause> نُو", "calm, crisp, slow articulation"),
+    ("syl_ree", "رِي <short pause> رِي", "calm, crisp, slow articulation"),
+    # جملتا طلاقة قرائية
+    ("sentence_dar_noor", "دَارُ نُورٍ، <short pause> بَابُ دَارِنَا.", "warm, clear, steady"),
+    ("sentence_booq_nadeem", "بُوقُ نَدِيمٍ قَدِيمٌ، <short pause> نَدِيمٌ يَقُودُ بَقَرَ بَدْرَانَ.", "warm, clear, steady"),
+    # 5 قصص قطار القراءة التعبيرية (Voice Coach)
+    ("story_dada_rabab", "دَادَا رَبَاب <short pause> نَمِيرٌ قَارِئٌ <short pause> نَامَ بَدْرِي.", "warm, expressive storytelling"),
+    ("story_mizan_qaddouri", "مِيزَانُ قَدُّورِي <short pause> قَدُّورِي وَزَّانٌ <short pause> وَزَنَ زَبِيبَ مَازِن.", "warm, expressive storytelling"),
+    ("story_reef_manaf", "رِيفُ مَنَاف <short pause> فِي رِيفِ مَنَاف بَقَرٌ وَوَزٌّ.", "warm, expressive storytelling"),
+    ("story_school_pupil", "أَنَا تِلْمِيذٌ نَشِيطٌ <short pause> أَقْرَأُ دُرُوسِي كُلَّ يَوْمٍ.", "warm, expressive storytelling"),
+    ("story_swimming_pool", "صَلَاحٌ فَلَّاحٌ <short pause> يَزْرَعُ الْحَقْلَ وَيَسْبَحُ فِي الْحَوْضِ.", "warm, expressive storytelling"),
+    # صوتا التفاعل والتشجيع في الدروس
+    ("applause", "أَحْسَنْتَ يَا بَطَلُ! <short pause> تَصْفِيقٌ حَارٌّ لِهَذَا التَّقْطِيعِ الصَّوْتِيِّ الرَّائِعِ!", "joyful, proud, encouraging"),
+    ("hint_draw", "تَمَّ مَسْحُ السَّبُّورَةِ! <short pause> هَيَّا ارْسُمِ الْحَرْفَ مَرَّةً أُخْرَى بِخَطٍّ جَمِيلٍ يَا بَطَلُ!", "warm, encouraging"),
+]
+
+
+def build_v363_manifest():
+    """تحديث tts_manifest.json بالكامل للإصدار v3.63 بصوت الأستاذ باسل المضبوط ومكتبة الـ 28 حرفاً والـ 123 مفتاحاً"""
+    if not os.path.exists(MANIFEST_PATH):
+        raise FileNotFoundError(f"ملف الجدول غير موجود: {MANIFEST_PATH}")
+
+    with open(MANIFEST_PATH, 'r', encoding='utf-8') as f:
+        manifest = json.load(f)
+
+    protected_keys, _ = get_protected_keys()
+    old_items = manifest.get("items", [])
+
+    # تنظيف وتحديث عناصر faseeh (50) و bassel_dialogue (538) والإبقاء على teacher (4)
+    updated_items = []
+    seen = set()
+
+    # إعادة توليد bassel_module محدثاً من الكود
+    module_map = {it["key"]: it for it in parse_js_module_dialogues()}
+
+    for it in old_items:
+        k = it["key"]
+        ch = it.get("character")
+        if k in seen:
+            continue
+        if ch == "teacher":
+            seen.add(k)
+            updated_items.append(it)
+        elif ch == "faseeh":
+            txt = it["text"]
+            txt = txt.replace("<chuckle> ", "").replace("<chuckle>", "")
+            if k == "letter_ha_phoneme_faseeh":
+                txt = txt.replace("هَـ <short pause> هُـ <short pause> هِـ", "هَ <short pause> هُ <short pause> هِ")
+            if k == "faseeh_blend_firas":
+                txt = txt.replace("فِـ", "فِ")
+            style = select_style_for_key(k)
+            if "phoneme" in k or "vowels" in k:
+                style = "warm, clear, steady articulation"
+            elif "blend" in k:
+                style = "clear, steady, distinct"
+            elif k in ("mascot_welcome", "voice_preview_bassel", "voice_confirm_bassel", "voice_confirm_integrated", "unit2_welcome_bassel"):
+                style = "warm, cheerful, clear"
+            seen.add(k)
+            updated_items.append({
+                "key": k,
+                "character": "faseeh",
+                "text": txt.strip(),
+                "style": style,
+                "voice": DEFAULT_FASEEH_VOICE,
+            })
+        elif ch == "bassel_module":
+            if k in module_map:
+                seen.add(k)
+                updated_items.append(module_map[k])
+        elif ch == "bassel_dialogue":
+            if k in protected_keys:
+                continue
+            seen.add(k)
+            updated_items.append({
+                "key": k,
+                "character": "bassel_dialogue",
+                "text": it["text"],
+                "style": select_style_for_key(k),
+                "voice": DEFAULT_FASEEH_VOICE,
+            })
+
+    # التأكد من إضافة أي عناصر bassel_module جديدة
+    for k, it in module_map.items():
+        if k not in seen and k not in protected_keys:
+            seen.add(k)
+            updated_items.append(it)
+
+    # إضافة مكتبة الأصوات الفونيمية النقية للـ 28 حرفاً + القواعد الثلاث
+    for k, txt in PHONEME_PURE_DEFINITIONS:
+        if k in protected_keys:
+            raise RuntimeError(f"مفتاح محمي في PHONEME_PURE_DEFINITIONS: {k}")
+        if k in seen:
+            continue
+        seen.add(k)
+        updated_items.append({
+            "key": k,
+            "character": "phoneme_pure",
+            "text": txt,
+            "style": "calm, crisp, slow articulation",
+            "voice": DEFAULT_FASEEH_VOICE,
+        })
+
+    # إضافة الـ 82 عنصراً المفقوداً لتصفير أخطاء الصوت 404
+    for k, txt, st in MISSING_V363_DEFINITIONS:
+        if k in protected_keys:
+            raise RuntimeError(f"مفتاح محمي في MISSING_V363_DEFINITIONS: {k}")
+        if k in seen:
+            continue
+        seen.add(k)
+        updated_items.append({
+            "key": k,
+            "character": "missing_v363",
+            "text": txt,
+            "style": st,
+            "voice": DEFAULT_FASEEH_VOICE,
+        })
+
+    manifest["meta"]["version"] = "v3.63"
+    manifest["meta"]["faseeh_voice"] = DEFAULT_FASEEH_VOICE
+    manifest["meta"]["faseeh_style"] = DEFAULT_FASEEH_STYLE
+    manifest["meta"]["tts_model"] = DEFAULT_TTS_MODEL
+    manifest["items"] = updated_items
+
+    with open(MANIFEST_PATH, 'w', encoding='utf-8') as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+
+    from collections import Counter
+    counts = Counter(i.get("character") for i in updated_items)
+    print("=" * 70)
+    print(f"✔ تم بناء جدول الإصدار v3.63 في {MANIFEST_PATH}:")
+    for ch, cnt in counts.items():
+        print(f"   - {ch}: {cnt}")
+    print(f"   - الإجمالي الكلي: {len(updated_items)}")
     print("=" * 70)
 
 
@@ -980,6 +1233,10 @@ def build_batch_jsonl_bytes(chunk_items, default_voice, default_style):
         if style_to_use:
             part["speechMetadata"] = {"style": style_to_use}
         voice_to_use = item.get("voice") or default_voice
+        if voice_to_use.startswith(("voice_", "voicekey_")):
+            voice_config = {"voice": voice_to_use}
+        else:
+            voice_config = {"prebuiltVoiceConfig": {"voiceName": voice_to_use}}
         line_obj = {
             "key": item["key"],
             "request": {
@@ -987,9 +1244,7 @@ def build_batch_jsonl_bytes(chunk_items, default_voice, default_style):
                 "generationConfig": {
                     "responseModalities": ["AUDIO"],
                     "speechConfig": {
-                        "voiceConfig": {
-                            "prebuiltVoiceConfig": {"voiceName": voice_to_use}
-                        }
+                        "voiceConfig": voice_config
                     }
                 }
             }
@@ -1190,7 +1445,7 @@ def run_batch_generation(
         while len(active_jobs) < max(1, batch_concurrency) and pending_chunks:
             chunk = pending_chunks[0]
             c_idx = next_chunk_idx
-            disp = f"qiraati-tts-v362-chunk-{c_idx}"
+            disp = f"qiraati-tts-v363-chunk-{c_idx}"
             jsonl_bytes = build_batch_jsonl_bytes(chunk, default_voice, default_style)
             file_name = upload_jsonl_to_files_api(jsonl_bytes, disp, api_key)
             try:
@@ -1334,10 +1589,11 @@ def main():
     parser.add_argument("--all", action="store_true", help="توليد كافة العناصر الواردة في الجدول")
     parser.add_argument("--overwrite-human", action="store_true", help="استبدال الملفات المحمية (بحذر)")
     parser.add_argument("--build-dialogues-manifest", action="store_true", help="بناء وتحديث جدول الحوارات والمسرح والألعاب")
+    parser.add_argument("--build-v363-manifest", action="store_true", help="تحديث جدول v3.63 بالصوت المعاير ومكتبة الفونيمات النقية الـ 28 والمفاتيح المفقودة")
     parser.add_argument("--workers", type=int, default=4, help="عدد مسارات التوليد المتوازية")
     parser.add_argument("--bitrate", type=str, default="96k", help="معدل البت لـ MP3 (مثل 64k أو 96k)")
-    parser.add_argument("--model", type=str, default=DEFAULT_TTS_MODEL, help="نموذج توليد الصوت (الافتراضي: gemini-3.8-flash-lite-tts)")
-    parser.add_argument("--resume", action="store_true", help="تخطي المفاتيح المنجزة مسبقاً في tts_done_v362.json")
+    parser.add_argument("--model", type=str, default=DEFAULT_TTS_MODEL, help="نموذج توليد الصوت (الافتراضي: gemini-3.8-flash-tts)")
+    parser.add_argument("--resume", action="store_true", help="تخطي المفاتيح المنجزة مسبقاً في tts_done_v363.json")
     parser.add_argument("--batch", action="store_true", help="تشغيل التوليد عبر Gemini Batch API بحصة منفصلة وبنصف التكلفة")
     parser.add_argument("--batch-size", type=int, default=120, help="عدد العناصر في كل دفعة Batch API")
     parser.add_argument("--batch-concurrency", type=int, default=2, help="الحد الأقصى للدفعات النشطة بالتوازي")
@@ -1345,6 +1601,11 @@ def main():
     args = parser.parse_args()
 
     api_key = get_gemini_api_key()
+
+    if args.build_v363_manifest:
+        build_v363_manifest()
+        if not (args.key or args.keys or args.all or args.character):
+            sys.exit(0)
 
     if args.build_dialogues_manifest:
         build_dialogues_manifest(api_key)
@@ -1404,7 +1665,7 @@ def main():
         pending_items.append(it)
 
     print("=" * 65, flush=True)
-    print("🚀 بدء التوليد الصوتي التعبيري لمنصة قراءتي الذكية (v3.62)", flush=True)
+    print("🚀 بدء التوليد الصوتي التعبيري لمنصة قراءتي الذكية (v3.63)", flush=True)
     print(f"   • المطلوب: {len(items)} | مستأنف/مكتمل مسبقاً: {skipped_resume} | متبقي للتوليد: {len(pending_items)}", flush=True)
     if args.batch:
         print(f"   • الوضع: Batch API | النموذج: {args.model} | حجم الدفعة: {args.batch_size} | تزامن الدفعات: {args.batch_concurrency} | معدل البت: {args.bitrate} | الصوت: {default_voice}", flush=True)

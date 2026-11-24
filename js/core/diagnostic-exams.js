@@ -27,7 +27,7 @@
                     domain: 'phonemic_awareness',
                     domainName: 'الوعي الصوتي والفونيمي',
                     prompt: 'ما هو الصوت الأول الذي تبدأ به كلمة (دَار)؟',
-                    audioKey: 'sound_da',
+                    audioKey: 'phoneme_pure_dal',
                     options: [
                         { text: 'دَ', isCorrect: true },
                         { text: 'رَ', isCorrect: false },
@@ -39,7 +39,7 @@
                     domain: 'letter_knowledge',
                     domainName: 'معرفة الحروف وأشكالها',
                     prompt: 'اختر شكل حرف (الباء) في أول الكلمة:',
-                    audioKey: 'letter_b',
+                    audioKey: 'phoneme_pure_baa',
                     options: [
                         { text: 'بـ', isCorrect: true },
                         { text: 'ـبـ', isCorrect: false },
@@ -107,7 +107,7 @@
                     domain: 'letter_knowledge',
                     domainName: 'معرفة الحروف وأشكالها',
                     prompt: 'اختر حرف (القاف) في آخر الكلمة متصلاً من بين الآتي:',
-                    audioKey: 'letter_qaf',
+                    audioKey: 'phoneme_pure_qaf',
                     options: [
                         { text: 'ـق', isCorrect: true },
                         { text: 'قـ', isCorrect: false },

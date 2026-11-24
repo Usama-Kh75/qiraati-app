@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 بوابة الفحص والجودة الآلية الإلزامية قبل كل إصدار
-لمنصة قراءتي التفاعلية الذكية (v3.62)
+لمنصة قراءتي التفاعلية الذكية (v3.63)
 إعداد وتطوير: المهندس أسامة خليل هاشم
 
 تقوم هذه الأداة بإجراء كافة الفحوصات الصارمة لمنع أي أخطاء قبل النشر:
@@ -9,8 +9,9 @@
 2. فحص السلامة النحوية عبر node --check لجميع ملفات js/**/*.js و sw.js (0 أخطاء).
 3. فحص index.html للتحقق من خلوه تماماً من المعرفات المكررة (0 Duplicate IDs) والتحقق من وجود loading="lazy" للصور واستضافة خط Tajawal محلياً.
 4. فحص تكامل وجود كافة الصور والأصول الرقمية المذكورة في الكود والتحقق الصارم من وجودها على القرص (0 صور مكسورة 404).
-5. الفحص الأمني الصارم لعدم وجود أي مفاتيح سرية (AIza...) في أي ملف واجهة أمامي.
-6. مطابقة رقم الإصدار (v3.62) وترقية مخزن الكاش إلى (qiraati-smart-v85).
+5. فحص مكتبة الأصوات الفونيمية النقية للـ 28 حرفاً وجميع مفاتيح الصوت الحرفية في الواجهات والكود (0 مفاتيح مفقودة).
+6. الفحص الأمني الصارم لعدم وجود أي مفاتيح سرية (AIza...) في أي ملف واجهة أمامي.
+7. مطابقة رقم الإصدار (v3.63) وترقية مخزن الكاش إلى (qiraati-smart-v86).
 """
 
 import os
@@ -28,7 +29,7 @@ def print_header(title):
     print("=" * 70)
 
 def step1_build():
-    print_header("[1/6] بناء وتجميع الواجهات والحزمة المستقلة")
+    print_header("[1/7] بناء وتجميع الواجهات والحزمة المستقلة")
     # 1. build.py
     cmd_build = [sys.executable, os.path.join(BASE_DIR, 'tools', 'build.py')]
     res_b = subprocess.run(cmd_build, capture_output=True, text=True, encoding='utf-8')
@@ -49,7 +50,7 @@ def step1_build():
     return True
 
 def step2_syntax_check():
-    print_header("[2/6] الفحص النحوي الشامل لأكواد JavaScript (node --check)")
+    print_header("[2/7] الفحص النحوي الشامل لأكواد JavaScript (node --check)")
     js_files = glob.glob(os.path.join(BASE_DIR, 'js', '**', '*.js'), recursive=True)
     js_files.append(os.path.join(BASE_DIR, 'sw.js'))
 
@@ -72,7 +73,7 @@ def step2_syntax_check():
     return True
 
 def step3_dom_integrity():
-    print_header("[3/6] فحص سلامة DOM والصور في index.html")
+    print_header("[3/7] فحص سلامة DOM والصور في index.html")
     index_path = os.path.join(BASE_DIR, 'index.html')
     if not os.path.exists(index_path):
         print("❌ ملف index.html غير موجود!")
@@ -104,7 +105,7 @@ def step3_dom_integrity():
     return True
 
 def step4_image_assets_integrity():
-    print_header("[4/6] فحص تكامل وجود كافة الصور والأصول الرقمية (0 صور مكسورة 404)")
+    print_header("[4/7] فحص تكامل وجود كافة الصور والأصول الرقمية (0 صور مكسورة 404)")
     scan_files = (
         glob.glob(os.path.join(BASE_DIR, 'js', '**', '*.js'), recursive=True) +
         glob.glob(os.path.join(BASE_DIR, 'views', '**', '*.html'), recursive=True) +
@@ -143,8 +144,70 @@ def step4_image_assets_integrity():
     print(f"✔ تكامل الصور 100%: تم فحص {checked_count} إشارة للصور في {len(scan_files)} ملفاً، وكافة الصور موجودة على القرص (0 صور مكسورة).")
     return True
 
-def step5_security_scan():
-    print_header("[5/6] الفحص الأمني لعدم وجود مفاتيح سرية (Secret Keys Scan)")
+def step5_audio_assets_integrity():
+    print_header("[5/7] فحص مكتبة الأصوات الفونيمية النقية الـ 28 وسلامة المفاتيح الصوتية (0 مفاتيح مفقودة)")
+    required_pure_phonemes = [
+        "phoneme_pure_alif", "phoneme_pure_baa", "phoneme_pure_taa", "phoneme_pure_thaa",
+        "phoneme_pure_jeem", "phoneme_pure_haa", "phoneme_pure_khaa", "phoneme_pure_dal",
+        "phoneme_pure_dhal", "phoneme_pure_raa", "phoneme_pure_zay", "phoneme_pure_seen",
+        "phoneme_pure_sheen", "phoneme_pure_sad", "phoneme_pure_dhad", "phoneme_pure_ta",
+        "phoneme_pure_dha", "phoneme_pure_ayn", "phoneme_pure_ghayn", "phoneme_pure_faa",
+        "phoneme_pure_qaf", "phoneme_pure_kaf", "phoneme_pure_lam", "phoneme_pure_meem",
+        "phoneme_pure_noon", "phoneme_pure_ha", "phoneme_pure_waw", "phoneme_pure_yaa",
+        "letter_marboota_sound", "tanween_dham_sound", "shaddah_sound"
+    ]
+    missing_phonemes = []
+    for k in required_pure_phonemes:
+        p = os.path.join(BASE_DIR, 'audio', f'{k}.mp3')
+        if not (os.path.exists(p) and os.path.getsize(p) >= 2500):
+            missing_phonemes.append(k)
+    if missing_phonemes:
+        print(f"❌ ملفات فونيمات نقية مفقودة أو صغيرة الحجم ({len(missing_phonemes)}):")
+        for k in missing_phonemes:
+            print(f"  - audio/{k}.mp3")
+        return False
+    print(f"✔ مكتبة الأصوات الفونيمية النقية مكتملة 100% ({len(required_pure_phonemes)} ملفاً >= 2500 بايت).")
+
+    scan_files = sorted(
+        glob.glob(os.path.join(BASE_DIR, 'views', '**', '*.html'), recursive=True) +
+        glob.glob(os.path.join(BASE_DIR, 'js', '**', '*.js'), recursive=True) +
+        ([os.path.join(BASE_DIR, 'curriculum_data.js')] if os.path.exists(os.path.join(BASE_DIR, 'curriculum_data.js')) else [])
+    )
+    ignored_tokens = {'faseeh_ai_tts'}
+    patterns = [
+        re.compile(r"playAudio\s*\(\s*['\"]([a-zA-Z0-9_\-]+)['\"]\s*(?=[),])"),
+        re.compile(r"mascotSpeak\s*\([^;\n)]*?,\s*['\"]([a-zA-Z0-9_\-]+)['\"]\s*(?=[),])"),
+        re.compile(r"\baudioKey\s*:\s*['\"]([a-zA-Z0-9_\-]+)['\"]\s*(?=[,}\]])"),
+        re.compile(r"\bsoundKey\s*:\s*['\"]([a-zA-Z0-9_\-]+)['\"]\s*(?=[,}\]])"),
+        re.compile(r"\baudio\s*:\s*['\"]([a-zA-Z0-9_\-]+)['\"]\s*(?=[,}\]])"),
+    ]
+    checked_keys = set()
+    missing_audio = []
+    for sf in scan_files:
+        rel_src = os.path.relpath(sf, BASE_DIR)
+        with open(sf, 'r', encoding='utf-8', errors='ignore') as fp:
+            content = fp.read()
+        for pat in patterns:
+            for m in pat.finditer(content):
+                k = m.group(1)
+                if k in ignored_tokens:
+                    continue
+                checked_keys.add(k)
+                target = os.path.join(BASE_DIR, 'audio', f'{k}.mp3')
+                if not (os.path.exists(target) and os.path.getsize(target) >= 2500):
+                    missing_audio.append((rel_src, k))
+
+    if missing_audio:
+        print(f"❌ تم العثور على {len(set(missing_audio))} مفاتيح صوتية مفقودة على القرص (404 Not Found):")
+        for src, k in sorted(set(missing_audio)):
+            print(f"  - في {src}: audio/{k}.mp3")
+        return False
+
+    print(f"✔ تكامل الملفات الصوتية 100%: تم التحقق من {len(checked_keys)} مفتاحاً صوتياً فريداً في {len(scan_files)} ملفاً (0 مفاتيح مفقودة).")
+    return True
+
+def step6_security_scan():
+    print_header("[6/7] الفحص الأمني لعدم وجود مفاتيح سرية (Secret Keys Scan)")
     scan_files = (
         glob.glob(os.path.join(BASE_DIR, 'js', '**', '*.js'), recursive=True) +
         glob.glob(os.path.join(BASE_DIR, 'views', '**', '*.html'), recursive=True) +
@@ -175,8 +238,8 @@ def step5_security_scan():
     print(f"✔ الأمان الرقمي 100%: تم مسح {len(scan_files)} ملفاً، ولم يُعثر على أي مفتاح سري.")
     return True
 
-def step6_version_alignment():
-    print_header("[6/6] مطابقة رقم الإصدار (v3.62) ومخزن الكاش (qiraati-smart-v85) واستضافة الخطوط")
+def step7_version_alignment():
+    print_header("[7/7] مطابقة رقم الإصدار (v3.63) ومخزن الكاش (qiraati-smart-v86) واستضافة الخطوط")
     top_shell = os.path.join(BASE_DIR, 'views', 'app-shell-top.html')
     sw_file = os.path.join(BASE_DIR, 'sw.js')
     index_file = os.path.join(BASE_DIR, 'index.html')
@@ -203,8 +266,8 @@ def step6_version_alignment():
     print(f"  - إصدار عامل الخدمة (sw.js): {sw_ver}")
     print(f"  - اسم مخزن الكاش (sw.js): {sw_cache}")
 
-    expected_ver = "v3.62"
-    expected_cache = "qiraati-smart-v85"
+    expected_ver = "v3.63"
+    expected_cache = "qiraati-smart-v86"
 
     errors = []
     if top_ver != expected_ver:
@@ -242,13 +305,13 @@ def step6_version_alignment():
             print(f"  - {e}")
         return False
 
-    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.62 وكاش qiraati-smart-v85 وملفات خط Tajawal المحلية (8 WOFF2).")
+    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.63 وكاش qiraati-smart-v86 وملفات خط Tajawal المحلية (8 WOFF2).")
     return True
 
 def main():
     print("=" * 70)
     print("🛡️ منصة قراءتي التفاعلية الذكية - بوابة الفحص الآلي الإلزامية")
-    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.62)")
+    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.63)")
     print("=" * 70)
 
     steps = [
@@ -256,8 +319,9 @@ def main():
         ("الفحص النحوي", step2_syntax_check),
         ("سلامة المعرفات والصور في DOM", step3_dom_integrity),
         ("تكامل وجود الصور والأصول (0 أخطاء 404)", step4_image_assets_integrity),
-        ("الفحص الأمني", step5_security_scan),
-        ("مطابقة الإصدار والكاش", step6_version_alignment)
+        ("سلامة المكتبة الفونيمية ومفاتيح الصوت (0 أخطاء 404)", step5_audio_assets_integrity),
+        ("الفحص الأمني", step6_security_scan),
+        ("مطابقة الإصدار والكاش", step7_version_alignment)
     ]
 
     all_passed = True

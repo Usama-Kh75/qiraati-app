@@ -66,7 +66,7 @@
             question: 'ما هو الصوت الأخير في كلمة «دَار»؟',
             pic: 'activity_r_scene.png',
             audioWord: 'دَار',
-            audioKey: 'letter_r_read_dar',
+            audioKey: 'word_dar',
             options: ['صوت الدال (د)', 'صوت الراء (ر)', 'صوت النون (ن)', 'صوت الباء (ب)'],
             correct: 1,
             hint: 'تنتهي بصوت الراء مثل الزحليقة'
@@ -90,7 +90,7 @@
             question: 'أي الكلمات التالية تحوي صوتاً طويلاً (مد الواو)؟',
             pic: 'activity_n_scene.png',
             audioWord: 'نُور',
-            audioKey: 'act5_noor',
+            audioKey: 'word_noor',
             options: ['نُور', 'دُبّ', 'قُم', 'رُبَّ'],
             correct: 0,
             hint: 'واو المد تجعل الصوت ممدوداً (نُو)'
@@ -140,7 +140,7 @@
             question: 'ما هو الحرف الذي يميز كلمة «بُوق» في نهايتها؟',
             pic: 'activity_booq_scene.png',
             audioWord: 'بُوق',
-            audioKey: 'letter_q_booq_syllables',
+            audioKey: 'word_booq',
             options: ['حرف القاف (ق)', 'حرف الفاء (ف)', 'حرف الكاف (ك)', 'حرف اللام (ل)'],
             correct: 0,
             hint: 'قاف آخرية منفصلة فوقها نقطتان'
@@ -152,7 +152,7 @@
             question: 'كلمة «سَالِم» تبدأ بحرف:',
             pic: 'activity_salim_scene.png',
             audioWord: 'سَالِم',
-            audioKey: 'letter_ayn_salim_syllables',
+            audioKey: 'faseeh_word_salim',
             options: ['السين (سـ)', 'الشين (شـ)', 'الصاد (صـ)', 'الطاء (طـ)'],
             correct: 0,
             hint: 'له ثلاثة أسنان لطيفة'
@@ -164,7 +164,7 @@
             question: 'في كلمة «نَبِيل»، الحرف الأخير هو:',
             pic: 'activity_nabeel_scene.png',
             audioWord: 'نَبِيل',
-            audioKey: 'letter_l_words_intro',
+            audioKey: 'word_nabeel',
             options: ['اللام (ـل)', 'الدال (ـد)', 'الباء (ـب)', 'الراء (ـر)'],
             correct: 0,
             hint: 'لام متصلة تشبه عكاز المظلة'
@@ -190,7 +190,7 @@
             question: 'ما هي المقاطع الصحيحة لكلمة «بَابَا»؟',
             pic: 'unit1_story_living.png',
             audioWord: 'بَابَا',
-            audioKey: 'letter_b_read_baba',
+            audioKey: 'faseeh_blend_baba',
             options: ['بَا + بَا', 'بَـ + ابَا', 'بَاب + َا', 'بُو + بُو'],
             correct: 0,
             hint: 'مقطعان متماثلان يبدآن بالباء'
@@ -202,7 +202,7 @@
             question: 'ركب المقطع والحرف: «نُو» + «ر» = ؟',
             pic: 'activity_n_scene.png',
             audioWord: 'نُور',
-            audioKey: 'act5_noor',
+            audioKey: 'word_noor',
             options: ['نُور', 'نَار', 'نَمِير', 'نَدِيم'],
             correct: 0,
             hint: 'اسم البنت الجميلة وأخت ريم'
@@ -214,7 +214,7 @@
             question: 'كم مقطعاً صوتياً تتكون منه كلمة «قِـ ـطَـا ر»؟',
             pic: 'activity_tanween_dham_scene.png',
             audioWord: 'قِطَار',
-            audioKey: 'tanween_dham_qitarun',
+            audioKey: 'word_qitar',
             options: ['3 مقاطع (قِـ + طَا + ر)', 'مقطعان فقط', 'مقطع واحد', '4 مقاطع'],
             correct: 0,
             hint: 'قِـ (قصير) + طَا (مد طويل) + ر (ساكن)'
@@ -240,7 +240,7 @@
             question: 'ما الحركة الموضوعة فوق الراء في كلمة «دَارُ نُورِي»؟',
             pic: 'activity_r_scene.png',
             audioWord: 'دَارُ',
-            audioKey: 'letter_r_read_dar',
+            audioKey: 'word_dar',
             options: ['الضمة (ـُ)', 'الفتحة (ـَ)', 'الكسرة (ـِ)', 'السكون (ـْ)'],
             correct: 0,
             hint: 'واو صغيرة فوق الحرف تضم الشفتين'
@@ -252,7 +252,7 @@
             question: 'أي الكلمات التالية تنتهي بتنوين الضم (ـٌ)؟',
             pic: 'activity_tanween_dham_scene.png',
             audioWord: 'قِطَارٌ',
-            audioKey: 'tanween_dham_qitarun',
+            audioKey: 'word_qitar',
             options: ['قِطَارٌ', 'قِطَارَ', 'قِطَارِ', 'قِطَارْ'],
             correct: 0,
             hint: 'ضمتان متجاورتان تُلفظان بنغمة نون ساكنة'
@@ -302,7 +302,7 @@
             question: 'في درس قراءتي: ماذا كان يفعل بابا في القصة المصورة؟',
             pic: 'unit1_story_living.png',
             audioWord: 'بَابَا',
-            audioKey: 'letter_b_read_baba',
+            audioKey: 'faseeh_blend_baba',
             options: ['يَقْرَأُ الْجَرِيدَةَ مَعَ الأُسْرَة', 'يَطْبُخُ الطَّعَام', 'يَسْبَحُ فِي الشَّطّ', 'يَنَامُ فِي السَّرِير'],
             correct: 0,
             hint: 'يجلس في غرفة المعيشة مبتسماً يقرأ'
@@ -314,7 +314,7 @@
             question: 'بوق مَن كان قديماً في درس القراءة؟',
             pic: 'activity_booq_scene.png',
             audioWord: 'بُوقُ نَدِيم',
-            audioKey: 'letter_q_booq_syllables',
+            audioKey: 'word_booq',
             options: ['بُوقُ نَدِيمٍ', 'بُوقُ زَيْدٍ', 'بُوقُ فَارِسٍ', 'بُوقُ سَالِمٍ'],
             correct: 0,
             hint: 'بُوقُ نَدِيمٍ قَدِيمٌ'

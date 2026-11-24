@@ -17,6 +17,25 @@
     // 1. قاعدة بيانات مخارج الحروف العربية وتشريح الصوت المنهجي
     // ==========================================================================
     const ARTICULATION_DATABASE = {
+        'ا': {
+            char: 'ا',
+            name: 'الألف والهمزة',
+            category: 'throat',
+            categoryName: 'الجوف وأقصى الحلق',
+            makhrajPoint: 'الجوف لمد الألف وأقصى الحلق للهمزة',
+            description: 'يخرج مد الألف صافيًا من الجوف مع فتح الفم باعتدال، بينما تخرج الهمزة بنبرة حنجرية واضحة من أقصى الحلق.',
+            traits: { voice: 'مجهور', force: 'شديد للهمزة / رخو للمد', tone: 'مرقق' },
+            vowels: ['أَ', 'أُ', 'إِ'],
+            mad: ['آ', 'بَا', 'دَا'],
+            audioKey: 'phoneme_pure_alif',
+            modelWord: 'أَسَد',
+            confusable: {
+                pair: 'أ / ع',
+                target: 'أ (أَمِين)',
+                confused: 'ع (عَلَم)',
+                advice: 'تخرج الهمزة من أقصى الحلق قرب الحنجرة بنبرة واضحة، بينما تخرج العين من وسط الحلق بعمق!'
+            }
+        },
         'د': {
             char: 'د',
             name: 'الدال',
@@ -27,7 +46,7 @@
             traits: { voice: 'مجهور (اهتزاز الحبال)', force: 'شديد (انحباس الصوت)', tone: 'مرقق (لسان مستفل)' },
             vowels: ['دَ', 'دُ', 'دِ'],
             mad: ['دَا', 'دُو', 'دِي'],
-            audioKey: 'sound_da',
+            audioKey: 'phoneme_pure_dal',
             modelWord: 'دَار',
             confusable: {
                 pair: 'د / ض',
@@ -46,7 +65,7 @@
             traits: { voice: 'مجهور', force: 'بيني (متوسط)', tone: 'مفخم مع الفتح / مرقق مع الكسر' },
             vowels: ['رَ', 'رُ', 'رِ'],
             mad: ['رَا', 'رُو', 'رِي'],
-            audioKey: 'sound_ra',
+            audioKey: 'phoneme_pure_raa',
             modelWord: 'رِيم',
             confusable: {
                 pair: 'ر / ل',
@@ -65,7 +84,7 @@
             traits: { voice: 'مجهور', force: 'رخو (جريان الصوت)', tone: 'مرقق' },
             vowels: ['وَ', 'وُ', 'وِ'],
             mad: ['وَا', 'وُو', 'وِي'],
-            audioKey: 'sound_wa',
+            audioKey: 'phoneme_pure_waw',
             modelWord: 'وَرْد',
             confusable: {
                 pair: 'وَ / فـَ',
@@ -84,7 +103,7 @@
             traits: { voice: 'مجهور', force: 'رخو', tone: 'مرقق' },
             vowels: ['يَ', 'يُ', 'يِ'],
             mad: ['يَا', 'يُو', 'يِي'],
-            audioKey: 'sound_ya',
+            audioKey: 'phoneme_pure_yaa',
             modelWord: 'يَد',
             confusable: {
                 pair: 'ي / ج',
@@ -103,7 +122,7 @@
             traits: { voice: 'مجهور', force: 'شديد (قلقلة)', tone: 'مرقق' },
             vowels: ['بَ', 'بُ', 'بِ'],
             mad: ['بَا', 'بُو', 'بِي'],
-            audioKey: 'sound_ba',
+            audioKey: 'phoneme_pure_baa',
             modelWord: 'بَاب',
             confusable: {
                 pair: 'ب / م',
@@ -122,7 +141,7 @@
             traits: { voice: 'مجهور', force: 'بيني (متوسط)', tone: 'مرقق (ذو غنة)' },
             vowels: ['مَ', 'مُ', 'مِ'],
             mad: ['مَا', 'مُو', 'مِي'],
-            audioKey: 'sound_ma',
+            audioKey: 'phoneme_pure_meem',
             modelWord: 'مَامَا',
             confusable: {
                 pair: 'م / ن',
@@ -141,7 +160,7 @@
             traits: { voice: 'مجهور', force: 'بيني', tone: 'مرقق (ذو غنة)' },
             vowels: ['نَ', 'نُ', 'نِ'],
             mad: ['نَا', 'نُو', 'نِي'],
-            audioKey: 'sound_na',
+            audioKey: 'phoneme_pure_noon',
             modelWord: 'نُور',
             confusable: {
                 pair: 'ن / ل',
@@ -160,7 +179,7 @@
             traits: { voice: 'مجهور', force: 'رخو (صفير)', tone: 'مرقق' },
             vowels: ['زَ', 'زُ', 'زِ'],
             mad: ['زَا', 'زُو', 'زِي'],
-            audioKey: 'sound_za',
+            audioKey: 'phoneme_pure_zay',
             modelWord: 'زُورَق',
             confusable: {
                 pair: 'ز / ذ',
@@ -179,7 +198,7 @@
             traits: { voice: 'مجهور', force: 'شديد (قلقلة)', tone: 'مفخم مستعلٍ' },
             vowels: ['قَ', 'قُ', 'قِ'],
             mad: ['قَا', 'قُو', 'قِي'],
-            audioKey: 'sound_qa',
+            audioKey: 'phoneme_pure_qaf',
             modelWord: 'قَلَم',
             confusable: {
                 pair: 'ق / ك',
@@ -198,7 +217,7 @@
             traits: { voice: 'مجهور', force: 'بيني (انحراف)', tone: 'مرقق غالباً' },
             vowels: ['لَ', 'لُ', 'لِ'],
             mad: ['لَا', 'لُو', 'لِي'],
-            audioKey: 'sound_la',
+            audioKey: 'phoneme_pure_lam',
             modelWord: 'لَبَن',
             confusable: {
                 pair: 'ل / ر',
@@ -217,7 +236,7 @@
             traits: { voice: 'مهموس (جريان النفس)', force: 'رخو', tone: 'مرقق' },
             vowels: ['فَ', 'فُ', 'فِ'],
             mad: ['فَا', 'فُو', 'فِي'],
-            audioKey: 'sound_fa',
+            audioKey: 'phoneme_pure_faa',
             modelWord: 'فِيل',
             confusable: {
                 pair: 'ف / ث',
@@ -236,7 +255,7 @@
             traits: { voice: 'مجهور', force: 'شديد (قلقلة)', tone: 'مفخم مطبق قوي' },
             vowels: ['طَ', 'طُ', 'طِ'],
             mad: ['طَا', 'طُو', 'طِي'],
-            audioKey: 'sound_ta_heavy',
+            audioKey: 'phoneme_pure_ta',
             modelWord: 'طَيَّار',
             confusable: {
                 pair: 'ط / ت',
@@ -255,7 +274,7 @@
             traits: { voice: 'مجهور', force: 'بيني', tone: 'مرقق' },
             vowels: ['عَ', 'عُ', 'عِ'],
             mad: ['عَا', 'عُو', 'عِي'],
-            audioKey: 'sound_ain',
+            audioKey: 'phoneme_pure_ayn',
             modelWord: 'عَلَم',
             confusable: {
                 pair: 'ع / أ',
@@ -274,7 +293,7 @@
             traits: { voice: 'مهموس', force: 'شديد', tone: 'مرقق' },
             vowels: ['كَ', 'كُ', 'كِ'],
             mad: ['كَا', 'كُو', 'كِي'],
-            audioKey: 'sound_ka',
+            audioKey: 'phoneme_pure_kaf',
             modelWord: 'كِتَاب',
             confusable: {
                 pair: 'ك / ق',
@@ -293,13 +312,32 @@
             traits: { voice: 'مهموس', force: 'شديد', tone: 'مرقق مستفل' },
             vowels: ['تَ', 'تُ', 'تِ'],
             mad: ['تَا', 'تُو', 'تِي'],
-            audioKey: 'sound_ta',
+            audioKey: 'phoneme_pure_taa',
             modelWord: 'تِين',
             confusable: {
                 pair: 'ت / ط',
                 target: 'ت (تِين)',
                 confused: 'ط (طَيْر)',
                 advice: 'رقق التاء وافتح فمك برقة (تَ)، ولا تفخمها لتصبح كالطاء!'
+            }
+        },
+        'س': {
+            char: 'س',
+            name: 'السين',
+            category: 'tongue_tip',
+            categoryName: 'طرف اللسان والأسنان',
+            makhrajPoint: 'رأس اللسان مع الصفحة الداخلية للثنايا السفلى',
+            description: 'يخرج صوت (س) بجريان النفس وصفير ناعم مرقق بين رأس اللسان والثنايا السفلى.',
+            traits: { voice: 'مهموس (جريان النفس)', force: 'رخو (صفير)', tone: 'مرقق مستفل' },
+            vowels: ['سَ', 'سُ', 'سِ'],
+            mad: ['سَا', 'سُو', 'سِي'],
+            audioKey: 'phoneme_pure_seen',
+            modelWord: 'فِرَاس',
+            confusable: {
+                pair: 'س / ص',
+                target: 'س (سَالِم)',
+                confused: 'ص (صَلَاح)',
+                advice: 'ابتسم قليلاً عند نطق السين المرققة (سَـ) وخفف لسانك دون تفخيمها كـالصاد (صَـ)!'
             }
         },
         'ص': {
@@ -312,7 +350,7 @@
             traits: { voice: 'مهموس', force: 'رخو (صفير)', tone: 'مفخم مطبق' },
             vowels: ['صَ', 'صُ', 'صِ'],
             mad: ['صَا', 'صُو', 'صِي'],
-            audioKey: 'sound_sad',
+            audioKey: 'phoneme_pure_sad',
             modelWord: 'صَلَاح',
             confusable: {
                 pair: 'ص / س',
@@ -331,7 +369,7 @@
             traits: { voice: 'مجهور', force: 'رخو', tone: 'مرقق' },
             vowels: ['ذَ', 'ذُ', 'ذِ'],
             mad: ['ذَا', 'ذُو', 'ذِي'],
-            audioKey: 'sound_dhal',
+            audioKey: 'phoneme_pure_dhal',
             modelWord: 'ذُبَاب',
             confusable: {
                 pair: 'ذ / ز',
@@ -350,7 +388,7 @@
             traits: { voice: 'مهموس', force: 'رخو', tone: 'مرقق' },
             vowels: ['حَ', 'حُ', 'حِ'],
             mad: ['حَا', 'حُو', 'حِي'],
-            audioKey: 'sound_ha',
+            audioKey: 'phoneme_pure_haa',
             modelWord: 'حَوْض',
             confusable: {
                 pair: 'ح / هـ',
@@ -369,7 +407,7 @@
             traits: { voice: 'مهموس', force: 'رخو', tone: 'مفخم' },
             vowels: ['خَ', 'خُ', 'خِ'],
             mad: ['خَا', 'خُو', 'خِي'],
-            audioKey: 'sound_kha',
+            audioKey: 'phoneme_pure_khaa',
             modelWord: 'خَيْمَة',
             confusable: {
                 pair: 'خ / غ',
@@ -388,7 +426,7 @@
             traits: { voice: 'مجهور', force: 'رخو (استطالة)', tone: 'مفخم مطبق' },
             vowels: ['ضَ', 'ضُ', 'ضِ'],
             mad: ['ضَا', 'ضُو', 'ضِي'],
-            audioKey: 'sound_dhad',
+            audioKey: 'phoneme_pure_dhad',
             modelWord: 'ضَوْء',
             confusable: {
                 pair: 'ض / د',
@@ -407,7 +445,7 @@
             traits: { voice: 'مهموس', force: 'رخو (تفشي)', tone: 'مرقق' },
             vowels: ['شَ', 'شُ', 'شِ'],
             mad: ['شَا', 'شُو', 'شِي'],
-            audioKey: 'sound_sheen',
+            audioKey: 'phoneme_pure_sheen',
             modelWord: 'شَمْس',
             confusable: {
                 pair: 'ش / س',
@@ -426,7 +464,7 @@
             traits: { voice: 'مهموس', force: 'رخو', tone: 'مرقق' },
             vowels: ['ثَ', 'ثُ', 'ثِ'],
             mad: ['ثَا', 'ثُو', 'ثِي'],
-            audioKey: 'sound_tha',
+            audioKey: 'phoneme_pure_thaa',
             modelWord: 'ثَوْب',
             confusable: {
                 pair: 'ث / س',
@@ -445,7 +483,7 @@
             traits: { voice: 'مجهور', force: 'رخو', tone: 'مفخم مستعلٍ' },
             vowels: ['غَ', 'غُ', 'غِ'],
             mad: ['غَا', 'غُو', 'غِي'],
-            audioKey: 'sound_ghain',
+            audioKey: 'phoneme_pure_ghayn',
             modelWord: 'غَزَال',
             confusable: {
                 pair: 'غ / خ',
@@ -464,7 +502,7 @@
             traits: { voice: 'مجهور', force: 'رخو', tone: 'مفخم مطبق' },
             vowels: ['ظَ', 'ظُ', 'ظِ'],
             mad: ['ظَا', 'ظُو', 'ظِي'],
-            audioKey: 'sound_dha_heavy',
+            audioKey: 'phoneme_pure_dha',
             modelWord: 'ظَبْي',
             confusable: {
                 pair: 'ظ / ذ',
@@ -483,7 +521,7 @@
             traits: { voice: 'مجهور', force: 'شديد (قلقلة)', tone: 'مرقق' },
             vowels: ['جَ', 'جُ', 'جِ'],
             mad: ['جَا', 'جُو', 'جِي'],
-            audioKey: 'sound_jeem',
+            audioKey: 'phoneme_pure_jeem',
             modelWord: 'جَمَل',
             confusable: {
                 pair: 'ج / ي',
@@ -502,7 +540,7 @@
             traits: { voice: 'مهموس', force: 'رخو', tone: 'مرقق خفي' },
             vowels: ['هَ', 'هُ', 'هِ'],
             mad: ['هَا', 'هُو', 'هِي'],
-            audioKey: 'sound_haa',
+            audioKey: 'phoneme_pure_ha',
             modelWord: 'هِلَال',
             confusable: {
                 pair: 'هـ / ح',
@@ -568,7 +606,7 @@
         // الوحدة السادسة
         { word: 'شُرْطِيّ', unit: 'unit6', syllables: ['شُرْ', 'طِيْ', 'يْ'], audioKey: 'word_shurti', level: 'متقدم' },
         { word: 'مُرُور', unit: 'unit6', syllables: ['مُ', 'رُو', 'رْ'], audioKey: 'word_muroor', level: 'متوسط' },
-        { word: 'أُثَاث', unit: 'unit6', syllables: ['أُ', 'ثَا', 'ثْ'], audioKey: 'word_athath', level: 'متوسط' },
+        { word: 'أَثَاث', unit: 'unit6', syllables: ['أَ', 'ثَا', 'ثْ'], audioKey: 'word_athath', level: 'متوسط' },
         { word: 'غَزَال', unit: 'unit6', syllables: ['غَ', 'زَا', 'لْ'], audioKey: 'word_ghazal', level: 'متوسط' },
         { word: 'مَحْفُوظ', unit: 'unit6', syllables: ['مَحْ', 'فُو', 'ظْ'], audioKey: 'word_mahfooth', level: 'متقدم' },
         { word: 'نَظِيف', unit: 'unit6', syllables: ['نَ', 'ظِي', 'فْ'], audioKey: 'word_natheef', level: 'متوسط' },
