@@ -14,7 +14,7 @@
 6. ضبط وتوليد ملف local.properties ومسار Android SDK
 7. تصريف وبناء الحزمة بصيغة Release APK عبر Gradle Wrapper
 8. التحقق من التوقيع الرقمي (V1, V2, V3) وفحص بيانات الحزمة عبر aapt
-9. استخراج الحزمة النهائية إلى مجلد التوزيع: dist/Qiraati_Smart_Android_v3.38/Qiraati_Smart.apk
+9. استخراج الحزمة النهائية إلى مجلد التوزيع: dist/Qiraati_Smart_Android_v3.63/Qiraati_Smart.apk
 10. حساب البصمة الرقمية SHA-256 وتوليد دليل الاستخدام والتثبيت المدرسي الشامل
 """
 
@@ -28,11 +28,14 @@ import subprocess
 from PIL import Image
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+VERSION = "3.63"
+VERSION_CODE = 363
+CACHE_VERSION = "qiraati-smart-v87"
 ANDROID_SRC = os.path.join(BASE_DIR, "tools", "android_src")
 APP_SRC = os.path.join(ANDROID_SRC, "app")
 ASSETS_DIR = os.path.join(APP_SRC, "src", "main", "assets")
 RES_DIR = os.path.join(APP_SRC, "src", "main", "res")
-DIST_DIR = os.path.join(BASE_DIR, "dist", "Qiraati_Smart_Android_v3.38")
+DIST_DIR = os.path.join(BASE_DIR, "dist", f"Qiraati_Smart_Android_v{VERSION}")
 
 SDK_DIR = r"C:\Users\asalz\AppData\Local\Android\Sdk"
 BUILD_TOOLS_DIR = os.path.join(SDK_DIR, "build-tools", "34.0.0")
@@ -125,11 +128,14 @@ def generate_android_icons():
 def ensure_keystore():
     print("\n[4/8] فحص شهادة التوقيع الرقمي للمطور (qiraati-release.keystore)...")
     keystore_path = os.path.join(APP_SRC, "qiraati-release.keystore")
+    store_pass = os.environ.get("QIRAATI_KEYSTORE_PASSWORD")
     if os.path.exists(keystore_path):
         print(f"✔ شهادة التوقيع موجودة مسبقاً: {keystore_path}")
+        if not store_pass:
+            print("❌ يرجى ضبط متغير البيئة QIRAATI_KEYSTORE_PASSWORD قبل تصريف الحزمة الموقّعة.")
+            sys.exit(1)
         return keystore_path
 
-    store_pass = os.environ.get("QIRAATI_KEYSTORE_PASSWORD")
     key_pass = os.environ.get("QIRAATI_KEY_PASSWORD") or store_pass
     if not store_pass:
         print("❌ يرجى ضبط متغير البيئة QIRAATI_KEYSTORE_PASSWORD قبل إنشاء شهادة التوقيع.")
@@ -171,20 +177,20 @@ def sync_assets():
 
     files_copied = 0
     total_files = 0
+    expected_rel_paths = set()
 
-    # 1. الملفات الجذرية
+    # 1. الملفات الجذرية (دون ملفات audio_data.js التراثية غير المستخدمة عبر WebViewAssetLoader)
     root_files = [
         "index.html",
         "manifest.json",
         "sw.js",
-        "audio_data.js",
-        "audio_data_unit6.js",
         "curriculum_data.js"
     ]
 
     for rf in root_files:
         src = os.path.join(BASE_DIR, rf)
         if os.path.exists(src):
+            expected_rel_paths.add(rf.replace("\\", "/"))
             dst = os.path.join(ASSETS_DIR, rf)
             if copy_if_newer(src, dst):
                 files_copied += 1
@@ -211,6 +217,7 @@ def sync_assets():
 
     for p in root_pngs:
         fname = os.path.basename(p)
+        expected_rel_paths.add(fname.replace("\\", "/"))
         dst = os.path.join(ASSETS_DIR, fname)
         if copy_if_newer(p, dst):
             files_copied += 1
@@ -226,11 +233,30 @@ def sync_assets():
                 for f in files:
                     src_f = os.path.join(root, f)
                     dst_f = os.path.join(target_root, f)
+                    rel_f = os.path.relpath(src_f, BASE_DIR).replace("\\", "/")
+                    expected_rel_paths.add(rel_f)
                     if copy_if_newer(src_f, dst_f):
                         files_copied += 1
                     total_files += 1
 
-    print(f"✔ تمت مزامنة كافة أصول المنصة ({total_files} ملف، تم تحديث/نسخ {files_copied} ملف) بنجاح.")
+    # 4. تنظيف أي ملفات قديمة أو يتيمة داخل assets (مثل audio_data.js أو الصور المحذوفة)
+    files_removed = 0
+    for root, dirs, files in os.walk(ASSETS_DIR, topdown=False):
+        for f in files:
+            full_p = os.path.join(root, f)
+            rel_p = os.path.relpath(full_p, ASSETS_DIR).replace("\\", "/")
+            if rel_p not in expected_rel_paths:
+                os.remove(full_p)
+                files_removed += 1
+        for d in dirs:
+            d_path = os.path.join(root, d)
+            try:
+                if not os.listdir(d_path):
+                    os.rmdir(d_path)
+            except OSError:
+                pass
+
+    print(f"✔ تمت مزامنة كافة أصول المنصة ({total_files} ملف، نُسخ/حُدِّث {files_copied}، حُذف من القديم {files_removed}) بنجاح.")
 
 
 def compile_apk():
@@ -269,24 +295,34 @@ def verify_apk(apk_path):
     print("\n[7/8] التحقق والفحص الذاتي للحزمة والتوقيع الرقمي...")
 
     # 1. فحص التوقيع عبر apksigner
-    if os.path.exists(APKSIGNER_PATH):
-        cmd = [APKSIGNER_PATH, "verify", "--verbose", apk_path]
-        res = subprocess.run(cmd, capture_output=True, text=True)
-        if res.returncode == 0:
-            print("✔ تم التحقق من سلامة التوقيع الرقمي الرسمي (V1 / V2 / V3) بنجاح 100%.")
-        else:
-            print(f"⚠ تحذير التوقيع:\n{res.stdout}\n{res.stderr}")
+    if not os.path.exists(APKSIGNER_PATH):
+        print(f"❌ خطأ: أداة apksigner غير موجودة في: {APKSIGNER_PATH}")
+        sys.exit(1)
+    cmd = [APKSIGNER_PATH, "verify", "--verbose", apk_path]
+    res = subprocess.run(cmd, capture_output=True, text=True)
+    if res.returncode == 0:
+        print("✔ تم التحقق من سلامة التوقيع الرقمي الرسمي (V1 / V2 / V3) بنجاح 100%.")
+    else:
+        print(f"❌ فشل التحقق من التوقيع الرقمي:\n{res.stdout}\n{res.stderr}")
+        sys.exit(1)
 
-    # 2. فحص بيانات الحزمة عبر aapt
-    if os.path.exists(AAPT_PATH):
-        cmd = [AAPT_PATH, "dump", "badging", apk_path]
-        res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
-        if res.returncode == 0:
-            lines = res.stdout.splitlines()
-            for line in lines[:8]:
-                if any(k in line for k in ["package:", "sdkVersion:", "targetSdkVersion:", "application-label:"]):
-                    print(f"   ℹ {line}")
-            print("✔ تم فحص بيانات التعريف والشاشات المدعومة وتوافق الأجهزة اللوحية.")
+    # 2. فحص بيانات الحزمة عبر aapt والتحقق من versionCode و versionName
+    if not os.path.exists(AAPT_PATH):
+        print(f"❌ خطأ: أداة aapt غير موجودة في: {AAPT_PATH}")
+        sys.exit(1)
+    cmd = [AAPT_PATH, "dump", "badging", apk_path]
+    res = subprocess.run(cmd, capture_output=True, text=True, encoding="utf-8", errors="replace")
+    if res.returncode != 0:
+        print(f"❌ فشل فحص aapt dump badging:\n{res.stdout}\n{res.stderr}")
+        sys.exit(1)
+    lines = res.stdout.splitlines()
+    for line in lines[:8]:
+        if any(k in line for k in ["package:", "sdkVersion:", "targetSdkVersion:", "application-label:"]):
+            print(f"   ℹ {line}")
+    if f"versionCode='{VERSION_CODE}'" not in res.stdout or f"versionName='{VERSION}'" not in res.stdout:
+        print(f"❌ خطأ: بيانات الإصدار في APK لا تطابق versionCode={VERSION_CODE} و versionName={VERSION}!")
+        sys.exit(1)
+    print("✔ تم فحص بيانات التعريف والإصدار وتوافق الأجهزة اللوحية بنجاح.")
 
 
 def package_distribution(apk_path):
@@ -310,7 +346,7 @@ def package_distribution(apk_path):
 **إعداد وتطوير:** **المهندس أسامة خليل هاشم**  
 **اسم الحزمة:** `Qiraati_Smart.apk`  
 **معرف التطبيق (Application ID):** `iq.usama.qiraati`  
-**الإصدار:** `v3.38.0` (كود البناء: `338` • كاش الخدمة: `qiraati-smart-v61`)  
+**الإصدار:** `v{VERSION}.0` (كود البناء: `{VERSION_CODE}` • كاش الخدمة: `{CACHE_VERSION}`)  
 **الحد الأدنى لنظام أندرويد (Min SDK):** Android 7.0 (API 24 Nougat) فما فوق  
 **النظام المستهدف (Target SDK):** Android 14 (API 34)  
 **البصمة الرقمية للحزمة (SHA-256):**  
@@ -328,7 +364,7 @@ def package_distribution(apk_path):
 ---
 
 ## 🚀 مميزات تطبيق أندرويد المستقل
-* **استقلالية كاملة (100% Offline):** كافة واجهات المنهج الـ 46، وأكثر من 2,700 ملف صوتي بشري وفونيمي، وبنك الألعاب، والسبورات الذكية مدمجة بالكامل داخل ملف APK.
+* **استقلالية كاملة (100% Offline):** كافة واجهات المنهج الـ 46، وأكثر من 2,908 ملف صوتي بصوت الأستاذ باسل العراقي الفصيح ومكتبة الفونيمات النقية للـ 28 حرفاً، وبنك الألعاب، والسبورات الذكية، وخط Tajawal المستضاف محلياً مدمجة بالكامل داخل ملف APK.
 * **شاشة كاملة غامرة (Immersive Sticky Fullscreen):** إخفاء تلقائي لأشرطة النظام وأزرار التنقل السفلية لتركيز الطفل الكامل على الأنشطة التعليمية وتوسيع مساحة الرسم والتفاعل.
 * **تحكم فوري بالصوت (Audio-Focus & Stream Music):** ربط أزرار الصوت المادية في التابلت والهاتف مباشرة بصوت الحروف والألعاب دون تأخير وبجودة صوتية فائقة.
 * **بقاء الشاشة مضاءة (Keep Screen On):** حماية الجهاز اللوحي من الإغلاق التلقائي للشاشة أثناء تفاعل التلميذ مع لوحات القراءة والتهجئة والدمج الفونيمي.

@@ -8,9 +8,9 @@
 1. التحقق من بناء الحزمة الأحادية الشاملة قراءتي_التفاعلية_الذكية.html (أوفلاين 100%)
 2. توليد الأيقونة الرسمية لماك AppIcon.icns بكافة المقاسات وريتينا (1024x1024 حتى 16x16)
 3. حزم وتوليد صورة القرص الرسمية لنظام ماك (Qiraati_Smart_macOS.dmg) مع وصلة Applications
-4. حزم وتوليد الحزمة المضغوطة المباشرة لماك (Qiraati_Smart_macOS_v3.41.zip)
+4. حزم وتوليد الحزمة المضغوطة المباشرة لماك (Qiraati_Smart_macOS_v3.63.zip)
 5. حزم وتوليد الحزمة الشاملة المستقلة المحمولة للينكس (Qiraati_Smart_Linux.AppImage)
-6. حزم وتوليد الحزمة الأرشيفية للينكس ومختبرات الحاسوب (Qiraati_Smart_Linux_v3.41.tar.gz)
+6. حزم وتوليد الحزمة الأرشيفية للينكس ومختبرات الحاسوب (Qiraati_Smart_Linux_v3.63.tar.gz)
 7. حساب البصمات الرقمية الرسمية SHA-256 لكافة الحزم المنتجة
 8. إنشاء أدلة الاستخدام والتثبيت الشاملة للشاشات وأجهزة ماك ولينكس بالعربية
 9. إجراء الفحص الذاتي والاختبار الآلي الشامل --self-test بنجاح 100%
@@ -29,7 +29,7 @@ from PIL import Image
 import pycdlib
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = "3.41"
+VERSION = "3.63"
 AUTHOR = "المهندس أسامة خليل هاشم"
 
 DIST_MACOS = os.path.join(BASE_DIR, "dist", f"Qiraati_Smart_macOS_v{VERSION}")
@@ -56,8 +56,14 @@ def ensure_icns(output_path):
 
 def ensure_standalone_bundle():
     bundle_path = os.path.join(BASE_DIR, "قراءتي_التفاعلية_الذكية.html")
-    if not os.path.exists(bundle_path) or os.path.getsize(bundle_path) < 100_000_000:
-        print("📦 الحزمة الأحادية غير متوفرة أو قديمة، جارٍ البناء والتوليد عبر build_standalone.py...")
+    index_path = os.path.join(BASE_DIR, "index.html")
+    needs_rebuild = (
+        not os.path.exists(bundle_path)
+        or os.path.getsize(bundle_path) < 100_000_000
+        or (os.path.exists(index_path) and os.path.getmtime(index_path) > os.path.getmtime(bundle_path))
+    )
+    if needs_rebuild:
+        print("📦 الحزمة الأحادية غير متوفرة أو أقدم من index.html، جارٍ البناء والتوليد عبر build_standalone.py...")
         sys.path.insert(0, os.path.join(BASE_DIR, "tools"))
         import build_standalone
         build_standalone.build_standalone()
@@ -100,7 +106,8 @@ def build_macos(standalone_html):
     shutil.copy2(icns_path, os.path.join(resources_dir, "AppIcon.icns"))
 
     # نسخ الحزمة الأحادية والتوثيق
-    print("📋 جارٍ نسخ الحزمة الأحادية (345+ ميجابايت) إلى حزمة تطبيق ماك...")
+    bundle_mb = os.path.getsize(standalone_html) / (1024 * 1024)
+    print(f"📋 جارٍ نسخ الحزمة الأحادية ({bundle_mb:.2f} ميجابايت) إلى حزمة تطبيق ماك...")
     dest_html = os.path.join(app_res_dir, "قراءتي_التفاعلية_الذكية.html")
     shutil.copy2(standalone_html, dest_html)
     shutil.copy2(os.path.join(BASE_DIR, "README.md"), os.path.join(app_res_dir, "README.md"))
@@ -244,7 +251,7 @@ def build_macos(standalone_html):
 ## 3. مميزات نسخة ماك المستقلة
 - **أوفلاين 100%:** تعمل بالكامل بدون إنترنت وبدون الحاجة لشبكة محلية أو اتصالات خارجية.
 - **تكامل تام مع شاشات Retina:** وضوح فائق لكافة صفحات الكتاب الـ 129 والرسومات المتجهة.
-- **كافة الوسائط والألعاب مدمجة:** 2,722 تسجيلاً صوتياً فونيمياً، 415 صورة، لوحة تتبع الحروف، ونظام التقييم الذكي.
+- **كافة الوسائط والألعاب مدمجة:** 2,908+ تسجيلاً صوتياً نقياً بصوت الأستاذ باسل العراقي الفصيح ومكتبة الفونيمات النقية للـ 28 حرفاً، 372+ صورة ورسمة، خط Tajawal المحلي أوفلاين، لوحة تتبع الحروف، ونظام التقييم الذكي.
 - **توقيع وهوية أصيلة:** إعداد وتطوير المهندس أسامة خليل هاشم.
 """)
 
@@ -332,7 +339,7 @@ def build_linux(standalone_html):
 set -e
 
 APP_NAME="qiraati-smart"
-APP_VERSION="3.41"
+APP_VERSION="__APP_VERSION__"
 PAYLOAD_OFFSET=0000000000
 
 # معالجة المعاملات القياسية لـ AppImage
@@ -381,11 +388,11 @@ fi
 exec "$CACHE_BASE/AppRun" "$@"
 """
 
-    # حساب إزاحة البايتات بدقة متناهية
-    # الطول المبدئي للقالب
-    dummy_header = runner_template.encode("utf-8")
+    # حساب إزاحة البايتات بدقة متناهية بعد حقن رقم الإصدار وتطبيع نهايات الأسطر إلى LF
+    populated_template = runner_template.replace("__APP_VERSION__", VERSION).replace("\r\n", "\n")
+    dummy_header = populated_template.encode("utf-8")
     exact_offset = len(dummy_header) + 1  # 1-based index لـ tail -c
-    final_runner = runner_template.replace("PAYLOAD_OFFSET=0000000000", f"PAYLOAD_OFFSET={exact_offset:010d}")
+    final_runner = populated_template.replace("PAYLOAD_OFFSET=0000000000", f"PAYLOAD_OFFSET={exact_offset:010d}")
     final_header_bytes = final_runner.encode("utf-8")
 
     # كتابة ملف AppImage بدمج الرأس التنفيذي مع حزمة tar.gz
@@ -505,10 +512,10 @@ def self_test():
             all_passed = False
 
     if not os.path.exists(zip_file) or os.path.getsize(zip_file) < 100_000_000:
-        print("❌ فشل: ملف Qiraati_Smart_macOS_v3.41.zip غير صالح أو مفقود")
+        print(f"❌ فشل: ملف Qiraati_Smart_macOS_v{VERSION}.zip غير صالح أو مفقود")
         all_passed = False
     else:
-        # فحص سلامة الـ ZIP
+        # فحص سلامة الـ ZIP وإصدار Info.plist
         try:
             with zipfile.ZipFile(zip_file, "r") as zf:
                 bad_file = zf.testzip()
@@ -516,7 +523,12 @@ def self_test():
                     print(f"❌ خطأ: ملف تالف داخل ZIP: {bad_file}")
                     all_passed = False
                 else:
-                    print(f"✔ فحص سلامة ZIP: خالي من أي أخطاء وسلامة CRC32 مؤكدة")
+                    plist_txt = zf.read("Qiraati_Smart.app/Contents/Info.plist").decode("utf-8", errors="ignore")
+                    if f"<string>{VERSION}</string>" not in plist_txt:
+                        print(f"❌ خطأ: Info.plist داخل ZIP لا يحمل الإصدار {VERSION}")
+                        all_passed = False
+                    else:
+                        print(f"✔ فحص سلامة ZIP وإصدار Info.plist ({VERSION}): خالي من الأخطاء وسلامة CRC32 مؤكدة")
         except Exception as e:
             print(f"❌ خطأ في فحص ZIP: {e}")
             all_passed = False
@@ -530,10 +542,12 @@ def self_test():
         all_passed = False
     else:
         print(f"✔ فحص حجم AppImage: {os.path.getsize(appimage_file):,} بايت (سليم)")
-        # فحص قراءة الرأس والأرشيف المدمج
+        # فحص قراءة الرأس والأرشيف المدمج والإصدار
         try:
             with open(appimage_file, "rb") as f:
                 header = f.read(1024).decode("utf-8", errors="ignore")
+                if f'APP_VERSION="{VERSION}"' not in header:
+                    raise ValueError(f'رأس AppImage لا يحمل APP_VERSION="{VERSION}"')
                 # البحث عن إزاحة PAYLOAD_OFFSET
                 import re
                 m = re.search(r"PAYLOAD_OFFSET=(\d+)", header)
@@ -545,7 +559,7 @@ def self_test():
                 # فحص magic bytes لـ gzip (0x1f, 0x8b)
                 if tar_magic != b"\x1f\x8b":
                     raise ValueError(f"بيانات الأرشيف لا تبدأ بـ GZIP Magic Bytes: {tar_magic}")
-                print(f"✔ فحص AppImage: الرأس سليم وإزاحة البايتات دقيقة ({offset}) وبداية GZIP مؤكدة 100%")
+                print(f"✔ فحص AppImage: الرأس سليم (v{VERSION}) وإزاحة البايتات دقيقة ({offset}) وبداية GZIP مؤكدة 100%")
         except Exception as e:
             print(f"❌ خطأ أثناء فحص AppImage: {e}")
             all_passed = False
@@ -558,7 +572,13 @@ def self_test():
             with tarfile.open(tar_file, "r:gz") as tar:
                 members = tar.getnames()
                 if "AppRun" in members and "qiraati-smart.desktop" in members:
-                    print(f"✔ فحص سلامة tar.gz: تم العثور على {len(members)} عنصراً مع AppRun و Desktop Entry")
+                    desktop_f = tar.extractfile("qiraati-smart.desktop")
+                    desktop_txt = desktop_f.read().decode("utf-8", errors="ignore") if desktop_f else ""
+                    if f"X-AppImage-Version={VERSION}" not in desktop_txt:
+                        print(f"❌ خطأ: ملف qiraati-smart.desktop لا يحمل X-AppImage-Version={VERSION}")
+                        all_passed = False
+                    else:
+                        print(f"✔ فحص سلامة tar.gz: تم العثور على {len(members)} عنصراً مع AppRun و Desktop Entry (v{VERSION})")
                 else:
                     print(f"❌ عناصر مفقودة داخل tar.gz: {members[:5]}")
                     all_passed = False
@@ -613,7 +633,8 @@ def main():
         build_macos(standalone_html)
         build_linux(standalone_html)
 
-    self_test()
+    if not self_test():
+        sys.exit(1)
 
     total_time = time.time() - t_start
     print("\n" + "=" * 80)

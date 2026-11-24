@@ -16,7 +16,7 @@ namespace QiraatiSmart
     internal static class SetupWizard
     {
         private const string AppTitle = "منصة قراءتي التفاعلية الذكية";
-        private const string AppVersion = "3.37.0";
+        private const string AppVersion = "3.63.0";
         private const string AppPublisher = "إعداد المهندس أسامة خليل هاشم";
 
         [DllImport("kernel32.dll")]
@@ -360,7 +360,7 @@ namespace QiraatiSmart
                     "• العمل الكامل بدون إنترنت (100% أوفلاين) دون الحاجة لأي شبكة.\n" +
                     "• التوافقية الشاملة مع الشاشات الذكية والسبورات التفاعلية والحواسيب.\n" +
                     "• تغطية كافة دروس ووحدات المنهج الـ 46 وبنك الألعاب ومختبر الخط العربي.\n" +
-                    "• أكثر من 2,704 تسجيلاً صوتياً نقياً بالصوت العراقي الفصيح و 413 صورة ورسمة.\n\n" +
+                    "• أكثر من 2,900 تسجيلاً صوتياً نقياً بصوت الأستاذ باسل العراقي الفصيح ومكتبة الفونيمات النقية للـ 28 حرفاً مع خط Tajawal المحلي.\n\n" +
                     "اضغط على «التالي» للمتابعة وتحديد خيارات التثبيت.";
                 lblW2.Location = new Point(30, 60);
                 lblW2.Size = new Size(560, 230);

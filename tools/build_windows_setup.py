@@ -27,7 +27,9 @@ from PIL import Image
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSC_PATH = r"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
-DIST_DIR = os.path.join(BASE_DIR, "dist", "Qiraati_Smart_Windows_v3.37")
+VERSION = "3.63"
+CACHE_VERSION = "qiraati-smart-v87"
+DIST_DIR = os.path.join(BASE_DIR, "dist", f"Qiraati_Smart_Windows_v{VERSION}")
 TEMP_DIR = os.path.join(BASE_DIR, "temp_build")
 
 def ensure_ico():
@@ -136,24 +138,26 @@ def build_windows_package():
         "index.html",
         "manifest.json",
         "sw.js",
-        "audio_data.js",
-        "audio_data_unit6.js",
         "curriculum_data.js",
-        "README.md",
-        "mobile_qr.png",
-        "تشغيل_التطبيق_PWA.bat"
+        "README.md"
     ]
 
     with zipfile.ZipFile(bundle_zip, "w", zipfile.ZIP_DEFLATED, compresslevel=6) as zf:
+        seen_zip_entries = set()
+
+        def add_to_zip(src_path, arcname):
+            norm_name = arcname.replace("\\", "/")
+            if norm_name not in seen_zip_entries and os.path.exists(src_path):
+                seen_zip_entries.add(norm_name)
+                zf.write(src_path, norm_name)
+
         # إضافة الملفات التنفيذية الناتجة
-        zf.write(launcher_exe, "Qiraati_Smart.exe")
-        zf.write(uninstaller_exe, "Uninstall.exe")
+        add_to_zip(launcher_exe, "Qiraati_Smart.exe")
+        add_to_zip(uninstaller_exe, "Uninstall.exe")
 
         # إضافة الملفات الأساسية
         for fn in files_to_bundle:
-            fp = os.path.join(BASE_DIR, fn)
-            if os.path.exists(fp):
-                zf.write(fp, fn)
+            add_to_zip(os.path.join(BASE_DIR, fn), fn)
 
         # إضافة صور PNG الجذرية المستخدمة والمتتبَّعة في git
         win_pngs = []
@@ -173,7 +177,7 @@ def build_windows_package():
         if not win_pngs:
             win_pngs = [fn for fn in os.listdir(BASE_DIR) if fn.endswith(".png")]
         for fn in win_pngs:
-            zf.write(os.path.join(BASE_DIR, fn), fn)
+            add_to_zip(os.path.join(BASE_DIR, fn), fn)
 
         # إضافة المجلدات
         for folder in ["css", "js", "icons", "audio", "fonts"]:
@@ -183,7 +187,7 @@ def build_windows_package():
                     for file in files:
                         full_f = os.path.join(root, file)
                         rel_f = os.path.relpath(full_f, BASE_DIR)
-                        zf.write(full_f, rel_f)
+                        add_to_zip(full_f, rel_f)
 
     bundle_size_mb = os.path.getsize(bundle_zip) / (1024 * 1024)
     print(f"✔ تم إنشاء حزمة app_bundle.zip بنجاح! الحجم: {bundle_size_mb:.2f} ميجابايت.")
@@ -242,8 +246,18 @@ def build_windows_package():
         sys.exit(1)
     print("✔ نجح الفحص الذاتي لمعالج التثبيت Qiraati_Smart_Setup.exe وتكامل الحزمة المدمجة.")
 
-    # 10. نسخ الحزمة الأحادية قراءتي_التفاعلية_الذكية.html إلى dist
+    # 10. التحقق من الحزمة الأحادية قراءتي_التفاعلية_الذكية.html ونسخها إلى dist
+    index_html_path = os.path.join(BASE_DIR, "index.html")
     standalone_html = os.path.join(BASE_DIR, "قراءتي_التفاعلية_الذكية.html")
+    needs_standalone_rebuild = (
+        not os.path.exists(standalone_html)
+        or os.path.getsize(standalone_html) < 100_000_000
+        or (os.path.exists(index_html_path) and os.path.getmtime(index_html_path) > os.path.getmtime(standalone_html))
+    )
+    if needs_standalone_rebuild:
+        print("\n📦 الحزمة الأحادية غير موجودة أو أقدم من index.html، جارٍ بناؤها عبر build_standalone.py...")
+        import build_standalone
+        build_standalone.build_standalone()
     if os.path.exists(standalone_html):
         print("\n[8/8] نسخ الحزمة الأحادية المستقلة الشاملة إلى مجلد التوزيع...")
         shutil.copy2(standalone_html, os.path.join(DIST_DIR, "قراءتي_التفاعلية_الذكية.html"))
@@ -276,7 +290,8 @@ def build_windows_package():
     manual_content = f"""# دليل التثبيت المكتبي والشاشات الذكية أوفلاين • منصة قراءتي التفاعلية الذكية
 **الصف الأول الابتدائي • المنهج العراقي التفاعلي الشامل**  
 **إعداد وتطوير:** **المهندس أسامة خليل هاشم**  
-**الإصدار:** `v3.37.0` (تحديث كاش الخدمة: `qiraati-smart-v60`)  
+**الإصدار:** `v{VERSION}.0` (تحديث كاش الخدمة: `{CACHE_VERSION}`)  
+**أبرز تحديثات v{VERSION}:** صوت الأستاذ باسل العراقي الفصيح المعاير، مكتبة الفونيمات النقية للـ 28 حرفاً، 2,908+ ملفاً صوتياً، وخط Tajawal المستضاف محلياً أوفلاين 100%  
 **البصمة الرقمية لمعالج التثبيت (SHA-256):**  
 `{setup_hash}`
 

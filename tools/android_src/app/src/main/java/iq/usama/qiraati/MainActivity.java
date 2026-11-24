@@ -140,6 +140,9 @@ public class MainActivity extends Activity {
                 if (lower.endsWith(".wav")) return "audio/wav";
                 if (lower.endsWith(".json")) return "application/json";
                 if (lower.endsWith(".ico")) return "image/x-icon";
+                if (lower.endsWith(".woff2")) return "font/woff2";
+                if (lower.endsWith(".woff")) return "font/woff";
+                if (lower.endsWith(".ttf")) return "font/ttf";
                 return "application/octet-stream";
             }
         });
