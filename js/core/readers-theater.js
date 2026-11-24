@@ -308,11 +308,11 @@
             curriculumPage: 'ص 22 - 27',
             cast: ['faseeh', 'dada', 'nader', 'rabab'],
             lines: [
-                { speaker: 'faseeh', text: 'أَهْلاً بِكُمْ يَا أَصْدِقَائِي فِي دَارِنَا الجَمِيلَةِ، مَاذَا نَرَى هُنَا؟', intonation: 'تَسَاؤُلٌ وَتَرْحِيب 🌸', sfx: 'theater_bell' },
-                { speaker: 'dada', text: 'دَادَا.. دَادَا.. بَابَا.. مَامَا!', intonation: 'بَرَاءَةٌ وَفَرَح 👶', sfx: 'cheer' },
-                { speaker: 'nader', text: 'أَنَا نَادِر.. دَارُنَا وَاسِعَةٌ وَفِيهَا بَابٌ كَبِير!', intonation: 'فَخْرٌ وَحَمَاس 💪', sfx: 'knock' },
-                { speaker: 'rabab', text: 'دَارُ رَبَابَ قَرِيبَةٌ مِنْ دَارِ نُورِي يَا أَبْطَال!', intonation: 'رِقَّةٌ وَمَوَدَّة 💖', sfx: 'magic' },
-                { speaker: 'faseeh', text: 'دَارٌ.. دُورٌ.. بَابٌ.. نَامَ دَادَا فِي أَمَانٍ وَسَلَام!', intonation: 'إِلْقَاءٌ خِتَامِيّ مُتَرَغِّم 🎶', sfx: 'fanfare' }
+                { speaker: 'faseeh', text: 'أَهْلاً بِكُمْ يَا أَصْدِقَائِي فِي دَارِنَا الجَمِيلَةِ، مَاذَا نَرَى هُنَا؟', intonation: 'تَسَاؤُلٌ وَتَرْحِيب 🌸', sfx: 'theater_bell', audio: 'rt_play_dar_dada_l1' },
+                { speaker: 'dada', text: 'دَادَا.. دَادَا.. بَابَا.. مَامَا!', intonation: 'بَرَاءَةٌ وَفَرَح 👶', sfx: 'cheer', audio: 'rt_play_dar_dada_l2' },
+                { speaker: 'nader', text: 'أَنَا نَادِر.. دَارُنَا وَاسِعَةٌ وَفِيهَا بَابٌ كَبِير!', intonation: 'فَخْرٌ وَحَمَاس 💪', sfx: 'knock', audio: 'rt_play_dar_dada_l3' },
+                { speaker: 'rabab', text: 'دَارُ رَبَابَ قَرِيبَةٌ مِنْ دَارِ نُورِي يَا أَبْطَال!', intonation: 'رِقَّةٌ وَمَوَدَّة 💖', sfx: 'magic', audio: 'rt_play_dar_dada_l4' },
+                { speaker: 'faseeh', text: 'دَارٌ.. دُورٌ.. بَابٌ.. نَامَ دَادَا فِي أَمَانٍ وَسَلَام!', intonation: 'إِلْقَاءٌ خِتَامِيّ مُتَرَغِّم 🎶', sfx: 'fanfare', audio: 'rt_play_dar_dada_l5' }
             ]
         },
         {
@@ -323,11 +323,11 @@
             curriculumPage: 'ص 36 - 38',
             cast: ['faseeh', 'qaddouri', 'nader', 'rabab'],
             lines: [
-                { speaker: 'faseeh', text: 'فِي سُوقِ الحَيِّ الجَمِيلِ، يَلْتَقِي الأَصْدِقَاءُ عِنْدَ دُكَّانِ الوَزَّانِ!', intonation: 'تَشْوِيقٌ رِوَائِيّ 🎪', sfx: 'theater_bell' },
-                { speaker: 'qaddouri', text: 'أَنَا قَدُّورِي وَزَّان.. أَزِنُ زَبِيبَ مَازِنٍ بِالعَدْلِ وَالأَمَانَة!', intonation: 'أَمَانَةٌ وَعَزِيمَة ⚖️', sfx: 'drumroll' },
-                { speaker: 'nader', text: 'نَادِرٌ بَزَّاز.. حَطَّ طَيْرٌ فَوْقَ بَيْتِنَا وَفَرِحْنَا جَمِيعاً!', intonation: 'فَرَحٌ وَانْطِلَاق 🕊️', sfx: 'birds' },
-                { speaker: 'rabab', text: 'شُكْراً يَا عَمَّ قَدُّورِي، مِيزَانُكَ عَادِلٌ وَزَبِيبُكَ لَذِيذٌ جِدّاً!', intonation: 'شُكْرٌ وَابْتِسَامَة 🍇', sfx: 'applause' },
-                { speaker: 'faseeh', text: 'عَاشَ قَدُّورِي وَنَادِر، الصِّدْقُ وَالعَمَلُ يُفْرِحَانِ القُلُوب!', intonation: 'حِكْمَةٌ وَتَتْوِيج 🌟', sfx: 'fanfare' }
+                { speaker: 'faseeh', text: 'فِي سُوقِ الحَيِّ الجَمِيلِ، يَلْتَقِي الأَصْدِقَاءُ عِنْدَ دُكَّانِ الوَزَّانِ!', intonation: 'تَشْوِيقٌ رِوَائِيّ 🎪', sfx: 'theater_bell', audio: 'rt_play_mizan_qaddouri_l1' },
+                { speaker: 'qaddouri', text: 'أَنَا قَدُّورِي وَزَّان.. أَزِنُ زَبِيبَ مَازِنٍ بِالعَدْلِ وَالأَمَانَة!', intonation: 'أَمَانَةٌ وَعَزِيمَة ⚖️', sfx: 'drumroll', audio: 'rt_play_mizan_qaddouri_l2' },
+                { speaker: 'nader', text: 'نَادِرٌ بَزَّاز.. حَطَّ طَيْرٌ فَوْقَ بَيْتِنَا وَفَرِحْنَا جَمِيعاً!', intonation: 'فَرَحٌ وَانْطِلَاق 🕊️', sfx: 'birds', audio: 'rt_play_mizan_qaddouri_l3' },
+                { speaker: 'rabab', text: 'شُكْراً يَا عَمَّ قَدُّورِي، مِيزَانُكَ عَادِلٌ وَزَبِيبُكَ لَذِيذٌ جِدّاً!', intonation: 'شُكْرٌ وَابْتِسَامَة 🍇', sfx: 'applause', audio: 'rt_play_mizan_qaddouri_l4' },
+                { speaker: 'faseeh', text: 'عَاشَ قَدُّورِي وَنَادِر، الصِّدْقُ وَالعَمَلُ يُفْرِحَانِ القُلُوب!', intonation: 'حِكْمَةٌ وَتَتْوِيج 🌟', sfx: 'fanfare', audio: 'rt_play_mizan_qaddouri_l5' }
             ]
         },
         {
@@ -338,11 +338,11 @@
             curriculumPage: 'ص 44 - 48',
             cast: ['faseeh', 'duck', 'goose', 'nader'],
             lines: [
-                { speaker: 'faseeh', text: 'مَا أَجْمَلَ رِيفَ مَنَاف! أَنْهَارٌ صَافِيَةٌ وَعُشْبٌ أَخْضَرُ رَيَّان!', intonation: 'إِعْجَابٌ وَتَأَمُّل 🌳', sfx: 'birds' },
-                { speaker: 'duck', text: 'بَطٌّ يَسْبَحُ فِي المَاءِ.. كَاك كَاك.. أَنَا أُحِبُّ السِّبَاحَة!', intonation: 'مَرَحٌ وَحَرَكَة 🦆', sfx: 'water' },
-                { speaker: 'goose', text: 'وَأَنَا الوِزَّةُ أَعُومُ مَعَ البَطِّ بِأَمَانٍ وَصَفَاء!', intonation: 'هُدُوءٌ وَرَشَاقَة 🦢', sfx: 'water' },
-                { speaker: 'nader', text: 'بَقَرُ بَاسِم يَرْعَى فِي الحَقْلِ وَيُعْطِينَا الحَلِيبَ الطَّازَج!', intonation: 'نَشَاطٌ صَفَوِيّ 🥛', sfx: 'applause' },
-                { speaker: 'faseeh', text: 'فِي الرِّيفِ خَيْرٌ وَبَرَكَةٌ لِكُلِّ الأَحِبَّةِ الصِّغَار!', intonation: 'ابْتِهَاجٌ خِتَامِيّ 🎉', sfx: 'fanfare' }
+                { speaker: 'faseeh', text: 'مَا أَجْمَلَ رِيفَ مَنَاف! أَنْهَارٌ صَافِيَةٌ وَعُشْبٌ أَخْضَرُ رَيَّان!', intonation: 'إِعْجَابٌ وَتَأَمُّل 🌳', sfx: 'birds', audio: 'rt_play_baqar_basim_l1' },
+                { speaker: 'duck', text: 'بَطٌّ يَسْبَحُ فِي المَاءِ.. كَاك كَاك.. أَنَا أُحِبُّ السِّبَاحَة!', intonation: 'مَرَحٌ وَحَرَكَة 🦆', sfx: 'water', audio: 'rt_play_baqar_basim_l2' },
+                { speaker: 'goose', text: 'وَأَنَا الوِزَّةُ أَعُومُ مَعَ البَطِّ بِأَمَانٍ وَصَفَاء!', intonation: 'هُدُوءٌ وَرَشَاقَة 🦢', sfx: 'water', audio: 'rt_play_baqar_basim_l3' },
+                { speaker: 'nader', text: 'بَقَرُ بَاسِم يَرْعَى فِي الحَقْلِ وَيُعْطِينَا الحَلِيبَ الطَّازَج!', intonation: 'نَشَاطٌ صَفَوِيّ 🥛', sfx: 'applause', audio: 'rt_play_baqar_basim_l4' },
+                { speaker: 'faseeh', text: 'فِي الرِّيفِ خَيْرٌ وَبَرَكَةٌ لِكُلِّ الأَحِبَّةِ الصِّغَار!', intonation: 'ابْتِهَاجٌ خِتَامِيّ 🎉', sfx: 'fanfare', audio: 'rt_play_baqar_basim_l5' }
             ]
         },
         {
@@ -353,11 +353,11 @@
             curriculumPage: 'ص 52 - 58',
             cast: ['faseeh', 'bulbul', 'rabab', 'nader'],
             lines: [
-                { speaker: 'faseeh', text: 'تَهْطِلُ قَطَرَاتُ المَاءِ مِنَ السَّمَاءِ.. مَطَرٌ.. مَطَرٌ نَاعِم!', intonation: 'اسْتِبْشَارٌ وَرَوْعَة 🌧️', sfx: 'water' },
-                { speaker: 'bulbul', text: 'تُوِيت.. تُوِيت.. أَنَا البُلْبُلُ أَفْرَحُ بِلَحْنِ المَطَرِ وَأُغَرِّد!', intonation: 'تَغْرِيدٌ مُبْهِج 🎶', sfx: 'birds' },
-                { speaker: 'rabab', text: 'المَطَرُ يَنْزِلُ.. الزَّرْعُ يَفْرَحُ.. وَالوَرْدُ يَتَفَتَّحُ عَاطِراً!', intonation: 'تَعَجُّبٌ سَعِيد 🌸', sfx: 'magic' },
-                { speaker: 'nader', text: 'نَحْنُ نَمْشِي تَحْتَ المَظَلَّةِ وَنَقُولُ: سُقْيَا خَيْرٍ وَرَحْمَة!', intonation: 'حَمْدٌ وَشُكْر ☔', sfx: 'applause' },
-                { speaker: 'faseeh', text: 'أَحْسَنْتُمْ يَا فُرْسَانَ القِرَاءَةِ.. صَوْتُكُمُ التَّعْبِيرِيُّ رَائِع!', intonation: 'تَشْجِيعٌ بَاهِر 🎖️', sfx: 'fanfare' }
+                { speaker: 'faseeh', text: 'تَهْطِلُ قَطَرَاتُ المَاءِ مِنَ السَّمَاءِ.. مَطَرٌ.. مَطَرٌ نَاعِم!', intonation: 'اسْتِبْشَارٌ وَرَوْعَة 🌧️', sfx: 'water', audio: 'rt_play_matar_bulbul_l1' },
+                { speaker: 'bulbul', text: 'تُوِيت.. تُوِيت.. أَنَا البُلْبُلُ أَفْرَحُ بِلَحْنِ المَطَرِ وَأُغَرِّد!', intonation: 'تَغْرِيدٌ مُبْهِج 🎶', sfx: 'birds', audio: 'rt_play_matar_bulbul_l2' },
+                { speaker: 'rabab', text: 'المَطَرُ يَنْزِلُ.. الزَّرْعُ يَفْرَحُ.. وَالوَرْدُ يَتَفَتَّحُ عَاطِراً!', intonation: 'تَعَجُّبٌ سَعِيد 🌸', sfx: 'magic', audio: 'rt_play_matar_bulbul_l3' },
+                { speaker: 'nader', text: 'نَحْنُ نَمْشِي تَحْتَ المَظَلَّةِ وَنَقُولُ: سُقْيَا خَيْرٍ وَرَحْمَة!', intonation: 'حَمْدٌ وَشُكْر ☔', sfx: 'applause', audio: 'rt_play_matar_bulbul_l4' },
+                { speaker: 'faseeh', text: 'أَحْسَنْتُمْ يَا فُرْسَانَ القِرَاءَةِ.. صَوْتُكُمُ التَّعْبِيرِيُّ رَائِع!', intonation: 'تَشْجِيعٌ بَاهِر 🎖️', sfx: 'fanfare', audio: 'rt_play_matar_bulbul_l5' }
             ]
         },
         {
@@ -368,12 +368,12 @@
             curriculumPage: 'ص 88 - 92',
             cast: ['faseeh', 'crow', 'rabab', 'nader'],
             lines: [
-                { speaker: 'faseeh', text: 'عَطِشَ غُرَابٌ ذَكِيٌّ.. وَجَدَ جَرَّةً فِيهَا مَاءٌ قَلِيلٌ فِي القَاع!', intonation: 'تَشْوِيقٌ دِرَامِيّ 🏺', sfx: 'mystery' },
-                { speaker: 'crow', text: 'كَيْفَ أَشْرَبُ وَفَمُ الجَرَّةِ ضَيِّقٌ؟ لَنْ أَيْرَسَ.. عَقْلِي سَيَجِدُ الحَلّ!', intonation: 'إِصْرَارٌ وَتَفْكِير 🧠', sfx: 'drumroll' },
-                { speaker: 'nader', text: 'انْظُرُوا! الغُرَابُ يَحْمِلُ حَصَاةً صَغِيرَةً وَيَرْمِيهَا فِي الجَرَّة!', intonation: 'دَهْشَةٌ وَمُتَابَعَة 🪨', sfx: 'magic' },
-                { speaker: 'rabab', text: 'حَصَاةٌ وَرَاءَ حَصَاة.. ارْتَفَعَ المَاءُ إِلَى أَعْلَى الجَرَّة!', intonation: 'فَرَحُ النَّجَاح ✨', sfx: 'cheer' },
-                { speaker: 'crow', text: 'شَرِبْتُ وَارْتَوَيْتُ الحَمْدُ لِلَّه.. بِالتَّفْكِيرِ نَصِلُ لِلنَّجَاح!', intonation: 'انْتِصَارٌ وَفَرَح 🏆', sfx: 'applause' },
-                { speaker: 'faseeh', text: 'مَا أَرْوَعَ العَقْلَ وَالصَّبْرَ.. أَحْسَنْتَ أَيُّهَا الغُرَابُ الذَّكِيّ!', intonation: 'إِشَادَةٌ خِتَامِيَّة 👏', sfx: 'fanfare' }
+                { speaker: 'faseeh', text: 'عَطِشَ غُرَابٌ ذَكِيٌّ.. وَجَدَ جَرَّةً فِيهَا مَاءٌ قَلِيلٌ فِي القَاع!', intonation: 'تَشْوِيقٌ دِرَامِيّ 🏺', sfx: 'mystery', audio: 'rt_play_crow_smart_l1' },
+                { speaker: 'crow', text: 'كَيْفَ أَشْرَبُ وَفَمُ الجَرَّةِ ضَيِّقٌ؟ لَنْ أَيْرَسَ.. عَقْلِي سَيَجِدُ الحَلّ!', intonation: 'إِصْرَارٌ وَتَفْكِير 🧠', sfx: 'drumroll', audio: 'rt_play_crow_smart_l2' },
+                { speaker: 'nader', text: 'انْظُرُوا! الغُرَابُ يَحْمِلُ حَصَاةً صَغِيرَةً وَيَرْمِيهَا فِي الجَرَّة!', intonation: 'دَهْشَةٌ وَمُتَابَعَة 🪨', sfx: 'magic', audio: 'rt_play_crow_smart_l3' },
+                { speaker: 'rabab', text: 'حَصَاةٌ وَرَاءَ حَصَاة.. ارْتَفَعَ المَاءُ إِلَى أَعْلَى الجَرَّة!', intonation: 'فَرَحُ النَّجَاح ✨', sfx: 'cheer', audio: 'rt_play_crow_smart_l4' },
+                { speaker: 'crow', text: 'شَرِبْتُ وَارْتَوَيْتُ الحَمْدُ لِلَّه.. بِالتَّفْكِيرِ نَصِلُ لِلنَّجَاح!', intonation: 'انْتِصَارٌ وَفَرَح 🏆', sfx: 'applause', audio: 'rt_play_crow_smart_l5' },
+                { speaker: 'faseeh', text: 'مَا أَرْوَعَ العَقْلَ وَالصَّبْرَ.. أَحْسَنْتَ أَيُّهَا الغُرَابُ الذَّكِيّ!', intonation: 'إِشَادَةٌ خِتَامِيَّة 👏', sfx: 'fanfare', audio: 'rt_play_crow_smart_l6' }
             ]
         },
         {
@@ -384,11 +384,11 @@
             curriculumPage: 'ص 102 - 108',
             cast: ['faseeh', 'nader', 'rabab', 'dada'],
             lines: [
-                { speaker: 'faseeh', text: 'دَقَّ جَرَسُ المَدْرَسَةِ.. صَبَاحُ الخَيْرِ يَا فُرْسَانَ العِلْمِ وَالأَمَل!', intonation: 'تَرْحِيبٌ مَدْرَسِيّ 🔔', sfx: 'theater_bell' },
-                { speaker: 'nader', text: 'صَبَاحُ النُّورِ يَا مُعَلِّمِي.. أَنَا أُحِبُّ مَدْرَسَتِي وَكِتَابَ قِرَاءَتِي!', intonation: 'أَدَبٌ وَحَمَاس 📚', sfx: 'applause' },
-                { speaker: 'rabab', text: 'فِي صَفِّنَا نَقْرَأُ الحُرُوفَ، نَرْسُمُ العَلَمَ، وَنَتَعَاوَنُ بِمَحَبَّة!', intonation: 'فَخْرٌ وَتَعَاوُن 🇮🇶', sfx: 'magic' },
-                { speaker: 'dada', text: 'أَنَا أَيْضاً سَأَكْبَرُ وَأَذْهَبُ مَعَكُمْ إِلَى المَدْرَسَة!', intonation: 'شَوْقٌ بَرِيء 🎈', sfx: 'cheer' },
-                { speaker: 'faseeh', text: 'بِالعِلْمِ نَرْقَى وَبِالقِرَاءَةِ نُنِيرُ دُرُوبَ العِرَاقِ الحَبِيب!', intonation: 'نِدَاءٌ وَطَنِيٌّ خَالِد ❤️', sfx: 'fanfare' }
+                { speaker: 'faseeh', text: 'دَقَّ جَرَسُ المَدْرَسَةِ.. صَبَاحُ الخَيْرِ يَا فُرْسَانَ العِلْمِ وَالأَمَل!', intonation: 'تَرْحِيبٌ مَدْرَسِيّ 🔔', sfx: 'theater_bell', audio: 'rt_play_classroom_love_l1' },
+                { speaker: 'nader', text: 'صَبَاحُ النُّورِ يَا مُعَلِّمِي.. أَنَا أُحِبُّ مَدْرَسَتِي وَكِتَابَ قِرَاءَتِي!', intonation: 'أَدَبٌ وَحَمَاس 📚', sfx: 'applause', audio: 'rt_play_classroom_love_l2' },
+                { speaker: 'rabab', text: 'فِي صَفِّنَا نَقْرَأُ الحُرُوفَ، نَرْسُمُ العَلَمَ، وَنَتَعَاوَنُ بِمَحَبَّة!', intonation: 'فَخْرٌ وَتَعَاوُن 🇮🇶', sfx: 'magic', audio: 'rt_play_classroom_love_l3' },
+                { speaker: 'dada', text: 'أَنَا أَيْضاً سَأَكْبَرُ وَأَذْهَبُ مَعَكُمْ إِلَى المَدْرَسَة!', intonation: 'شَوْقٌ بَرِيء 🎈', sfx: 'cheer', audio: 'rt_play_classroom_love_l4' },
+                { speaker: 'faseeh', text: 'بِالعِلْمِ نَرْقَى وَبِالقِرَاءَةِ نُنِيرُ دُرُوبَ العِرَاقِ الحَبِيب!', intonation: 'نِدَاءٌ وَطَنِيٌّ خَالِد ❤️', sfx: 'fanfare', audio: 'rt_play_classroom_love_l5' }
             ]
         }
     ];
@@ -401,6 +401,7 @@
             id: 'convo_greeting',
             title: 'محادثة: التَّحِيَّةُ وَالتَّعَارُفُ فِي اليَوْمِ الأَوَّل',
             partner: 'faseeh',
+            partnerAudio: 'rt_convo_greeting_partner',
             prompt: 'فَصِيح يُرَحِّبُ بِكَ فِي الصَّفِّ.. كَيْفَ تُجِيبُهُ بِأَدَبٍ وَثِقَة؟',
             partnerMessage: 'مَرْحَباً بِكَ يَا بَطَل! مَا اسْمُكَ الجَمِيل؟',
             options: [
@@ -413,6 +414,7 @@
             id: 'convo_asking_help',
             title: 'محادثة: آدَابُ الاسْتِئْذَانِ وَطَلَبِ المُسَاعَدَة',
             partner: 'rabab',
+            partnerAudio: 'rt_convo_asking_help_partner',
             prompt: 'رَبَاب تَسْأَلُكَ عَنْ قَلَمِ التَّلْوِينِ.. كَيْفَ تَتَحَاوَرُ مَعَهَا؟',
             partnerMessage: 'مِنْ فَضْلِكَ يَا زَمِيلِي، هَلْ تُعِيرُنِي القَلَمَ الأَحْمَرَ لِأَرْسُمَ الوَرْدَة؟',
             options: [
@@ -425,6 +427,7 @@
             id: 'convo_picture_desc',
             title: 'محادثة: وَصْفُ الصُّورَةِ وَحَيَوَانَاتِ الرِّيف',
             partner: 'nader',
+            partnerAudio: 'rt_convo_picture_desc_partner',
             prompt: 'نَادِر يَسْأَلُكَ عَنِ الصُّورَةِ فِي دَرْسِ الرِّيفِ.. صِفْهَا لَهُ!',
             partnerMessage: 'مَاذَا تُشَاهِدُ فِي صُورَةِ رِيفِ مَنَاف يَا صَدِيقِي؟',
             options: [
@@ -672,6 +675,8 @@
         currentLineIndex: 0,
         isAutoPlaying: false,
         autoPlayTimer: null,
+        speakLineTimer: null,
+        autoPlayToken: 0,
         performanceMode: 'interactive', // interactive | auto | choral
         curtainsOpen: true,
         currentBackdrop: 'room',
@@ -694,7 +699,7 @@
             if (modal) {
                 modal.style.display = 'flex';
                 this.switchTab(tab);
-                this.initStage();
+                this.initStage(tab !== 'theater');
             }
         },
 
@@ -704,6 +709,9 @@
             if (modal) {
                 modal.style.display = 'none';
                 this.stopAutoPlay();
+                if (typeof window.stopAudio === 'function') {
+                    window.stopAudio();
+                }
             }
         },
 
@@ -723,6 +731,9 @@
         // التبديل بين التبويبات الأربعة
         switchTab: function (tab) {
             State.currentTab = tab;
+            if (tab !== 'theater') {
+                this.stopAutoPlay();
+            }
             const tabs = ['theater', 'puppets', 'conversation', 'soundboard'];
             tabs.forEach(t => {
                 const btn = document.getElementById(`rtTabBtn_${t}`);
@@ -739,15 +750,15 @@
         },
 
         // تهيئة المسرح
-        initStage: function () {
-            this.loadPlay(State.currentPlayId);
+        initStage: function (silent = false) {
+            this.loadPlay(State.currentPlayId, silent);
             this.setStageBackdrop(State.currentBackdrop);
             this.updateCastChips();
             this.updateTicketPreview();
         },
 
         // تحميل مسرحية
-        loadPlay: function (playId) {
+        loadPlay: function (playId, silent = false) {
             State.currentPlayId = playId;
             State.currentLineIndex = 0;
             const play = PLAYS_BANK.find(p => p.id === playId) || PLAYS_BANK[0];
@@ -765,7 +776,7 @@
 
             this.renderStagePuppets(play.cast);
             this.updateCastChips();
-            this.showLine(0);
+            this.showLine(0, { silent });
         },
 
         // تغيير المسرحية من القائمة المنسدلة
@@ -903,12 +914,35 @@
             this.updateTicketPreview();
         },
 
+        // نطق السطر النشط بصوت الأستاذ باسل مع تراجع ذكي عند الحاجة
+        speakCurrentLine: function (onEnded) {
+            const play = PLAYS_BANK.find(p => p.id === State.currentPlayId) || PLAYS_BANK[0];
+            const line = play && play.lines ? play.lines[State.currentLineIndex] : null;
+            if (!line) {
+                if (typeof onEnded === 'function') onEnded();
+                return;
+            }
+            if (line.audio && typeof window.playAudio === 'function') {
+                window.playAudio(line.audio, onEnded);
+            } else if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
+                window.FaseehVoice.speak(line.text, { rate: 0.9, onEnded });
+            } else if (typeof onEnded === 'function') {
+                onEnded();
+            }
+        },
+
         // عرض سطر محدد في شاشة التلقين
-        showLine: function (index) {
+        showLine: function (index, opts) {
+            const options = opts || {};
             const play = PLAYS_BANK.find(p => p.id === State.currentPlayId) || PLAYS_BANK[0];
             if (index < 0) index = 0;
             if (index >= play.lines.length) index = play.lines.length - 1;
             State.currentLineIndex = index;
+
+            if (State.speakLineTimer) {
+                clearTimeout(State.speakLineTimer);
+                State.speakLineTimer = null;
+            }
 
             const line = play.lines[index];
             const speaker = PUPPETS_DATA[line.speaker] || PUPPETS_DATA.faseeh;
@@ -942,11 +976,27 @@
             this.highlightSpeakingPuppet(line.speaker, line.text);
 
             // تشغيل المؤثر الدرامي المصاحب للسطر إن وجد
-            if (line.sfx && SFX_GENERATORS[line.sfx]) {
+            const hasSfx = Boolean(line.sfx && SFX_GENERATORS[line.sfx]);
+            if (hasSfx) {
                 this.playSoundEffect(line.sfx);
             }
 
             this.updateCastChips();
+
+            // تشغيل صوت الأستاذ باسل للسطر النشط ما لم يُطلب العرض الصامت
+            if (!options.silent) {
+                const speakDelay = hasSfx ? 200 : 0;
+                if (speakDelay > 0) {
+                    State.speakLineTimer = setTimeout(() => {
+                        State.speakLineTimer = null;
+                        this.speakCurrentLine(options.onEnded);
+                    }, speakDelay);
+                } else {
+                    this.speakCurrentLine(options.onEnded);
+                }
+            } else if (typeof options.onEnded === 'function') {
+                options.onEnded();
+            }
         },
 
         // إبراز الدمية المتحدثة وبالون الكلام
@@ -1002,28 +1052,59 @@
             }
         },
 
-        // القراءة الآلية المؤتمتة
+        // القراءة الآلية المؤتمتة المتسلسلة بناءً على انتهاء الصوت
         startAutoPlay: function () {
             this.stopAutoPlay();
             State.isAutoPlaying = true;
+            const myToken = ++State.autoPlayToken;
             const btn = document.getElementById('rtBtnAutoPlay');
             if (btn) btn.innerHTML = '<span>⏸️</span> <span>إيقاف مؤقت</span>';
 
-            State.autoPlayTimer = setInterval(() => {
+            const advanceStep = (lineIdx) => {
+                if (!State.isAutoPlaying || myToken !== State.autoPlayToken) return;
                 const play = PLAYS_BANK.find(p => p.id === State.currentPlayId) || PLAYS_BANK[0];
-                if (State.currentLineIndex < play.lines.length - 1) {
-                    this.nextLine();
-                } else {
-                    this.stopAutoPlay();
-                }
-            }, 3800);
+                let advanced = false;
+
+                const goNext = () => {
+                    if (advanced || !State.isAutoPlaying || myToken !== State.autoPlayToken) return;
+                    advanced = true;
+                    if (State.autoPlayTimer) {
+                        clearTimeout(State.autoPlayTimer);
+                        State.autoPlayTimer = null;
+                    }
+                    if (lineIdx < play.lines.length - 1) {
+                        State.autoPlayTimer = setTimeout(() => {
+                            advanceStep(lineIdx + 1);
+                        }, 450);
+                    } else {
+                        this.playSoundEffect('applause');
+                        this.playSoundEffect('fanfare');
+                        this.recordCompletion();
+                        this.stopAutoPlay();
+                    }
+                };
+
+                // مؤقت أمان في حال تعذر حدث انتهاء الصوت
+                State.autoPlayTimer = setTimeout(goNext, 12000);
+                this.showLine(lineIdx, { onEnded: goNext });
+            };
+
+            advanceStep(State.currentLineIndex);
         },
 
         stopAutoPlay: function () {
             State.isAutoPlaying = false;
+            State.autoPlayToken++;
             if (State.autoPlayTimer) {
-                clearInterval(State.autoPlayTimer);
+                clearTimeout(State.autoPlayTimer);
                 State.autoPlayTimer = null;
+            }
+            if (State.speakLineTimer) {
+                clearTimeout(State.speakLineTimer);
+                State.speakLineTimer = null;
+            }
+            if (typeof window.stopAudio === 'function') {
+                window.stopAudio();
             }
             const btn = document.getElementById('rtBtnAutoPlay');
             if (btn) btn.innerHTML = '<span>▶️</span> <span>تشغيل المسرحية تلقائياً</span>';
@@ -1116,6 +1197,21 @@
 
             // عرض خيارات الرد
             this.renderConversationOptions(convo);
+
+            // نطق رسالة الشريك بصوت الأستاذ باسل عند فتح المحادثة أو تبديلها
+            if (convo.partnerAudio && typeof window.playAudio === 'function') {
+                setTimeout(() => {
+                    if (State.currentTab === 'conversation' && State.currentConvoId === convo.id) {
+                        window.playAudio(convo.partnerAudio);
+                    }
+                }, 150);
+            } else if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
+                setTimeout(() => {
+                    if (State.currentTab === 'conversation' && State.currentConvoId === convo.id) {
+                        window.FaseehVoice.speak(convo.partnerMessage, { rate: 0.9 });
+                    }
+                }, 150);
+            }
         },
 
         onConvoSelectChange: function () {
@@ -1170,6 +1266,17 @@
                         this.playSoundEffect('applause');
                     } else {
                         this.playSoundEffect('mystery');
+                    }
+
+                    const fbAudioKey = opt.correct ? 'rt_convo_feedback_correct' : 'rt_convo_feedback_retry';
+                    if (typeof window.playAudio === 'function') {
+                        setTimeout(() => {
+                            window.playAudio(fbAudioKey);
+                        }, 250);
+                    } else if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
+                        setTimeout(() => {
+                            window.FaseehVoice.speak(feedback, { rate: 0.9 });
+                        }, 250);
                     }
                 }, 600);
 

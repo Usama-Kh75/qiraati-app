@@ -833,17 +833,81 @@
         setTimeout(playComicDrum, 250);
     }
 
-    // نطق الكلمات والجمل الفونيمية صوتياً
-    function speakPhonicsText(text) {
+    // خريطة الصوتيات الجاهزة بصوت الأستاذ باسل لفقاعات وقصص وتحديات الاستوديو
+    const STORY_STUDIO_AUDIO_MAP = {
+        'اهلا بكم انا فصيح سازور دار دادا': 'ss_faseeh_dada_p1',
+        'دادا دار باب': 'ss_faseeh_dada_p2',
+        'رباب تقرا مع دادا في الكتاب': 'ss_faseeh_dada_p3',
+        'نحن نحب القراءة يا اصدقائي': 'ss_faseeh_dada_p4',
+        'مرحبا عمي قدوري الوزان': 'ss_qaddoori_scale_p1',
+        'قدوري وزن زبيب مازن بعدل': 'ss_qaddoori_scale_p2',
+        'شكرا يا قدوري انت وزان امين': 'ss_qaddoori_scale_p3',
+        'ريف باسم جميل فيه زورق ونهر': 'ss_basim_countryside_p1',
+        'البط والوز يسبح في الشط': 'ss_basim_countryside_p2',
+        'في ريف باسم بقر ونخيل كثير': 'ss_basim_countryside_p3',
+        'بوق مازن يعزف توت توت': 'ss_mazin_horn_p1',
+        'البلبل يغرد مع بوق مازن': 'ss_mazin_horn_p2',
+        'قطار الحروف انطلق بنجاح': 'ss_mazin_horn_p3',
+        'انا عطشان جدا اين الماء': 'ss_clever_crow_p1',
+        'وجدت جرة فيها ماء قليل': 'ss_clever_crow_p2',
+        'ساجمع الحصى الصغير وارميه في الجرة': 'ss_clever_crow_p3',
+        'ارتفع الماء وشرب الغراب الذكي': 'ss_clever_crow_p4',
+        'اهلا بكم في قصتي': 'ss_default_story_p1',
+        'دادا في الريف الجميل': 'ss_default_story_p2',
+        'نحن نحب مدرستنا': 'ss_default_story_p3',
+        'مازن يحمل بوقه في باحة المدرسة كيف تنتهي القصة بصوت البوق المبهج': 'ss_ch_mazin_horn_prompt',
+        'عزف مازن بالبوق توت توت وفرح التلاميذ': 'ss_ch_mazin_horn_win',
+        'الغراب العطشان وجد الجرة وفيها ماء قليل ما هو التصرف الذكي الذي قام به': 'ss_ch_crow_water_prompt',
+        'رمى الغراب الحصى فارتفع الماء وشرب': 'ss_ch_crow_water_win',
+        'طلب مازن من قدوري ان يزن له الزبيب كيف انتهى المشهد': 'ss_ch_qaddoori_scale_prompt',
+        'قدوري وزان امين وزن الزبيب بميزانه الدقيق': 'ss_ch_qaddoori_scale_win'
+    };
+
+    function normalizeStoryAudioText(raw) {
+        if (window.FaseehVoice && typeof window.FaseehVoice.normalizeArabicForAudio === 'function') {
+            return window.FaseehVoice.normalizeArabicForAudio(raw);
+        }
+        return String(raw || '')
+            .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
+            .replace(/[أإآٱ]/g, 'ا')
+            .replace(/[^\u0621-\u064A0-9\s]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim();
+    }
+
+    // نطق الكلمات والجمل الفونيمية صوتياً بصوت الأستاذ باسل المعتمد
+    function speakPhonicsText(text, onEnded) {
+        const norm = normalizeStoryAudioText(text);
+        const mappedKey = STORY_STUDIO_AUDIO_MAP[norm];
+        if (mappedKey && typeof window.playAudio === 'function') {
+            window.playAudio(mappedKey, onEnded);
+            return;
+        }
         if (window.FaseehVoice && typeof window.FaseehVoice.speak === 'function') {
-            window.FaseehVoice.speak(text, { rate: 0.88, keepBubble: true });
+            window.FaseehVoice.speak(text, { rate: 0.88, keepBubble: true, onEnded });
         } else if ('speechSynthesis' in window) {
             window.speechSynthesis.cancel();
             const u = new SpeechSynthesisUtterance(text);
             u.lang = 'ar-SA';
             u.rate = 0.85;
             u.pitch = 1.05;
+            if (typeof onEnded === 'function') {
+                u.onend = onEnded;
+                u.onerror = onEnded;
+            }
             window.speechSynthesis.speak(u);
+        } else if (typeof onEnded === 'function') {
+            onEnded();
+        }
+    }
+
+    let _libraryPlayToken = 0;
+    let _libraryPlayTimer = null;
+    function stopLibraryStoryPlayback() {
+        _libraryPlayToken++;
+        if (_libraryPlayTimer) {
+            clearTimeout(_libraryPlayTimer);
+            _libraryPlayTimer = null;
         }
     }
 
@@ -1608,6 +1672,8 @@
 
         closeModal: function () {
             playPop();
+            stopLibraryStoryPlayback();
+            if (typeof window.stopAudio === 'function') window.stopAudio();
             const modal = document.getElementById('storyStudioModal');
             if (modal) {
                 modal.style.display = 'none';
@@ -1625,6 +1691,7 @@
         switchTab: function (tabId) {
             state.activeTab = tabId;
             playPop();
+            stopLibraryStoryPlayback();
 
             // تحديث أزرار التبويبات
             document.querySelectorAll('.ss-tab-btn').forEach(btn => {
@@ -1638,7 +1705,13 @@
 
             if (tabId === 'creator') renderCreatorStage();
             if (tabId === 'library') renderLibrary();
-            if (tabId === 'challenge') renderChallenge();
+            if (tabId === 'challenge') {
+                renderChallenge();
+                const ch = CHALLENGES_DATA[state.activeChallengeIdx];
+                if (ch && ch.desc) {
+                    setTimeout(() => speakPhonicsText(ch.desc), 150);
+                }
+            }
             if (tabId === 'export') renderSavedGallery();
         },
 
@@ -1869,18 +1942,39 @@
 
         playActiveLibraryStory: function () {
             const b = state.selectedLibraryStory;
-            if (!b) return;
+            if (!b || !Array.isArray(b.panels) || b.panels.length === 0) return;
+            stopLibraryStoryPlayback();
             playPageFlip();
 
-            let delay = 0;
-            b.panels.forEach((p, idx) => {
-                setTimeout(() => {
-                    playPop();
-                    const texts = (p.bubbles || []).map(b => b.text).join(' ');
-                    if (texts) speakPhonicsText(texts);
-                }, delay);
-                delay += 3500;
-            });
+            const myToken = _libraryPlayToken;
+            const panels = b.panels;
+
+            const playPanelAt = (idx) => {
+                if (myToken !== _libraryPlayToken || idx >= panels.length) return;
+                const p = panels[idx];
+                const texts = (p.bubbles || []).map(bub => bub.text).join(' ').trim();
+                let advanced = false;
+
+                const goNext = () => {
+                    if (advanced || myToken !== _libraryPlayToken) return;
+                    advanced = true;
+                    if (_libraryPlayTimer) {
+                        clearTimeout(_libraryPlayTimer);
+                        _libraryPlayTimer = null;
+                    }
+                    _libraryPlayTimer = setTimeout(() => playPanelAt(idx + 1), 400);
+                };
+
+                playPop();
+                if (texts) {
+                    _libraryPlayTimer = setTimeout(goNext, 10000);
+                    speakPhonicsText(texts, goNext);
+                } else {
+                    _libraryPlayTimer = setTimeout(goNext, 800);
+                }
+            };
+
+            playPanelAt(0);
         },
 
         checkChallengeAnswer: function (optIdx, btnEl) {
@@ -1921,6 +2015,10 @@
             state.challengeAnswered = false;
             playPageFlip();
             renderChallenge();
+            const ch = CHALLENGES_DATA[state.activeChallengeIdx];
+            if (ch && ch.desc) {
+                setTimeout(() => speakPhonicsText(ch.desc), 150);
+            }
         },
 
         printA4: function (storyId) {

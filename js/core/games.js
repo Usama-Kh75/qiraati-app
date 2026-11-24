@@ -235,16 +235,16 @@
         words: [
             { text: 'دَادَا', title: 'دَادَا', desc: 'الطفل الرضيع الصغير (دَا + دَا)', audio: 'faseeh_blend_dada' },
             { text: 'دَار', title: 'دَار', desc: 'بيت الأسرة الجميل (دَا + ر)', audio: 'faseeh_blend_dar' },
-            { text: 'بَابَا', title: 'بَابَا', desc: 'الأب الحنون (بَا + بَا)', audio: 'letter_d_read_baba' },
-            { text: 'مَامَا', title: 'مَامَا', desc: 'الأم الغالية (مَا + مَا)', audio: 'letter_m_read_mama' },
+            { text: 'بَابَا', title: 'بَابَا', desc: 'الأب الحنون (بَا + بَا)', audio: 'faseeh_blend_baba' },
+            { text: 'مَامَا', title: 'مَامَا', desc: 'الأم الغالية (مَا + مَا)', audio: 'faseeh_blend_mama' },
             { text: 'نُور', title: 'نُور', desc: 'الضياء واسم بنت (نُو + ر)', audio: 'faseeh_blend_noor' },
-            { text: 'بُوق', title: 'بُوق', desc: 'بوق نديم القديم (بُو + ق)', audio: 'letter_q_booq_word_booq' },
-            { text: 'مِيَاه', title: 'مِيَاه', desc: 'مياه المطر تسقي الزرع', audio: 'letter_ha_word_miah' },
-            { text: 'زَيْتُون', title: 'زَيْتُون', desc: 'زيتون بلادي الشهي', audio: 'letter_z_words_intro' },
-            { text: 'قِطَارٌ', title: 'قِطَارٌ', desc: 'قطار سريع بتنوين الضم', audio: 'item_qitar' },
-            { text: 'غَزَال', title: 'غَزَال', desc: 'غزال وغراب صديقان', audio: 'letter_z_word_ghazal' },
-            { text: 'سَالِم', title: 'سَالِم', desc: 'سالم زارع البستان النشيط', audio: 'letter_ayn_salim_word_salim' },
-            { text: 'نَبِيه', title: 'نَبِيه', desc: 'نبيه تلميذ نشيط وذكي', audio: 'letter_ha_word_nabeeh' }
+            { text: 'بُوق', title: 'بُوق', desc: 'بوق نديم القديم (بُو + ق)', audio: 'faseeh_blend_booq' },
+            { text: 'مِيَاه', title: 'مِيَاه', desc: 'مياه المطر تسقي الزرع', audio: 'faseeh_blend_miah' },
+            { text: 'زَيْتُون', title: 'زَيْتُون', desc: 'زيتون بلادي الشهي', audio: 'faseeh_word_zaytoon' },
+            { text: 'قِطَارٌ', title: 'قِطَارٌ', desc: 'قطار سريع بتنوين الضم', audio: 'faseeh_blend_qitar' },
+            { text: 'غَزَال', title: 'غَزَال', desc: 'غزال وغراب صديقان', audio: 'faseeh_blend_ghazal' },
+            { text: 'سَالِم', title: 'سَالِم', desc: 'سالم زارع البستان النشيط', audio: 'faseeh_word_salim' },
+            { text: 'نَبِيه', title: 'نَبِيه', desc: 'نبيه تلميذ نشيط وذكي', audio: 'faseeh_word_nabeeh' }
         ],
         challenges: [
             { text: '👏 صفق!', title: 'تحدي التصفيق المقطعي', desc: 'اقرأ الكلمة (بَابَا) وصفق بعدد مقاطعها!' },
@@ -260,18 +260,18 @@
 
     // بنك كلمات اللام الشمسية واللام القمرية
     const LAM_WORDS_BANK = [
-        { word: 'الشَّمْس', type: 'shamsi', reason: 'الشين حرف مشدد، واللام كُتبت ولم تُلفظ' },
-        { word: 'الْقَمَر', type: 'qamari', reason: 'القاف حرف قمري، واللام ساكنة ظاهرة في النطق' },
-        { word: 'الدَّار', type: 'shamsi', reason: 'الدال حرف شمسي مشدد بعد الـ' },
-        { word: 'الْبَاب', type: 'qamari', reason: 'الباء حرف قمري ينطق بوضوح' },
-        { word: 'الصَّيْف', type: 'shamsi', reason: 'الصاد حرف شمسي مشدد' },
-        { word: 'الْمَطَر', type: 'qamari', reason: 'الميم حرف قمري يلفظ لامه' },
-        { word: 'الطَّيْر', type: 'shamsi', reason: 'الطاء حرف شمسي مدغم' },
-        { word: 'الْوَلَد', type: 'qamari', reason: 'الواو حرف قمري تظهر لامه' },
-        { word: 'الرَّبِيع', type: 'shamsi', reason: 'الراء حرف شمسي مشدد' },
-        { word: 'الْكِتَاب', type: 'qamari', reason: 'الكاف حرف قمري ساكن اللام' },
-        { word: 'النَّهَار', type: 'shamsi', reason: 'النون حرف شمسي مشدد' },
-        { word: 'الْعَلَم', type: 'qamari', reason: 'العين حرف قمري واضح' }
+        { word: 'الشَّمْس', type: 'shamsi', reason: 'الشين حرف مشدد، واللام كُتبت ولم تُلفظ', audio: 'game_lam_w1' },
+        { word: 'الْقَمَر', type: 'qamari', reason: 'القاف حرف قمري، واللام ساكنة ظاهرة في النطق', audio: 'game_lam_w2' },
+        { word: 'الدَّار', type: 'shamsi', reason: 'الدال حرف شمسي مشدد بعد الـ', audio: 'game_lam_w3' },
+        { word: 'الْبَاب', type: 'qamari', reason: 'الباء حرف قمري ينطق بوضوح', audio: 'game_lam_w4' },
+        { word: 'الصَّيْف', type: 'shamsi', reason: 'الصاد حرف شمسي مشدد', audio: 'game_lam_w5' },
+        { word: 'الْمَطَر', type: 'qamari', reason: 'الميم حرف قمري يلفظ لامه', audio: 'game_lam_w6' },
+        { word: 'الطَّيْر', type: 'shamsi', reason: 'الطاء حرف شمسي مدغم', audio: 'game_lam_w7' },
+        { word: 'الْوَلَد', type: 'qamari', reason: 'الواو حرف قمري تظهر لامه', audio: 'game_lam_w8' },
+        { word: 'الرَّبِيع', type: 'shamsi', reason: 'الراء حرف شمسي مشدد', audio: 'game_lam_w9' },
+        { word: 'الْكِتَاب', type: 'qamari', reason: 'الكاف حرف قمري ساكن اللام', audio: 'game_lam_w10' },
+        { word: 'النَّهَار', type: 'shamsi', reason: 'النون حرف شمسي مشدد', audio: 'game_lam_w11' },
+        { word: 'الْعَلَم', type: 'qamari', reason: 'العين حرف قمري واضح', audio: 'game_lam_w12' }
     ];
 
     // بنك كلمات قطار المقاطع والتركيب
@@ -297,7 +297,7 @@
             syllables: ['بَا', 'بَا'],
             pic: 'unit1_story_living.png',
             scenePic: 'unit1_story_living.png',
-            audio: 'letter_d_read_baba',
+            audio: 'faseeh_blend_baba',
             visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M26 38 C26 20 74 20 74 38 L74 44 C74 44 76 28 64 24 C52 20 38 22 28 32 Z" fill="#1e293b"/><circle cx="50" cy="48" r="24" fill="#fed7aa" stroke="#f97316" stroke-width="1.8"/><ellipse cx="41" cy="46" rx="3" ry="3.5" fill="#1e293b"/><ellipse cx="59" cy="46" rx="3" ry="3.5" fill="#1e293b"/><path d="M36 40 Q41 37 46 40" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/><path d="M54 40 Q59 37 64 40" fill="none" stroke="#1e293b" stroke-width="2" stroke-linecap="round"/><path d="M44 56 Q50 63 56 56" fill="none" stroke="#be123c" stroke-width="2.5" stroke-linecap="round"/><path d="M24 78 C24 70 36 68 50 68 C64 68 76 70 76 78 L74 94 L26 94 Z" fill="#2563eb"/><polygon points="50,68 44,78 50,82 56,78" fill="#ffffff"/></svg>'
         },
         {
@@ -305,7 +305,7 @@
             syllables: ['مَا', 'مَا'],
             pic: 'activity_m_scene.png',
             scenePic: 'activity_m_scene.png',
-            audio: 'letter_m_read_mama',
+            audio: 'faseeh_blend_mama',
             visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><circle cx="50" cy="48" r="23" fill="#fed7aa" stroke="#f97316" stroke-width="1.8"/><path d="M26 44 C24 24 76 24 74 44 C72 26 28 26 26 44 Z" fill="#334155"/><ellipse cx="41" cy="47" rx="3" ry="3.5" fill="#1e293b"/><ellipse cx="59" cy="47" rx="3" ry="3.5" fill="#1e293b"/><circle cx="42" cy="46" r="1.2" fill="#ffffff"/><circle cx="60" cy="46" r="1.2" fill="#ffffff"/><circle cx="34" cy="54" r="4" fill="#f43f5e" opacity="0.45"/><circle cx="66" cy="54" r="4" fill="#f43f5e" opacity="0.45"/><path d="M44 57 Q50 64 56 57" fill="none" stroke="#be123c" stroke-width="2.5" stroke-linecap="round"/><path d="M22 80 C22 68 36 66 50 66 C64 66 78 68 78 80 L76 94 L24 94 Z" fill="#ec4899"/><circle cx="50" cy="74" r="3" fill="#fde047"/></svg>'
         },
         {
@@ -313,7 +313,7 @@
             syllables: ['بُو', 'ق'],
             pic: 'activity_booq_scene.png',
             scenePic: 'activity_booq_scene.png',
-            audio: 'letter_q_booq_word_booq',
+            audio: 'faseeh_blend_booq',
             visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M16 54 L34 54 C42 54 48 50 48 44 C48 38 42 34 34 34 L26 34 C20 34 16 38 16 44 C16 50 22 54 30 54 L58 54 L84 70 L84 38 L58 54" fill="none" stroke="#f59e0b" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/><ellipse cx="84" cy="54" rx="5" ry="16" fill="#fbbf24" stroke="#d97706" stroke-width="2"/><rect x="12" y="51" width="5" height="6" rx="1" fill="#94a3b8"/><path d="M88 42 Q96 46 94 54 Q92 62 88 66" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/><path d="M92 36 Q102 42 99 54 Q96 66 92 72" fill="none" stroke="#818cf8" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 3"/></svg>'
         },
         {
@@ -321,7 +321,7 @@
             syllables: ['بَـ', 'طّ'],
             pic: 'activity_ta_scene.png',
             scenePic: 'activity_ta_scene.png',
-            audio: 'letter_ta_word_bat',
+            audio: 'faseeh_blend_bat',
             visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M20 62 C20 48 38 46 54 48 C64 48 84 52 82 66 C80 76 66 80 46 80 C30 80 20 74 20 62 Z" fill="#fbbf24" stroke="#d97706" stroke-width="2"/><circle cx="66" cy="38" r="16" fill="#fbbf24" stroke="#d97706" stroke-width="2"/><ellipse cx="72" cy="36" rx="2.5" ry="3.5" fill="#1e293b"/><circle cx="73" cy="35" r="1" fill="#ffffff"/><path d="M78 38 L94 42 L78 47 Z" fill="#ea580c"/><path d="M34 58 C38 52 52 52 50 64 C48 70 38 70 34 58 Z" fill="#f59e0b"/><path d="M10 82 Q30 78 50 82 T90 82" fill="none" stroke="#38bdf8" stroke-width="3.5" stroke-linecap="round"/><path d="M18 88 Q35 84 55 88 T85 88" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-linecap="round"/></svg>'
         },
         {
@@ -329,7 +329,7 @@
             syllables: ['قِـ', 'طَا', 'ر'],
             pic: 'activity_ta_words.png',
             scenePic: 'activity_ta_words.png',
-            audio: 'item_qitar',
+            audio: 'faseeh_blend_qitar',
             visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><rect x="15" y="38" width="34" height="38" rx="3" fill="#2563eb" stroke="#1d4ed8" stroke-width="2"/><rect x="49" y="48" width="34" height="28" rx="2" fill="#ef4444" stroke="#b91c1c" stroke-width="2"/><polygon points="83,56 94,66 83,76" fill="#f59e0b"/><rect x="22" y="44" width="14" height="14" rx="2" fill="#bae6fd" stroke="#0284c7" stroke-width="1.5"/><rect x="68" y="32" width="8" height="16" fill="#475569"/><ellipse cx="72" cy="32" rx="6" ry="2" fill="#334155"/><circle cx="72" cy="22" r="5" fill="#cbd5e1" opacity="0.8"/><circle cx="76" cy="14" r="7" fill="#cbd5e1" opacity="0.6"/><circle cx="28" cy="78" r="9" fill="#334155" stroke="#fbbf24" stroke-width="3"/><circle cx="54" cy="78" r="9" fill="#334155" stroke="#fbbf24" stroke-width="3"/><circle cx="76" cy="78" r="9" fill="#334155" stroke="#fbbf24" stroke-width="3"/><line x1="8" y1="87" x2="96" y2="87" stroke="#64748b" stroke-width="3"/></svg>'
         },
         {
@@ -337,7 +337,7 @@
             syllables: ['غَـ', 'زَا', 'ل'],
             pic: 'activity_ghayn_scene.png',
             scenePic: 'activity_ghayn_scene.png',
-            audio: 'letter_z_word_ghazal',
+            audio: 'faseeh_blend_ghazal',
             visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M28 58 C28 48 40 46 54 50 L64 36 L70 38 L62 56 C70 60 72 70 68 78 L64 78 C66 70 60 66 52 66 L38 66 L34 82 L28 82 Z" fill="#d97706" stroke="#b45309" stroke-width="1.5"/><circle cx="68" cy="32" r="10" fill="#f59e0b" stroke="#b45309" stroke-width="1.5"/><path d="M66 22 L62 10 M63 15 L58 13 M70 22 L74 10 M71 15 L77 14" stroke="#78350f" stroke-width="2" stroke-linecap="round"/><ellipse cx="72" cy="30" rx="2" ry="2.5" fill="#1e293b"/><circle cx="72.6" cy="29.2" r="0.8" fill="#ffffff"/><polygon points="76,33 80,35 76,37" fill="#1e293b"/><circle cx="42" cy="56" r="1.5" fill="#fef3c7"/><circle cx="48" cy="54" r="1.5" fill="#fef3c7"/><circle cx="46" cy="60" r="1.5" fill="#fef3c7"/><path d="M28 58 Q22 54 24 50" fill="none" stroke="#d97706" stroke-width="3" stroke-linecap="round"/></svg>'
         },
         {
@@ -345,7 +345,7 @@
             syllables: ['مِـ', 'يَا', 'ه'],
             pic: 'activity_ha_scene.png',
             scenePic: 'activity_ha_scene.png',
-            audio: 'letter_ha_word_miah',
+            audio: 'faseeh_blend_miah',
             visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M50 14 C50 14 26 44 26 62 C26 76 36 86 50 86 C64 86 74 76 74 62 C74 44 50 14 50 14 Z" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/><path d="M42 36 C42 36 34 50 34 60 C34 68 38 74 46 76 C42 74 38 68 38 60 C38 52 44 40 44 36 Z" fill="#ffffff" opacity="0.6"/><circle cx="20" cy="72" r="4" fill="#7dd3fc"/><circle cx="80" cy="68" r="5" fill="#7dd3fc"/><circle cx="78" cy="48" r="3" fill="#bae6fd"/><path d="M12 90 Q30 84 50 90 T88 90" fill="none" stroke="#0284c7" stroke-width="3" stroke-linecap="round"/></svg>'
         },
         {
@@ -353,7 +353,7 @@
             syllables: ['وَرْ', 'د'],
             pic: 'activity_tanween_dham_scene.png',
             scenePic: 'activity_tanween_dham_scene.png',
-            audio: 'tanween_dham_word_wardun',
+            audio: 'faseeh_blend_wardun',
             visualSvg: '<svg viewBox="0 0 100 100" width="100%" height="100%"><path d="M50 56 Q50 78 50 92" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/><path d="M50 74 Q34 66 30 76 Q42 82 50 74" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/><path d="M50 68 Q66 60 70 70 Q58 76 50 68" fill="#22c55e" stroke="#15803d" stroke-width="1.5"/><circle cx="50" cy="38" r="22" fill="#e11d48"/><path d="M50 18 C40 18 32 26 32 36 C32 46 42 54 50 54 C58 54 68 46 68 36 C68 26 60 18 50 18 Z" fill="#f43f5e"/><path d="M50 24 C44 24 38 30 38 36 C38 42 44 48 50 48 C56 48 62 42 62 36 C62 30 56 24 50 24 Z" fill="#fb7185"/><path d="M48 30 Q54 28 54 34 Q54 40 48 40" fill="none" stroke="#be123c" stroke-width="2.5" stroke-linecap="round"/></svg>'
         }
     ];
@@ -363,6 +363,7 @@
         {
             level: 1, points: 100,
             question: 'ما هو الحرف الأول في كلمة «دَار»؟',
+            audio: 'game_quiz_q1',
             answers: ['حرف الدال (د)', 'حرف الراء (ر)', 'حرف الباء (ب)', 'حرف الميم (م)'],
             correct: 0,
             hint: 'تبدأ بحرف الدال المستقر على السطر'
@@ -370,6 +371,7 @@
         {
             level: 2, points: 200,
             question: 'كم مقطعاً صوتياً تتكون منه كلمة «دَادَا»؟',
+            audio: 'game_quiz_q2',
             answers: ['مقطع واحد', 'مقطعان (دَا + دَا)', 'ثلاثة مقاطع', 'أربعة مقاطع'],
             correct: 1,
             hint: 'مقطعان متماثلان بالمد'
@@ -377,6 +379,7 @@
         {
             level: 3, points: 300,
             question: 'ما هو حرف المد في كلمة «نُور»؟',
+            audio: 'game_quiz_q3',
             answers: ['مد الألف (ا)', 'مد الواو (و)', 'مد الياء (ي)', 'الهمزة (ء)'],
             correct: 1,
             hint: 'واو المد التي تمد صوت الضمة'
@@ -384,6 +387,7 @@
         {
             level: 4, points: 400,
             question: 'أي الكلمات التالية تنتهي بحرف الميم المنفصل (م)؟',
+            audio: 'game_quiz_q4',
             answers: ['بَاب', 'نَمِير', 'بُوم', 'دُود'],
             correct: 2,
             hint: 'طائر البوم الجميل'
@@ -391,6 +395,7 @@
         {
             level: 5, points: 500,
             question: 'ما هي الحركة الموضوعة فوق الراء في كلمة «وَرْدٌ»؟',
+            audio: 'game_quiz_q5',
             answers: ['الفتحة', 'الكسرة', 'السكون', 'الضمة'],
             correct: 2,
             hint: 'سكون دائرية فوق الراء تجعلها مقطعاً ساكناً'
@@ -398,6 +403,7 @@
         {
             level: 6, points: 600,
             question: 'أي من الكلمات التالية تحتوي على تنوين الضم (ـٌ)؟',
+            audio: 'game_quiz_q6',
             answers: ['قِطَارٌ', 'قِطَارَ', 'قِطَارِ', 'قِطَارْ'],
             correct: 0,
             hint: 'ينطق ضمتين متجاورتين بنغمة النون'
@@ -405,6 +411,7 @@
         {
             level: 7, points: 700,
             question: 'الحرف المشدد في اللغة العربية عبارة عن كم حرف في الأصل؟',
+            audio: 'game_quiz_q7',
             answers: ['حرف واحد فقط', 'حرفين: الأول ساكن والثاني متحرك', 'ثلاثة حروف', 'أربعة حروف'],
             correct: 1,
             hint: 'أدغم الحرفان معاً فصار حرفاً واحداً مشدداً'
@@ -412,6 +419,7 @@
         {
             level: 8, points: 800,
             question: 'كلمة «الشَّمْس» لامها شمسية أم قمرية؟',
+            audio: 'game_quiz_q8',
             answers: ['لام شمسية (تُكتب ولا تُلفظ)', 'لام قمرية (تُلفظ ساكنة)', 'ليست لام أصلاً', 'حرف مد'],
             correct: 0,
             hint: 'شمسية والحرف الذي بعدها مشدد'
@@ -419,6 +427,7 @@
         {
             level: 9, points: 900,
             question: 'نقول: «..... وَلَدٌ نَشِيطٌ» - اسم الإشارة المناسب هو:',
+            audio: 'game_quiz_q9',
             answers: ['هَذِهِ', 'هَذَا', 'هَؤُلَاءِ', 'تِلْكَ'],
             correct: 1,
             hint: 'اسم إشارة للمفرد المذكر'
@@ -426,6 +435,7 @@
         {
             level: 10, points: 1000,
             question: 'ما معنى القراءة بطلاقة وفهم يا بطل الصف الأول؟',
+            audio: 'game_quiz_q10',
             answers: ['القراءة بسرعة دون فهم', 'القراءة المعبرة بدقة ونطق الحركات وفهم المعنى', 'حفظ الكلمات شكلياً فقط', 'قراءة الحرف الأول فقط'],
             correct: 1,
             hint: 'القراءة المعبرة السليمة مع الفهم التام'
@@ -1423,7 +1433,7 @@
     window.speakSorterWord = function () {
         const idx = GamesState.sorter.currentIndex % LAM_WORDS_BANK.length;
         const item = LAM_WORDS_BANK[idx];
-        speakGameItem(item.word);
+        speakGameItem(item.word, item.audio || null);
     };
 
     // ==========================================================================
@@ -1493,7 +1503,7 @@
             });
         }
 
-        speakGameItem(q.question);
+        speakGameItem(q.question, q.audio || null);
     }
 
     function handleQuizAnswer(index, btn, q) {

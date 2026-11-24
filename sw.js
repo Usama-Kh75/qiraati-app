@@ -1,9 +1,9 @@
 ﻿// عامل الخدمة لمنصة قراءتي التفاعلية الذكية (PWA Service Worker)
 // إعداد وتطوير: المهندس أسامة خليل هاشم
-// الإصدار: v3.61 (استضافة خط Tajawal محلياً، مراجعة الصور، تحسينات الأداء والتجاوب، وترقية نطق فصيح البشري وكاش PWA إلى v84)
+// الإصدار: v3.62 (اعتماد صوت الأستاذ باسل البشري التعبيري للحوارات والقصص والمسرح والألعاب وكاش PWA إلى v85)
 
 const APP = 'qiraati-smart';
-const CACHE_NAME = 'qiraati-smart-v84';
+const CACHE_NAME = 'qiraati-smart-v85';
 
 // الهيكل الأساسي للتطبيق (App Shell) لتشغيل فوري ودعم العمل دون إنترنت
 const ASSETS_TO_CACHE = [
@@ -11,8 +11,6 @@ const ASSETS_TO_CACHE = [
   './index.html',
   './manifest.json',
   './curriculum_data.js',
-
-  // الخطوط وأنماط CSS
   './css/fonts.css',
   './fonts/tajawal-400-arabic.woff2',
   './fonts/tajawal-400-latin.woff2',
@@ -49,8 +47,6 @@ const ASSETS_TO_CACHE = [
   './css/nasheed-studio.css',
   './css/story-studio.css',
   './css/student-profiles.css',
-
-  // أكواد JavaScript المجزأة
   './js/core/ai-bridge.js',
   './js/core/modals.js',
   './js/core/audio.js',
@@ -79,8 +75,6 @@ const ASSETS_TO_CACHE = [
   './js/lessons/unit5.js',
   './js/lessons/unit6.js',
   './js/app.js',
-
-  // أيقونات التطبيق
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/faseeh_avatar.svg',

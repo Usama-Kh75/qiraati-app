@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 بوابة الفحص والجودة الآلية الإلزامية قبل كل إصدار
-لمنصة قراءتي التفاعلية الذكية (v3.61)
+لمنصة قراءتي التفاعلية الذكية (v3.62)
 إعداد وتطوير: المهندس أسامة خليل هاشم
 
 تقوم هذه الأداة بإجراء كافة الفحوصات الصارمة لمنع أي أخطاء قبل النشر:
@@ -10,7 +10,7 @@
 3. فحص index.html للتحقق من خلوه تماماً من المعرفات المكررة (0 Duplicate IDs) والتحقق من وجود loading="lazy" للصور واستضافة خط Tajawal محلياً.
 4. فحص تكامل وجود كافة الصور والأصول الرقمية المذكورة في الكود والتحقق الصارم من وجودها على القرص (0 صور مكسورة 404).
 5. الفحص الأمني الصارم لعدم وجود أي مفاتيح سرية (AIza...) في أي ملف واجهة أمامي.
-6. مطابقة رقم الإصدار (v3.61) وترقية مخزن الكاش إلى (qiraati-smart-v84).
+6. مطابقة رقم الإصدار (v3.62) وترقية مخزن الكاش إلى (qiraati-smart-v85).
 """
 
 import os
@@ -176,7 +176,7 @@ def step5_security_scan():
     return True
 
 def step6_version_alignment():
-    print_header("[6/6] مطابقة رقم الإصدار (v3.61) ومخزن الكاش (qiraati-smart-v84) واستضافة الخطوط")
+    print_header("[6/6] مطابقة رقم الإصدار (v3.62) ومخزن الكاش (qiraati-smart-v85) واستضافة الخطوط")
     top_shell = os.path.join(BASE_DIR, 'views', 'app-shell-top.html')
     sw_file = os.path.join(BASE_DIR, 'sw.js')
     index_file = os.path.join(BASE_DIR, 'index.html')
@@ -203,8 +203,8 @@ def step6_version_alignment():
     print(f"  - إصدار عامل الخدمة (sw.js): {sw_ver}")
     print(f"  - اسم مخزن الكاش (sw.js): {sw_cache}")
 
-    expected_ver = "v3.61"
-    expected_cache = "qiraati-smart-v84"
+    expected_ver = "v3.62"
+    expected_cache = "qiraati-smart-v85"
 
     errors = []
     if top_ver != expected_ver:
@@ -242,13 +242,13 @@ def step6_version_alignment():
             print(f"  - {e}")
         return False
 
-    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.61 وكاش qiraati-smart-v84 وملفات خط Tajawal المحلية (8 WOFF2).")
+    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.62 وكاش qiraati-smart-v85 وملفات خط Tajawal المحلية (8 WOFF2).")
     return True
 
 def main():
     print("=" * 70)
     print("🛡️ منصة قراءتي التفاعلية الذكية - بوابة الفحص الآلي الإلزامية")
-    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.61)")
+    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.62)")
     print("=" * 70)
 
     steps = [

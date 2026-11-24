@@ -493,8 +493,8 @@
 
             if (avatar) avatar.classList.add('mascot-speaking');
 
-            // تحديد الصوت بناءً على تفضيلات الضبط (المعلمة رنا / المعلم باسل / الوضع التكاملي / صوت المعلمة الميداني الحقيقي)
-            const voicePref = getStoredPref('qiraati-smart-voice-pref', 'qiraati_smart_voice_pref', 'integrated');
+            // تحديد الصوت بناءً على تفضيلات الضبط (المعلم باسل الافتراضي / المعلمة رنا / الوضع التكاملي / صوت المعلمة الميداني الحقيقي)
+            const voicePref = getStoredPref('qiraati-smart-voice-pref', 'qiraati_smart_voice_pref', 'bassel');
             let finalKey = audioKey;
 
             // جدول المطابقة الدقيقة لتحويل أصوات الدروس إلى تسجيلات المعلمة الميدانية الحقيقية
@@ -529,16 +529,26 @@
                 'letter_s_read_word_mama': 'letter_s_teacher_word_mama'
             };
 
-            // جدول المطابقة الدقيقة لتحويل أصوات فصيح إلى التسجيلات الفونيمية المطورة
+            // جدول المطابقة الدقيقة لتحويل أصوات فصيح والأستاذ باسل إلى التسجيلات الفونيمية المطورة
             const faseehDirectMap = {
                 'word_dada': 'faseeh_blend_dada',
                 'letter_d_read_dada': 'faseeh_blend_dada',
+                'letter_d_read_baba': 'faseeh_blend_baba',
+                'letter_m_read_mama': 'faseeh_blend_mama',
                 'letter_r_read_dar': 'faseeh_blend_dar',
                 'act5_dar': 'faseeh_blend_dar',
                 'letter_d_read_door': 'faseeh_blend_door',
                 'letter_n_read_noor': 'faseeh_blend_noor',
                 'letter_s_read_word_firas': 'faseeh_blend_firas',
                 'tanween_dham_read_ward': 'faseeh_blend_wardun',
+                'tanween_dham_word_wardun': 'faseeh_blend_wardun',
+                'letter_q_booq_word_booq': 'faseeh_blend_booq',
+                'letter_ta_word_bat': 'faseeh_blend_bat',
+                'item_qitar': 'faseeh_blend_qitar',
+                'letter_z_word_ghazal': 'faseeh_blend_ghazal',
+                'letter_ha_word_miah': 'faseeh_blend_miah',
+                'letter_ayn_salim_word_salim': 'faseeh_word_salim',
+                'letter_ha_word_nabeeh': 'faseeh_word_nabeeh',
                 'letter_d_sound': 'faseeh_phoneme_d',
                 'letter_r_sound': 'faseeh_phoneme_r',
                 'letter_s_sound': 'faseeh_phoneme_s',
@@ -551,19 +561,23 @@
                 'tanween_dham_sound': 'faseeh_phoneme_tanween',
                 'letter_d_vowels_intro': 'faseeh_vowels_d',
                 'letter_r_vowels_intro': 'faseeh_vowels_r',
-                'letter_s_vowels_intro': 'faseeh_vowels_s',
-                'voice_preview_bassel': 'faseeh_model_ana_wahdi',
-                'voice_confirm_bassel': 'faseeh_encourage_super'
+                'letter_s_vowels_intro': 'faseeh_vowels_s'
             };
 
             // قائمة المفاتيح الصوتية الخاصة للتأكد من وجودها سواء عبر audio/*.mp3 أو window.AUDIO_DATA
             const SPECIAL_AUDIO_KEYS = new Set([
-                "faseeh_blend_dada", "faseeh_blend_dar", "faseeh_blend_door", "faseeh_blend_firas", "faseeh_blend_noor",
-                "faseeh_blend_wardun", "faseeh_encourage_super", "faseeh_model_ana_wa_antum", "faseeh_model_ana_wahdi",
-                "faseeh_model_claps", "faseeh_phoneme_b", "faseeh_phoneme_d", "faseeh_phoneme_f", "faseeh_phoneme_m",
-                "faseeh_phoneme_marboota", "faseeh_phoneme_n", "faseeh_phoneme_r", "faseeh_phoneme_s", "faseeh_phoneme_t",
-                "faseeh_phoneme_tanween", "faseeh_vowels_d", "faseeh_vowels_r", "faseeh_vowels_s", "lam_phoneme_faseeh",
-                "letter_ayn_salim_phoneme_faseeh", "letter_dha_phoneme_faseeh", "letter_dhad_phoneme_faseeh",
+                "faseeh_blend_baba", "faseeh_blend_bat", "faseeh_blend_booq", "faseeh_blend_dada", "faseeh_blend_dar",
+                "faseeh_blend_door", "faseeh_blend_firas", "faseeh_blend_ghazal", "faseeh_blend_mama", "faseeh_blend_miah",
+                "faseeh_blend_noor", "faseeh_blend_qitar", "faseeh_blend_wardun", "faseeh_encourage_super",
+                "faseeh_model_ana_wa_antum", "faseeh_model_ana_wahdi", "faseeh_model_claps", "faseeh_phoneme_b",
+                "faseeh_phoneme_d", "faseeh_phoneme_f", "faseeh_phoneme_m", "faseeh_phoneme_marboota", "faseeh_phoneme_n",
+                "faseeh_phoneme_r", "faseeh_phoneme_s", "faseeh_phoneme_t", "faseeh_phoneme_tanween", "faseeh_vowels_d",
+                "faseeh_vowels_r", "faseeh_vowels_s", "faseeh_word_nabeeh", "faseeh_word_salim", "faseeh_word_zaytoon",
+                "game_lam_w1", "game_lam_w2", "game_lam_w3", "game_lam_w4", "game_lam_w5", "game_lam_w6",
+                "game_lam_w7", "game_lam_w8", "game_lam_w9", "game_lam_w10", "game_lam_w11", "game_lam_w12",
+                "game_quiz_q1", "game_quiz_q2", "game_quiz_q3", "game_quiz_q4", "game_quiz_q5",
+                "game_quiz_q6", "game_quiz_q7", "game_quiz_q8", "game_quiz_q9", "game_quiz_q10",
+                "lam_phoneme_faseeh", "letter_ayn_salim_phoneme_faseeh", "letter_dha_phoneme_faseeh", "letter_dhad_phoneme_faseeh",
                 "letter_dhal_phoneme_faseeh", "letter_f_reef_phoneme_faseeh", "letter_ghayn_phoneme_faseeh",
                 "letter_h_phoneme_faseeh", "letter_ha_phoneme_faseeh", "letter_hamza_phoneme_faseeh", "letter_hamza_word_darana",
                 "letter_j_phoneme_faseeh", "letter_kaf_phoneme_faseeh", "letter_kha_phoneme_faseeh", "letter_l_nabeel_phoneme_faseeh",
@@ -571,7 +585,25 @@
                 "letter_s_teacher_sentence3", "letter_s_teacher_word_baba", "letter_s_teacher_word_faris", "letter_s_teacher_word_mama",
                 "letter_s_teacher_word_moosa", "letter_s_teacher_word_rasama", "letter_s_teacher_word_safara",
                 "letter_sad_phoneme_faseeh", "letter_sh_phoneme_faseeh", "letter_ta_phoneme_faseeh", "letter_tha_phoneme_faseeh",
-                "letter_z_phoneme_faseeh", "mascot_hint", "mascot_welcome", "shaddah_phoneme_faseeh", "teacher_act5_alif_sound", "teacher_act5_all", "teacher_act5_asa",
+                "letter_z_phoneme_faseeh", "mascot_hint", "mascot_welcome",
+                "rt_convo_asking_help_partner", "rt_convo_feedback_correct", "rt_convo_feedback_retry",
+                "rt_convo_greeting_partner", "rt_convo_picture_desc_partner",
+                "rt_play_baqar_basim_l1", "rt_play_baqar_basim_l2", "rt_play_baqar_basim_l3", "rt_play_baqar_basim_l4", "rt_play_baqar_basim_l5",
+                "rt_play_classroom_love_l1", "rt_play_classroom_love_l2", "rt_play_classroom_love_l3", "rt_play_classroom_love_l4", "rt_play_classroom_love_l5",
+                "rt_play_crow_smart_l1", "rt_play_crow_smart_l2", "rt_play_crow_smart_l3", "rt_play_crow_smart_l4", "rt_play_crow_smart_l5", "rt_play_crow_smart_l6",
+                "rt_play_dar_dada_l1", "rt_play_dar_dada_l2", "rt_play_dar_dada_l3", "rt_play_dar_dada_l4", "rt_play_dar_dada_l5",
+                "rt_play_matar_bulbul_l1", "rt_play_matar_bulbul_l2", "rt_play_matar_bulbul_l3", "rt_play_matar_bulbul_l4", "rt_play_matar_bulbul_l5",
+                "rt_play_mizan_qaddouri_l1", "rt_play_mizan_qaddouri_l2", "rt_play_mizan_qaddouri_l3", "rt_play_mizan_qaddouri_l4", "rt_play_mizan_qaddouri_l5",
+                "shaddah_phoneme_faseeh",
+                "ss_basim_countryside_p1", "ss_basim_countryside_p2", "ss_basim_countryside_p3",
+                "ss_ch_crow_water_prompt", "ss_ch_crow_water_win", "ss_ch_mazin_horn_prompt", "ss_ch_mazin_horn_win",
+                "ss_ch_qaddoori_scale_prompt", "ss_ch_qaddoori_scale_win",
+                "ss_clever_crow_p1", "ss_clever_crow_p2", "ss_clever_crow_p3", "ss_clever_crow_p4",
+                "ss_default_story_p1", "ss_default_story_p2", "ss_default_story_p3",
+                "ss_faseeh_dada_p1", "ss_faseeh_dada_p2", "ss_faseeh_dada_p3", "ss_faseeh_dada_p4",
+                "ss_mazin_horn_p1", "ss_mazin_horn_p2", "ss_mazin_horn_p3",
+                "ss_qaddoori_scale_p1", "ss_qaddoori_scale_p2", "ss_qaddoori_scale_p3",
+                "teacher_act5_alif_sound", "teacher_act5_all", "teacher_act5_asa",
                 "teacher_act5_dar", "teacher_act5_ghazal", "teacher_act5_halwa", "teacher_act5_intro", "teacher_act5_mrma",
                 "teacher_letter_d_act1_intro", "teacher_letter_d_asad", "teacher_letter_d_dalla", "teacher_letter_d_dar",
                 "teacher_letter_d_deek", "teacher_letter_d_dirham", "teacher_letter_d_dood", "teacher_letter_d_dub",
@@ -742,7 +774,7 @@
         function openSettingsModal() {
             const modal = document.getElementById('settingsModal');
             if (!modal) return;
-            const currentPref = getStoredPref('qiraati-smart-voice-pref', 'qiraati_smart_voice_pref', 'integrated');
+            const currentPref = getStoredPref('qiraati-smart-voice-pref', 'qiraati_smart_voice_pref', 'bassel');
             applyVoiceCardVisuals(currentPref);
             const isFloating = getStoredPref('qiraati-smart-floating-stop', 'qiraati_smart_floating_stop', 'true') !== 'false';
             const chk = document.getElementById('chkFloatingStop');
@@ -771,13 +803,13 @@
                 msg = '👩‍🏫 تم اعتماد <b>صوت المعلمة الميداني الحقيقي</b> لدروس وكلمات القراءة!';
             } else if (pref === 'rana') {
                 confirmKey = 'voice_confirm_rana';
-                msg = '👩‍🏫 تم اعتماد صوت <b>(المعلمة رنا)</b> لجميع الدروس والكلمات والمقاطع!';
+                msg = '👩‍🏫 تم اعتماد صوت <b>(المعلمة رنا)</b> للأصوات البديلة وقراءات المفردات!';
             } else if (pref === 'bassel') {
-                confirmKey = 'faseeh_encourage_super';
-                msg = '👨‍🏫 تم اعتماد <b>صوت فصيح الذكي المطور</b> (نطق فونيمي دافئ ومخارج حروف مطابقة للمنهج)!';
+                confirmKey = 'voice_confirm_bassel';
+                msg = '👨‍🏫 تم اعتماد <b>صوت الأستاذ باسل (فصيح البشري التعبيري)</b> لجميع الحوارات والقصص والتوجيه والألعاب!';
             } else {
                 confirmKey = 'voice_confirm_integrated';
-                msg = '🌟 تم اعتماد <b>الوضع التكاملي المشترك</b> (رنا للدروس وباسل لفصيح)!';
+                msg = '🌟 تم اعتماد <b>الوضع التكاملي المشترك</b> (الأستاذ باسل للحوارات والقصص والتوجيه + المعلمة للأصوات المساندة)!';
             }
             playAudio(confirmKey);
             const speechText = document.getElementById('speechText');
@@ -808,9 +840,9 @@
                 const bubble = document.getElementById('speechBubble');
                 if (bubble) bubble.classList.add('speaking');
             } else if (pref === 'bassel') {
-                playAudio('faseeh_model_ana_wahdi');
+                playAudio('voice_preview_bassel');
                 const speechText = document.getElementById('speechText');
-                if (speechText) speechText.innerHTML = '👨‍🏫 <b>صَوْتُ فَصِيحٍ الذَّكِيِّ الْمُطَوَّر</b><br>«أَنَا وَحْدِي: أَنْظُرُ إِلَى الْكَلِمَة... دَا... دَا... دَادَا!»<br>بِالنُّطْقِ الْفَوْنِيمِيِّ الدَّافِئِ وَمَخَارِجِ الْحُرُوفِ الصَّافِيَة!';
+                if (speechText) speechText.innerHTML = '👨‍🏫 <b>صَوْتُ الأُسْتَاذِ بَاسِل (فَصِيح البَشَرِيُّ التَّعْبِيرِيّ)</b><br>«أَهْلاً بِكُمْ يَا أَبْطَالَ الْقِرَاءَة! أَنَا صَدِيقُكُمْ فَصِيحٌ أُرَافِقُكُمْ فِي كُلِّ خُطْوَة!»<br>مُعْتَمَدٌ لِجَمِيعِ الْحِوَارَاتِ وَالْقِصَصِ وَالتَّوْجِيهِ وَالْأَلْعَاب!';
                 const bubble = document.getElementById('speechBubble');
                 if (bubble) bubble.classList.add('speaking');
             }
@@ -978,6 +1010,14 @@
         // ==============================================================
         function initMascotFeatures() {
             try {
+                // ترحيل تلقائي لمرة واحدة لاعتماد صوت الأستاذ باسل كصوت افتراضي للحوارات والمنصة
+                if (localStorage.getItem('qiraati-smart-voice-default-v362') !== '1') {
+                    const curVoice = localStorage.getItem('qiraati-smart-voice-pref') || localStorage.getItem('qiraati_smart_voice_pref');
+                    if (!curVoice || curVoice === 'integrated') {
+                        localStorage.setItem('qiraati-smart-voice-pref', 'bassel');
+                    }
+                    localStorage.setItem('qiraati-smart-voice-default-v362', '1');
+                }
                 if (localStorage.getItem('qiraati-smart-faseeh-collapsed') === 'true') {
                     const container = document.getElementById('mascotContainer');
                     if (container) container.classList.add('collapsed');
@@ -1092,18 +1132,19 @@
                 'ة': 'letter_marboota_sound',
                 'تنوين': 'tanween_dham_sound',
                 'شدة': 'shaddah_sound',
-                // كلمات المنهج
+                // كلمات المنهج بصوت الأستاذ باسل / فصيح المعتمد
                 'دادا': 'faseeh_blend_dada',
-                'بابا': 'letter_d_read_baba',
-                'ماما': 'letter_m_read_mama',
+                'بابا': 'faseeh_blend_baba',
+                'ماما': 'faseeh_blend_mama',
                 'دار': 'faseeh_blend_dar',
                 'دور': 'faseeh_blend_door',
                 'نور': 'faseeh_blend_noor',
                 'فراس': 'faseeh_blend_firas',
                 'ورد': 'faseeh_blend_wardun',
-                'بوق': 'letter_q_booq_word_booq',
+                'بوق': 'faseeh_blend_booq',
                 'ريف': 'letter_f_reef_word_reef',
-                'بط': 'letter_ta_word_bat',
+                'بط': 'faseeh_blend_bat',
+                'قطار': 'faseeh_blend_qitar',
                 'صلاح': 'letter_h_word_salah',
                 'شامل': 'letter_sh_word_shamil',
                 'ميزان': 'letter_z_word_mizan',
@@ -1114,7 +1155,11 @@
                 'خروف': 'vowel_w_kharuf',
                 'ثمار': 'letter_tha_word_thimaar',
                 'كتاب': 'item_kitab',
-                'غزال': 'letter_z_word_ghazal',
+                'غزال': 'faseeh_blend_ghazal',
+                'مياه': 'faseeh_blend_miah',
+                'زيتون': 'faseeh_word_zaytoon',
+                'سالم': 'faseeh_word_salim',
+                'نبيه': 'faseeh_word_nabeeh',
                 'هدهد': 'letter_ha_word_hudhud',
                 'ذئب': 'letter_dhal_word_dhib',
                 'ظبي': 'letter_dha_word_zaby',
@@ -1231,7 +1276,8 @@
                     let score = 0;
                     if (/natural|neural|online/.test(name)) score += 120;
                     if (/google/.test(name)) score += 90;
-                    if (/hamed|bassel|shakir|maged|tarik|naayf|salman|omar|zayd|fahed|jamal|ayman|rami/.test(name)) score += 45;
+                    if (/bassel/.test(name)) score += 65;
+                    if (/hamed|shakir|maged|tarik|naayf|salman|omar|zayd|fahed|jamal|ayman|rami/.test(name)) score += 45;
                     if (/zariyah|rana|salma|noura|laila|mariam|hoda|amina/.test(name)) score += 25;
                     if (lang === 'ar-iq') score += 20;
                     else if (/ar-sa|ar-eg|ar-ae|ar-jo/.test(lang)) score += 12;
