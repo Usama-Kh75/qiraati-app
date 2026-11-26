@@ -424,8 +424,8 @@
     {
       "key": "act5_complete",
       "character": "bassel_dialogue",
-      "text": "بَارَكَ اللَّهُ فِيكَ يَا بَطَلْ! رَكَّبْتَ جَمِيعَ الْأَصْوَاتِ بِشَكْلٍ صَحِيحٍ: نَارْ، مَرْمَى، دَارْ، حَلْوَى، عَصَا.",
-      "style": "joyful, proud, encouraging",
+      "text": "بَارَكَ اللَّهُ فِيكَ يَا بَطَلْ! رَكَّبْتَ جَمِيعَ الْأَصْوَاتِ بِشَكْلٍ صَحِيحٍ: نَارُ، مَرْمَى، دَارُ، حَلْوَى، عَصَا.",
+      "style": "joyful, proud, encouraging, pronounce final damma on naru and daru clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -508,7 +508,7 @@
     {
       "key": "act5_wrong",
       "character": "bassel_dialogue",
-      "text": "اِسْتَمِعْ لِصَوْتِ الْكَلِمَةِ جَيِّدًا، هَلْ يَنْقُصُهَا صَوْتُ (اَ) أَمْ صَوْتُ (اِ)؟ حَاوِلْ ثَانِيَةً.",
+      "text": "اِسْتَمِعْ لِصَوْتِ الْكَلِمَةِ جَيِّدًا، هَلْ تَحْتَاجُ لِصَوْتِ الْمَدِّ بِالْأَلِفِ، أَمِ الْأَلِفِ الْمَقْصُورَةِ؟ حَاوِلْ مَرَّةً أُخْرَى.",
       "style": "gentle, patient, reassuring",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -3322,8 +3322,8 @@
     {
       "key": "nasheed_batta",
       "character": "bassel_dialogue",
-      "text": "يَا بَطُّ يَا بَطْ اِسْبَحْ بِالشَّطْ قُلْ لِلسَّمَكَةِ أَتَتِ الشَّبَكَةُ مِيلِي عَنْهَا تَنْجِي مِنْهَا وَعَلَى الجُرْفِ خِفِّي خِفِّي",
-      "style": "cheerful, rhythmic, playful",
+      "text": "يَا بَطُّ يَا بَطْ، اِسْبَحْ بِالشَّطْ، قُلْ لِلسَّمَكَةْ، أَتَتِ الشَّبَكَةْ، مِيلِي عَنْهَا، تَنْجِي مِنْهَا، وَعَلَى الجُرْفِ، خُفِّي خُفِّي.",
+      "style": "cheerful, rhythmic, playful, clear damma on kha in khuffi khuffi",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -3476,7 +3476,7 @@
     {
       "key": "short_giraffe_wrong",
       "character": "bassel_dialogue",
-      "text": "هَذِهِ الزَّرَافَةُ قَصِيرَةٌ. المَطْلُوبُ هُوَ وَضْعُ دَائِرَةٍ حَوْلَ الأَطْوَلِ. حَاوِلْ ثَانِيَةً.",
+      "text": "هَذِهِ الزَّرَافَةُ قَصِيرَةٌ. المَطْلُوبُ هُوَ وَضْعُ دَائِرَةٍ حَوْلَ الأَطْوَلِ. حَاوِلْ مَرَّةً أُخْرَى.",
       "style": "gentle, patient, reassuring",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -5632,8 +5632,8 @@
     {
       "key": "act5_nar",
       "character": "bassel_curriculum",
-      "text": "نَ آ رَاءْ نَارْ أَحْسَنْتَ وَضَعْنَا صَوْتَ الْمَدِّ آ",
-      "style": "warm, cheerful, clear",
+      "text": "نَارُ",
+      "style": "clear, steady, distinct, pronounce the final damma on ra clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14508,8 +14508,8 @@
     {
       "key": "letter_n_merge_naar",
       "character": "bassel_curriculum",
-      "text": "تَرْكِيبُ الْمَقَاطِعِ نَا زَائِدْ رُ يُسَاوِي نَارْ عَبْقَرِيٌّ حَقًّا",
-      "style": "clear, steady, slow, distinct",
+      "text": "تَرْكِيبُ الْمَقَاطِعِ نَا زَائِدْ رُ يُسَاوِي نَارُ، عَبْقَرِيٌّ حَقًّا!",
+      "style": "warm, cheerful, clear, pronounce final damma on naru clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {

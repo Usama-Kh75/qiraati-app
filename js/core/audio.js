@@ -253,17 +253,14 @@
 
         function updateAudioControlsState(isPlaying, audioKey) {
             const btnTopStop = document.getElementById('btnTopStop');
-            const btnSpeechStop = document.getElementById('btnSpeechStop');
             const floatingStopBtn = document.getElementById('floatingStopBtn');
-            const isFloatingEnabled = getStoredPref('qiraati-smart-floating-stop', 'qiraati_smart_floating_stop', 'true') !== 'false';
+            const isFloatingEnabled = getStoredPref('qiraati-smart-floating-stop', 'qiraati_smart_floating_stop', 'false') === 'true';
 
             if (isPlaying) {
                 if (btnTopStop) btnTopStop.style.display = 'inline-flex';
-                if (btnSpeechStop) btnSpeechStop.style.display = 'inline-flex';
                 if (floatingStopBtn && isFloatingEnabled) floatingStopBtn.style.display = 'inline-flex';
             } else {
                 if (btnTopStop) btnTopStop.style.display = 'none';
-                if (btnSpeechStop) btnSpeechStop.style.display = 'none';
                 if (floatingStopBtn) floatingStopBtn.style.display = 'none';
                 window._currentPlayingKey = null;
                 resetActiveAudioButtons();
@@ -581,7 +578,6 @@
                 'letter_d_read_baba': 'faseeh_blend_baba',
                 'letter_m_read_mama': 'faseeh_blend_mama',
                 'letter_r_read_dar': 'faseeh_blend_dar',
-                'act5_dar': 'faseeh_blend_dar',
                 'letter_d_read_door': 'faseeh_blend_door',
                 'letter_n_read_noor': 'faseeh_blend_noor',
                 'letter_s_read_word_firas': 'faseeh_blend_firas',
@@ -862,7 +858,7 @@
             if (!modal) return;
             const currentPref = getStoredPref('qiraati-smart-voice-pref', 'qiraati_smart_voice_pref', 'bassel');
             applyVoiceCardVisuals(currentPref);
-            const isFloating = getStoredPref('qiraati-smart-floating-stop', 'qiraati_smart_floating_stop', 'true') !== 'false';
+            const isFloating = getStoredPref('qiraati-smart-floating-stop', 'qiraati_smart_floating_stop', 'false') === 'true';
             const chk = document.getElementById('chkFloatingStop');
             if (chk) chk.checked = isFloating;
             const curVol = getMasterVolume();

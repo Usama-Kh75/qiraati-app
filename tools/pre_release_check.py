@@ -11,7 +11,7 @@
 4. فحص تكامل وجود كافة الصور والأصول الرقمية المذكورة في الكود والتحقق الصارم من وجودها على القرص (0 صور مكسورة 404).
 5. فحص مكتبة الأصوات الفونيمية النقية للـ 28 حرفاً وجميع مفاتيح الصوت الحرفية في الواجهات والكود (0 مفاتيح مفقودة).
 6. الفحص الأمني الصارم لعدم وجود أي مفاتيح سرية (AIza...) في أي ملف واجهة أمامي.
-7. مطابقة رقم الإصدار (v3.64) وترقية مخزن الكاش إلى (qiraati-smart-v88).
+7. مطابقة رقم الإصدار (v3.64) وترقية مخزن الكاش إلى (qiraati-smart-v89).
 """
 
 import os
@@ -269,7 +269,7 @@ def step6_security_scan():
     return True
 
 def step7_version_alignment():
-    print_header("[7/7] مطابقة رقم الإصدار (v3.64) ومخزن الكاش (qiraati-smart-v88) واستضافة الخطوط")
+    print_header("[7/7] مطابقة رقم الإصدار (v3.64) ومخزن الكاش (qiraati-smart-v89) واستضافة الخطوط")
     top_shell = os.path.join(BASE_DIR, 'views', 'app-shell-top.html')
     sw_file = os.path.join(BASE_DIR, 'sw.js')
     index_file = os.path.join(BASE_DIR, 'index.html')
@@ -297,7 +297,7 @@ def step7_version_alignment():
     print(f"  - اسم مخزن الكاش (sw.js): {sw_cache}")
 
     expected_ver = "v3.64"
-    expected_cache = "qiraati-smart-v88"
+    expected_cache = "qiraati-smart-v89"
 
     errors = []
     if top_ver != expected_ver:
@@ -335,7 +335,7 @@ def step7_version_alignment():
             print(f"  - {e}")
         return False
 
-    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.64 وكاش qiraati-smart-v88 وملفات خط Tajawal المحلية (8 WOFF2).")
+    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.64 وكاش qiraati-smart-v89 وملفات خط Tajawal المحلية (8 WOFF2).")
     return True
 
 def main():
