@@ -45,23 +45,23 @@
 
             if (key === 'full') {
 
-                mascotSpeak('🎒 <b>قصة مدرستي الجميلة:</b><br>«أَشْرَقَتْ شَمْسُ الصَّبَاحِ الدَّافِئَة، فَاسْتَيْقَظَ بَاسِمٌ وَرِيمُ بِنَشَاط، وَانْطَلَقَا بِشَوْقٍ إِلَى الْمَدْرَسَة... اصْطَفَّ التَّلَامِيذُ لِتَحِيَّةِ عَلَمِ الْعِرَاقِ الْغَالِي، ثُمَّ دَخَلُوا صُفُوفَهُمْ لِيَبْدَأُوا يَوْماً مَلِيئاً بِالْعِلْمِ وَالْمَحَبَّة!»', 'unit2_school_story_full');
+                mascotSpeak('🎒 <b>قصة مدرستي الجميلة:</b><br>«أَشْرَقَتْ شَمْسُ الصَّبَاحِ الدَّافِئَة، فَاسْتَيْقَظَ بَاسِمُ وَرِيمُ بِنَشَاط، وَانْطَلَقَا بِشَوْق إِلَى الْمَدْرَسَة... اصْطَفَّ التَّلَامِيذُ لِتَحِيَّةِ عَلَمِ الْعِرَاقِ الْغَالِي، ثُمَّ دَخَلُوا صُفُوفَهُمْ لِيَبْدَأُوا يَوْم مَلِيء بِالْعِلْمِ وَالْمَحَبَّة!»', 'unit2_school_story_full');
 
             } else if (key === 'building') {
 
-                mascotSpeak('🏫 <b>بِنَاءُ الْمَدْرَسَةِ وَبَوَّابَتُهَا:</b><br>«مَدْرَسَتُنَا صَرْحٌ جَمِيل، بِنَاؤُهَا كَبِيرٌ وَمُنَظَّم، فِيهَا غُرَفٌ صَفِّيَّةٌ نَظِيفَة، وَسَاحَةٌ وَاسِعَة، وَأَبْوَابُهَا تَفْتَحُ لَنَا طَرِيقَ الْمُسْتَقْبَل!»', 'unit2_facility_building');
+                mascotSpeak('🏫 <b>بِنَاءُ الْمَدْرَسَةِ وَبَوَّابَتُهَا:</b><br>«مَدْرَسَتُنَا صَرْحُ جَمِيل، بِنَاؤُهَا كَبِيرُ وَمُنَظَّم، فِيهَا غُرَفُ صَفِّيَّةُ نَظِيفَة، وَسَاحَةُ وَاسِعَة، وَأَبْوَابُهَا تَفْتَحُ لَنَا طَرِيقَ الْمُسْتَقْبَل!»', 'unit2_facility_building');
 
             } else if (key === 'yard') {
 
-                mascotSpeak('🌳 <b>سَاحَةُ الْمَدْرَسَةِ وَالْحَدِيقَة:</b><br>«مَكَانٌ رَائِعٌ نَجْتَمِعُ فِيهِ صَبَاحاً لِلِاصْطِفَافِ وَالرِّيَاضَة، وَنَلْعَبُ فِيهِ بِمَحَبَّةٍ وَأَمَانٍ فِي وَقْتِ الِاسْتِرَاحَة، وَنُحَافِظُ عَلَى نَظَافَتِهِ وَأَزْهَارِهِ الْجَمِيلَة!»', 'unit2_facility_yard');
+                mascotSpeak('🌳 <b>سَاحَةُ الْمَدْرَسَةِ وَالْحَدِيقَة:</b><br>«مَكَانُ أَحْسَنْت نَجْتَمِعُ فِيهِ فِي الصَّبَاحِ لِلِاصْطِفَافِ وَالرِّيَاضَة، وَنَلْعَبُ فِيهِ بِمَحَبَّة وَأَمَان فِي وَقْتِ الِاسْتِرَاحَة، وَنُحَافِظُ عَلَى نَظَافَتِهِ وَأَزْهَارِهِ الْجَمِيلَة!»', 'unit2_facility_yard');
 
             } else if (key === 'teacher') {
 
-                mascotSpeak('🧑‍🏫 <b>الْمُعَلِّمَةُ الْفَاضِلَة:</b><br>«تُعَلِّمُنَا بِصَبْرٍ وَحَنَان، تُرْشِدُنَا لِحُرُوفِ الْقِرَاءَةِ وَالْكِتَابَة، نَحْتَرِمُهَا وَنَسْتَمِعُ لِتَوْجِيهَاتِهَا، فَهِيَ أُمُّنَا الثَّانِيَةُ فِي الْمَدْرَسَة!»', 'unit2_facility_teacher');
+                mascotSpeak('🧑‍🏫 <b>الْمُعَلِّمَةُ الْفَاضِلَة:</b><br>«تُعَلِّمُنَا بِصَبْر وَحَنَان، تُرْشِدُنَا لِحُرُوفِ الْقِرَاءَةِ وَالْكِتَابَة، نَحْتَرِمُهَا وَنَسْتَمِعُ لِتَوْجِيهَاتِهَا، فَهِيَ أُمُّنَا الثَّانِيَةُ فِي الْمَدْرَسَة!»', 'unit2_facility_teacher');
 
             } else if (key === 'pupils') {
 
-                mascotSpeak('🎒 <b>التَّلَامِيذُ الْمُجْتَهِدُونَ:</b><br>«نَحْنُ أَصْدِقَاءٌ وَإِخْوَة، نَأْتِي إِلَى الْمَدْرَسَةِ بِنَشَاط، نَتَعَاوَنُ مَعاً فِي الصَّفّ، وَنَتَشَارَكُ الْمَعْرِفَةَ بِفَرَحٍ وَإِيثَار!»', 'unit2_facility_pupils');
+                mascotSpeak('🎒 <b>التَّلَامِيذُ الْمُجْتَهِدُونَ:</b><br>«نَحْنُ أَصْدِقَاءُ وَإِخْوَة، نَأْتِي إِلَى الْمَدْرَسَةِ بِنَشَاط، نَتَعَاوَنُ مَعَ بَعْضِنَا فِي الصَّفّ، وَنَتَشَارَكُ الْمَعْرِفَةَ بِفَرَح وَإِيثَار!»', 'unit2_facility_pupils');
 
             }
 
@@ -77,7 +77,7 @@
 
             } else if (sceneKey === 'classroom') {
 
-                mascotSpeak('📚 <b>الْمَشْهَدُ الثَّانِي (الْغُرْفَةُ الصَّفِّيَّةُ وَطَلَبُ الْعِلْم):</b><br>«نَجْلِسُ فِي صَفِّنَا بِنِظَامٍ وَهُدُوء، نَسْتَمِعُ لِمُعَلِّمَتِنَا بِانْتِبَاه، نَقْرَأُ الْكُتُبَ، وَنَسْتَأْذِنُ بِرَفْعِ الْيَدِ قَبْلَ أَنْ نَتَكَلَّم!»', 'unit2_story_scene_classroom');
+                mascotSpeak('📚 <b>الْمَشْهَدُ الثَّانِي (الْغُرْفَةُ الصَّفِّيَّةُ وَطَلَبُ الْعِلْم):</b><br>«نَجْلِسُ فِي صَفِّنَا بِنِظَام وَهُدُوء، نَسْتَمِعُ لِمُعَلِّمَتِنَا بِانْتِبَاه، نَقْرَأُ الْكُتُبَ، وَنَسْتَأْذِنُ بِرَفْعِ الْيَدِ قَبْلَ أَنْ نَتَكَلَّم!»', 'unit2_story_scene_classroom');
 
             } else if (sceneKey === 'friends') {
 
@@ -105,11 +105,11 @@
 
             } else if (qNum === 4) {
 
-                mascotSpeak('❓ <b>السؤال الرابع:</b> قدم نصيحة لزميلك: استمع لمعلمتك باحترام وأنصت لشرحها، وكن لطيفاً متعاوناً مع زملائك، فالأخلاق الحسنة عنوان التلميذ الناجح!', 'unit2_q4_advice');
+                mascotSpeak('❓ <b>السؤال الرابع:</b> قدم نصيحة لزميلك: استمع لمعلمتك باحترام وأنصت لشرحها، وكن لَطِيف مُتَعَاوِن مع زملائك، فالأخلاق الحسنة عنوان التلميذ الناجح!', 'unit2_q4_advice');
 
             } else if (qNum === 5) {
 
-                mascotSpeak('📖 <b>السؤال الخامس:</b> أُكوّن قصة: في صباح مشرق، اجتمعنا في الساحة وحيينا العلم بنشاط، ثم دخلنا صفنا المنظم، استمعنا لمعلمتنا وتعاونّا بمحبة، فقضينا يوماً دراسياً ممتعاً!', 'unit2_q5_story');
+                mascotSpeak('📖 <b>السؤال الخامس:</b> أُكوّن قصة: في صباح مشرق، اجتمعنا في الساحة وحيينا العلم بنشاط، ثم دخلنا صفنا المنظم، استمعنا لمعلمتنا وتعاونّا بمحبة، فقضينا يَوْم دِرَاسِيّ مُمْتِع!', 'unit2_q5_story');
 
             }
 
@@ -121,7 +121,7 @@
 
             {
 
-                qText: '١. أَيْنَ نَجْتَمِعُ صَبَاحاً لِنُحَيِّيَ عَلَمَ بِلَادِنَا الْغَالِي وَنُمَارِسَ الرِّيَاضَة؟',
+                qText: '١. أَيْنَ نَجْتَمِعُ فِي الصَّبَاحِ لِنُحَيِّيَ عَلَمَ بِلَادِنَا الْغَالِي وَنُمَارِسَ الرِّيَاضَة؟',
 
                 correctKey: 'yard',
 
@@ -131,7 +131,7 @@
 
             {
 
-                qText: '٢. أَيْنَ نَجْلِسُ بِنِظَامٍ لِنَقْرَأَ الْكِتَابَ وَنَكْتُبَ الدُّرُوسَ عَلَى السَّبُّورَة؟',
+                qText: '٢. أَيْنَ نَجْلِسُ بِنِظَام لِنَقْرَأَ الْكِتَابَ وَنَكْتُبَ الدُّرُوسَ عَلَى السَّبُّورَة؟',
 
                 correctKey: 'classroom',
 
@@ -141,7 +141,7 @@
 
             {
 
-                qText: '٣. مَاذَا نَفْعَلُ حِينَ يَحْتَاجُ زَمِيلُنَا إِلَى قَلَمٍ أَوْ مُسَاعَدَةٍ فِي الصَّفّ؟',
+                qText: '٣. مَاذَا نَفْعَلُ حِينَ يَحْتَاجُ زَمِيلُنَا إِلَى قَلَم أَوْ مُسَاعَدَة فِي الصَّفّ؟',
 
                 correctKey: 'friends',
 
@@ -169,7 +169,7 @@
 
             });
 
-            mascotSpeak('هَيَّا نَلْعَبْ مَعاً لُعْبَةَ جَوْلَتِي فِي الْمَدْرَسَة! اسْتَمِعْ لِلسُّؤَالِ وَاخْتَرْ الصُّورَةَ الْمُنَاسِبَة!', 'unit2_quiz_intro');
+            mascotSpeak('هَيَّا نَلْعَبْ مَعَ بَعْضِنَا لُعْبَةَ جَوْلَتِي فِي الْمَدْرَسَة! اسْتَمِعْ لِلسُّؤَالِ وَاخْتَرْ الصُّورَةَ الْمُنَاسِبَة!', 'unit2_quiz_intro');
 
             setTimeout(() => {
 
@@ -225,7 +225,7 @@
 
                 mascotCelebrates();
 
-                feedback.innerHTML = '🎉 أَحْسَنْتَ يَا بَطَل! إِجَابَةٌ رَائِعَةٌ وَصَحِيحَة! ⭐⭐⭐';
+                feedback.innerHTML = '🎉 أَحْسَنْتَ يَا بَطَل! إِجَابَةُ رَائِعَةُ وَصَحِيحَة! ⭐⭐⭐';
 
                 feedback.style.color = '#16a34a';
 
@@ -239,7 +239,7 @@
 
                 }
 
-                mascotSpeak('إِجَابَةٌ رَائِعَةٌ وَصَحِيحَة! أَنْتَ تِلْمِيذٌ مُجْتَهِدٌ وَبَارِعٌ جِدّاً!', 'unit2_quiz_correct');
+                mascotSpeak('إِجَابَةُ رَائِعَةُ وَصَحِيحَة! أَنْتَ تِلْمِيذُ مُجْتَهِدُ وَبَارِعُ لِلْغَايَة!', 'unit2_quiz_correct');
 
                 setTimeout(() => {
 
@@ -249,7 +249,7 @@
 
                     } else {
 
-                        feedback.innerHTML = '🏆 مَبْرُوك! لَقَدْ أَتْمَمْتَ جَوْلَةَ الْمَدْرَسَةِ بِنَجَاحٍ بَاهِر! أَنْتَ نَجْمُ الْمَدْرَسَة! 🌟🎓';
+                        feedback.innerHTML = '🏆 مَبْرُوك! لَقَدْ أَتْمَمْتَ جَوْلَةَ الْمَدْرَسَةِ بِنَجَاح بَاهِر! أَنْتَ نَجْمُ الْمَدْرَسَة! 🌟🎓';
 
                         feedback.style.color = '#15803d';
 
@@ -261,7 +261,7 @@
 
             } else {
 
-                feedback.innerHTML = '💡 حَاوِلْ مَرَّةً أُخْرَى يَا بَطَل، فَكِّرْ فِي الصُّورَةِ الْمُنَاسِبَة!';
+                feedback.innerHTML = '💡 حَاوِلْ مِنْ جَدِيد يَا بَطَل، فَكِّرْ فِي الصُّورَةِ الْمُنَاسِبَة!';
 
                 feedback.style.color = '#dc2626';
 
@@ -322,30 +322,30 @@
         function playRModel(mode) {
             mascotCelebrates();
             if (mode === 'alone') {
-                mascotSpeak('🎓 <b>«أَنَا وَحْدِي» نَمْذَجَةُ فَصِيح:</b><br>أَنَا أَنْطِقُ وَحْدِي بِصَوْتٍ مَسْمُوع: <b style="color:#d97706; font-size:1.5rem;">رَمْلٌ</b>... يَبْدَأُ بِحَرْفِ الرَّاءِ الْمَفْتُوح: <b style="color:#b45309;">رَ</b>!', 'letter_r_model_alone');
+                mascotSpeak('🎓 <b>«أَنَا وَحْدِي» نَمْذَجَةُ فَصِيح:</b><br>أَنَا أَنْطِقُ وَحْدِي بِصَوْت مَسْمُوع: <b style="color:#d97706; font-size:1.5rem;">رَمْلُ</b>... يَبْدَأُ بِحَرْفِ الرَّاءِ الْمَفْتُوح: <b style="color:#b45309;">رَ</b>!', 'letter_r_model_alone');
             } else if (mode === 'we') {
-                mascotSpeak('🤝 <b>«أَنَا وَأَنْتُمْ» مُمَارَسَةٌ مُوَجَّهَة:</b><br>نَنْطِقُ مَعًا يَا أَبْطَال: <b style="color:#d97706; font-size:1.5rem;">جَزَرٌ</b>... فِي آخِرِهِ حَرْفُ الرَّاء!', 'letter_r_model_we');
+                mascotSpeak('🤝 <b>«أَنَا وَأَنْتُمْ» مُمَارَسَةُ مُوَجَّهَة:</b><br>نَنْطِقُ مَعَ بَعْضِنَا يَا أَبْطَال: <b style="color:#d97706; font-size:1.5rem;">جَزَرُ</b>... فِي آخِرِهِ حَرْفُ الرَّاء!', 'letter_r_model_we');
             } else if (mode === 'you') {
-                mascotSpeak('⭐ <b>«أَنْتُمْ وَحْدَكُمْ» اِسْتِقْلالِيَّة:</b><br>الآنَ دَوْرُكُمْ وَحْدَكُمْ يَا أَبْطَالَ الصَّفِّ الأَوَّل، اِنْقُرُوا عَلَى كُلِّ صُورَةٍ وَأَصْغُوا لِلَّفْظِ السَّلِيم!', 'letter_r_model_you');
+                mascotSpeak('⭐ <b>«أَنْتُمْ وَحْدَكُمْ» اِسْتِقْلالِيَّة:</b><br>الآنَ دَوْرُكُمْ وَحْدَكُمْ يَا أَبْطَالَ الصَّفِّ الأَوَّل، اِنْقُرُوا عَلَى كُلِّ صُورَة وَأَصْغُوا لِلَّفْظِ السَّلِيم!', 'letter_r_model_you');
             }
         }
 
         function clickRItem(itemKey) {
             mascotCelebrates();
             const items = {
-                'raml': { title: 'رَمْلٌ نَاعِم', audio: 'letter_r_raml', desc: 'صوت فتحة قصيرة في أول الكلمة (رَ)' },
+                'raml': { title: 'رَمْلُ نَاعِم', audio: 'letter_r_raml', desc: 'صوت فتحة قصيرة في أول الكلمة (رَ)' },
                 'rijl': { title: 'رِجْلُ الإِنْسَان', audio: 'letter_r_rijl', desc: 'صوت كسرة قصيرة في أول الكلمة (رِ)' },
-                'qird': { title: 'قِرْدٌ مَرِح', audio: 'letter_r_qird', desc: 'صوت راء ساكنة في وسط الكلمة (ـرْ)' },
-                'jazar': { title: 'جَزَرٌ لَذِيذ', audio: 'letter_r_jazar', desc: 'صوت راء مضمومة في آخر الكلمة (ـرٌ)' },
-                'kharoof': { title: 'خَرُوفٌ أَبْيَض', audio: 'letter_r_kharoof', desc: 'صوت مد بالواو في وسط الكلمة (ـرُوـ)' },
-                'sareer': { title: 'سَرِيرٌ مُرَتَّب', audio: 'letter_r_sareer', desc: 'صوت مد بالياء في وسط الكلمة (ـرِيـ)' },
+                'qird': { title: 'قِرْدُ مَرِح', audio: 'letter_r_qird', desc: 'صوت راء ساكنة في وسط الكلمة (ـرْ)' },
+                'jazar': { title: 'جَزَرُ لَذِيذ', audio: 'letter_r_jazar', desc: 'صوت راء مضمومة في آخر الكلمة (ـرُ)' },
+                'kharoof': { title: 'خَرُوفُ أَبْيَض', audio: 'letter_r_kharoof', desc: 'صوت مد بالواو في وسط الكلمة (ـرُوـ)' },
+                'sareer': { title: 'سَرِيرُ مُرَتَّب', audio: 'letter_r_sareer', desc: 'صوت مد بالياء في وسط الكلمة (ـرِيـ)' },
                 'mibraat': { title: 'مِبْرَاةُ رَامِي', audio: 'letter_r_mibraat', desc: 'صوت مد بالألف في وسط الكلمة (ـرَا)' },
                 'saffara': { title: 'صَفَّارَةُ الْمُعَلِّم', audio: 'letter_r_saffara', desc: 'صوت مد قصير - فتحة (رَ)' },
-                'qarib': { title: 'قَارِبٌ فِي الْبَحْر', audio: 'letter_r_qarib', desc: 'صوت مد طويل بالألف (رَا)' },
+                'qarib': { title: 'قَارِبُ فِي الْبَحْر', audio: 'letter_r_qarib', desc: 'صوت مد طويل بالألف (رَا)' },
                 'zurr': { title: 'زِرُّ الْقَمِيص', audio: 'letter_r_zurr', desc: 'صوت حركة قصيرة - كسرة (رِ)' },
-                'kharoof_vowel': { title: 'خَرُوفٌ', audio: 'letter_r_kharoof_vowel', desc: 'صوت مد طويل بالواو (رُو)' },
-                'mibraat_vowel': { title: 'مِبْرَاةٌ', audio: 'letter_r_mibraat_vowel', desc: 'صوت مد طويل بالألف (ـرَا)' },
-                'reesha': { title: 'رِيشَةٌ نَاعِمَة', audio: 'letter_r_reesha', desc: 'صوت مد طويل بالياء (رِيـ)' }
+                'kharoof_vowel': { title: 'خَرُوفُ', audio: 'letter_r_kharoof_vowel', desc: 'صوت مد طويل بالواو (رُو)' },
+                'mibraat_vowel': { title: 'مِبْرَاةُ', audio: 'letter_r_mibraat_vowel', desc: 'صوت مد طويل بالألف (ـرَا)' },
+                'reesha': { title: 'رِيشَةُ نَاعِمَة', audio: 'letter_r_reesha', desc: 'صوت مد طويل بالياء (رِيـ)' }
             };
             const it = items[itemKey];
             if (it) {
@@ -356,17 +356,17 @@
         function playRVowel(type, vowel) {
             mascotCelebrates();
             if (type === 'short' && vowel === 'a') {
-                mascotSpeak('🟢 <b>فَتْحَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#b45309;">رَ</span>', 'letter_r_short_a');
+                mascotSpeak('🟢 <b>فَتْحَة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#b45309;">رَ</span>', 'letter_r_short_a');
             } else if (type === 'long' && vowel === 'a') {
-                mascotSpeak('🟢 <b>مَدٌّ بِالْأَلِف (طَوِيل):</b><br><span style="font-size:2.2rem; color:#92400e;">رَااا</span>', 'letter_r_long_a');
+                mascotSpeak('🟢 <b>مَدّ بِالْأَلِف (طَوِيل):</b><br><span style="font-size:2.2rem; color:#92400e;">رَااا</span>', 'letter_r_long_a');
             } else if (type === 'short' && vowel === 'u') {
-                mascotSpeak('🟢 <b>ضَمَّةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#b45309;">رُ</span>', 'letter_r_short_u');
+                mascotSpeak('🟢 <b>ضَمَّة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#b45309;">رُ</span>', 'letter_r_short_u');
             } else if (type === 'long' && vowel === 'u') {
-                mascotSpeak('🟢 <b>مَدٌّ بِالْوَاو (طَوِيل):</b><br><span style="font-size:2.2rem; color:#92400e;">رُووو</span>', 'letter_r_long_u');
+                mascotSpeak('🟢 <b>مَدّ بِالْوَاو (طَوِيل):</b><br><span style="font-size:2.2rem; color:#92400e;">رُووو</span>', 'letter_r_long_u');
             } else if (type === 'short' && vowel === 'i') {
-                mascotSpeak('🟢 <b>كَسْرَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#b45309;">رِ</span>', 'letter_r_short_i');
+                mascotSpeak('🟢 <b>كَسْرَة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#b45309;">رِ</span>', 'letter_r_short_i');
             } else if (type === 'long' && vowel === 'i') {
-                mascotSpeak('🟢 <b>مَدٌّ بِالْيَاء (طَوِيل):</b><br><span style="font-size:2.2rem; color:#92400e;">رِييي</span>', 'letter_r_long_i');
+                mascotSpeak('🟢 <b>مَدّ بِالْيَاء (طَوِيل):</b><br><span style="font-size:2.2rem; color:#92400e;">رِييي</span>', 'letter_r_long_i');
             }
         }
 
@@ -462,7 +462,7 @@
                     res.style.transform = 'scale(1.15)';
                     setTimeout(() => res.style.transform = 'scale(1)', 400);
                 }
-                mascotSpeak('🧩 <b>تَرْكِيبُ الْمَقَاطِع:</b><br>[ رَا ] + [ مِي ] = <b style="color:#059669; font-size:1.6rem;">رَامِي</b>! عَبْقَرِيٌّ حَقًّا!', 'letter_r_merge_rami');
+                mascotSpeak('🧩 <b>تَرْكِيبُ الْمَقَاطِع:</b><br>[ رَا ] + [ مِي ] = <b style="color:#059669; font-size:1.6rem;">رَامِي</b>! عَبْقَرِيّ بِالْفِعْل!', 'letter_r_merge_rami');
             } else if (puzzleKey === 'dar') {
                 const res = document.getElementById('result-merge-dar');
                 if (res) {
@@ -480,13 +480,13 @@
         function playRReadWord(wordKey) {
             mascotCelebrates();
             if (wordKey === 'baba_rami') {
-                mascotSpeak('📖 <b>بَابَا رَامِي!</b><br>جُمْلَةٌ رَائِعَةٌ مِنْ مَقَاطِعِنَا الْمَدْرُوسَة!', 'letter_r_read_baba_rami');
+                mascotSpeak('📖 <b>بَابَا رَامِي!</b><br>جُمْلَةُ رَائِعَةُ مِنْ مَقَاطِعِنَا الْمَدْرُوسَة!', 'letter_r_read_baba_rami');
             } else if (wordKey === 'mama_reem') {
                 mascotSpeak('📖 <b>مَامَا رِيـْمُ!</b><br>مَامَا رِيمُ الْحَبِيبَةُ فِي دَارِنَا!', 'letter_r_read_mama_reem');
             } else if (wordKey === 'dada_maram') {
                 mascotSpeak('📖 <b>دَادَا مَرَام!</b><br>دَادَا مَرَامُ الصَّغِيرَةُ اللَّطِيفَة!', 'letter_r_read_dada_maram');
             } else if (wordKey === 'dar_rami') {
-                mascotSpeak('📖 <b>دَارُ رَامِي!</b><br>دَارُ رَامِي جَمِيلَةٌ وَمُرَتَّبَة!', 'letter_r_read_dar_rami');
+                mascotSpeak('📖 <b>دَارُ رَامِي!</b><br>دَارُ رَامِي جَمِيلَة وَمُرَتَّبَة!', 'letter_r_read_dar_rami');
             }
         }
 
@@ -497,7 +497,7 @@
 
         function playRDrawHint() {
             mascotCelebrates();
-            mascotSpeak('💡 <b>إِرْشَادُ رَسْمِ حَرْفِ الرَّاءِ:</b><br>نَبْدَأُ مِنْ أَعْلَى السَّطْرِ قَلِيلاً عِنْدَ النُّقْطَةِ الْحَمْرَاء، ثُمَّ نَنْزِلُ مُنْحَنِينَ إِلَى تَحْتِ السَّطْرِ كَالزُّحْلَيْقَةِ الْمُمْتِعَة!', 'letter_r_draw_hint');
+            mascotSpeak('💡 <b>إِرْشَادُ رَسْمِ حَرْفِ الرَّاءِ:</b><br>نَبْدَأُ مِنْ أَعْلَى السَّطْرِ قَلِيلَ الِارْتِفَاع عِنْدَ النُّقْطَةِ الْحَمْرَاء، ثُمَّ نَنْزِلُ مُنْحَنِينَ إِلَى تَحْتِ السَّطْرِ كَالزُّحْلَيْقَةِ الْمُمْتِعَة!', 'letter_r_draw_hint');
         }
 
         function initRCanvas() {
@@ -651,7 +651,7 @@
             }
             mascotCelebrates();
             if (btn) btn.innerHTML = '<span>⏹️</span> <span>إيقاف قصة الحديقة وحرف السين</span>';
-            mascotSpeak('🌿 <b>فِي حَدِيقَةِ بَيْتِنَا الْمُشْمِسَة:</b><br>«فِي حَدِيقَةِ الْبَيْتِ الْمُشْمِسَة، جَلَسَ فَارِسٌ يُشَاهِدُ السُّلَحْفَاةَ اللَّطِيفَة، وَبِجَانِبِهِ سَلَّةُ الْفَوَاكِهِ اللَّذِيذَة، وَتَحْتَ أَشِعَّةِ الشَّمْسِ الذَّهَبِيَّة، كُلُّ هَذِهِ الْكَلِمَاتِ تَزْهُو بِصَوْتِ حَرْفِ السِّين!»', 'letter_s_scene_story', () => {
+            mascotSpeak('🌿 <b>فِي حَدِيقَةِ بَيْتِنَا الْمُشْمِسَة:</b><br>«فِي حَدِيقَةِ الْبَيْتِ الْمُشْمِسَة، جَلَسَ فَارِسُ يُشَاهِدُ السُّلَحْفَاةَ اللَّطِيفَة، وَبِجَانِبِهِ سَلَّةُ الْفَوَاكِهِ اللَّذِيذَة، وَتَحْتَ أَشِعَّةِ الشَّمْسِ الذَّهَبِيَّة، كُلُّ هَذِهِ الْكَلِمَاتِ تَزْهُو بِصَوْتِ حَرْفِ السِّين!»', 'letter_s_scene_story', () => {
                 if (btn) btn.innerHTML = '<span>🔊</span> <span>اِسْتَمِعْ لِقِصَّةِ حَدِيقَتِنَا وَعَنَاصِرِ حَرْفِ السِّينِ</span>';
             });
         }
@@ -659,11 +659,11 @@
         function playSModel(mode) {
             mascotCelebrates();
             if (mode === 'alone') {
-                mascotSpeak('🎓 <b>«أَنَا وَحْدِي» نَمْذَجَةُ فَصِيح:</b><br>أَنَا أَنْطِقُ وَحْدِي بِصَوْتٍ مَسْمُوع: <b style="color:#059669; font-size:1.5rem;">سَلَّةُ</b>... تَبْدَأُ بِحَرْفِ السِّينِ الْمَفْتُوح: <b style="color:#047857;">سَـ</b>!', 'letter_s_model_alone');
+                mascotSpeak('🎓 <b>«أَنَا وَحْدِي» نَمْذَجَةُ فَصِيح:</b><br>أَنَا أَنْطِقُ وَحْدِي بِصَوْت مَسْمُوع: <b style="color:#059669; font-size:1.5rem;">سَلَّةُ</b>... تَبْدَأُ بِحَرْفِ السِّينِ الْمَفْتُوح: <b style="color:#047857;">سَـ</b>!', 'letter_s_model_alone');
             } else if (mode === 'we') {
-                mascotSpeak('🤝 <b>«أَنَا وَأَنْتُمْ» مُمَارَسَةٌ مُوَجَّهَة:</b><br>نَنْطِقُ مَعًا يَا أَبْطَال: <b style="color:#059669; font-size:1.5rem;">سُلَحْفَاةُ</b>... فِي أَوَّلِهَا سِينٌ مَضْمُومَة: <b style="color:#047857;">سُـ</b>!', 'letter_s_model_we');
+                mascotSpeak('🤝 <b>«أَنَا وَأَنْتُمْ» مُمَارَسَةُ مُوَجَّهَة:</b><br>نَنْطِقُ مَعَ بَعْضِنَا يَا أَبْطَال: <b style="color:#059669; font-size:1.5rem;">سُلَحْفَاةُ</b>... فِي أَوَّلِهَا سِينُ مَضْمُومَة: <b style="color:#047857;">سُـ</b>!', 'letter_s_model_we');
             } else if (mode === 'you') {
-                mascotSpeak('⭐ <b>«أَنْتُمْ وَحْدَكُمْ» اِسْتِقْلالِيَّة:</b><br>الآنَ دَوْرُكُمْ وَحْدَكُمْ يَا أَبْطَالَ الصَّفِّ الأَوَّل، اِنْقُرُوا عَلَى كُلِّ صُورَةٍ وَأَصْغُوا لِلَّفْظِ السَّلِيم!', 'letter_s_model_you');
+                mascotSpeak('⭐ <b>«أَنْتُمْ وَحْدَكُمْ» اِسْتِقْلالِيَّة:</b><br>الآنَ دَوْرُكُمْ وَحْدَكُمْ يَا أَبْطَالَ الصَّفِّ الأَوَّل، اِنْقُرُوا عَلَى كُلِّ صُورَة وَأَصْغُوا لِلَّفْظِ السَّلِيم!', 'letter_s_model_you');
             }
         }
 
@@ -672,17 +672,17 @@
             const items = {
                 'salla': { title: 'سَلَّةُ الْفَوَاكِه', audio: 'letter_s_salla', badge: 'سَـ (مفتوح في أول الكلمة)' },
                 'sulhafah': { title: 'سُلَحْفَاةُ اللَّطِيفَة', audio: 'letter_s_sulhafah', badge: 'سُـ (مضموم في أول الكلمة)' },
-                'mismaar': { title: 'مِسْمَارٌ صُلْب', audio: 'letter_s_mismaar', badge: 'ـسْـ (ساكن في وسط الكلمة)' },
-                'shams': { title: 'شَمْسٌ دَافِئَة', audio: 'letter_s_shams', badge: 'ـسُ (في آخر الكلمة)' },
+                'mismaar': { title: 'مِسْمَارُ صُلْب', audio: 'letter_s_mismaar', badge: 'ـسْـ (ساكن في وسط الكلمة)' },
+                'shams': { title: 'شَمْسُ دَافِئَة', audio: 'letter_s_shams', badge: 'ـسُ (في آخر الكلمة)' },
                 'sitara': { title: 'سِتَارَةُ النَّافِذَة', audio: 'letter_s_sitara', badge: 'سِـ (مكسور في أول الكلمة)' },
                 'saah': { title: 'سَاعَةُ الْحَائِط', audio: 'letter_s_saah', badge: 'سَا (مد بالألف)' },
-                'hasoob': { title: 'حَاسُوبٌ ذَكِيّ', audio: 'letter_s_hasoob', badge: 'ـسُو (مد بالواو)' },
-                'timsaah': { title: 'تِمْسَاحٌ نَهْرِيّ', audio: 'letter_s_timsaah', badge: 'ـسَا (مد بالألف)' },
+                'hasoob': { title: 'حَاسُوبُ ذَكِيّ', audio: 'letter_s_hasoob', badge: 'ـسُو (مد بالواو)' },
+                'timsaah': { title: 'تِمْسَاحُ نَهْرِيّ', audio: 'letter_s_timsaah', badge: 'ـسَا (مد بالألف)' },
                 'sabboora': { title: 'سَبُّورَةُ الصَّفّ', audio: 'letter_s_sabboora', badge: 'سَـ (صوت قصير بالفتحة)' },
-                'sukkar': { title: 'سُكَّرٌ حُلْو', audio: 'letter_s_sukkar', badge: 'سُـ (صوت قصير بالضمة)' },
-                'sinjab': { title: 'سِنْجَابٌ نَشِيط', audio: 'letter_s_sinjab', badge: 'سِـ (صوت قصير بالكسرة)' },
-                'saah_vowel': { title: 'سَاعَةٌ ذَهَبِيَّة', audio: 'letter_s_saah_vowel', badge: 'سَا (صوت طويل بالألف)' },
-                'sooq': { title: 'سُوقٌ كَبِير', audio: 'letter_s_sooq', badge: 'سُوْ (صوت طويل بالواو)' },
+                'sukkar': { title: 'سُكَّرُ حُلْو', audio: 'letter_s_sukkar', badge: 'سُـ (صوت قصير بالضمة)' },
+                'sinjab': { title: 'سِنْجَابُ نَشِيط', audio: 'letter_s_sinjab', badge: 'سِـ (صوت قصير بالكسرة)' },
+                'saah_vowel': { title: 'سَاعَةُ ذَهَبِيَّة', audio: 'letter_s_saah_vowel', badge: 'سَا (صوت طويل بالألف)' },
+                'sooq': { title: 'سُوقُ كَبِير', audio: 'letter_s_sooq', badge: 'سُوْ (صوت طويل بالواو)' },
                 'timsaah_vowel': { title: 'تِمْسَاحُ الْبُحَيْرَة', audio: 'letter_s_timsaah_vowel', badge: 'ـسَا (صوت طويل بالألف)' }
             };
             const item = items[itemKey];
@@ -694,9 +694,9 @@
         function playSVowel(type, vowel) {
             mascotCelebrates();
             if (type === 'short') {
-                if (vowel === 'a') mascotSpeak('🎵 <b>حَرْكَةُ الْفَتْحَةِ الْقَصِيرَة:</b><br><b style="color:#059669; font-size:2rem;">سَـ</b>... صَوْتٌ قَصِيرٌ خَفِيف!', 'letter_s_short_a');
-                else if (vowel === 'u') mascotSpeak('🎵 <b>حَرْكَةُ الضَّمَّةِ الْقَصِيرَة:</b><br><b style="color:#059669; font-size:2rem;">سُـ</b>... صَوْتٌ قَصِيرٌ مَضْمُوم!', 'letter_s_short_u');
-                else if (vowel === 'i') mascotSpeak('🎵 <b>حَرْكَةُ الْكَسْرَةِ الْقَصِيرَة:</b><br><b style="color:#059669; font-size:2rem;">سِـ</b>... صَوْتٌ قَصِيرٌ مَكْسُور!', 'letter_s_short_i');
+                if (vowel === 'a') mascotSpeak('🎵 <b>حَرْكَةُ الْفَتْحَةِ الْقَصِيرَة:</b><br><b style="color:#059669; font-size:2rem;">سَـ</b>... صَوْتُ قَصِيرُ خَفِيف!', 'letter_s_short_a');
+                else if (vowel === 'u') mascotSpeak('🎵 <b>حَرْكَةُ الضَّمَّةِ الْقَصِيرَة:</b><br><b style="color:#059669; font-size:2rem;">سُـ</b>... صَوْتُ قَصِيرُ مَضْمُوم!', 'letter_s_short_u');
+                else if (vowel === 'i') mascotSpeak('🎵 <b>حَرْكَةُ الْكَسْرَةِ الْقَصِيرَة:</b><br><b style="color:#059669; font-size:2rem;">سِـ</b>... صَوْتُ قَصِيرُ مَكْسُور!', 'letter_s_short_i');
             } else if (type === 'long') {
                 if (vowel === 'a') mascotSpeak('🎵 <b>مَدُّ الأَلِفِ الطَّوِيل:</b><br><b style="color:#047857; font-size:2rem;">سَا</b>... نَمُدُّ الصَّوْتَ بِالأَلِف!', 'letter_s_long_a');
                 else if (vowel === 'u') mascotSpeak('🎵 <b>مَدُّ الْوَاوِ الطَّوِيل:</b><br><b style="color:#047857; font-size:2rem;">سُوْ</b>... نَمُدُّ الصَّوْتَ بِالْوَاو!', 'letter_s_long_u');
@@ -785,7 +785,7 @@
 
         function playSReadAll() {
             mascotCelebrates();
-            mascotSpeak('👩‍🏫 <b>الْقِرَاءَةُ الشَّامِلَةُ لِدَفْتَرِ الدَّرْسِ بِصَوْتِ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ الْفَصِيح:</b><br><span style="font-size:1.4rem; color:#065f46; font-weight:900;">«سَافَرَ بَابَا .. رَسَمَ مُوسَى بَابَا .. رَسَمَ فَارِسُ مَامَا»</span><br>قِرَاءَةٌ صَفِّيَّةٌ نَمُوذَجِيَّةٌ سَلِيمَةٌ 🌟', 'letter_s_read_all');
+            mascotSpeak('👩‍🏫 <b>الْقِرَاءَةُ الشَّامِلَةُ لِدَفْتَرِ الدَّرْسِ بِصَوْتِ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ الْفَصِيح:</b><br><span style="font-size:1.4rem; color:#065f46; font-weight:900;">«سَافَرَ بَابَا .. رَسَمَ مُوسَى بَابَا .. رَسَمَ فَارِسُ مَامَا»</span><br>قِرَاءَةُ صَفِّيَّةُ نَمُوذَجِيَّةُ سَلِيمَةُ 🌟', 'letter_s_read_all');
         }
 
         function playSTeacherSentence(num) {
@@ -817,13 +817,13 @@
             } else if (wordKey === 'mama') {
                 mascotSpeak('👩‍🏫 <b>مَامَا!</b><br>بِنُطْقِ الْمُعَلِّمَةِ الْعِرَاقِيَّةِ الصَّافِي 🌟', 'letter_s_read_word_mama');
             } else if (wordKey === 'firas') {
-                mascotSpeak('🌟 <b>فِرَاسُ!</b><br>كَلِمَةُ الدَّرْسِ الشَّهِيرَة: فِرَاسٌ وَأَنِيسٌ وَمَيْسُون!', 'letter_s_read_word_firas');
+                mascotSpeak('🌟 <b>فِرَاسُ!</b><br>كَلِمَةُ الدَّرْسِ الشَّهِيرَة: فِرَاسُ وَأَنِيسُ وَمَيْسُونُ!', 'letter_s_read_word_firas');
             }
         }
 
         function playSDrawHint() {
             mascotCelebrates();
-            mascotSpeak('💡 <b>إِرْشَادُ رَسْمِ حَرْفِ السِّين:</b><br>نَرْسِمُ ثَلاثَةَ أَسْنَانٍ مُتَسَاوِيَةٍ فَوْقَ السَّطْر، ثُمَّ نَمُدُّ لِلسِّينِ الأُولَى (سـ)، أَوْ نَنْزِلُ بِكَاسَةٍ مُقَوَّسَةٍ تَغُوصُ تَحْتَ السَّطْرِ وَتَصْعَدُ لِلسِّينِ الْكَامِلَة (س)!', 'letter_s_draw_hint');
+            mascotSpeak('💡 <b>إِرْشَادُ رَسْمِ حَرْفِ السِّين:</b><br>نَرْسِمُ ثَلاثَةَ الْأَسْنَانِ الْمُتَسَاوِيَة فَوْقَ السَّطْر، ثُمَّ نَمُدُّ لِلسِّينِ الأُولَى (سـ)، أَوْ نَنْزِلُ بِالْكَاسَةِ الْمُقَوَّسَةِ تَغُوصُ تَحْتَ السَّطْرِ وَتَصْعَدُ لِلسِّينِ الْكَامِلَة (س)!', 'letter_s_draw_hint');
         }
 
         function initSCanvas() {
@@ -982,7 +982,7 @@
             }
             mascotCelebrates();
             if (btn) btn.innerHTML = '<span>⏹️</span> <span>إيقاف قصة المرسم وحرف النون</span>';
-            mascotSpeak('🎨 <b>فِي مَرْسَمِ صَدِيقِنَا سِنَان:</b><br>«فِي مَرْسَمِ الصَّدِيقِ سِنَان، جَلَسَ الأَصْدِقَاءُ يَرْسُمُونَ بِأَلْوَانٍ بَهِيَّة! رَسَمَ فَارِسٌ لَوْحَةَ دَادَا، وَرَسَمَ سِنَانٌ صُورَةَ بَابَا، وَتَحْتَ ضَوْءِ النُّورِ، تَمْلَأُ عَنَاصِرُ حَرْفِ النُّونِ الْمَكَانَ بِالْفَرَحِ وَالإِبْدَاع!»', 'letter_n_scene_story', () => {
+            mascotSpeak('🎨 <b>فِي مَرْسَمِ صَدِيقِنَا سِنَان:</b><br>«فِي مَرْسَمِ الصَّدِيقِ سِنَان، جَلَسَ الأَصْدِقَاءُ يَرْسُمُونَ بِالْأَلْوَان بَهِيَّة! رَسَمَ فَارِسُ لَوْحَةَ دَادَا، وَرَسَمَ سِنَانُ صُورَةَ بَابَا، وَتَحْتَ ضَوْءِ النُّورِ، تَمْلَأُ عَنَاصِرُ حَرْفِ النُّونِ الْمَكَانَ بِالْفَرَحِ وَالإِبْدَاع!»', 'letter_n_scene_story', () => {
                 if (btn) btn.innerHTML = '<span>🔊</span> <span>اِسْتَمِعْ لِقِصَّةِ مَرْسَمِ سِنَان وَعَنَاصِرِ حَرْفِ النُّونِ</span>';
             });
         }
@@ -990,31 +990,31 @@
         function playNModel(mode) {
             mascotCelebrates();
             if (mode === 'alone') {
-                mascotSpeak('🎓 <b>«أَنَا وَحْدِي» نَمْذَجَةُ فَصِيح:</b><br>أَنَا أَنْطِقُ وَحْدِي بِصَوْتٍ مَسْمُوع: <b style="color:#4f46e5; font-size:1.5rem;">نَـمْلُ</b>... تَبْدَأُ بِحَرْفِ النُّونِ الْمَفْتُوح: <b style="color:#3730a3;">نَـ</b>!', 'letter_n_model_alone');
+                mascotSpeak('🎓 <b>«أَنَا وَحْدِي» نَمْذَجَةُ فَصِيح:</b><br>أَنَا أَنْطِقُ وَحْدِي بِصَوْت مَسْمُوع: <b style="color:#4f46e5; font-size:1.5rem;">نَـمْلُ</b>... تَبْدَأُ بِحَرْفِ النُّونِ الْمَفْتُوح: <b style="color:#3730a3;">نَـ</b>!', 'letter_n_model_alone');
             } else if (mode === 'we') {
-                mascotSpeak('🤝 <b>«أَنَا وَأَنْتُمْ» مُمَارَسَةٌ مُوَجَّهَة:</b><br>نَنْطِقُ مَعًا يَا أَبْطَال: <b style="color:#4f46e5; font-size:1.5rem;">نُـجُومُ</b>... فِي أَوَّلِهَا نُونٌ مَضْمُومَة: <b style="color:#3730a3;">نُـ</b>!', 'letter_n_model_we');
+                mascotSpeak('🤝 <b>«أَنَا وَأَنْتُمْ» مُمَارَسَةُ مُوَجَّهَة:</b><br>نَنْطِقُ مَعَ بَعْضِنَا يَا أَبْطَال: <b style="color:#4f46e5; font-size:1.5rem;">نُـجُومُ</b>... فِي أَوَّلِهَا نُونُ مَضْمُومَة: <b style="color:#3730a3;">نُـ</b>!', 'letter_n_model_we');
             } else if (mode === 'you') {
-                mascotSpeak('⭐ <b>«أَنْتُمْ وَحْدَكُمْ» اِسْتِقْلالِيَّة:</b><br>الآنَ دَوْرُكُمْ وَحْدَكُمْ يَا أَبْطَالَ الصَّفِّ الأَوَّل، اِنْقُرُوا عَلَى كُلِّ صُورَةٍ وَأَصْغُوا لِلَّفْظِ السَّلِيم!', 'letter_n_model_you');
+                mascotSpeak('⭐ <b>«أَنْتُمْ وَحْدَكُمْ» اِسْتِقْلالِيَّة:</b><br>الآنَ دَوْرُكُمْ وَحْدَكُمْ يَا أَبْطَالَ الصَّفِّ الأَوَّل، اِنْقُرُوا عَلَى كُلِّ صُورَة وَأَصْغُوا لِلَّفْظِ السَّلِيم!', 'letter_n_model_you');
             }
         }
 
         function clickNItem(itemKey) {
             mascotCelebrates();
             const items = {
-                'naml': { title: 'نَمْلٌ نَشِيط', audio: 'letter_n_naml', badge: 'نَـ (مفتوح في أول الكلمة)' },
-                'niqaat': { title: 'نِقَاطٌ مُلَوَّنَة', audio: 'letter_n_niqaat', badge: 'نِـ (مكسور في أول الكلمة)' },
-                'nujoom': { title: 'نُجُومٌ سَاطِعَة', audio: 'letter_n_nujoom', badge: 'نُـ (مضموم في أول الكلمة)' },
-                'hisaan': { title: 'حِصَانٌ سَرِيع', audio: 'letter_n_hisaan', badge: 'ـنُ (منفصل في آخر الكلمة)' },
+                'naml': { title: 'نَمْلُ نَشِيط', audio: 'letter_n_naml', badge: 'نَـ (مفتوح في أول الكلمة)' },
+                'niqaat': { title: 'نِقَاطُ مُلَوَّنَة', audio: 'letter_n_niqaat', badge: 'نِـ (مكسور في أول الكلمة)' },
+                'nujoom': { title: 'نُجُومُ سَاطِعَة', audio: 'letter_n_nujoom', badge: 'نُـ (مضموم في أول الكلمة)' },
+                'hisaan': { title: 'حِصَانُ سَرِيع', audio: 'letter_n_hisaan', badge: 'ـنُ (منفصل في آخر الكلمة)' },
                 'finjaan': { title: 'فِنْجَانُ الشَّاي', audio: 'letter_n_finjaan', badge: 'ـنُ (منفصل بآخرها / فِنْـ ساكن)' },
-                'naar': { title: 'نَارٌ دَافِئَة', audio: 'letter_n_naar', badge: 'نَا (مد بالألف في أول الكلمة)' },
-                'faanoos': { title: 'فَانُوسٌ مُضِيء', audio: 'letter_n_faanoos', badge: 'ـنُو (مد بالواو في وسط الكلمة)' },
-                'neeraan': { title: 'نِيرَانٌ مُشْتَعِلَة', audio: 'letter_n_neeraan', badge: 'نِيـ (مد بالياء)' },
-                'nasr': { title: 'نَسْرٌ مُحَلِّق', audio: 'letter_n_nasr', badge: 'نَـ (صوت قصير بالفتحة)' },
+                'naar': { title: 'نَارُ دَافِئَة', audio: 'letter_n_naar', badge: 'نَا (مد بالألف في أول الكلمة)' },
+                'faanoos': { title: 'فَانُوسُ مُضِيء', audio: 'letter_n_faanoos', badge: 'ـنُو (مد بالواو في وسط الكلمة)' },
+                'neeraan': { title: 'نِيرَانُ مُشْتَعِلَة', audio: 'letter_n_neeraan', badge: 'نِيـ (مد بالياء)' },
+                'nasr': { title: 'نَسْرُ مُحَلِّق', audio: 'letter_n_nasr', badge: 'نَـ (صوت قصير بالفتحة)' },
                 'naar_vowel': { title: 'نَارُ الْمُوقَد', audio: 'letter_n_naar_vowel', badge: 'نَا (صوت طويل بالألف)' },
-                'numoor': { title: 'نُمُورٌ قَوِيَّة', audio: 'letter_n_numoor', badge: 'نُـ (صوت قصير بالضمة)' },
+                'numoor': { title: 'نُمُورُ قَوِيَّة', audio: 'letter_n_numoor', badge: 'نُـ (صوت قصير بالضمة)' },
                 'junood': { title: 'جُنُودُ الْوَطَن', audio: 'letter_n_junood', badge: 'ـنُو (صوت طويل بالواو)' },
                 'niqaat_vowel': { title: 'نِقَاطُ الْقَلَم', audio: 'letter_n_niqaat_vowel', badge: 'نِـ (صوت قصير بالكسرة)' },
-                'janeen': { title: 'جَنِينٌ غَالٍ', audio: 'letter_n_janeen', badge: 'ـنِيـ (صوت طويل بالياء)' }
+                'janeen': { title: 'جَنِينُ غَالِي', audio: 'letter_n_janeen', badge: 'ـنِيـ (صوت طويل بالياء)' }
             };
             const item = items[itemKey];
             if (item) {
@@ -1025,9 +1025,9 @@
         function playNVowel(type, vowel) {
             mascotCelebrates();
             if (type === 'short') {
-                if (vowel === 'a') mascotSpeak('🎵 <b>حَرْكَةُ الْفَتْحَةِ الْقَصِيرَة:</b><br><b style="color:#4f46e5; font-size:2rem;">نَـ</b>... صَوْتٌ قَصِيرٌ خَفِيف!', 'letter_n_short_a');
-                else if (vowel === 'u') mascotSpeak('🎵 <b>حَرْكَةُ الضَّمَّةِ الْقَصِيرَة:</b><br><b style="color:#4f46e5; font-size:2rem;">نُـ</b>... صَوْتٌ قَصِيرٌ مَضْمُوم!', 'letter_n_short_u');
-                else if (vowel === 'i') mascotSpeak('🎵 <b>حَرْكَةُ الْكَسْرَةِ الْقَصِيرَة:</b><br><b style="color:#4f46e5; font-size:2rem;">نِـ</b>... صَوْتٌ قَصِيرٌ مَكْسُور!', 'letter_n_short_i');
+                if (vowel === 'a') mascotSpeak('🎵 <b>حَرْكَةُ الْفَتْحَةِ الْقَصِيرَة:</b><br><b style="color:#4f46e5; font-size:2rem;">نَـ</b>... صَوْتُ قَصِيرُ خَفِيف!', 'letter_n_short_a');
+                else if (vowel === 'u') mascotSpeak('🎵 <b>حَرْكَةُ الضَّمَّةِ الْقَصِيرَة:</b><br><b style="color:#4f46e5; font-size:2rem;">نُـ</b>... صَوْتُ قَصِيرُ مَضْمُوم!', 'letter_n_short_u');
+                else if (vowel === 'i') mascotSpeak('🎵 <b>حَرْكَةُ الْكَسْرَةِ الْقَصِيرَة:</b><br><b style="color:#4f46e5; font-size:2rem;">نِـ</b>... صَوْتُ قَصِيرُ مَكْسُور!', 'letter_n_short_i');
             } else if (type === 'long') {
                 if (vowel === 'a') mascotSpeak('🎵 <b>مَدُّ الأَلِفِ الطَّوِيل:</b><br><b style="color:#3730a3; font-size:2rem;">نَا</b>... نَمُدُّ الصَّوْتَ بِالأَلِف!', 'letter_n_long_a');
                 else if (vowel === 'u') mascotSpeak('🎵 <b>مَدُّ الْوَاوِ الطَّوِيل:</b><br><b style="color:#3730a3; font-size:2rem;">نُوْ</b>... نَمُدُّ الصَّوْتَ بِالْوَاو!', 'letter_n_long_u');
@@ -1106,7 +1106,7 @@
                     res.style.transform = 'scale(1.15)';
                     setTimeout(() => res.style.transform = 'scale(1)', 400);
                 }
-                mascotSpeak('🧩 <b>تَرْكِيبُ الْمَقَاطِع:</b><br>[ نَا ] + [ رُ ] = <b style="color:#4f46e5; font-size:1.6rem;">نَارُ</b>! عَبْقَرِيٌّ حَقًّا!', 'letter_n_merge_naar');
+                mascotSpeak('🧩 <b>تَرْكِيبُ الْمَقَاطِع:</b><br>[ نَا ] + [ رُ ] = <b style="color:#4f46e5; font-size:1.6rem;">نَارُ</b>! عَبْقَرِيّ بِالْفِعْل!', 'letter_n_merge_naar');
             } else if (puzzleKey === 'nasr') {
                 const res = document.getElementById('result-merge-nasr');
                 if (res) {
@@ -1128,7 +1128,7 @@
             } else if (wordKey === 'sentence2') {
                 mascotSpeak('📖 <b>«رَسَمَ فَارِسُ دَادَا»</b><br>فَارِسُ الْبَطَلُ رَسَمَ دَادَا الْحَبِيبَة!', 'letter_n_read_sentence2');
             } else if (wordKey === 'sentence3') {
-                mascotSpeak('📖 <b>«رَسَمَ سِنَانُ بَابَا»</b><br>سِنَانٌ الْفَنَّانُ رَسَمَ بَابَا الْعَزِيز!', 'letter_n_read_sentence3');
+                mascotSpeak('📖 <b>«رَسَمَ سِنَانُ بَابَا»</b><br>سِنَانُ الْفَنَّانُ رَسَمَ بَابَا الْعَزِيز!', 'letter_n_read_sentence3');
             } else if (wordKey === 'fee') {
                 mascotSpeak('📖 <b>فِي!</b>', 'letter_n_read_word_fee');
             } else if (wordKey === 'marsam') {
@@ -1155,7 +1155,7 @@
 
         function playNDrawHint() {
             mascotCelebrates();
-            mascotSpeak('💡 <b>إِرْشَادُ رَسْمِ حَرْفِ النُّون:</b><br>نَرْسِمُ صَحْنًا صَغِيرًا مُتَّصِلًا عَلَى السَّطْرِ لِلنُّونِ الأُولَى (نـ)، أَوْ صَحْنًا نِصْفَ دَائِرِيٍّ يَنْزِلُ تَحْتَ السَّطْرِ لِلنُّونِ الْكَامِلَة (ن)، وَنَضَعُ نُقْطَةً وَاحِدَةً فِي الأَعْلَى!', 'letter_n_draw_hint');
+            mascotSpeak('💡 <b>إِرْشَادُ رَسْمِ حَرْفِ النُّون:</b><br>نَرْسِمُ صَحْن صَغِير مُتَّصِل عَلَى السَّطْرِ لِلنُّونِ الأُولَى (نـ)، أَوْ صَحْن نِصْفَ دَائِرِيّ يَنْزِلُ تَحْتَ السَّطْرِ لِلنُّونِ الْكَامِلَة (ن)، وَنَضَعُ نُقْطَة وَاحِدَة فِي الأَعْلَى!', 'letter_n_draw_hint');
         }
 
         function initNCanvas() {
@@ -1317,7 +1317,7 @@
             }
             mascotCelebrates();
             if (btn) btn.innerHTML = '<span>⏹️</span> <span>إيقاف قصة بستان فاتن</span>';
-            mascotSpeak('🍎 <b>فِي بُسْتَانِ فَاتِن:</b><br>«فِي بُسْتَانِ فَاتِن، خَرَجَتِ الأُسْرَةُ إِلَى بُسْتَانِ فَاتِن الْجَمِيل! سَارَ بَابَا فِي الْمَمَرِّ الْمُخْضَرّ، وَسَارَتْ مَامَا تَسْتَمْتِعُ بِالأَزْهَارِ، وَفِي بُسْتَانِ فَاتِن أَشْجَارُ تِينٍ وَتُفَّاحٍ وَتَمْرٍ لَذِيذ، وَالأَطْفَالُ يَمْلَؤُونَ الْبُسْتَانَ بَهْجَةً وَنَشَاطاً!»', 'letter_t_scene_story', () => {
+            mascotSpeak('🍎 <b>فِي بُسْتَانِ فَاتِن:</b><br>«فِي بُسْتَانِ فَاتِن، خَرَجَتِ الأُسْرَةُ إِلَى بُسْتَانِ فَاتِن الْجَمِيل! سَارَ بَابَا فِي الْمَمَرِّ الْمُخْضَرّ، وَسَارَتْ مَامَا تَسْتَمْتِعُ بِالأَزْهَارِ، وَفِي بُسْتَانِ فَاتِن أَشْجَارُ تِين وَتُفَّاح وَتَمْر لَذِيذ، وَالأَطْفَالُ يَمْلَؤُونَ الْبُسْتَانَ بَهْجَة وَنَشَاط!»', 'letter_t_scene_story', () => {
                 if (btn) btn.innerHTML = '<span>🔊</span> <span>اِسْتَمِعْ لِقِصَّةِ بُسْتَانِ فَاتِن وَعَنَاصِرِ حَرْفِ التَّاءِ</span>';
             });
         }
@@ -1325,26 +1325,26 @@
         function playTModel(mode) {
             mascotCelebrates();
             if (mode === 'alone') {
-                mascotSpeak('🎓 <b>«أَنَا وَحْدِي» نَمْذَجَةُ فَصِيح:</b><br>أَنَا أَنْطِقُ وَحْدِي بِصَوْتٍ مَسْمُوع: <b style="color:#e11d48; font-size:1.5rem;">تَـمْرُ</b>... تَبْدَأُ بِحَرْفِ التَّاءِ الْمَفْتُوح: <b style="color:#9f1239;">تَـ</b>!', 'letter_t_model_alone');
+                mascotSpeak('🎓 <b>«أَنَا وَحْدِي» نَمْذَجَةُ فَصِيح:</b><br>أَنَا أَنْطِقُ وَحْدِي بِصَوْت مَسْمُوع: <b style="color:#e11d48; font-size:1.5rem;">تَـمْرُ</b>... تَبْدَأُ بِحَرْفِ التَّاءِ الْمَفْتُوح: <b style="color:#9f1239;">تَـ</b>!', 'letter_t_model_alone');
             } else if (mode === 'we') {
-                mascotSpeak('🤝 <b>«أَنَا وَأَنْتُمْ» مُمَارَسَةٌ مُوَجَّهَة:</b><br>نَنْطِقُ مَعاً يَا أَبْطَال: <b style="color:#e11d48; font-size:1.5rem;">تُـفَّاحَةُ</b>... فِي أَوَّلِهَا تَاءٌ مَضْمُومَة: <b style="color:#9f1239;">تُـ</b>!', 'letter_t_model_we');
+                mascotSpeak('🤝 <b>«أَنَا وَأَنْتُمْ» مُمَارَسَةُ مُوَجَّهَة:</b><br>نَنْطِقُ مَعَ بَعْضِنَا يَا أَبْطَال: <b style="color:#e11d48; font-size:1.5rem;">تُـفَّاحَةُ</b>... فِي أَوَّلِهَا تَاءُ مَضْمُومَة: <b style="color:#9f1239;">تُـ</b>!', 'letter_t_model_we');
             } else if (mode === 'you') {
-                mascotSpeak('⭐ <b>«أَنْتُمْ وَحْدَكُمْ» اِسْتِقْلالِيَّة:</b><br>الآنَ دَوْرُكُمْ وَحْدَكُمْ يَا أَبْطَالَ الصَّفِّ الأَوَّل، اِنْقُرُوا عَلَى كُلِّ صُورَةٍ وَأَصْغُوا لِلَّفْظِ السَّلِيم!', 'letter_t_model_you');
+                mascotSpeak('⭐ <b>«أَنْتُمْ وَحْدَكُمْ» اِسْتِقْلالِيَّة:</b><br>الآنَ دَوْرُكُمْ وَحْدَكُمْ يَا أَبْطَالَ الصَّفِّ الأَوَّل، اِنْقُرُوا عَلَى كُلِّ صُورَة وَأَصْغُوا لِلَّفْظِ السَّلِيم!', 'letter_t_model_you');
             }
         }
 
         function clickTItem(itemKey) {
             mascotCelebrates();
             const items = {
-                'tamr': { title: 'تَمْرٌ عِرَاقِيّ', audio: 'letter_t_tamr', badge: 'تَـ (مفتوح في أول الكلمة)', desc: 'نَخْلَةٌ وَتَمْرٌ عِرَاقِيٌّ لَذِيذ' },
-                'tuffaaha': { title: 'تُفَّاحَةٌ حَمْرَاء', audio: 'letter_t_tuffaaha', badge: 'تُـ (مضموم في أول الكلمة)', desc: 'تُفَّاحَةٌ حَمْرَاءُ حُلْوَة' },
-                'toot': { title: 'تُوتٌ طَازَج', audio: 'letter_t_toot', badge: 'تُو (مد طويل بالواو)', desc: 'تُوتٌ طَازَجٌ شَهِيّ' },
+                'tamr': { title: 'تَمْرُ عِرَاقِيّ', audio: 'letter_t_tamr', badge: 'تَـ (مفتوح في أول الكلمة)', desc: 'نَخْلَةُ وَتَمْرُ عِرَاقِيُّ لَذِيذ' },
+                'tuffaaha': { title: 'تُفَّاحَةُ حَمْرَاء', audio: 'letter_t_tuffaaha', badge: 'تُـ (مضموم في أول الكلمة)', desc: 'تُفَّاحَةُ حَمْرَاءُ حُلْوَة' },
+                'toot': { title: 'تُوتُ طَازَج', audio: 'letter_t_toot', badge: 'تُو (مد طويل بالواو)', desc: 'تُوتُ طَازَجُ شَهِيّ' },
                 'taaj': { title: 'تَاجُ الْمَلِك', audio: 'letter_t_taaj', badge: 'تَا (مد طويل بالألف)', desc: 'تَاجُ الْمَلِكِ الذَّهَبِيّ' },
-                'timsaah': { title: 'تِمْسَاحٌ قَوِيّ', audio: 'letter_t_timsaah', badge: 'تِـ (مكسور في أول الكلمة)', desc: 'تِمْسَاحٌ كَبِيرٌ قَوِيّ' },
+                'timsaah': { title: 'تِمْسَاحُ قَوِيّ', audio: 'letter_t_timsaah', badge: 'تِـ (مكسور في أول الكلمة)', desc: 'تِمْسَاحُ كَبِيرُ قَوِيّ' },
                 'sitt': { title: 'رَقْمُ سِتَّة', audio: 'letter_t_sitt', badge: 'ـتّ (تاء مشددة في الآخر)', desc: 'رَقْمُ سِتَّة' },
-                'ankaboot': { title: 'عَنْكَبُوتٌ نَسَّاج', audio: 'letter_t_ankaboot', badge: 'ت (منفصل في آخر الكلمة)', desc: 'عَنْكَبُوتٌ نَسَّاج' },
-                'teen': { title: 'تِينٌ مُبَارَك', audio: 'letter_t_teen', badge: 'تِيـ (مد طويل بالياء)', desc: 'تِينٌ مُبَارَكٌ وَحُلْو' },
-                'banaat': { title: 'قِرَاءَةُ بَنَات', audio: 'letter_t_banaat', badge: 'ت (مفتوحة مبسوطة في الآخر)', desc: 'بَنَاتٌ ذَكِيَّاتٌ طَيِّبَات • نُور وَرِيم بَنَات' }
+                'ankaboot': { title: 'عَنْكَبُوتُ نَسَّاج', audio: 'letter_t_ankaboot', badge: 'ت (منفصل في آخر الكلمة)', desc: 'عَنْكَبُوتُ نَسَّاج' },
+                'teen': { title: 'تِينُ مُبَارَك', audio: 'letter_t_teen', badge: 'تِيـ (مد طويل بالياء)', desc: 'تِينُ مُبَارَكُ وَحُلْو' },
+                'banaat': { title: 'قِرَاءَةُ بَنَات', audio: 'letter_t_banaat', badge: 'ت (مفتوحة مبسوطة في الآخر)', desc: 'بَنَاتُ ذَكِيَّاتُ طَيِّبَات • نُور وَرِيم بَنَات' }
             };
 
             const it = items[itemKey];
@@ -1356,24 +1356,24 @@
         function playTVowel(type, vowel) {
             mascotCelebrates();
             if (type === 'short') {
-                if (vowel === 'a') mascotSpeak('🔴 <b>فَتْحَةٌ قَصِيرَة:</b><br><span style="font-size:2.5rem; color:#e11d48; font-weight:900;">تَـ</span>', 'letter_t_short_a');
-                else if (vowel === 'u') mascotSpeak('🔴 <b>ضَمَّةٌ قَصِيرَة:</b><br><span style="font-size:2.5rem; color:#e11d48; font-weight:900;">تُـ</span>', 'letter_t_short_u');
-                else if (vowel === 'i') mascotSpeak('🔴 <b>كَسْرَةٌ قَصِيرَة:</b><br><span style="font-size:2.5rem; color:#e11d48; font-weight:900;">تِـ</span>', 'letter_t_short_i');
+                if (vowel === 'a') mascotSpeak('🔴 <b>فَتْحَة قَصِيرَة:</b><br><span style="font-size:2.5rem; color:#e11d48; font-weight:900;">تَـ</span>', 'letter_t_short_a');
+                else if (vowel === 'u') mascotSpeak('🔴 <b>ضَمَّة قَصِيرَة:</b><br><span style="font-size:2.5rem; color:#e11d48; font-weight:900;">تُـ</span>', 'letter_t_short_u');
+                else if (vowel === 'i') mascotSpeak('🔴 <b>كَسْرَة قَصِيرَة:</b><br><span style="font-size:2.5rem; color:#e11d48; font-weight:900;">تِـ</span>', 'letter_t_short_i');
             } else {
-                if (vowel === 'a') mascotSpeak('🔴 <b>مَدٌّ طَوِيلٌ بِالأَلِف:</b><br><span style="font-size:2.5rem; color:#be123c; font-weight:900;">تَا</span>', 'letter_t_long_a');
-                else if (vowel === 'u') mascotSpeak('🔴 <b>مَدٌّ طَوِيلٌ بِالْوَاو:</b><br><span style="font-size:2.5rem; color:#be123c; font-weight:900;">تُو</span>', 'letter_t_long_u');
-                else if (vowel === 'i') mascotSpeak('🔴 <b>مَدٌّ طَوِيلٌ بِالْيَاء:</b><br><span style="font-size:2.5rem; color:#be123c; font-weight:900;">تِيـ</span>', 'letter_t_long_i');
+                if (vowel === 'a') mascotSpeak('🔴 <b>مَدّ طَوِيل بِالأَلِف:</b><br><span style="font-size:2.5rem; color:#be123c; font-weight:900;">تَا</span>', 'letter_t_long_a');
+                else if (vowel === 'u') mascotSpeak('🔴 <b>مَدّ طَوِيل بِالْوَاو:</b><br><span style="font-size:2.5rem; color:#be123c; font-weight:900;">تُو</span>', 'letter_t_long_u');
+                else if (vowel === 'i') mascotSpeak('🔴 <b>مَدّ طَوِيل بِالْيَاء:</b><br><span style="font-size:2.5rem; color:#be123c; font-weight:900;">تِيـ</span>', 'letter_t_long_i');
             }
         }
 
         function playTSyllable(syllableKey) {
             mascotCelebrates();
             if (syllableKey === 'makhtoom') {
-                mascotSpeak('✊ <b>مَقْطَعٌ سَاكِنٌ مُغْلَق:</b><br>كَلِمَةُ: <b style="color:#9f1239; font-size:1.6rem;">مَخْتُومٌ</b><br>الْمَقْطَعُ السَّاكِنُ مَعَ قَبْضَةِ الْيَد: <b style="color:#e11d48; font-size:1.8rem;">[ مَخْـ ]</b>', 'letter_t_makhtoom_syllable');
+                mascotSpeak('✊ <b>مَقْطَعُ سَاكِنُ مُغْلَق:</b><br>كَلِمَةُ: <b style="color:#9f1239; font-size:1.6rem;">مَخْتُومُ</b><br>الْمَقْطَعُ السَّاكِنُ مَعَ قَبْضَةِ الْيَد: <b style="color:#e11d48; font-size:1.8rem;">[ مَخْـ ]</b>', 'letter_t_makhtoom_syllable');
             } else if (syllableKey === 'muhtafal') {
-                mascotSpeak('✊ <b>مَقْطَعٌ سَاكِنٌ مُغْلَق:</b><br>كَلِمَةُ: <b style="color:#9f1239; font-size:1.6rem;">مُحْتَفَلٌ</b><br>الْمَقْطَعُ السَّاكِنُ مَعَ قَبْضَةِ الْيَد: <b style="color:#e11d48; font-size:1.8rem;">[ مُحْـ ]</b>', 'letter_t_muhtafal_syllable');
+                mascotSpeak('✊ <b>مَقْطَعُ سَاكِنُ مُغْلَق:</b><br>كَلِمَةُ: <b style="color:#9f1239; font-size:1.6rem;">مُحْتَفَلُ</b><br>الْمَقْطَعُ السَّاكِنُ مَعَ قَبْضَةِ الْيَد: <b style="color:#e11d48; font-size:1.8rem;">[ مُحْـ ]</b>', 'letter_t_muhtafal_syllable');
             } else if (syllableKey === 'iltafat') {
-                mascotSpeak('✊ <b>مَقْطَعٌ سَاكِنٌ مُتَّصِل:</b><br>كَلِمَةُ: <b style="color:#9f1239; font-size:1.6rem;">اِلْتَفَتَ</b><br>الْمَقْطَعُ مَعَ قَبْضَةِ الْيَد: <b style="color:#e11d48; font-size:1.8rem;">[ ـتَفْـ ]</b>', 'letter_t_iltafat_syllable');
+                mascotSpeak('✊ <b>مَقْطَعُ سَاكِنُ مُتَّصِل:</b><br>كَلِمَةُ: <b style="color:#9f1239; font-size:1.6rem;">اِلْتَفَتَ</b><br>الْمَقْطَعُ مَعَ قَبْضَةِ الْيَد: <b style="color:#e11d48; font-size:1.8rem;">[ ـتَفْـ ]</b>', 'letter_t_iltafat_syllable');
             }
         }
 
@@ -1384,7 +1384,7 @@
             } else if (wordKey === 'toot') {
                 mascotSpeak('👏 <b>تَحْلِيلُ كَلِمَةِ (تُوتُ):</b><br><span style="font-size:1.4rem;">👏 [ تُو ] + 👏 [ تُ ]</span><br><b style="color:#e11d48;">مَقْطَعَانِ صَوْتِيَّان!</b>', 'letter_t_split_toot');
             } else if (wordKey === 'sirtu') {
-                mascotSpeak('👏 <b>تَحْلِيلُ كَلِمَةِ (سِرْتُ):</b><br><span style="font-size:1.4rem;">👏 [ سِرْ ] + 👏 [ تُ ]</span><br><b style="color:#e11d48;">مَقْطَعَانِ صَوْتِيَّان: سَاكِنٌ ثُمَّ قَصِير!</b>', 'letter_t_split_sirtu');
+                mascotSpeak('👏 <b>تَحْلِيلُ كَلِمَةِ (سِرْتُ):</b><br><span style="font-size:1.4rem;">👏 [ سِرْ ] + 👏 [ تُ ]</span><br><b style="color:#e11d48;">مَقْطَعَانِ صَوْتِيَّان: سَاكِنُ ثُمَّ قَصِير!</b>', 'letter_t_split_sirtu');
             } else if (wordKey === 'banaat') {
                 mascotSpeak('👏 <b>تَحْلِيلُ كَلِمَةِ (بَنَاتُ):</b><br><span style="font-size:1.4rem;">👏 [ بَـ ] + 👏 [ نَا ] + 👏 [ تُ ]</span><br><b style="color:#e11d48;">ثَلاثَةُ مَقَاطِع: بَـ ... نَا ... تُ!</b>', 'letter_t_split_banaat');
             }
@@ -1413,7 +1413,7 @@
                     res.style.transform = 'scale(1.15)';
                     setTimeout(() => res.style.transform = 'scale(1)', 400);
                 }
-                mascotSpeak('🧩 <b>تَرْكِيبُ الْمَقَاطِع:</b><br>[ تِيـ ] + [ نُ ] = <b style="color:#e11d48; font-size:1.6rem;">تِينُ</b>! عَبْقَرِيٌّ حَقًّا!', 'letter_t_merge_teen');
+                mascotSpeak('🧩 <b>تَرْكِيبُ الْمَقَاطِع:</b><br>[ تِيـ ] + [ نُ ] = <b style="color:#e11d48; font-size:1.6rem;">تِينُ</b>! عَبْقَرِيّ بِالْفِعْل!', 'letter_t_merge_teen');
             } else if (puzzleKey === 'tamr') {
                 const res = document.getElementById('result-merge-tamr');
                 if (res) {
@@ -1482,7 +1482,7 @@
 
         function playTMarbootaIntro() {
             mascotCelebrates();
-            mascotSpeak('🌸 <b>مَدْخَلُ التَّاءِ الْمَرْبُوطَةِ (ص ٤٤):</b><br>«هَلْ تَعْلَمُونَ أَنَّ لِلتَّاءِ أُخْتاً لَطِيفَةً تُسَمَّى التَّاءَ الْمَرْبُوطَة (ـة ، ة)؟ نَرَاهَا فِي مَدْرَسَة ، وَحَقِيبَة ، وَمِسْطَرَة!»', 'letter_t_marboota_intro');
+            mascotSpeak('🌸 <b>مَدْخَلُ التَّاءِ الْمَرْبُوطَةِ (ص ٤٤):</b><br>«هَلْ تَعْلَمُونَ أَنَّ لِلتَّاءِ أُخْت لَطِيفَة تُسَمَّى التَّاءَ الْمَرْبُوطَة (ـة ، ة)؟ نَرَاهَا فِي مَدْرَسَة ، وَحَقِيبَة ، وَمِسْطَرَة!»', 'letter_t_marboota_intro');
         }
 
         let tDrawColor = '#e11d48';
@@ -1674,7 +1674,7 @@
             }
             mascotCelebrates();
             if (btn) btn.innerHTML = '<span>⏹️</span> <span>إيقاف قصة مدرسة سارة</span>';
-            mascotSpeak('🏫 <b>فِي مَدْرَسَةِ سَارَة:</b><br>«فِي مَدْرَسَةِ سَارَةَ الْجَمِيلَة، الْتَقَتِ الصَّدِيقَاتُ الثَّلَاثُ فِي الْغُرْفَةِ الصَّفِّيَّةِ الْمُرَتَّبَة. سَارَةُ تَرْسِمُ لَوْحَةً رَائِعَة، وَدِيمَةُ تَدْرُسُ بِجِدٍّ وَاجْتِهَاد، وَسَرْوَةُ تَبْتَسِمُ فَرِحَةً بِلِقَاءِ صَدِيقَاتِهَا وَمُعَلِّمَتِهَا!»', 'letter_marboota_scene_story', () => {
+            mascotSpeak('🏫 <b>فِي مَدْرَسَةِ سَارَة:</b><br>«فِي مَدْرَسَةِ سَارَةَ الْجَمِيلَة، الْتَقَتِ الصَّدِيقَاتُ الثَّلَاثُ فِي الْغُرْفَةِ الصَّفِّيَّةِ الْمُرَتَّبَة. سَارَةُ تَرْسِمُ لَوْحَة رَائِعَة، وَدِيمَةُ تَدْرُسُ بِجِدّ وَاجْتِهَاد، وَسَرْوَةُ تَبْتَسِمُ فَرِحَة بِلِقَاءِ صَدِيقَاتِهَا وَمُعَلِّمَتِهَا!»', 'letter_marboota_scene_story', () => {
                 if (btn) btn.innerHTML = '<span>🔊</span> <span>اِسْتَمِعْ لِقِصَّةِ مَدْرَسَةِ سَارَة وَالصَّدِيقَاتِ الثَّلَاث</span>';
             });
         }
@@ -1684,7 +1684,7 @@
             if (mode === 'alone') {
                 mascotSpeak('1️⃣ <b>فَصِيح يُنَمْذِج («أَنَا وَحْدِي»):</b><br>«أَسْتَمِعُ وَأُمَيِّزُ صَوْتَ التَّاءِ الْمَرْبُوطَةِ فِي كَلِمَة: حَقِيبَةُ!»', 'letter_marboota_model_alone');
             } else if (mode === 'we') {
-                mascotSpeak('2️⃣ <b>مُمَارَسَةٌ مُوَجَّهَة («أَنَا وَأَنْتُمْ»):</b><br>«نُرَدِّدُ مَعاً بِلِسَانٍ فَصِيح: مَدْرَسَةُ... مَدْرَسَهْ!»', 'letter_marboota_model_we');
+                mascotSpeak('2️⃣ <b>مُمَارَسَةُ مُوَجَّهَة («أَنَا وَأَنْتُمْ»):</b><br>«نُرَدِّدُ مَعَ بَعْضِنَا بِلِسَان فَصِيح: مَدْرَسَةُ... مَدْرَسَهْ!»', 'letter_marboota_model_we');
             } else if (mode === 'you') {
                 mascotSpeak('3️⃣ <b>اِسْتِقْلالِيَّة («أَنْتُمْ وَحْدَكُمْ»):</b><br>«اِسْتَمِعُوا وَحَدِّدُوا صَوْتَ التَّاءِ الْمَرْبُوطَةِ فِي بَقِيَّةِ الْكَلِمَاتِ الْمُصَوَّرَة!»', 'letter_marboota_model_you');
             }
@@ -1724,7 +1724,7 @@
 
         function playMarbootaWaqfWasl() {
             mascotCelebrates();
-            mascotSpeak('🌟 <b>قَاعِدَةُ التَّاءِ الْمَرْبُوطَةِ الذَّهَبِيَّة:</b><br>«تُنْطَقُ تَاءً عِنْدَ الْحَرَكَةِ وَالْوَصْلِ: مَدْرَسَةُ سَارَة، وَتُنْطَقُ هَاءً عِنْدَ السُّكُونِ وَالْوَقْفِ: مَدْرَسَهْ!»', 'letter_marboota_waqf_wasl');
+            mascotSpeak('🌟 <b>قَاعِدَةُ التَّاءِ الْمَرْبُوطَةِ الذَّهَبِيَّة:</b><br>«تُنْطَقُ تَاءْ عِنْدَ الْحَرَكَةِ وَالْوَصْلِ: مَدْرَسَةُ سَارَة، وَتُنْطَقُ هَاءْ عِنْدَ السُّكُونِ وَالْوَقْفِ: مَدْرَسَهْ!»', 'letter_marboota_waqf_wasl');
         }
 
         function playMarbootaPair(word) {
@@ -1745,12 +1745,12 @@
 
         function playMarbootaSyllablesIntro() {
             mascotCelebrates();
-            mascotSpeak('🧩 <b>الْمَحَطَّةُ الثَّالِثَة (ص ٤٥):</b><br>«اِكْتَشِفِ الْكَلِمَاتِ الَّتِي تَحْوِي تَاءً مَرْبُوطَة، وَحَدِّدْ شَكْلَهَا الْمُتَّصِلَ أَوِ الْمُنْفَصِل، وَحَلِّلِ الْكَلِمَاتِ بِالصَّفَقَاتِ الْإِيقَاعِيَّة!»', 'letter_marboota_syllables_intro');
+            mascotSpeak('🧩 <b>الْمَحَطَّةُ الثَّالِثَة (ص ٤٥):</b><br>«اِكْتَشِفِ الْكَلِمَاتِ الَّتِي تَحْوِي تَاءْ مَرْبُوطَة، وَحَدِّدْ شَكْلَهَا الْمُتَّصِلَ أَوِ الْمُنْفَصِل، وَحَلِّلِ الْكَلِمَاتِ بِالصَّفَقَاتِ الْإِيقَاعِيَّة!»', 'letter_marboota_syllables_intro');
         }
 
         function playMarbootaAct4Intro() {
             mascotCelebrates();
-            mascotSpeak('✏️ <b>نَشَاط ٤ صَفْحَة ٤٥:</b><br>«أَرْسُمُ دَائِرَةً حَوْلَ شَكْلِ التَّاءِ الْمَرْبُوطَةِ الْمُنَاسِب: مُتَّصِلَة ـة أَمْ مُنْفَصِلَة ة!»', 'letter_marboota_act4_intro');
+            mascotSpeak('✏️ <b>نَشَاط ٤ صَفْحَة ٤٥:</b><br>«أَرْسُمُ دَائِرَة حَوْلَ شَكْلِ التَّاءِ الْمَرْبُوطَةِ الْمُنَاسِب: مُتَّصِلَة ـة أَمْ مُنْفَصِلَة ة!»', 'letter_marboota_act4_intro');
         }
 
         function checkMarbootaAct3(word, isMarboota) {
@@ -1831,7 +1831,7 @@
 
         function playMarbootaMergeIntro() {
             mascotCelebrates();
-            mascotSpeak('🧩 <b>نَشَاط ٦ صَفْحَة ٤٦:</b><br>«أُرَكِّبُ مِنَ الْمَقَاطِعِ التَّالِيَةِ كَلِمَاتٍ، ثُمَّ أَقْرَأُهَا!»', 'letter_marboota_merge_intro');
+            mascotSpeak('🧩 <b>نَشَاط ٦ صَفْحَة ٤٦:</b><br>«أُرَكِّبُ مِنَ الْمَقَاطِعِ التَّالِيَةِ كَلِمَات، ثُمَّ أَقْرَأُهَا!»', 'letter_marboota_merge_intro');
         }
 
         function playMarbootaMerge(word) {
@@ -1886,12 +1886,12 @@
 
         function playMarbootaDrawHint() {
             mascotCelebrates();
-            mascotSpeak('🎨 <b>سَبُّورَةُ رَسْمِ التَّاءِ الْمَرْبُوطَة:</b><br>«لِرَسْمِ التَّاءِ الْمُنْفَصِلَة (ة)، اِبْدَأْ مِنْ أَعْلَى السَّطْرِ وَدُرْ بِشَكْلٍ دَائِرِيٍّ لَطِيف، ثُمَّ ضَعْ نُقْطَتَيْنِ فِي الْأَعْلَى! وَلِرَسْمِ التَّاءِ الْمُتَّصِلَة (ـة)، اِمْشِ عَلَى السَّطْرِ، ثُمَّ اصْعَدْ لِلْأَعْلَى وَدُرْ رَأْساً مُسْتَدِيراً وَضَعِ النُّقْطَتَيْن!»', 'letter_marboota_draw_hint');
+            mascotSpeak('🎨 <b>سَبُّورَةُ رَسْمِ التَّاءِ الْمَرْبُوطَة:</b><br>«لِرَسْمِ التَّاءِ الْمُنْفَصِلَة (ة)، اِبْدَأْ مِنْ أَعْلَى السَّطْرِ وَدُرْ بِالشَّكْلِ الدَّائِرِيِّ لَطِيف، ثُمَّ ضَعْ نُقْطَتَيْنِ فِي الْأَعْلَى! وَلِرَسْمِ التَّاءِ الْمُتَّصِلَة (ـة)، اِمْشِ عَلَى السَّطْرِ، ثُمَّ اصْعَدْ لِلْأَعْلَى وَدُرْ رَأْس مُسْتَدِير وَضَعِ النُّقْطَتَيْن!»', 'letter_marboota_draw_hint');
         }
 
         function playMarbootaRuleSummary() {
             mascotCelebrates();
-            mascotSpeak('🌸 <b>خُلَاصَةُ قَاعِدَةِ فَصِيح:</b><br>«التَّاءُ الْمَفْتُوحَة (ت) تَبْقَى تَاءً فِي الْوَصْلِ وَالْوَقْف، مِثْلَ: بَنَات! أَمَّا التَّاءُ الْمَرْبُوطَة (ـة ، ة) فَتُنْطَقُ تَاءً مَعَ الْحَرَكَة: مَدْرَسَةُ، وَتُنْطَقُ هَاءً عِنْدَ الْوَقْف: مَدْرَسَهْ!»', 'letter_marboota_rule_summary');
+            mascotSpeak('🌸 <b>خُلَاصَةُ قَاعِدَةِ فَصِيح:</b><br>«التَّاءُ الْمَفْتُوحَة (ت) تَبْقَى تَاء فِي الْوَصْلِ وَالْوَقْف، مِثْلَ: بَنَات! أَمَّا التَّاءُ الْمَرْبُوطَة (ـة ، ة) فَتُنْطَقُ تَاءْ مَعَ الْحَرَكَة: مَدْرَسَةُ، وَتُنْطَقُ هَاءْ عِنْدَ الْوَقْف: مَدْرَسَهْ!»', 'letter_marboota_rule_summary');
         }
 
         /* كانفاس رسم التاء المربوطة */

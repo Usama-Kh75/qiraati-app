@@ -297,7 +297,7 @@ def step7_version_alignment():
     print(f"  - اسم مخزن الكاش (sw.js): {sw_cache}")
 
     expected_ver = "v3.64"
-    expected_cache = "qiraati-smart-v91"
+    expected_cache = "qiraati-smart-v92"
 
     errors = []
     if top_ver != expected_ver:
@@ -335,7 +335,7 @@ def step7_version_alignment():
             print(f"  - {e}")
         return False
 
-    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.64 وكاش qiraati-smart-v91 وملفات خط Tajawal المحلية (8 WOFF2).")
+    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.64 وكاش qiraati-smart-v92 وملفات خط Tajawal المحلية (8 WOFF2).")
     return True
 
 def main():

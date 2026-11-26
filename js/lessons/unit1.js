@@ -41,11 +41,11 @@
 
             if (charKey === 'full') {
 
-                mascotSpeak('🏠 <b>قصة أسرتي:</b><br>«نَحْنُ أُسْرَةٌ سَعِيدَةٌ مُتَحَابَّة، يَرْعَانَا أَبِي، وَتَحْنُو عَلَيْنَا أُمِّي، نَعِيشُ فِي مَنْزِلِنَا الدَّافِئِ بِمَحَبَّةٍ وَتَعَاوُن!»', 'unit1_listen_story');
+                mascotSpeak('🏠 <b>قصة أسرتي:</b><br>«نَحْنُ أُسْرَةُ سَعِيدَة مُتَحَابَّة، يَرْعَانَا أَبِي، وَتَحْنُو عَلَيْنَا أُمِّي، نَعِيشُ فِي مَنْزِلِنَا الدَّافِئِ بِمَحَبَّة وَتَعَاوُن!»', 'unit1_listen_story');
 
             } else if (charKey === 'father') {
 
-                mascotSpeak('👔 <b>أَبِي الْغَالِي:</b><br>يَعْمَلُ بِنَشَاطٍ لِيَرْعَانَا وَيَحْمِينَا، وَيُوَفِّرَ لَنَا كُلَّ مَا نَحْتَاجُهُ، نُحِبُّهُ وَنُطِيعُهُ!', 'unit1_listen_story');
+                mascotSpeak('👔 <b>أَبِي الْغَالِي:</b><br>يَعْمَلُ بِنَشَاط لِيَرْعَانَا وَيَحْمِينَا، وَيُوَفِّرَ لَنَا كُلَّ مَا نَحْتَاجُهُ، نُحِبُّهُ وَنُطِيعُهُ!', 'unit1_listen_story');
 
             } else if (charKey === 'mother') {
 
@@ -53,11 +53,11 @@
 
             } else if (charKey === 'brother') {
 
-                mascotSpeak('👦 <b>أَخِي بَاسِم:</b><br>يَتَعَاوَنُ مَعَنَا فِي الْمَنْزِل، وَيَذْهَبُ مَعِي إِلَى الْمَدْرَسَةِ بِنَشَاطٍ وَسُرُور!', 'unit1_story_kitchen');
+                mascotSpeak('👦 <b>أَخِي بَاسِم:</b><br>يَتَعَاوَنُ مَعَنَا فِي الْمَنْزِل، وَيَذْهَبُ مَعِي إِلَى الْمَدْرَسَةِ بِنَشَاط وَسُرُور!', 'unit1_story_kitchen');
 
             } else if (charKey === 'sister') {
 
-                mascotSpeak('👧 <b>أُخْتِي رِيم:</b><br>تُسَاعِدُ أُمَّنَا، وَتَقْرَأُ مَعَنَا الْقِصَصَ، نَلْعَبُ مَعاً بِمَحَبَّةٍ وَأَدَب!', 'unit1_story_living');
+                mascotSpeak('👧 <b>أُخْتِي رِيم:</b><br>تُسَاعِدُ أُمَّنَا، وَتَقْرَأُ مَعَنَا الْقِصَصَ، نَلْعَبُ مَعَ بَعْضِنَا بِمَحَبَّة وَأَدَب!', 'unit1_story_living');
 
             }
 
@@ -69,7 +69,7 @@
 
             if (sceneKey === 'kitchen') {
 
-                mascotSpeak('🍲 <b>الْمَشْهَدُ الْأَوَّل (الْمَطْبَخ):</b><br>«نُسَاعِدُ أُمَّنَا فِي إِعْدَادِ مَائِدَةِ الطَّعَامِ وَتَرْتِيبِهَا بِنِظَامٍ وَنَظَافَة!»', 'unit1_story_kitchen');
+                mascotSpeak('🍲 <b>الْمَشْهَدُ الْأَوَّل (الْمَطْبَخ):</b><br>«نُسَاعِدُ أُمَّنَا فِي إِعْدَادِ مَائِدَةِ الطَّعَامِ وَتَرْتِيبِهَا بِنِظَام وَنَظَافَة!»', 'unit1_story_kitchen');
 
             } else if (sceneKey === 'living') {
 
@@ -77,7 +77,7 @@
 
             } else if (sceneKey === 'grandma') {
 
-                mascotSpeak('👵 <b>الْمَشْهَدُ الثَّالِث (بِرُّ الْجَدَّة):</b><br>«نَبَرُّ جَدَّتَنَا، نُقَبِّلُ يَدَيْهَا، وَنُقَدِّمُ لَهَا الْمُسَاعَدَةَ بِابْتِسَامَةٍ وَأَدَب!»', 'unit1_story_grandma');
+                mascotSpeak('👵 <b>الْمَشْهَدُ الثَّالِث (بِرُّ الْجَدَّة):</b><br>«نَبَرُّ جَدَّتَنَا، نُقَبِّلُ يَدَيْهَا، وَنُقَدِّمُ لَهَا الْمُسَاعَدَةَ بِابْتِسَامَة وَأَدَب!»', 'unit1_story_grandma');
 
             }
 
@@ -97,7 +97,7 @@
 
             } else if (qNum === 3) {
 
-                mascotSpeak('❤️ <b>السؤال الثالث:</b> كيف أتعامل مع أسرتي؟ أطيع والديّ وأبرهما، أعطف على إخوتي، وأحترم الكبار دائماً!', 'unit1_q3_deal');
+                mascotSpeak('❤️ <b>السؤال الثالث:</b> كيف أتعامل مع أسرتي؟ أطيع والديّ وأبرهما، أعطف على إخوتي، وأحترم الكبار فِي كُلِّ حِين!', 'unit1_q3_deal');
 
             }
 
@@ -181,7 +181,7 @@
 
             if (btn) btn.innerHTML = '⏹️ إيقاف قصة النزهة';
 
-            mascotSpeak('🧺 <b>نُزْهَةُ الْأُسْرَةِ فِي الرَّبِيع:</b><br>«نَجْلِسُ عَلَى بِسَاطٍ فِي الرَّبِيع، نَأْكُلُ خُبْزاً وَبُرْتُقَالاً، وَنَشْرَبُ حَلِيباً، كُلُّهَا بِصَوْتِ الْبَاء!»', 'letter_b_picnic_full', () => {
+            mascotSpeak('🧺 <b>نُزْهَةُ الْأُسْرَةِ فِي الرَّبِيع:</b><br>«نَجْلِسُ عَلَى بِسَاط فِي الرَّبِيع، نَأْكُلُ خُبْز وَبُرْتُقَال، وَنَشْرَبُ حَلِيب، كُلُّهَا بِصَوْتِ الْبَاء!»', 'letter_b_picnic_full', () => {
 
                 if (btn) btn.innerHTML = '🧺 استمع لقصة نزهة الأسرة';
 
@@ -195,25 +195,25 @@
 
             const items = {
 
-                'baqara': { title: 'بَـقَـرَةٌ', audio: 'letter_b_baqara', desc: 'صوت فتحة قصيرة في أول الكلمة (بَـ)' },
+                'baqara': { title: 'بَـقَـرَةُ', audio: 'letter_b_baqara', desc: 'صوت فتحة قصيرة في أول الكلمة (بَـ)' },
 
-                'burtuqal': { title: 'بُـرْتُـقَـالٌ', audio: 'letter_b_burtuqal', desc: 'صوت ضمة قصيرة في أول الكلمة (بُـ)' },
+                'burtuqal': { title: 'بُـرْتُـقَـالُ', audio: 'letter_b_burtuqal', desc: 'صوت ضمة قصيرة في أول الكلمة (بُـ)' },
 
-                'bisat': { title: 'بِـسَـاطٌ', audio: 'letter_b_bisat', desc: 'صوت كسرة قصيرة في أول الكلمة (بِـ)' },
+                'bisat': { title: 'بِـسَـاطُ', audio: 'letter_b_bisat', desc: 'صوت كسرة قصيرة في أول الكلمة (بِـ)' },
 
-                'halib': { title: 'حَـلِـيـبٌ', audio: 'letter_b_halib', desc: 'صوت الباء في آخر الكلمة (ـبْ)' },
+                'halib': { title: 'حَـلِـيـبُ', audio: 'letter_b_halib', desc: 'صوت الباء في آخر الكلمة (ـبْ)' },
 
-                'khubz': { title: 'خُـبْـزٌ', audio: 'letter_b_khubz', desc: 'صوت الباء الساكن في وسط الكلمة (ـبْـ)' },
+                'khubz': { title: 'خُـبْـزُ', audio: 'letter_b_khubz', desc: 'صوت الباء الساكن في وسط الكلمة (ـبْـ)' },
 
-                'bab': { title: 'بَـابٌ', audio: 'letter_b_bab', desc: 'صوت مد طويل بالألف (بَا)' },
+                'bab': { title: 'بَـابُ', audio: 'letter_b_bab', desc: 'صوت مد طويل بالألف (بَا)' },
 
-                'buq': { title: 'بُـوقٌ', audio: 'letter_b_buq', desc: 'صوت مد طويل بالواو (بُو)' },
+                'buq': { title: 'بُـوقُ', audio: 'letter_b_buq', desc: 'صوت مد طويل بالواو (بُو)' },
 
-                'rabi': { title: 'رَ بِيـعٌ', audio: 'letter_b_rabi', desc: 'صوت مد طويل بالياء (بِي)' },
+                'rabi': { title: 'رَ بِيـعُ', audio: 'letter_b_rabi', desc: 'صوت مد طويل بالياء (بِي)' },
 
-                'basal': { title: 'بَـصَلٌ', audio: 'letter_b_basal', desc: 'صوت فتحة قصيرة (بَـ)' },
+                'basal': { title: 'بَـصَلُ', audio: 'letter_b_basal', desc: 'صوت فتحة قصيرة (بَـ)' },
 
-                'bittikh': { title: 'بِـطِّيخٌ', audio: 'letter_b_bittikh', desc: 'صوت كسرة قصيرة (بِـ)' }
+                'bittikh': { title: 'بِـطِّيخُ', audio: 'letter_b_bittikh', desc: 'صوت كسرة قصيرة (بِـ)' }
 
             };
 
@@ -233,27 +233,27 @@
 
             if (type === 'short' && vowel === 'a') {
 
-                mascotSpeak('🔴 <b>فَتْحَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">بَـ</span>', 'letter_b_short_a');
+                mascotSpeak('🔴 <b>فَتْحَة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">بَـ</span>', 'letter_b_short_a');
 
             } else if (type === 'long' && vowel === 'a') {
 
-                mascotSpeak('🔴 <b>مَدٌّ بِالْأَلِف (طَوِيل):</b><br><span style="font-size:2.2rem; color:#b91c1c;">بَااا</span>', 'letter_b_long_a');
+                mascotSpeak('🔴 <b>مَدّ بِالْأَلِف (طَوِيل):</b><br><span style="font-size:2.2rem; color:#b91c1c;">بَااا</span>', 'letter_b_long_a');
 
             } else if (type === 'short' && vowel === 'u') {
 
-                mascotSpeak('🔴 <b>ضَمَّةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">بُـ</span>', 'letter_b_short_u');
+                mascotSpeak('🔴 <b>ضَمَّة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">بُـ</span>', 'letter_b_short_u');
 
             } else if (type === 'long' && vowel === 'u') {
 
-                mascotSpeak('🔴 <b>مَدٌّ بِالْوَاو (طَوِيل):</b><br><span style="font-size:2.2rem; color:#b91c1c;">بُووو</span>', 'letter_b_long_u');
+                mascotSpeak('🔴 <b>مَدّ بِالْوَاو (طَوِيل):</b><br><span style="font-size:2.2rem; color:#b91c1c;">بُووو</span>', 'letter_b_long_u');
 
             } else if (type === 'short' && vowel === 'i') {
 
-                mascotSpeak('🔴 <b>كَسْرَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">بِـ</span>', 'letter_b_short_i');
+                mascotSpeak('🔴 <b>كَسْرَة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">بِـ</span>', 'letter_b_short_i');
 
             } else if (type === 'long' && vowel === 'i') {
 
-                mascotSpeak('🔴 <b>مَدٌّ بِالْيَاء (طَوِيل):</b><br><span style="font-size:2.2rem; color:#b91c1c;">بِييي</span>', 'letter_b_long_i');
+                mascotSpeak('🔴 <b>مَدّ بِالْيَاء (طَوِيل):</b><br><span style="font-size:2.2rem; color:#b91c1c;">بِييي</span>', 'letter_b_long_i');
 
             }
 
@@ -265,15 +265,15 @@
 
             if (syllableKey === 'tabl') {
 
-                mascotSpeak('🥁 <b>طَبْلٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#b91c1c; font-size:1.6rem;">طَبْـ</b>', 'letter_b_tabl_syllable');
+                mascotSpeak('🥁 <b>طَبْلُ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#b91c1c; font-size:1.6rem;">طَبْـ</b>', 'letter_b_tabl_syllable');
 
             } else if (syllableKey === 'jubn') {
 
-                mascotSpeak('🧀 <b>جُبْنٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#b91c1c; font-size:1.6rem;">جُبْـ</b>', 'letter_b_jubn_syllable');
+                mascotSpeak('🧀 <b>جُبْنُ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#b91c1c; font-size:1.6rem;">جُبْـ</b>', 'letter_b_jubn_syllable');
 
             } else if (syllableKey === 'shibl') {
 
-                mascotSpeak('🦁 <b>شِبْلٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#b91c1c; font-size:1.6rem;">شِبْـ</b>', 'letter_b_shibl_syllable');
+                mascotSpeak('🦁 <b>شِبْلُ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#b91c1c; font-size:1.6rem;">شِبْـ</b>', 'letter_b_shibl_syllable');
 
             }
 
@@ -305,7 +305,7 @@
 
                 mascotCelebrates();
 
-                mascotSpeak('🎓 <b>طَوْرُ النَّمْذَجَةِ («أَنَا وَحْدِي»):</b><br>فَصِيح يُمَثِّلُ الْمُعَلِّمَ، سَأُفَكِّرُ بِصَوْتٍ عَالٍ وَأُحَلِّلُ الْمَقَاطِعَ مَعَ الصَّفَقَاتِ أَمَامَكَ!');
+                mascotSpeak('🎓 <b>طَوْرُ النَّمْذَجَةِ («أَنَا وَحْدِي»):</b><br>فَصِيح يُمَثِّلُ الْمُعَلِّمَ، سَأُفَكِّرُ بِصَوْت عَالِي وَأُحَلِّلُ الْمَقَاطِعَ مَعَ الصَّفَقَاتِ أَمَامَكَ!');
 
             } else {
 
@@ -326,7 +326,7 @@
             if (normalized === 'model') {
                 if (typeof mascotCelebrates === 'function') mascotCelebrates();
                 if (typeof mascotSpeak === 'function') {
-                    mascotSpeak('🎓 <b>طَوْرُ النَّمْذَجَةِ («أَنَا وَحْدِي»):</b><br>فَصِيح يُمَثِّلُ الْمُعَلِّمَ، سَأُفَكِّرُ بِصَوْتٍ عَالٍ وَأُحَلِّلُ الْمَقَاطِعَ مَعَ الصَّفَقَاتِ أَمَامَكَ!');
+                    mascotSpeak('🎓 <b>طَوْرُ النَّمْذَجَةِ («أَنَا وَحْدِي»):</b><br>فَصِيح يُمَثِّلُ الْمُعَلِّمَ، سَأُفَكِّرُ بِصَوْت عَالِي وَأُحَلِّلُ الْمَقَاطِعَ مَعَ الصَّفَقَاتِ أَمَامَكَ!');
                 }
             } else {
                 if (typeof mascotCelebrates === 'function') mascotCelebrates();
@@ -535,7 +535,7 @@
 
             } else {
 
-                outcomesList.innerHTML = '<p style="color:#64748b; font-weight:700;">جاري إضافة النتاجات الرسمية لهذا الدرس قريباً...</p>';
+                outcomesList.innerHTML = '<p style="color:#64748b; font-weight:700;">جاري إضافة النتاجات الرسمية لهذا الدرس عَمَّا قَرِيب...</p>';
 
                 strategiesList.innerHTML = '<p style="color:#64748b;">-</p>';
 
@@ -597,7 +597,7 @@
 
                 } else {
 
-                    mascotSpeak('✂️ <b>كَلِمَةُ (بَابُ):</b><br>مُمْتَاز! تَتَكَوَّنُ مِنْ مَقْطَعَيْن: <b style="color:#2563eb;">[ بَا ]</b> ➕ <b style="color:#2563eb;">[ بُ ]</b> 🌟 أَنْتَ قَارِئٌ مَاهِرٌ!', 'letter_b_split_bab');
+                    mascotSpeak('✂️ <b>كَلِمَةُ (بَابُ):</b><br>مُمْتَاز! تَتَكَوَّنُ مِنْ مَقْطَعَيْن: <b style="color:#2563eb;">[ بَا ]</b> ➕ <b style="color:#2563eb;">[ بُ ]</b> 🌟 أَنْتَ قَارِئُ مَاهِر!', 'letter_b_split_bab');
 
                     triggerClapSequence('bab', ['بَا', 'بُ']);
 
@@ -619,7 +619,7 @@
 
                 } else {
 
-                    mascotSpeak('✂️ <b>كَلِمَةُ (بَابَا):</b><br>رَائِع! تَتَكَوَّنُ مِنْ مَقْطَعَيْن: <b style="color:#2563eb;">[ بَا ]</b> ➕ <b style="color:#2563eb;">[ بَا ]</b> 🌟 أَنْتَ مُحَلِّلٌ ذَكِيٌّ!', 'letter_b_split_baba');
+                    mascotSpeak('✂️ <b>كَلِمَةُ (بَابَا):</b><br>رَائِع! تَتَكَوَّنُ مِنْ مَقْطَعَيْن: <b style="color:#2563eb;">[ بَا ]</b> ➕ <b style="color:#2563eb;">[ بَا ]</b> 🌟 أَنْتَ مُحَلِّلُ ذَكِيّ!', 'letter_b_split_baba');
 
                     triggerClapSequence('baba', ['بَا', 'بَا']);
 
@@ -701,7 +701,7 @@
 
         function playBDrawHint() {
 
-            mascotSpeak('🎨 <b>إرشاد رسم حرف الباء:</b><br>نبدأ من أعلى اليمين، ننزل للسطر، نسير لليسار، ثم نصعد قليلاً، ونضع نقطة واحدة في الأسفل!', 'letter_b_draw_hint');
+            mascotSpeak('🎨 <b>إرشاد رسم حرف الباء:</b><br>نبدأ من أعلى اليمين، ننزل للسطر، نسير لليسار، ثم نصعد قَلِيل الِارْتِفَاع، ونضع نقطة واحدة في الأسفل!', 'letter_b_draw_hint');
 
         }
 
@@ -1003,7 +1003,7 @@
 
             if (btn) btn.innerHTML = '⏹️ إيقاف قصة الأسرة';
 
-            mascotSpeak('👩‍👧‍👦 <b>فِي بَيْتِ الأُسْرَةِ السَّعِيدَة:</b><br>«تَجْلِسُ مَامَا مَعَ أَبْنَائِهَا، حَوْلَهَا مَوْزٌ، وَلَيْمُونٌ، وَمِيزَانٌ، وَمِفْتَاحٌ، وَمِزْمَار! كُلُّهَا بِصَوْتِ الْمِيم!»', 'letter_m_scene_story', () => {
+            mascotSpeak('👩‍👧‍👦 <b>فِي بَيْتِ الأُسْرَةِ السَّعِيدَة:</b><br>«تَجْلِسُ مَامَا مَعَ أَبْنَائِهَا، حَوْلَهَا مَوْزُ، وَلَيْمُونُ، وَمِيزَانُ، وَمِفْتَاحُ، وَمِزْمَار! كُلُّهَا بِصَوْتِ الْمِيم!»', 'letter_m_scene_story', () => {
 
                 if (btn) btn.innerHTML = '🎧 استمع لقصة الأسرة في غرفة المعيشة';
 
@@ -1017,33 +1017,33 @@
 
             const items = {
 
-                'mawz': { title: 'مَـوْزٌ', audio: 'letter_m_mawz', desc: 'صوت فتحة قصيرة في أول الكلمة (مَـ)' },
+                'mawz': { title: 'مَـوْزُ', audio: 'letter_m_mawz', desc: 'صوت فتحة قصيرة في أول الكلمة (مَـ)' },
 
-                'murabba': { title: 'مُـرَبَّـعٌ', audio: 'letter_m_murabba', desc: 'صوت ضمة قصيرة في أول الكلمة (مُـ)' },
+                'murabba': { title: 'مُـرَبَّـعُ', audio: 'letter_m_murabba', desc: 'صوت ضمة قصيرة في أول الكلمة (مُـ)' },
 
-                'miftah': { title: 'مِـفْـتَـاحٌ', audio: 'letter_m_miftah', desc: 'صوت كسرة قصيرة في أول الكلمة (مِـ)' },
+                'miftah': { title: 'مِـفْـتَـاحُ', audio: 'letter_m_miftah', desc: 'صوت كسرة قصيرة في أول الكلمة (مِـ)' },
 
-                'thawm': { title: 'ثُـومٌ', audio: 'letter_m_thawm', desc: 'صوت الميم في آخر الكلمة (ـمْ)' },
+                'thawm': { title: 'ثُـومُ', audio: 'letter_m_thawm', desc: 'صوت الميم في آخر الكلمة (ـمْ)' },
 
-                'qamh': { title: 'قَـمْـحٌ', audio: 'letter_m_qamh', desc: 'صوت الميم الساكن في وسط الكلمة (ـمْـ)' },
+                'qamh': { title: 'قَـمْـحُ', audio: 'letter_m_qamh', desc: 'صوت الميم الساكن في وسط الكلمة (ـمْـ)' },
 
-                'mizmar': { title: 'مِـزْمَـارٌ', audio: 'letter_m_mizmar', desc: 'كسرة (مِـ) في الأول ومد بالألف (مَا) في الوسط' },
+                'mizmar': { title: 'مِـزْمَـارُ', audio: 'letter_m_mizmar', desc: 'كسرة (مِـ) في الأول ومد بالألف (مَا) في الوسط' },
 
-                'laymun': { title: 'لَـيْـمُـونٌ', audio: 'letter_m_laymun', desc: 'صوت مد طويل بالواو في وسط الكلمة (مُو)' },
+                'laymun': { title: 'لَـيْـمُـونُ', audio: 'letter_m_laymun', desc: 'صوت مد طويل بالواو في وسط الكلمة (مُو)' },
 
-                'mizan': { title: 'مِـيـزَانٌ', audio: 'letter_m_mizan', desc: 'صوت مد طويل بالياء في أول الكلمة (مِيـ)' },
+                'mizan': { title: 'مِـيـزَانُ', audio: 'letter_m_mizan', desc: 'صوت مد طويل بالياء في أول الكلمة (مِيـ)' },
 
-                'mawz_vowel': { title: 'مَـوْزٌ', audio: 'letter_m_mawz_vowel', desc: 'صوت فتحة قصيرة (مَـ)' },
+                'mawz_vowel': { title: 'مَـوْزُ', audio: 'letter_m_mawz_vowel', desc: 'صوت فتحة قصيرة (مَـ)' },
 
-                'muthallath': { title: 'مُـثَلَّـثٌ', audio: 'letter_m_muthallath', desc: 'صوت ضمة قصيرة (مُـ)' },
+                'muthallath': { title: 'مُـثَلَّـثُ', audio: 'letter_m_muthallath', desc: 'صوت ضمة قصيرة (مُـ)' },
 
-                'miqas': { title: 'مِـقَصٌّ', audio: 'letter_m_miqas', desc: 'صوت كسرة قصيرة (مِـ)' },
+                'miqas': { title: 'مِـقَصُّ', audio: 'letter_m_miqas', desc: 'صوت كسرة قصيرة (مِـ)' },
 
-                'mizmar_vowel': { title: 'مِـزْمَـارٌ', audio: 'letter_m_mizmar_vowel', desc: 'مد طويل بالألف (مَا)' },
+                'mizmar_vowel': { title: 'مِـزْمَـارُ', audio: 'letter_m_mizmar_vowel', desc: 'مد طويل بالألف (مَا)' },
 
-                'laymun_vowel': { title: 'لَـيْـمُـونٌ', audio: 'letter_m_laymun_vowel', desc: 'مد طويل بالواو (مُو)' },
+                'laymun_vowel': { title: 'لَـيْـمُـونُ', audio: 'letter_m_laymun_vowel', desc: 'مد طويل بالواو (مُو)' },
 
-                'mizan_vowel': { title: 'مِـيـزَانٌ', audio: 'letter_m_mizan_vowel', desc: 'مد طويل بالياء (مِيـ)' }
+                'mizan_vowel': { title: 'مِـيـزَانُ', audio: 'letter_m_mizan_vowel', desc: 'مد طويل بالياء (مِيـ)' }
 
             };
 
@@ -1063,27 +1063,27 @@
 
             if (type === 'short' && vowel === 'a') {
 
-                mascotSpeak('🟣 <b>فَتْحَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">مَـ</span>', 'letter_m_short_a');
+                mascotSpeak('🟣 <b>فَتْحَة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">مَـ</span>', 'letter_m_short_a');
 
             } else if (type === 'long' && vowel === 'a') {
 
-                mascotSpeak('🟣 <b>مَدٌّ بِالْأَلِف (طَوِيل):</b><br><span style="font-size:2.2rem; color:#c026d3;">مَااا</span>', 'letter_m_long_a');
+                mascotSpeak('🟣 <b>مَدّ بِالْأَلِف (طَوِيل):</b><br><span style="font-size:2.2rem; color:#c026d3;">مَااا</span>', 'letter_m_long_a');
 
             } else if (type === 'short' && vowel === 'u') {
 
-                mascotSpeak('🟣 <b>ضَمَّةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">مُـ</span>', 'letter_m_short_u');
+                mascotSpeak('🟣 <b>ضَمَّة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">مُـ</span>', 'letter_m_short_u');
 
             } else if (type === 'long' && vowel === 'u') {
 
-                mascotSpeak('🟣 <b>مَدٌّ بِالْوَاو (طَوِيل):</b><br><span style="font-size:2.2rem; color:#c026d3;">مُووو</span>', 'letter_m_long_u');
+                mascotSpeak('🟣 <b>مَدّ بِالْوَاو (طَوِيل):</b><br><span style="font-size:2.2rem; color:#c026d3;">مُووو</span>', 'letter_m_long_u');
 
             } else if (type === 'short' && vowel === 'i') {
 
-                mascotSpeak('🟣 <b>كَسْرَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">مِـ</span>', 'letter_m_short_i');
+                mascotSpeak('🟣 <b>كَسْرَة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">مِـ</span>', 'letter_m_short_i');
 
             } else if (type === 'long' && vowel === 'i') {
 
-                mascotSpeak('🟣 <b>مَدٌّ بِالْيَاء (طَوِيل):</b><br><span style="font-size:2.2rem; color:#c026d3;">مِييي</span>', 'letter_m_long_i');
+                mascotSpeak('🟣 <b>مَدّ بِالْيَاء (طَوِيل):</b><br><span style="font-size:2.2rem; color:#c026d3;">مِييي</span>', 'letter_m_long_i');
 
             }
 
@@ -1095,15 +1095,15 @@
 
             if (syllableKey === 'tamr') {
 
-                mascotSpeak('🌴 <b>تَمْرٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#c026d3; font-size:1.6rem;">تَمْـ</b>', 'letter_m_tamr_syllable');
+                mascotSpeak('🌴 <b>تَمْرُ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#c026d3; font-size:1.6rem;">تَمْـ</b>', 'letter_m_tamr_syllable');
 
             } else if (syllableKey === 'namr') {
 
-                mascotSpeak('🐆 <b>نَمْرٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#c026d3; font-size:1.6rem;">نَمْـ</b>', 'letter_m_namr_syllable');
+                mascotSpeak('🐆 <b>نَمْرُ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#c026d3; font-size:1.6rem;">نَمْـ</b>', 'letter_m_namr_syllable');
 
             } else if (syllableKey === 'timsah') {
 
-                mascotSpeak('🐊 <b>تِمْسَاحٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#c026d3; font-size:1.6rem;">تِمْـ</b>', 'letter_m_timsah_syllable');
+                mascotSpeak('🐊 <b>تِمْسَاحُ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#c026d3; font-size:1.6rem;">تِمْـ</b>', 'letter_m_timsah_syllable');
 
             }
 
@@ -1131,7 +1131,7 @@
 
                 } else {
 
-                    mascotSpeak('✂️ <b>كَلِمَةُ (مَامَا):</b><br>مُمْتَاز! تَتَكَوَّنُ مِنْ مَقْطَعَيْن: <b style="color:#c026d3;">[ مَا ]</b> ➕ <b style="color:#c026d3;">[ مَا ]</b> 🌟 أَنْتَ قَارِئٌ مَاهِرٌ!', 'letter_m_split_mama');
+                    mascotSpeak('✂️ <b>كَلِمَةُ (مَامَا):</b><br>مُمْتَاز! تَتَكَوَّنُ مِنْ مَقْطَعَيْن: <b style="color:#c026d3;">[ مَا ]</b> ➕ <b style="color:#c026d3;">[ مَا ]</b> 🌟 أَنْتَ قَارِئُ مَاهِر!', 'letter_m_split_mama');
 
                     triggerClapSequence('mama', ['مَا', 'مَا']);
 
@@ -1495,7 +1495,7 @@
 
             if (btn) btn.innerHTML = '⏹️ إيقاف قصة دَادَا';
 
-            mascotSpeak('👶 <b>فِي بَيْتِ الأُسْرَةِ السَّعِيدَة:</b><br>«يَجْلِسُ الطِّفْلُ الصَّغِيرُ دَادَا فِي حِضْنِ أُمِّهِ، حَوْلَهُ دُبٌّ لَطِيف، وَدَلَّةُ قَهْوَة، وَفِي الدَّارِ قِطٌّ صَغِيرٌ يَلْعَب، كُلُّهَا تَحْوِي صَوْتَ الدَّال!»', 'letter_d_scene_story', () => {
+            mascotSpeak('👶 <b>فِي بَيْتِ الأُسْرَةِ السَّعِيدَة:</b><br>«يَجْلِسُ الطِّفْلُ الصَّغِيرُ دَادَا فِي حِضْنِ أُمِّهِ، حَوْلَهُ دُبُّ لَطِيف، وَدَلَّةُ قَهْوَة، وَفِي الدَّارِ قِطُّ صَغِير يَلْعَب، كُلُّهَا تَحْوِي صَوْتَ الدَّال!»', 'letter_d_scene_story', () => {
 
                 if (btn) btn.innerHTML = '🔊 اِسْتَمِعْ لِقِصَّةِ دَادَا وَعَنَاصِرِ حَرْفِ الدَّال';
 
@@ -1511,31 +1511,31 @@
 
                 'dalla': { title: 'دَلَّـةُ قَهْوَة', audio: 'letter_d_dalla', desc: 'صوت فتحة قصيرة في أول الكلمة (دَ)' },
 
-                'dub': { title: 'دُبٌّ لَطِيف', audio: 'letter_d_dub', desc: 'صوت ضمة قصيرة في أول الكلمة (دُ)' },
+                'dub': { title: 'دُبُّ لَطِيف', audio: 'letter_d_dub', desc: 'صوت ضمة قصيرة في أول الكلمة (دُ)' },
 
-                'dirham': { title: 'دِرْهَـمٌ لَامِع', audio: 'letter_d_dirham', desc: 'صوت كسرة قصيرة في أول الكلمة (دِ)' },
+                'dirham': { title: 'دِرْهَـمُ لَامِع', audio: 'letter_d_dirham', desc: 'صوت كسرة قصيرة في أول الكلمة (دِ)' },
 
-                'asad': { title: 'أَسَـدٌ شُجَاع', audio: 'letter_d_asad', desc: 'صوت الدال المتصل في آخر الكلمة (ـد)' },
+                'asad': { title: 'أَسَـدُ شُجَاع', audio: 'letter_d_asad', desc: 'صوت الدال المتصل في آخر الكلمة (ـد)' },
 
-                'qird': { title: 'قِـرْدٌ مَرِح', audio: 'letter_d_qird', desc: 'صوت الدال المنفصل في آخر الكلمة (د)' },
+                'qird': { title: 'قِـرْدُ مَرِح', audio: 'letter_d_qird', desc: 'صوت الدال المنفصل في آخر الكلمة (د)' },
 
-                'deek': { title: 'دِيـكٌ جَمِيل', audio: 'letter_d_deek', desc: 'صوت مد طويل بالياء في أول الكلمة (دِيـ)' },
+                'deek': { title: 'دِيـكُ جَمِيل', audio: 'letter_d_deek', desc: 'صوت مد طويل بالياء في أول الكلمة (دِيـ)' },
 
-                'dood': { title: 'دُودٌ صَغِير', audio: 'letter_d_dood', desc: 'صوت مد طويل بالواو في أول الكلمة (دُو)' },
+                'dood': { title: 'دُودُ صَغِير', audio: 'letter_d_dood', desc: 'صوت مد طويل بالواو في أول الكلمة (دُو)' },
 
                 'dar': { title: 'دَارُ الأَسْرَة', audio: 'letter_d_dar', desc: 'صوت مد طويل بالألف في أول الكلمة (دَا)' },
 
-                'daraj_vowel': { title: 'دَرَجٌ', audio: 'letter_d_daraj_vowel', desc: 'صوت فتحة قصيرة (دَ)' },
+                'daraj_vowel': { title: 'دَرَجُ', audio: 'letter_d_daraj_vowel', desc: 'صوت فتحة قصيرة (دَ)' },
 
-                'dumya_vowel': { title: 'دُمْيَةٌ', audio: 'letter_d_dumya_vowel', desc: 'صوت ضمة قصيرة (دُ)' },
+                'dumya_vowel': { title: 'دُمْيَةُ', audio: 'letter_d_dumya_vowel', desc: 'صوت ضمة قصيرة (دُ)' },
 
-                'dibs_vowel': { title: 'دِبْسٌ', audio: 'letter_d_dibs_vowel', desc: 'صوت كسرة قصيرة (دِ)' },
+                'dibs_vowel': { title: 'دِبْسُ', audio: 'letter_d_dibs_vowel', desc: 'صوت كسرة قصيرة (دِ)' },
 
-                'dar_vowel': { title: 'دَارٌ', audio: 'letter_d_dar_vowel', desc: 'مد طويل بالألف (دَا)' },
+                'dar_vowel': { title: 'دَارُ', audio: 'letter_d_dar_vowel', desc: 'مد طويل بالألف (دَا)' },
 
-                'dood_vowel': { title: 'دُودٌ', audio: 'letter_d_dood_vowel', desc: 'مد طويل بالواو (دُو)' },
+                'dood_vowel': { title: 'دُودُ', audio: 'letter_d_dood_vowel', desc: 'مد طويل بالواو (دُو)' },
 
-                'deek_vowel': { title: 'دِيـكٌ', audio: 'letter_d_deek_vowel', desc: 'مد طويل بالياء (دِيـ)' }
+                'deek_vowel': { title: 'دِيـكُ', audio: 'letter_d_deek_vowel', desc: 'مد طويل بالياء (دِيـ)' }
 
             };
 
@@ -1555,27 +1555,27 @@
 
             if (type === 'short' && vowel === 'a') {
 
-                mascotSpeak('🟢 <b>فَتْحَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">دَ</span>', 'letter_d_short_a');
+                mascotSpeak('🟢 <b>فَتْحَة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">دَ</span>', 'letter_d_short_a');
 
             } else if (type === 'long' && vowel === 'a') {
 
-                mascotSpeak('🟢 <b>مَدٌّ بِالْأَلِف (طَوِيل):</b><br><span style="font-size:2.2rem; color:#059669;">دَااا</span>', 'letter_d_long_a');
+                mascotSpeak('🟢 <b>مَدّ بِالْأَلِف (طَوِيل):</b><br><span style="font-size:2.2rem; color:#059669;">دَااا</span>', 'letter_d_long_a');
 
             } else if (type === 'short' && vowel === 'u') {
 
-                mascotSpeak('🟢 <b>ضَمَّةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">دُ</span>', 'letter_d_short_u');
+                mascotSpeak('🟢 <b>ضَمَّة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">دُ</span>', 'letter_d_short_u');
 
             } else if (type === 'long' && vowel === 'u') {
 
-                mascotSpeak('🟢 <b>مَدٌّ بِالْوَاو (طَوِيل):</b><br><span style="font-size:2.2rem; color:#059669;">دُووو</span>', 'letter_d_long_u');
+                mascotSpeak('🟢 <b>مَدّ بِالْوَاو (طَوِيل):</b><br><span style="font-size:2.2rem; color:#059669;">دُووو</span>', 'letter_d_long_u');
 
             } else if (type === 'short' && vowel === 'i') {
 
-                mascotSpeak('🟢 <b>كَسْرَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">دِ</span>', 'letter_d_short_i');
+                mascotSpeak('🟢 <b>كَسْرَة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#1e40af;">دِ</span>', 'letter_d_short_i');
 
             } else if (type === 'long' && vowel === 'i') {
 
-                mascotSpeak('🟢 <b>مَدٌّ بِالْيَاء (طَوِيل):</b><br><span style="font-size:2.2rem; color:#059669;">دِييي</span>', 'letter_d_long_i');
+                mascotSpeak('🟢 <b>مَدّ بِالْيَاء (طَوِيل):</b><br><span style="font-size:2.2rem; color:#059669;">دِييي</span>', 'letter_d_long_i');
 
             }
 
@@ -1587,15 +1587,15 @@
 
             if (syllableKey === 'qidr') {
 
-                mascotSpeak('🍲 <b>قِدْرٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#059669; font-size:1.6rem;">قِدْ ✊</b>', 'letter_d_qidr_syllable');
+                mascotSpeak('🍲 <b>قِدْرُ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#059669; font-size:1.6rem;">قِدْ ✊</b>', 'letter_d_qidr_syllable');
 
             } else if (syllableKey === 'badr') {
 
-                mascotSpeak('🌕 <b>بَدْرٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#059669; font-size:1.6rem;">بَدْ ✊</b>', 'letter_d_badr_syllable');
+                mascotSpeak('🌕 <b>بَدْرُ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#059669; font-size:1.6rem;">بَدْ ✊</b>', 'letter_d_badr_syllable');
 
             } else if (syllableKey === 'hudhud') {
 
-                mascotSpeak('🪶 <b>هُدْهُدٌ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#059669; font-size:1.6rem;">هُدْ ✊</b>', 'letter_d_hudhud_syllable');
+                mascotSpeak('🪶 <b>هُدْهُدُ:</b> الْمَقْطَعُ السَّاكِن هو: <b style="color:#059669; font-size:1.6rem;">هُدْ ✊</b>', 'letter_d_hudhud_syllable');
 
             }
 
@@ -1645,7 +1645,7 @@
 
                 } else {
 
-                    mascotSpeak('✂️ <b>كَلِمَةُ (دُودُ):</b><br>أَحْسَنْتَ! تَتَكَوَّنُ مِنْ مَقْطَعَيْن: <b style="color:#2563eb;">[ دُو ]</b> ➕ <b style="color:#059669;">[ دُ ]</b> 🌟 رَائِعٌ جِدًّا!', 'letter_d_split_dood');
+                    mascotSpeak('✂️ <b>كَلِمَةُ (دُودُ):</b><br>أَحْسَنْتَ! تَتَكَوَّنُ مِنْ مَقْطَعَيْن: <b style="color:#2563eb;">[ دُو ]</b> ➕ <b style="color:#059669;">[ دُ ]</b> 🌟 أَحْسَنْت لِلْغَايَة!', 'letter_d_split_dood');
 
                     triggerClapSequence('dood', ['دُو', 'دُ']);
 
@@ -1709,7 +1709,7 @@
 
         function playDDrawHint() {
 
-            mascotSpeak('🎨 <b>إرشاد رسم حرف الدال:</b><br>نَبْدَأُ مِنْ أَعْلَى مَائِلًا إِلَى السَّطْرِ ثُمَّ نَمُدُّ خَطًّا أُفُقِيًّا مُسْتَقِيمًا عَلَى السَّطْرِ لِلْيَسَار! وَحَرْفُ الدَّالِ لَا يَتَّصِلُ بِمَا بَعْدَه!', 'letter_d_draw_hint');
+            mascotSpeak('🎨 <b>إرشاد رسم حرف الدال:</b><br>نَبْدَأُ مِنْ أَعْلَى مَائِل إِلَى السَّطْرِ ثُمَّ نَمُدُّ خَطّ أُفُقِيّ مُسْتَقِيم عَلَى السَّطْرِ لِلْيَسَار! وَحَرْفُ الدَّالِ لَا يَتَّصِلُ بِمَا بَعْدَه!', 'letter_d_draw_hint');
 
         }
 
@@ -2017,7 +2017,7 @@
 
             if (btn) btn.innerHTML = '⏹️ إيقاف قصة فَادِي';
 
-            mascotSpeak('👦 <b>فِي حَدِيقَةِ فَادِي:</b><br>«فِي يَوْمٍ مُشْرِقٍ جَمِيل، يَجْلِسُ الصَّدِيقُ فَادِي فِي حَدِيقَةِ الدَّار، يُشَاهِدُ الْفَرَاشَاتِ الْمُلَوَّنَةَ تُحَلِّقُ حَوْلَ النَّافُورَة، وَيَحْمِلُ بِيَدِهِ فَانُوسًا مُضِيئًا، كُلُّهَا تَحْوِي صَوْتَ الْفَاء!»', 'letter_f_scene_story', () => {
+            mascotSpeak('👦 <b>فِي حَدِيقَةِ فَادِي:</b><br>«فِي يَوْم مُشْرِق جَمِيل، يَجْلِسُ الصَّدِيقُ فَادِي فِي حَدِيقَةِ الدَّار، يُشَاهِدُ الْفَرَاشَاتِ الْمُلَوَّنَةَ تُحَلِّقُ حَوْلَ النَّافُورَة، وَيَحْمِلُ بِيَدِهِ فَانُوس مُضِيء، كُلُّهَا تَحْوِي صَوْتَ الْفَاء!»', 'letter_f_scene_story', () => {
 
                 if (btn) btn.innerHTML = '🔊 اِسْتَمِعْ لِقِصَّةِ حَدِيقَةِ فَادِي وَعَنَاصِرِ حَرْفِ الْفَاء';
 
@@ -2031,33 +2031,33 @@
 
             const items = {
 
-                'farasha': { title: 'فَرَاشَةٌ مُلَوَّنَة', audio: 'letter_f_farasha', desc: 'صوت فتحة قصيرة في أول الكلمة (فَـ)' },
+                'farasha': { title: 'فَرَاشَةُ مُلَوَّنَة', audio: 'letter_f_farasha', desc: 'صوت فتحة قصيرة في أول الكلمة (فَـ)' },
 
-                'fustan': { title: 'فُسْتَانٌ جَمِيل', audio: 'letter_f_fustan', desc: 'صوت ضمة قصيرة في أول الكلمة (فُـ)' },
+                'fustan': { title: 'فُسْتَانُ جَمِيل', audio: 'letter_f_fustan', desc: 'صوت ضمة قصيرة في أول الكلمة (فُـ)' },
 
-                'fijl': { title: 'فِجْلٌ طَازَج', audio: 'letter_f_fijl', desc: 'صوت كسرة قصيرة في أول الكلمة (فِـ)' },
+                'fijl': { title: 'فِجْلُ طَازَج', audio: 'letter_f_fijl', desc: 'صوت كسرة قصيرة في أول الكلمة (فِـ)' },
 
                 'miftah': { title: 'مِفْتَاحُ الدَّار', audio: 'letter_f_miftah', desc: 'صوت فاء ساكنة في وسط الكلمة (ـفْـ)' },
 
-                'fam': { title: 'فَمٌ نَاطِق', audio: 'letter_f_fam', desc: 'صوت الفاء المفتوحة في كلمة من حرفين (فَـ)' },
+                'fam': { title: 'فَمُ نَاطِق', audio: 'letter_f_fam', desc: 'صوت الفاء المفتوحة في كلمة من حرفين (فَـ)' },
 
-                'fanous': { title: 'فَانُوسٌ مُضِيء', audio: 'letter_f_fanous', desc: 'صوت مد طويل بالألف (فَا)' },
+                'fanous': { title: 'فَانُوسُ مُضِيء', audio: 'letter_f_fanous', desc: 'صوت مد طويل بالألف (فَا)' },
 
                 'nafoora': { title: 'نَافُورَةُ الْمَاء', audio: 'letter_f_nafoora', desc: 'صوت مد طويل بالواو في وسط الكلمة (ـفُوـ)' },
 
-                'feel': { title: 'فِيلٌ كَبِير', audio: 'letter_f_feel', desc: 'صوت مد طويل بالياء (فِيـ)' },
+                'feel': { title: 'فِيلُ كَبِير', audio: 'letter_f_feel', desc: 'صوت مد طويل بالياء (فِيـ)' },
 
-                'fahd_vowel': { title: 'فَهْدٌ سَرِيع', audio: 'letter_f_fahd_vowel', desc: 'صوت مد قصير - فتحة (فَـ)' },
+                'fahd_vowel': { title: 'فَهْدُ سَرِيع', audio: 'letter_f_fahd_vowel', desc: 'صوت مد قصير - فتحة (فَـ)' },
 
-                'furn_vowel': { title: 'فُرْنٌ سَاخِن', audio: 'letter_f_furn_vowel', desc: 'صوت مد قصير - ضمة (فُـ)' },
+                'furn_vowel': { title: 'فُرْنُ سَاخِن', audio: 'letter_f_furn_vowel', desc: 'صوت مد قصير - ضمة (فُـ)' },
 
                 'finjan_vowel': { title: 'فِنْجَانُ قَهْوَة', audio: 'letter_f_finjan_vowel', desc: 'صوت مد قصير - كسرة (فِـ)' },
 
-                'fanous_vowel': { title: 'فَانُوسٌ', audio: 'letter_f_fanous_vowel', desc: 'صوت مد طويل بالألف (فَا)' },
+                'fanous_vowel': { title: 'فَانُوسُ', audio: 'letter_f_fanous_vowel', desc: 'صوت مد طويل بالألف (فَا)' },
 
-                'osfoor_vowel': { title: 'عُصْفُورٌ', audio: 'letter_f_osfoor_vowel', desc: 'صوت مد طويل بالواو (فُو)' },
+                'osfoor_vowel': { title: 'عُصْفُورُ', audio: 'letter_f_osfoor_vowel', desc: 'صوت مد طويل بالواو (فُو)' },
 
-                'feel_vowel': { title: 'فِيلٌ', audio: 'letter_f_feel_vowel', desc: 'صوت مد طويل بالياء (فِيـ)' }
+                'feel_vowel': { title: 'فِيلُ', audio: 'letter_f_feel_vowel', desc: 'صوت مد طويل بالياء (فِيـ)' }
 
             };
 
@@ -2077,27 +2077,27 @@
 
             if (type === 'short' && vowel === 'a') {
 
-                mascotSpeak('🟢 <b>فَتْحَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#0284c7;">فَـ</span>', 'letter_f_short_a');
+                mascotSpeak('🟢 <b>فَتْحَة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#0284c7;">فَـ</span>', 'letter_f_short_a');
 
             } else if (type === 'long' && vowel === 'a') {
 
-                mascotSpeak('🟢 <b>مَدٌّ بِالْأَلِف (طَوِيل):</b><br><span style="font-size:2.2rem; color:#0369a1;">فَااا</span>', 'letter_f_long_a');
+                mascotSpeak('🟢 <b>مَدّ بِالْأَلِف (طَوِيل):</b><br><span style="font-size:2.2rem; color:#0369a1;">فَااا</span>', 'letter_f_long_a');
 
             } else if (type === 'short' && vowel === 'u') {
 
-                mascotSpeak('🟢 <b>ضَمَّةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#0284c7;">فُـ</span>', 'letter_f_short_u');
+                mascotSpeak('🟢 <b>ضَمَّة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#0284c7;">فُـ</span>', 'letter_f_short_u');
 
             } else if (type === 'long' && vowel === 'u') {
 
-                mascotSpeak('🟢 <b>مَدٌّ بِالْوَاو (طَوِيل):</b><br><span style="font-size:2.2rem; color:#0369a1;">فُووو</span>', 'letter_f_long_u');
+                mascotSpeak('🟢 <b>مَدّ بِالْوَاو (طَوِيل):</b><br><span style="font-size:2.2rem; color:#0369a1;">فُووو</span>', 'letter_f_long_u');
 
             } else if (type === 'short' && vowel === 'i') {
 
-                mascotSpeak('🟢 <b>كَسْرَةٌ قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#0284c7;">فِـ</span>', 'letter_f_short_i');
+                mascotSpeak('🟢 <b>كَسْرَة قَصِيرَة:</b><br><span style="font-size:2.2rem; color:#0284c7;">فِـ</span>', 'letter_f_short_i');
 
             } else if (type === 'long' && vowel === 'i') {
 
-                mascotSpeak('🟢 <b>مَدٌّ بِالْيَاء (طَوِيل):</b><br><span style="font-size:2.2rem; color:#0369a1;">فِييي</span>', 'letter_f_long_i');
+                mascotSpeak('🟢 <b>مَدّ بِالْيَاء (طَوِيل):</b><br><span style="font-size:2.2rem; color:#0369a1;">فِييي</span>', 'letter_f_long_i');
 
             }
 
@@ -2143,13 +2143,13 @@
 
                 if (isModel) {
 
-                    mascotSpeak('🎓 <b>نَمْذَجَةُ فَصِيح («أَنَا وَحْدِي»):</b><br>كَلِمَةُ (فَمُ): مَقْطَعٌ وَاحِدٌ يَنْتَهِي بِالضَّمِّ: <b style="color:#0284c7;">[ فَمُ ]</b>! صَفِّقْ مَعِي صفقة واحدة 👏', 'letter_f_split_fam');
+                    mascotSpeak('🎓 <b>نَمْذَجَةُ فَصِيح («أَنَا وَحْدِي»):</b><br>كَلِمَةُ (فَمُ): مَقْطَعُ وَاحِدُ يَنْتَهِي بِالضَّمِّ: <b style="color:#0284c7;">[ فَمُ ]</b>! صَفِّقْ مَعِي صفقة واحدة 👏', 'letter_f_split_fam');
 
                     triggerClapSequence('fam', ['فَمُ']);
 
                 } else {
 
-                    mascotSpeak('✂️ <b>كَلِمَةُ (فَمُ):</b><br>مُمْتَاز! مَقْطَعٌ وَاحِدٌ صَوْتِيٌّ كَامِل: <b style="color:#0284c7;">[ فَمُ ]</b> 🌟 صَفْقَةٌ وَاحِدَةٌ مُوَفَّقَة!', 'letter_f_split_fam');
+                    mascotSpeak('✂️ <b>كَلِمَةُ (فَمُ):</b><br>مُمْتَاز! مَقْطَعُ وَاحِدُ صَوْتِيُّ كَامِل: <b style="color:#0284c7;">[ فَمُ ]</b> 🌟 صَفْقَةُ وَاحِدَةُ مُوَفَّقَة!', 'letter_f_split_fam');
 
                     triggerClapSequence('fam', ['فَمُ']);
 
@@ -2201,7 +2201,7 @@
 
                 } else {
 
-                    mascotSpeak('✂️ <b>كَلِمَةُ (دُفُوفُ):</b><br>رَائِعٌ جِدًّا! ثَلاثَةُ مَقَاطِع: <b style="color:#991b1b;">[ دُ ]</b> ➕ <b style="color:#0284c7;">[ فُو ]</b> ➕ <b style="color:#166534;">[ فُ ]</b> 🌟', 'letter_f_split_dufoof');
+                    mascotSpeak('✂️ <b>كَلِمَةُ (دُفُوفُ):</b><br>أَحْسَنْت لِلْغَايَة! ثَلاثَةُ مَقَاطِع: <b style="color:#991b1b;">[ دُ ]</b> ➕ <b style="color:#0284c7;">[ فُو ]</b> ➕ <b style="color:#166534;">[ فُ ]</b> 🌟', 'letter_f_split_dufoof');
 
                     triggerClapSequence('dufoof', ['دُ', 'فُو', 'فُ']);
 
@@ -2265,7 +2265,7 @@
 
         function playFDrawHint() {
 
-            mascotSpeak('🎨 <b>إِرْشَادُ رَسْمِ حَرْفِ الْفَاءِ:</b><br>نَرْسُمُ دَائِرَةً صَغِيرَةً فَوْقَ السَّطْر، ثُمَّ نَنْزِلُ بِرَقَبَةٍ قَصِيرَةٍ إِلَى السَّطْر، وَنَمْتَدُّ أُفُقِيًّا، وَنَضَعُ نُقْطَةً وَاحِدَةً فَوْقَ الرَّأْس!', 'letter_f_draw_hint');
+            mascotSpeak('🎨 <b>إِرْشَادُ رَسْمِ حَرْفِ الْفَاءِ:</b><br>نَرْسُمُ دَائِرَة صَغِيرَة فَوْقَ السَّطْر، ثُمَّ نَنْزِلُ بِالرَّقَبَةِ الْقَصِيرَةِ إِلَى السَّطْر، وَنَمْتَدُّ أُفُقِيّ، وَنَضَعُ نُقْطَة وَاحِدَة فَوْقَ الرَّأْس!', 'letter_f_draw_hint');
 
         }
 
@@ -2479,11 +2479,11 @@
 
             if (stationNum === 1) {
 
-                mascotSpeak('سُورَةُ الْفَاتِحَةِ الْمُبَارَكَة! اِسْتَمِعُوا لِلتِّلَاوَةِ الْعَطِرَةِ بِخُشُوعٍ وَرَدِّدُوا مَعِي آيَةً فَآيَة!', 'unit1_fatiha_intro');
+                mascotSpeak('سُورَةُ الْفَاتِحَةِ الْمُبَارَكَة! اِسْتَمِعُوا لِلتِّلَاوَةِ الْعَطِرَةِ بِخُشُوع وَرَدِّدُوا مَعِي آيَة بَعْدَ آيَة!', 'unit1_fatiha_intro');
 
             } else if (stationNum === 2) {
 
-                mascotSpeak('نَشِيدُ (مَامَا بَابَا)! نَشِيدٌ بَهِيجٌ نُعَبِّرُ فِيهِ عَنْ حُبِّنَا لِأُمِّنَا وَأَبِينَا وَمُعَلِّمَتِنَا الْغَالِيَة!', 'unit1_nasheed_intro');
+                mascotSpeak('نَشِيدُ (مَامَا بَابَا)! نَشِيدُ بَهِيجُ نُعَبِّرُ فِيهِ عَنْ حُبِّنَا لِأُمِّنَا وَأَبِينَا وَمُعَلِّمَتِنَا الْغَالِيَة!', 'unit1_nasheed_intro');
 
             } else if (stationNum === 3) {
 
@@ -2491,7 +2491,7 @@
 
             } else if (stationNum === 4) {
 
-                mascotSpeak('مُبَارَكٌ لَكُمْ يَا أَبْطَالَ قِرَاءَتِي! لَقَدْ أَتْمَمْتُمْ دِرَاسَةَ الْوَحْدَةِ الْأُولَى بِنَجَاحٍ وَتَفَوُّق! اِسْتَلِمُوا وِسَامَ التَّمَيُّزِ وَشَهَادَةَ التَّخَرُّج!', 'unit1_grad_intro');
+                mascotSpeak('مُبَارَكُ لَكُمْ يَا أَبْطَالَ قِرَاءَتِي! لَقَدْ أَتْمَمْتُمْ دِرَاسَةَ الْوَحْدَةِ الْأُولَى بِنَجَاح وَتَفَوُّق! اِسْتَلِمُوا وِسَامَ التَّمَيُّزِ وَشَهَادَةَ التَّخَرُّج!', 'unit1_grad_intro');
 
             }
 
@@ -2519,7 +2519,7 @@
 
             document.querySelectorAll('.ayah-card').forEach(el => el.classList.remove('active'));
 
-            mascotSpeak('📖 <b>تِلَاوَةُ سُورَةِ الْفَاتِحَةِ الْمُبَارَكَة:</b><br>اِسْتَمِعُوا بِخُشُوعٍ وَتَدَبُّرٍ لِآيَاتِ اللهِ الْعَظِيمَة.', 'unit1_fatiha_full', () => {
+            mascotSpeak('📖 <b>تِلَاوَةُ سُورَةِ الْفَاتِحَةِ الْمُبَارَكَة:</b><br>اِسْتَمِعُوا بِخُشُوع وَتَدَبُّر لِآيَاتِ اللهِ الْعَظِيمَة.', 'unit1_fatiha_full', () => {
 
                 if (btn) btn.innerHTML = '▶️ اِسْتَمِعْ لِلتِّلَاوَةِ الْكَامِلَةِ مُرَتَّلَة';
 
@@ -2579,7 +2579,7 @@
 
             mascotCelebrates();
 
-            mascotSpeak('🎙️ <b>أَرَدِّدُ مَعَ فَصِيح:</b><br>اِقْرَأْ كُلَّ آيَةٍ بِصَوْتٍ عَالٍ وَخُشُوعٍ بَعْدَ سَمَاعِهَا!', 'unit1_fatiha_repeat_prompt');
+            mascotSpeak('🎙️ <b>أَرَدِّدُ مَعَ فَصِيح:</b><br>اِقْرَأْ كُلَّ آيَة بِصَوْت عَالِي وَخُشُوع بَعْدَ سَمَاعِهَا!', 'unit1_fatiha_repeat_prompt');
 
         }
 
@@ -2591,7 +2591,7 @@
 
                 stopAudio();
 
-                if (btn) btn.innerHTML = '🎶 اِسْتَمِعْ لِلنَّشِيدِ كَامِلاً';
+                if (btn) btn.innerHTML = '🎶 اِسْتَمِعْ لِلنَّشِيدِ كُلِّهِ';
 
                 document.querySelectorAll('.nasheed-card').forEach(el => el.classList.remove('active'));
 
@@ -2607,7 +2607,7 @@
 
             mascotSpeak('🎵 <b>نَشِيدُ (مَامَا بَابَا):</b><br>شِعْرُ: عَبْدِ الْعَزِيز أَبُو غُوش • اِسْتَمِعْ وَأَنْشِدْ مَعَنَا بِفَرَح!', 'unit1_nasheed_full', () => {
 
-                if (btn) btn.innerHTML = '🎶 اِسْتَمِعْ لِلنَّشِيدِ كَامِلاً';
+                if (btn) btn.innerHTML = '🎶 اِسْتَمِعْ لِلنَّشِيدِ كُلِّهِ';
 
                 document.querySelectorAll('.nasheed-card').forEach(el => el.classList.remove('active'));
 
@@ -2659,7 +2659,7 @@
 
             if (wordKey === 'farha') {
 
-                mascotSpeak('💖 <b>فَرْحَةُ قَلْبِي:</b> سَعَادَةٌ كَبِيرَةٌ تَمْلَأُ حَيَاتِي بِوُجُودِ مَامَا وَبَابَا!', 'unit1_nasheed_word_farha');
+                mascotSpeak('💖 <b>فَرْحَةُ قَلْبِي:</b> سَعَادَةُ كَبِيرَة تَمْلَأُ حَيَاتِي بِوُجُودِ مَامَا وَبَابَا!', 'unit1_nasheed_word_farha');
 
             } else if (wordKey === 'nabd') {
 
@@ -2667,7 +2667,7 @@
 
             } else if (wordKey === 'emad') {
 
-                mascotSpeak('🛡️ <b>خَيْرُ عِمَاد:</b> أَعْظَمُ سَنَدٍ وَعَوْنٍ يَحْمِينِي وَيَرْعَانِي!', 'unit1_nasheed_word_emad');
+                mascotSpeak('🛡️ <b>خَيْرُ عِمَاد:</b> أَعْظَمُ سَنَد وَعَوْن يَحْمِينِي وَيَرْعَانِي!', 'unit1_nasheed_word_emad');
 
             } else if (wordKey === 'moallimati') {
 
@@ -2733,7 +2733,7 @@
 
             mascotCelebrates();
 
-            mascotSpeak('🎉 <b>عَاشَ الْبَطَل!</b> نَحْنُ فَخُورُونَ بِكَ جِدًّا! أَنْتَ جَاهِزٌ لِلِانْطِلَاقِ نَحْوَ الْوَحْدَةِ الثَّانِيَةِ: مَدْرَسَتِي!', 'unit1_grad_cheer');
+            mascotSpeak('🎉 <b>عَاشَ الْبَطَل!</b> نَحْنُ فَخُورُونَ بِكَ لِلْغَايَة! أَنْتَ جَاهِزُ لِلِانْطِلَاقِ نَحْوَ الْوَحْدَةِ الثَّانِيَةِ: مَدْرَسَتِي!', 'unit1_grad_cheer');
 
             // تأثيرات احتفالية إضافية
 

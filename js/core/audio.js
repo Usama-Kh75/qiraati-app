@@ -54,10 +54,10 @@
                 baba:  { audio: 'letter_d_read_baba',  text: 'بَابَا (بَا + بَا) 🌟' },
                 mama:  { audio: 'letter_m_read_mama',  text: 'مَامَا (مَا + مَا) 🌟' },
                 dada:  { audio: 'letter_d_read_dada',  text: 'دَادَا (دَا + دَا) 🌟' },
-                dar:   { audio: 'letter_d_dar',        text: 'دَارٌ 🏡' },
-                firas: { audio: 'letter_s_read_word_firas', text: 'فِرَاسٌ 👦' },
-                noor:  { audio: 'letter_n_read_word_noor',  text: 'نُورٌ 👧' },
-                banat: { audio: 'letter_n_bint',       text: 'بَنَاتٌ 👭' },
+                dar:   { audio: 'letter_d_dar',        text: 'دَارُ 🏡' },
+                firas: { audio: 'letter_s_read_word_firas', text: 'فِرَاسُ 👦' },
+                noor:  { audio: 'letter_n_read_word_noor',  text: 'نُورُ 👧' },
+                banat: { audio: 'letter_n_bint',       text: 'بَنَاتُ 👭' },
                 sarah: { audio: 'word_sarah',          text: 'سَارَةُ 👩‍🎨' },
                 ward:  { audio: 'faseeh_blend_wardun', text: 'وَرْدٌ 🌹' }
             };
