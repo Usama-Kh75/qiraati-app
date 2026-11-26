@@ -14,7 +14,7 @@
 6. ضبط وتوليد ملف local.properties ومسار Android SDK
 7. تصريف وبناء الحزمة بصيغة Release APK عبر Gradle Wrapper
 8. التحقق من التوقيع الرقمي (V1, V2, V3) وفحص بيانات الحزمة عبر aapt
-9. استخراج الحزمة النهائية إلى مجلد التوزيع: dist/Qiraati_Smart_Android_v3.63/Qiraati_Smart.apk
+9. استخراج الحزمة النهائية إلى مجلد التوزيع: dist/Qiraati_Smart_Android_v3.64/Qiraati_Smart.apk
 10. حساب البصمة الرقمية SHA-256 وتوليد دليل الاستخدام والتثبيت المدرسي الشامل
 """
 
@@ -28,9 +28,9 @@ import subprocess
 from PIL import Image
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = "3.63"
-VERSION_CODE = 363
-CACHE_VERSION = "qiraati-smart-v87"
+VERSION = "3.64"
+VERSION_CODE = 364
+CACHE_VERSION = "qiraati-smart-v91"
 ANDROID_SRC = os.path.join(BASE_DIR, "tools", "android_src")
 APP_SRC = os.path.join(ANDROID_SRC, "app")
 ASSETS_DIR = os.path.join(APP_SRC, "src", "main", "assets")

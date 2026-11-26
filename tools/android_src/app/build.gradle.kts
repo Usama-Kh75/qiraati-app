@@ -10,8 +10,8 @@ android {
         applicationId = "iq.usama.qiraati"
         minSdk = 24
         targetSdk = 34
-        versionCode = 363
-        versionName = "3.63"
+        versionCode = 364
+        versionName = "3.64"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

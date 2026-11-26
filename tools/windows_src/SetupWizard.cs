@@ -16,7 +16,7 @@ namespace QiraatiSmart
     internal static class SetupWizard
     {
         private const string AppTitle = "منصة قراءتي التفاعلية الذكية";
-        private const string AppVersion = "3.63.0";
+        private const string AppVersion = "3.64.0";
         private const string AppPublisher = "إعداد المهندس أسامة خليل هاشم";
 
         [DllImport("kernel32.dll")]

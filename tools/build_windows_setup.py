@@ -27,8 +27,8 @@ from PIL import Image
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CSC_PATH = r"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
-VERSION = "3.63"
-CACHE_VERSION = "qiraati-smart-v87"
+VERSION = "3.64"
+CACHE_VERSION = "qiraati-smart-v91"
 DIST_DIR = os.path.join(BASE_DIR, "dist", f"Qiraati_Smart_Windows_v{VERSION}")
 TEMP_DIR = os.path.join(BASE_DIR, "temp_build")
 
@@ -302,7 +302,7 @@ def build_windows_package():
 **الصف الأول الابتدائي • المنهج العراقي التفاعلي الشامل**  
 **إعداد وتطوير:** **المهندس أسامة خليل هاشم**  
 **الإصدار:** `v{VERSION}.0` (تحديث كاش الخدمة: `{CACHE_VERSION}`)  
-**أبرز تحديثات v{VERSION}:** صوت الأستاذ باسل العراقي الفصيح المعاير، مكتبة الفونيمات النقية للـ 28 حرفاً، 2,908+ ملفاً صوتياً، وخط Tajawal المستضاف محلياً أوفلاين 100%  
+**أبرز تحديثات v{VERSION}:** تقسيم index.html والتحميل الكسول للـ 46 درساً، حفظ التقدم التلقائي، الوضع الليلي المريح للعين، تعميم صوت الأستاذ باسل العراقي الفصيح ومكتبة الفونيمات النقية للـ 28 حرفاً (2,908+ ملفاً صوتياً)، وخط Tajawal المستضاف محلياً أوفلاين 100%  
 **البصمة الرقمية لمعالج التثبيت (SHA-256):**  
 `{setup_hash}`
 

@@ -8,9 +8,9 @@
 1. التحقق من بناء الحزمة الأحادية الشاملة قراءتي_التفاعلية_الذكية.html (أوفلاين 100%)
 2. توليد الأيقونة الرسمية لماك AppIcon.icns بكافة المقاسات وريتينا (1024x1024 حتى 16x16)
 3. حزم وتوليد صورة القرص الرسمية لنظام ماك (Qiraati_Smart_macOS.dmg) مع وصلة Applications
-4. حزم وتوليد الحزمة المضغوطة المباشرة لماك (Qiraati_Smart_macOS_v3.63.zip)
+4. حزم وتوليد الحزمة المضغوطة المباشرة لماك (Qiraati_Smart_macOS_v3.64.zip)
 5. حزم وتوليد الحزمة الشاملة المستقلة المحمولة للينكس (Qiraati_Smart_Linux.AppImage)
-6. حزم وتوليد الحزمة الأرشيفية للينكس ومختبرات الحاسوب (Qiraati_Smart_Linux_v3.63.tar.gz)
+6. حزم وتوليد الحزمة الأرشيفية للينكس ومختبرات الحاسوب (Qiraati_Smart_Linux_v3.64.tar.gz)
 7. حساب البصمات الرقمية الرسمية SHA-256 لكافة الحزم المنتجة
 8. إنشاء أدلة الاستخدام والتثبيت الشاملة للشاشات وأجهزة ماك ولينكس بالعربية
 9. إجراء الفحص الذاتي والاختبار الآلي الشامل --self-test بنجاح 100%
@@ -29,7 +29,7 @@ from PIL import Image
 import pycdlib
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = "3.63"
+VERSION = "3.64"
 AUTHOR = "المهندس أسامة خليل هاشم"
 
 DIST_MACOS = os.path.join(BASE_DIR, "dist", f"Qiraati_Smart_macOS_v{VERSION}")

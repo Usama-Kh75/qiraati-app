@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 أداة التدقيق الشامل والفحص الختامي لمنصة قراءتي التفاعلية الذكية (100% المنهج)
-وحزم الإصدار النهائي المستقل (v3.29 Final Release)
+وحزم الإصدار المستقل
 إعداد وتطوير: المهندس أسامة خليل هاشم
 """
 
@@ -11,9 +11,20 @@ import glob
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+def get_expected_version():
+    sw_path = os.path.join(BASE_DIR, 'sw.js')
+    if os.path.exists(sw_path):
+        with open(sw_path, 'r', encoding='utf-8') as f:
+            m = re.search(r'الإصدار:\s*(v[0-9]+(?:\.[0-9]+)*)', f.read())
+            if m:
+                return m.group(1).strip()
+    return None
+
 def audit():
+    expected_ver = get_expected_version()
+    ver_label = expected_ver or 'الحالي'
     print("=" * 70)
-    print("🔍 بدء التدقيق الشامل لكتاب قراءتي 100% وفحص الإصدار النهائي v3.29")
+    print(f"🔍 بدء التدقيق الشامل لكتاب قراءتي 100% وفحص الإصدار {ver_label}")
     print("   إعداد وتطوير: المهندس أسامة خليل هاشم")
     print("=" * 70)
 
@@ -149,8 +160,10 @@ def audit():
     if vbadge_match:
         cur_badge = vbadge_match.group(1).strip()
         print(f"✔ شارة الإصدار الرسمية: {cur_badge}")
-        if cur_badge != 'v3.29 Final':
-            warnings.append(f"شارة الإصدار هي '{cur_badge}' والمفترض ترقيتها إلى 'v3.29 Final' بمناسبة اكتمال الكتاب 100%.")
+        if expected_ver and cur_badge != expected_ver:
+            warnings.append(f"عدم تطابق شارة الإصدار: الواجهة '{cur_badge}' بينما الإصدار المعتمد في sw.js هو '{expected_ver}'.")
+    else:
+        warnings.append("تعذر العثور على شارة الإصدار (app-version-badge) في views/app-shell-top.html.")
 
     # 7. فحص وجود التوقيع الرسمي في المكونات
     official_signature = "أسامة خليل هاشم"
