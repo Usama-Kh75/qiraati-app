@@ -215,8 +215,12 @@
 
             const rawProgress = localStorage.getItem('qiraati-smart-progress-lessons');
             if (rawProgress) {
-                const pArr = JSON.parse(rawProgress);
-                completedLessonsCount = Array.isArray(pArr) ? pArr.length : 0;
+                const pVal = JSON.parse(rawProgress);
+                if (Array.isArray(pVal)) {
+                    completedLessonsCount = pVal.length;
+                } else if (pVal && typeof pVal === 'object') {
+                    completedLessonsCount = Object.values(pVal).filter(Boolean).length;
+                }
             }
         } catch (e) {
             console.warn('قراءة بيانات التقدم:', e);

@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
 بوابة الفحص والجودة الآلية الإلزامية قبل كل إصدار
-لمنصة قراءتي التفاعلية الذكية (v3.63)
+لمنصة قراءتي التفاعلية الذكية (v3.64)
 إعداد وتطوير: المهندس أسامة خليل هاشم
 
 تقوم هذه الأداة بإجراء كافة الفحوصات الصارمة لمنع أي أخطاء قبل النشر:
-1. بناء index.html وتوليد الحزمة الأحادية المستقلة (build.py + build_standalone.py).
+1. بناء index.html الخفيف وتوليد الحزمة الأحادية المستقلة (build.py + build_standalone.py).
 2. فحص السلامة النحوية عبر node --check لجميع ملفات js/**/*.js و sw.js (0 أخطاء).
-3. فحص index.html للتحقق من خلوه تماماً من المعرفات المكررة (0 Duplicate IDs) والتحقق من وجود loading="lazy" للصور واستضافة خط Tajawal محلياً.
+3. فحص index.html وواجهات الدروس للتحقق من خلوها تماماً من المعرفات المكررة (0 Duplicate IDs) واكتمال خريطة LESSON_VIEW_MANIFEST (46 درساً) وloading="lazy" للصور واستضافة خط Tajawal محلياً.
 4. فحص تكامل وجود كافة الصور والأصول الرقمية المذكورة في الكود والتحقق الصارم من وجودها على القرص (0 صور مكسورة 404).
 5. فحص مكتبة الأصوات الفونيمية النقية للـ 28 حرفاً وجميع مفاتيح الصوت الحرفية في الواجهات والكود (0 مفاتيح مفقودة).
 6. الفحص الأمني الصارم لعدم وجود أي مفاتيح سرية (AIza...) في أي ملف واجهة أمامي.
-7. مطابقة رقم الإصدار (v3.63) وترقية مخزن الكاش إلى (qiraati-smart-v87).
+7. مطابقة رقم الإصدار (v3.64) وترقية مخزن الكاش إلى (qiraati-smart-v88).
 """
 
 import os
@@ -73,17 +73,47 @@ def step2_syntax_check():
     return True
 
 def step3_dom_integrity():
-    print_header("[3/7] فحص سلامة DOM والصور في index.html")
+    print_header("[3/7] فحص سلامة DOM والتقسيم الكسول والصور في index.html و views/")
     index_path = os.path.join(BASE_DIR, 'index.html')
     if not os.path.exists(index_path):
         print("❌ ملف index.html غير موجود!")
         return False
 
+    index_size = os.path.getsize(index_path)
+    if index_size >= 1_048_576:
+        print(f"❌ حجم index.html أكبر من 1 م.ب ({index_size:,} بايت) — يجب أن يبقى خفيفاً ومقسماً!")
+        return False
+    print(f"✔ حجم index.html خفيف ومحسّن: {index_size / 1024:.1f} ك.ب ({index_size:,} بايت).")
+
     with open(index_path, 'r', encoding='utf-8') as f:
         html = f.read()
 
-    # فحص المعرفات المكررة
-    ids = re.findall(r'\bid=[\"\']([^\"\']+)[\"\']', html)
+    # فحص خريطة LESSON_VIEW_MANIFEST داخل index.html
+    import json
+    m_manifest = re.search(r'window\.LESSON_VIEW_MANIFEST\s*=\s*(\{[^;]+\});', html)
+    if not m_manifest:
+        print("❌ تعذر العثور على window.LESSON_VIEW_MANIFEST في index.html!")
+        return False
+    manifest_map = json.loads(m_manifest.group(1))
+    if len(manifest_map) != 46:
+        print(f"❌ عدد الدروس في LESSON_VIEW_MANIFEST هو {len(manifest_map)} بدلاً من 46!")
+        return False
+    for lid, rel_p in manifest_map.items():
+        if not os.path.exists(os.path.join(BASE_DIR, rel_p)):
+            print(f"❌ ملف واجهة الدرس مفقود على القرص: {rel_p} ({lid})")
+            return False
+    print(f"✔ خريطة LESSON_VIEW_MANIFEST مكتملة 100% ({len(manifest_map)} درساً وجميع ملفاتها موجودة).")
+
+    # تجميع index.html + ملفات واجهات الدروس الـ 46 لفحص DOM والصور
+    view_parts = [html]
+    for unit_sub in ['prep', 'unit1', 'unit2', 'unit3', 'unit4', 'unit5', 'unit6']:
+        for vf in sorted(glob.glob(os.path.join(BASE_DIR, 'views', unit_sub, '*.html'))):
+            with open(vf, 'r', encoding='utf-8') as vfp:
+                view_parts.append(vfp.read())
+    combined_html = "\n".join(view_parts)
+
+    # فحص المعرفات المكررة عبر الهيكل وكافة الواجهات
+    ids = re.findall(r'\bid=[\"\']([^\"\']+)[\"\']', combined_html)
     id_counts = Counter(ids)
     duplicates = {k: v for k, v in id_counts.items() if v > 1}
     if duplicates:
@@ -91,10 +121,10 @@ def step3_dom_integrity():
         for k, v in list(duplicates.items())[:10]:
             print(f"  - id=\"{k}\" مكرر {v} مرات")
         return False
-    print(f"✔ سلامة المعرفات: {len(ids)} معرف DOM فريد ولا يوجد أي تكرار (0 Duplicate IDs).")
+    print(f"✔ سلامة المعرفات: {len(ids)} معرف DOM فريد عبر index.html و46 واجهة (0 Duplicate IDs).")
 
     # فحص تحميل الصور البطيء loading="lazy"
-    imgs = re.findall(r'<img\s+[^>]*>', html)
+    imgs = re.findall(r'<img\s+[^>]*>', combined_html)
     missing_lazy = [img for img in imgs if 'loading=' not in img]
     if missing_lazy:
         print(f"❌ تم العثور على {len(missing_lazy)} صور تفتقر لخاصية loading=\"lazy\":")
@@ -239,7 +269,7 @@ def step6_security_scan():
     return True
 
 def step7_version_alignment():
-    print_header("[7/7] مطابقة رقم الإصدار (v3.63) ومخزن الكاش (qiraati-smart-v87) واستضافة الخطوط")
+    print_header("[7/7] مطابقة رقم الإصدار (v3.64) ومخزن الكاش (qiraati-smart-v88) واستضافة الخطوط")
     top_shell = os.path.join(BASE_DIR, 'views', 'app-shell-top.html')
     sw_file = os.path.join(BASE_DIR, 'sw.js')
     index_file = os.path.join(BASE_DIR, 'index.html')
@@ -266,8 +296,8 @@ def step7_version_alignment():
     print(f"  - إصدار عامل الخدمة (sw.js): {sw_ver}")
     print(f"  - اسم مخزن الكاش (sw.js): {sw_cache}")
 
-    expected_ver = "v3.63"
-    expected_cache = "qiraati-smart-v87"
+    expected_ver = "v3.64"
+    expected_cache = "qiraati-smart-v88"
 
     errors = []
     if top_ver != expected_ver:
@@ -305,13 +335,13 @@ def step7_version_alignment():
             print(f"  - {e}")
         return False
 
-    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.63 وكاش qiraati-smart-v87 وملفات خط Tajawal المحلية (8 WOFF2).")
+    print("\n✔ تطابق تام في بيانات الإصدار المعياري v3.64 وكاش qiraati-smart-v88 وملفات خط Tajawal المحلية (8 WOFF2).")
     return True
 
 def main():
     print("=" * 70)
     print("🛡️ منصة قراءتي التفاعلية الذكية - بوابة الفحص الآلي الإلزامية")
-    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.63)")
+    print("   إعداد وتطوير: المهندس أسامة خليل هاشم (v3.64)")
     print("=" * 70)
 
     steps = [

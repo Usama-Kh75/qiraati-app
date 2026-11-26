@@ -1,9 +1,9 @@
 ﻿// عامل الخدمة لمنصة قراءتي التفاعلية الذكية (PWA Service Worker)
 // إعداد وتطوير: المهندس أسامة خليل هاشم
-// الإصدار: v3.63 (ضبط مخارج الأستاذ باسل العراقية الفصيحة، مكتبة الفونيمات النقية للـ 28 حرفاً، إصلاح 123 مفتاحاً صوتياً مفقوداً، تحديث الحزم المستقلة، وكاش PWA إلى v87)
+// الإصدار: v3.64 (المرحلة الثانية: تقسيم index.html والتحميل الكسول للـ 46 درساً، حفظ التقدم التلقائي، الوضع الليلي المريح، تعميم صوت الأستاذ باسل على كامل المنهج، وكاش PWA إلى v88)
 
 const APP = 'qiraati-smart';
-const CACHE_NAME = 'qiraati-smart-v87';
+const CACHE_NAME = 'qiraati-smart-v88';
 
 // الهيكل الأساسي للتطبيق (App Shell) لتشغيل فوري ودعم العمل دون إنترنت
 const ASSETS_TO_CACHE = [
@@ -47,9 +47,13 @@ const ASSETS_TO_CACHE = [
   './css/nasheed-studio.css',
   './css/story-studio.css',
   './css/student-profiles.css',
+  './css/dark-mode.css',
   './js/core/ai-bridge.js',
+  './js/core/theme.js',
   './js/core/modals.js',
   './js/core/audio.js',
+  './js/core/view-loader.js',
+  './js/core/progress.js',
   './js/core/navigation.js',
   './js/core/evaluation.js',
   './js/core/enrichment.js',
@@ -79,7 +83,53 @@ const ASSETS_TO_CACHE = [
   './icons/icon-512.png',
   './icons/faseeh_avatar.svg',
   './icons/faseeh_avatar.png',
-  './icons/qiraati.ico'
+  './icons/qiraati.ico',
+  './views/prep/01_lesson1.html',
+  './views/prep/02_act4.html',
+  './views/prep/03_act5_diff.html',
+  './views/prep/04_act6.html',
+  './views/prep/05_act7.html',
+  './views/prep/06_act8.html',
+  './views/prep/07_act5.html',
+  './views/prep/08_vowel_w.html',
+  './views/prep/09_vowel_y.html',
+  './views/unit1/01_intro.html',
+  './views/unit1/02_letter_b.html',
+  './views/unit1/03_letter_m.html',
+  './views/unit1/04_letter_d.html',
+  './views/unit1/05_letter_f.html',
+  './views/unit1/06_finale.html',
+  './views/unit2/01_intro.html',
+  './views/unit2/02_letter_r.html',
+  './views/unit2/03_letter_s.html',
+  './views/unit2/04_letter_n.html',
+  './views/unit2/05_letter_t.html',
+  './views/unit2/06_letter_marboota.html',
+  './views/unit2/07_tanween_dham.html',
+  './views/unit2/08_finale.html',
+  './views/unit3/01_intro.html',
+  './views/unit3/02_letter_ta.html',
+  './views/unit3/03_letter_f_reef.html',
+  './views/unit3/04_letter_q_booq.html',
+  './views/unit3/05_letter_l_nabeel.html',
+  './views/unit3/06_letter_ayn.html',
+  './views/unit4/01_intro.html',
+  './views/unit4/02_letter_h.html',
+  './views/unit4/03_letter_sh.html',
+  './views/unit4/04_letter_z.html',
+  './views/unit4/05_letter_j.html',
+  './views/unit4/06_letter_sad.html',
+  './views/unit5/01_letter_hamza.html',
+  './views/unit5/02_letter_dhad.html',
+  './views/unit5/03_letter_kha.html',
+  './views/unit5/04_letter_tha.html',
+  './views/unit5/05_letter_kaf.html',
+  './views/unit5/06_shaddah_and_reading.html',
+  './views/unit6/01_letter_ghayn.html',
+  './views/unit6/02_letter_ha.html',
+  './views/unit6/03_letter_dhal.html',
+  './views/unit6/04_letter_dha.html',
+  './views/unit6/05_al_shamsiyyah_qamariyyah.html'
 ];
 
 self.addEventListener('install', (event) => {

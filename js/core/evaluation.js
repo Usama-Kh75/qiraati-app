@@ -83,13 +83,14 @@
             if (savedRecords) {
                 evaluationRecords = JSON.parse(savedRecords);
             }
-            const savedProgress = localStorage.getItem(STORAGE_KEY_PROGRESS);
-            if (savedProgress) {
-                lessonsProgress = JSON.parse(savedProgress);
+            if (window.StudentProgress && typeof window.StudentProgress.getCompletedMap === 'function') {
+                lessonsProgress = window.StudentProgress.getCompletedMap();
             } else {
-                // افتراضياً لنسخة الإتمام 100% المكتملة، اجعل كافة الدروس منجزة
-                if (window.flatLessonsList && Array.isArray(window.flatLessonsList)) {
-                    window.flatLessonsList.forEach(l => { lessonsProgress[l.id] = true; });
+                const savedProgress = localStorage.getItem(STORAGE_KEY_PROGRESS);
+                if (savedProgress) {
+                    lessonsProgress = JSON.parse(savedProgress);
+                } else {
+                    lessonsProgress = {};
                 }
             }
         } catch (e) {
@@ -471,6 +472,9 @@
     // 6. سجل الإنجاز ومسيرة التعلم (Portfolio & Badges)
     // =========================================================================
     function renderPortfolioView() {
+        if (window.StudentProgress && typeof window.StudentProgress.getCompletedMap === 'function') {
+            lessonsProgress = window.StudentProgress.getCompletedMap();
+        }
         const unitsContainer = document.getElementById('portfolioUnitsGrid');
         if (!unitsContainer || !window.CURRICULUM_DATA) return;
 
@@ -538,7 +542,14 @@
     }
 
     window.markAllLessonsDone = function() {
-        if (window.flatLessonsList && Array.isArray(window.flatLessonsList)) {
+        if (window.StudentProgress && typeof window.StudentProgress.markAllCompleted === 'function') {
+            window.StudentProgress.markAllCompleted(window.flatLessonsList);
+            lessonsProgress = window.StudentProgress.getCompletedMap();
+            renderPortfolioView();
+            if (typeof playAudio === 'function') {
+                playAudio('lam_correct');
+            }
+        } else if (window.flatLessonsList && Array.isArray(window.flatLessonsList)) {
             window.flatLessonsList.forEach(l => { lessonsProgress[l.id] = true; });
             saveProgress();
             renderPortfolioView();
@@ -547,6 +558,7 @@
             }
         }
     };
+    window.refreshEvaluationPortfolio = renderPortfolioView;
 
     window.showBadgeDetails = function(badgeTitle, badgeDesc) {
         if (typeof mascotSpeak === 'function') {

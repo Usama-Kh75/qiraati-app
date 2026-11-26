@@ -18,6 +18,20 @@
 
     <meta name="theme-color" content="#2563eb">
 
+    <script>
+      (function () {
+        try {
+          var pref = localStorage.getItem('qiraati-smart-theme') || 'light';
+          var isDark = pref === 'dark' || (pref === 'system' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          var resolved = isDark ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', resolved);
+          if (isDark) document.documentElement.classList.add('dark-mode');
+          var meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.setAttribute('content', isDark ? '#0f172a' : '#2563eb');
+        } catch (e) {}
+      })();
+    </script>
+
     <meta name="apple-mobile-web-app-capable" content="yes">
 
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -59,6 +73,7 @@
     <link rel="stylesheet" href="css/nasheed-studio.css">
     <link rel="stylesheet" href="css/story-studio.css">
     <link rel="stylesheet" href="css/student-profiles.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
 
 </head>
 
@@ -80,7 +95,7 @@
                     <div>
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <span>قراءتي التفاعلية الذكية</span>
-                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.63: ضبط مخارج الأستاذ باسل العراقية الفصيحة، ومكتبة الفونيمات النقية للـ 28 حرفاً، وإصلاح 123 مفتاحاً صوتياً، وتحديث الحزم المستقلة (Windows, Android, macOS, Linux)، وترقية كاش PWA إلى v87 - إعداد المهندس أسامة خليل هاشم">v3.63</span>
+                            <span class="app-version-badge" style="font-size: 0.78rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 12px; font-weight: 800;" title="الإصدار v3.64: تقسيم index.html والتحميل الكسول السريع للدروس الـ 46، حفظ التقدم التلقائي واستئناف آخر درس، والوضع الليلي المريح للعين، وترقية كاش PWA إلى v88 - إعداد المهندس أسامة خليل هاشم">v3.64</span>
                         </div>
                         <div class="brand-author" style="font-size: 0.78rem; font-weight: 800; color: #059669; margin-top: 1px;">
                             إعداد: المهندس أسامة خليل هاشم
@@ -290,6 +305,9 @@
                                         <button class="mega-sub-action" onclick="installPWA(); closeToolsHub();" title="تثبيت التطبيق أوفلاين">
                                             <span>📲 تثبيت</span>
                                         </button>
+                                        <button class="mega-sub-action" id="megaThemeToggleBtn" onclick="toggleDarkMode();" title="تبديل الوضع الليلي / النهاري">
+                                            <span>🌙 ليلي</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -336,6 +354,12 @@
                 <button class="btn-top btn-top-stop" id="btnTopStop" onclick="stopAudio()" style="display: none;" title="إيقاف الصوت الحالي فوراً">
                     <span>⏹️</span>
                     <span>إيقاف الصوت</span>
+                </button>
+
+                <!-- زر تبديل المظهر الليلي / النهاري -->
+                <button class="btn-system-mini btn-theme-toggle" id="btnTopThemeToggle" onclick="toggleDarkMode()" aria-pressed="false" title="التبديل إلى الوضع الليلي المريح للعين">
+                    <span>🌙</span>
+                    <span class="btn-system-text">ليلي</span>
                 </button>
 
                 <!-- زر الضبط وإعدادات المنصة -->
@@ -489,6 +513,18 @@
 
                 <p style="margin: 0; font-size: 0.85rem; color: #64748b;">تدرج دروس الكتاب من البداية للنهاية:</p>
 
+                <!-- بطاقة التقدم التراكمي للتلميذ النشط -->
+                <div class="sidebar-progress-box" id="sidebarStudentProgressCard">
+                    <div class="sidebar-progress-header">
+                        <span class="sidebar-progress-title">📈 تقدّمي في كتاب قراءتي</span>
+                        <span class="sidebar-progress-pct" id="sidebarStudentProgressPct">0%</span>
+                    </div>
+                    <div class="sidebar-progress-track">
+                        <div class="sidebar-progress-fill" id="sidebarStudentProgressFill" style="width: 0%;"></div>
+                    </div>
+                    <div class="sidebar-progress-sub" id="sidebarStudentProgressText">0 / 46 درساً</div>
+                </div>
+
             </div>
 
             <!-- فهرس الوحدات والدروس أولاً مباشرة تحت العنوان -->
@@ -608,10 +644,10 @@
                             <span style="font-weight: 900; color: #92400e; font-size: 0.88rem; display: flex; align-items: center; gap: 6px;">
                                 <span>🏅</span> <span>سجل الإنجاز والتقييم</span>
                             </span>
-                            <span id="sidebarProgressPill" style="font-size: 0.76rem; font-weight: 800; background: #059669; color: white; padding: 2px 8px; border-radius: 8px;">100% مكتمل</span>
+                            <span id="sidebarProgressPill" style="font-size: 0.76rem; font-weight: 800; background: #059669; color: white; padding: 2px 8px; border-radius: 8px;">0% مكتمل</span>
                         </div>
                         <div class="sidebar-eval-progress-bar">
-                            <div class="sidebar-eval-progress-fill" id="sidebarProgressFill" style="width: 100%;"></div>
+                            <div class="sidebar-eval-progress-fill" id="sidebarProgressFill" style="width: 0%;"></div>
                         </div>
                     </div>
 
@@ -772,6 +808,8 @@
 
                     </span>
 
+                    <button type="button" class="top-lesson-complete-badge" id="topLessonCompleteBadge" onclick="StudentProgress.toggleCurrentLessonComplete()" title="انقر لتسجيل إتمام هذا الدرس">📖 قيد التعلم</button>
+
                     <button class="btn-guide-pill" onclick="openCurrentLessonGuide()" title="عرض نتاجات وإرشادات هذا الدرس من دليل المعلم الرسمي">
 
                         <span>📘</span> <span>دليل المعلم</span>
@@ -789,3 +827,14 @@
             </div>
 
             <div class="stage-card">
+
+                <!-- مؤشر تحميل واجهة الدرس الكسول وحالة الخطأ -->
+                <div class="lesson-loading-state" id="lessonLoadingPlaceholder" style="display: none;" role="status" aria-live="polite">
+                    <div class="lesson-loading-spinner" id="lessonLoadingSpinner"></div>
+                    <div class="lesson-loading-msg" id="lessonLoadingMessage">جارٍ تجهيز الدرس التفاعلي...</div>
+                    <div class="lesson-loading-error-box" id="lessonLoadingErrorBox" style="display: none;">
+                        <div class="lesson-loading-error-title">⚠️ تعذر فتح واجهة الدرس</div>
+                        <div class="lesson-loading-error-detail" id="lessonLoadingErrorDetail"></div>
+                        <button type="button" class="btn btn-primary" id="lessonLoadingRetryBtn">🔄 إعادة المحاولة</button>
+                    </div>
+                </div>

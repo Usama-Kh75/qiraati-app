@@ -189,6 +189,17 @@ def build_windows_package():
                         rel_f = os.path.relpath(full_f, BASE_DIR)
                         add_to_zip(full_f, rel_f)
 
+        # إضافة واجهات الدروس المقسمة (views/prep .. views/unit6) للتحميل الكسول الأوفلاين
+        for unit_sub in ["prep", "unit1", "unit2", "unit3", "unit4", "unit5", "unit6"]:
+            unit_path = os.path.join(BASE_DIR, "views", unit_sub)
+            if os.path.exists(unit_path):
+                for root, dirs, files in os.walk(unit_path):
+                    for file in files:
+                        if file.lower().endswith(".html"):
+                            full_f = os.path.join(root, file)
+                            rel_f = os.path.relpath(full_f, BASE_DIR)
+                            add_to_zip(full_f, rel_f)
+
     bundle_size_mb = os.path.getsize(bundle_zip) / (1024 * 1024)
     print(f"✔ تم إنشاء حزمة app_bundle.zip بنجاح! الحجم: {bundle_size_mb:.2f} ميجابايت.")
 

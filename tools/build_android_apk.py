@@ -239,6 +239,23 @@ def sync_assets():
                         files_copied += 1
                     total_files += 1
 
+    # 3ب. واجهات الدروس المقسمة (views/prep .. views/unit6) للتحميل الكسول الأوفلاين
+    for unit_sub in ["prep", "unit1", "unit2", "unit3", "unit4", "unit5", "unit6"]:
+        unit_src = os.path.join(BASE_DIR, "views", unit_sub)
+        if os.path.exists(unit_src):
+            for root, dirs, files in os.walk(unit_src):
+                rel_root = os.path.relpath(root, BASE_DIR)
+                target_root = os.path.join(ASSETS_DIR, rel_root)
+                for f in files:
+                    if f.lower().endswith(".html"):
+                        src_f = os.path.join(root, f)
+                        dst_f = os.path.join(target_root, f)
+                        rel_f = os.path.relpath(src_f, BASE_DIR).replace("\\", "/")
+                        expected_rel_paths.add(rel_f)
+                        if copy_if_newer(src_f, dst_f):
+                            files_copied += 1
+                        total_files += 1
+
     # 4. تنظيف أي ملفات قديمة أو يتيمة داخل assets (مثل audio_data.js أو الصور المحذوفة)
     files_removed = 0
     for root, dirs, files in os.walk(ASSETS_DIR, topdown=False):

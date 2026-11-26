@@ -40,6 +40,14 @@ def sync_assets(bump_cache=False):
     tracked_pngs = get_git_tracked_files('*.png')
     print(f"✔ تم العثور على {len(tracked_pngs)} صورة PNG متتبَّعة في git.")
 
+    # 2ب. جلب واجهات الدروس المقسمة المتتبعة في git (views/prep .. views/unit6)
+    tracked_all_views = get_git_tracked_files('views/*.html')
+    tracked_lesson_views = sorted([
+        v for v in tracked_all_views
+        if re.match(r'^views/(prep|unit[1-6])/[^/]+\.html$', v)
+    ])
+    print(f"✔ تم العثور على {len(tracked_lesson_views)} واجهة درس مقسمة متتبَّعة في views/.")
+
     # 3. قراءة sw.js واستخراج رقم النسخة الحالية
     with open(sw_path, 'r', encoding='utf-8') as f:
         sw_txt = f.read()
@@ -90,9 +98,13 @@ def sync_assets(bump_cache=False):
         "'./css/nasheed-studio.css'",
         "'./css/story-studio.css'",
         "'./css/student-profiles.css'",
+        "'./css/dark-mode.css'",
         "'./js/core/ai-bridge.js'",
+        "'./js/core/theme.js'",
         "'./js/core/modals.js'",
         "'./js/core/audio.js'",
+        "'./js/core/view-loader.js'",
+        "'./js/core/progress.js'",
         "'./js/core/navigation.js'",
         "'./js/core/evaluation.js'",
         "'./js/core/enrichment.js'",
@@ -125,7 +137,8 @@ def sync_assets(bump_cache=False):
         "'./icons/qiraati.ico'"
     ]
 
-    all_cache_entries = core_assets
+    view_entries = [f"'./{v}'" for v in tracked_lesson_views]
+    all_cache_entries = core_assets + view_entries
     cache_array_str = ",\n  ".join(all_cache_entries)
 
     # 5. استبدال مصفوفة ASSETS_TO_CACHE ورقم النسخة في sw.js

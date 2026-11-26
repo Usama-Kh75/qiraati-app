@@ -412,21 +412,21 @@
 
         // كلمات الوحدة 4 (صحتي وبيئتي)
         { id: 'c_28', type: 'word', unit: 'unit4', word: 'حِمَار', syllables: ['حِـ', 'مَا', 'ر'], audio: 'word_himar', hint: 'حيوان أليف صبور', meaning: 'حاء مكسورة ومد بالألف' },
-        { id: 'c_29', type: 'word', unit: 'unit4', word: 'شَمْس', syllables: ['شَمْ', 'س'], audio: 'letter_sh_sound', hint: 'تضيء الكون بالنهار', meaning: 'مقطع ساكن (شَمْـ)' },
-        { id: 'c_30', type: 'word', unit: 'unit4', word: 'زَيْتُون', syllables: ['زَيْـ', 'تُو', 'ن'], audio: 'letter_z_words_intro', hint: 'شجرة مباركة وثمر شهي', meaning: 'مقطع ساكن ومد بالواو' },
-        { id: 'c_31', type: 'word', unit: 'unit4', word: 'جَمَل', syllables: ['جَـ', 'مَـ', 'ل'], audio: 'letter_j_words_intro', hint: 'سفينة الصحراء', meaning: 'حركات قصيرة متوالية' },
+        { id: 'c_29', type: 'word', unit: 'unit4', word: 'شَمْس', syllables: ['شَمْ', 'س'], audio: 'letter_sh_word_shams', hint: 'تضيء الكون بالنهار', meaning: 'مقطع ساكن (شَمْـ)' },
+        { id: 'c_30', type: 'word', unit: 'unit4', word: 'زَيْتُون', syllables: ['زَيْـ', 'تُو', 'ن'], audio: 'faseeh_word_zaytoon', hint: 'شجرة مباركة وثمر شهي', meaning: 'مقطع ساكن ومد بالواو' },
+        { id: 'c_31', type: 'word', unit: 'unit4', word: 'جَمَل', syllables: ['جَـ', 'مَـ', 'ل'], audio: 'word_jamal', hint: 'سفينة الصحراء', meaning: 'حركات قصيرة متوالية' },
         { id: 'c_32', type: 'word', unit: 'unit4', word: 'طَيَّارَة', syllables: ['طَيْـ', 'يَا', 'رَ', 'ة'], audio: 'word_tayyarah', hint: 'طائرة وقاص الورقية', meaning: 'ياء مشددة وتاء مربوطة' },
-        { id: 'c_33', type: 'word', unit: 'unit4', word: 'مَقَصّ', syllables: ['مَـ', 'قَصْ', 'صُ'], audio: 'letter_sad_words_intro', hint: 'أداة لقص الورق', meaning: 'صاد مشددة بالضم' },
+        { id: 'c_33', type: 'word', unit: 'unit4', word: 'مَقَصّ', syllables: ['مَـ', 'قَصْ', 'صُ'], audio: 'letter_sad_word_miqas', hint: 'أداة لقص الورق', meaning: 'صاد مشددة بالضم' },
 
         // كلمات الوحدة 5 (هواياتي وألعابي)
-        { id: 'c_34', type: 'word', unit: 'unit5', word: 'أَمِين', syllables: ['أَ', 'مِيـ', 'ن'], audio: 'letter_hamza_words_intro', hint: 'بناء نشيط يبني دارنا', meaning: 'همزة مفتوحة ومد بالياء' },
-        { id: 'c_35', type: 'word', unit: 'unit5', word: 'إِقْبَال', syllables: ['إِقْـ', 'بَا', 'ل'], audio: 'letter_hamza_words_intro', hint: 'اسم بنت مجتهدة', meaning: 'همزة مكسورة ومقطع ساكن' },
-        { id: 'c_36', type: 'word', unit: 'unit5', word: 'ضُحَى', syllables: ['ضُـ', 'حَى'], audio: 'letter_dhad_words_intro', hint: 'تعمل في المستشفى', meaning: 'ضاد مضمومة وألف مقصورة' },
-        { id: 'c_37', type: 'word', unit: 'unit5', word: 'حَوْض', syllables: ['حَوْ', 'ض'], audio: 'letter_dhad_words_intro', hint: 'حوض السباحة', meaning: 'مقطع ساكن بحرف الواو' },
-        { id: 'c_38', type: 'word', unit: 'unit5', word: 'خَرُوف', syllables: ['خَـ', 'رُو', 'ف'], audio: 'letter_kha_words_intro', hint: 'خروف خليل السمين', meaning: 'خاء مفتوحة ومد بالواو' },
-        { id: 'c_39', type: 'word', unit: 'unit5', word: 'مِحْرَاث', syllables: ['مِحْـ', 'رَا', 'ث'], audio: 'letter_tha_words_intro', hint: 'محراث حارث الفلاح', meaning: 'مقطع ساكن وحرف الثاء' },
-        { id: 'c_40', type: 'word', unit: 'unit5', word: 'كِتَاب', syllables: ['كِـ', 'تَا', 'ب'], audio: 'letter_kaf_words_intro', hint: 'كتاب حكايات مفيدة', meaning: 'كاف مكسورة ومد بالألف' },
-        { id: 'c_41', type: 'word', unit: 'unit5', word: 'مَالِك', syllables: ['مَا', 'لِـ', 'ك'], audio: 'letter_kaf_words_intro', hint: 'سماك يبيع السمك', meaning: 'مد بالألف وكاف متطرفة' },
+        { id: 'c_34', type: 'word', unit: 'unit5', word: 'أَمِين', syllables: ['أَ', 'مِيـ', 'ن'], audio: 'letter_hamza_word_ameen', hint: 'بناء نشيط يبني دارنا', meaning: 'همزة مفتوحة ومد بالياء' },
+        { id: 'c_35', type: 'word', unit: 'unit5', word: 'إِقْبَال', syllables: ['إِقْـ', 'بَا', 'ل'], audio: 'letter_hamza_word_iqbaal', hint: 'اسم بنت مجتهدة', meaning: 'همزة مكسورة ومقطع ساكن' },
+        { id: 'c_36', type: 'word', unit: 'unit5', word: 'ضُحَى', syllables: ['ضُـ', 'حَى'], audio: 'letter_dhad_word_duha', hint: 'تعمل في المستشفى', meaning: 'ضاد مضمومة وألف مقصورة' },
+        { id: 'c_37', type: 'word', unit: 'unit5', word: 'حَوْض', syllables: ['حَوْ', 'ض'], audio: 'word_hawdh', hint: 'حوض السباحة', meaning: 'مقطع ساكن بحرف الواو' },
+        { id: 'c_38', type: 'word', unit: 'unit5', word: 'خَرُوف', syllables: ['خَـ', 'رُو', 'ف'], audio: 'letter_f_reef_word_kharoof', hint: 'خروف خليل السمين', meaning: 'خاء مفتوحة ومد بالواو' },
+        { id: 'c_39', type: 'word', unit: 'unit5', word: 'مِحْرَاث', syllables: ['مِحْـ', 'رَا', 'ث'], audio: 'letter_tha_read_h1', hint: 'محراث حارث الفلاح', meaning: 'مقطع ساكن وحرف الثاء' },
+        { id: 'c_40', type: 'word', unit: 'unit5', word: 'كِتَاب', syllables: ['كِـ', 'تَا', 'ب'], audio: 'word_kitab', hint: 'كتاب حكايات مفيدة', meaning: 'كاف مكسورة ومد بالألف' },
+        { id: 'c_41', type: 'word', unit: 'unit5', word: 'مَالِك', syllables: ['مَا', 'لِـ', 'ك'], audio: 'letter_kaf_word_maalik', hint: 'سماك يبيع السمك', meaning: 'مد بالألف وكاف متطرفة' },
         { id: 'c_42', type: 'word', unit: 'unit5', word: 'جَدِّي', syllables: ['جَدْ', 'دِي'], audio: 'word_jaddi', hint: 'أبو الأب الحكيم', meaning: 'دال مشددة ومد بالياء' },
 
         // كلمات الوحدة 6 (العالم من حولي)

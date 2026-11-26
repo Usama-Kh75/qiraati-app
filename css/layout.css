@@ -1907,3 +1907,295 @@
             z-index: 99999;
         }
 
+        /* ==========================================================================
+           تنسيقات المرحلة الثانية: حفظ التقدم التلقائي والتحميل الكسول وزر الوضع الليلي
+           إعداد وتطوير: المهندس أسامة خليل هاشم
+           ========================================================================== */
+        .btn-theme-toggle {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+            color: #334155;
+        }
+
+        .btn-theme-toggle:hover {
+            background: #fef3c7;
+            border-color: #f59e0b;
+            color: #92400e;
+        }
+
+        .btn-theme-toggle.is-dark {
+            background: #1e293b;
+            border-color: #475569;
+            color: #fde68a;
+        }
+
+        .sidebar-progress-box {
+            margin-top: 10px;
+            padding: 10px 12px;
+            background: linear-gradient(135deg, #eff6ff 0%, #ecfdf5 100%);
+            border: 1.5px solid #bfdbfe;
+            border-radius: 14px;
+        }
+
+        .sidebar-progress-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .sidebar-progress-title {
+            font-size: 0.84rem;
+            font-weight: 900;
+            color: #1e3a8a;
+        }
+
+        .sidebar-progress-pct {
+            font-size: 0.8rem;
+            font-weight: 900;
+            color: #059669;
+            background: rgba(16, 185, 129, 0.14);
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .sidebar-progress-track {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border: 1px solid #cbd5e1;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .sidebar-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #2563eb 0%, #10b981 100%);
+            border-radius: 999px;
+            transition: width 0.35s ease;
+        }
+
+        .sidebar-progress-sub {
+            margin-top: 5px;
+            font-size: 0.76rem;
+            font-weight: 800;
+            color: #475569;
+            text-align: left;
+        }
+
+        .unit-info-right {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+        }
+
+        .unit-pages-label {
+            font-size: 0.78rem;
+            color: #64748b;
+            font-weight: 700;
+        }
+
+        .unit-progress-pill {
+            font-size: 0.74rem;
+            font-weight: 900;
+            padding: 2px 7px;
+            border-radius: 10px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: #1d4ed8;
+            white-space: nowrap;
+        }
+
+        .unit-progress-pill.is-unit-complete {
+            background: #dcfce7;
+            border-color: #86efac;
+            color: #15803d;
+        }
+
+        .lesson-nav-item.is-completed {
+            background: #f0fdf4;
+            border-color: #86efac;
+        }
+
+        .lesson-nav-title {
+            flex: 1;
+            min-width: 0;
+            padding-left: 6px;
+        }
+
+        .badge-completed {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .badge-visited {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
+        .stepper-center-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-lesson-complete {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 16px;
+            border-radius: 26px;
+            border: 2px solid #10b981;
+            background: #ecfdf5;
+            color: #065f46;
+            font-family: inherit;
+            font-size: 0.92rem;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-lesson-complete:hover {
+            background: #d1fae5;
+            transform: translateY(-1px);
+        }
+
+        .btn-lesson-complete.is-completed {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-color: #047857;
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.28);
+        }
+
+        .top-lesson-complete-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 4px 10px;
+            border-radius: 16px;
+            border: 1.5px solid #cbd5e1;
+            background: #f8fafc;
+            color: #334155;
+            font-family: inherit;
+            font-size: 0.78rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .top-lesson-complete-badge.is-completed {
+            background: #dcfce7;
+            border-color: #86efac;
+            color: #15803d;
+        }
+
+        .lesson-loading-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            min-height: 260px;
+            padding: 32px 20px;
+            margin: 10px 0;
+            border-radius: 18px;
+            background: #f8fafc;
+            border: 2px dashed #cbd5e1;
+            text-align: center;
+        }
+
+        .lesson-loading-spinner {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 4px solid #dbeafe;
+            border-top-color: #2563eb;
+            animation: qiraatiSpin 0.8s linear infinite;
+        }
+
+        @keyframes qiraatiSpin {
+            to { transform: rotate(360deg); }
+        }
+
+        .lesson-loading-msg {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #1e3a8a;
+        }
+
+        .lesson-loading-error-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            max-width: 480px;
+        }
+
+        .lesson-loading-error-title {
+            font-size: 1.08rem;
+            font-weight: 900;
+            color: #dc2626;
+        }
+
+        .lesson-loading-error-detail {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        .settings-theme-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .settings-theme-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 12px 8px;
+            background: #ffffff;
+            border: 2px solid #ddd6fe;
+            border-radius: 14px;
+            font-family: inherit;
+            font-size: 0.86rem;
+            font-weight: 800;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .settings-theme-option:hover {
+            border-color: #8b5cf6;
+            transform: translateY(-1px);
+        }
+
+        .settings-theme-option.active {
+            background: #ede9fe;
+            border-color: #6d28d9;
+            color: #4c1d95;
+            box-shadow: 0 4px 12px rgba(109, 40, 217, 0.16);
+        }
+
+        @media (max-width: 600px) {
+            .settings-theme-grid {
+                grid-template-columns: 1fr;
+            }
+            .btn-lesson-complete {
+                width: 100%;
+                justify-content: center;
+            }
+            .stepper-center-group {
+                width: 100%;
+                order: -1;
+            }
+        }
+
+

@@ -11,11 +11,23 @@
 
                 </button>
 
-                <span id="currentLessonLabel" style="font-weight: 800; color: #1e3a8a; font-size: 1.1rem;">
+                <div class="stepper-center-group">
 
-                    الدرس الأول: نشيد البطة وتسمية الأشياء
+                    <span id="currentLessonLabel" style="font-weight: 800; color: #1e3a8a; font-size: 1.1rem;">
 
-                </span>
+                        الدرس الأول: نشيد البطة وتسمية الأشياء
+
+                    </span>
+
+                    <button type="button" class="btn-lesson-complete" id="btnToggleLessonComplete" onclick="StudentProgress.toggleCurrentLessonComplete()" aria-pressed="false" title="تسجيل إتمام الدرس وكسب +5 نجوم">
+
+                        <span>☑️</span>
+
+                        <span>أتممتُ هذا الدرس</span>
+
+                    </button>
+
+                </div>
 
                 <button class="btn-step primary" id="btnNextLesson" onclick="stepLesson(1)">
 
@@ -672,7 +684,7 @@
                                     <span style="font-size: 0.72rem; background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 8px;">بشري وتعبيري</span>
                                 </div>
                                 <div style="font-size: 0.8rem; color: #64748b; font-weight: 700; margin-top: 2px;">
-                                    الصوت العراقي الفصيح المعاير لجميع الحوارات والقصص والتوجيه ومكتبة الأصوات الفونيمية النقية للـ 28 حرفاً وبنك الألعاب ومسرح القراء بنطق دافئ ومخارج حروف واضحة للأطفال.
+                                    الصوت العراقي الفصيح المعتمد لكامل المنهج (46 درساً، الحوارات والقصص والتوجيه، مكتبة الفونيمات النقية للـ 28 حرفاً، بنك الألعاب، ومسرح القراء) بنطق دافئ ومخارج حروف واضحة للأطفال.
                                 </div>
                                 <div style="margin-top: 8px;">
                                     <button type="button" onclick="event.stopPropagation(); if (typeof playFaseehVoiceShowcase === 'function') playFaseehVoiceShowcase();" style="display: inline-flex; align-items: center; gap: 6px; background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; padding: 5px 12px; border-radius: 10px; font-size: 0.78rem; font-weight: 800; cursor: pointer; font-family: inherit;">
@@ -780,6 +792,50 @@
 
                     </div>
 
+                </div>
+
+                <!-- القسم 2ب: مظهر المنصة والوضع الليلي المريح للعين -->
+                <div style="background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%); border: 2px solid #8b5cf6; border-radius: 16px; padding: 16px; margin-bottom: 16px;">
+                    <div style="font-size: 1rem; font-weight: 900; color: #5b21b6; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                        <span style="font-size: 1.25rem;">🎨</span>
+                        <span>مظهر المنصة والوضع الليلي المريح للعين:</span>
+                    </div>
+                    <div style="font-size: 0.82rem; color: #6d28d9; font-weight: 700; margin-bottom: 12px;">
+                        اختر المظهر المناسب لإضاءة الغرفة أو القاعة الدراسية لحماية عيني التلميذ:
+                    </div>
+                    <div class="settings-theme-grid">
+                        <button type="button" class="settings-theme-option" id="themeOpt_light" onclick="setAppTheme('light')" aria-pressed="false">
+                            <span style="font-size: 1.35rem;">☀️</span>
+                            <span>نهاري مشرق</span>
+                        </button>
+                        <button type="button" class="settings-theme-option" id="themeOpt_dark" onclick="setAppTheme('dark')" aria-pressed="false">
+                            <span style="font-size: 1.35rem;">🌙</span>
+                            <span>ليلي مريح</span>
+                        </button>
+                        <button type="button" class="settings-theme-option" id="themeOpt_system" onclick="setAppTheme('system')" aria-pressed="false">
+                            <span style="font-size: 1.35rem;">💻</span>
+                            <span>تلقائي (الجهاز)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- القسم 2ج: إدارة سجل تقدم التلميذ النشط -->
+                <div id="settingsProgressSummary" style="background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%); border: 2px solid #f59e0b; border-radius: 16px; padding: 16px; margin-bottom: 16px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <div>
+                            <div style="font-size: 1rem; font-weight: 900; color: #92400e; display: flex; align-items: center; gap: 8px;">
+                                <span style="font-size: 1.25rem;">📈</span>
+                                <span>سجل تقدم التلميذ النشط:</span>
+                            </div>
+                            <div id="settingsProgressStatsText" style="font-size: 0.82rem; color: #b45309; font-weight: 700; margin-top: 4px;">
+                                أنجزت 0 من أصل 46 درساً (0%)
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-danger" style="padding: 7px 14px; font-size: 0.82rem; border-radius: 10px;" onclick="StudentProgress.resetActiveProgress()">
+                            <span>🔄</span>
+                            <span>تصفير تقدم التلميذ النشط</span>
+                        </button>
+                    </div>
                 </div>
 
                 <!-- قسم تنزيل وسائط المنصة للعمل أوفلاين 100% بدون إنترنت -->
@@ -6340,10 +6396,16 @@
     </script>
     <script defer src="curriculum_data.js"></script>
 
+    <!-- خريطة مسارات واجهات الدروس المقسمة (تُحقن آلياً عند البناء) -->
+    <!-- LESSON_VIEW_MANIFEST_SLOT -->
+
     <!-- منظومة المنطق البرمجي المجزأة - إعداد المهندس أسامة خليل هاشم -->
     <script defer src="js/core/ai-bridge.js"></script>
+    <script defer src="js/core/theme.js"></script>
     <script defer src="js/core/modals.js"></script>
     <script defer src="js/core/audio.js"></script>
+    <script defer src="js/core/view-loader.js"></script>
+    <script defer src="js/core/progress.js"></script>
     <script defer src="js/core/navigation.js"></script>
     <script defer src="js/core/evaluation.js"></script>
     <script defer src="js/core/enrichment.js"></script>

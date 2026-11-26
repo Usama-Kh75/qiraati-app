@@ -83,17 +83,34 @@ def audit():
     else:
         print("✔ لا توجد أي واجهات معلقة أو غير مربوطة.")
 
-    # 3. فحص تطابق index.html بعد البناء
+    # 3. فحص تطابق index.html (خريطة LESSON_VIEW_MANIFEST أو الواجهات المضمنة) بعد البناء
+    import json
     idx_path = os.path.join(BASE_DIR, 'index.html')
     with open(idx_path, 'r', encoding='utf-8') as f:
         idx_txt = f.read()
 
-    idx_view_ids = set(re.findall(r'id="(view-tab-[^"]+)"', idx_txt))
-    print(f"✔ عدد واجهات الدروس الموجودة داخل index.html: {len(idx_view_ids)} واجهة.")
-    if len(idx_view_ids) != len(lesson_ids):
-        errors.append(f"عدم تطابق بين واجهات index.html ({len(idx_view_ids)}) ودروس المنهج ({len(lesson_ids)})!")
+    m_manifest = re.search(r'window\.LESSON_VIEW_MANIFEST\s*=\s*(\{[^;]+\});', idx_txt)
+    if m_manifest:
+        manifest_map = json.loads(m_manifest.group(1))
+        print(f"✔ عدد واجهات الدروس المسجلة في LESSON_VIEW_MANIFEST داخل index.html: {len(manifest_map)} واجهة.")
+        missing_in_manifest = [lid for lid in lesson_ids if lid not in manifest_map]
+        missing_on_disk = [
+            (lid, p) for lid, p in manifest_map.items()
+            if not os.path.exists(os.path.join(BASE_DIR, p))
+        ]
+        if missing_in_manifest:
+            errors.append(f"دروس غير مسجلة في LESSON_VIEW_MANIFEST ({len(missing_in_manifest)}): {missing_in_manifest}")
+        elif missing_on_disk:
+            errors.append(f"ملفات واجهات مفقودة على القرص ({len(missing_on_disk)}): {missing_on_disk}")
+        else:
+            print("✔ مطابقة تامة بين خريطة LESSON_VIEW_MANIFEST في index.html وفهرس المنهج والملفات 100%.")
     else:
-        print("✔ مطابقة تامة بين واجهات index.html وفهرس المنهج 100%.")
+        idx_view_ids = set(re.findall(r'id="(view-tab-[^"]+)"', idx_txt))
+        print(f"✔ عدد واجهات الدروس الموجودة داخل index.html: {len(idx_view_ids)} واجهة.")
+        if len(idx_view_ids) != len(lesson_ids):
+            errors.append(f"عدم تطابق بين واجهات index.html ({len(idx_view_ids)}) ودروس المنهج ({len(lesson_ids)})!")
+        else:
+            print("✔ مطابقة تامة بين واجهات index.html وفهرس المنهج 100%.")
 
     # 4. فحص الصور المستخدمة في views و curriculum_data
     all_img_refs = set()

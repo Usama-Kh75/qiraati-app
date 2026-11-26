@@ -1402,8 +1402,17 @@
     }
 
     // ==========================================================================
-    // 13. تهيئة النظام عند تحميل الصفحة
+    // 13. منح النجوم من منظومة حفظ التقدم وتهيئة النظام عند تحميل الصفحة
     // ==========================================================================
+    window.awardGamificationStars = function (delta, reason) {
+        const amount = parseInt(delta, 10) || 0;
+        if (amount === 0) return GamificationState.totalStars;
+        GamificationState.totalStars = Math.max(0, (GamificationState.totalStars || 0) + amount);
+        saveGamificationData();
+        if (typeof renderAnalyticsView === 'function') renderAnalyticsView();
+        return GamificationState.totalStars;
+    };
+
     window.addEventListener('DOMContentLoaded', () => {
         loadGamificationData();
     });

@@ -1,0 +1,790 @@
+/* ==========================================================================
+ * منصة قراءتي التفاعلية الذكية - الوضع الليلي المريح للعين (Dark Mode Theme)
+ * إعداد وتطوير: المهندس أسامة خليل هاشم
+ * ========================================================================== */
+
+html[data-theme="dark"] {
+    color-scheme: dark;
+    --bg-page: #0b1220;
+    --bg-surface: #131d31;
+    --bg-surface-alt: #1b2842;
+    --border-card: #283754;
+    --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    --card-shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.6);
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    --primary: #60a5fa;
+    --primary-hover: #3b82f6;
+    --success: #34d399;
+    --accent: #fbbf24;
+    --danger: #f87171;
+    --purple: #a78bfa;
+}
+
+html[data-theme="dark"] body {
+    background: linear-gradient(180deg, #0b1220 0%, #0f172a 100%) !important;
+    color: var(--text-main) !important;
+}
+
+/* ==========================================================================
+ * 1. الشريط العلوي ومركز الأدوات
+ * ========================================================================== */
+html[data-theme="dark"] .top-navbar {
+    background: rgba(15, 23, 42, 0.97) !important;
+    border-bottom-color: #283754 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+html[data-theme="dark"] .navbar-row-main {
+    border-bottom-color: #1e293b !important;
+}
+
+html[data-theme="dark"] .navbar-row-tools {
+    background: #10192b !important;
+    border-top-color: #1e293b !important;
+}
+
+html[data-theme="dark"] .brand-title {
+    color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .brand-author {
+    color: #34d399 !important;
+}
+
+html[data-theme="dark"] .app-version-badge {
+    background: #064e3b !important;
+    color: #6ee7b7 !important;
+    border: 1px solid #047857 !important;
+}
+
+html[data-theme="dark"] .btn-sidebar-toggle {
+    background: #1e3a8a !important;
+    color: #eff6ff !important;
+    border-color: #3b82f6 !important;
+}
+
+html[data-theme="dark"] .btn-tools-hub {
+    background: #1b2842 !important;
+    border-color: #6366f1 !important;
+    color: #c7d2fe !important;
+}
+
+html[data-theme="dark"] .btn-tools-hub:hover,
+html[data-theme="dark"] .btn-tools-hub.active {
+    background: #27335c !important;
+    color: #e0e7ff !important;
+}
+
+html[data-theme="dark"] .btn-toggle-ribbon {
+    background: #1b2842 !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .btn-toggle-ribbon.collapsed {
+    background: #2a2414 !important;
+    border-color: #854d0e !important;
+    color: #fde047 !important;
+}
+
+html[data-theme="dark"] .btn-presentation-mode,
+html[data-theme="dark"] .top-student-badge,
+html[data-theme="dark"] .top-volume-box,
+html[data-theme="dark"] .btn-system-mini {
+    background: #1b2842 !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .btn-system-settings {
+    background: #102b24 !important;
+    border-color: #065f46 !important;
+    color: #6ee7b7 !important;
+}
+
+html[data-theme="dark"] .btn-theme-toggle {
+    background: #1e293b !important;
+    border-color: #475569 !important;
+    color: #fde68a !important;
+}
+
+html[data-theme="dark"] .btn-theme-toggle:hover {
+    background: #283548 !important;
+    border-color: #fbbf24 !important;
+}
+
+html[data-theme="dark"] .top-stars-widget {
+    background: linear-gradient(135deg, #2d220e 0%, #3b2b10 100%) !important;
+    border-color: #b45309 !important;
+    color: #fde68a !important;
+}
+
+html[data-theme="dark"] #topVolBadge {
+    color: #6ee7b7 !important;
+}
+
+html[data-theme="dark"] .btn-ribbon-item {
+    background: #172238 !important;
+    border-color: #2b3c5e !important;
+    color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .btn-ribbon-item:hover {
+    background: #233354 !important;
+    border-color: #60a5fa !important;
+    color: #ffffff !important;
+}
+
+/* لوحة مركز الأدوات والاستوديوهات */
+html[data-theme="dark"] .tools-mega-panel {
+    background: #131d31 !important;
+    border-color: #334155 !important;
+    box-shadow: 0 24px 54px rgba(0, 0, 0, 0.7) !important;
+}
+
+html[data-theme="dark"] .mega-panel-header {
+    border-bottom-color: #283754 !important;
+}
+
+html[data-theme="dark"] .mega-group-col {
+    background: #0f172a !important;
+    border-color: #283754 !important;
+}
+
+html[data-theme="dark"] .mega-group-header {
+    border-bottom-color: #283754 !important;
+}
+
+html[data-theme="dark"] .group-studios { color: #34d399 !important; }
+html[data-theme="dark"] .group-games { color: #fbbf24 !important; }
+html[data-theme="dark"] .group-teacher { color: #60a5fa !important; }
+
+html[data-theme="dark"] .mega-item {
+    background: #172238 !important;
+    border-color: #283754 !important;
+}
+
+html[data-theme="dark"] .mega-item:hover {
+    background: #223252 !important;
+    border-color: #60a5fa !important;
+}
+
+html[data-theme="dark"] .mega-item-title {
+    color: #f1f5f9 !important;
+}
+
+html[data-theme="dark"] .mega-item-desc {
+    color: #94a3b8 !important;
+}
+
+html[data-theme="dark"] .mega-sub-action,
+html[data-theme="dark"] .btn-mega-close {
+    background: #1b2842 !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .ai-status-badge.offline {
+    background: #1b2842 !important;
+    border-color: #334155 !important;
+    color: #cbd5e1 !important;
+}
+
+/* ==========================================================================
+ * 2. القائمة الجانبية وفهرس المنهج وبطاقة التقدم
+ * ========================================================================== */
+html[data-theme="dark"] .curriculum-sidebar {
+    background: #111a2d !important;
+    border-left-color: #283754 !important;
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.5) !important;
+}
+
+html[data-theme="dark"] .sidebar-header {
+    background: #131d31 !important;
+    border-bottom-color: #283754 !important;
+}
+
+html[data-theme="dark"] .sidebar-header h2 {
+    color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .btn-sidebar-close {
+    background: #1e293b !important;
+    color: #e2e8f0 !important;
+    border-color: #334155 !important;
+}
+
+html[data-theme="dark"] .sidebar-progress-box {
+    background: linear-gradient(135deg, #162640 0%, #172f38 100%) !important;
+    border-color: #2b4c7e !important;
+}
+
+html[data-theme="dark"] .sidebar-progress-title {
+    color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .sidebar-progress-track {
+    background: #0f172a !important;
+    border-color: #283754 !important;
+}
+
+html[data-theme="dark"] .unit-card {
+    background: #152036 !important;
+    border-color: #283754 !important;
+}
+
+html[data-theme="dark"] .unit-card.open {
+    background: #192640 !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 6px 18px rgba(37, 99, 235, 0.2) !important;
+}
+
+html[data-theme="dark"] .unit-title-bar {
+    color: #f1f5f9 !important;
+}
+
+html[data-theme="dark"] .unit-title-bar:hover {
+    background: #1f2e4d !important;
+}
+
+html[data-theme="dark"] .unit-pages-label {
+    color: #94a3b8 !important;
+}
+
+html[data-theme="dark"] .unit-progress-pill {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #93c5fd !important;
+}
+
+html[data-theme="dark"] .unit-progress-pill.is-unit-complete {
+    background: #064e3b !important;
+    border-color: #10b981 !important;
+    color: #a7f3d0 !important;
+}
+
+html[data-theme="dark"] .unit-lessons-list {
+    border-top-color: #283754 !important;
+}
+
+html[data-theme="dark"] .lesson-nav-item {
+    background: #131d31 !important;
+    border-color: #283754 !important;
+    color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .lesson-nav-item:hover {
+    background: #1b2c46 !important;
+    border-color: #34d399 !important;
+}
+
+html[data-theme="dark"] .lesson-nav-item.active {
+    background: #1e3a5f !important;
+    border-color: #60a5fa !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.28) !important;
+}
+
+html[data-theme="dark"] .lesson-nav-item.is-completed {
+    border-color: #10b981 !important;
+    background: #112a27 !important;
+}
+
+html[data-theme="dark"] .lesson-nav-item.is-completed.active {
+    background: #143d38 !important;
+    border-color: #34d399 !important;
+}
+
+html[data-theme="dark"] .badge-ready {
+    background: #1e293b !important;
+    color: #93c5fd !important;
+}
+
+html[data-theme="dark"] .badge-visited {
+    background: #1e3a5f !important;
+    color: #7dd3fc !important;
+}
+
+html[data-theme="dark"] .badge-completed {
+    background: #065f46 !important;
+    color: #a7f3d0 !important;
+}
+
+html[data-theme="dark"] .badge-upcoming {
+    background: #1e293b !important;
+    color: #64748b !important;
+}
+
+html[data-theme="dark"] .sidebar-studios-summary {
+    background: #152036 !important;
+    border-color: #283754 !important;
+    color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .sidebar-teacher-card,
+html[data-theme="dark"] .sidebar-eval-card,
+html[data-theme="dark"] .sidebar-gamification-card,
+html[data-theme="dark"] .sidebar-enrichment-card,
+html[data-theme="dark"] .sidebar-blackboard-card,
+html[data-theme="dark"] .sidebar-games-card {
+    background: #172238 !important;
+    border-color: #2d4066 !important;
+    color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .sidebar-gamification-mini-btn,
+html[data-theme="dark"] .sidebar-enrich-mini-btn,
+html[data-theme="dark"] .sidebar-bb-mini-btn,
+html[data-theme="dark"] .sidebar-games-mini-btn {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+/* ==========================================================================
+ * 3. مسرح الدرس وأشرطة التنقل وإتمام الدرس
+ * ========================================================================== */
+html[data-theme="dark"] .stage-card {
+    background: #131d31 !important;
+    border: 1px solid #283754 !important;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45) !important;
+}
+
+html[data-theme="dark"] .lesson-stepper-bar {
+    background: #131d31 !important;
+    border: 1px solid #283754 !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4) !important;
+}
+
+html[data-theme="dark"] .current-lesson-label-top,
+html[data-theme="dark"] #currentLessonLabel {
+    color: #93c5fd !important;
+}
+
+html[data-theme="dark"] .btn-step {
+    background: #1b2842 !important;
+    border-color: #334155 !important;
+    color: #f1f5f9 !important;
+}
+
+html[data-theme="dark"] .btn-step:hover {
+    background: #253659 !important;
+    border-color: #60a5fa !important;
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .btn-step.primary {
+    background: #2563eb !important;
+    border-color: #3b82f6 !important;
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .btn-lesson-complete {
+    background: #102a27 !important;
+    border-color: #059669 !important;
+    color: #6ee7b7 !important;
+}
+
+html[data-theme="dark"] .btn-lesson-complete:hover {
+    background: #143832 !important;
+    border-color: #34d399 !important;
+}
+
+html[data-theme="dark"] .btn-lesson-complete.is-completed {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%) !important;
+    border-color: #34d399 !important;
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .top-lesson-complete-badge {
+    background: #1b2842 !important;
+    border-color: #334155 !important;
+    color: #93c5fd !important;
+}
+
+html[data-theme="dark"] .top-lesson-complete-badge.is-completed {
+    background: #064e3b !important;
+    border-color: #10b981 !important;
+    color: #6ee7b7 !important;
+}
+
+html[data-theme="dark"] .btn-guide-pill {
+    background: #271f4d !important;
+    border-color: #6d28d9 !important;
+    color: #ddd6fe !important;
+}
+
+html[data-theme="dark"] .mobile-install-banner {
+    background: #17253e !important;
+    border-color: #2563eb !important;
+    color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] .lesson-loading-state {
+    background: #152036 !important;
+    border-color: #2b4c7e !important;
+    color: #e2e8f0 !important;
+}
+
+/* ==========================================================================
+ * 4. بطاقات الدروس والمحطات والأصناف المشتركة عبر الوحدات الـ 6
+ * ========================================================================== */
+html[data-theme="dark"] .lesson-card,
+html[data-theme="dark"] .interactive-stage-card,
+html[data-theme="dark"] .split-workshop-card,
+html[data-theme="dark"] .w-item-card,
+html[data-theme="dark"] .reading-line-card,
+html[data-theme="dark"] .family-listen-card,
+html[data-theme="dark"] .word-chip-card,
+html[data-theme="dark"] .word-card,
+html[data-theme="dark"] .ayn-salim-word-chip,
+html[data-theme="dark"] .l-nabeel-word-chip,
+html[data-theme="dark"] .health-interactive-chip,
+html[data-theme="dark"] .sad-word-card,
+html[data-theme="dark"] .ha-word-card,
+html[data-theme="dark"] .z-word-card,
+html[data-theme="dark"] .dhal-word-card,
+html[data-theme="dark"] .kaf-block,
+html[data-theme="dark"] .couplet-col {
+    background: #18243b !important;
+    border-color: #2d3f63 !important;
+    color: #f1f5f9 !important;
+}
+
+html[data-theme="dark"] .reading-line-card.active,
+html[data-theme="dark"] .w-item-card:hover,
+html[data-theme="dark"] .word-card:hover,
+html[data-theme="dark"] .family-listen-card:hover {
+    background: #1f3152 !important;
+    border-color: #60a5fa !important;
+}
+
+html[data-theme="dark"] .w-item-word,
+html[data-theme="dark"] .ha-word-text,
+html[data-theme="dark"] .dhal-word-text,
+html[data-theme="dark"] .lesson-header h2,
+html[data-theme="dark"] .modeling-mode-title {
+    color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .w-item-phonics,
+html[data-theme="dark"] .z-word-pos,
+html[data-theme="dark"] .dhal-word-pos {
+    color: #93c5fd !important;
+}
+
+html[data-theme="dark"] .station-nav-bar,
+html[data-theme="dark"] .modeling-mode-bar {
+    background: #141e33 !important;
+    border-color: #283754 !important;
+}
+
+html[data-theme="dark"] .station-tab {
+    background: #1b2842 !important;
+    border-color: #334155 !important;
+    color: #cbd5e1 !important;
+}
+
+html[data-theme="dark"] .station-tab.active {
+    background: #2563eb !important;
+    border-color: #60a5fa !important;
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .syllable-chip,
+html[data-theme="dark"] .b-syllable-chip,
+html[data-theme="dark"] .split-chip,
+html[data-theme="dark"] .dhad-split-syllable,
+html[data-theme="dark"] .kaf-pill,
+html[data-theme="dark"] .kha-part-tag,
+html[data-theme="dark"] .puzzle-piece,
+html[data-theme="dark"] .puzzle-result,
+html[data-theme="dark"] .btn-secondary {
+    background: #1e2d4a !important;
+    border-color: #3b5380 !important;
+    color: #e2e8f0 !important;
+}
+
+/* ==========================================================================
+ * 5. شخصية «فصيح» وفقاعة التوجيه
+ * ========================================================================== */
+html[data-theme="dark"] .speech-bubble {
+    background: #162238 !important;
+    border-color: #3b82f6 !important;
+    color: #f1f5f9 !important;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.55) !important;
+}
+
+html[data-theme="dark"] .speech-bubble.speaking {
+    border-color: #10b981 !important;
+    box-shadow: 0 0 22px rgba(16, 185, 129, 0.45) !important;
+}
+
+html[data-theme="dark"] .btn-bubble-close,
+html[data-theme="dark"] .btn-mascot-minimize {
+    background: #1e293b !important;
+    border-color: #475569 !important;
+    color: #cbd5e1 !important;
+}
+
+html[data-theme="dark"] .mascot-minimized-badge {
+    background: linear-gradient(135deg, #42300f 0%, #5c4213 100%) !important;
+    border-color: #f59e0b !important;
+    color: #fde68a !important;
+}
+
+/* ==========================================================================
+ * 6. النوافذ المنبثقة الـ 18 ونماذج الإدخال والضبط
+ * ========================================================================== */
+html[data-theme="dark"] .modal-backdrop {
+    background: rgba(2, 6, 23, 0.8) !important;
+}
+
+html[data-theme="dark"] .modal-box {
+    background: #131d31 !important;
+    border-color: #2c3e5e !important;
+    color: #f1f5f9 !important;
+}
+
+html[data-theme="dark"] .modal-header,
+html[data-theme="dark"] .modal-footer {
+    background: #0f172a !important;
+    border-color: #283754 !important;
+    color: #f1f5f9 !important;
+}
+
+html[data-theme="dark"] .modal-header h3 {
+    color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .modal-close-btn {
+    background: #1e293b !important;
+    color: #e2e8f0 !important;
+    border: 1px solid #334155 !important;
+}
+
+html[data-theme="dark"] .modal-close-btn:hover {
+    background: #7f1d1d !important;
+    color: #fecaca !important;
+}
+
+html[data-theme="dark"] .modal-tab {
+    background: #1b2842 !important;
+    border-color: #334155 !important;
+    color: #cbd5e1 !important;
+}
+
+html[data-theme="dark"] .modal-tab.active {
+    background: #2563eb !important;
+    border-color: #60a5fa !important;
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .settings-voice-card,
+html[data-theme="dark"] .settings-theme-option,
+html[data-theme="dark"] .profile-card-item,
+html[data-theme="dark"] .unit-journey-card,
+html[data-theme="dark"] .skill-eval-row,
+html[data-theme="dark"] .mastery-letter-tile {
+    background: #18243b !important;
+    border-color: #2d3f63 !important;
+    color: #f1f5f9 !important;
+}
+
+html[data-theme="dark"] .settings-voice-card.active,
+html[data-theme="dark"] .settings-theme-option.active,
+html[data-theme="dark"] .profile-card-item.active-profile {
+    background: #1c3154 !important;
+    border-color: #60a5fa !important;
+}
+
+html[data-theme="dark"] .voice-preview-btn {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+}
+
+html[data-theme="dark"] input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    color: #f8fafc !important;
+}
+
+/* ==========================================================================
+ * 7. شبكة الأمان للأنماط المضمنة ذات الخلفيات الفاتحة والنصوص الداكنة
+ *    مع استثناء قوالب الطباعة والشهادات (.grand-cert-print-container, .exam-paper-a4...)
+ * ========================================================================== */
+html[data-theme="dark"] [style*="#ffffff" i]:not(.grand-cert-print-container):not(.grand-cert-print-container *):not(.exam-paper-a4):not(.exam-paper-a4 *):not(.print-sheet-paper):not(.print-sheet-paper *):not(.ss-print-sheet-mockup):not(.ss-print-sheet-mockup *),
+html[data-theme="dark"] [style*="background: white" i]:not(.grand-cert-print-container):not(.grand-cert-print-container *):not(.exam-paper-a4):not(.exam-paper-a4 *):not(.print-sheet-paper):not(.print-sheet-paper *),
+html[data-theme="dark"] [style*="background-color: white" i]:not(.grand-cert-print-container):not(.grand-cert-print-container *):not(.exam-paper-a4):not(.exam-paper-a4 *):not(.print-sheet-paper):not(.print-sheet-paper *),
+html[data-theme="dark"] [style*="#f8fafc" i]:not(.grand-cert-print-container):not(.grand-cert-print-container *):not(.exam-paper-a4):not(.exam-paper-a4 *):not(.print-sheet-paper):not(.print-sheet-paper *),
+html[data-theme="dark"] [style*="#f1f5f9" i]:not(.grand-cert-print-container):not(.grand-cert-print-container *):not(.exam-paper-a4):not(.exam-paper-a4 *):not(.print-sheet-paper):not(.print-sheet-paper *),
+html[data-theme="dark"] [style*="#e2e8f0" i]:not(.grand-cert-print-container):not(.grand-cert-print-container *):not(.exam-paper-a4):not(.exam-paper-a4 *):not(.print-sheet-paper):not(.print-sheet-paper *) {
+    background: #18243b !important;
+    border-color: #2e4063 !important;
+}
+
+html[data-theme="dark"] [style*="#f0f9ff" i],
+html[data-theme="dark"] [style*="#e0f2fe" i],
+html[data-theme="dark"] [style*="#eff6ff" i],
+html[data-theme="dark"] [style*="#dbeafe" i] {
+    background: #152540 !important;
+    border-color: #294c7a !important;
+}
+
+html[data-theme="dark"] [style*="#ecfdf5" i],
+html[data-theme="dark"] [style*="#f0fdf4" i],
+html[data-theme="dark"] [style*="#dcfce7" i] {
+    background: #112b27 !important;
+    border-color: #1f5c4a !important;
+}
+
+html[data-theme="dark"] [style*="#fffbeb" i],
+html[data-theme="dark"] [style*="#fef3c7" i],
+html[data-theme="dark"] [style*="#fefce8" i],
+html[data-theme="dark"] [style*="#fde68a" i] {
+    background: #2b2212 !important;
+    border-color: #6b4f1b !important;
+}
+
+html[data-theme="dark"] [style*="#ffe4e6" i],
+html[data-theme="dark"] [style*="#fff1f2" i],
+html[data-theme="dark"] [style*="#fdf2f8" i] {
+    background: #2c1925 !important;
+    border-color: #6d2842 !important;
+}
+
+html[data-theme="dark"] [style*="#fdf4ff" i],
+html[data-theme="dark"] [style*="#fae8ff" i],
+html[data-theme="dark"] [style*="#f5f3ff" i],
+html[data-theme="dark"] [style*="#ede9fe" i],
+html[data-theme="dark"] [style*="#eef2ff" i] {
+    background: #211d3a !important;
+    border-color: #4c3b82 !important;
+}
+
+html[data-theme="dark"] [style*="#fff7ed" i],
+html[data-theme="dark"] [style*="#ffedd5" i] {
+    background: #2b1d13 !important;
+    border-color: #7c3e1b !important;
+}
+
+/* نصوص داكنة مضمنة تحتاج تفتيحاً متبايناً دون المساس بقوالب الطباعة */
+html[data-theme="dark"] [style*="color: #0f172a" i],
+html[data-theme="dark"] [style*="color:#0f172a" i],
+html[data-theme="dark"] [style*="color: #1e293b" i],
+html[data-theme="dark"] [style*="color:#1e293b" i],
+html[data-theme="dark"] [style*="color: #334155" i],
+html[data-theme="dark"] [style*="color:#334155" i] {
+    color: #f1f5f9 !important;
+}
+
+html[data-theme="dark"] [style*="color: #475569" i],
+html[data-theme="dark"] [style*="color:#475569" i],
+html[data-theme="dark"] [style*="color: #64748b" i],
+html[data-theme="dark"] [style*="color:#64748b" i] {
+    color: #cbd5e1 !important;
+}
+
+html[data-theme="dark"] [style*="color: #1e3a8a" i],
+html[data-theme="dark"] [style*="color:#1e3a8a" i],
+html[data-theme="dark"] [style*="color: #1e40af" i],
+html[data-theme="dark"] [style*="color:#1e40af" i],
+html[data-theme="dark"] [style*="color: #1d4ed8" i],
+html[data-theme="dark"] [style*="color:#1d4ed8" i],
+html[data-theme="dark"] [style*="color: #0369a1" i],
+html[data-theme="dark"] [style*="color:#0369a1" i],
+html[data-theme="dark"] [style*="color: #0284c7" i],
+html[data-theme="dark"] [style*="color:#0284c7" i] {
+    color: #93c5fd !important;
+}
+
+html[data-theme="dark"] [style*="color: #065f46" i],
+html[data-theme="dark"] [style*="color:#065f46" i],
+html[data-theme="dark"] [style*="color: #047857" i],
+html[data-theme="dark"] [style*="color:#047857" i],
+html[data-theme="dark"] [style*="color: #059669" i],
+html[data-theme="dark"] [style*="color:#059669" i],
+html[data-theme="dark"] [style*="color: #166534" i],
+html[data-theme="dark"] [style*="color:#166534" i],
+html[data-theme="dark"] [style*="color: #15803d" i],
+html[data-theme="dark"] [style*="color:#15803d" i] {
+    color: #6ee7b7 !important;
+}
+
+html[data-theme="dark"] [style*="color: #92400e" i],
+html[data-theme="dark"] [style*="color:#92400e" i],
+html[data-theme="dark"] [style*="color: #b45309" i],
+html[data-theme="dark"] [style*="color:#b45309" i],
+html[data-theme="dark"] [style*="color: #854d0e" i],
+html[data-theme="dark"] [style*="color:#854d0e" i],
+html[data-theme="dark"] [style*="color: #7c2d12" i],
+html[data-theme="dark"] [style*="color: #9a3412" i] {
+    color: #fcd34d !important;
+}
+
+html[data-theme="dark"] [style*="color: #9f1239" i],
+html[data-theme="dark"] [style*="color:#9f1239" i],
+html[data-theme="dark"] [style*="color: #be123c" i],
+html[data-theme="dark"] [style*="color:#be123c" i],
+html[data-theme="dark"] [style*="color: #dc2626" i] {
+    color: #fda4af !important;
+}
+
+html[data-theme="dark"] [style*="color: #5b21b6" i],
+html[data-theme="dark"] [style*="color:#5b21b6" i],
+html[data-theme="dark"] [style*="color: #4338ca" i],
+html[data-theme="dark"] [style*="color:#4338ca" i],
+html[data-theme="dark"] [style*="color: #3730a3" i],
+html[data-theme="dark"] [style*="color:#3730a3" i],
+html[data-theme="dark"] [style*="color: #6d28d9" i] {
+    color: #c4b5fd !important;
+}
+
+/* الحفاظ التام على النص الأبيض فوق الأزرار المشبعة */
+html[data-theme="dark"] .btn-teach,
+html[data-theme="dark"] .btn-primary,
+html[data-theme="dark"] .btn-listen,
+html[data-theme="dark"] .btn-danger,
+html[data-theme="dark"] [style*="color: white" i],
+html[data-theme="dark"] [style*="color: #fff" i] {
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+ * 8. حماية الصور التعليمية ولوحات الرسم والطباعة
+ * ========================================================================== */
+html[data-theme="dark"] img:not(.no-dark-dim):not(.cert-img) {
+    filter: brightness(0.92) contrast(1.03);
+}
+
+html[data-theme="dark"] canvas {
+    border-radius: 12px;
+}
+
+html[data-theme="dark"] .grand-cert-print-container,
+html[data-theme="dark"] .exam-paper-a4,
+html[data-theme="dark"] .print-sheet-paper,
+html[data-theme="dark"] .ss-print-sheet-mockup {
+    background: #ffffff !important;
+    color: #0f172a !important;
+}
+
+html[data-theme="dark"] .grand-cert-print-container *,
+html[data-theme="dark"] .exam-paper-a4 *,
+html[data-theme="dark"] .print-sheet-paper *,
+html[data-theme="dark"] .ss-print-sheet-mockup * {
+    color: #0f172a !important;
+}
+
+@media print {
+    html[data-theme="dark"],
+    html[data-theme="dark"] body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        color-scheme: light !important;
+    }
+}

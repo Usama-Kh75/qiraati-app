@@ -50,16 +50,13 @@ def build_standalone():
     print("   إعداد وتطوير: المهندس أسامة خليل هاشم")
     print("=" * 75)
 
-    # 1. التأكد من تحديث وتجميع index.html أولاً من ملفات views/
+    # 1. التأكد من تحديث index.html الخفيف وتجميع النص الكامل المضمن من ملفات views/
     sys.path.insert(0, os.path.join(BASE_DIR, 'tools'))
     import build
-    build.build_index()
+    build.build_index(inline_views=False)
 
-    index_path = os.path.join(BASE_DIR, 'index.html')
     out_path = os.path.join(BASE_DIR, 'قراءتي_التفاعلية_الذكية.html')
-
-    with open(index_path, 'r', encoding='utf-8') as f:
-        html = f.read()
+    html, _, _, _ = build.assemble_html(inline_views=True)
 
     # 2. حصر وترميز كافة الصور والأيقونات المستخدمة فعلياً (Base64 Data URIs)
     print("\n[1/7] جارٍ ترميز الصور والأيقونات المستخدمة فعلياً في الذاكرة (Base64)...")
@@ -122,7 +119,8 @@ def build_standalone():
         'css/readers-theater.css',
         'css/nasheed-studio.css',
         'css/story-studio.css',
-        'css/student-profiles.css'
+        'css/student-profiles.css',
+        'css/dark-mode.css'
     ]
 
     css_combined = []
@@ -245,8 +243,11 @@ def build_standalone():
     print("\n[6/7] جارٍ دمج وحدات JavaScript المعيارية الـ 28 بالترتيب التكاملي الدقيق...")
     js_modules = [
         'js/core/ai-bridge.js',
+        'js/core/theme.js',
         'js/core/modals.js',
         'js/core/audio.js',
+        'js/core/view-loader.js',
+        'js/core/progress.js',
         'js/core/navigation.js',
         'js/core/evaluation.js',
         'js/core/enrichment.js',

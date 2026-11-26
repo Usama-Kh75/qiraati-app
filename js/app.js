@@ -13,7 +13,15 @@ window.addEventListener('load', () => {
 });
 
 window.addEventListener('DOMContentLoaded', () => {
-    // 1. بناء القائمة الجانبية للمنهج
+    // 0. تهيئة المظهر (الوضع الليلي/النهاري) وسجل التقدم التلقائي
+    if (window.ThemeManager && typeof window.ThemeManager.init === 'function') {
+        window.ThemeManager.init();
+    }
+    if (window.StudentProgress && typeof window.StudentProgress.init === 'function') {
+        window.StudentProgress.init();
+    }
+
+    // 1. بناء القائمة الجانبية للمنهج واستئناف آخر درس
     if (typeof buildCurriculumSidebar === 'function') {
         buildCurriculumSidebar();
     }

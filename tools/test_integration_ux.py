@@ -97,6 +97,9 @@ def run_integration_audit():
         'nasheed-studio.js': os.path.join(BASE_DIR, 'js', 'core', 'nasheed-studio.js'),
         'story-studio.js': os.path.join(BASE_DIR, 'js', 'core', 'story-studio.js'),
         'audio.js': os.path.join(BASE_DIR, 'js', 'core', 'audio.js'),
+        'theme.js': os.path.join(BASE_DIR, 'js', 'core', 'theme.js'),
+        'view-loader.js': os.path.join(BASE_DIR, 'js', 'core', 'view-loader.js'),
+        'progress.js': os.path.join(BASE_DIR, 'js', 'core', 'progress.js'),
         'navigation.js': os.path.join(BASE_DIR, 'js', 'core', 'navigation.js'),
         'modals.js': os.path.join(BASE_DIR, 'js', 'core', 'modals.js'),
         'app.js': os.path.join(BASE_DIR, 'js', 'app.js'),
@@ -606,7 +609,7 @@ def run_integration_audit():
         'css/lessons-unit3.css', 'css/lessons-unit4.css', 'css/lessons-unit5.css',
         'css/lessons-unit6.css', 'css/evaluation.css', 'css/enrichment.css',
         'css/blackboard.css', 'css/games.css', 'css/gamification.css', 'css/teacher-dashboard.css',
-        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css', 'css/voice-coach.css', 'css/dictation-lab.css', 'css/readers-theater.css', 'css/nasheed-studio.css', 'css/story-studio.css'
+        'css/classroom-sync.css', 'css/classroom-quiz.css', 'css/interactive-guide.css', 'css/diagnostic-exams.css', 'css/voice-coach.css', 'css/dictation-lab.css', 'css/readers-theater.css', 'css/nasheed-studio.css', 'css/story-studio.css', 'css/student-profiles.css', 'css/dark-mode.css'
     ]
     for cf in css_files:
         if cf not in index_html:
@@ -616,11 +619,11 @@ def run_integration_audit():
 
     core_scripts = [
         'audio_data.js', 'audio_data_unit6.js', 'curriculum_data.js',
-        'js/core/modals.js', 'js/core/audio.js', 'js/core/navigation.js',
+        'js/core/theme.js', 'js/core/modals.js', 'js/core/audio.js', 'js/core/view-loader.js', 'js/core/progress.js', 'js/core/navigation.js',
         'js/core/evaluation.js', 'js/core/enrichment.js', 'js/core/blackboard.js',
         'js/core/games.js', 'js/core/gamification.js', 'js/core/teacher-dashboard.js',
         'js/core/classroom-sync.js', 'js/core/classroom-quiz.js', 'js/core/interactive-guide.js',
-        'js/core/diagnostic-exams.js', 'js/core/voice-coach.js', 'js/core/dictation-lab.js', 'js/core/readers-theater.js', 'js/core/nasheed-studio.js', 'js/core/story-studio.js', 'js/app.js'
+        'js/core/diagnostic-exams.js', 'js/core/voice-coach.js', 'js/core/dictation-lab.js', 'js/core/readers-theater.js', 'js/core/nasheed-studio.js', 'js/core/story-studio.js', 'js/core/student-profiles.js', 'js/app.js'
     ]
     for cs in core_scripts:
         if cs not in index_html:
@@ -662,6 +665,10 @@ def run_integration_audit():
         ('js/core/nasheed-studio.js', open(os.path.join(BASE_DIR, 'js', 'core', 'nasheed-studio.js'), encoding='utf-8').read()),
         ('css/story-studio.css', open(os.path.join(BASE_DIR, 'css', 'story-studio.css'), encoding='utf-8').read()),
         ('js/core/story-studio.js', open(os.path.join(BASE_DIR, 'js', 'core', 'story-studio.js'), encoding='utf-8').read()),
+        ('css/dark-mode.css', open(os.path.join(BASE_DIR, 'css', 'dark-mode.css'), encoding='utf-8').read()),
+        ('js/core/theme.js', open(os.path.join(BASE_DIR, 'js', 'core', 'theme.js'), encoding='utf-8').read()),
+        ('js/core/view-loader.js', open(os.path.join(BASE_DIR, 'js', 'core', 'view-loader.js'), encoding='utf-8').read()),
+        ('js/core/progress.js', open(os.path.join(BASE_DIR, 'js', 'core', 'progress.js'), encoding='utf-8').read()),
     ]
     for s_name, s_content in sig_targets:
         if official_signature not in s_content:

@@ -47,15 +47,9 @@
                     section: 'أ',
                     avatar: '👦',
                     createdAt: Date.now(),
-                    totalLearningMinutes: 25,
-                    completedLessons: ['prep_intro', 'prep_alif', 'unit1_letter_d'],
-                    letterStats: {
-                        'د': { correct: 8, attempts: 9 },
-                        'أ': { correct: 6, attempts: 7 },
-                        'ر': { correct: 2, attempts: 5 },
-                        'ب': { correct: 5, attempts: 6 },
-                        'م': { correct: 4, attempts: 6 }
-                    }
+                    totalLearningMinutes: 0,
+                    completedLessons: [],
+                    letterStats: {}
                 };
                 this.profiles = [defaultProfile];
                 safeSetItem(STORAGE_KEY_PROFILES, this.profiles);
@@ -107,6 +101,9 @@
             this.save();
             this.renderProfilesList();
             this.renderMasteryMap();
+            if (window.StudentProgress && typeof window.StudentProgress.onProfileChanged === 'function') {
+                window.StudentProgress.onProfileChanged();
+            }
             return newP;
         },
 
@@ -116,6 +113,9 @@
                 this.save();
                 this.renderProfilesList();
                 this.renderMasteryMap();
+                if (window.StudentProgress && typeof window.StudentProgress.onProfileChanged === 'function') {
+                    window.StudentProgress.onProfileChanged();
+                }
                 const active = this.getActiveProfile();
                 if (window.mascotSpeak) {
                     mascotSpeak(`أهلاً بك يا ${active.name}! مستعد لرحلة التعلم اليوم؟`, 'faseeh_encourage_super');
@@ -397,9 +397,13 @@
             const masteredEl = document.getElementById('parentReportMastered');
             const weakestBox = document.getElementById('parentReportWeakestBox');
 
+            const progressStats = (window.StudentProgress && typeof window.StudentProgress.getSummaryStats === 'function')
+                ? window.StudentProgress.getSummaryStats()
+                : { completed: (active.completedLessons || []).length, learningMinutes: active.totalLearningMinutes || 0 };
+
             if (nameEl) nameEl.innerText = `${active.name} (الصف الأول / شعبة ${active.section || 'أ'})`;
-            if (timeEl) timeEl.innerText = `${active.totalLearningMinutes || 25} دقيقة`;
-            if (completedEl) completedEl.innerText = `${(active.completedLessons || []).length + 3} درساً`;
+            if (timeEl) timeEl.innerText = `${progressStats.learningMinutes || 0} دقيقة`;
+            if (completedEl) completedEl.innerText = `${progressStats.completed || 0} درساً`;
 
             let masteredCount = 0;
             ARABIC_LETTERS.forEach(l => {
@@ -611,7 +615,7 @@
     window.pronounceCurrentLessonPresentation = function() {
         if (typeof flatLessonsList !== 'undefined' && flatLessonsList[currentLessonIndex]) {
             const lesson = flatLessonsList[currentLessonIndex];
-            const readyAudioBtn = document.querySelector(`.lesson-view[id="${lesson.id}"] .btn-teach, .lesson-view[id="${lesson.id}"] button[onclick*="play"]`);
+            const readyAudioBtn = document.querySelector(`.lesson-view[id="view-${lesson.id}"] .btn-teach, .lesson-view[id="view-${lesson.id}"] button[onclick*="play"]`);
             if (readyAudioBtn) {
                 readyAudioBtn.click();
             } else if (window.mascotSpeak) {

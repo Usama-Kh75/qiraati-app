@@ -125,7 +125,13 @@ def get_protected_keys():
         if key.startswith('teacher_') or '_teacher_' in key or key.endswith('_teacher'):
             teacher_hashes.add(digest)
 
-    protected = {k for k, d in md5_map.items() if d in teacher_hashes}
+    # v3.64: تُحمى تسجيلات المعلمة بأسمائها الصريحة (teacher_*) فقط؛ أما نسخها المكررة تحت مفاتيح الدروس
+    # (مثل letter_d_dar) فتُستبدل بصوت الأستاذ باسل لأن الأصل محفوظ في مفتاح teacher_* ويُستعمل في وضع المعلمة.
+    protected = {
+        k for k in md5_map
+        if (k.startswith('teacher_') or '_teacher_' in k or k.endswith('_teacher'))
+        and k != 'unit2_facility_teacher'
+    }
     protected.update(QURAN_PROTECTED_KEYS)
     protected.update(RANA_UI_PROTECTED_KEYS)
     return protected, md5_map
@@ -305,7 +311,7 @@ def transcribe_audio_with_gemini(mp3_path, ref_text, api_key):
     body_bytes = json.dumps(payload).encode('utf-8')
 
     last_err = None
-    for attempt in range(6):
+    for attempt in range(7):
         req = urllib.request.Request(
             endpoint,
             data=body_bytes,
@@ -324,7 +330,7 @@ def transcribe_audio_with_gemini(mp3_path, ref_text, api_key):
             txt = re.sub(r'\s+', ' ', txt).strip('"\'` \n\r\t')
             if (
                 not re.search(r'[\u0600-\u06FF]', txt)
-                or len(txt) < 2
+                or len(txt) < 1
                 or re.search(r'[A-Za-z]', txt)
                 or '->' in txt
                 or '"' in txt
@@ -336,14 +342,14 @@ def transcribe_audio_with_gemini(mp3_path, ref_text, api_key):
         except urllib.error.HTTPError as e:
             err_msg = e.read().decode('utf-8', errors='ignore')
             last_err = RuntimeError(f"ASR HTTP {e.code}: {err_msg[:200]}")
-            if e.code in (429, 500, 502, 503, 504) and attempt < 5:
-                wait_s = min(40.0, (2 ** attempt) + random.uniform(0.2, 1.5))
+            if e.code in (429, 500, 502, 503, 504) and attempt < 6:
+                wait_s = min(60.0, (2 ** (attempt + 1)) + random.uniform(1.0, 3.0))
                 time.sleep(wait_s)
                 continue
             raise last_err
         except Exception as e:
             last_err = e
-            if attempt < 5:
+            if attempt < 6:
                 wait_s = min(20.0, (2 ** attempt) + random.uniform(0.2, 1.2))
                 time.sleep(wait_s)
                 continue
@@ -944,6 +950,245 @@ def build_v363_manifest():
         print(f"   - {ch}: {cnt}")
     print(f"   - الإجمالي الكلي: {len(updated_items)}")
     print("=" * 70)
+
+
+def _extract_curriculum_reference_texts():
+    """جمع نصوص مرجعية لكل مفتاح صوتي من الواجهات والمنطق.
+    يعيد (refs, first_node): refs نصوص كاملة، first_node أول نص عربي داخل العنصر القابل للنقر (للمقاطع والحركات)."""
+    def _clean(s):
+        s = strip_html_and_emoji(s)
+        return re.sub(r'\s+', ' ', s).strip()
+
+    def _first_arabic_node(inner):
+        for seg in re.split(r'<[^>]+>', inner):
+            seg = _clean(seg)
+            if re.search(r'[\u0600-\u06FF]', seg):
+                return seg
+        return ""
+
+    refs, first_node = {}, {}
+    html_files = glob.glob(os.path.join(BASE_DIR, 'views', '**', '*.html'), recursive=True)
+    js_files = glob.glob(os.path.join(BASE_DIR, 'js', '**', '*.js'), recursive=True)
+
+    # خرائط الدوال: fnName -> {arg: audioKey}
+    fn_maps = {}
+    pat_fn = re.compile(r"function\s+(\w+)\s*\(\s*(\w+)\s*\)\s*\{([\s\S]{0,8000}?)\n\s{0,12}\}")
+    for jf in js_files:
+        with open(jf, 'r', encoding='utf-8', errors='ignore') as f:
+            jtxt = f.read()
+        for m in pat_fn.finditer(jtxt):
+            name, param, body = m.group(1), m.group(2), m.group(3)
+            mp = dict(re.findall(r"['\"]?([A-Za-z0-9_]+)['\"]?\s*:\s*['\"]([a-z][a-z0-9_]+)['\"]", body))
+            pm = re.search(r"playAudio\(\s*['\"]([a-z0-9_]+)['\"]\s*\+\s*" + re.escape(param) + r"\s*\)", body)
+            entry = fn_maps.setdefault(name, {"map": {}, "prefix": None})
+            entry["map"].update(mp)
+            if pm:
+                entry["prefix"] = pm.group(1)
+
+    pat_click = re.compile(r"""<([a-zA-Z0-9]+)\b[^>]*onclick=["']([^"']*)["'][^>]*>([\s\S]{1,600}?)</\1>""")
+    for hf in html_files:
+        with open(hf, 'r', encoding='utf-8', errors='ignore') as f:
+            txt = f.read()
+        for m in pat_click.finditer(txt):
+            handler, inner = m.group(2), m.group(3)
+            keys = re.findall(r"playAudio\(\s*['\"]([a-zA-Z0-9_]+)['\"]", handler)
+            for fn, arg in re.findall(r"(\w+)\(\s*['\"]([A-Za-z0-9_]+)['\"]", handler):
+                e = fn_maps.get(fn)
+                if e:
+                    if arg in e["map"]:
+                        keys.append(e["map"][arg])
+                    elif e["prefix"]:
+                        keys.append(e["prefix"] + arg)
+            if not keys:
+                continue
+            full = _clean(inner)
+            first = _first_arabic_node(inner)
+            for k in keys:
+                if re.search(r'[\u0600-\u06FF]', full):
+                    refs.setdefault(k, []).append(full)
+                if first:
+                    first_node.setdefault(k, first)
+
+    pat_ms = re.compile(r"""mascotSpeak\s*\(\s*(['"`])((?:\\.|(?!\1).)*?)\1\s*,\s*['"]([a-zA-Z0-9_]+)['"]""", re.S)
+    pat_obj = re.compile(r"\{[^{}\n]{0,260}?(?:audio|audioKey|sound|soundKey)\s*:\s*['\"]([a-zA-Z0-9_]+)['\"][^{}\n]{0,260}?\}")
+    pat_fields = re.compile(r"(?:word|text|title|label|syl|syllable|sentence|question)\s*:\s*['\"]([^'\"]+)['\"]")
+    for cf in html_files + js_files:
+        with open(cf, 'r', encoding='utf-8', errors='ignore') as f:
+            txt = f.read()
+        for m in pat_ms.finditer(txt):
+            c = _clean(m.group(2))
+            if re.search(r'[\u0600-\u06FF]', c):
+                refs.setdefault(m.group(3), []).append(c)
+        for m in pat_obj.finditer(txt):
+            for fv in pat_fields.findall(m.group(0)):
+                c = _clean(fv)
+                if re.search(r'[\u0600-\u06FF]', c):
+                    refs.setdefault(m.group(1), []).append(c)
+    return refs, first_node
+
+
+CURRICULUM_LETTER_CHARS = {
+    'letter_ayn_salim': 'ع', 'letter_l_nabeel': 'ل', 'letter_q_booq': 'ق', 'letter_f_reef': 'ف',
+    'letter_dhad': 'ض', 'letter_dhal': 'ذ', 'letter_dha': 'ظ', 'letter_ghayn': 'غ', 'letter_hamza': 'أ',
+    'letter_kaf': 'ك', 'letter_kha': 'خ', 'letter_tha': 'ث', 'letter_sad': 'ص', 'letter_sh': 'ش',
+    'letter_ha': 'ه', 'letter_ta': 'ط', 'letter_b': 'ب', 'letter_m': 'م', 'letter_d': 'د', 'letter_f': 'ف',
+    'letter_r': 'ر', 'letter_s': 'س', 'letter_n': 'ن', 'letter_t': 'ت', 'letter_h': 'ح', 'letter_z': 'ز',
+    'letter_j': 'ج',
+}
+VOWEL_SUFFIX_MARKS = {
+    'short_a': '\u064e', 'short_u': '\u064f', 'short_i': '\u0650',
+    'long_aa': '\u064eا', 'long_oo': '\u064fو', 'long_ee': '\u0650ي',
+}
+
+
+def _derive_vowel_text(key):
+    """نص حتمي لمقاطع الحركات القصيرة والمدود (مثل letter_kaf_long_aa -> كَا <short pause> كَا)"""
+    m = re.match(r'^(letter_[a-z_]+?)_(short_a|short_u|short_i|long_aa|long_oo|long_ee)$', key)
+    if not m or m.group(1) not in CURRICULUM_LETTER_CHARS:
+        return ""
+    syl = CURRICULUM_LETTER_CHARS[m.group(1)] + VOWEL_SUFFIX_MARKS[m.group(2)]
+    return f"{syl} <short pause> {syl}"
+
+
+def _extract_make_lesson_texts_all_history():
+    """نصوص make_lesson.py الحالية مع نصوص الإصدارات السابقة منه في تاريخ git (للدروس التي حُذفت قوالبها لاحقاً)"""
+    texts = {}
+    try:
+        res = subprocess.run(
+            ['git', 'log', '-p', '--', 'tools/make_lesson.py'],
+            cwd=BASE_DIR, capture_output=True, text=True, encoding='utf-8', errors='ignore'
+        )
+        for k, t in re.findall(r'\(\s*"([a-zA-Z0-9_]+)"\s*,\s*"([^"]+)"\s*,\s*VOICE_\w+', res.stdout):
+            texts.setdefault(k, t.strip())
+    except Exception:
+        pass
+    texts.update(extract_make_lesson_texts())
+    return texts
+
+
+def _style_for_curriculum_key(key):
+    if re.search(r'_(short|long)_|_syl_|_shape_|_tanween_(dham|fath|kasr)$|_sound$', key):
+        return "calm, crisp, slow articulation"
+    if re.search(r'_split_|_merge_', key):
+        return "clear, steady, slow, distinct"
+    if re.search(r'_word_|^item_|^word_|^lam_word_', key):
+        return "clear, steady, distinct"
+    if re.search(r'_read_|_sentence|_order_', key):
+        return "warm, clear, steady"
+    return select_style_for_key(key)
+
+
+def build_full_curriculum_manifest(api_key, asr_workers=8):
+    """v3.64: إضافة كل ملفات الدروس المتبقية (غير المسجلة في الجدول) بصوت الأستاذ باسل لتغطية المنهج كاملاً"""
+    with open(MANIFEST_PATH, 'r', encoding='utf-8') as f:
+        manifest = json.load(f)
+    protected_keys, _ = get_protected_keys()
+    existing = {it["key"] for it in manifest.get("items", [])}
+
+    targets = []
+    for path in sorted(glob.glob(os.path.join(AUDIO_DIR, '*.mp3'))):
+        k = os.path.splitext(os.path.basename(path))[0]
+        if k in existing or k in protected_keys or 'fatiha' in k:
+            continue
+        if os.path.getsize(path) < 500:
+            continue
+        targets.append(k)
+
+    ml_texts = _extract_make_lesson_texts_all_history()
+    refs, first_node = _extract_curriculum_reference_texts()
+
+    # نصوص ثابتة لا تحتاج نسخاً صوتياً: النص الأصلي، ثم الحركات والمدود والمقاطع القصيرة من الواجهة
+    fixed = {}
+    for k in targets:
+        size = os.path.getsize(os.path.join(AUDIO_DIR, f"{k}.mp3"))
+        if k in ml_texts:
+            fixed[k] = ml_texts[k]
+            continue
+        if size < 25000:
+            dv = _derive_vowel_text(k)
+            if dv:
+                fixed[k] = dv
+                continue
+            if re.search(r'_syl_', k) and first_node.get(k):
+                s = first_node[k].replace('ـ', '').strip()
+                if 0 < len(s) <= 8:
+                    fixed[k] = f"{s} <short pause> {s}"
+
+    os.makedirs(BACKUP_DIR, exist_ok=True)
+    cache = {}
+    if os.path.exists(TRANSCRIPTS_CACHE_PATH):
+        try:
+            with open(TRANSCRIPTS_CACHE_PATH, 'r', encoding='utf-8') as f:
+                cache = json.load(f)
+        except Exception:
+            cache = {}
+
+    to_asr = [k for k in targets if k not in fixed and not re.search(r'[\u0600-\u06FF]', cache.get(k, ''))]
+    print("=" * 70)
+    print("📋 بناء جدول المنهج الكامل بصوت الأستاذ باسل (v3.64)")
+    print(f"   - ملفات متبقية بغير صوت باسل: {len(targets)}")
+    print(f"   - نص أصلي من make_lesson.py: {sum(1 for k in targets if k in ml_texts)}")
+    print(f"   - حركات ومقاطع من الواجهة: {len(fixed) - sum(1 for k in targets if k in ml_texts)}")
+    print(f"   - يحتاج نسخاً صوتياً (ASR): {len(to_asr)}")
+    print("=" * 70, flush=True)
+
+    if to_asr:
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY مطلوب لنسخ الملفات الصوتية.")
+        lock = threading.Lock()
+        failed = []
+        done_n = 0
+
+        def _w(k):
+            ref = (refs.get(k) or [""])[0]
+            return k, transcribe_audio_with_gemini(os.path.join(AUDIO_DIR, f"{k}.mp3"), ref, api_key)
+
+        with ThreadPoolExecutor(max_workers=max(1, asr_workers)) as ex:
+            futs = {ex.submit(_w, k): k for k in to_asr}
+            for fut in as_completed(futs):
+                k = futs[fut]
+                done_n += 1
+                try:
+                    _, txt = fut.result()
+                    with lock:
+                        cache[k] = txt
+                        if done_n % 25 == 0:
+                            with open(TRANSCRIPTS_CACHE_PATH, 'w', encoding='utf-8') as cf:
+                                json.dump(cache, cf, ensure_ascii=False, indent=2)
+                    if done_n % 25 == 0 or done_n == len(to_asr):
+                        print(f"  📝 [{done_n}/{len(to_asr)}] {k}: {txt[:60]}", flush=True)
+                except Exception as e:
+                    failed.append((k, str(e)))
+                    print(f"  ⚠️ [{done_n}/{len(to_asr)}] فشل نسخ {k}: {str(e)[:120]}", flush=True)
+        with open(TRANSCRIPTS_CACHE_PATH, 'w', encoding='utf-8') as cf:
+            json.dump(cache, cf, ensure_ascii=False, indent=2)
+        if failed:
+            print(f"⚠️ فشل نسخ {len(failed)} ملفاً (سيُستعمل النص المرجعي إن وُجد).")
+
+    new_items, skipped = [], []
+    for k in targets:
+        txt = fixed.get(k) or cache.get(k) or ""
+        if not re.search(r'[\u0600-\u06FF]', txt):
+            cand = [r for r in refs.get(k, []) if len(r) >= 1]
+            txt = cand[0] if cand else ""
+        txt = txt.replace('ـ', '')
+        txt = re.sub(r'\s+', ' ', txt).strip()
+        if not re.search(r'[\u0600-\u06FF]', txt):
+            skipped.append(k)
+            continue
+        new_items.append({
+            "key": k,
+            "character": "bassel_curriculum",
+            "text": txt,
+            "style": _style_for_curriculum_key(k),
+            "voice": DEFAULT_FASEEH_VOICE,
+        })
+
+    manifest["items"] = manifest.get("items", []) + new_items
+    manifest["meta"]["version"] = "v3.64"
+    with open(MANIFEST_PATH, 'w', encoding='utf-8') as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=2)
+    print(f"✔ أُضيف {len(new_items)} عنصراً (bassel_curriculum). تخطي بلا نص: {len(skipped)} {skipped[:20]}")
 
 
 def load_done_log():
@@ -1590,6 +1835,7 @@ def main():
     parser.add_argument("--overwrite-human", action="store_true", help="استبدال الملفات المحمية (بحذر)")
     parser.add_argument("--build-dialogues-manifest", action="store_true", help="بناء وتحديث جدول الحوارات والمسرح والألعاب")
     parser.add_argument("--build-v363-manifest", action="store_true", help="تحديث جدول v3.63 بالصوت المعاير ومكتبة الفونيمات النقية الـ 28 والمفاتيح المفقودة")
+    parser.add_argument("--build-full-curriculum-manifest", action="store_true", help="v3.64: إضافة كل ملفات الدروس المتبقية بصوت الأستاذ باسل")
     parser.add_argument("--workers", type=int, default=4, help="عدد مسارات التوليد المتوازية")
     parser.add_argument("--bitrate", type=str, default="96k", help="معدل البت لـ MP3 (مثل 64k أو 96k)")
     parser.add_argument("--model", type=str, default=DEFAULT_TTS_MODEL, help="نموذج توليد الصوت (الافتراضي: gemini-3.8-flash-tts)")
@@ -1604,6 +1850,11 @@ def main():
 
     if args.build_v363_manifest:
         build_v363_manifest()
+        if not (args.key or args.keys or args.all or args.character):
+            sys.exit(0)
+
+    if args.build_full_curriculum_manifest:
+        build_full_curriculum_manifest(api_key, asr_workers=args.workers)
         if not (args.key or args.keys or args.all or args.character):
             sys.exit(0)
 
