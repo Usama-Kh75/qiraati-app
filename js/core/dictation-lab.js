@@ -664,11 +664,11 @@
             ctx.stroke();
         }
 
-        // علامة حقوق المنصة المعتمدة
+        // علامة المنصة في أسفل الكراسة
         ctx.fillStyle = '#94a3b8';
         ctx.font = 'bold 12px "Segoe UI", Tahoma, sans-serif';
         ctx.textAlign = 'left';
-        ctx.fillText('منصة قراءتي الذكية - سبورة كراسة الخط الرسمية • إعداد المهندس أسامة خليل هاشم', 30, h - 14);
+        ctx.fillText('منصة قراءتي الذكية - سبورة كراسة الخط الرسمية', 30, h - 14);
 
         ctx.restore();
     }
@@ -876,7 +876,7 @@
                 </div>
                 <div style="text-align: left;">
                     <div style="font-weight: 800; font-size: 0.95rem; color: #4338ca;">منصة قراءتي التفاعلية الذكية</div>
-                    <div style="font-size: 0.8rem; color: #64748b;">إعداد: المهندس أسامة خليل هاشم</div>
+                    <div style="font-size: 0.8rem; color: #64748b;">الإملاء المنظور والاختباري</div>
                 </div>
             </div>
 

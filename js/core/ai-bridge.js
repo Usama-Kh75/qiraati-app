@@ -117,7 +117,7 @@
         badges.forEach(b => {
             if (State.isOnline) {
                 b.className = 'ai-status-badge online';
-                b.title = `الذكاء الاصطناعي متصل (${State.modelName}) - إعداد المهندس أسامة خليل هاشم`;
+                b.title = `الذكاء الاصطناعي متصل (${State.modelName})`;
                 b.innerHTML = '✨ متصل بالذكاء الاصطناعي';
             } else {
                 b.className = 'ai-status-badge offline';

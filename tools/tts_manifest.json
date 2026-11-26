@@ -410,15 +410,15 @@
     {
       "key": "act4_pic2_breakfast",
       "character": "bassel_dialogue",
-      "text": "اَلصُّورَةُ الثَّانِي: أَتَنَاوَلُ وَجْبَةَ الفُطُورِ الصِّحِّيَّةَ لَذِيذَةً، وَأَشْرَبُ الحَلِيبَ مَعَ إِخْوَتِي لِأَكُونَ قَوِيّاً.",
+      "text": "اَلْمَشْهَدُ الثَّانِي: أَتَنَاوَلُ وَجْبَةَ الْفُطُورِ الصِّحِّيَّةَ لَذِيذَةً، وَأَشْرَبُ الْحَلِيبَ مَعَ إِخْوَتِي لِأَكُونَ قَوِيًّا.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "act4_pic3_school",
       "character": "bassel_dialogue",
-      "text": "الصُّورَةُ الثَّالِثَةُ، أَرْتَدِي زِيِّيَ المَدْرَسِيَّ المُرَتَّبَ، وَأَسِيرُ بِنَشَاطٍ مَعَ زُمَلائِي نَحْوَ المَدْرَسَةِ لِنَتَعَلَّمَ وَنَمْرَحْ.",
-      "style": "warm, cheerful, clear",
+      "text": "اَلْمَشْهَدُ الثَّالِثُ: أَرْتَدِي زِيِّيَ الْمَدْرَسِيَّ الْمُرَتَّبَ، وَأَسِيرُ بِنَشَاطٍ مَعَ زُمَلَائِي نَحْوَ الْمَدْرَسَةِ لِنَتَعَلَّمَ وَنَمْرَحَ.",
+      "style": "warm, cheerful, clear, pronounce final fatha on namraha clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -452,7 +452,7 @@
     {
       "key": "act5_diff_books_prompt",
       "character": "bassel_dialogue",
-      "text": "أَيُّ كِتَابٍ هُوَ المـُخْتَلِفُ فِي هَذَا الصَّفِّ؟",
+      "text": "أَيُّ كِتَابٍ هُوَ الْمُخْتَلِفُ فِي هَذَا الصَّفِّ؟",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -844,7 +844,7 @@
     {
       "key": "letter_b_draw_hint",
       "character": "bassel_dialogue",
-      "text": "طَرِيقَةُ رَسْمِ حَرْفِ البَاءِ: نَبْدَأُ مِنْ أَعْلَى اليَمِينِ، نَنْزِلُ خَطّاً مَائِلاً لِلسَّطْرِ، ثُمَّ نَسِيرُ أُفُقِيّاً إِلَى اليَسَارِ، ثُمَّ نَصْعَدُ سِنّاً صَغِيراً إِلَى أَعْلَى، وَنَضَعُ نُقْطَةً وَاحِدَةً فِي الأَسْفَلِ. بَـ ب",
+      "text": "إِرْشَادُ رَسْمِ حَرْفِ الْبَاءِ: نَبْدَأُ مِنْ أَعْلَى الْيَمِينِ، نَنْزِلُ لِلسَّطْرِ، نَسِيرُ لِلْيَسَارِ، ثُمَّ نَصْعَدُ قَلِيلًا، وَنَضَعُ نُقْطَةً وَاحِدَةً فِي الْأَسْفَلِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -879,7 +879,7 @@
     {
       "key": "letter_d_analysis_intro",
       "character": "bassel_dialogue",
-      "text": "وَرْشَةُ التَّحْلِيلِ الْمَقْطَعِيِّ صَفِّقْ مَعِي لِعَدِّ مَقَاطِعِ الْكَلِمِ",
+      "text": "وَرْشَةُ التَّحْلِيلِ الْمَقْطَعِيِّ، صَفِّقْ مَعِي لِعَدِّ مَقَاطِعِ الْكَلِمَاتِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -1523,7 +1523,7 @@
     {
       "key": "letter_ghayn_act4_intro",
       "character": "bassel_dialogue",
-      "text": "نَشَاطُ ٤: أَسْتَمِعُ إِلَى لَفْظِ الْكَلِمَاتِ، وَأُمَيِّزُ صَوْتَ حَرْفِ الْغَيْنِ السَّاكِنِ فِي الْمَقَاطِعِ: مِغْ، أَرْ",
+      "text": "نَشَاطُ أَرْبَعَةٍ: أَسْتَمِعُ إِلَى لَفْظِ الْكَلِمَاتِ، وَأُمَيِّزُ صَوْتَ حَرْفِ الْغَيْنِ السَّاكِنِ فِي الْمَقَاطِعِ: مِغْ، أَغْ، صَغْ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -1551,7 +1551,7 @@
     {
       "key": "letter_ghayn_act8_intro",
       "character": "bassel_dialogue",
-      "text": "نَشَاطُ ثَمَانِي أُرَتِّبُ الكَلِمَاتِ التَّالِيَةَ وَأُكَوِّنُ جُمْلَةً مُفِيدَةً: تَغْرِيدُ تُحِبُّ أَنْ تَقْرَأَ كَثِيرًا",
+      "text": "نَشَاطُ ثَمَانِيَةٍ: أُرَتِّبُ الْكَلِمَاتِ التَّالِيَةَ وَأُكَوِّنُ جُمْلَةً مُفِيدَةً: تَغْرِيدُ تُحِبُّ أَنْ تَقْرَأَ كَثِيرًا.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -2538,14 +2538,14 @@
     {
       "key": "letter_marboota_scene_story",
       "character": "bassel_dialogue",
-      "text": "فِي مَدْرَسَةِ سَارَةَ الْجَمِيلِ، اِلْتَقَتِ الصَّدِيقَاتُ الثَّلَاثُ فِي الْغُرْفَةِ الصَّفِّيَّةِ الْمُرَتَّبَةِ. سَارَةُ تَرْسُمُ لَوْحَةً رَائِعَةً، وَدِيمَةُ تَدْرُسُ بِجِدٍّ وَاجْتِهَادٍ، وَسَرْوَةُ تَبْتَسِمُ فَرِحَةً بِلِقَاءِ صَدِيقَاتِهَا وَمُعَلِّمَتِهَا.",
+      "text": "فِي مَدْرَسَةِ سَارَةَ الْجَمِيلَةِ، اِلْتَقَتِ الصَّدِيقَاتُ الثَّلَاثُ فِي الْغُرْفَةِ الصَّفِّيَّةِ الْمُرَتَّبَةِ. سَارَةُ تَرْسُمُ لَوْحَةً رَائِعَةً، وَدِيمَةُ تَدْرُسُ بِجِدٍّ وَاجْتِهَادٍ، وَسَرْوَةُ تَبْتَسِمُ فَرِحَةً بِلِقَاءِ صَدِيقَاتِهَا وَمُعَلِّمَتِهَا.",
       "style": "warm, expressive storytelling",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_marboota_syllables_intro",
       "character": "bassel_dialogue",
-      "text": "اَلْمَحَطَّةُ الثَّالِثْ: اَلتَّمْيِيزُ وَالْفَرْزُ وَالْمَقَاطِعُ وَالتَّحْلِيلُ الصَّوْتِيُّ، صَفْحَة 45. اِكْتَشِفِ الْكَلِمَاتِ الَّتِي تَحْوِي تَاءً مَرْبُوطَة، وَحَدِّدْ شَكْلَهَا الْمُتَّصِلَ أَوِ الْمُنْفَصِلْ، وَحَلِّلِ الْكَلِمَاتِ بِالصَّفَقَاتِ الْإِيقَاعِيَّة!",
+      "text": "اَلْمَحَطَّةُ الثَّالِثَةُ: اَلتَّمْيِيزُ وَالْفَرْزُ وَالْمَقَاطِعُ وَالتَّحْلِيلُ الصَّوْتِيُّ، صَفْحَةُ خَمْسَةٍ وَأَرْبَعِينَ. اِكْتَشِفِ الْكَلِمَاتِ الَّتِي تَحْوِي تَاءً مَرْبُوطَةً، وَحَدِّدْ شَكْلَهَا الْمُتَّصِلَ أَوِ الْمُنْفَصِلَ، وَحَلِّلِ الْكَلِمَاتِ بِالصَّفَقَاتِ الْإِيقَاعِيَّةِ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -2566,7 +2566,7 @@
     {
       "key": "letter_n_draw_hint",
       "character": "bassel_dialogue",
-      "text": "إِرْشَادُ رَسْمِ حَرْفِ النُّونِ، نَرْسُمُ صَحْنًا صَغِيرًا مُتَّصِلًا عَلَى السَّطْرِ لِلنُّونِ الأُولَى، نْـ ، أَوْ صَحْنًا نِصْفَ دَائِرِيٍّ يَنْزِلُ تَحْتَ السَّطْرِ لِلنُّونِ الْكَامِلَةِ، نْ ، وَنَضَعُ نُقْطَةً وَاحِدَةً فِي الأَعْلَى.",
+      "text": "إِرْشَادُ رَسْمِ حَرْفِ النُّونِ: نَرْسُمُ صَحْنًا صَغِيرًا مُتَّصِلًا عَلَى السَّطْرِ لِلنُّونِ الْأُولَى، أَوْ صَحْنًا نِصْفَ دَائِرِيٍّ يَنْزِلُ تَحْتَ السَّطْرِ لِلنُّونِ الْكَامِلَةِ، وَنَضَعُ نُقْطَةً وَاحِدَةً فِي الْأَعْلَى.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -2986,7 +2986,7 @@
     {
       "key": "letter_t_draw_hint",
       "character": "bassel_dialogue",
-      "text": "سَبُّورَةُ رَسْمِ حَرْفِ التَّاءِ: اِبْدَأْ مِنَ النُّقْطَةِ الْحَمْرَاءِ، اِنْزِلْ إِلَى السَّطْرِ وَامْشِ عَلَيْهِ، ثُمَّ ارْفَعِ السِّنَّ وَضَعْ نُقْطَتَيْنِ فِي الْأَعْلَى: نُقْطَةٌ وَنُـ.. تَفْرَحَانِ!",
+      "text": "سَبُّورَةُ رَسْمِ حَرْفِ التَّاءِ: اِبْدَأْ مِنَ النُّقْطَةِ الْحَمْرَاءِ، اِنْزِلْ إِلَى السَّطْرِ وَامْشِ عَلَيْهِ، ثُمَّ ارْفَعِ السِّنَّ وَضَعْ نُقْطَتَيْنِ فِي الْأَعْلَى: نُقْطَةٌ وَنُقْطَةٌ تَفْرَحَانِ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -3168,7 +3168,7 @@
     {
       "key": "letter_tha_read_intro",
       "character": "bassel_dialogue",
-      "text": "اَلْمَحَطَّةُ الرَّابِعَةُ، اَلْقِرَاءَةُ الْمُعَبِّرَةُ لِنَصِّ الْكِتَابِ س 101، «تُرَاثُ تَصْنَعُ لُعَبًا مِنْ وَرَقٍ» وَالنَّصِّ التُّرَاثِيِّ الْعِرَاقِيِّ «مِحْرَاثُ حَارِثٍ» مَعَ سَبُّورَةِ الرَّسْمِ وَاخْتِبَارِ التَّحَدِّي.",
+      "text": "اَلْمَحَطَّةُ الرَّابِعَةُ: اَلْقِرَاءَةُ الْمُعَبِّرَةُ لِنَصِّ الْكِتَابِ صَفْحَةُ مِئَةٍ وَوَاحِدٍ: تُرَاثُ تَصْنَعُ لُعَبًا مِنْ وَرَقٍ، وَالنَّصِّ التُّرَاثِيِّ الْعِرَاقِيِّ: مِحْرَاثُ حَارِثٍ، مَعَ سَبُّورَةِ الرَّسْمِ وَاخْتِبَارِ التَّحَدِّي.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -3273,8 +3273,8 @@
     {
       "key": "letter_z_read_q2",
       "character": "bassel_dialogue",
-      "text": "قَدّورِي وَزّانْ",
-      "style": "warm, cheerful, clear",
+      "text": "قَدُّورِي وَزَّانٌ.",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -5688,7 +5688,7 @@
     {
       "key": "item_mistara",
       "character": "bassel_curriculum",
-      "text": "مِسْطَرَةُ نَسْتَخْدِمُ الْمِسْطَرَةَ لِرَسْمِ الْخُطُوطِ الْمُسْتَقِيمَةِ فِي الدَّفْتَرِ",
+      "text": "مِسْطَرَةٌ! نَسْتَخْدِمُهَا لِرَسْمِ الْخُطُوطِ الْمُسْتَقِيمَةِ فِي الدَّفْتَرِ.",
       "style": "clear, steady, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -5709,14 +5709,14 @@
     {
       "key": "item_saa",
       "character": "bassel_curriculum",
-      "text": "سَاعَةَ. سَاعَةُ الْحَائِطِ تُعَلِّمُنَا الْوَقْتَ لِنَسْتَيْقِظَ بَاكِرًا.",
+      "text": "سَاعَةُ حَائِطٍ! تُعَلِّمُنَا الْوَقْتَ لِنَسْتَيْقِظَ بَاكِرًا بِنَشَاطٍ.",
       "style": "clear, steady, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "item_safira",
       "character": "bassel_curriculum",
-      "text": "صَافِرَة صَافِرَةٌ حَمْرَاءُ تُصْدِرُ صَوْتًا عَالِيًا وَمَرِحًا",
+      "text": "صَافِرَةٌ! صَافِرَةٌ حَمْرَاءُ تُصْدِرُ صَوْتًا عَالِيًا وَمَرِحًا.",
       "style": "clear, steady, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6150,7 +6150,7 @@
     {
       "key": "letter_ayn_salim_merge_aamir",
       "character": "bassel_curriculum",
-      "text": "عَ زائِدْ مِ زائِدْ رٌ يُعْطينا عامِرْ",
+      "text": "عَا زَائِدْ مِ زَائِدْ رٌ، يُعْطِينَا عَامِرٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6164,7 +6164,7 @@
     {
       "key": "letter_ayn_salim_merge_alam",
       "character": "bassel_curriculum",
-      "text": "عَ زَائِدٌ لَ زَائِدٌ مٌ يُعْطِينَا عَلَمْ",
+      "text": "عَ زَائِدْ لَ زَائِدْ مٌ، يُعْطِينَا عَلَمٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6178,14 +6178,14 @@
     {
       "key": "letter_ayn_salim_merge_saala",
       "character": "bassel_curriculum",
-      "text": "سَ زَائِد عَ زَائِد لَ يُعْطِينَا سَعَلِ",
+      "text": "سَ زَائِدْ عَ زَائِدْ لَ، يُعْطِينَا سَعَلَ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ayn_salim_merge_salim",
       "character": "bassel_curriculum",
-      "text": "سَ زَائِدْ لْ زَائِدْ مُنْ يُعْطِينَا سَالِمْ",
+      "text": "سَا زَائِدْ لِ زَائِدْ مٌ، يُعْطِينَا سَالِمٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6213,8 +6213,8 @@
     {
       "key": "letter_ayn_salim_merge_zarraa",
       "character": "bassel_curriculum",
-      "text": "زَرْ زَائِدٌ رَا زَائِدٌ عٌ يُعْطِينَا زَرَّاعٌ",
-      "style": "clear, steady, slow, distinct",
+      "text": "زَرْ زَائِدْ رَا زَائِدْ عٌ، يُعْطِينَا زَرَّاعٌ!",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -6332,7 +6332,7 @@
     {
       "key": "letter_ayn_salim_split_abee",
       "character": "bassel_curriculum",
-      "text": "أَبِيعْ نُحَلِّلُها أَ بِي عْ ثَلاثُ صَفَقاتٍ",
+      "text": "أَبِيعُ، نُحَلِّلُهَا: أَ، بِي، عُ، ثَلَاثُ صَفَقَاتٍ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6367,7 +6367,7 @@
     {
       "key": "letter_ayn_salim_split_salim",
       "character": "bassel_curriculum",
-      "text": "سَالِمْ نُحَلِّلُهَا سَا لِ مُنْ ثَلَاثُ صَفَقَاتٍ",
+      "text": "سَالِمٌ، نُحَلِّلُهَا: سَا، لِ، مٌ، ثَلَاثُ صَفَقَاتٍ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6381,7 +6381,7 @@
     {
       "key": "letter_ayn_salim_split_ward",
       "character": "bassel_curriculum",
-      "text": "الْوَرْدِ نُحَلِّلُهَا الْ وَرْ دِ ثَلَاثُ صَفَقَاتٍ",
+      "text": "اَلْوَرْدُ، نُحَلِّلُهَا: اَلْ، وَرْ، دُ، ثَلَاثُ صَفَقَاتٍ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6451,14 +6451,14 @@
     {
       "key": "letter_ayn_salim_tanween_kasr",
       "character": "bassel_curriculum",
-      "text": "تَنْوِينُ الْكَسْرِ سَالِمٌ بَسَاتِينَ خَيْرٍ",
+      "text": "تَنْوِينُ الْكَسْرِ: سَالِمٍ، بَسَاتِينَ خَيْرٍ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ayn_salim_vowels_station",
       "character": "bassel_curriculum",
-      "text": "الْمَحَطَّةُ الثَّانِي، أَصْوَاتُ الْمُدُودِ وَالْعَيْنُ السَّاكِنَةُ وَالتَّنْوِينُ. هَيَّا نُمَيِّزُ بَيْنَ الْحَرَكَاتِ الْقَصِيرَةِ عَ عُ عِ، وَالْمُدُودِ الطَّوِيلَةِ عَا عُو عِي، وَنَنْطِقُ الْمَقَاطِعَ السَّاكِنَةَ وَالتَّنْوِينَاتِ.",
+      "text": "اَلْمَحَطَّةُ الثَّانِيَةُ: أَصْوَاتُ الْمُدُودِ وَالْعَيْنُ السَّاكِنَةُ وَالتَّنْوِينُ! هَيَّا نُمَيِّزْ بَيْنَ الْحَرَكَاتِ الْقَصِيرَةِ عَ، عُ، عِ، وَالْمُدُودِ الطَّوِيلَةِ عَا، عُو، عِي، وَنَنْطِقُ الْمَقَاطِعَ السَّاكِنَةَ وَالتَّنْوِينَاتِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6479,15 +6479,15 @@
     {
       "key": "letter_ayn_salim_word_aamir",
       "character": "bassel_curriculum",
-      "text": "عَامِرْ",
-      "style": "clear, steady, distinct",
+      "text": "عَامِرٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ayn_salim_word_abee",
       "character": "bassel_curriculum",
-      "text": "أَبِيعْ",
-      "style": "clear, steady, distinct",
+      "text": "أَبِيعُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -6521,8 +6521,8 @@
     {
       "key": "letter_ayn_salim_word_bustani",
       "character": "bassel_curriculum",
-      "text": "بُسْتَانْ",
-      "style": "clear, steady, distinct",
+      "text": "بُسْتَانٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -6535,15 +6535,15 @@
     {
       "key": "letter_ayn_salim_word_fulful",
       "character": "bassel_curriculum",
-      "text": "اَلْفُلْفُلِ",
-      "style": "clear, steady, distinct",
+      "text": "فُلْفُلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ayn_salim_word_inab",
       "character": "bassel_curriculum",
-      "text": "عِنَبْ",
-      "style": "clear, steady, distinct",
+      "text": "عِنَبٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -6556,8 +6556,8 @@
     {
       "key": "letter_ayn_salim_word_isba",
       "character": "bassel_curriculum",
-      "text": "إِصْبَعْ",
-      "style": "clear, steady, distinct",
+      "text": "إِصْبَعٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -6605,15 +6605,15 @@
     {
       "key": "letter_ayn_salim_word_naanaa",
       "character": "bassel_curriculum",
-      "text": "نَعْنَاعْ",
-      "style": "clear, steady, distinct",
+      "text": "نَعْنَاعٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ayn_salim_word_nab",
       "character": "bassel_curriculum",
-      "text": "نَبْعًا",
-      "style": "clear, steady, distinct",
+      "text": "نَبْعٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -6626,29 +6626,29 @@
     {
       "key": "letter_ayn_salim_word_ood",
       "character": "bassel_curriculum",
-      "text": "عُودًا",
-      "style": "clear, steady, distinct",
+      "text": "عُودٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ayn_salim_word_rabee",
       "character": "bassel_curriculum",
-      "text": "رَبِيعْ",
-      "style": "clear, steady, distinct",
+      "text": "رَبِيعٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ayn_salim_word_salim",
       "character": "bassel_curriculum",
-      "text": "سَالِم",
-      "style": "clear, steady, distinct",
+      "text": "سَالِمٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ayn_salim_word_shaari",
       "character": "bassel_curriculum",
-      "text": "شَارِعْ",
-      "style": "clear, steady, distinct",
+      "text": "شَارِعٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -6661,15 +6661,15 @@
     {
       "key": "letter_ayn_salim_word_thalab",
       "character": "bassel_curriculum",
-      "text": "ثَعْلَبْ",
-      "style": "clear, steady, distinct",
+      "text": "ثَعْلَبٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ayn_salim_word_usfoor",
       "character": "bassel_curriculum",
-      "text": "عُصْفُورْ",
-      "style": "clear, steady, distinct",
+      "text": "عُصْفُورٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -6682,8 +6682,8 @@
     {
       "key": "letter_ayn_salim_word_wasi",
       "character": "bassel_curriculum",
-      "text": "وَاسِعْ",
-      "style": "clear, steady, distinct",
+      "text": "وَاسِعٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -6703,70 +6703,70 @@
     {
       "key": "letter_ayn_salim_word_zarraa",
       "character": "bassel_curriculum",
-      "text": "زَرَعَ",
-      "style": "clear, steady, distinct",
+      "text": "زَرَّاعٌ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ayn_salim_word_zhiraa",
       "character": "bassel_curriculum",
-      "text": "ذِرَاعْ",
-      "style": "clear, steady, distinct",
+      "text": "ذِرَاعٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_bab",
       "character": "bassel_curriculum",
-      "text": "بَ أَلِفٌ بَاءٌ بَابٌ مَدٌّ طَوِيلٌ بِالْأَلِفِ بَا",
+      "text": "بَابٌ، مَدٌّ طَوِيلٌ بِالْأَلِفِ، بَا.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_baqara",
       "character": "bassel_curriculum",
-      "text": "بَ قَ رَ بَقَرَةٌ فَتْحَةٌ قَصِيرَةٌ فِي أَوَّلِ الْكَلِمِ",
-      "style": "warm, cheerful, clear",
+      "text": "بَقَرَةٌ، فَتْحَةٌ قَصِيرَةٌ فِي أَوَّلِ الْكَلِمَةِ، بَ.",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_basal",
       "character": "bassel_curriculum",
-      "text": "بَ صَلْ بَصَلْ فَتْحَةٌ قَصِيرَةٌ",
+      "text": "بَصَلٌ، فَتْحَةٌ قَصِيرَةٌ، بَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_bisat",
       "character": "bassel_curriculum",
-      "text": "بِ سَاطٍ بِسَاطٌ كَسْرَةٌ قَصِيرَةٌ فِي أَوَّلِ الْكَلِمِ.",
+      "text": "بِسَاطٌ، كَسْرَةٌ قَصِيرَةٌ فِي أَوَّلِ الْكَلِمَةِ، بِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_bittikh",
       "character": "bassel_curriculum",
-      "text": "بِ طِّيخٌ بِطِّيخٌ كَسْرَةٌ تَصِيرُ",
+      "text": "بِطِّيخٌ، كَسْرَةٌ قَصِيرَةٌ، بِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_buq",
       "character": "bassel_curriculum",
-      "text": "بُ وَاوٌ قَافٌ بُوقْ مَدٌّ طَوِيلٌ بِالْوَاوِ بُو",
+      "text": "بُوقٌ، مَدٌّ طَوِيلٌ بِالْوَاوِ، بُو.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_burtuqal",
       "character": "bassel_curriculum",
-      "text": "بُ رَءْ تِ قَالِ بُرْتُقَالُ ضَمَّةٌ قَصِيرَةٌ فِي أَوَّلِ الْكَلِمِ.",
+      "text": "بُرْتُقَالٌ، ضَمَّةٌ قَصِيرَةٌ فِي أَوَّلِ الْكَلِمَةِ، بُ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_halib",
       "character": "bassel_curriculum",
-      "text": "حَ لْ ي بٌ حَلِيبْ صَوْتُ الْبَاءِ فِي آخِرِ الْكَلِمِ",
+      "text": "حَلِيبٌ، صَوْتُ الْبَاءِ فِي آخِرِ الْكَلِمَةِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6780,7 +6780,7 @@
     {
       "key": "letter_b_khubz",
       "character": "bassel_curriculum",
-      "text": "خُ بْ زَيْن خُبْزْ صَوْتُ الْبَاءِ السَّاكِنُ فِي وَسَطِ الْكَلِمَةِ.",
+      "text": "خُبْزٌ، صَوْتُ الْبَاءِ السَّاكِنِ فِي وَسَطِ الْكَلِمَةِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6808,8 +6808,8 @@
     {
       "key": "letter_b_merge_bab",
       "character": "bassel_curriculum",
-      "text": "بَ مَعَ بَاءٍ يُعْطِينَا كَلِمَ بَابْ",
-      "style": "clear, steady, slow, distinct",
+      "text": "اِدْمِجِ الْمَقَاطِعَ: بَا، بُ، تُعْطِينَا كَلِمَةَ بَابُ.",
+      "style": "clear, steady, slow, distinct, pronounce final damma on babu clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -6822,28 +6822,28 @@
     {
       "key": "letter_b_merge_babi",
       "character": "bassel_curriculum",
-      "text": "بَ مَعَ بِ يُعْطِينَا كَلِمَ بَابِي",
+      "text": "اِدْمِجِ الْمَقَاطِعَ: بَا، بِي، تُعْطِينَا كَلِمَةَ بَابِي.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_rabi",
       "character": "bassel_curriculum",
-      "text": "رَاءٌ بِي عَيْنٌ رَبِيعٌ مَدٌّ طَوِيلٌ بِالْيَاءِ بِي",
+      "text": "رَبِيعٌ، مَدٌّ طَوِيلٌ بِالْيَاءِ، بِي.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_read_all",
       "character": "bassel_curriculum",
-      "text": "أَقْرَأُ مَعَ الْعُصْفُورِ الْمُغَرِّدِ بَابْ بَابَا بَابِي أَحْسَنْتُمْ يَا أَبْطَالُ",
+      "text": "أَقْرَأُ مَعَ الْعُصْفُورِ الْمُغَرِّدِ: بَابُ، بَابَا، بَابِي! أَحْسَنْتُمْ يَا أَبْطَالَ الصَّفِّ الْأَوَّلِ.",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_shibl_syllable",
       "character": "bassel_curriculum",
-      "text": "شِبْلْ الْمَقْطَعُ السَّاكِنْ شِبْ",
+      "text": "شِبْلٌ، الْمَقْطَعُ السَّاكِنُ هُوَ شِبْ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6857,7 +6857,7 @@
     {
       "key": "letter_b_short_i",
       "character": "bassel_curriculum",
-      "text": "بِ، كَسْرَةٌ قَصِيرٌ، بِ.",
+      "text": "بِ، كَسْرَةٌ قَصِيرَةٌ، بِ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6871,14 +6871,14 @@
     {
       "key": "letter_b_sound",
       "character": "bassel_curriculum",
-      "text": "لم يتم إرفاق أي مقطع صوتي في رسالتك، لذا لا يمكنني الاستماع إليه أو تفريغ النص المنطوق منه. يُرجى إرفاق الملف الصوتي لأتمكن من مساعدتك.",
+      "text": "أَبْ، أَبْ، بَ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_b_split_bab",
       "character": "bassel_curriculum",
-      "text": "كَلِمَةُ بَابْ تَتَكَوَّنُ مِنْ مَقْطَعَيْنِ، الْمَقْطَعُ الْأَوَّلُ بَا، وَالْمَقْطَعُ الثَّانِي بَاءْ.",
+      "text": "كَلِمَةُ بَابُ: أَسْتَمِعُ لِكَلِمَةِ بَابُ، فِيهَا صَوْتَانِ: بَا، بُ! مَقْطَعَانِ، صَفِّقْ مَعِي.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6899,7 +6899,7 @@
     {
       "key": "letter_b_tabl_syllable",
       "character": "bassel_curriculum",
-      "text": "طَبْلْ الْمَقْطَعُ السَّاكِنُ طَبْ",
+      "text": "طَبْلٌ، الْمَقْطَعُ السَّاكِنُ هُوَ طَبْ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6913,7 +6913,7 @@
     {
       "key": "letter_d_badr_syllable",
       "character": "bassel_curriculum",
-      "text": "بَدْرْ الْمَقْطَعُ السَّاكِنُ هُوَ بَدْ",
+      "text": "بَدْرٌ، الْمَقْطَعُ السَّاكِنُ هُوَ بَدْ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6941,28 +6941,28 @@
     {
       "key": "letter_d_daraj_vowel",
       "character": "bassel_curriculum",
-      "text": "دَرَجْ صَوْتُ فَتْحَةٍ قَصِيرَةْ دَ",
+      "text": "دَرَجٌ، صَوْتُ فَتْحَةٍ قَصِيرَةٍ، دَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_d_deek",
       "character": "bassel_curriculum",
-      "text": "دِيكُ",
-      "style": "warm, cheerful, clear",
+      "text": "دِيكٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_d_deek_vowel",
       "character": "bassel_curriculum",
-      "text": "دِيكْ صَوْتُ مَدٍّ طَوِيلٍ بِالْيَاءِ دِي",
+      "text": "دِيكٌ، صَوْتُ مَدٍّ طَوِيلٍ بِالْيَاءِ، دِي.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_d_dibs_vowel",
       "character": "bassel_curriculum",
-      "text": "دِبْسْ، صَوْتُ كَسْرَةٍ قَصِيرَةٍ، دِ",
+      "text": "دِبْسٌ، صَوْتُ كَسْرَةٍ قَصِيرَةٍ، دِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -6976,28 +6976,28 @@
     {
       "key": "letter_d_dood",
       "character": "bassel_curriculum",
-      "text": "دُودُ",
-      "style": "warm, cheerful, clear",
+      "text": "دُودٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_d_dood_vowel",
       "character": "bassel_curriculum",
-      "text": "دُودْ، صَوْتُ مَدٍّ طَوِيلٍ بِالْوَاوِ، دُو.",
+      "text": "دُودٌ، صَوْتُ مَدٍّ طَوِيلٍ بِالْوَاوِ، دُو.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_d_dub",
       "character": "bassel_curriculum",
-      "text": "دُبُّ",
-      "style": "warm, cheerful, clear",
+      "text": "دُبٌّ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_d_dumya_vowel",
       "character": "bassel_curriculum",
-      "text": "دُمْيَةُ صَوْتُ ضَمَّةٍ قَصِيرَةٍ دُ",
+      "text": "دُمْيَةٌ، صَوْتُ ضَمَّةٍ قَصِيرَةٍ، دُ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -7060,7 +7060,7 @@
     {
       "key": "letter_d_qidr_syllable",
       "character": "bassel_curriculum",
-      "text": "قِدْرُ",
+      "text": "قِدْرٌ، الْمَقْطَعُ السَّاكِنُ هُوَ قِدْ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -7137,8 +7137,8 @@
     {
       "key": "letter_d_split_dood",
       "character": "bassel_curriculum",
-      "text": "كَلِمَةُ دُودُ نَنْطِقُ دُو ثُمَّ دَلْ فِيهَا مَقْطَعَانِ صَفِّقْ مَعِي دُو دُ يُسَاوِي دُودِي",
-      "style": "clear, steady, slow, distinct",
+      "text": "كَلِمَةُ دُودُ: نَنْطِقُ دُو، ثُمَّ دُ، فِيهَا مَقْطَعَانِ: دُو، دُ، دُودُ.",
+      "style": "clear, steady, slow, distinct, pronounce final damma on dudu clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -7781,28 +7781,28 @@
     {
       "key": "letter_dhad_merge_daabit",
       "character": "bassel_curriculum",
-      "text": "ضَ بِ طٌ ضَابِطٌ",
+      "text": "ضَا، بِ، طٌ، نُرَكِّبُهَا: ضَابِطٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_dhad_merge_hawd",
       "character": "bassel_curriculum",
-      "text": "حَوْ ضٌ حَوْضُ",
+      "text": "حَوْ، ضٌ، نُرَكِّبُهَا: حَوْضٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_dhad_merge_radeea",
       "character": "bassel_curriculum",
-      "text": "رَاءٌ ضِي عَيْنٌ رَضِيعُ",
+      "text": "رَ، ضِي، عٌ، نُرَكِّبُهَا: رَضِيعٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_dhad_merge_riyaad",
       "character": "bassel_curriculum",
-      "text": "رَاءٌ يَ ضَادٌ رِيَاضٌ",
+      "text": "رِ، يَا، ضٌ، نُرَكِّبُهَا: رِيَاضٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -7823,7 +7823,7 @@
     {
       "key": "letter_dhad_read_b3",
       "character": "bassel_curriculum",
-      "text": "وَتَعْتَنِي بِعَجُوزِ الْمَرِيضِ",
+      "text": "وَتَعْتَنِي بِعَجُوزٍ مَرِيضٍ.",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -7949,7 +7949,7 @@
     {
       "key": "letter_dhad_split_duha",
       "character": "bassel_curriculum",
-      "text": "ضُحَى ضَدٌّ حَدْ مَقْطَعَانِ صَوْتِيَّانِ",
+      "text": "ضُحَى: ضُ، حَى، مَقْطَعَانِ صَوْتِيَّانِ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -7963,7 +7963,7 @@
     {
       "key": "letter_dhad_split_khudaar",
       "character": "bassel_curriculum",
-      "text": "خُضَرٌ خاءٌ ضَ راءٌ ثَلاثَةُ مَقاطِعَ صَوتِيٍّ",
+      "text": "خُضَارٌ: خُ، ضَا، رٌ، ثَلَاثَةُ مَقَاطِعَ صَوْتِيَّةٍ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -7977,14 +7977,14 @@
     {
       "key": "letter_dhad_split_radeea",
       "character": "bassel_curriculum",
-      "text": "رَضِيع رَاءٌ ضِي عَيْن ثَلَاثَةُ مَقَاطِعَ صَوْتِيّ",
+      "text": "رَضِيعٌ: رَ، ضِي، عٌ، ثَلَاثَةُ مَقَاطِعَ صَوْتِيَّةٍ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_dhad_split_riyaad",
       "character": "bassel_curriculum",
-      "text": "رِيَاضٌ رَاءٌ يَ ضٌ ثَلَاثَةُ مَقَاطِعَ صَوْتِيَّةٍ",
+      "text": "رِيَاضٌ: رِ، يَا، ضٌ، ثَلَاثَةُ مَقَاطِعَ صَوْتِيَّةٍ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -8054,15 +8054,15 @@
     {
       "key": "letter_dhad_word_daabit",
       "character": "bassel_curriculum",
-      "text": "ضَابِطْ",
-      "style": "clear, steady, distinct",
+      "text": "ضَابِطٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_dhad_word_dafeerah",
       "character": "bassel_curriculum",
-      "text": "ضَفِيرَة",
-      "style": "clear, steady, distinct",
+      "text": "ضَفِيرَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -8082,8 +8082,8 @@
     {
       "key": "letter_dhad_word_diyaa",
       "character": "bassel_curriculum",
-      "text": "دِيَمْ",
-      "style": "clear, steady, distinct",
+      "text": "ضِيَاءٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -8096,8 +8096,8 @@
     {
       "key": "letter_dhad_word_duyoof",
       "character": "bassel_curriculum",
-      "text": "ضُيُوفُ",
-      "style": "clear, steady, distinct",
+      "text": "ضُيُوفٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -8124,8 +8124,8 @@
     {
       "key": "letter_dhad_word_midrab",
       "character": "bassel_curriculum",
-      "text": "مِضْرَبْ",
-      "style": "clear, steady, distinct",
+      "text": "مِضْرَبٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -8236,8 +8236,8 @@
     {
       "key": "letter_dhad_word_wudoo",
       "character": "bassel_curriculum",
-      "text": "وُضُوءٍ",
-      "style": "clear, steady, distinct",
+      "text": "وُضُوءٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -8768,7 +8768,7 @@
     {
       "key": "letter_f_difda_syllable",
       "character": "bassel_curriculum",
-      "text": "ضِفْدَعْ. الْمَقْطَعُ السَّاكِنُ هُوَ: ضِفْ.",
+      "text": "ضِفْدَعُ، الْمَقْطَعُ السَّاكِنُ هُوَ ضِفْ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -8782,56 +8782,56 @@
     {
       "key": "letter_f_fam",
       "character": "bassel_curriculum",
-      "text": "فَمٌ، فَاءٍ، فَمْ، فَاءٌ مَفْتُوحَةٌ، فَ.",
+      "text": "فَمٌ، صَوْتُ الْفَاءِ الْمَفْتُوحَةِ، فَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_fanous",
       "character": "bassel_curriculum",
-      "text": "فَانُوسُ",
-      "style": "warm, cheerful, clear",
+      "text": "فَانُوسٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_fanous_vowel",
       "character": "bassel_curriculum",
-      "text": "فَانُوسْ فَ فَانُوسْ صَوْتُ مَدٍّ طَوِيلٍ بِالْأَلِفِ فَا",
+      "text": "فَانُوسٌ، صَوْتُ مَدٍّ طَوِيلٍ بِالْأَلِفِ، فَا.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_farasha",
       "character": "bassel_curriculum",
-      "text": "فَرَاشُ",
-      "style": "warm, cheerful, clear",
+      "text": "فَرَاشَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_feel",
       "character": "bassel_curriculum",
-      "text": "فِيلُ",
-      "style": "warm, cheerful, clear",
+      "text": "فِيلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_feel_vowel",
       "character": "bassel_curriculum",
-      "text": "فِيلْ فِي فِلْ صَوْتُ مَدٍّ طَوِيلٍ بِالْيَاءِ فِي",
+      "text": "فِيلٌ، صَوْتُ مَدٍّ طَوِيلٍ بِالْيَاءِ، فِي.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_fijl",
       "character": "bassel_curriculum",
-      "text": "فِجْلٌ فَاءٌ فِجْلٌ كَسْرَةٌ فِي أَوَّلِ الْكَلِمِ فِ",
+      "text": "فِجْلٌ، كَسْرَةٌ قَصِيرَةٌ فِي أَوَّلِ الْكَلِمَةِ، فِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_finjan_vowel",
       "character": "bassel_curriculum",
-      "text": "فِنْجَانْ فْ فِنْجَانْ صَوْتُ مَدٍّ قَصِيرْ فِ",
+      "text": "فِنْجَانُ، صَوْتُ مَدٍّ قَصِيرٍ، كَسْرَةٌ، فِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -8845,8 +8845,8 @@
     {
       "key": "letter_f_fustan",
       "character": "bassel_curriculum",
-      "text": "فُسْتَانُ",
-      "style": "warm, cheerful, clear",
+      "text": "فُسْتَانٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -8880,21 +8880,21 @@
     {
       "key": "letter_f_merge_baba",
       "character": "bassel_curriculum",
-      "text": "بَا زَائِدْ بَا يُعْطِينَا كَلِمَةَ بَابَا",
+      "text": "بَا زَائِدْ بَا، يُعْطِينَا كَلِمَةَ بَابَا.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_merge_badi",
       "character": "bassel_curriculum",
-      "text": "بَ زَائِدْ دِي يُعْطِينَا كَلِمْ بَادِي",
+      "text": "بَا زَائِدْ دِي، يُعْطِينَا كَلِمَةَ بَادِي.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_merge_fadi",
       "character": "bassel_curriculum",
-      "text": "فَ زَائِدٌ دِي يُعْطِينَا كَلِمْ فَادِي",
+      "text": "فَا زَائِدْ دِي، يُعْطِينَا كَلِمَةَ فَادِي.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -8922,7 +8922,7 @@
     {
       "key": "letter_f_osfoor_vowel",
       "character": "bassel_curriculum",
-      "text": "عُصْفُورْ فُو عُصْفُورْ صَوْتُ مَدٍّ طَوِيلٍ بِالْوَاوِ فُو",
+      "text": "عُصْفُورٌ، صَوْتُ مَدٍّ طَوِيلٍ بِالْوَاوِ، فُو.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -8950,28 +8950,28 @@
     {
       "key": "letter_f_read_mufeed",
       "character": "bassel_curriculum",
-      "text": "تِيدُ",
-      "style": "warm, clear, steady",
+      "text": "مُفِيدُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_long_aa",
       "character": "bassel_curriculum",
-      "text": "فَ مَدٌّ بِالأَلِفِ فَا فَارُوقُ",
+      "text": "فَا، مَدٌّ بِالْأَلِفِ، فَارُوقٌ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_long_ee",
       "character": "bassel_curriculum",
-      "text": "فِ مَدٌّ بِالْيَاءِ فِي رِيفِ",
+      "text": "فِي، مَدٌّ بِالْيَاءِ، رِيفٌ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_long_oo",
       "character": "bassel_curriculum",
-      "text": "فُو مَدٌّ بِالْوَاوِ فُو عُصْفُورْ",
+      "text": "فُو، مَدٌّ بِالْوَاوِ، عُصْفُورٌ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -8985,28 +8985,28 @@
     {
       "key": "letter_f_reef_merge_farooq",
       "character": "bassel_curriculum",
-      "text": "فَ رُو قَافْ يُعْطِينَا فَرُوقٌ",
+      "text": "فَا زَائِدْ رُو زَائِدْ قٌ، يُعْطِينَا فَارُوقٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_merge_manaf",
       "character": "bassel_curriculum",
-      "text": "مَ نَ فَن يُعْطِينَا مَنَافِ",
+      "text": "مَ زَائِدْ نَا زَائِدْ فٌ، يُعْطِينَا مَنَافٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_merge_mufeed",
       "character": "bassel_curriculum",
-      "text": "مُ فِ دٌ يُعْطِينَا مُفِيدٌ",
+      "text": "مُ زَائِدْ فِي زَائِدْ دٌ، يُعْطِينَا مُفِيدٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_merge_reef",
       "character": "bassel_curriculum",
-      "text": "رِينْ مَعَ فَائِنْ يُعْطِينَا رِيفْ",
+      "text": "رِي زَائِدْ فٌ، يُعْطِينَا رِيفٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -9055,21 +9055,21 @@
     {
       "key": "letter_f_reef_short_a",
       "character": "bassel_curriculum",
-      "text": "فَ فَتْحَة فِ",
+      "text": "فَ، فَرَاشَةٌ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_short_i",
       "character": "bassel_curriculum",
-      "text": "فِ <short pause> فِ",
+      "text": "فِ، فِيلٌ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_short_u",
       "character": "bassel_curriculum",
-      "text": "فُ ضَمَّة فُ",
+      "text": "فُ، فُسْتَانٌ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -9083,14 +9083,14 @@
     {
       "key": "letter_f_reef_split_baqar",
       "character": "bassel_curriculum",
-      "text": "بَقَرْ نُحَلِّلُهَا إِلَى بَ قَ رَاءْ بَقَرْ",
+      "text": "بَقَرٌ، نُحَلِّلُهَا إِلَى: بَ، قَ، رٌ، بَقَرٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_split_farooq",
       "character": "bassel_curriculum",
-      "text": "فَارُوقُ نُحَلِّلُهَا إِلَى فَا رُو قَافْ فَارُوقٌ",
+      "text": "فَارُوقٌ، نُحَلِّلُهَا إِلَى: فَا، رُو، قٌ، فَارُوقٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -9111,7 +9111,7 @@
     {
       "key": "letter_f_reef_split_reef",
       "character": "bassel_curriculum",
-      "text": "رِيفْ نُحَلِّلُهَا إِلَى رِي فَاءٌ رِيفْ",
+      "text": "رِيفٌ، نُحَلِّلُهَا إِلَى: رِي، فٌ، رِيفٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -9153,78 +9153,78 @@
     {
       "key": "letter_f_reef_word_baqar",
       "character": "bassel_curriculum",
-      "text": "بَقَرْ",
-      "style": "clear, steady, distinct",
+      "text": "بَقَرٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_word_farasha",
       "character": "bassel_curriculum",
-      "text": "فَرَاشَةْ",
-      "style": "clear, steady, distinct",
+      "text": "فَرَاشَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_word_farooq",
       "character": "bassel_curriculum",
-      "text": "فَرُوقُ",
-      "style": "clear, steady, distinct",
+      "text": "فَارُوقٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_word_feel",
       "character": "bassel_curriculum",
-      "text": "فِيلْ",
-      "style": "clear, steady, distinct",
+      "text": "فِيلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_word_fustan",
       "character": "bassel_curriculum",
-      "text": "فُسْتَانْ",
-      "style": "clear, steady, distinct",
+      "text": "فُسْتَانٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_word_kharoof",
       "character": "bassel_curriculum",
-      "text": "خَرُوفْ",
-      "style": "clear, steady, distinct",
+      "text": "خَرُوفٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_word_manaf",
       "character": "bassel_curriculum",
-      "text": "مَنَافْ",
-      "style": "clear, steady, distinct",
+      "text": "مَنَافٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_word_miftah",
       "character": "bassel_curriculum",
-      "text": "مِفْتَاحْ",
-      "style": "clear, steady, distinct",
+      "text": "مِفْتَاحٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_word_mufeed",
       "character": "bassel_curriculum",
-      "text": "مُفِيدْ",
-      "style": "clear, steady, distinct",
+      "text": "مُفِيدٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_word_rafeeq",
       "character": "bassel_curriculum",
-      "text": "رَفِيقْ",
-      "style": "clear, steady, distinct",
+      "text": "رَفِيقٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_f_reef_word_reef",
       "character": "bassel_curriculum",
-      "text": "رِيفُ",
-      "style": "clear, steady, distinct",
+      "text": "رِيفٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -9258,7 +9258,7 @@
     {
       "key": "letter_f_sound",
       "character": "bassel_curriculum",
-      "text": "لم يتم إرفاق أي مقطع صوتي للاستماع إليه، لذا لا يمكنني تفريغ النص المنطوق من التسجيل. يرجى إرفاق الملف الصوتي المطلوب لأتمكن من كتابته لك بدقة.",
+      "text": "أَفْ، أَفْ، فَ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -9272,7 +9272,7 @@
     {
       "key": "letter_f_split_fam",
       "character": "bassel_curriculum",
-      "text": "كَلِمَةُ فَمُ تَتَكَوَّنُ مِنْ مَقْطَعٍ وَاحِدٍ، فَمُ. صَفْقَةٌ وَاحِدْ.",
+      "text": "كَلِمَةُ فَمُ تَتَكَوَّنُ مِنْ مَقْطَعٍ وَاحِدٍ: فَمُ! صَفْقَةٌ وَاحِدَةٌ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -9293,21 +9293,21 @@
     {
       "key": "letter_ghayn_long_aa",
       "character": "bassel_curriculum",
-      "text": "غَ غَيْنِ مَدَّةْ بِالْأَلِفِ غَا",
+      "text": "غَا، مَدٌّ بِالْأَلِفِ، غَا.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ghayn_long_ee",
       "character": "bassel_curriculum",
-      "text": "غِي غِينِي مَدَّة بِالْيَاءِ غِي",
+      "text": "غِي، مَدٌّ بِالْيَاءِ، غِي.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ghayn_long_oo",
       "character": "bassel_curriculum",
-      "text": "غُو غَيْن مَدَّة بِالْوَاوِ غُو",
+      "text": "غُو، مَدٌّ بِالْوَاوِ، غُو.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -9321,7 +9321,7 @@
     {
       "key": "letter_ghayn_merge_ghaalib",
       "character": "bassel_curriculum",
-      "text": "غَا زَائِدْ لِ زَائِدْ بٌ يُسَاوِي غَالِبْ",
+      "text": "غَا زَائِدْ لِ زَائِدْ بٌ، يُسَاوِي غَالِبٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -9377,21 +9377,21 @@
     {
       "key": "letter_ghayn_short_a",
       "character": "bassel_curriculum",
-      "text": "غَ غَيْنْ فَتْحَةْ غَ",
+      "text": "غَ، فَتْحَةٌ، غَ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ghayn_short_i",
       "character": "bassel_curriculum",
-      "text": "غِ غَيْن كَسْرَة غِ",
+      "text": "غِ، كَسْرَةٌ، غِ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ghayn_short_u",
       "character": "bassel_curriculum",
-      "text": "غُ غَيْنِ ضَمَّة غُ",
+      "text": "غُ، ضَمَّةٌ، غُ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -9419,7 +9419,7 @@
     {
       "key": "letter_ghayn_split_taghreed",
       "character": "bassel_curriculum",
-      "text": "تَغْرِيدُ تَغْ رِي دُ",
+      "text": "تَغْرِيدٌ: تَغْ، رِي، دٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -9468,8 +9468,8 @@
     {
       "key": "letter_ghayn_word_babbaghaa",
       "character": "bassel_curriculum",
-      "text": "بَبَّغَاءْ",
-      "style": "clear, steady, distinct",
+      "text": "بَبَّغَاءُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -9496,8 +9496,8 @@
     {
       "key": "letter_ghayn_word_ghaabah",
       "character": "bassel_curriculum",
-      "text": "غَابَةَ",
-      "style": "clear, steady, distinct",
+      "text": "غَابَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -9531,8 +9531,8 @@
     {
       "key": "letter_ghayn_word_ghassaalah",
       "character": "bassel_curriculum",
-      "text": "غَسَّالَةُ",
-      "style": "clear, steady, distinct",
+      "text": "غَسَّالَةٌ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -9580,15 +9580,15 @@
     {
       "key": "letter_ghayn_word_ghuraab",
       "character": "bassel_curriculum",
-      "text": "غُرابُ",
-      "style": "clear, steady, distinct",
+      "text": "غُرَابٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ghayn_word_ghusn",
       "character": "bassel_curriculum",
-      "text": "غُصْنْ",
-      "style": "clear, steady, distinct",
+      "text": "غُصْنٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -9636,15 +9636,15 @@
     {
       "key": "letter_ghayn_word_mighsalah",
       "character": "bassel_curriculum",
-      "text": "مَغْسَلَةٌ",
-      "style": "clear, steady, distinct",
+      "text": "مِغْسَلَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ghayn_word_mighzal",
       "character": "bassel_curriculum",
-      "text": "مِغْزَلْ",
-      "style": "clear, steady, distinct",
+      "text": "مِغْزَلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -9664,8 +9664,8 @@
     {
       "key": "letter_ghayn_word_ragheef",
       "character": "bassel_curriculum",
-      "text": "رَغِيفْ",
-      "style": "clear, steady, distinct",
+      "text": "رَغِيفٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -9790,21 +9790,21 @@
     {
       "key": "letter_h_merge_haamid",
       "character": "bassel_curriculum",
-      "text": "حَا مِ دٌ حَامِدْ",
+      "text": "حَا، مِ، دٌ، حَامِدٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_h_merge_haaris",
       "character": "bassel_curriculum",
-      "text": "حَ رِ سٌ حَارِسٌ",
+      "text": "حَا، رِ، سٌ، حَارِسٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_h_merge_haatim",
       "character": "bassel_curriculum",
-      "text": "حَا تِ مُنْ حَاتِمْ",
+      "text": "حَا، تِ، مٌ، حَاتِمٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -9818,21 +9818,21 @@
     {
       "key": "letter_h_merge_hasan",
       "character": "bassel_curriculum",
-      "text": "حَ سَ نٌ حَسَنْ",
+      "text": "حَ، سَ، نٌ، حَسَنٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_h_merge_mahasin",
       "character": "bassel_curriculum",
-      "text": "مَ حَ سِ نُ مَحَاسِنْ",
-      "style": "clear, steady, slow, distinct",
+      "text": "مَ، حَا، سِ، نُ، مَحَاسِنُ!",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_h_merge_sahab",
       "character": "bassel_curriculum",
-      "text": "سَ حَا بٌ سَحَابْ",
+      "text": "سَ، حَا، بٌ، سَحَابٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -10021,21 +10021,21 @@
     {
       "key": "letter_h_split_fallaah",
       "character": "bassel_curriculum",
-      "text": "فَلّاحٌ فَلْ لَ حٌ",
+      "text": "فَلَّاحٌ: فَلْ، لَا، حٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_h_split_habl",
       "character": "bassel_curriculum",
-      "text": "حَبِي حَبْ لِلْ",
+      "text": "حَبْلٌ: حَبْ، لٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_h_split_haql",
       "character": "bassel_curriculum",
-      "text": "حَقْلْ حَقْ لْ",
+      "text": "حَقْلٌ: حَقْ، لٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -10063,7 +10063,7 @@
     {
       "key": "letter_h_split_nahl",
       "character": "bassel_curriculum",
-      "text": "نَحْلِي نَحْ لِلْ",
+      "text": "نَحْلٌ: نَحْ، لٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -10077,7 +10077,7 @@
     {
       "key": "letter_h_split_salah",
       "character": "bassel_curriculum",
-      "text": "صَلاحُ صا لَ حٌ",
+      "text": "صَلَاحٌ: صَ، لَا، حٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -10196,8 +10196,8 @@
     {
       "key": "letter_h_word_haql",
       "character": "bassel_curriculum",
-      "text": "حَقْل",
-      "style": "clear, steady, distinct",
+      "text": "حَقْلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -10294,8 +10294,8 @@
     {
       "key": "letter_h_word_nahl",
       "character": "bassel_curriculum",
-      "text": "نَحْلْ",
-      "style": "clear, steady, distinct",
+      "text": "نَحْلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -10861,7 +10861,7 @@
     {
       "key": "letter_hamza_long_oo",
       "character": "bassel_curriculum",
-      "text": "تُ مَدُّ الْوَاوِ أُو",
+      "text": "أُو، مَدُّ الْوَاوِ، أُو",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -10889,7 +10889,7 @@
     {
       "key": "letter_hamza_merge_faar",
       "character": "bassel_curriculum",
-      "text": "فَ زَائِدْ رٌ يُسَاوِي فَأْرٌ",
+      "text": "فَأْ زَائِدْ رٌ، يُسَاوِي فَأْرٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -10917,8 +10917,8 @@
     {
       "key": "letter_hamza_read_a3",
       "character": "bassel_curriculum",
-      "text": "بَنَّاءً",
-      "style": "warm, clear, steady",
+      "text": "بَنَّاءٌ.",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11092,7 +11092,7 @@
     {
       "key": "letter_hamza_split_maa",
       "character": "bassel_curriculum",
-      "text": "مَ مَ نْ مَقْطَعَانِ",
+      "text": "مَاءٌ: مَا، ءٌ، مَقْطَعَانِ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -11134,8 +11134,8 @@
     {
       "key": "letter_hamza_syl_fa",
       "character": "bassel_curriculum",
-      "text": "فَ فَأْسْ فَأْرْ",
-      "style": "calm, crisp, slow articulation",
+      "text": "فَأْ، فَأْسٌ، فَأْرٌ",
+      "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11155,8 +11155,8 @@
     {
       "key": "letter_hamza_syl_ra",
       "character": "bassel_curriculum",
-      "text": "أَرَى رَأْسْ",
-      "style": "calm, crisp, slow articulation",
+      "text": "رَأْ، رَأْسٌ",
+      "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11204,8 +11204,8 @@
     {
       "key": "letter_hamza_word_arnab",
       "character": "bassel_curriculum",
-      "text": "أَرْنَبْ",
-      "style": "clear, steady, distinct",
+      "text": "أَرْنَبٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11358,8 +11358,8 @@
     {
       "key": "letter_hamza_word_iwazzah",
       "character": "bassel_curriculum",
-      "text": "إِوَزّ",
-      "style": "clear, steady, distinct",
+      "text": "إِوَزَّةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11414,8 +11414,8 @@
     {
       "key": "letter_hamza_word_shaati",
       "character": "bassel_curriculum",
-      "text": "شَاطِئْ",
-      "style": "clear, steady, distinct",
+      "text": "شَاطِئٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11435,8 +11435,8 @@
     {
       "key": "letter_hamza_word_ukhtuboot",
       "character": "bassel_curriculum",
-      "text": "أَخْطُبُوطُ",
-      "style": "clear, steady, distinct",
+      "text": "أُخْطُبُوطٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11512,21 +11512,21 @@
     {
       "key": "letter_j_merge_jaalis",
       "character": "bassel_curriculum",
-      "text": "جَ لْ سَنْ تُصْبِحُ جَالِسْ",
+      "text": "جَا، لِ، سٌ، تُصْبِحُ جَالِسٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_j_merge_jaami",
       "character": "bassel_curriculum",
-      "text": "جَ مِ عٌ تُصْبِحُ جَامِعٌ",
+      "text": "جَا، مِ، عٌ، تُصْبِحُ جَامِعٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_j_merge_jameel",
       "character": "bassel_curriculum",
-      "text": "جَ مِي لٌ تُصْبِحُ جَمِيلْ",
+      "text": "جَ، مِي، لٌ، تُصْبِحُ جَمِيلٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -11575,7 +11575,7 @@
     {
       "key": "letter_j_read_b4",
       "character": "bassel_curriculum",
-      "text": "سَرَّ وِسَامٌ وَنَوْرَسْ",
+      "text": "سَارَ وِسَامٌ وَنَوْرَسٌ.",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -11624,21 +11624,21 @@
     {
       "key": "letter_j_read_f5",
       "character": "bassel_curriculum",
-      "text": "تَنْقُشُ عَلَيْهِ وَرْدًا وَأَشْجَارًا",
+      "text": "تُنَقِّشُ عَلَيْهِ وَرْدًا وَأَشْجَارًا.",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_j_read_f6",
       "character": "bassel_curriculum",
-      "text": "دْ دْ دَ",
-      "style": "warm, clear, steady",
+      "text": "أَجْ، أَجْ، جَ.",
+      "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_j_read_faraj_full",
       "character": "bassel_curriculum",
-      "text": "فَرَجٌ نَسَّاجٌ يَنْسِجُ بِسَاطًا جَدِيدًا جَمِيلَةُ نَسَّاجَةٌ مَاهِرَةٌ تَنْسِجُ قُمَاشًا جَمِيلًا تُنَقِّشُ عَلَيْهِ وَرْدًا وَأَشْجَارًا جِ جِيمٌ",
+      "text": "فَرَجٌ نَسَّاجٌ، يَنْسِجُ بِسَاطًا جَدِيدًا. جَمِيلَةُ نَسَّاجَةٌ مَاهِرَةٌ، تَنْسِجُ قُمَاشًا جَمِيلًا، تُنَقِّشُ عَلَيْهِ وَرْدًا وَأَشْجَارًا.",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -11673,7 +11673,7 @@
     {
       "key": "letter_j_split_ajeen",
       "character": "bassel_curriculum",
-      "text": "عَجِينْ عَ جِي نْ ثَلَاثَةُ مَقَاطِعَ",
+      "text": "عَجِينٌ: عَ، جِي، نٌ! ثَلَاثَةُ مَقَاطِعَ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -11694,7 +11694,7 @@
     {
       "key": "letter_j_split_jazar",
       "character": "bassel_curriculum",
-      "text": "جَزَرٌ جَ زَيْن رٌ ثَلَاثَةُ مَقَاطِعَ",
+      "text": "جَزَرٌ: جَ، زَ، رٌ! ثَلَاثَةُ مَقَاطِعَ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -11750,7 +11750,7 @@
     {
       "key": "letter_j_tanween_dham",
       "character": "bassel_curriculum",
-      "text": "جِيمْ تَنْوِينُ الضَّمِّ جٌ",
+      "text": "جٌ، تَنْوِينُ الضَّمِّ، جٌ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -11764,7 +11764,7 @@
     {
       "key": "letter_j_tanween_kasr",
       "character": "bassel_curriculum",
-      "text": "جِيمْ تَنْوِينُ الْكَسْرِ جٍ",
+      "text": "جٍ، تَنْوِينُ الْكَسْرِ، جٍ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -11778,8 +11778,8 @@
     {
       "key": "letter_j_word_ajeen",
       "character": "bassel_curriculum",
-      "text": "عَجِينْ",
-      "style": "clear, steady, distinct",
+      "text": "عَجِينٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11820,8 +11820,8 @@
     {
       "key": "letter_j_word_faraj",
       "character": "bassel_curriculum",
-      "text": "فَرَجْ",
-      "style": "clear, steady, distinct",
+      "text": "فَرَجٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11862,8 +11862,8 @@
     {
       "key": "letter_j_word_jaamoosah",
       "character": "bassel_curriculum",
-      "text": "جَامُوسَةْ",
-      "style": "clear, steady, distinct",
+      "text": "جَامُوسَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11876,8 +11876,8 @@
     {
       "key": "letter_j_word_jamal",
       "character": "bassel_curriculum",
-      "text": "جَمَلْ",
-      "style": "clear, steady, distinct",
+      "text": "جَمَلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11939,8 +11939,8 @@
     {
       "key": "letter_j_word_jisr",
       "character": "bassel_curriculum",
-      "text": "جِسْر",
-      "style": "clear, steady, distinct",
+      "text": "جِسْرٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -11974,8 +11974,8 @@
     {
       "key": "letter_j_word_majoon",
       "character": "bassel_curriculum",
-      "text": "مَعْجُونْ",
-      "style": "clear, steady, distinct",
+      "text": "مَعْجُونٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -12086,8 +12086,8 @@
     {
       "key": "letter_j_word_thalj",
       "character": "bassel_curriculum",
-      "text": "ثَلْجٍ",
-      "style": "clear, steady, distinct",
+      "text": "ثَلْجٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -12135,42 +12135,42 @@
     {
       "key": "letter_kaf_long_aa",
       "character": "bassel_curriculum",
-      "text": "كَ كَافٍ مَعَ مَدِّ الأَلِفِ كَا",
+      "text": "كَا، مَدٌّ بِالْأَلِفِ، كَا.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kaf_long_ee",
       "character": "bassel_curriculum",
-      "text": "كِي كَافٍ مَعَ مَدِّ الْيَاءِ كِي",
+      "text": "كِي، مَدٌّ بِالْيَاءِ، كِي.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kaf_long_oo",
       "character": "bassel_curriculum",
-      "text": "كُو كَافٌ مَعَ مَدِّ الْوَاوِ كُو",
+      "text": "كُو، مَدٌّ بِالْوَاوِ، كُو.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kaf_merge_burkaan",
       "character": "bassel_curriculum",
-      "text": "بُرْ مَعَ كَ مَعَ نُونْ تُصْبِحُ بُرْكَانْ",
+      "text": "بُرْ، كَا، نٌ، تُصْبِحُ بُرْكَانٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kaf_merge_hikayaat",
       "character": "bassel_curriculum",
-      "text": "حْ مَعَكَ مَعَيَ مَعَ تَ تُصْبِحُ حِكَايَاتٍ",
+      "text": "حِ، كَا، يَا، تُنْ، تُصْبِحُ حِكَايَاتٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kaf_merge_kabeerah",
       "character": "bassel_curriculum",
-      "text": "كَ مَعَ بِ مَعَ رَ مَعَ تَ تُصْبِحُ كَبِيرَةْ",
+      "text": "كَ، بِي، رَ، تُنْ، تُصْبِحُ كَبِيرَةٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -12345,14 +12345,14 @@
     {
       "key": "letter_kaf_short_a",
       "character": "bassel_curriculum",
-      "text": "كَ كَ فَتْحَة كَ",
+      "text": "كَ، فَتْحَةٌ، كَ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kaf_short_i",
       "character": "bassel_curriculum",
-      "text": "كْ كِ كَسْرَة كِ",
+      "text": "كِ، كَسْرَةٌ، كِ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -12373,14 +12373,14 @@
     {
       "key": "letter_kaf_split_burkaan",
       "character": "bassel_curriculum",
-      "text": "بُرْكَانْ بُرْ كَا نٌ بُرْكَانْ",
+      "text": "بُرْكَانٌ: بُرْ، كَا، نٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kaf_split_deek",
       "character": "bassel_curriculum",
-      "text": "دِيكْ دِي كَافٌ دِيكٌ",
+      "text": "دِيكٌ: دِي، كٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -12394,7 +12394,7 @@
     {
       "key": "letter_kaf_split_kabeerah",
       "character": "bassel_curriculum",
-      "text": "كَبِيرَةُ كَ بِ رَ تُ كَبِيرَةُ",
+      "text": "كَبِيرَةٌ: كَ، بِي، رَ، تُنْ، كَبِيرَةٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -12408,7 +12408,7 @@
     {
       "key": "letter_kaf_split_kitaab",
       "character": "bassel_curriculum",
-      "text": "كِتَابٌ كْ تَ بَاءٌ كِتَابٌ",
+      "text": "كِتَابٌ: كِ، تَا، بٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -12422,8 +12422,8 @@
     {
       "key": "letter_kaf_syl_duk",
       "character": "bassel_curriculum",
-      "text": "دَكْ دَكْ دُكَّانٌ",
-      "style": "calm, crisp, slow articulation",
+      "text": "دُكْ، دُكْكَانٌ",
+      "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -12618,8 +12618,8 @@
     {
       "key": "letter_kaf_word_kees",
       "character": "bassel_curriculum",
-      "text": "هَيْزِل",
-      "style": "clear, steady, distinct",
+      "text": "كِيسٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -12646,15 +12646,15 @@
     {
       "key": "letter_kaf_word_koob",
       "character": "bassel_curriculum",
-      "text": "كُوبْ",
-      "style": "clear, steady, distinct",
+      "text": "كُوبٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kaf_word_kurah",
       "character": "bassel_curriculum",
-      "text": "كُرَة",
-      "style": "clear, steady, distinct",
+      "text": "كُرَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -12849,14 +12849,14 @@
     {
       "key": "letter_kha_merge_fakhoor",
       "character": "bassel_curriculum",
-      "text": "فَ خُ رٌ فَخُورْ",
+      "text": "فَ، خُو، رٌ، فَخُورٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kha_merge_khaatam",
       "character": "bassel_curriculum",
-      "text": "خَ تَ مِيمْ خَاتَمٌ",
+      "text": "خَا، تَ، مٌ، خَاتَمٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -12891,14 +12891,14 @@
     {
       "key": "letter_kha_read_b1",
       "character": "bassel_curriculum",
-      "text": "خِتَامُ تَطْبُخُ فِي مَطْبَخِ خَالَتِي.",
+      "text": "خِتَامُ تَطْبَخُ فِي مَطْبَخِ خَالَتِي.",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kha_read_b2",
       "character": "bassel_curriculum",
-      "text": "أَحْضَرَتْ خُضَارًا",
+      "text": "أَحْضَرَتْ خُضَارًا، وَوَضَعَتْ",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -13017,14 +13017,14 @@
     {
       "key": "letter_kha_split_fakhoor",
       "character": "bassel_curriculum",
-      "text": "فَخُورْ فَ خُو رٌ ثَلَاثَةُ مَقَاطِعَ صَوْتِيَّةْ",
+      "text": "فَخُورٌ: فَ، خُو، رٌ، ثَلَاثَةُ مَقَاطِعَ صَوْتِيَّةٍ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kha_split_khaatam",
       "character": "bassel_curriculum",
-      "text": "خَاتَمْ خَا تَ مِيمْ ثَلَاثَةُ مَقَاطِعَ صَوْتِيّ",
+      "text": "خَاتَمٌ: خَا، تَ، مٌ، ثَلَاثَةُ مَقَاطِعَ صَوْتِيَّةٍ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -13038,7 +13038,7 @@
     {
       "key": "letter_kha_split_kharaja",
       "character": "bassel_curriculum",
-      "text": "خَرَجَ خَ رَاءٌ جِيمٌ ثَلَاثَةُ مَقَاطِعَ صَوْتِيَّةٍ",
+      "text": "خَرَجَ: خَ، رَ، جَ، ثَلَاثَةُ مَقَاطِعَ صَوْتِيَّةٍ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -13073,8 +13073,8 @@
     {
       "key": "letter_kha_syl_akh",
       "character": "bassel_curriculum",
-      "text": "أَخْ أُخْطُبُوطُ",
-      "style": "calm, crisp, slow articulation",
+      "text": "أَخْ، أَخْطُبُوطٌ",
+      "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13157,8 +13157,8 @@
     {
       "key": "letter_kha_word_khaabirah",
       "character": "bassel_curriculum",
-      "text": "فَبَرَدَ",
-      "style": "clear, steady, distinct",
+      "text": "خَابِرَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13199,22 +13199,22 @@
     {
       "key": "letter_kha_word_kharoof",
       "character": "bassel_curriculum",
-      "text": "خَرُوفْ",
-      "style": "clear, steady, distinct",
+      "text": "خَرُوفٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kha_word_khashab",
       "character": "bassel_curriculum",
-      "text": "خَشَبْ",
-      "style": "clear, steady, distinct",
+      "text": "خَشَبٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kha_word_khass",
       "character": "bassel_curriculum",
-      "text": "خَسّ",
-      "style": "clear, steady, distinct",
+      "text": "خَسٌّ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13248,15 +13248,15 @@
     {
       "key": "letter_kha_word_kholood",
       "character": "bassel_curriculum",
-      "text": "خُلُودُ",
-      "style": "clear, steady, distinct",
+      "text": "خُلُودٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kha_word_khoodhah",
       "character": "bassel_curriculum",
-      "text": "خُوذَةْ",
-      "style": "clear, steady, distinct",
+      "text": "خُوذَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13269,8 +13269,8 @@
     {
       "key": "letter_kha_word_khubz",
       "character": "bassel_curriculum",
-      "text": "خُبْزْ",
-      "style": "clear, steady, distinct",
+      "text": "خُبْزٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13290,8 +13290,8 @@
     {
       "key": "letter_kha_word_matbakh",
       "character": "bassel_curriculum",
-      "text": "مَطْبَخُ",
-      "style": "clear, steady, distinct",
+      "text": "مَطْبَخٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13304,15 +13304,15 @@
     {
       "key": "letter_kha_word_nakheel",
       "character": "bassel_curriculum",
-      "text": "نَخِيل",
-      "style": "clear, steady, distinct",
+      "text": "نَخِيلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_kha_word_nakhla",
       "character": "bassel_curriculum",
-      "text": "نَخْلَةً",
-      "style": "clear, steady, distinct",
+      "text": "نَخْلَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13325,8 +13325,8 @@
     {
       "key": "letter_kha_word_sakhrah",
       "character": "bassel_curriculum",
-      "text": "صَخْرَةْ",
-      "style": "clear, steady, distinct",
+      "text": "صَخْرَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13346,8 +13346,8 @@
     {
       "key": "letter_kha_word_ukhtuboot",
       "character": "bassel_curriculum",
-      "text": "أُخْطُبُوطُ",
-      "style": "clear, steady, distinct",
+      "text": "أَخْطُبُوطٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13409,14 +13409,14 @@
     {
       "key": "letter_l_nabeel_merge_malabis",
       "character": "bassel_curriculum",
-      "text": "مَ زَائِدٌ لَ زَائِدٌ بِ زَائِدٌ سْ يُعْطِينَا مَلَابِسْ",
-      "style": "clear, steady, slow, distinct",
+      "text": "مَ زَائِدْ لَا زَائِدْ بِ زَائِدْ سُ، يُعْطِينَا مَلَابِسُ!",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_l_nabeel_merge_nabeel",
       "character": "bassel_curriculum",
-      "text": "نَ زَائِدٌ بِ زَائِدٌ لِ يُعْطِينَا نَبِيل",
+      "text": "نَ زَائِدْ بِي زَائِدْ لٌ، يُعْطِينَا نَبِيلٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -13437,14 +13437,14 @@
     {
       "key": "letter_l_nabeel_merge_qulna",
       "character": "bassel_curriculum",
-      "text": "قُلْ زَائِدْ نَ يُعْطِينَا قُلْنَا",
+      "text": "قُلْ زَائِدْ نَا، يُعْطِينَا قُلْنَا!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_l_nabeel_merge_rumman",
       "character": "bassel_curriculum",
-      "text": "رُمْ زَائِدْ مَ زَائِدْ نْ يُعْطِينَا رُمَّانْ",
+      "text": "رُمْ زَائِدْ مَا زَائِدْ نٌ، يُعْطِينَا رُمَّانٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -13521,7 +13521,7 @@
     {
       "key": "letter_l_nabeel_sound",
       "character": "bassel_curriculum",
-      "text": "لم يتم إرفاق أي مقطع صوتي في رسالتك، لذا لا يمكنني الاستماع إليه وتفريغ النص المنطوق. يُرجى إرفاق الملف الصوتي لأتمكن من كتابته بدقة.",
+      "text": "أَلْ، أَلْ، لَ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -13563,28 +13563,28 @@
     {
       "key": "letter_l_nabeel_split_nabeel",
       "character": "bassel_curriculum",
-      "text": "نَبِيلْ نَ بِ لِ",
+      "text": "نَبِيلٌ: نَ، بِي، لٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_l_nabeel_split_namlah",
       "character": "bassel_curriculum",
-      "text": "نَمْلَة نَمْ لَ تَاءٌ مَرْبُوطَة",
+      "text": "نَمْلَةٌ: نَمْ، لَ، تُنْ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_l_nabeel_split_qala",
       "character": "bassel_curriculum",
-      "text": "قَالِ قَ لْ",
+      "text": "قَالَ: قَا، لَ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_l_nabeel_split_qaleel",
       "character": "bassel_curriculum",
-      "text": "قَلِيلْ قَ لِ لِ",
+      "text": "قَلِيلٌ: قَ، لِي، لٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -13598,8 +13598,8 @@
     {
       "key": "letter_l_nabeel_split_rumman",
       "character": "bassel_curriculum",
-      "text": "رُمَن رُمْ مَ نْ",
-      "style": "clear, steady, slow, distinct",
+      "text": "رُمَّانٌ: رُمْ، مَا، نٌ!",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13633,7 +13633,7 @@
     {
       "key": "letter_l_nabeel_vowels_station",
       "character": "bassel_curriculum",
-      "text": "الْمَحَطَّةُ الثَّانِي أَصْوَاتُ الْمُدُودِ وَاللَّامُ السَّاكِنْ. هَيَّا نُمَيِّزُ بَيْنَ الْحَرَكَاتِ الْقَصِيرَةِ لَ لُ لِ وَالْمُدُودِ الطَّوِيلَةِ لَا لُو لِي وَنَنْطِقُ الْمَقَاطِعَ السَّاكِنْ.",
+      "text": "اَلْمَحَطَّةُ الثَّانِيَةُ: أَصْوَاتُ الْمُدُودِ وَتَمْيِيزُ اللَّامِ السَّاكِنَةِ! هَيَّا نُمَيِّزْ بَيْنَ الْحَرَكَاتِ الْقَصِيرَةِ لَ، لُ، لِ، وَالْمُدُودِ الطَّوِيلَةِ لَا، لُو، لِي، وَنَنْطِقُ الْمَقَاطِعَ السَّاكِنَةَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -13654,8 +13654,8 @@
     {
       "key": "letter_l_nabeel_word_baqqal",
       "character": "bassel_curriculum",
-      "text": "بَقَّالْ",
-      "style": "clear, steady, distinct",
+      "text": "بَقَّالٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13675,29 +13675,29 @@
     {
       "key": "letter_l_nabeel_word_dalw",
       "character": "bassel_curriculum",
-      "text": "دَلْوْ",
-      "style": "clear, steady, distinct",
+      "text": "دَلْوٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_l_nabeel_word_fulful",
       "character": "bassel_curriculum",
-      "text": "فُلْفُلْ",
-      "style": "clear, steady, distinct",
+      "text": "فُلْفُلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_l_nabeel_word_ghazal",
       "character": "bassel_curriculum",
-      "text": "غَزَلْ",
-      "style": "clear, steady, distinct",
+      "text": "غَزَالٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_l_nabeel_word_haleeb",
       "character": "bassel_curriculum",
-      "text": "حَلِيبْ",
-      "style": "clear, steady, distinct",
+      "text": "حَلِيبٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13731,8 +13731,8 @@
     {
       "key": "letter_l_nabeel_word_laib",
       "character": "bassel_curriculum",
-      "text": "لَعِبْ",
-      "style": "clear, steady, distinct",
+      "text": "لَعِبٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13766,22 +13766,22 @@
     {
       "key": "letter_l_nabeel_word_malabis",
       "character": "bassel_curriculum",
-      "text": "مَلَابِسْ",
-      "style": "clear, steady, distinct",
+      "text": "مَلَابِسُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_l_nabeel_word_nabeel",
       "character": "bassel_curriculum",
-      "text": "نَبِيلْ",
-      "style": "clear, steady, distinct",
+      "text": "نَبِيلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_l_nabeel_word_namlah",
       "character": "bassel_curriculum",
-      "text": "نَمْلَةْ",
-      "style": "clear, steady, distinct",
+      "text": "نَمْلَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13801,8 +13801,8 @@
     {
       "key": "letter_l_nabeel_word_qaleel",
       "character": "bassel_curriculum",
-      "text": "قَلِيلْ",
-      "style": "clear, steady, distinct",
+      "text": "قَلِيلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13822,35 +13822,35 @@
     {
       "key": "letter_l_nabeel_word_raml",
       "character": "bassel_curriculum",
-      "text": "رَمْلْ",
-      "style": "clear, steady, distinct",
+      "text": "رَمْلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_l_nabeel_word_rumman",
       "character": "bassel_curriculum",
-      "text": "عذراً، المقطع الصوتي المرفق لا يحتوي على نص باللغة العربية من منهج قراءتي، بل يحتوي على عبارة باللغة الإنجليزية فقط، لذا لا يمكنني كتابة النص المنطوق باللغة العربية الفصحى كما طُلب.",
-      "style": "clear, steady, distinct",
+      "text": "رُمَّانٌ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_laymun",
       "character": "bassel_curriculum",
-      "text": "لَيْمُونُ",
-      "style": "warm, cheerful, clear",
+      "text": "لَيْمُونٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_laymun_vowel",
       "character": "bassel_curriculum",
-      "text": "لَيْمُونْ مَدٌّ طَوِيلْ مُو",
+      "text": "لَيْمُونٌ، مَدٌّ طَوِيلٌ، مُو.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_long_a",
       "character": "bassel_curriculum",
-      "text": "عذراً، لم يتم إرفاق أي مقطع صوتي مع رسالتك. يُرجى تزويدي بالمقطع الصوتي المطلوب لأتمكن من الاستماع إليه وتفريغه نصياً بدقة.",
+      "text": "مَا، مَدٌّ بِالْأَلِفِ، مَااا",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -13871,14 +13871,14 @@
     {
       "key": "letter_m_mawz",
       "character": "bassel_curriculum",
-      "text": "مَوْزُ",
-      "style": "warm, cheerful, clear",
+      "text": "مَوْزٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_mawz_vowel",
       "character": "bassel_curriculum",
-      "text": "مَوْزْ صَوْتٌ قَصِيرٌ مَ",
+      "text": "مَوْزٌ، صَوْتٌ قَصِيرٌ، مَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -13892,22 +13892,22 @@
     {
       "key": "letter_m_merge_bum",
       "character": "bassel_curriculum",
-      "text": "بُو زَائِدْ مِيمْ يُعْطِينَا كَلِمْ بُومْ طَائِرُ الْبُومِ",
-      "style": "clear, steady, slow, distinct",
+      "text": "اِدْمِجِ الْمَقَاطِعَ: بُو، مُ، يُعْطِينَا كَلِمَةَ بُومُ.",
+      "style": "clear, steady, slow, distinct, pronounce final damma on bumu clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_merge_mama",
       "character": "bassel_curriculum",
-      "text": "مَ زَائِدٌ مَ يُعْطِينَا كَلِمَ مَامَا مَامَا الْحَبِيبِي",
+      "text": "اِدْمِجِ الْمَقَاطِعَ: مَا، مَا، يُعْطِينَا كَلِمَةَ مَامَا.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_miftah",
       "character": "bassel_curriculum",
-      "text": "مِفْتَاحُ",
-      "style": "warm, cheerful, clear",
+      "text": "مِفْتَاحٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -13920,42 +13920,42 @@
     {
       "key": "letter_m_mizan",
       "character": "bassel_curriculum",
-      "text": "مِيزَانُ",
-      "style": "warm, cheerful, clear",
+      "text": "مِيزَانٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_mizan_vowel",
       "character": "bassel_curriculum",
-      "text": "مِيزَانْ مَدٌّ طَوِيلْ مِي",
+      "text": "مِيزَانٌ، مَدٌّ طَوِيلٌ، مِي.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_mizmar",
       "character": "bassel_curriculum",
-      "text": "مِزْمَارُ",
-      "style": "warm, cheerful, clear",
+      "text": "مِزْمَارٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_mizmar_vowel",
       "character": "bassel_curriculum",
-      "text": "مِزْمَارْ مَدٌّ طَوِيلْ مَا",
+      "text": "مِزْمَارٌ، مَدٌّ طَوِيلٌ، مَا.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_murabba",
       "character": "bassel_curriculum",
-      "text": "مُرَبَّعُ",
-      "style": "warm, cheerful, clear",
+      "text": "مُرَبَّعٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_muthallath",
       "character": "bassel_curriculum",
-      "text": "مُثَلَّثْ صَوْتٌ قَصِيرْ مُ",
+      "text": "مُثَلَّثٌ، صَوْتٌ قَصِيرٌ، مُ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -13969,14 +13969,14 @@
     {
       "key": "letter_m_qamh",
       "character": "bassel_curriculum",
-      "text": "قَمْحُ",
-      "style": "warm, cheerful, clear",
+      "text": "قَمْحٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_read_all",
       "character": "bassel_curriculum",
-      "text": "هَيَّا نَقْرَأُ الْكَلِمَاتِ مَعًا، بَابَا، مَامَا، نُور، أَحْسَنْتُمْ يَا أَبْطَالَ الصَّفِّ الْأَوَّلِ.",
+      "text": "أَقْرَأُ مَعَ الْعُصْفُورِ الْمُغَرِّدِ: بَابَا، مَامَا، بُومُ! أَحْسَنْتُمْ يَا أَبْطَالَ الصَّفِّ الْأَوَّلِ.",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14011,7 +14011,7 @@
     {
       "key": "letter_m_short_i",
       "character": "bassel_curriculum",
-      "text": "لم يتم إرفاق أي ملف صوتي مع الرسالة، لذا لا يمكنني الاستماع إلى المقطع الصوتي وتفريغه. يرجى إرفاق الملف الصوتي المطلوب.",
+      "text": "مِ، كَسْرَةٌ قَصِيرَةٌ، مِ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14032,7 +14032,7 @@
     {
       "key": "letter_m_split_bum",
       "character": "bassel_curriculum",
-      "text": "كَلِمَةُ بُومْ نُحَلِّلُهَا إِلَى مَقْطَعَيْنِ: بُو زَائِدًا مِيمْ مُو",
+      "text": "كَلِمَةُ بُومُ، نُحَلِّلُهَا إِلَى مَقْطَعَيْنِ: بُو، مُ! بُومُ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14046,21 +14046,21 @@
     {
       "key": "letter_m_tamr_syllable",
       "character": "bassel_curriculum",
-      "text": "تَمْرْ الْمَقْطَعُ السَّاكِنُ هُوَ تَمْ تَمْ",
+      "text": "تَمْرٌ، الْمَقْطَعُ السَّاكِنُ هُوَ تَمْ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_thawm",
       "character": "bassel_curriculum",
-      "text": "ثُومُ",
-      "style": "warm, cheerful, clear",
+      "text": "ثُومٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_m_timsah_syllable",
       "character": "bassel_curriculum",
-      "text": "تِمْسَاحْ الْمَقْطَعُ السَّاكِنُ هُوَ تِمْ تِمْ",
+      "text": "تِمْسَاحٌ، الْمَقْطَعُ السَّاكِنُ هُوَ تِمْ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14081,8 +14081,8 @@
     {
       "key": "letter_marboota_haqeebah",
       "character": "bassel_curriculum",
-      "text": "حَقِيبَة",
-      "style": "warm, cheerful, clear",
+      "text": "حَقِيبَةُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14109,8 +14109,8 @@
     {
       "key": "letter_marboota_madrasah",
       "character": "bassel_curriculum",
-      "text": "مَدْرَسَةْ",
-      "style": "warm, cheerful, clear",
+      "text": "مَدْرَسَةُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14123,22 +14123,22 @@
     {
       "key": "letter_marboota_merge_saarah",
       "character": "bassel_curriculum",
-      "text": "سَا زَائِدْ رَ زَائِدْ تُ يُسَاوِي سَارَةْ",
-      "style": "clear, steady, slow, distinct",
+      "text": "سَا زَائِدْ رَ زَائِدْ تُ، يُسَاوِي سَارَةُ!",
+      "style": "clear, steady, slow, distinct, pronounce final damma on saaratu clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_marboota_merge_saawah",
       "character": "bassel_curriculum",
-      "text": "سَا زَائِدْ وَ زَائِدْ تُ يُسَاوِي سَاوَةْ",
-      "style": "clear, steady, slow, distinct",
+      "text": "سَا زَائِدْ وَ زَائِدْ تُ، يُسَاوِي سَاوَةُ!",
+      "style": "clear, steady, slow, distinct, pronounce final damma on saawatu clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_marboota_merge_safeenah",
       "character": "bassel_curriculum",
-      "text": "سَ زَائِدْ فِي زَائِدْ نَ زَائِدْ تُ يُسَاوِي سَفِينَةْ",
-      "style": "clear, steady, slow, distinct",
+      "text": "سَ زَائِدْ فِي زَائِدْ نَ زَائِدْ تُ، يُسَاوِي سَفِينَةُ!",
+      "style": "clear, steady, slow, distinct, pronounce final damma on safeenatu clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14151,7 +14151,7 @@
     {
       "key": "letter_marboota_mibraah_vowel",
       "character": "bassel_curriculum",
-      "text": "مِبْرَاةْ. عِنْدَ الْوَصْلِ مِبْرَاةِ، وَعِنْدَ الْوَقْفِ مِبْرَاهْ.",
+      "text": "مِبْرَاةُ! عِنْدَ الْوَصْلِ مِبْرَاةُ، وَعِنْدَ الْوَقْفِ مِبْرَاهْ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14172,8 +14172,8 @@
     {
       "key": "letter_marboota_mistarah",
       "character": "bassel_curriculum",
-      "text": "مِسْطَرَة",
-      "style": "warm, cheerful, clear",
+      "text": "مِسْطَرَةُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14186,21 +14186,21 @@
     {
       "key": "letter_marboota_mistarah_vowel",
       "character": "bassel_curriculum",
-      "text": "مِسْطَرَهْ عِنْدَ الْوَصْلِ مِسْطَرَهْ وَعِنْدَ الْوَقْفِ مِسْطَرَهْ",
+      "text": "مِسْطَرَةُ! عِنْدَ الْوَصْلِ مِسْطَرَةُ، وَعِنْدَ الْوَقْفِ مِسْطَرَهْ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_marboota_model_alone",
       "character": "bassel_curriculum",
-      "text": "أَنَا وَحْدِي، أَسْتَمِعُ وَأُمَيِّزُ صَوْتَ التَّاءِ الْمَرْبُوطَةِ فِي كَلِمْ: حَقِيبَةْ.",
+      "text": "أَنَا وَحْدِي: أَسْتَمِعُ وَأُمَيِّزُ صَوْتَ التَّاءِ الْمَرْبُوطَةِ فِي كَلِمَةِ حَقِيبَةُ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_marboota_model_we",
       "character": "bassel_curriculum",
-      "text": "أَنَا وَأَنْتُمْ، نُرَدِّدُ مَعًا بِلِسَانٍ فَصِيحٍ، مَدْرَسَةْ، مَدْرَسَةْ.",
+      "text": "أَنَا وَأَنْتُمْ: نُرَدِّدُ مَعًا بِلِسَانٍ فَصِيحٍ: مَدْرَسَةُ، مَدْرَسَهْ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14228,8 +14228,8 @@
     {
       "key": "letter_marboota_read_sentence1",
       "character": "bassel_curriculum",
-      "text": "سَارَةُ تَرْسِمْ",
-      "style": "warm, clear, steady",
+      "text": "سَارَةُ تَرْسِمُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14256,8 +14256,8 @@
     {
       "key": "letter_marboota_read_word_deematu",
       "character": "bassel_curriculum",
-      "text": "دِيمَة",
-      "style": "clear, steady, distinct",
+      "text": "دِيمَةُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14270,8 +14270,8 @@
     {
       "key": "letter_marboota_read_word_madrasati",
       "character": "bassel_curriculum",
-      "text": "مَدْرَسَة",
-      "style": "clear, steady, distinct",
+      "text": "مَدْرَسَةِ",
+      "style": "clear, steady, distinct, pronounce final kasra clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14291,8 +14291,8 @@
     {
       "key": "letter_marboota_read_word_sarwatu",
       "character": "bassel_curriculum",
-      "text": "سَرْوَة",
-      "style": "clear, steady, distinct",
+      "text": "سَرْوَةُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14340,49 +14340,49 @@
     {
       "key": "letter_marboota_short_a",
       "character": "bassel_curriculum",
-      "text": "تَ تَاءٌ مَرْبُوطَةٌ تَ",
+      "text": "تَ، فَتْحَةٌ، تَ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_marboota_short_i",
       "character": "bassel_curriculum",
-      "text": "تِ تَاءٌ مَرْبُوطَة تِ",
+      "text": "تِ، كَسْرَةٌ، تِ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_marboota_short_u",
       "character": "bassel_curriculum",
-      "text": "تُ، تاءٌ مَرْبُوطَة، تُ.",
+      "text": "تُ، ضَمَّةٌ، تُ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_marboota_split_dumyah",
       "character": "bassel_curriculum",
-      "text": "إِشَارَةُ التَّصْفِيقِ دُمْ زَائِدْ إِشَارَةُ التَّصْفِيقِ يَ زَائِدْ إِشَارَةُ التَّصْفِيقِ تُ يُسَاوِي دُمْيَة",
+      "text": "دُمْ، يَ، تُ، يُسَاوِي دُمْيَةُ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_marboota_split_madrasah",
       "character": "bassel_curriculum",
-      "text": "إِشَارَةُ التَّصْفِيقِ مَدْ زَائِدُ إِشَارَةُ التَّصْفِيقِ رَ زَائِدُ إِشَارَةُ التَّصْفِيقِ سَ زَائِدُ إِشَارَةُ التَّصْفِيقِ تُ يُسَاوِي مَدْرَسَةُ",
+      "text": "مَدْ، رَ، سَ، تُ، يُسَاوِي مَدْرَسَةُ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_marboota_split_saarah",
       "character": "bassel_curriculum",
-      "text": "إِشَارَةُ التَّصْفِيقِ سَا زَائِدُ إِشَارَةِ التَّصْفِيقِ رَا زَائِدُ إِشَارَةِ التَّصْفِيقِ تُو يُسَاوِي سَارَةُ",
+      "text": "سَا، رَ، تُ، يُسَاوِي سَارَةُ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_marboota_split_safeenah",
       "character": "bassel_curriculum",
-      "text": "إِشَارَةُ التَّصْفِيقِ سَ زَائِدُ إِشَارَةُ التَّصْفِيقِ فِي زَائِدُ إِشَارَةُ التَّصْفِيقِ نَ زَائِدُ إِشَارَةُ التَّصْفِيقِ تُ يُسَاوِي سَفِينَة",
+      "text": "سَ، فِي، نَ، تُ، يُسَاوِي سَفِينَةُ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14410,7 +14410,7 @@
     {
       "key": "letter_marboota_waqf_wasl",
       "character": "bassel_curriculum",
-      "text": "قَاعِدَةُ التَّاءِ الْمَرْبُوطَةِ الذَّهَبِيَّةِ، تُنْطَقُ تَاءً عِنْدَ الْحَرَكَةِ وَالْوَصْلِ: مَدْرَسَةُ سَرَّة، وَتُنْطَقُ هَاءً عِنْدَ السُّكُونِ وَالْوَقْفِ: مَدْرَسَهْ.",
+      "text": "قَاعِدَةُ التَّاءِ الْمَرْبُوطَةِ الذَّهَبِيَّةِ: تُنْطَقُ تَاءً عِنْدَ الْحَرَكَةِ وَالْوَصْلِ، مَدْرَسَةُ سَارَةَ، وَتُنْطَقُ هَاءً عِنْدَ السُّكُونِ وَالْوَقْفِ، مَدْرَسَهْ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14473,7 +14473,7 @@
     {
       "key": "letter_n_janeen",
       "character": "bassel_curriculum",
-      "text": "جَنِينْ نِي صَوْتٌ طَوِيلْ",
+      "text": "جَنِينٌ، نِي، صَوْتٌ طَوِيلٌ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14515,15 +14515,15 @@
     {
       "key": "letter_n_merge_nasr",
       "character": "bassel_curriculum",
-      "text": "تَرْكِيبُ الْمَقَاطِعِ، نَسْ زَائِدْ رُ يُسَاوِي نَسْرْ. مُمْتَازٌ جِدًّا.",
-      "style": "clear, steady, slow, distinct",
+      "text": "تَرْكِيبُ الْمَقَاطِعِ: نَسْ، رُ، يُسَاوِي نَسْرُ! مُمْتَازٌ جِدًّا.",
+      "style": "clear, steady, slow, distinct, pronounce final damma on nasru clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_n_merge_numoor",
       "character": "bassel_curriculum",
-      "text": "تَرْكِيبُ الْمَقَاطِعِ: نُ زَائِدْ مُو زَائِدْ رُ يُسَاوِي نُمُورْ. أَحْسَنْتَ يَا بَطَلْ!",
-      "style": "clear, steady, slow, distinct",
+      "text": "تَرْكِيبُ الْمَقَاطِعِ: نُ، مُو، رُ، يُسَاوِي نُمُورُ! أَحْسَنْتَ يَا بَطَلُ.",
+      "style": "clear, steady, slow, distinct, pronounce final damma on numuru clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14578,14 +14578,14 @@
     {
       "key": "letter_n_naml",
       "character": "bassel_curriculum",
-      "text": "نَمْلْ نَمْلٌ نَشِيطْ",
-      "style": "warm, cheerful, clear",
+      "text": "نَمْلٌ نَشِيطٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_n_nasr",
       "character": "bassel_curriculum",
-      "text": "نَسْرُ نَ صَوْتٌ قَصِيرُ",
+      "text": "نَسْرٌ، نَ، صَوْتٌ قَصِيرٌ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14599,14 +14599,14 @@
     {
       "key": "letter_n_niqaat",
       "character": "bassel_curriculum",
-      "text": "نِقَاطُ نِقَاطٌ مُلَوَّنْ",
-      "style": "warm, cheerful, clear",
+      "text": "نِقَاطٌ مُلَوَّنَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_n_niqaat_vowel",
       "character": "bassel_curriculum",
-      "text": "نِقَاطِ نِ صَوْتٌ قَصِيرٌ",
+      "text": "نِقَاطُ، نِ، صَوْتٌ قَصِيرٌ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14620,7 +14620,7 @@
     {
       "key": "letter_n_numoor",
       "character": "bassel_curriculum",
-      "text": "نُمُورْ نُ صَوْتٌ قَصِيرْ",
+      "text": "نُمُورٌ، نُ، صَوْتٌ قَصِيرٌ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14669,8 +14669,8 @@
     {
       "key": "letter_n_read_word_faris",
       "character": "bassel_curriculum",
-      "text": "فَارِسْ",
-      "style": "clear, steady, distinct",
+      "text": "فَارِسُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14683,22 +14683,22 @@
     {
       "key": "letter_n_read_word_marsam",
       "character": "bassel_curriculum",
-      "text": "مَرْسَمْ",
-      "style": "clear, steady, distinct",
+      "text": "مَرْسَمِ",
+      "style": "clear, steady, distinct, pronounce final kasra clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_n_read_word_noor",
       "character": "bassel_curriculum",
-      "text": "نُورْ كَلِمَةُ الدَّرْسِ التُّرَاثِيَّةِ الشَّهِيرْ نُورَ نُورَ دَادَا نُورْ دَارُ نُورْ",
+      "text": "نُورُ! كَلِمَةُ الدَّرْسِ التُّرَاثِيَّةِ الشَّهِيرَةُ: نُورُ، نُورُ، دَادَا نُورُ، دَارُ نُورْ.",
       "style": "clear, steady, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_n_read_word_rasama",
       "character": "bassel_curriculum",
-      "text": "رَسَمْ",
-      "style": "clear, steady, distinct",
+      "text": "رَسَمَ",
+      "style": "clear, steady, distinct, pronounce final fatha clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -14739,28 +14739,28 @@
     {
       "key": "letter_n_split_manaar",
       "character": "bassel_curriculum",
-      "text": "كَلِمَةُ مَنَارُ تَتَكَوَّنُ مِنْ ثَلَاثَةِ مَقَاطِعَ مَ زَائِدْ نَا زَائِدْ رُ صَفِّقْ مَعِي مِيمْ نَا رُ",
+      "text": "كَلِمَةُ مَنَارُ، تَتَكَوَّنُ مِنْ ثَلَاثَةِ مَقَاطِعَ: مَ، نَا، رُ! صَفِّقْ مَعِي: مَ، نَا، رُ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_n_split_noor",
       "character": "bassel_curriculum",
-      "text": "كَلِمَةُ نُورْ تَتَكَوَّنُ مِنْ مَقْطَعَيْنِ نُو زَائِدْ رْ صَفِّقْ مَعِي نُو رْ",
+      "text": "كَلِمَةُ نُورُ، تَتَكَوَّنُ مِنْ مَقْطَعَيْنِ: نُو، رُ! صَفِّقْ مَعِي: نُو، رُ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_n_split_raneen",
       "character": "bassel_curriculum",
-      "text": "كَلِمَةُ رَنِينْ تَتَكَوَّنُ مِنْ ثَلَاثَةِ مَقَاطِعْ رَ زَائِدْ نِي زَائِدْ نْ صَفِّقْ مَعِي رَ نِي نْ",
+      "text": "كَلِمَةُ رَنِينُ، تَتَكَوَّنُ مِنْ ثَلَاثَةِ مَقَاطِعَ: رَ، نِي، نُ! صَفِّقْ مَعِي: رَ، نِي، نُ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_n_split_sinan",
       "character": "bassel_curriculum",
-      "text": "كَلِمَةُ سِنَانْ تَتَكَوَّنُ مِنْ ثَلَاثَةِ مَقَاطِعْ سِ زَائِدْ نَا زَائِدْ نُ صَفِّقْ مَعِي سِ نَا نُ",
+      "text": "كَلِمَةُ سِنَانُ، تَتَكَوَّنُ مِنْ ثَلَاثَةِ مَقَاطِعَ: سِ، نَا، نُ! صَفِّقْ مَعِي: سِ، نَا، نُ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14788,7 +14788,7 @@
     {
       "key": "letter_q_booq_merge_baqar",
       "character": "bassel_curriculum",
-      "text": "بَ قَ رَ يُعْطِينَا بَقَرُ",
+      "text": "بَ، قَ، رٌ، يُعْطِينَا بَقَرٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14802,7 +14802,7 @@
     {
       "key": "letter_q_booq_merge_nadeem",
       "character": "bassel_curriculum",
-      "text": "نَ دِي مْ يُعْطِينَا نَدِيمْ",
+      "text": "نَ، دِي، مٌ، يُعْطِينَا نَدِيمٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14816,21 +14816,21 @@
     {
       "key": "letter_q_booq_merge_qaadim",
       "character": "bassel_curriculum",
-      "text": "بَ دْ وُ يُعْطِينَا قَادِمٌ",
+      "text": "قَا، دِ، مٌ، يُعْطِينَا قَادِمٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_merge_qaarib",
       "character": "bassel_curriculum",
-      "text": "قَ رِ بْ يُعْطِينَا قَارِبْ",
+      "text": "قَا، رِ، بٌ، يُعْطِينَا قَارِبٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_merge_qadeem",
       "character": "bassel_curriculum",
-      "text": "قَ دِي مُ يُعْطِينَا قَدِيمْ",
+      "text": "قَ، دِي، مٌ، يُعْطِينَا قَدِيمٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14935,7 +14935,7 @@
     {
       "key": "letter_q_booq_split_minqaar",
       "character": "bassel_curriculum",
-      "text": "مِنْقارْ مِنْ بَ رَ رَ",
+      "text": "مِنْقَارٌ: مِنْ، قَا، رٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -14970,71 +14970,71 @@
     {
       "key": "letter_q_booq_syl_aq",
       "character": "bassel_curriculum",
-      "text": "أَقْ",
-      "style": "calm, crisp, slow articulation",
+      "text": "عَقْ، عَقْرَبٌ",
+      "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_syl_haq",
       "character": "bassel_curriculum",
-      "text": "حَقْ <short pause> حَقْ",
-      "style": "calm, crisp, slow articulation",
+      "text": "حَقْ، حَقْلٌ",
+      "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_syl_saq",
       "character": "bassel_curriculum",
-      "text": "صَقْ <short pause> صَقْ",
-      "style": "calm, crisp, slow articulation",
+      "text": "صَقْ، صَقْرٌ",
+      "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_syl_saq2",
       "character": "bassel_curriculum",
-      "text": "سَقْ <short pause> سَقْ",
-      "style": "calm, crisp, slow articulation",
+      "text": "سَقْ، سَقْفٌ",
+      "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_vowels_station",
       "character": "bassel_curriculum",
-      "text": "اَلْمَحَطَّةُ الثَّانِي: أَصْوَاتُ الْمُدُودِ وَالْقَافُ السَّاكِنُ. هَيَّا نُمَيِّزُ بَيْنَ الْحَرَكَاتِ الْقَصِيرَةِ: قَ، قُ، قِ، وَالْمُدُودِ الطَّوِيلَةِ: قَا، قُو، قِي، وَنَنْطِقُ الْمَقَاطِعَ السَّاكِنَ.",
+      "text": "اَلْمَحَطَّةُ الثَّانِيَةُ: أَصْوَاتُ الْمُدُودِ وَتَمْيِيزُ الْقَافِ السَّاكِنَةِ! هَيَّا نُمَيِّزْ بَيْنَ الْحَرَكَاتِ الْقَصِيرَةِ قَ، قُ، قِ، وَالْمُدُودِ الطَّوِيلَةِ قَا، قُو، قِي، وَنَنْطِقُ الْمَقَاطِعَ السَّاكِنَةَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_word_baqar",
       "character": "bassel_curriculum",
-      "text": "بَقَرْ",
-      "style": "clear, steady, distinct",
+      "text": "بَقَرٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_word_batreeq",
       "character": "bassel_curriculum",
-      "text": "بَطْرِيق",
-      "style": "clear, steady, distinct",
+      "text": "بِطْرِيقٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_word_booq",
       "character": "bassel_curriculum",
-      "text": "بُوقْ",
-      "style": "clear, steady, distinct",
+      "text": "بُوقٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_word_burtuqaal",
       "character": "bassel_curriculum",
-      "text": "بُرْتُقَالْ",
-      "style": "clear, steady, distinct",
+      "text": "بُرْتُقَالٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_word_daqeeq",
       "character": "bassel_curriculum",
-      "text": "دَقِيقْ",
-      "style": "clear, steady, distinct",
+      "text": "دَقِيقٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -15054,15 +15054,15 @@
     {
       "key": "letter_q_booq_word_qaarib",
       "character": "bassel_curriculum",
-      "text": "قَارِبْ",
-      "style": "clear, steady, distinct",
+      "text": "قَارِبٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_q_booq_word_qadeem",
       "character": "bassel_curriculum",
-      "text": "قَدِيمْ",
-      "style": "clear, steady, distinct",
+      "text": "قَدِيمٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -15082,8 +15082,8 @@
     {
       "key": "letter_q_booq_word_qirsh",
       "character": "bassel_curriculum",
-      "text": "فَرْشٌ",
-      "style": "clear, steady, distinct",
+      "text": "قِرْشٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -15096,8 +15096,8 @@
     {
       "key": "letter_q_booq_word_qubbaah",
       "character": "bassel_curriculum",
-      "text": "قُبَّعْ",
-      "style": "clear, steady, distinct",
+      "text": "قُبَّعَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -15145,14 +15145,14 @@
     {
       "key": "letter_r_kharoof_vowel",
       "character": "bassel_curriculum",
-      "text": "خَرُوفْ رُو خَرُوفْ صَوْتُ مَدٍّ طَوِيلٍ بِالْوَاوِ، رُو",
+      "text": "خَرُوفٌ، رُو، صَوْتُ مَدٍّ طَوِيلٍ بِالْوَاوِ، رُو.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_r_long_a",
       "character": "bassel_curriculum",
-      "text": "رَأَى مَدٌّ طَوِيلٌ بِالْأَلِفِ، رَا",
+      "text": "رَا، مَدٌّ طَوِيلٌ بِالْأَلِفِ، رَااا.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15173,21 +15173,21 @@
     {
       "key": "letter_r_merge_dar",
       "character": "bassel_curriculum",
-      "text": "دَ زَائِدٌ رَاءٌ يُعْطِينَا كَلِمَ دَارْ هَكَذَا رَكَّبْنَا كَلِمَةَ دَارٍ.",
-      "style": "clear, steady, slow, distinct",
+      "text": "دَا زَائِدْ رُ، يُعْطِينَا كَلِمَةَ دَارُ! هَكَذَا صَنَعْنَا كَلِمَةَ دَارْ.",
+      "style": "clear, steady, slow, distinct, pronounce final damma on daru clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_r_merge_rafid",
       "character": "bassel_curriculum",
-      "text": "رَ زَائِدٌ فْ زَائِدٌ دَلْ يُعْطِينَا كَلِمَ رَافِدُ",
+      "text": "رَا زَائِدْ فِ زَائِدْ دُ، يُعْطِينَا كَلِمَةَ رَافِدُ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_r_merge_rami",
       "character": "bassel_curriculum",
-      "text": "رَا زَائِدٌ مِي يُعْطِينَا كَلِمْ رَامِي",
+      "text": "رَا زَائِدْ مِي، يُعْطِينَا كَلِمَةَ رَامِي.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15229,7 +15229,7 @@
     {
       "key": "letter_r_qarib",
       "character": "bassel_curriculum",
-      "text": "قَارِبْ قَا رِبْ صَوْتُ مَدٍّ طَوِيلٍ بِالْأَلِفِ رَا",
+      "text": "قَارِبٌ، رَا، صَوْتُ مَدٍّ طَوِيلٍ بِالْأَلِفِ، رَا.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15250,7 +15250,7 @@
     {
       "key": "letter_r_raml",
       "character": "bassel_curriculum",
-      "text": "رَمْلْ رَاءٌ رَمْلْ فَتْحَةٌ فِي أَوَّلِ الْكَلِمْ رَاءٌ",
+      "text": "رَمْلٌ، فَتْحَةٌ قَصِيرَةٌ فِي أَوَّلِ الْكَلِمَةِ، رَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15271,8 +15271,8 @@
     {
       "key": "letter_r_read_dada_maram",
       "character": "bassel_curriculum",
-      "text": "دَادَا مَرَام",
-      "style": "warm, clear, steady",
+      "text": "دَادَا مَرَامُ.",
+      "style": "clear, steady, distinct, pronounce final damma on maramu clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -15285,49 +15285,49 @@
     {
       "key": "letter_r_read_mama_reem",
       "character": "bassel_curriculum",
-      "text": "مَامَا رِيمْ",
-      "style": "warm, clear, steady",
+      "text": "مَامَا رِيمُ.",
+      "style": "clear, steady, distinct, pronounce final damma on reemu clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_r_reesha",
       "character": "bassel_curriculum",
-      "text": "رِيشَة رِي رِيش صَوْتُ مَدٍّ طَوِيلٍ بِالْيَاءِ رِي",
+      "text": "رِيشَةٌ، رِي، صَوْتُ مَدٍّ طَوِيلٍ بِالْيَاءِ، رِي.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_r_rijl",
       "character": "bassel_curriculum",
-      "text": "رِجْلْ رَاءٌ رِجْلْ كَسْرَةٌ فِي أَوَّلِ الْكَلِمِ رَاءٌ",
+      "text": "رِجْلُ، كَسْرَةٌ قَصِيرَةٌ فِي أَوَّلِ الْكَلِمَةِ، رِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_r_saffara",
       "character": "bassel_curriculum",
-      "text": "صَفَّارَة رَاءٌ صَفَر صَوْتُ مَدٍّ قَصِير رَاءٌ",
+      "text": "صَفَّارَةُ، رَ، صَوْتُ مَدٍّ قَصِيرٍ، رَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_r_sareer",
       "character": "bassel_curriculum",
-      "text": "سَرِيرْ رِي سَرِيرْ مَدٌّ بِالْيَاءِ فِي وَسَطِ الْكَلِمَةِ رِي",
+      "text": "سَرِيرٌ، مَدٌّ بِالْيَاءِ فِي وَسَطِ الْكَلِمَةِ، رِي.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_r_short_a",
       "character": "bassel_curriculum",
-      "text": "رَاءٌ فَتْحَةٌ قَصِيرَة رَاءٌ",
+      "text": "رَ، فَتْحَةٌ قَصِيرَةٌ، رَ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_r_short_i",
       "character": "bassel_curriculum",
-      "text": "رَاءٌ، كَسْرَةٌ قَصِيرَةٌ، رَاءٌ.",
+      "text": "رِ، كَسْرَةٌ قَصِيرَةٌ، رِ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15341,7 +15341,7 @@
     {
       "key": "letter_r_sound",
       "character": "bassel_curriculum",
-      "text": "أَرْ أَرْ الرَّاءْ",
+      "text": "أَرْ، أَرْ، رَ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15355,7 +15355,7 @@
     {
       "key": "letter_r_split_maram",
       "character": "bassel_curriculum",
-      "text": "كَلِمَةُ مَرَامْ نُحَلِّلُهَا إِلَى ثَلَاثَةِ مَقَاطِعَ مَ رَا مِيمْ مَرَامْ ثَلَاثُ صَفَقَاتٍ",
+      "text": "كَلِمَةُ مَرَامُ، نُحَلِّلُهَا إِلَى ثَلَاثَةِ مَقَاطِعَ: مَ، رَا، مُ! مَرَامُ، ثَلَاثُ صَفَقَاتٍ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15369,14 +15369,14 @@
     {
       "key": "letter_r_split_reem",
       "character": "bassel_curriculum",
-      "text": "كَلِمَةُ رِيمْ نُحَلِّلُهَا إِلَى مَقْطَعَيْنِ رِي مِيمْ رِيمُ صَفْقَتَانْ",
+      "text": "كَلِمَةُ رِيمُ، نُحَلِّلُهَا إِلَى مَقْطَعَيْنِ: رِي، مُ! رِيمُ، صَفْقَتَانِ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_r_zurr",
       "character": "bassel_curriculum",
-      "text": "زِرٌّ زَيْن رَاءٌ صَوْتُ حَرَكَةٍ قَصِيرٌ، رَاءٌ",
+      "text": "زِرُّ، رِ، صَوْتُ حَرَكَةٍ قَصِيرٍ، رِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15397,28 +15397,28 @@
     {
       "key": "letter_s_hasoob",
       "character": "bassel_curriculum",
-      "text": "حَاسُوبْ سُو حَاسُوبْ",
-      "style": "warm, cheerful, clear",
+      "text": "حَاسُوبٌ، سُو، حَاسُوبٌ.",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_long_a",
       "character": "bassel_curriculum",
-      "text": "سِينْ مَعَ أَلِفِ الْمَدِّ سَا، سَ.",
+      "text": "سَا، مَدُّ الْأَلِفِ الطَّوِيلُ، سَااا.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_long_i",
       "character": "bassel_curriculum",
-      "text": "سِينٌ مَعَ يَاءِ الْمَدِّ سِي سِي.",
+      "text": "سِي، مَدُّ الْيَاءِ الطَّوِيلُ، سِييي.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_long_u",
       "character": "bassel_curriculum",
-      "text": "سِينْ مَعَ وَاوِ الْمَدِّ، سُو، سُو.",
+      "text": "سُو، مَدُّ الْوَاوِ الطَّوِيلُ، سُووو.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15432,8 +15432,8 @@
     {
       "key": "letter_s_merge_mismaar",
       "character": "bassel_curriculum",
-      "text": "نَدْمِجُ مِسْ زَائِدْ مَا زَائِدْ رُ يُسَاوِي مِسْمَارْ",
-      "style": "clear, steady, slow, distinct",
+      "text": "مِسْ زَائِدْ مَا زَائِدْ رُ، يُسَاوِي مِسْمَارُ.",
+      "style": "clear, steady, slow, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -15474,7 +15474,7 @@
     {
       "key": "letter_s_model_we",
       "character": "bassel_curriculum",
-      "text": "أَنَا وَأَنْتُمْ هَيَّا نَنْطِقْ صَوْتَ السِّينِ مَعًا بِصَوْتٍ وَاضِحٍ سِينْ سِينْ أَحْسَنْتُمْ يَا رِفَاقُ",
+      "text": "أَنَا وَأَنْتُمْ: نَنْطِقُ مَعًا يَا أَبْطَالُ، سُلَحْفَاةُ، فِي أَوَّلِهَا سِينٌ مَضْمُومَةٌ: سُ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15544,8 +15544,8 @@
     {
       "key": "letter_s_read_word_firas",
       "character": "bassel_curriculum",
-      "text": "فِرَاسْ كَلِمَةُ الدَّرْسِ الشَّهِيرْ",
-      "style": "clear, steady, distinct",
+      "text": "فِرَاسُ! كَلِمَةُ الدَّرْسِ الشَّهِيرَةُ.",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -15586,8 +15586,8 @@
     {
       "key": "letter_s_saah",
       "character": "bassel_curriculum",
-      "text": "سَاعَة سَ سَ سَاعَة",
-      "style": "warm, cheerful, clear",
+      "text": "سَاعَةُ، سَا، سَاعَةُ.",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -15600,42 +15600,42 @@
     {
       "key": "letter_s_sabboora",
       "character": "bassel_curriculum",
-      "text": "سَبُّورَةْ صَوْتُ الْمَدِّ الْقَصِيرِ سَ",
+      "text": "سَبُّورَةُ، صَوْتُ الْمَدِّ الْقَصِيرِ، سَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_salla",
       "character": "bassel_curriculum",
-      "text": "سَلَّةَ سَ سَلَّةَ",
-      "style": "warm, cheerful, clear",
+      "text": "سَلَّةُ، سَ، سَلَّةُ.",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_shams",
       "character": "bassel_curriculum",
-      "text": "شَمْس شَمْس",
-      "style": "warm, cheerful, clear",
+      "text": "شَمْسٌ، شَمْسٌ.",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_short_a",
       "character": "bassel_curriculum",
-      "text": "سِينْ فَتْحَة سَ، سَ.",
+      "text": "سَ، حَرَكَةُ الْفَتْحَةِ الْقَصِيرَةِ، سَ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_short_i",
       "character": "bassel_curriculum",
-      "text": "سِينْ كَسْرَة سِ، سِ.",
+      "text": "سِ، حَرَكَةُ الْكَسْرَةِ الْقَصِيرَةِ، سِ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_short_u",
       "character": "bassel_curriculum",
-      "text": "سِينْ ضَمَّة سُ سُ",
+      "text": "سُ، حَرَكَةُ الضَّمَّةِ الْقَصِيرَةِ، سُ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15649,14 +15649,14 @@
     {
       "key": "letter_s_sitara",
       "character": "bassel_curriculum",
-      "text": "سِتَارَة سِ سِتَارَة",
-      "style": "warm, cheerful, clear",
+      "text": "سِتَارَةُ، سِ، سِتَارَةُ.",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_sooq",
       "character": "bassel_curriculum",
-      "text": "سُوقْ صَوْتُ الْمَدِّ الطَّوِيلِ سُو",
+      "text": "سُوقٌ، صَوْتُ الْمَدِّ الطَّوِيلِ، سُو.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15670,14 +15670,14 @@
     {
       "key": "letter_s_split_darasa",
       "character": "bassel_curriculum",
-      "text": "تَحْلِيلُ كَلِمَةِ دَرَسَ: دَ زَائِدْ رَ زَائِدْ سَ يُسَاوِي دَرَسْ. كَلِمَةٌ مِنْ ثَلَاثَةِ مَقَاطِعْ.",
+      "text": "تَحْلِيلُ كَلِمَةِ دَرَسَ: دَ، رَ، سَ! ثَلَاثَةُ مَقَاطِعَ، دَرَسَ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_split_saafara",
       "character": "bassel_curriculum",
-      "text": "تَحْلِيلُ كَلِمَةِ سَفَرْ، سَ زَائِدْ فَ زَائِدْ رَ يُسَاوِي سَفَرْ، كَلِمَةٌ مِنْ ثَلَاثَةِ مَقَاطِعْ.",
+      "text": "تَحْلِيلُ كَلِمَةِ سَافَرَ: سَا، فَ، رَ! ثَلَاثَةُ مَقَاطِعَ، سَافَرَ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15691,22 +15691,22 @@
     {
       "key": "letter_s_sukkar",
       "character": "bassel_curriculum",
-      "text": "سُكَّرْ صَوْتُ الْمَدِّ الْقَصِيرِ سُ",
+      "text": "سُكَّرٌ، صَوْتُ الْمَدِّ الْقَصِيرِ، سُ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_sulhafah",
       "character": "bassel_curriculum",
-      "text": "سُلَحْفَاةْ سُ سُلَحْفَاةْ",
-      "style": "warm, cheerful, clear",
+      "text": "سُلَحْفَاةُ، سُ، سُلَحْفَاةُ.",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_s_timsaah",
       "character": "bassel_curriculum",
-      "text": "تِمْسَاحُ سَ تِمْسَاحُ",
-      "style": "warm, cheerful, clear",
+      "text": "تِمْسَاحٌ، سَا، تِمْسَاحٌ.",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -15733,7 +15733,7 @@
     {
       "key": "letter_sad_long_oo",
       "character": "bassel_curriculum",
-      "text": "صُ مَدٌّ طَوِيلٌ بِالْوَاوِ صُوصُوصْ",
+      "text": "صُو، مَدٌّ طَوِيلٌ بِالْوَاوِ، صُوصٌ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15754,7 +15754,7 @@
     {
       "key": "letter_sad_merge_saboon",
       "character": "bassel_curriculum",
-      "text": "صَا زَائِدْ بُو زَائِدْ نُونْ يُسَاوِي صَابُونٌ",
+      "text": "صَا زَائِدْ بُو زَائِدْ نٌ، يُسَاوِي صَابُونٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15964,7 +15964,7 @@
     {
       "key": "letter_sad_split_soof",
       "character": "bassel_curriculum",
-      "text": "صُوفْ صُو زَائِدْ فْ",
+      "text": "صُوفٌ: صُو، فٌ! مَقْطَعَانِ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -15999,7 +15999,7 @@
     {
       "key": "letter_sad_tanween_dham",
       "character": "bassel_curriculum",
-      "text": "صَادُ تَنْوِينُ ضَمٍّ صَادٌ قَفَصٌ",
+      "text": "صٌ، تَنْوِينُ الضَّمِّ، صٌ، قَفَصٌ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -16013,7 +16013,7 @@
     {
       "key": "letter_sad_tanween_kasr",
       "character": "bassel_curriculum",
-      "text": "صَادُ تَنْوِينُ الْكَسْرِ صَادٍ فِي قَفَصٍ",
+      "text": "صٍ، تَنْوِينُ الْكَسْرِ، صٍ، فِي قَفَصٍ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -16027,8 +16027,8 @@
     {
       "key": "letter_sad_word_aseer",
       "character": "bassel_curriculum",
-      "text": "عَصِيرُ",
-      "style": "clear, steady, distinct",
+      "text": "عَصِيرٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16055,8 +16055,8 @@
     {
       "key": "letter_sad_word_isba",
       "character": "bassel_curriculum",
-      "text": "إِصْبَعْ",
-      "style": "clear, steady, distinct",
+      "text": "إِصْبَعٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16139,8 +16139,8 @@
     {
       "key": "letter_sad_word_saarookh",
       "character": "bassel_curriculum",
-      "text": "صَارُوخُ",
-      "style": "clear, steady, distinct",
+      "text": "صَارُوخٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16167,8 +16167,8 @@
     {
       "key": "letter_sad_word_safirah",
       "character": "bassel_curriculum",
-      "text": "صَافِرَة",
-      "style": "clear, steady, distinct",
+      "text": "صَافِرَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16209,15 +16209,15 @@
     {
       "key": "letter_sad_word_sinnarah",
       "character": "bassel_curriculum",
-      "text": "صَنَّارَة",
-      "style": "clear, steady, distinct",
+      "text": "صِنَّارَةٌ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_sad_word_soof",
       "character": "bassel_curriculum",
-      "text": "صُوفْ",
-      "style": "clear, steady, distinct",
+      "text": "صُوفٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16230,8 +16230,8 @@
     {
       "key": "letter_sad_word_soos",
       "character": "bassel_curriculum",
-      "text": "صُوصْ",
-      "style": "clear, steady, distinct",
+      "text": "صُوصٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16251,8 +16251,8 @@
     {
       "key": "letter_sad_word_waqqas",
       "character": "bassel_curriculum",
-      "text": "وَقّاصُ",
-      "style": "clear, steady, distinct",
+      "text": "وَقَّاصٌ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16286,7 +16286,7 @@
     {
       "key": "letter_sh_merge_farashah",
       "character": "bassel_curriculum",
-      "text": "فَ رَ شَ تٌ تُصْبِحُ فَرَاشَةْ",
+      "text": "فَ، رَا، شَ، تُنْ، تُصْبِحُ فَرَاشَةٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -16300,14 +16300,14 @@
     {
       "key": "letter_sh_merge_shamah",
       "character": "bassel_curriculum",
-      "text": "شَمْ عَ تٌ تُصْبِحُ شَمْعَةْ",
+      "text": "شَمْ، عَ، تُنْ، تُصْبِحُ شَمْعَةٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_sh_merge_shamil",
       "character": "bassel_curriculum",
-      "text": "شَ مِ لْ تُصْبِحُ شَامِلْ",
+      "text": "شَا، مِ، لٌ، تُصْبِحُ شَامِلٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -16342,14 +16342,14 @@
     {
       "key": "letter_sh_read_b3",
       "character": "bassel_curriculum",
-      "text": "وِدادُ وَوَسَنُ تَدْرُسانْ",
+      "text": "وِدَادُ وَوَسَنُ تَدْرُسَانِ.",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_sh_read_b4",
       "character": "bassel_curriculum",
-      "text": "سَرَّ وَسَامٌ وَنَوْرَسْ",
+      "text": "سَارَ وِسَامٌ وَنَوْرَسٌ.",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -16468,7 +16468,7 @@
     {
       "key": "letter_sh_split_shamil",
       "character": "bassel_curriculum",
-      "text": "شَامِلْ شَا مِ لْ ثَلَاثَةُ مَقَاطِعَ",
+      "text": "شَامِلٌ: شَا، مِ، لٌ! ثَلَاثَةُ مَقَاطِعَ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -16517,7 +16517,7 @@
     {
       "key": "letter_sh_tanween_dham",
       "character": "bassel_curriculum",
-      "text": "شِينْ تَنْوِينُ الضَّمِّ شٌ",
+      "text": "شٌ، تَنْوِينُ الضَّمِّ، شٌ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -16531,7 +16531,7 @@
     {
       "key": "letter_sh_tanween_kasr",
       "character": "bassel_curriculum",
-      "text": "شِينْ تَنْوِينُ الْكَسْرِ شِنْ",
+      "text": "شٍ، تَنْوِينُ الْكَسْرِ، شٍ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -16587,8 +16587,8 @@
     {
       "key": "letter_sh_word_manasheer",
       "character": "bassel_curriculum",
-      "text": "مَناشيرْ",
-      "style": "clear, steady, distinct",
+      "text": "مَنَاشِيرُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16608,8 +16608,8 @@
     {
       "key": "letter_sh_word_mishmish",
       "character": "bassel_curriculum",
-      "text": "مِشْمِشْ",
-      "style": "clear, steady, distinct",
+      "text": "مِشْمِشٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16650,36 +16650,36 @@
     {
       "key": "letter_sh_word_qirsh",
       "character": "bassel_curriculum",
-      "text": "فَرْشٌ",
-      "style": "clear, steady, distinct",
+      "text": "قِرْشٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_sh_word_qushoor",
       "character": "bassel_curriculum",
-      "text": "طُيُورْ",
-      "style": "clear, steady, distinct",
+      "text": "قُشُورٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_sh_word_reesh",
       "character": "bassel_curriculum",
-      "text": "رِيشْ",
-      "style": "clear, steady, distinct",
+      "text": "رِيشٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_sh_word_shaari",
       "character": "bassel_curriculum",
-      "text": "شَارِعْ",
-      "style": "clear, steady, distinct",
+      "text": "شَارِعٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_sh_word_shamah",
       "character": "bassel_curriculum",
-      "text": "شَمْعَة",
-      "style": "clear, steady, distinct",
+      "text": "شَمْعَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16692,8 +16692,8 @@
     {
       "key": "letter_sh_word_shams",
       "character": "bassel_curriculum",
-      "text": "شَمْسْ",
-      "style": "clear, steady, distinct",
+      "text": "شَمْسٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16713,15 +16713,15 @@
     {
       "key": "letter_sh_word_shiraa",
       "character": "bassel_curriculum",
-      "text": "شِرَاعْ",
-      "style": "clear, steady, distinct",
+      "text": "شِرَاعٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_sh_word_shubbak",
       "character": "bassel_curriculum",
-      "text": "شُبَّاكْ",
-      "style": "clear, steady, distinct",
+      "text": "شُبَّاكٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16783,8 +16783,8 @@
     {
       "key": "letter_t_ankaboot",
       "character": "bassel_curriculum",
-      "text": "عَنْكَبُوتْ",
-      "style": "warm, cheerful, clear",
+      "text": "عَنْكَبُوتٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16853,28 +16853,28 @@
     {
       "key": "letter_t_merge_tamr",
       "character": "bassel_curriculum",
-      "text": "تَ زَائِدْ مْ زَائِدْ رُ يُسَاوِي تَمْرْ. عَبْقَرِيّ! كَلِمَةُ تَمْرْ.",
-      "style": "clear, steady, slow, distinct",
+      "text": "تَ زَائِدْ مْ زَائِدْ رُ، يُسَاوِي تَمْرُ! مُمْتَازٌ.",
+      "style": "clear, steady, slow, distinct, pronounce final damma on tamru clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_t_merge_teen",
       "character": "bassel_curriculum",
-      "text": "تِي زَائِدْ نُ يُسَاوِي تِينْ. رَائِعْ، كَلِمَةُ تِينْ.",
-      "style": "clear, steady, slow, distinct",
+      "text": "تِي زَائِدْ نُ، يُسَاوِي تِينُ! رَائِعٌ.",
+      "style": "clear, steady, slow, distinct, pronounce final damma on teenu clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_t_merge_tumoor",
       "character": "bassel_curriculum",
-      "text": "تُ زَائِدْ مُو زَائِدْ رُ يُسَاوِي تُمُورْ. أَحْسَنْتَ، كَلِمَةُ تُمُورْ.",
-      "style": "clear, steady, slow, distinct",
+      "text": "تُ زَائِدْ مُو زَائِدْ رُ، يُسَاوِي تُمُورُ! أَحْسَنْتَ.",
+      "style": "clear, steady, slow, distinct, pronounce final damma on tumuru clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_t_model_alone",
       "character": "bassel_curriculum",
-      "text": "أَنَا وَحْدِي نَمْذَجَةُ الْمُعَلِّمِ أَنَا أَنْطِقُ وَحْدِي بِصَوْتٍ مَسْمُوعٍ تَمْرْ تَبْدَأُ بِحَرْفِ التَّاءِ الْمَفْتُوحِ تَ",
+      "text": "أَنَا وَحْدِي: أَنَا أَنْطِقُ وَحْدِي بِصَوْتٍ مَسْمُوعٍ: تَمْرُ، تَبْدَأُ بِحَرْفِ التَّاءِ الْمَفْتُوحِ، تَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -16951,8 +16951,8 @@
     {
       "key": "letter_t_read_word_banaat",
       "character": "bassel_curriculum",
-      "text": "بَنَاتْ",
-      "style": "clear, steady, distinct",
+      "text": "بَنَاتٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -16965,15 +16965,15 @@
     {
       "key": "letter_t_read_word_faatin",
       "character": "bassel_curriculum",
-      "text": "فَاتِنْ",
-      "style": "clear, steady, distinct",
+      "text": "فَاتِنُ",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_t_read_word_fee",
       "character": "bassel_curriculum",
-      "text": "فِي فِ",
-      "style": "clear, steady, distinct",
+      "text": "فِي",
+      "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17042,14 +17042,14 @@
     {
       "key": "letter_t_split_banaat",
       "character": "bassel_curriculum",
-      "text": "بَنَاتُ يُسَاوِي بَ زَائِدْ نَا زَائِدْ تَاءٌ ثَلَاثَةُ مَقَاطِعْ بَ نَا تُ",
+      "text": "تَحْلِيلُ كَلِمَةِ بَنَاتُ: بَ، نَا، تُ! ثَلَاثَةُ مَقَاطِعَ، بَنَاتُ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_t_split_faatin",
       "character": "bassel_curriculum",
-      "text": "فَاتِنُ يُسَاوِي فَا زَائِدْ تِ زَائِدْ نُونٌ ثَلَاثَةُ مَقَاطِعَ فَا تِ نُ",
+      "text": "تَحْلِيلُ كَلِمَةِ فَاتِنُ: فَا، تِ، نُ! ثَلَاثَةُ مَقَاطِعَ، فَاتِنُ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17063,7 +17063,7 @@
     {
       "key": "letter_t_split_toot",
       "character": "bassel_curriculum",
-      "text": "تُوتُ يُسَاوِي تُو زَائِدْ تَاءٌ مَقْطَعَانِ تُو تُ",
+      "text": "تَحْلِيلُ كَلِمَةِ تُوتُ: تُو، تُ! مَقْطَعَانِ صَوْتِيَّانِ، تُوتُ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17084,8 +17084,8 @@
     {
       "key": "letter_t_tamr",
       "character": "bassel_curriculum",
-      "text": "تَمْرْ",
-      "style": "warm, cheerful, clear",
+      "text": "تَمْرٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17098,28 +17098,28 @@
     {
       "key": "letter_t_teen",
       "character": "bassel_curriculum",
-      "text": "تِين",
-      "style": "warm, cheerful, clear",
+      "text": "تِينٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_t_teen_vowel",
       "character": "bassel_curriculum",
-      "text": "تِينْ، مَدٌّ بِالْيَاءِ: تِي.",
+      "text": "تِينٌ، مَدٌّ بِالْيَاءِ، تِي.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_t_timsaah",
       "character": "bassel_curriculum",
-      "text": "تِمْسَاحْ",
-      "style": "warm, cheerful, clear",
+      "text": "تِمْسَاحٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_t_timsaah_vowel",
       "character": "bassel_curriculum",
-      "text": "تِمْسَاحْ كَسْرَةٌ قَصِيرَةْ تِ",
+      "text": "تِمْسَاحٌ، كَسْرَةٌ قَصِيرَةٌ، تِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17147,21 +17147,21 @@
     {
       "key": "letter_t_tuffaaha",
       "character": "bassel_curriculum",
-      "text": "تُفَّاحَة",
-      "style": "warm, cheerful, clear",
+      "text": "تُفَّاحَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ta_long_aa",
       "character": "bassel_curriculum",
-      "text": "ذَا مَدٌّ بِالْأَلِفِ طَارِقٌ",
+      "text": "طَا، مَدٌّ بِالْأَلِفِ، طَارِقٌ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ta_long_ee",
       "character": "bassel_curriculum",
-      "text": "طِينْ مَدّ بِالْيَاءِ تِينْ",
+      "text": "طِي، مَدٌّ بِالْيَاءِ، طِينٌ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17175,21 +17175,21 @@
     {
       "key": "letter_ta_merge_bat",
       "character": "bassel_curriculum",
-      "text": "بَ زَائِدْ طْ يُكَوِّنُ كَلِمَةَ بَطْ",
-      "style": "clear, steady, slow, distinct",
+      "text": "بَ زَائِدْ طٌّ، يُكَوِّنُ كَلِمَةَ بَطٌّ!",
+      "style": "clear, steady, slow, distinct, emphasize shadda on ta in battun",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ta_merge_qitaar",
       "character": "bassel_curriculum",
-      "text": "قِ زَائِدْ طَا زَائِدْ رْ يُكَوِّنُ كَلِمَةَ قِطَارْ",
+      "text": "قِ زَائِدْ طَا زَائِدْ رٌ، يُكَوِّنُ كَلِمَةَ قِطَارٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ta_merge_taalib",
       "character": "bassel_curriculum",
-      "text": "طَا زَائِدُ لِ زَائِدُ بِ يُكَوِّنُ كَلِمَةَ طَالِبْ",
+      "text": "طَا زَائِدْ لِ زَائِدْ بٌ، يُكَوِّنُ كَلِمَةَ طَالِبٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17266,21 +17266,21 @@
     {
       "key": "letter_ta_short_a",
       "character": "bassel_curriculum",
-      "text": "طَاءٌ طَ طَبِيبْ",
+      "text": "طَ، طَبِيبٌ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ta_short_i",
       "character": "bassel_curriculum",
-      "text": "طَاءٌ لِطِفْلْ",
+      "text": "طِ، طِفْلٌ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ta_short_u",
       "character": "bassel_curriculum",
-      "text": "طَاءٌ طُ طُيُورٌ",
+      "text": "طُ، طُيُورٌ",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17294,8 +17294,8 @@
     {
       "key": "letter_ta_split_bat",
       "character": "bassel_curriculum",
-      "text": "بَطْ طَ مَقْطَعَانِ",
-      "style": "clear, steady, slow, distinct",
+      "text": "بَطٌّ: بَ، طٌّ، مَقْطَعَانِ!",
+      "style": "clear, steady, slow, distinct, emphasize doubled ta with tanween damm",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17315,7 +17315,7 @@
     {
       "key": "letter_ta_split_tareeq",
       "character": "bassel_curriculum",
-      "text": "طَرِيق طَ رِي قٌ ثَلَاثَةُ مَقَاطِعَ",
+      "text": "طَرِيقٌ: طَ، رِي، قٌ، ثَلَاثَةُ مَقَاطِعَ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17336,8 +17336,8 @@
     {
       "key": "letter_ta_syl_mit",
       "character": "bassel_curriculum",
-      "text": "مِطْ مِطْرَقْ",
-      "style": "calm, crisp, slow articulation",
+      "text": "مِطْ، مِطْرَقَةٌ",
+      "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17364,8 +17364,8 @@
     {
       "key": "letter_ta_word_bisaat",
       "character": "bassel_curriculum",
-      "text": "بِساطُ بِساطُ",
-      "style": "clear, steady, distinct",
+      "text": "بِسَاطٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17392,8 +17392,8 @@
     {
       "key": "letter_ta_word_mitraqah",
       "character": "bassel_curriculum",
-      "text": "مِطْرَقَةٌ مِطْرَقْ",
-      "style": "clear, steady, distinct",
+      "text": "مِطْرَقَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17427,15 +17427,15 @@
     {
       "key": "letter_ta_word_tabeeb",
       "character": "bassel_curriculum",
-      "text": "طَبِيبْ طَبِيبْ",
-      "style": "clear, steady, distinct",
+      "text": "طَبِيبٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_ta_word_tabl",
       "character": "bassel_curriculum",
-      "text": "طَبْلْ طَبْلْ",
-      "style": "clear, steady, distinct",
+      "text": "طَبْلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17448,8 +17448,8 @@
     {
       "key": "letter_ta_word_tifl",
       "character": "bassel_curriculum",
-      "text": "تَفْلْ تَفْلْ",
-      "style": "clear, steady, distinct",
+      "text": "طِفْلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17462,7 +17462,7 @@
     {
       "key": "letter_tha_long_aa",
       "character": "bassel_curriculum",
-      "text": "لَ ثَ مَدٌّ بِالْأَلِفِ ثَا",
+      "text": "ثَا، مَدٌّ بِالْأَلِفِ، ثَا.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17476,7 +17476,7 @@
     {
       "key": "letter_tha_long_oo",
       "character": "bassel_curriculum",
-      "text": "ثُ ثو مَدٌّ بِالْوَاوِ ثو",
+      "text": "ثُو، مَدٌّ بِالْوَاوِ، ثُو.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17490,7 +17490,7 @@
     {
       "key": "letter_tha_merge_sentence",
       "character": "bassel_curriculum",
-      "text": "نُرَتِّبُ الْكَلِمَاتِ لِنُكَوِّنَ جُمْلَةً مُفِيد لَعِبَ لَيْثٌ بِأَثْقَالٍ لَعِبَ لَيْثٌ بِأَثْقَالٍ",
+      "text": "نُرَتِّبُ الْكَلِمَاتِ لِنُكَوِّنَ جُمْلَةً مُفِيدَةً: لَعِبَ لَيْثٌ بِأَثْقَالٍ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17504,7 +17504,7 @@
     {
       "key": "letter_tha_merge_thubaan",
       "character": "bassel_curriculum",
-      "text": "ثُعْ زَائِدْ بَا زَائِدْ نُونْ يُسَاوِي ثُعْبَانْ",
+      "text": "ثُعْ زَائِدْ بَا زَائِدْ نٌ، يُسَاوِي ثُعْبَانٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17539,7 +17539,7 @@
     {
       "key": "letter_tha_read_b3",
       "character": "bassel_curriculum",
-      "text": "وَكُرَاتِ الثَّلْجِ",
+      "text": "وَكُرَاتِ ثَلْجٍ.",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17651,7 +17651,7 @@
     {
       "key": "letter_tha_split_athaath",
       "character": "bassel_curriculum",
-      "text": "نُحَلِّلُ كَلِمَةَ أَثَاثٍ هَمْزَة ثَا ثٍ ثَلَاثَةُ مَقَاطِعَ صَوْتِيّ",
+      "text": "نُحَلِّلُ كَلِمَةَ أَثَاثٌ: أَ، ثَا، ثٌ، ثَلَاثَةُ مَقَاطِعَ صَوْتِيَّةٍ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17784,8 +17784,8 @@
     {
       "key": "letter_tha_word_baaith",
       "character": "bassel_curriculum",
-      "text": "بَعْثْ",
-      "style": "clear, steady, distinct",
+      "text": "بَاعِثٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17805,8 +17805,8 @@
     {
       "key": "letter_tha_word_ghayth",
       "character": "bassel_curriculum",
-      "text": "غَيْثْ",
-      "style": "clear, steady, distinct",
+      "text": "غَيْثٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17826,7 +17826,7 @@
     {
       "key": "letter_tha_word_kummathraa",
       "character": "bassel_curriculum",
-      "text": "كُمَّثْرَى",
+      "text": "كَمَّثْرَى",
       "style": "clear, steady, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -17875,8 +17875,8 @@
     {
       "key": "letter_tha_word_muthallath",
       "character": "bassel_curriculum",
-      "text": "مُثَلَّثْ",
-      "style": "clear, steady, distinct",
+      "text": "مُثَلَّثٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17910,8 +17910,8 @@
     {
       "key": "letter_tha_word_thaalab",
       "character": "bassel_curriculum",
-      "text": "ثَعْلَبْ",
-      "style": "clear, steady, distinct",
+      "text": "ثَعْلَبٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17952,8 +17952,8 @@
     {
       "key": "letter_tha_word_thubaan",
       "character": "bassel_curriculum",
-      "text": "ثُعْبَانْ",
-      "style": "clear, steady, distinct",
+      "text": "ثُعْبَانٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -17966,8 +17966,8 @@
     {
       "key": "letter_tha_word_timthaal",
       "character": "bassel_curriculum",
-      "text": "تِمْثَالْ",
-      "style": "clear, steady, distinct",
+      "text": "تِمْثَالٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18043,7 +18043,7 @@
     {
       "key": "letter_z_merge_halazoon",
       "character": "bassel_curriculum",
-      "text": "حَ لَ زُو نَنْ تُصْبِحُ حَلَزُونْ",
+      "text": "حَ، لَ، زُو، نٌ، تُصْبِحُ حَلَزُونٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -18057,21 +18057,21 @@
     {
       "key": "letter_z_merge_mizmar",
       "character": "bassel_curriculum",
-      "text": "مِزْ مَارِي تُصْبِحُ مِزْمَارٌ.",
+      "text": "مِزْ، مَا، رٌ، تُصْبِحُ مِزْمَارٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_z_merge_zaynab",
       "character": "bassel_curriculum",
-      "text": "زَيْ نَ بُ تُصْبِحُ زَيْنَبْ",
-      "style": "clear, steady, slow, distinct",
+      "text": "زَيْ، نَ، بُ، تُصْبِحُ زَيْنَبُ!",
+      "style": "clear, steady, distinct, pronounce final damma clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_z_merge_zaytoon",
       "character": "bassel_curriculum",
-      "text": "زَيْ تُو نْ تُصْبِحُ زَيْتُونْ",
+      "text": "زَيْ، تُو، نٌ، تُصْبِحُ زَيْتُونٌ!",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -18113,8 +18113,8 @@
     {
       "key": "letter_z_read_w1",
       "character": "bassel_curriculum",
-      "text": "وَزْ وَزْ",
-      "style": "warm, clear, steady",
+      "text": "وَزّْ، وَزّْ.",
+      "style": "clear, steady, distinct, emphasize doubled zay in wazz",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18127,8 +18127,8 @@
     {
       "key": "letter_z_read_w3",
       "character": "bassel_curriculum",
-      "text": "نَمِيرُ رَبَّ وَزْ",
-      "style": "warm, clear, steady",
+      "text": "نَمِيرٌ رَبَّى وَزّْ.",
+      "style": "clear, steady, distinct, emphasize rabba and doubled zay in wazz",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18162,21 +18162,21 @@
     {
       "key": "letter_z_short_a",
       "character": "bassel_curriculum",
-      "text": "زَيْنْ فَتْحَة زَ",
+      "text": "زَ، فَتْحَةٌ، زَ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_z_short_i",
       "character": "bassel_curriculum",
-      "text": "زَيْن كَسْرَة زِ",
+      "text": "زِ، كَسْرَةٌ، زِ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_z_short_u",
       "character": "bassel_curriculum",
-      "text": "زَيْن ضَمَّة زُ",
+      "text": "زُ، ضَمَّةٌ، زُ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -18267,7 +18267,7 @@
     {
       "key": "letter_z_tanween_dham",
       "character": "bassel_curriculum",
-      "text": "زَيْنْ تَنْوِينُ الضَّمِّ زُ",
+      "text": "زٌ، تَنْوِينُ الضَّمِّ، زٌ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -18281,7 +18281,7 @@
     {
       "key": "letter_z_tanween_kasr",
       "character": "bassel_curriculum",
-      "text": "زَيْنْ تَنْوِينُ الْكَسْرِ زٍ",
+      "text": "زٍ، تَنْوِينُ الْكَسْرِ، زٍ.",
       "style": "calm, crisp, slow articulation",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -18323,8 +18323,8 @@
     {
       "key": "letter_z_word_ghazal",
       "character": "bassel_curriculum",
-      "text": "غَزَلْ",
-      "style": "clear, steady, distinct",
+      "text": "غَزَالٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18379,22 +18379,22 @@
     {
       "key": "shaddah_word_qittah",
       "character": "bassel_curriculum",
-      "text": "طَطَرْ",
-      "style": "clear, steady, distinct",
+      "text": "قِطَّةٌ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "shaddah_word_rakkaptu",
       "character": "bassel_curriculum",
-      "text": "أَرَكَّبْتُ",
-      "style": "clear, steady, distinct",
+      "text": "رَكَّبْتُ",
+      "style": "clear, steady, distinct, emphasize doubled kaf in rakkabtu and final damma",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "shaddah_word_sabboorah",
       "character": "bassel_curriculum",
-      "text": "سَبُّورَة",
-      "style": "clear, steady, distinct",
+      "text": "سَبُّورَةٌ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18407,15 +18407,15 @@
     {
       "key": "shaddah_word_sayyaaratan",
       "character": "bassel_curriculum",
-      "text": "سَيَّارَةْ",
-      "style": "clear, steady, distinct",
+      "text": "سَيَّارَةً",
+      "style": "clear, steady, distinct, pronounce final tanween fath (an) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "shaddah_word_tayyaarah",
       "character": "bassel_curriculum",
-      "text": "طَيَّارَة",
-      "style": "clear, steady, distinct",
+      "text": "طَيَّارَةً",
+      "style": "clear, steady, distinct, pronounce final tanween fath (an) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18484,15 +18484,15 @@
     {
       "key": "tanween_dham_faris",
       "character": "bassel_curriculum",
-      "text": "فَارِسْ",
-      "style": "warm, cheerful, clear",
+      "text": "فَارِسٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_haqeebah",
       "character": "bassel_curriculum",
-      "text": "حَقِيبَة",
-      "style": "warm, cheerful, clear",
+      "text": "حَقِيبَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18512,29 +18512,29 @@
     {
       "key": "tanween_dham_lawh",
       "character": "bassel_curriculum",
-      "text": "لَوْحْ",
-      "style": "warm, cheerful, clear",
+      "text": "لَوْحٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_merge_tamr",
       "character": "bassel_curriculum",
-      "text": "تَمْ زَائِدْ رٌ يُسَاوِي تَمْرْ. رَائِعْ، كَلِمَةُ تَمْرْ.",
-      "style": "clear, steady, slow, distinct",
+      "text": "تَمْ زَائِدْ رٌ، يُسَاوِي تَمْرٌ!",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_merge_teen",
       "character": "bassel_curriculum",
-      "text": "تِي زَائِدُ نُونٍ يُسَاوِي تِينْ، أَحْسَنْتَ، كَلِمَةُ تِينْ.",
-      "style": "clear, steady, slow, distinct",
+      "text": "تِي زَائِدْ نٌ، يُسَاوِي تِينٌ!",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_merge_toot",
       "character": "bassel_curriculum",
-      "text": "تُوْ زَائِدْ تٌ يُسَاوِي تُوْتٌ. مُمْتَازْ، كَلِمَةُ تُوْتْ.",
-      "style": "clear, steady, slow, distinct",
+      "text": "تُو زَائِدْ تٌ، يُسَاوِي تُوتٌ!",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18554,7 +18554,7 @@
     {
       "key": "tanween_dham_model_we",
       "character": "bassel_curriculum",
-      "text": "أَنَا وَأَنْتُمْ مُمَارَسَةٌ مُوَجَّهَةٌ نُرَدِّدُ مَعاً يَا أَبْطَالُ بِلِسَانٍ فَصِيحٍ كِتَابٌ بَاءٌ أُنْ",
+      "text": "أَنَا وَأَنْتُمْ: مُمَارَسَةٌ مُوَجَّهَةٌ، نُرَدِّدُ مَعًا يَا أَبْطَالُ بِلِسَانٍ فَصِيحٍ: كِتَابٌ، بٌ، أُنْ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -18575,43 +18575,43 @@
     {
       "key": "tanween_dham_pair_ba",
       "character": "bassel_curriculum",
-      "text": "بَاءٌ بَاءٌ بَابُ سَهْمٌ يُشِيرُ لِلْيَمِينِ وَالْيَسَارِ بَابٌ",
-      "style": "warm, cheerful, clear",
+      "text": "بَابُ، بَابٌ!",
+      "style": "clear, steady, slow, distinct, contrast babu without tanween then babun with tanween damm",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_pair_da",
       "character": "bassel_curriculum",
-      "text": "دُ دٌ دَارُ سَهْمٌ يُشِيرُ لِلْيَمِينِ وَالْيَسَارِ دَارٌ",
-      "style": "warm, cheerful, clear",
+      "text": "دَارُ، دَارٌ!",
+      "style": "clear, steady, slow, distinct, contrast daru without tanween then darun with tanween damm",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_pair_na",
       "character": "bassel_curriculum",
-      "text": "نُونْ نُونْ تِينَ سَهْمٌ يُشِيرُ لِلْيَمِينِ وَالْيَسَارِ تِينْ",
-      "style": "warm, cheerful, clear",
+      "text": "تِينُ، تِينٌ!",
+      "style": "clear, steady, slow, distinct, contrast teenu without tanween then teenun with tanween damm",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_pair_ra",
       "character": "bassel_curriculum",
-      "text": "رُنٌ رُنٌ سُوْرُ سَهْمٌ يُشِيرُ لِلْيَمِينِ وَالْيَسَارِ سُوْرٌ",
-      "style": "warm, cheerful, clear",
+      "text": "سُورُ، سُورٌ!",
+      "style": "clear, steady, slow, distinct, contrast sooru without tanween then soorun with tanween damm",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_pair_ta",
       "character": "bassel_curriculum",
-      "text": "تَنْ تَنْ تُوتُ سَهْمٌ يُشِيرُ لِلْيَمِينِ وَالْيَسَارِ تُوتٌ.",
-      "style": "warm, cheerful, clear",
+      "text": "تُوتُ، تُوتٌ!",
+      "style": "clear, steady, slow, distinct, contrast tootu without tanween then tootun with tanween damm",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_pair_ward",
       "character": "bassel_curriculum",
-      "text": "وَرْدُ وَرْدٌ وَرْدُ سَهْمٌ يُشِيرُ لِلْيَمِينِ وَالْيَسَارِ وَرْدٌ",
-      "style": "warm, cheerful, clear",
+      "text": "وَرْدُ، وَرْدٌ!",
+      "style": "clear, steady, slow, distinct, contrast wardu without tanween then wardun with tanween damm",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18645,42 +18645,42 @@
     {
       "key": "tanween_dham_read_s3",
       "character": "bassel_curriculum",
-      "text": "وَتِينٌ وَتَمْرْ",
-      "style": "warm, clear, steady",
+      "text": "وَتِينٌ وَتَمْرٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_read_s4_ward",
       "character": "bassel_curriculum",
-      "text": "وَرْدٌ لَطِيفْ وَرْدٌ جَمِيلْ",
-      "style": "warm, clear, steady",
+      "text": "وَرْدٌ لَطِيفٌ، وَرْدٌ جَمِيلٌ.",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_reading_station",
       "character": "bassel_curriculum",
-      "text": "اَلْمَحَطَّةُ الرَّابِعُ لَوْحَةُ الْقِرَاءَةِ الْمُقَرَّرَةِ وَقِرَاءَةُ وَرْدٌ وَسَبُّورَةُ الرَّسْمِ صَفْحَةُ ثَمَانِي وَأَرْبَعُونَ.",
+      "text": "اَلْمَحَطَّةُ الرَّابِعَةُ: لَوْحَةُ الْقِرَاءَةِ الْمُقَرَّرَةِ وَقِرَاءَةُ وَرْدٌ وَسَبُّورَةُ الرَّسْمِ صَفْحَةُ ثَمَانِيَةٍ وَأَرْبَعِينَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_rule_summary",
       "character": "bassel_curriculum",
-      "text": "قَاعِدَةُ فَصِيحٍ الذَّهَبِيُّ، تَنْوِينُ الضَّمِّ هُوَ ضَمَّتَانِ فَوْقَ الْحَرْفِ الْأَخِيرِ، نَنْطِقُهُ نُونًا سَاكِنَةً رَنَّانْ، أُنْ، وَلَا نَكْتُبُ النُّونَ أَبَدًا، كِتَابٌ، بَابْ، وَرْدٌ.",
+      "text": "خُلَاصَةُ قَاعِدَةِ فَصِيحٍ: تَنْوِينُ الضَّمِّ هُوَ ضَمَّتَانِ فَوْقَ الْحَرْفِ الْأَخِيرِ، نَنْطِقُهُ نُونًا سَاكِنَةً رَنَّانَةً، أُنْ، وَلَا نَكْتُبُ النُّونَ أَبَدًا، مِثْلُ: كِتَابٌ، بَابٌ، وَرْدٌ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_split_sirb",
       "character": "bassel_curriculum",
-      "text": "سِرْبٌ يُسَاوِي سِرْ زَائِدْ بَاءٌ، مَقْطَعَانْ، صَفْقَةٌ سِرْ، صَفْقَةٌ بَاءٌ، سِرْبٌ.",
+      "text": "سِرْبٌ: سِرْ، بٌ! مَقْطَعَانِ، سِرْبٌ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_split_soor",
       "character": "bassel_curriculum",
-      "text": "سُورٌ يُسَاوِي سُو زَائِدُ رَاءٌ. مَقْطَعَانِ، صَفْقَةٌ سُو، صَفْقَةٌ رَاءٌ، سُورْ.",
+      "text": "سُورٌ: سُو، رٌ! مَقْطَعَانِ، سُورٌ.",
       "style": "clear, steady, slow, distinct",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -18694,22 +18694,22 @@
     {
       "key": "tanween_dham_syllables_station",
       "character": "bassel_curriculum",
-      "text": "الْمَحَطَّةُ الثَّالِثُ التَّحْلِيلُ وَالتَّرْكِيبُ الصَّوْتِيُّ لِلْمَقَاطِعِ صَفْحَةُ سَبْعٌ وَأَرْبَعُونَ وَثَمَانِي وَأَرْبَعُونَ",
+      "text": "اَلْمَحَطَّةُ الثَّالِثَةُ: اَلتَّحْلِيلُ وَالتَّرْكِيبُ الصَّوْتِيُّ لِلْمَقَاطِعِ صَفْحَةُ سَبْعَةٍ وَأَرْبَعِينَ وَثَمَانِيَةٍ وَأَرْبَعِينَ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_vowels_station",
       "character": "bassel_curriculum",
-      "text": "المَحَطَّةُ الثّانِي، التَّمْيِيزُ السَّمْعِيُّ وَتَطْبِيقَاتُ التَّنْوِينِ صَفْحَةَ سَبْعَةٍ وَأَرْبَعُونَ.",
+      "text": "اَلْمَحَطَّةُ الثَّانِيَةُ: اَلتَّمْيِيزُ السَّمْعِيُّ وَتَطْبِيقَاتُ التَّنْوِينِ صَفْحَةُ سَبْعَةٍ وَأَرْبَعِينَ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_word_bustaani",
       "character": "bassel_curriculum",
-      "text": "بُسْتَانِي",
-      "style": "clear, steady, distinct",
+      "text": "بُسْتَانِ",
+      "style": "clear, steady, distinct, pronounce final kasra clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18729,15 +18729,15 @@
     {
       "key": "tanween_dham_word_jameelun",
       "character": "bassel_curriculum",
-      "text": "جَمِيلْ",
-      "style": "clear, steady, distinct",
+      "text": "جَمِيلٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_word_lateefun",
       "character": "bassel_curriculum",
-      "text": "لَطِيفْ",
-      "style": "clear, steady, distinct",
+      "text": "لَطِيفٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18750,8 +18750,8 @@
     {
       "key": "tanween_dham_word_mateen",
       "character": "bassel_curriculum",
-      "text": "مَتِينْ",
-      "style": "clear, steady, distinct",
+      "text": "مَتِينٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18778,15 +18778,15 @@
     {
       "key": "tanween_dham_word_watamrun",
       "character": "bassel_curriculum",
-      "text": "وَتَمْرْ",
-      "style": "clear, steady, distinct",
+      "text": "وَتَمْرٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "tanween_dham_word_wateenun",
       "character": "bassel_curriculum",
-      "text": "وَتِينْ",
-      "style": "clear, steady, distinct",
+      "text": "وَتِينٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18799,8 +18799,8 @@
     {
       "key": "tanween_kasr_sentence_qitaar",
       "character": "bassel_curriculum",
-      "text": "سَافَرْتُ بِقِطَارٍ سَرِيعْ",
-      "style": "warm, clear, steady",
+      "text": "سَافَرْتُ بِقِطَارٍ سَرِيعٍ.",
+      "style": "clear, steady, distinct, pronounce final tanween kasr (in) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18813,8 +18813,8 @@
     {
       "key": "tanween_kasr_split_malab",
       "character": "bassel_curriculum",
-      "text": "مَلْعَبٌ، مَلْ زَائِدْ عَ زَائِدْ بٌ.",
-      "style": "clear, steady, slow, distinct",
+      "text": "مَلْعَبٍ: مَلْ، عَ، بٍ، تَنْوِينُ كَسْرٍ.",
+      "style": "clear, steady, distinct, pronounce final tanween kasr (in) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18869,8 +18869,8 @@
     {
       "key": "tanween_kasr_word_mawz",
       "character": "bassel_curriculum",
-      "text": "مَوْزْ",
-      "style": "clear, steady, distinct",
+      "text": "مَوْزٍ",
+      "style": "clear, steady, distinct, pronounce final tanween kasr (in) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -18897,28 +18897,28 @@
     {
       "key": "unit1_review_all_words",
       "character": "bassel_curriculum",
-      "text": "بَابَا مَامَا دَادَا فَادِي مُفِيدٌ فَمْ أَنْتُمْ عَبَاقِرَةُ الْقِرَاءَةِ",
+      "text": "بَابَا، مَامَا، دَادَا، فَادِي، مُفِيدُ، فَمُ! أَنْتُمْ عَبَاقِرَةُ الْقِرَاءَةِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "unit1_review_b",
       "character": "bassel_curriculum",
-      "text": "حَرْفُ الْبَاءِ بَ بُ بِ بَابَا بَابْ بَابِي",
-      "style": "warm, cheerful, clear",
+      "text": "حَرْفُ الْبَاءِ: بَ، بُ، بِ! بَابَا، بَابُ، بَابِي.",
+      "style": "warm, cheerful, clear, pronounce final damma on babu clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "unit1_review_d",
       "character": "bassel_curriculum",
-      "text": "حَرْفُ الدَّالْ دَ دُ دِ دَادَا دُودْ دَامَ",
-      "style": "warm, cheerful, clear",
+      "text": "حَرْفُ الدَّالِ: دَ، دُ، دِ! دَادَا، دُودُ، دَامَ.",
+      "style": "warm, cheerful, clear, pronounce final damma on dudu clearly without tanween",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "unit1_review_f",
       "character": "bassel_curriculum",
-      "text": "حَرْفُ الْفَاءِ فَ فْ فْ فَادِي مُفِيدُ فَمُ",
+      "text": "حَرْفُ الْفَاءِ: فَ، فُ، فِ! فَادِي، مُفِيدُ، فَمُ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -18981,7 +18981,7 @@
     {
       "key": "unit2_review_all_words",
       "character": "bassel_curriculum",
-      "text": "لَوْحَةُ الشَّرَفِ لِكَلِمَاتِ الْوَحْدَةِ الثَّانِي دَار فِرَاس نُور بَنَات سَرَّة وَرْدٌ مَدْرَسَتِي مَتِين تُوت تِين تَمْر أَنْتُمْ أَبْطَالُ الْقِرَاء",
+      "text": "لَوْحَةُ الشَّرَفِ لِكَلِمَاتِ الْوَحْدَةِ الثَّانِيَةِ: دَارٌ، فِرَاسٌ، نُورٌ، بَنَاتٌ، سَارَةُ، وَرْدٌ، مَدْرَسَتِي، مَتِينٌ، تُوتٌ، تِينٌ، تَمْرٌ! أَنْتُمْ أَبْطَالُ الْقِرَاءَةِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -18995,35 +18995,35 @@
     {
       "key": "unit2_review_n",
       "character": "bassel_curriculum",
-      "text": "حَرْفُ النُّونِ، صَوْتُهُ أُنْسِيٌّ رَنَّانْ، نُونْ. مَعَ الْحَرَكَاتِ: نَ، نُ، نِ. مَعَ الْمُدُودِ: نَا، نُو، نِي. كَلِمَاتُهُ: نُورْ، بَانْ، نَبْنِي، نَامَ.",
+      "text": "حَرْفُ النُّونِ، صَوْتُهُ نْ، أَصْوَاتُهُ: نَ، نُ، نِ! كَلِمَاتُهُ: نُورٌ، بَانُ، نَبْنِي، نَامَ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "unit2_review_r",
       "character": "bassel_curriculum",
-      "text": "حَرْفُ الرَّاءِ صَوْتُهُ رَاءٌ مَعَ الحَرَكَاتِ رَ رُ رَاءٌ مَعَ المُدُودِ رَا رُو رِي كَلِمَاتُهُ دَارْ دُورْ رِيمْ مَرَامْ",
+      "text": "حَرْفُ الرَّاءِ، صَوْتُهُ رْ، أَصْوَاتُهُ: رَ، رُ، رِ! كَلِمَاتُهُ: دَارٌ، دُورُ، رِيمُ، مَرَامُ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "unit2_review_s",
       "character": "bassel_curriculum",
-      "text": "حَرْفُ السِّينِ. صَوْتُهُ: سْ كَفَحِيحِ الصَّفِيرِ. مَعَ الْحَرَكَاتِ: سَ، سُ، سِ. مَعَ الْمُدُودِ: سَا، سُو، سِي. كَلِمَاتُهُ: فِرَاسْ، أَنِيسْ، مَيْسُونْ، سُورْ.",
+      "text": "حَرْفُ السِّينِ، صَوْتُهُ سْ، أَصْوَاتُهُ: سَ، سُ، سِ! كَلِمَاتُهُ: فِرَاسٌ، أَنِيسُ، مَيْسُونُ، سُورُ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "unit2_review_t",
       "character": "bassel_curriculum",
-      "text": "حَرْفُ التَّاءِ الْمَبْسُوطَةِ صَوْتُهُ تْ مَعَ الْحَرَكَاتِ تَ تُ تِ مَعَ الْمُدُودِ تَا تُو تِي كَلِمَاتُهُ بَنَاتْ بَسْمَةْ تُوتْ تِينْ تَمْرْ",
+      "text": "حَرْفُ التَّاءِ، صَوْتُهُ تْ، أَصْوَاتُهُ: تَ، تُ، تِ! كَلِمَاتُهُ: بَنَاتٌ، بَسْمَةُ، تُوتٌ، تِينٌ، تَمْرٌ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "unit2_review_tanween",
       "character": "bassel_curriculum",
-      "text": "تَنْوِينُ الضَّمِّ نُونٌ سَاكِنَةٌ نَنْطِقُهَا رَنَّانَةً، أُنْ، فِي آخِرِ الْأَسْمَاءِ، وَنَكْتُبُهَا ضَمَّتَيْنِ دُونَ كِتَابَةِ النُّونْ. مِثْلُ: كِتَابْ، بَابْ، قِرْدْ، وَرْدٌ.",
+      "text": "تَنْوِينُ الضَّمِّ، نُونٌ سَاكِنَةٌ نَنْطِقُهَا رَنَّانَةً، أُنْ، فِي آخِرِ الْأَسْمَاءِ، وَنَكْتُبُهَا ضَمَّتَيْنِ دُونَ كِتَابَةِ النُّونِ! مِثْلُ: كِتَابٌ، بَابٌ، قِرْدٌ، وَرْدٌ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -19051,7 +19051,7 @@
     {
       "key": "vowel_w_buma",
       "character": "bassel_curriculum",
-      "text": "بُومَةُ",
+      "text": "بُومَةُ! اِسْتَمِعْ لِصَوْتِ الْمَدِّ فِي الْوَسَطِ: بُ، ووو، مَةُ، بُومَةُ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -19079,28 +19079,28 @@
     {
       "key": "vowel_w_fill_kharuf",
       "character": "bassel_curriculum",
-      "text": "خَرُ وَاو فُ خَرُوف أَحْسَنْتَ صَارَتْ خَرُوف",
+      "text": "خَرُ، و، فُ، خَرُوفُ! أَحْسَنْتَ، صَارَتْ خَرُوفٌ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "vowel_w_fill_laymun",
       "character": "bassel_curriculum",
-      "text": "لَيْمُ وْنُ لْ لَيْمُون لَيْمُونٌ أَصْفَرُ لَذِيذٌ",
+      "text": "لَيْمُ، و، نُ، لَيْمُونُ! لَيْمُونٌ أَصْفَرُ لَذِيذٌ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "vowel_w_fill_nusur",
       "character": "bassel_curriculum",
-      "text": "نُسْ وَاوٌ رْ نُسُورْ نُسُورٌ قَوِيَّةٌ تَطِيرُ فِي السَّمَاءِ.",
+      "text": "نُسُ، و، رُ، نُسُورُ! نُسُورٌ قَوِيَّةٌ تَطِيرُ فِي السَّمَاءِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "vowel_w_fill_suf",
       "character": "bassel_curriculum",
-      "text": "صُ وَاوٌ فُ صُوف صُوفُ الْخَرُوفِ النَّاعِم",
+      "text": "صُ، و، فُ، صُوفُ! صُوفُ الْخَرُوفِ النَّاعِمُ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -19114,14 +19114,14 @@
     {
       "key": "vowel_w_kharuf",
       "character": "bassel_curriculum",
-      "text": "خَرُوفُ",
+      "text": "خَرُوفٌ! خَ، رُ، ووو، فُ، خَرُوفٌ! أَحْسَنْتُمْ يَا شُطَّارُ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "vowel_w_nujum",
       "character": "bassel_curriculum",
-      "text": "نُجُومٌ نُ جُ وَ مْ نُجُومٌ صَوْتُ الْمَدِّ بِالْوَاوِ وَ",
+      "text": "نُجُومٌ! نُ، جُ، ووو، مُ، نُجُومٌ! صَوْتُ الْمَدِّ بِالْوَاوِ نَقِيٌّ وَطَوِيلٌ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -19142,14 +19142,14 @@
     {
       "key": "vowel_y_bisat",
       "character": "bassel_curriculum",
-      "text": "بِسَاطُ",
+      "text": "اِسْتَمِعْ جَيِّدًا: بِسَاطٌ فِيهِ كَسْرَةٌ سَرِيعَةٌ بِ، وَلَا يُوجَدُ فِيهِ صَوْتُ مَدٍّ بِالْيَاءِ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "vowel_y_dik",
       "character": "bassel_curriculum",
-      "text": "دِيكُ",
+      "text": "صَحِيحٌ! دِيكٌ يَحْوِي صَوْتَ الْمَدِّ بِالْيَاءِ: دِ، ييي، كُ، دِيكُ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -19163,14 +19163,14 @@
     {
       "key": "vowel_y_fill_bittikh",
       "character": "bassel_curriculum",
-      "text": "بِطْ ي خُ بِطِّيخٌ أَحْسَنْتَ صَارَتْ بِطِّيخٌ لَذِيذٌ",
+      "text": "بِطِّ، ي، خُ، بِطِّيخُ! أَحْسَنْتَ، صَارَتْ بِطِّيخٌ لَذِيذٌ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "vowel_y_fill_fil",
       "character": "bassel_curriculum",
-      "text": "فِ... ي... ل فِيلْ! فِيلٌ ضَخْمٌ وَلَطِيفٌ!",
+      "text": "فِ، ي، لُ، فِيلُ! فِيلٌ ضَخْمٌ وَلَطِيفٌ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -19191,7 +19191,7 @@
     {
       "key": "vowel_y_halib",
       "character": "bassel_curriculum",
-      "text": "حَلِيبُ",
+      "text": "رَائِعٌ! حَلِيبٌ يَحْوِي صَوْتَ الْمَدِّ بِالْيَاءِ: لِ، ييي، بُ، حَلِيبُ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -19205,7 +19205,7 @@
     {
       "key": "vowel_y_rish",
       "character": "bassel_curriculum",
-      "text": "رِيشُ",
+      "text": "أَحْسَنْتَ! رِيشٌ فِيهِ صَوْتُ الْمَدِّ بِالْيَاءِ: رِ، ييي، شُ، رِيشُ!",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -19275,8 +19275,8 @@
     {
       "key": "letter_z_word_jazeerah",
       "character": "bassel_curriculum",
-      "text": "جَزِيرَةَ",
-      "style": "clear, steady, distinct",
+      "text": "جَزِيرَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -19303,8 +19303,8 @@
     {
       "key": "letter_z_word_mazraah",
       "character": "bassel_curriculum",
-      "text": "مَزْرَعَةْ",
-      "style": "clear, steady, distinct",
+      "text": "مَزْرَعَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -19324,8 +19324,8 @@
     {
       "key": "letter_z_word_mizmar",
       "character": "bassel_curriculum",
-      "text": "مِزْمَار",
-      "style": "clear, steady, distinct",
+      "text": "مِزْمَارٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -19387,8 +19387,8 @@
     {
       "key": "letter_z_word_ruzz",
       "character": "bassel_curriculum",
-      "text": "رُوزِي",
-      "style": "clear, steady, distinct",
+      "text": "رُزٌّ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -19422,8 +19422,8 @@
     {
       "key": "letter_z_word_zahrah",
       "character": "bassel_curriculum",
-      "text": "زَهْرَةً",
-      "style": "clear, steady, distinct",
+      "text": "زَهْرَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -19457,15 +19457,15 @@
     {
       "key": "letter_z_word_zaytoon",
       "character": "bassel_curriculum",
-      "text": "زَيْتُونْ",
-      "style": "clear, steady, distinct",
+      "text": "زَيْتُونٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "letter_z_word_zeenah",
       "character": "bassel_curriculum",
-      "text": "زِينَةَ",
-      "style": "clear, steady, distinct",
+      "text": "زِينَةٌ",
+      "style": "clear, steady, distinct, pronounce final tanween damm (un) clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -19513,15 +19513,15 @@
     {
       "key": "shaddah_draw_sabboorah",
       "character": "bassel_curriculum",
-      "text": "سَبُّورَة",
-      "style": "warm, cheerful, clear",
+      "text": "سَبُّورَةٌ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "shaddah_draw_tayyaarah",
       "character": "bassel_curriculum",
-      "text": "طَيَّارَة",
-      "style": "warm, cheerful, clear",
+      "text": "طَيَّارَةٌ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -19541,7 +19541,7 @@
     {
       "key": "shaddah_form_bitteekh",
       "character": "bassel_curriculum",
-      "text": "بِطِّيخْ، سَاكِنَةٌ زَائِدُ تِي مَكْسُورَةٌ أَدَّتْ إِلَى تِي مُشَدَّدَةٍ مَكْسُورَةٍ.",
+      "text": "بِطِّيخٌ: طْ سَاكِنَةٌ زَائِدْ طِ مَكْسُورَةٌ، أَدَّتْ إِلَى طِّ مُشَدَّدَةٍ مَكْسُورَةٍ.",
       "style": "warm, cheerful, clear",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -19604,14 +19604,14 @@
     {
       "key": "shaddah_read_s3",
       "character": "bassel_curriculum",
-      "text": "رَكِبْتُ مَعَ جَدِّي طَيَّارَةً",
+      "text": "رَكَّبْتُ مَعَ جَدِّي طَيَّارَةً،",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "shaddah_read_s4",
       "character": "bassel_curriculum",
-      "text": "وَرَكِبَ عَلِيٌّ وَجَدَّتِي السَّيَّارَةَ",
+      "text": "وَرَكَّبَ عَلِيٌّ وَجَدَّتِي سَيَّارَةً.",
       "style": "warm, clear, steady",
       "voice": "voice_xoaeymuomp2b"
     },
@@ -19653,8 +19653,8 @@
     {
       "key": "shaddah_word_aliyy",
       "character": "bassel_curriculum",
-      "text": "عَالِياً",
-      "style": "clear, steady, distinct",
+      "text": "عَلِيٌّ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -19667,15 +19667,15 @@
     {
       "key": "shaddah_word_bayta",
       "character": "bassel_curriculum",
-      "text": "بَيْتْ",
-      "style": "clear, steady, distinct",
+      "text": "بَيْتَ",
+      "style": "clear, steady, distinct, pronounce final fatha clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
       "key": "shaddah_word_bitteekh",
       "character": "bassel_curriculum",
-      "text": "بِطِّيخُ",
-      "style": "clear, steady, distinct",
+      "text": "بِطِّيخٌ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -19695,8 +19695,8 @@
     {
       "key": "shaddah_word_jadd",
       "character": "bassel_curriculum",
-      "text": "جَدٌ",
-      "style": "clear, steady, distinct",
+      "text": "جَدٌّ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {
@@ -19758,8 +19758,8 @@
     {
       "key": "shaddah_word_muthallath",
       "character": "bassel_curriculum",
-      "text": "مُثَلَّثْ",
-      "style": "clear, steady, distinct",
+      "text": "مُثَلَّثٌ",
+      "style": "clear, steady, distinct, emphasize the doubled shadda consonant and pronounce final tanween damm clearly",
       "voice": "voice_xoaeymuomp2b"
     },
     {

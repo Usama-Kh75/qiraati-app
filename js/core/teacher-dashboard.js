@@ -1162,7 +1162,7 @@
                     </div>
                     <div class="official-print-logo-box">
                         <b>نظام التقييم الفونيمي الذكي</b><br>
-                        إعداد: المهندس أسامة خليل هاشم<br>
+                        كشف المتابعة الصفي<br>
                         عدد المقيدين: ${students.length} تلميذاً
                     </div>
                 </div>
@@ -1209,7 +1209,6 @@
                     </div>
                     <div style="text-align: center; font-size: 0.8rem; color: #64748b;">
                         <div>منصة قراءتي التفاعلية الذكية المعتمدة أوفلاين</div>
-                        <div style="font-weight: 800; color: #059669; margin-top: 2px;">إعداد وتطوير: المهندس أسامة خليل هاشم</div>
                     </div>
                     <div class="signature-box">
                         <div class="signature-title">مدير / مديرة المدرسة</div>
@@ -1248,8 +1247,7 @@
                         <div style="font-size: 0.82rem; color: #475569; margin-top: 3px;">العام الدراسي: ${state.settings.academicYear}</div>
                     </div>
                     <div class="official-print-logo-box">
-                        <b>سجل الإنجاز والتقييم الصفي</b><br>
-                        إعداد: المهندس أسامة خليل هاشم
+                        <b>سجل الإنجاز والتقييم الصفي</b>
                     </div>
                 </div>
 
@@ -1342,7 +1340,6 @@
                         <div class="signature-line">${escapeHtml(state.settings.teacherName)}</div>
                     </div>
                     <div style="text-align: center; font-size: 0.78rem; color: #64748b;">
-                        <b>إعداد وتطوير: المهندس أسامة خليل هاشم</b><br>
                         منصة قراءتي التفاعلية الذكية PWA أوفلاين
                     </div>
                     <div class="signature-box">
@@ -1374,8 +1371,7 @@
                         <div style="font-size: 0.82rem; color: #475569; margin-top: 3px;">العام الدراسي: ${state.settings.academicYear}</div>
                     </div>
                     <div class="official-print-logo-box">
-                        <b>نظام التشخيص العلاجي</b><br>
-                        إعداد: المهندس أسامة خليل هاشم
+                        <b>نظام التشخيص العلاجي</b>
                     </div>
                 </div>
 
@@ -1410,7 +1406,6 @@
                         <div class="signature-line">${escapeHtml(state.settings.teacherName)}</div>
                     </div>
                     <div style="text-align: center; font-size: 0.78rem; color: #64748b;">
-                        <b>إعداد وتطوير: المهندس أسامة خليل هاشم</b><br>
                         منصة قراءتي التفاعلية الذكية PWA أوفلاين
                     </div>
                     <div class="signature-box">

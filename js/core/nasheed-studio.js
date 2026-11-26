@@ -1597,7 +1597,7 @@
                 </div>
 
                 <div style="text-align: center; margin-top: 18px; font-size: 0.82rem; color: #9ca3af; border-top: 1px solid #e5e7eb; padding-top: 8px;">
-                    إعداد وتطوير: المهندس أسامة خليل هاشم • منصة قراءتي التفاعلية الذكية المعتمدة
+                    منصة قراءتي التفاعلية الذكية المعتمدة
                 </div>
             </div>
         `;

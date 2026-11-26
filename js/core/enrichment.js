@@ -658,7 +658,7 @@
                     <button class="btn-step" onclick="prevQuestion()" ${activeQuestionIdx === 0 ? 'disabled style="opacity: 0.4;"' : ''}>
                         <span>السابق ➡️</span>
                     </button>
-                    <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 700;">منصة قراءتي التفاعلية الذكية • إعداد المهندس أسامة خليل هاشم</span>
+                    <span style="font-size: 0.85rem; color: #94a3b8; font-weight: 700;">منصة قراءتي التفاعلية الذكية</span>
                     <button class="btn-step primary" id="btnNextQuestion" onclick="nextQuestion()" style="display: none;">
                         <span>السؤال التالي ⬅️</span>
                     </button>
@@ -820,7 +820,7 @@
                 <div style="text-align: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 14px; margin-bottom: 16px;">
                     <div style="font-size: 0.9rem; font-weight: 800; color: #64748b;">جُمْهُورِيَّةُ الْعِرَاقِ • وِزَارَةُ التَّرْبِيَة • مَنَصَّةُ قِرَاءَتِي الذَّكِيَّة</div>
                     <h3 style="margin: 6px 0; color: #1e3a8a; font-size: 1.4rem;">استمارة نتيجة اختبار المهارات القرائية الرسمي</h3>
-                    <div style="font-size: 0.85rem; font-weight: 800; color: #059669;">إعداد وتطوير: المهندس أسامة خليل هاشم</div>
+                    <div style="font-size: 0.85rem; font-weight: 800; color: #059669;">سجل التقييم التشخيصي المعتمد</div>
                 </div>
 
                 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; font-size: 0.9rem; font-weight: 800; margin-bottom: 16px; background: #f8fafc; padding: 12px; border-radius: 10px;">
